@@ -1,0 +1,332 @@
+1
+00:00:01,000 --> 00:00:08,930
+Okay, So after some time the status is enabled, it is deployed so we can again access this URL on
+
+2
+00:00:08,930 --> 00:00:11,240
+HTTPS protocol from our browser.
+
+3
+00:00:11,240 --> 00:00:12,020
+But.
+
+4
+00:00:13,410 --> 00:00:17,730
+As a user, we won't be able to see the difference that it is coming.
+
+5
+00:00:17,730 --> 00:00:25,380
+It is sold from the edge location of cloud front or is it coming directly from the instance from that
+
+6
+00:00:25,380 --> 00:00:26,280
+region?
+
+7
+00:00:26,730 --> 00:00:33,960
+So to inspect that, I'm going to inspect the element while we access the website in our browser.
+
+8
+00:00:33,960 --> 00:00:37,620
+So I'm opening Firefox here, just a different browser.
+
+9
+00:00:37,620 --> 00:00:40,200
+So there is no caching in that browser yet.
+
+10
+00:00:41,530 --> 00:00:45,370
+And I have opened the incognito mode or Firefox.
+
+11
+00:00:45,940 --> 00:00:47,980
+Just use an alternate browser.
+
+12
+00:00:48,190 --> 00:00:51,940
+Don't use the same browser that you used previously to access.
+
+13
+00:00:52,880 --> 00:00:54,470
+Your application.
+
+14
+00:00:55,420 --> 00:01:02,260
+So I will say https colon slash slash v profile dot goofy.
+
+15
+00:01:03,280 --> 00:01:07,000
+Dot rn and LP is the URL.
+
+16
+00:01:11,230 --> 00:01:16,180
+And we'll run F12 and refresh the browser once again.
+
+17
+00:01:17,990 --> 00:01:19,790
+And let's see this.
+
+18
+00:01:26,320 --> 00:01:33,400
+So you can see via you can see the cloud front near a distribution and point there.
+
+19
+00:01:33,970 --> 00:01:37,990
+So our website is really getting now support from cloud front distribution.
+
+20
+00:01:38,780 --> 00:01:40,870
+And that was pretty amazing job.
+
+21
+00:01:40,880 --> 00:01:47,870
+Now we have our entire stack and we are using PASS and SAS services.
+
+22
+00:01:47,900 --> 00:01:50,270
+We are not directly using EC2 instances.
+
+23
+00:01:50,720 --> 00:01:59,600
+So we have been stack radius, elastic cache, Amazon message queue and cloud front distribution behind
+
+24
+00:01:59,600 --> 00:02:00,230
+the scene.
+
+25
+00:02:00,680 --> 00:02:05,060
+Stack is also using S3 bucket cloud watch for monitoring.
+
+26
+00:02:05,510 --> 00:02:10,100
+So this entire setup is going to give us very low operational overhead.
+
+27
+00:02:10,340 --> 00:02:16,400
+So you do need many admins or many, many cloud engineers to manage the entire setup.
+
+28
+00:02:17,330 --> 00:02:19,370
+So let's revise our architecture now.
+
+29
+00:02:19,370 --> 00:02:26,660
+User Access Amazon Route 53 to Cloud Front Application Load Balancer, which is part of Bean Stack.
+
+30
+00:02:27,390 --> 00:02:28,410
+Monitored by cloud.
+
+31
+00:02:28,410 --> 00:02:29,610
+Watch alarms.
+
+32
+00:02:29,700 --> 00:02:31,830
+Artifacts in S3 buckets.
+
+33
+00:02:33,220 --> 00:02:38,830
+Amazon MQ instead of Rabbit MQ AC two instance, we are using Amazon MQ.
+
+34
+00:02:39,280 --> 00:02:40,580
+Elastic cash.
+
+35
+00:02:40,600 --> 00:02:47,110
+Instead of using cash from an easy for instance, and Amazon ideas instead of using my SQL running on
+
+36
+00:02:47,110 --> 00:02:48,400
+an E two instance.
+
+37
+00:02:50,310 --> 00:02:55,450
+So if you have hosted Zone in Amazon Route 53, you can even add the entry.
+
+38
+00:02:55,470 --> 00:02:57,930
+Instead of GoDaddy, you can add the entry over here.
+
+39
+00:02:57,930 --> 00:02:59,730
+It's in the Route 53 itself.
+
+40
+00:03:00,780 --> 00:03:05,880
+Are you going to use both Route 53 for Subdomain and GoDaddy for the domain?
+
+41
+00:03:06,300 --> 00:03:09,210
+Now let's fall back to our Amazon console.
+
+42
+00:03:09,810 --> 00:03:10,900
+We need to do cleanup.
+
+43
+00:03:10,920 --> 00:03:12,230
+We have not many things.
+
+44
+00:03:12,240 --> 00:03:15,780
+I don't want you to be running all this if you're not using it.
+
+45
+00:03:16,110 --> 00:03:21,210
+Even though we try to keep things under free tier, but there are storage is volume, there's cloud
+
+46
+00:03:21,210 --> 00:03:21,540
+front.
+
+47
+00:03:21,540 --> 00:03:28,530
+It's better we delete everything to save our bills starting from let's delete cloud front so you can't
+
+48
+00:03:28,530 --> 00:03:29,280
+directly delete it.
+
+49
+00:03:29,280 --> 00:03:30,540
+First you have to disable it.
+
+50
+00:03:31,860 --> 00:03:35,070
+And it's going to take some time to disable by the time.
+
+51
+00:03:35,070 --> 00:03:37,020
+Let's go and start dealing.
+
+52
+00:03:37,900 --> 00:03:39,280
+Deleting other services.
+
+53
+00:03:40,080 --> 00:03:41,460
+So ideas.
+
+54
+00:03:42,120 --> 00:03:43,100
+Let's delete our ideas.
+
+55
+00:03:43,110 --> 00:03:43,860
+Instance.
+
+56
+00:03:47,330 --> 00:03:49,440
+So don't copy the final snapshot.
+
+57
+00:03:49,460 --> 00:03:53,360
+Just say acknowledge and say delete me.
+
+58
+00:03:55,060 --> 00:03:55,780
+Delete.
+
+59
+00:03:58,020 --> 00:04:00,200
+Let's go to elastic cache Action.
+
+60
+00:04:00,620 --> 00:04:02,390
+Oops, It's not showing.
+
+61
+00:04:03,180 --> 00:04:03,860
+Action.
+
+62
+00:04:04,360 --> 00:04:04,810
+Right.
+
+63
+00:04:08,620 --> 00:04:11,620
+After refreshing the browser delete.
+
+64
+00:04:14,090 --> 00:04:15,260
+Amazon MQ.
+
+65
+00:04:23,440 --> 00:04:24,790
+Confirmation.
+
+66
+00:04:25,690 --> 00:04:27,080
+Give the name of the broker.
+
+67
+00:04:27,100 --> 00:04:27,790
+Delete.
+
+68
+00:04:30,380 --> 00:04:34,880
+Let's go to Beanstalk, and this will also take a very long time to delete.
+
+69
+00:04:35,800 --> 00:04:36,790
+Select it.
+
+70
+00:04:36,910 --> 00:04:38,980
+First, let's delete the environment.
+
+71
+00:04:38,980 --> 00:04:39,610
+That's.
+
+72
+00:04:40,880 --> 00:04:42,770
+Thing that has all the resources.
+
+73
+00:04:45,250 --> 00:04:49,210
+And in application, if you delete or not, it's just going to be a name or container.
+
+74
+00:04:49,240 --> 00:04:52,270
+So it's not going to charge you anything but delete the environment.
+
+75
+00:04:54,560 --> 00:04:57,830
+So last thing, make sure you delete your distribution.
+
+76
+00:04:57,830 --> 00:05:01,440
+Once it is, it says deployed in progress.
+
+77
+00:05:01,460 --> 00:05:05,120
+You will see here it has disabled and this will be deployed.
+
+78
+00:05:05,480 --> 00:05:08,210
+Then you can select it and delete it.
+
+79
+00:05:10,270 --> 00:05:12,180
+So that was pretty awesome.
+
+80
+00:05:12,190 --> 00:05:18,760
+We'll see more amazing things on Cloud and DevOps and CCD in other projects.
+
+81
+00:05:19,090 --> 00:05:21,490
+And that would be all in this project.
+
+82
+00:05:21,520 --> 00:05:22,960
+Thank you very much for watching.
+
+83
+00:05:22,960 --> 00:05:24,730
+I will see you in the next one.
+

@@ -1,0 +1,608 @@
+1
+00:00:01,150 --> 00:00:07,150
+Okay, Now's the time to build our application from source code and deploy to beanstalk environment.
+
+2
+00:00:07,150 --> 00:00:10,120
+So I'll do it locally on my laptop.
+
+3
+00:00:10,600 --> 00:00:12,460
+So I'll go to the drive.
+
+4
+00:00:12,490 --> 00:00:14,980
+If you have not cloned the source code here.
+
+5
+00:00:17,050 --> 00:00:18,280
+And make sure you clone it.
+
+6
+00:00:18,320 --> 00:00:19,690
+I already have it.
+
+7
+00:00:21,850 --> 00:00:23,350
+So I'm not going to clone.
+
+8
+00:00:23,770 --> 00:00:27,160
+I will just do seed into that.
+
+9
+00:00:29,600 --> 00:00:32,630
+Get pull for any changes.
+
+10
+00:00:34,400 --> 00:00:37,280
+Get branch hyphen a.
+
+11
+00:00:38,450 --> 00:00:41,540
+So we will check out.
+
+12
+00:00:43,980 --> 00:00:47,490
+Refactor this branch and hit enter.
+
+13
+00:00:48,990 --> 00:00:50,160
+Let's clear the screen.
+
+14
+00:00:52,290 --> 00:00:57,690
+So from the prerequisite video, you should already have Maven and JDK installed on your machine.
+
+15
+00:00:58,900 --> 00:01:00,250
+And we'll build the artifact.
+
+16
+00:01:00,250 --> 00:01:04,060
+But before that, we have to make change to the application properties file.
+
+17
+00:01:15,740 --> 00:01:17,210
+We updated with right detail.
+
+18
+00:01:17,210 --> 00:01:23,570
+My SQL will give the radius endpoint there, which we already copied in our sticky notes.
+
+19
+00:01:31,030 --> 00:01:33,400
+Username was admin and password.
+
+20
+00:01:33,400 --> 00:01:37,510
+We had generated automatically that also we had saved.
+
+21
+00:01:42,650 --> 00:01:43,700
+Metcash.
+
+22
+00:01:44,750 --> 00:01:46,820
+So the elastic cash end point.
+
+23
+00:01:51,140 --> 00:01:53,180
+And you don't need to mention port number.
+
+24
+00:01:53,180 --> 00:01:55,220
+It's already mentioned here in the configuration.
+
+25
+00:01:58,000 --> 00:01:58,960
+Robert McHugh.
+
+26
+00:02:02,960 --> 00:02:04,520
+It's an Abbott MQ endpoint.
+
+27
+00:02:06,740 --> 00:02:07,130
+Again.
+
+28
+00:02:07,130 --> 00:02:08,919
+Port number don't need to give here.
+
+29
+00:02:08,930 --> 00:02:10,759
+Five, six, seven one.
+
+30
+00:02:11,060 --> 00:02:13,820
+Username was rabbit and password.
+
+31
+00:02:13,820 --> 00:02:15,590
+Also we have made changes.
+
+32
+00:02:22,650 --> 00:02:26,860
+Verify once again, make sure all the details are right, if you're sure about it.
+
+33
+00:02:26,880 --> 00:02:27,930
+Can save it.
+
+34
+00:02:31,100 --> 00:02:34,730
+Let's go back to V Profile Project Directory.
+
+35
+00:02:36,060 --> 00:02:37,430
+Okay, time to Bill.
+
+36
+00:02:37,440 --> 00:02:39,540
+We'll say move an install.
+
+37
+00:02:47,400 --> 00:02:48,960
+I guess, after some time.
+
+38
+00:02:50,800 --> 00:02:52,030
+Build is completed.
+
+39
+00:02:54,430 --> 00:02:59,920
+If we see in the target directory, we should see our artifact and we're going to upload this artifact
+
+40
+00:02:59,920 --> 00:03:02,650
+or bienstock environment and let's do it.
+
+41
+00:03:03,970 --> 00:03:05,500
+So go back to Amazon console.
+
+42
+00:03:05,500 --> 00:03:09,520
+You see the health is transition to severe but it is going to change back.
+
+43
+00:03:10,270 --> 00:03:11,530
+Application version.
+
+44
+00:03:12,380 --> 00:03:13,730
+Can say upload.
+
+45
+00:03:16,100 --> 00:03:18,650
+Can give some version if you want.
+
+46
+00:03:19,130 --> 00:03:24,620
+Will say v profile hyphen v 2.5.
+
+47
+00:03:25,650 --> 00:03:27,450
+And you can choose file.
+
+48
+00:03:28,580 --> 00:03:32,540
+Make sure you go to your repository where you have created Target.
+
+49
+00:03:35,190 --> 00:03:37,280
+We profile v two dot var.
+
+50
+00:03:39,500 --> 00:03:40,220
+And let's see.
+
+51
+00:03:40,220 --> 00:03:40,910
+Upload.
+
+52
+00:03:45,190 --> 00:03:50,830
+So it is uploading if you see down there that I'm not able to catch it.
+
+53
+00:03:51,550 --> 00:03:52,510
+Uploading 40%.
+
+54
+00:03:52,510 --> 00:03:53,200
+42%.
+
+55
+00:03:53,200 --> 00:03:54,430
+Yeah, it's jumping.
+
+56
+00:03:56,630 --> 00:03:57,980
+90% uploading.
+
+57
+00:03:59,730 --> 00:04:00,720
+Okay, It's done.
+
+58
+00:04:06,040 --> 00:04:07,690
+So it's waiting for being stuck now.
+
+59
+00:04:09,370 --> 00:04:10,660
+Let's try and click.
+
+60
+00:04:11,050 --> 00:04:11,830
+You don't need to click.
+
+61
+00:04:11,830 --> 00:04:12,370
+Okay.
+
+62
+00:04:13,810 --> 00:04:20,990
+That is uploaded, but that just uploading it has just uploaded our artifact into an S3 bucket.
+
+63
+00:04:21,010 --> 00:04:24,400
+Automatically we're going to select our version now.
+
+64
+00:04:24,430 --> 00:04:25,270
+Action.
+
+65
+00:04:25,270 --> 00:04:26,650
+And we'll say deploy.
+
+66
+00:04:27,040 --> 00:04:29,140
+When we say deploy, you can select your environment.
+
+67
+00:04:29,140 --> 00:04:30,990
+If your multiple environment will list it.
+
+68
+00:04:31,000 --> 00:04:35,530
+We just have one environment and that's the name we're going to say deploy.
+
+69
+00:04:39,350 --> 00:04:41,510
+So let's go to the environment section.
+
+70
+00:04:43,580 --> 00:04:45,350
+And we'll see the.
+
+71
+00:04:46,400 --> 00:04:49,730
+Events Environment update is starting.
+
+72
+00:04:50,300 --> 00:04:53,390
+So if we have to wait for some time before it complete.
+
+73
+00:04:53,720 --> 00:04:55,880
+Now the status is okay.
+
+74
+00:04:55,910 --> 00:04:56,870
+The health is good.
+
+75
+00:04:57,890 --> 00:05:00,440
+And this whole time in the upgrade was happening.
+
+76
+00:05:01,330 --> 00:05:04,690
+Our services didn't go down because we have selected Rolling upgrade.
+
+77
+00:05:04,690 --> 00:05:06,760
+We can even see that in the events.
+
+78
+00:05:08,210 --> 00:05:09,800
+So let's go to events.
+
+79
+00:05:12,790 --> 00:05:16,510
+And we can see a whole lot of events, four pages of events are there.
+
+80
+00:05:17,160 --> 00:05:22,900
+You scroll down, you see the environment update is starting and deploying a new version.
+
+81
+00:05:22,900 --> 00:05:24,130
+So batch one.
+
+82
+00:05:24,880 --> 00:05:25,940
+So we have two instance.
+
+83
+00:05:25,940 --> 00:05:27,370
+So batch one means 50%.
+
+84
+00:05:27,370 --> 00:05:28,930
+We selected so one instance.
+
+85
+00:05:30,950 --> 00:05:37,070
+So when it completes execution on batch one and by the time the second instance will be already up and
+
+86
+00:05:37,070 --> 00:05:43,280
+running when it completed batch one, one instance upgrade completed, then it started batch to choose
+
+87
+00:05:43,280 --> 00:05:44,390
+the second instance.
+
+88
+00:05:44,600 --> 00:05:46,490
+You can even see the instance ID here.
+
+89
+00:05:47,870 --> 00:05:52,400
+So it's a rolling upgrade 50% one instance at a time because we have two instance.
+
+90
+00:05:53,610 --> 00:05:56,010
+Now let's go and check our endpoint.
+
+91
+00:06:00,620 --> 00:06:02,720
+And we should see the login page.
+
+92
+00:06:04,710 --> 00:06:08,890
+It's up and running, but we will make a DNS entry first.
+
+93
+00:06:08,910 --> 00:06:10,380
+We'll go to GoDaddy.
+
+94
+00:06:10,510 --> 00:06:11,550
+We'll make a DNS entry.
+
+95
+00:06:11,580 --> 00:06:14,550
+We profile groovy dot endpoints to this LP.
+
+96
+00:06:15,640 --> 00:06:18,380
+So I'm in my GoDaddy DNS management.
+
+97
+00:06:18,400 --> 00:06:20,170
+I'll say add record.
+
+98
+00:06:22,050 --> 00:06:23,280
+CNN record.
+
+99
+00:06:23,790 --> 00:06:28,530
+And I will say we profile points to and we'll copy the end point.
+
+100
+00:06:32,580 --> 00:06:33,930
+And put it over there.
+
+101
+00:06:34,470 --> 00:06:34,900
+Let's see.
+
+102
+00:06:34,900 --> 00:06:35,540
+See?
+
+103
+00:06:39,590 --> 00:06:47,060
+So entry's updated and you can wait for some time in order to your ISP can cache this DNS request.
+
+104
+00:06:48,780 --> 00:06:57,630
+HTTPS colon slash slash v profile dot groovy dot n.
+
+105
+00:06:58,510 --> 00:06:59,230
+Let's check.
+
+106
+00:07:02,350 --> 00:07:03,640
+And it's coming up.
+
+107
+00:07:04,350 --> 00:07:06,070
+So https secure login.
+
+108
+00:07:06,090 --> 00:07:07,800
+You can check the certificate as well.
+
+109
+00:07:08,460 --> 00:07:10,020
+Since the certificate is valid.
+
+110
+00:07:11,350 --> 00:07:13,170
+It's provided by Amazon.
+
+111
+00:07:15,490 --> 00:07:16,890
+So it should be a secure login.
+
+112
+00:07:16,900 --> 00:07:18,790
+Let's try to get into this.
+
+113
+00:07:21,640 --> 00:07:25,420
+Admin underscore vip password admin underscore vip.
+
+114
+00:07:25,780 --> 00:07:27,100
+Let's hit login.
+
+115
+00:07:32,150 --> 00:07:33,170
+Before we login.
+
+116
+00:07:33,170 --> 00:07:35,870
+We also need to make one more change to our beanstalk.
+
+117
+00:07:35,870 --> 00:07:38,540
+We need to enable stickiness for our load balancer.
+
+118
+00:07:39,230 --> 00:07:41,540
+So let's go to beanstalk configuration.
+
+119
+00:07:43,460 --> 00:07:45,470
+Select Edit our load balancer.
+
+120
+00:07:47,950 --> 00:07:51,470
+In the processes put a checkmark on the default process.
+
+121
+00:07:51,490 --> 00:07:53,800
+Edit Scroll down.
+
+122
+00:07:55,260 --> 00:07:59,460
+And see stickiness policy enabled and say save.
+
+123
+00:08:01,230 --> 00:08:03,090
+Once you say we need to apply these changes.
+
+124
+00:08:03,090 --> 00:08:04,680
+So you hit on apply.
+
+125
+00:08:11,530 --> 00:08:13,720
+So this is going to take a moment.
+
+126
+00:08:14,970 --> 00:08:20,010
+So in a few minutes or a few seconds, should I say an environment update has completed successfully?
+
+127
+00:08:20,190 --> 00:08:22,170
+Let's check our URL once again.
+
+128
+00:08:22,170 --> 00:08:23,190
+Let's refresh.
+
+129
+00:08:27,550 --> 00:08:28,000
+It's up.
+
+130
+00:08:28,000 --> 00:08:31,800
+Let's try and log in again at one underscore VP password.
+
+131
+00:08:31,810 --> 00:08:32,470
+Same.
+
+132
+00:08:33,600 --> 00:08:34,260
+Well again.
+
+133
+00:08:38,919 --> 00:08:40,210
+And we are in.
+
+134
+00:08:41,059 --> 00:08:43,909
+So this is also validated now.
+
+135
+00:08:44,210 --> 00:08:45,650
+Let's check rabbit MQ.
+
+136
+00:08:48,320 --> 00:08:49,910
+Rabbit Abbott initiated.
+
+137
+00:08:49,940 --> 00:08:50,840
+Let's go back.
+
+138
+00:08:52,940 --> 00:08:59,600
+So we are using active service and yes, our instance is able to connect to active servers.
+
+139
+00:08:59,630 --> 00:09:02,630
+Now let's check elastic cache all user.
+
+140
+00:09:05,600 --> 00:09:09,710
+So you see the list of users and lets select any user.
+
+141
+00:09:13,370 --> 00:09:15,710
+So data is inserted in cache.
+
+142
+00:09:15,710 --> 00:09:17,300
+In elastic cache.
+
+143
+00:09:17,750 --> 00:09:18,560
+Go back.
+
+144
+00:09:20,450 --> 00:09:21,970
+And it's click the same user.
+
+145
+00:09:24,440 --> 00:09:26,900
+And you will see data is from cash.
+
+146
+00:09:27,410 --> 00:09:32,270
+So we verified beans, TAC ideas, elastic cash, active MQ.
+
+147
+00:09:33,090 --> 00:09:39,960
+Now my side is really sitting in North Virginia region and I have, let's say, global audience users
+
+148
+00:09:39,960 --> 00:09:41,010
+around the world.
+
+149
+00:09:41,730 --> 00:09:47,580
+So to serve the global audience generally, content content delivery network is used and it is very,
+
+150
+00:09:47,580 --> 00:09:52,500
+very expensive because you need to have data center or caching location at so many places then around
+
+151
+00:09:52,500 --> 00:09:56,700
+the world, which is extremely expensive setup.
+
+152
+00:09:57,800 --> 00:10:02,690
+We can use an eight service cloud front, which is a content delivery network very easily.
+

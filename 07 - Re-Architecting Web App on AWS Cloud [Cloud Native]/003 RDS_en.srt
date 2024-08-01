@@ -1,0 +1,852 @@
+1
+00:00:01,290 --> 00:00:01,589
+Okay.
+
+2
+00:00:01,680 --> 00:00:04,460
+Next, what we'll do, we'll create back end services.
+
+3
+00:00:04,470 --> 00:00:06,090
+So let's go to ideas.
+
+4
+00:00:06,090 --> 00:00:08,820
+First, let's create database.
+
+5
+00:00:10,460 --> 00:00:12,380
+Relational database service.
+
+6
+00:00:14,350 --> 00:00:15,760
+Okay, there it comes.
+
+7
+00:00:16,270 --> 00:00:18,130
+So we will go to.
+
+8
+00:00:19,000 --> 00:00:24,880
+Subnet groups first will create subnet group and we are going to place our instance in that subnet group.
+
+9
+00:00:25,180 --> 00:00:29,260
+If you have a separate VPC then this is very useful.
+
+10
+00:00:30,980 --> 00:00:33,560
+So let's say create DB subnet group.
+
+11
+00:00:34,190 --> 00:00:35,340
+Let's give it a name.
+
+12
+00:00:35,360 --> 00:00:40,350
+We profile hyphen ideas hyphen sub hyphen group.
+
+13
+00:00:41,240 --> 00:00:41,720
+You know.
+
+14
+00:00:48,320 --> 00:00:50,620
+I just copy something in the description.
+
+15
+00:00:51,490 --> 00:00:54,310
+So we have this one VPC default VPC.
+
+16
+00:00:54,970 --> 00:00:58,390
+But in later project, you will see we're going to create our own custom VPC.
+
+17
+00:00:58,510 --> 00:01:02,320
+And we're going to place services in or in our own custom VPC.
+
+18
+00:01:03,010 --> 00:01:04,810
+For now, we'll just select this.
+
+19
+00:01:06,650 --> 00:01:07,700
+Availability zone.
+
+20
+00:01:07,700 --> 00:01:10,520
+So we'll say all the availability zones.
+
+21
+00:01:12,650 --> 00:01:14,300
+Choose as per the requirement.
+
+22
+00:01:15,150 --> 00:01:16,950
+And all the subnets.
+
+23
+00:01:18,200 --> 00:01:20,000
+In those availabilities zones.
+
+24
+00:01:21,050 --> 00:01:25,250
+Sororities, instance, will be pleased in any of this subnets.
+
+25
+00:01:25,970 --> 00:01:27,320
+And let's create.
+
+26
+00:01:29,320 --> 00:01:31,420
+Now let's go to parameter groups.
+
+27
+00:01:33,100 --> 00:01:40,720
+Parameter groups are the setting or configuration of your ideas database service.
+
+28
+00:01:41,050 --> 00:01:43,180
+Now ideas gives you my skill.
+
+29
+00:01:44,270 --> 00:01:46,280
+Oracle Postgres.
+
+30
+00:01:46,950 --> 00:01:53,340
+Maria Rigby and you do not have any login as such login where you can log into an instance and make
+
+31
+00:01:53,340 --> 00:02:00,180
+the configuration changes of the service or the parameters settings of those service.
+
+32
+00:02:01,270 --> 00:02:05,050
+So RDA gives you this features parameter group where you can create.
+
+33
+00:02:05,850 --> 00:02:11,160
+Your own parameter group with all the settings and you can inject to your ideas instance.
+
+34
+00:02:12,240 --> 00:02:17,400
+And this is only if you're a DB geek, if you understand what are the parameters you got recommendations
+
+35
+00:02:17,400 --> 00:02:22,620
+from the vendor or an architect or a consultant that these parameters, your config configuration you
+
+36
+00:02:22,620 --> 00:02:24,270
+need, you need to change.
+
+37
+00:02:24,930 --> 00:02:29,010
+Then you can create your own parameter group and inject it to your instance.
+
+38
+00:02:30,490 --> 00:02:35,680
+Okay, so let's create a parameter group and select the service.
+
+39
+00:02:36,070 --> 00:02:38,110
+So we will be using my SQL.
+
+40
+00:02:39,120 --> 00:02:44,190
+5.7 or 5.6, but not my school eight.
+
+41
+00:02:44,490 --> 00:02:46,670
+So I'm selecting here 5.7.
+
+42
+00:02:46,680 --> 00:02:47,550
+My skill.
+
+43
+00:02:48,320 --> 00:02:52,280
+And let's give group a name and a description.
+
+44
+00:02:54,590 --> 00:02:57,050
+And just click on Create.
+
+45
+00:02:59,590 --> 00:03:02,740
+Now the parameter group is created with default settings.
+
+46
+00:03:02,740 --> 00:03:04,040
+Default parameters.
+
+47
+00:03:04,060 --> 00:03:10,000
+You click on that and you can see 21 pages of parameters and there are many.
+
+48
+00:03:10,630 --> 00:03:13,150
+If you are a DB geek, go ahead, explore it.
+
+49
+00:03:13,150 --> 00:03:14,080
+If you are not.
+
+50
+00:03:14,110 --> 00:03:15,520
+Leave them as it is.
+
+51
+00:03:16,740 --> 00:03:18,750
+These parameters are settings.
+
+52
+00:03:19,640 --> 00:03:24,170
+Are only four people who understand the database parameters or configurations.
+
+53
+00:03:24,710 --> 00:03:32,090
+So if you want to make change, so select your parameter, You can go to first edit parameters and you
+
+54
+00:03:32,090 --> 00:03:38,900
+can find your parameter, for example, password length, and you can mention the length.
+
+55
+00:03:39,320 --> 00:03:42,380
+And whenever you make any changes, you need to save it.
+
+56
+00:03:42,740 --> 00:03:43,790
+There are some dropdowns.
+
+57
+00:03:43,790 --> 00:03:50,780
+Also password policy you can drop down and can select it once again, if you know what you are doing,
+
+58
+00:03:50,780 --> 00:03:51,930
+then only make the changes.
+
+59
+00:03:51,950 --> 00:03:53,660
+Otherwise leave them as it is.
+
+60
+00:03:53,810 --> 00:03:54,950
+Cancel editing.
+
+61
+00:03:56,580 --> 00:04:01,770
+Okay, so now we have subnet group, we have security group and we have parameter group.
+
+62
+00:04:02,880 --> 00:04:06,690
+He will create this instance and inject all these settings into that.
+
+63
+00:04:06,720 --> 00:04:08,940
+So let's click on databases.
+
+64
+00:04:11,220 --> 00:04:12,750
+Create database.
+
+65
+00:04:14,350 --> 00:04:16,140
+And we'll select a standard create.
+
+66
+00:04:16,149 --> 00:04:19,450
+You can easily create this instance by just selecting this button.
+
+67
+00:04:20,459 --> 00:04:21,360
+But we'll select.
+
+68
+00:04:21,360 --> 00:04:22,800
+We'll see all the options.
+
+69
+00:04:23,820 --> 00:04:28,350
+So engine type, we are going to use my SQL as per our pre profile project.
+
+70
+00:04:28,680 --> 00:04:32,400
+But I really recommend you to try Amazon Aurora.
+
+71
+00:04:33,230 --> 00:04:39,680
+If you have to use my SQL Media debut or PostgreSQL, then instead of this you can try Amazon Aurora.
+
+72
+00:04:39,710 --> 00:04:41,390
+There are immense benefit offer.
+
+73
+00:04:41,840 --> 00:04:49,670
+There are immense benefits offered like it runs more faster five times faster than my SQL and three
+
+74
+00:04:49,670 --> 00:04:51,650
+times faster than PostgreSQL.
+
+75
+00:04:52,130 --> 00:04:53,930
+With 1/10 of the cost.
+
+76
+00:04:53,930 --> 00:04:56,540
+So that's pretty amazing.
+
+77
+00:04:56,960 --> 00:05:02,400
+And if you have serverless architecture, then you can very easily use Amazon Aurora as well.
+
+78
+00:05:02,420 --> 00:05:08,990
+It has storage, auto scaling and so many amazing and storage, auto healing and so many amazing concepts.
+
+79
+00:05:08,990 --> 00:05:16,050
+So I recommend you try Amazon Aurora, but there will be not a single instance for Amazon Aurora minimum.
+
+80
+00:05:16,070 --> 00:05:18,710
+You have to go with multi AC.
+
+81
+00:05:19,330 --> 00:05:21,520
+So we'll try to keep it.
+
+82
+00:05:22,320 --> 00:05:24,750
+Low cost, simple, single instance.
+
+83
+00:05:25,840 --> 00:05:28,450
+For our project, so we'll go with my SQL.
+
+84
+00:05:30,350 --> 00:05:31,160
+Scroll down.
+
+85
+00:05:31,160 --> 00:05:33,830
+Let's select the version of my skill.
+
+86
+00:05:34,880 --> 00:05:35,840
+Before I move ahead.
+
+87
+00:05:35,840 --> 00:05:40,490
+If you do not see the option of my school, go with my advice.
+
+88
+00:05:41,060 --> 00:05:45,920
+And then again, you need to go back to Parameters group and create parameters for my deep.
+
+89
+00:05:47,090 --> 00:05:51,530
+Because some people reported that they don't see my skull in some region.
+
+90
+00:05:51,530 --> 00:05:54,530
+So you can use my lab that is similar to that.
+
+91
+00:05:55,010 --> 00:05:56,410
+So we'll keep my skull.
+
+92
+00:05:56,420 --> 00:05:58,880
+If you're in North Virginia, you should see my skull.
+
+93
+00:05:59,820 --> 00:06:00,630
+Virgin.
+
+94
+00:06:00,630 --> 00:06:02,940
+We will go with five.
+
+95
+00:06:03,540 --> 00:06:05,760
+My skill 5.7.
+
+96
+00:06:06,900 --> 00:06:08,400
+So I'll go with my SQL.
+
+97
+00:06:08,400 --> 00:06:10,200
+5.7.22.
+
+98
+00:06:12,540 --> 00:06:14,400
+So any five version is fine.
+
+99
+00:06:15,180 --> 00:06:15,990
+Come down.
+
+100
+00:06:17,120 --> 00:06:21,780
+Three templates production dev and test free tier to be on a safer side.
+
+101
+00:06:21,800 --> 00:06:23,690
+Make sure you select free tier.
+
+102
+00:06:25,220 --> 00:06:29,900
+So it will use all the free to air settings of ideas.
+
+103
+00:06:30,290 --> 00:06:34,340
+But I will be going with different test because I want to show you other settings as well.
+
+104
+00:06:34,550 --> 00:06:41,270
+Now the difference between production and dev and test is this production gives you multi AC multiple
+
+105
+00:06:41,270 --> 00:06:41,720
+ideas.
+
+106
+00:06:41,720 --> 00:06:44,390
+Instance one primary active.
+
+107
+00:06:44,810 --> 00:06:46,580
+Second one standby.
+
+108
+00:06:47,540 --> 00:06:50,480
+And the volume type also will be provisioned IOPS.
+
+109
+00:06:50,480 --> 00:06:57,920
+It will be faster volume, but you must have already guessed this will not come free and in fact it
+
+110
+00:06:57,920 --> 00:06:58,810
+is expensive.
+
+111
+00:06:58,820 --> 00:07:01,310
+So for the project will keep and test.
+
+112
+00:07:01,310 --> 00:07:06,380
+You can keep free tier also so you don't accidentally select any paid service.
+
+113
+00:07:06,650 --> 00:07:14,420
+But I will keep dev and test single ideas instance normal volume type so it will come under free tier.
+
+114
+00:07:15,410 --> 00:07:16,370
+Let's come down.
+
+115
+00:07:19,240 --> 00:07:19,410
+Okay.
+
+116
+00:07:19,420 --> 00:07:20,350
+Database name.
+
+117
+00:07:20,350 --> 00:07:20,830
+Let's give.
+
+118
+00:07:20,860 --> 00:07:25,120
+Name v profile hyphen radius hyphen My SQL.
+
+119
+00:07:27,940 --> 00:07:30,640
+And we'll see the username.
+
+120
+00:07:30,640 --> 00:07:34,180
+We'll keep it the same admin and password we'll see auto generate.
+
+121
+00:07:35,900 --> 00:07:40,370
+DB instance, class is similar to AC two instances, so be careful.
+
+122
+00:07:40,490 --> 00:07:44,120
+This by default it will be db rm five extra large.
+
+123
+00:07:44,450 --> 00:07:45,640
+And this is MACD.
+
+124
+00:07:45,800 --> 00:07:51,020
+Then you have our cities and cities, which is considered really good for production databases.
+
+125
+00:07:51,500 --> 00:07:53,390
+But again, they are expensive.
+
+126
+00:07:53,780 --> 00:07:59,300
+Both classes will go with these are low cost and you have t three micro, you don't have t two micro
+
+127
+00:07:59,300 --> 00:07:59,810
+now.
+
+128
+00:08:00,050 --> 00:08:04,640
+But if you want to select TW two micro, you can say include previous generation classes.
+
+129
+00:08:04,940 --> 00:08:07,520
+And then you can find t two micro as well.
+
+130
+00:08:08,350 --> 00:08:12,850
+If you don't find it too micro, you can work out with RT three Micro.
+
+131
+00:08:13,510 --> 00:08:14,470
+Both are fine.
+
+132
+00:08:14,500 --> 00:08:16,450
+RT three Micro gives you two CPU.
+
+133
+00:08:16,480 --> 00:08:18,520
+RT two Micro gives you one CPU.
+
+134
+00:08:19,350 --> 00:08:24,300
+And three micro is also network and storage optimized.
+
+135
+00:08:25,400 --> 00:08:29,000
+So to keep it under three tier low cost, go to RT to micro.
+
+136
+00:08:29,030 --> 00:08:31,310
+I will be keeping it as RT three micro.
+
+137
+00:08:34,130 --> 00:08:35,360
+Storage minimum.
+
+138
+00:08:35,360 --> 00:08:36,830
+You can go 20 GB.
+
+139
+00:08:36,950 --> 00:08:38,720
+General purpose storage for production.
+
+140
+00:08:38,720 --> 00:08:41,870
+Go with provisioned IOPS if necessary.
+
+141
+00:08:41,870 --> 00:08:42,470
+If necessary.
+
+142
+00:08:42,470 --> 00:08:46,730
+If there's too much workload, too much of IO then go with provisioned IOPS.
+
+143
+00:08:46,730 --> 00:08:50,210
+You can even monitor all this from monitoring console.
+
+144
+00:08:50,210 --> 00:08:53,750
+If the IO is high then you can switch to provisioned IOPS.
+
+145
+00:08:56,850 --> 00:09:01,560
+Enable our storage auto scaling so you can go maximum here.
+
+146
+00:09:01,590 --> 00:09:08,630
+The default value is 1000, so it starts with 20 GB and CO can go maximum till 1000 as we mentioning.
+
+147
+00:09:10,810 --> 00:09:12,500
+Make it easy for production.
+
+148
+00:09:12,520 --> 00:09:16,060
+Make sure you have multiple you create multi easy.
+
+149
+00:09:16,860 --> 00:09:18,090
+But for fraud.
+
+150
+00:09:18,510 --> 00:09:22,400
+But again, to keep it low cost, we can create a single instance itself.
+
+151
+00:09:22,410 --> 00:09:23,430
+That should be fine.
+
+152
+00:09:24,000 --> 00:09:26,490
+But anyways, go with multi ac.
+
+153
+00:09:28,470 --> 00:09:30,780
+So I'll have one primary and one secondary.
+
+154
+00:09:32,720 --> 00:09:33,650
+VPC.
+
+155
+00:09:34,400 --> 00:09:35,240
+Default.
+
+156
+00:09:36,400 --> 00:09:37,260
+Subnet group.
+
+157
+00:09:37,270 --> 00:09:38,650
+We created our own subnet group.
+
+158
+00:09:38,680 --> 00:09:40,880
+We're going to select that public access.
+
+159
+00:09:40,900 --> 00:09:42,790
+No, it's going to be private.
+
+160
+00:09:43,940 --> 00:09:46,250
+Security group will select our security group.
+
+161
+00:09:46,320 --> 00:09:48,200
+We profile back and see.
+
+162
+00:09:52,520 --> 00:09:53,180
+Come on.
+
+163
+00:09:55,310 --> 00:09:55,600
+Okay.
+
+164
+00:09:55,610 --> 00:09:59,990
+I should cancel this one and select We profile back in SG.
+
+165
+00:10:00,350 --> 00:10:01,460
+Yes, this is good.
+
+166
+00:10:01,700 --> 00:10:03,590
+3306 port number.
+
+167
+00:10:03,620 --> 00:10:04,400
+That's fine.
+
+168
+00:10:05,240 --> 00:10:06,230
+Password authentication.
+
+169
+00:10:06,230 --> 00:10:09,230
+Are you going to keep any additional configuration?
+
+170
+00:10:09,350 --> 00:10:15,860
+We would like to have a database named accounts for our V profile project, which will also initialize
+
+171
+00:10:16,250 --> 00:10:17,540
+parameters Group.
+
+172
+00:10:18,260 --> 00:10:21,080
+Select your parameter group that you are going to use.
+
+173
+00:10:22,130 --> 00:10:23,400
+Regular backup?
+
+174
+00:10:23,420 --> 00:10:24,260
+Yes.
+
+175
+00:10:24,470 --> 00:10:25,730
+Backup retention period.
+
+176
+00:10:25,730 --> 00:10:26,360
+Seven days.
+
+177
+00:10:26,360 --> 00:10:30,950
+You can go as high as 35 days, but we'll keep it as seven days only.
+
+178
+00:10:33,180 --> 00:10:35,010
+You can specify a backup window.
+
+179
+00:10:36,860 --> 00:10:38,440
+But for now, I'll keep no preference.
+
+180
+00:10:38,450 --> 00:10:40,340
+We can even change the settings later.
+
+181
+00:10:41,310 --> 00:10:42,470
+Copy tags to Snapshot.
+
+182
+00:10:42,480 --> 00:10:43,410
+Snapshot.
+
+183
+00:10:44,660 --> 00:10:46,450
+Enable enhanced monitoring.
+
+184
+00:10:46,460 --> 00:10:50,450
+If you want, you can disable it to save some cost for your project.
+
+185
+00:10:52,390 --> 00:10:55,150
+I'll keep it on, but you can disable for practicing.
+
+186
+00:10:56,590 --> 00:11:02,950
+You can go as low as one second for the granularity that's going to be too much.
+
+187
+00:11:04,070 --> 00:11:08,280
+Logs, we will say, I want to export all the logs to cloud watch.
+
+188
+00:11:08,300 --> 00:11:09,140
+Audit log Error.
+
+189
+00:11:09,140 --> 00:11:09,400
+Log.
+
+190
+00:11:09,410 --> 00:11:10,130
+General logs.
+
+191
+00:11:10,130 --> 00:11:11,360
+Quick Slow.
+
+192
+00:11:11,360 --> 00:11:12,260
+Query log.
+
+193
+00:11:14,260 --> 00:11:16,630
+Let's keep enable auto miner version of grid.
+
+194
+00:11:16,630 --> 00:11:19,480
+So automatically our database is patched.
+
+195
+00:11:20,740 --> 00:11:22,930
+Can select a maintenance window if you want.
+
+196
+00:11:24,330 --> 00:11:26,190
+And enable delete production.
+
+197
+00:11:28,180 --> 00:11:31,750
+So it says it's going to cost us around $30.
+
+198
+00:11:32,540 --> 00:11:33,890
+But that's for a month.
+
+199
+00:11:34,100 --> 00:11:34,960
+It's a monthly cost.
+
+200
+00:11:34,970 --> 00:11:36,530
+You're not going to run it for a month.
+
+201
+00:11:37,520 --> 00:11:40,430
+Anyway, we selected as much as three tier as we can.
+
+202
+00:11:40,460 --> 00:11:42,200
+Let's create database now.
+
+203
+00:11:44,090 --> 00:11:45,470
+So this will take some time.
+
+204
+00:11:46,460 --> 00:11:52,730
+Make sure you save you credential details and copy your credentials to a text file so you can use it
+
+205
+00:11:52,730 --> 00:11:53,420
+later.
+
+206
+00:11:53,870 --> 00:11:58,790
+We're going to feed this information in our application properties file, so make sure you copy this.
+
+207
+00:12:00,530 --> 00:12:02,960
+So let me use my sticky notes.
+
+208
+00:12:04,270 --> 00:12:09,280
+And copy username and password for now.
+
+209
+00:12:13,430 --> 00:12:13,660
+Melody?
+
+210
+00:12:13,820 --> 00:12:14,570
+Yes.
+
+211
+00:12:21,270 --> 00:12:23,790
+Okay, So this is going to taste this is going to take some time.
+
+212
+00:12:25,580 --> 00:12:27,300
+So this is going to take some time.
+
+213
+00:12:27,320 --> 00:12:30,560
+Instead of waiting, we will create our other backend services.
+

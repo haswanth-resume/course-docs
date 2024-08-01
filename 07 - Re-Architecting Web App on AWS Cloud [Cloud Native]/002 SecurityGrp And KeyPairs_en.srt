@@ -1,0 +1,128 @@
+1
+00:00:00,930 --> 00:00:06,540
+So I'm logged into my AWS console and I'm in North Virginia region.
+
+2
+00:00:08,020 --> 00:00:15,070
+First thing we'll do is we'll create Key pair, Log-in Key pair for our beanstalk ec2 instance, it's not mandatory
+
+3
+00:00:15,070 --> 00:00:21,460
+to log into Beanstalk ec2 instance, but if you're troubleshooting and we would really like to
+
+4
+00:00:21,460 --> 00:00:27,480
+know what's happening inside the ec2 instance, then we can use the key to login.
+
+5
+00:00:27,790 --> 00:00:30,820
+So let's be on safer side create a key pair.
+
+6
+00:00:33,500 --> 00:00:38,450
+So we will name it as vprofile-bean-key
+
+7
+00:00:39,730 --> 00:00:41,260
+And I'll use pem format.
+
+8
+00:00:45,060 --> 00:00:46,530
+Now, create key pair
+
+9
+00:00:48,590 --> 00:00:51,410
+So private keys downloaded to my machine abd that is the public key.
+
+10
+00:00:53,520 --> 00:00:57,360
+OK, next, we will create a security group for our backend services.
+
+11
+00:00:58,330 --> 00:00:59,650
+So let's go to security group.
+
+12
+00:01:01,580 --> 00:01:07,040
+And will say create security group, lets give security group, a name vprofile-
+
+13
+00:01:08,420 --> 00:01:11,760
+-backend-sg
+
+14
+00:01:13,100 --> 00:01:16,160
+OK, this should be good, lets give some description.
+
+15
+00:01:18,470 --> 00:01:21,590
+Security group for.
+
+16
+00:01:24,230 --> 00:01:24,920
+Backend
+
+17
+00:01:27,530 --> 00:01:28,530
+services
+
+18
+00:01:31,380 --> 00:01:32,730
+OK, that's the rule.
+
+19
+00:01:34,730 --> 00:01:38,240
+I'll just add a dummy rule, which will be of no use.
+
+20
+00:01:40,100 --> 00:01:46,640
+I will say that a 22 allowed from my IP now all the backend services that we are going to use elastic
+
+21
+00:01:46,640 --> 00:01:52,820
+cache, RDS and ActiveMQ, we will create in a private network so we anyways will not be able to access
+
+22
+00:01:52,820 --> 00:01:55,030
+from our public network, from the public IP.
+
+23
+00:01:55,850 --> 00:02:02,720
+OK, but we are just creating this giving this rule so we can add one very important rule.
+
+24
+00:02:02,960 --> 00:02:07,000
+All the services in this same security group should be able to interact with each other.
+
+25
+00:02:07,430 --> 00:02:08,690
+So we will say.
+
+26
+00:02:10,520 --> 00:02:15,380
+All traffic, where is all traffic? There, all traffic allowed.
+
+27
+00:02:17,010 --> 00:02:19,770
+By itself, its own security group ID.
+
+28
+00:02:21,260 --> 00:02:26,140
+And that could have not been available before creating the security group, so that's why the dumb rule.
+
+29
+00:02:27,090 --> 00:02:28,380
+OK, let's ssave the changes
+
+30
+00:02:30,640 --> 00:02:37,090
+We will come back and add one more rule over here to allow access from beanstalk ec2 instance,
+
+31
+00:02:37,100 --> 00:02:43,570
+but for that we need to first create beanstalk instance and then we will do changes in the security
+
+32
+00:02:43,830 --> 00:02:44,290
+rules.
+

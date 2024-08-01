@@ -1,0 +1,368 @@
+1
+00:00:00,240 --> 00:00:03,810
+Okay, so let's go to ideas service.
+
+2
+00:00:05,340 --> 00:00:10,860
+We need to initialize our database so we'll collect information or for instance, its endpoint.
+
+3
+00:00:10,860 --> 00:00:12,180
+It should be ready by now.
+
+4
+00:00:13,580 --> 00:00:18,860
+And for this will launch an easy to instance, we'll log into this radius database.
+
+5
+00:00:18,950 --> 00:00:21,110
+Let's copy its endpoint by the time.
+
+6
+00:00:22,560 --> 00:00:24,240
+And we'll put it in our.
+
+7
+00:00:26,520 --> 00:00:30,030
+Sticky notes so we can use it later.
+
+8
+00:00:34,390 --> 00:00:35,810
+So I'm going to launch an easy.
+
+9
+00:00:35,830 --> 00:00:38,320
+For instance, let's click on launch instances.
+
+10
+00:00:39,380 --> 00:00:42,950
+Let's name it as my school hyphen client.
+
+11
+00:00:44,460 --> 00:00:47,110
+So you can give whatever settings you want.
+
+12
+00:00:47,130 --> 00:00:50,740
+This is a temporary instance just to initialize the database.
+
+13
+00:00:50,760 --> 00:00:52,170
+Then we'll terminate it.
+
+14
+00:00:52,530 --> 00:00:56,490
+OS I'll go with Ubuntu to open to 18.
+
+15
+00:00:57,120 --> 00:01:03,270
+We'll install my SQL client in that if you prefer to use CentOS or Amazon Linux, that is also fine,
+
+16
+00:01:03,270 --> 00:01:05,220
+but you should know what you are doing.
+
+17
+00:01:05,880 --> 00:01:12,270
+The only purpose here is install my skill client, log into IDs instance and initialize the database
+
+18
+00:01:12,270 --> 00:01:13,710
+and then we delete it.
+
+19
+00:01:14,190 --> 00:01:19,760
+So any linux OS is fine due to micro instance, I will keep it log in.
+
+20
+00:01:19,770 --> 00:01:23,250
+Key will use the same one that we created previously.
+
+21
+00:01:23,990 --> 00:01:26,570
+You can create your own key over here if you want.
+
+22
+00:01:26,600 --> 00:01:28,220
+Again, this is just temporary.
+
+23
+00:01:29,970 --> 00:01:32,820
+Okay, So we need to create a security group for this one.
+
+24
+00:01:32,830 --> 00:01:34,990
+A separate one we're going to say edit.
+
+25
+00:01:36,110 --> 00:01:42,320
+And we'll create security group, we will call it as my SQL client.
+
+26
+00:01:42,770 --> 00:01:43,400
+SG.
+
+27
+00:01:44,660 --> 00:01:47,390
+And I will keep the description also same.
+
+28
+00:01:47,630 --> 00:01:50,000
+The rules will be simple.
+
+29
+00:01:50,120 --> 00:01:53,080
+We'll just say 22 aloud from my IP.
+
+30
+00:01:53,090 --> 00:01:54,800
+Or he can keep it anywhere.
+
+31
+00:01:57,600 --> 00:02:01,640
+So once this is launch, we are going to login and install my SQL client.
+
+32
+00:02:01,650 --> 00:02:02,760
+That's the first thing.
+
+33
+00:02:02,760 --> 00:02:10,259
+If you want, you can use the user data section and you can mention the command to install my skill
+
+34
+00:02:10,289 --> 00:02:10,979
+client.
+
+35
+00:02:11,860 --> 00:02:20,410
+Pseudo apt update pseudo apt install my school hyphen client.
+
+36
+00:02:20,860 --> 00:02:21,580
+Oops.
+
+37
+00:02:21,580 --> 00:02:23,410
+Client spelling.
+
+38
+00:02:25,970 --> 00:02:31,620
+Now, if this is sent to us, then the package name is Maria DB in Amazon Linux.
+
+39
+00:02:31,650 --> 00:02:32,920
+Also the package is Maria.
+
+40
+00:02:32,930 --> 00:02:35,990
+DB if it's open to my skill hyphen client.
+
+41
+00:02:36,350 --> 00:02:39,080
+Anyways, we'll run this command again later.
+
+42
+00:02:39,560 --> 00:02:40,700
+Launch instance.
+
+43
+00:02:42,260 --> 00:02:43,520
+So, for instance, I'd.
+
+44
+00:02:46,850 --> 00:02:48,260
+Instance, is in running state.
+
+45
+00:02:48,260 --> 00:02:50,210
+Let's get its public IP.
+
+46
+00:02:53,810 --> 00:02:55,070
+Let's log into it.
+
+47
+00:03:04,050 --> 00:03:05,280
+When two users.
+
+48
+00:03:15,950 --> 00:03:20,240
+First thing I will do, I am going to run app update over here in this instance.
+
+49
+00:03:20,790 --> 00:03:24,620
+I'm going to install my SQL client so I can connect to this endpoint.
+
+50
+00:03:30,290 --> 00:03:32,690
+Then let's install my SQL client.
+
+51
+00:03:52,040 --> 00:03:54,050
+My SQL client is installed.
+
+52
+00:03:54,380 --> 00:03:59,900
+Now we can log into ideas endpoint, but the security group will not let us.
+
+53
+00:04:00,470 --> 00:04:01,460
+Let's try that.
+
+54
+00:04:02,030 --> 00:04:03,830
+My SQL hyphen edge.
+
+55
+00:04:06,440 --> 00:04:07,340
+And point.
+
+56
+00:04:11,370 --> 00:04:13,350
+Hyphen your username admin.
+
+57
+00:04:13,870 --> 00:04:14,820
+I would be.
+
+58
+00:04:23,450 --> 00:04:24,890
+So not able to connect.
+
+59
+00:04:26,120 --> 00:04:31,760
+So that's because we have the security group of our back end instance.
+
+60
+00:04:38,100 --> 00:04:40,890
+It should allow for 3306.
+
+61
+00:04:43,380 --> 00:04:45,100
+I just search for my school.
+
+62
+00:04:49,840 --> 00:04:52,030
+From our MySQL security group.
+
+63
+00:04:52,060 --> 00:04:55,030
+So this is a security group, for instance, that we just launched.
+
+64
+00:04:55,860 --> 00:04:56,950
+We give a description.
+
+65
+00:05:09,020 --> 00:05:10,640
+And let's see rule.
+
+66
+00:05:14,150 --> 00:05:15,560
+Let's check once again.
+
+67
+00:05:17,140 --> 00:05:18,230
+Just cancel this.
+
+68
+00:05:20,500 --> 00:05:24,550
+Now we are in let's run show databases.
+
+69
+00:05:26,220 --> 00:05:33,570
+So we have the database named accounts and we're going to initialize this database with the schema that
+
+70
+00:05:33,570 --> 00:05:34,920
+we have in our source code.
+
+71
+00:05:36,000 --> 00:05:37,680
+So let's come out of this.
+
+72
+00:05:40,130 --> 00:05:41,690
+And clone the source code.
+
+73
+00:05:42,350 --> 00:05:44,090
+Get clone.
+
+74
+00:05:46,180 --> 00:05:47,740
+And the source code URL.
+
+75
+00:05:47,830 --> 00:05:48,610
+Get clone.
+
+76
+00:05:54,810 --> 00:05:56,640
+Let's get into the repository.
+
+77
+00:05:57,810 --> 00:06:00,780
+So you have to shift to branch.
+
+78
+00:06:03,800 --> 00:06:05,850
+S refactor this branch.
+
+79
+00:06:06,060 --> 00:06:07,340
+So let's switch to it.
+
+80
+00:06:07,350 --> 00:06:12,660
+Get check out e w s hyphen re factor.
+
+81
+00:06:19,230 --> 00:06:19,920
+So.
+
+82
+00:06:22,310 --> 00:06:28,010
+Let's get into Z Mane resources directory.
+
+83
+00:06:29,630 --> 00:06:31,850
+We have DB backup, a skill file.
+
+84
+00:06:32,060 --> 00:06:35,390
+Let's initialize our database with this schema.
+
+85
+00:06:42,970 --> 00:06:46,780
+Accounts and skew input redirection.
+
+86
+00:06:49,970 --> 00:06:50,270
+Okay.
+
+87
+00:06:50,440 --> 00:06:52,000
+Let's log in and make a test.
+
+88
+00:06:57,470 --> 00:06:58,820
+Show tables.
+
+89
+00:07:00,440 --> 00:07:02,020
+And we got three tables created.
+
+90
+00:07:02,030 --> 00:07:03,110
+That's what we need.
+
+91
+00:07:03,860 --> 00:07:04,910
+Can exit from here.
+
+92
+00:07:04,910 --> 00:07:06,440
+Ideas is initialized.
+

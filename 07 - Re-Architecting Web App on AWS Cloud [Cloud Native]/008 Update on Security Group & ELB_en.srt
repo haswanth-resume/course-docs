@@ -1,0 +1,384 @@
+1
+00:00:00,680 --> 00:00:02,570
+Okay, so environment is ready.
+
+2
+00:00:02,570 --> 00:00:07,550
+It's in the OC health state and you should see the URL here.
+
+3
+00:00:07,550 --> 00:00:11,840
+If you just click on it, it should open the default application.
+
+4
+00:00:14,010 --> 00:00:15,990
+So if you go to an environment.
+
+5
+00:00:16,950 --> 00:00:19,170
+We have here application versions.
+
+6
+00:00:19,590 --> 00:00:23,070
+You can see there is an application version labeled Sample application.
+
+7
+00:00:23,070 --> 00:00:24,420
+This is currently deployed.
+
+8
+00:00:24,420 --> 00:00:29,610
+We will be deploying our V profile artifact here that will see in the next video.
+
+9
+00:00:29,850 --> 00:00:36,750
+But before we do that, we need to make few changes in the security group of backend services.
+
+10
+00:00:37,050 --> 00:00:42,170
+Our application from bean stack instance easy to instance.
+
+11
+00:00:42,180 --> 00:00:43,890
+So if you go to easy to console.
+
+12
+00:00:45,330 --> 00:00:49,940
+You should see these two easy instances created by Beanstalk.
+
+13
+00:00:49,950 --> 00:00:53,490
+Our application will be inside this and this will connect.
+
+14
+00:00:54,240 --> 00:00:55,890
+To the backend services.
+
+15
+00:00:55,890 --> 00:00:59,430
+Back services will be in the backend security group.
+
+16
+00:00:59,430 --> 00:01:00,870
+So if you go to security group.
+
+17
+00:01:02,460 --> 00:01:11,220
+We have a high profile bank and security group, so instances in V Profile Java App Prod Security Group
+
+18
+00:01:11,220 --> 00:01:15,780
+will connect to back end services which are in back and security group.
+
+19
+00:01:16,110 --> 00:01:20,490
+So we need to make changes to the inbound rule of back and security group.
+
+20
+00:01:20,490 --> 00:01:22,430
+So select your back end security group.
+
+21
+00:01:22,440 --> 00:01:23,940
+Go to inbound rules.
+
+22
+00:01:25,380 --> 00:01:26,880
+Edit inbound rules.
+
+23
+00:01:27,900 --> 00:01:33,540
+So you see, there are no rules which allows access from the Bean Stack security group.
+
+24
+00:01:33,550 --> 00:01:35,640
+So we need to add the rule first.
+
+25
+00:01:35,640 --> 00:01:37,950
+Rule you will add is 3306.
+
+26
+00:01:37,950 --> 00:01:40,710
+This is for the IDS connectivity.
+
+27
+00:01:41,780 --> 00:01:48,140
+So Beanstalk instance, which is in this security group we profile Java abroad, should be able to connect
+
+28
+00:01:48,170 --> 00:01:50,120
+on Port 3306.
+
+29
+00:01:50,920 --> 00:01:51,700
+Next.
+
+30
+00:01:53,280 --> 00:01:53,670
+One.
+
+31
+00:01:53,670 --> 00:01:54,870
+One, two, one, one, four.
+
+32
+00:01:54,870 --> 00:01:55,060
+Ma'am.
+
+33
+00:01:55,080 --> 00:01:55,890
+Cash.
+
+34
+00:01:56,170 --> 00:01:57,210
+Again, select.
+
+35
+00:01:59,140 --> 00:02:00,790
+Dean Stack Security Group.
+
+36
+00:02:02,720 --> 00:02:04,010
+One more service.
+
+37
+00:02:04,640 --> 00:02:05,900
+Amazon MQ.
+
+38
+00:02:06,020 --> 00:02:08,419
+Port number 5671.
+
+39
+00:02:11,370 --> 00:02:11,700
+Again.
+
+40
+00:02:11,700 --> 00:02:13,860
+Select Bienstock Security Group.
+
+41
+00:02:15,210 --> 00:02:20,250
+Now, this is very specific based on the specific port numbers, but you can add one more rule.
+
+42
+00:02:21,300 --> 00:02:25,800
+Instead of adding all these rules, you can add just one rule, say all traffic allowed from.
+
+43
+00:02:27,020 --> 00:02:29,840
+Bienstock security group, which is simple rule.
+
+44
+00:02:30,230 --> 00:02:34,580
+But from a security perspective, we should give specific rules.
+
+45
+00:02:35,240 --> 00:02:36,710
+I will keep both.
+
+46
+00:02:37,250 --> 00:02:42,620
+But if you see your application is not able to connect to back end security group, check your security
+
+47
+00:02:42,620 --> 00:02:46,520
+group rules of background and make sure you add correct rules.
+
+48
+00:02:46,910 --> 00:02:47,790
+Save Rule.
+
+49
+00:02:48,800 --> 00:02:50,360
+Inbound rules Created.
+
+50
+00:02:50,390 --> 00:02:52,490
+Do not touch the outbound rule.
+
+51
+00:02:52,490 --> 00:02:54,200
+Just the inbound rules.
+
+52
+00:02:56,250 --> 00:02:58,070
+So that was about security group.
+
+53
+00:02:58,080 --> 00:02:59,940
+The next thing we will be doing is.
+
+54
+00:03:01,160 --> 00:03:02,390
+An environment.
+
+55
+00:03:03,730 --> 00:03:04,690
+Load balancer.
+
+56
+00:03:04,690 --> 00:03:07,150
+So let's go to an environment configuration.
+
+57
+00:03:08,160 --> 00:03:10,880
+And find the load balancer settings.
+
+58
+00:03:10,890 --> 00:03:11,490
+Edit.
+
+59
+00:03:14,610 --> 00:03:16,500
+We have bought 80 as a listener.
+
+60
+00:03:16,500 --> 00:03:18,600
+Four load balancer will add one more.
+
+61
+00:03:20,350 --> 00:03:25,870
+Extra DPS port four for three, choose the certificate.
+
+62
+00:03:27,690 --> 00:03:29,250
+And see ad.
+
+63
+00:03:31,030 --> 00:03:32,170
+Scroll down.
+
+64
+00:03:32,650 --> 00:03:34,750
+We see here processes.
+
+65
+00:03:35,050 --> 00:03:36,250
+Put a checkmark here.
+
+66
+00:03:36,400 --> 00:03:37,300
+Action.
+
+67
+00:03:37,710 --> 00:03:41,380
+Edit Now this is the health check that we are editing.
+
+68
+00:03:41,650 --> 00:03:47,020
+So our application is living in this URL slash login.
+
+69
+00:03:47,140 --> 00:03:49,660
+So once we deploy our artifact.
+
+70
+00:03:50,850 --> 00:03:56,970
+And when the application comes up, the URL will be the load balancer endpoint slash login.
+
+71
+00:03:56,970 --> 00:04:00,120
+So health check should be done over there at slash login.
+
+72
+00:04:00,360 --> 00:04:02,100
+So make sure you update that.
+
+73
+00:04:03,810 --> 00:04:06,300
+Stickiness in the sessions.
+
+74
+00:04:06,300 --> 00:04:08,910
+Make sure you enable stickiness.
+
+75
+00:04:09,180 --> 00:04:15,360
+This is specific to a V profile application, so if the user access the load balancer, the load balancer
+
+76
+00:04:15,360 --> 00:04:21,089
+connects to the easy instance, and if stickiness is enabled, it will always connect to the same easy
+
+77
+00:04:21,089 --> 00:04:21,870
+to instance.
+
+78
+00:04:22,170 --> 00:04:26,400
+If it is not enabled, then it may route it to other instance also.
+
+79
+00:04:27,280 --> 00:04:31,270
+And the user, the current user who is logged in may lose the session as well.
+
+80
+00:04:32,420 --> 00:04:37,970
+So we have multiple instances for high availability, but when the user connects to an instance, the
+
+81
+00:04:37,970 --> 00:04:41,360
+user is connected to the same easy to instances.
+
+82
+00:04:41,570 --> 00:04:42,470
+Instance.
+
+83
+00:04:42,470 --> 00:04:44,540
+Sorry, save.
+
+84
+00:04:48,990 --> 00:04:53,070
+If you want, you can store the access log of the load balancer two and three bucket.
+
+85
+00:04:53,070 --> 00:04:55,170
+You need to create an S3 bucket first.
+
+86
+00:04:55,500 --> 00:04:57,360
+But we will not select this.
+
+87
+00:04:57,900 --> 00:04:58,920
+So only two things.
+
+88
+00:04:58,920 --> 00:05:00,330
+Add four for three.
+
+89
+00:05:00,360 --> 00:05:04,860
+Select your cert and make sure you change the health check to slash login.
+
+90
+00:05:05,280 --> 00:05:06,720
+And say apply.
+
+91
+00:05:08,440 --> 00:05:09,520
+Once you apply.
+
+92
+00:05:10,330 --> 00:05:16,750
+It will make the changes and the systems, the environment health will transition from okay to severe.
+
+93
+00:05:16,780 --> 00:05:20,290
+That is fine after we deploy our artifact.
+
+94
+00:05:20,320 --> 00:05:22,330
+This will come in the Oak State.
+
+95
+00:05:22,330 --> 00:05:22,960
+So.
+
+96
+00:05:23,740 --> 00:05:29,620
+Apply all the changes, save them and then join me in the next video where we'll deploy the artifact.
+

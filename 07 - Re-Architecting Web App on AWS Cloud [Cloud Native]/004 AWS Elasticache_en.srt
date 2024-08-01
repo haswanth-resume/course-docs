@@ -1,0 +1,304 @@
+1
+00:00:00,500 --> 00:00:03,170
+So next we'll create elastic cache.
+
+2
+00:00:03,200 --> 00:00:05,240
+So search for elastic.
+
+3
+00:00:07,000 --> 00:00:08,710
+Elastic cash.
+
+4
+00:00:10,690 --> 00:00:10,970
+Yeah.
+
+5
+00:00:11,020 --> 00:00:12,730
+Their in-memory cache.
+
+6
+00:00:15,280 --> 00:00:16,540
+So same thing.
+
+7
+00:00:16,540 --> 00:00:24,170
+Let's create the parameter group subnet group and then we'll create the radius sorry elastic cache instance.
+
+8
+00:00:24,190 --> 00:00:27,340
+So click on create parameter group.
+
+9
+00:00:28,200 --> 00:00:29,250
+We'll give it a name.
+
+10
+00:00:29,820 --> 00:00:32,790
+We profile mem cache G parameter group.
+
+11
+00:00:33,530 --> 00:00:36,830
+Semen description I'm giving family.
+
+12
+00:00:37,310 --> 00:00:40,010
+So you see two major family members cash and readies.
+
+13
+00:00:40,010 --> 00:00:44,420
+We need cash D and we will go with cash D 1.4.
+
+14
+00:00:44,420 --> 00:00:47,210
+If you see 1.5 that also you can use.
+
+15
+00:00:47,210 --> 00:00:49,010
+But let's go with 1.4.
+
+16
+00:00:51,220 --> 00:00:52,540
+And they create.
+
+17
+00:00:54,720 --> 00:00:57,660
+Once you create, you should see your parameter group here.
+
+18
+00:00:58,920 --> 00:01:00,270
+And similar thing.
+
+19
+00:01:01,370 --> 00:01:07,450
+As we have seen in ideas, of course, different parameters, but you can select parameters, make changes,
+
+20
+00:01:07,460 --> 00:01:08,330
+save them.
+
+21
+00:01:08,990 --> 00:01:11,840
+But we are keeping all the default parameters.
+
+22
+00:01:12,050 --> 00:01:13,640
+Now let's go to.
+
+23
+00:01:15,010 --> 00:01:16,060
+Subnet groups.
+
+24
+00:01:16,060 --> 00:01:17,590
+Let's create the subnet group.
+
+25
+00:01:18,870 --> 00:01:20,910
+So click on create subnet group.
+
+26
+00:01:22,040 --> 00:01:22,910
+Give a name.
+
+27
+00:01:23,450 --> 00:01:27,560
+We profile mem cache d subnet group same and description.
+
+28
+00:01:28,340 --> 00:01:31,280
+So we select our default VPC.
+
+29
+00:01:33,780 --> 00:01:38,380
+And all the subnets in the availability zone are already selected.
+
+30
+00:01:38,400 --> 00:01:40,230
+If you don't see them, click on Manage.
+
+31
+00:01:40,260 --> 00:01:41,550
+Make sure you select them.
+
+32
+00:01:43,020 --> 00:01:43,710
+And see.
+
+33
+00:01:43,740 --> 00:01:44,700
+Choose.
+
+34
+00:01:45,780 --> 00:01:47,400
+Since they are by default selected.
+
+35
+00:01:47,400 --> 00:01:50,190
+I'll just keep it as it is and I will say create.
+
+36
+00:01:51,620 --> 00:01:56,930
+So we have parameters group, we have subnet group and we have also the security group that we created
+
+37
+00:01:56,930 --> 00:01:57,830
+previously.
+
+38
+00:01:57,860 --> 00:02:02,590
+Now let's go to get started or you can directly go to the cluster.
+
+39
+00:02:02,600 --> 00:02:04,040
+I'll say get started.
+
+40
+00:02:05,840 --> 00:02:10,070
+In the cluster, I will just select my cluster.
+
+41
+00:02:12,160 --> 00:02:13,270
+A cloud.
+
+42
+00:02:14,030 --> 00:02:14,810
+Name.
+
+43
+00:02:15,610 --> 00:02:20,890
+V profile elastic cache hyphen service See email given the description.
+
+44
+00:02:22,660 --> 00:02:25,990
+Engine version will go with 1.4.
+
+45
+00:02:30,130 --> 00:02:31,220
+Parameters group.
+
+46
+00:02:31,240 --> 00:02:36,070
+We have to select our parameter group that we created earlier Node type.
+
+47
+00:02:36,100 --> 00:02:38,240
+Be careful over here by default.
+
+48
+00:02:38,240 --> 00:02:40,780
+It's a very large instance type.
+
+49
+00:02:40,780 --> 00:02:42,220
+So we need.
+
+50
+00:02:42,980 --> 00:02:46,130
+T to micro half a gram.
+
+51
+00:02:46,130 --> 00:02:47,450
+That is fine for us.
+
+52
+00:02:48,790 --> 00:02:50,350
+Number of nude single.
+
+53
+00:02:52,530 --> 00:02:54,060
+Subnet group setting.
+
+54
+00:02:55,570 --> 00:02:58,480
+So anyway selected our subnet group that we created.
+
+55
+00:02:58,480 --> 00:02:59,170
+So let's keep it.
+
+56
+00:02:59,170 --> 00:03:03,550
+If you don't see it, select the dropdown, find your subnet group, select it.
+
+57
+00:03:05,640 --> 00:03:06,540
+Availability zone.
+
+58
+00:03:06,540 --> 00:03:08,570
+We will just keep it as no preference.
+
+59
+00:03:08,580 --> 00:03:09,900
+Just say next.
+
+60
+00:03:11,230 --> 00:03:12,180
+Security group.
+
+61
+00:03:12,190 --> 00:03:13,480
+Click on Manage.
+
+62
+00:03:13,840 --> 00:03:15,370
+Find your security group.
+
+63
+00:03:15,400 --> 00:03:17,350
+We profile back end as G.
+
+64
+00:03:18,850 --> 00:03:22,420
+So all our backend services are going into backend security group.
+
+65
+00:03:23,980 --> 00:03:25,720
+You can select a maintenance window.
+
+66
+00:03:26,910 --> 00:03:32,340
+But I'll just keep it as no preference for any notification you can select.
+
+67
+00:03:34,010 --> 00:03:37,860
+As in this topic, if you don't see your as in this topic, keep it disabled.
+
+68
+00:03:37,860 --> 00:03:38,790
+That is fine.
+
+69
+00:03:41,400 --> 00:03:42,390
+Dagg will see.
+
+70
+00:03:42,390 --> 00:03:43,020
+Name.
+
+71
+00:03:47,330 --> 00:03:50,600
+We profile just cash service and see next.
+
+72
+00:03:52,070 --> 00:03:55,280
+Review all the settings, especially the node type.
+
+73
+00:03:56,570 --> 00:04:02,230
+You parameter group subnet group security group Check everything and say create.
+
+74
+00:04:04,300 --> 00:04:07,300
+So this will take some time to create by the time.
+
+75
+00:04:07,300 --> 00:04:09,640
+Let's go to the next service.
+
+76
+00:04:11,040 --> 00:04:15,060
+So create the elastic service and join me in the next lecture.
+

@@ -1,0 +1,252 @@
+1
+00:00:00,210 --> 00:00:02,580
+So now let's create rabbit MQ.
+
+2
+00:00:02,610 --> 00:00:05,490
+The service name is active MQ.
+
+3
+00:00:07,460 --> 00:00:11,110
+So search for the service name is Amazon MQ.
+
+4
+00:00:11,990 --> 00:00:14,120
+If you just type rabbit MQ, it will show up.
+
+5
+00:00:14,840 --> 00:00:15,710
+Select it.
+
+6
+00:00:17,950 --> 00:00:19,780
+Let's click on Get started.
+
+7
+00:00:21,130 --> 00:00:23,860
+So you have a two engine over here.
+
+8
+00:00:24,220 --> 00:00:26,470
+Apache active MQ and Rabbit MQ.
+
+9
+00:00:26,500 --> 00:00:34,630
+We will go with rabbit MQ go next single instance broker is fine, but for production workload you should
+
+10
+00:00:34,630 --> 00:00:36,310
+select cluster deployment.
+
+11
+00:00:36,910 --> 00:00:42,520
+But again, in order to keep our project low, cost or no cost will keep single instance broker.
+
+12
+00:00:42,550 --> 00:00:43,330
+Go next.
+
+13
+00:00:44,430 --> 00:00:47,580
+Broker name as a V profile item.
+
+14
+00:00:47,580 --> 00:00:52,810
+Q broker instance type again, make sure you select the smaller one over here.
+
+15
+00:00:52,830 --> 00:00:54,210
+T three Micro.
+
+16
+00:00:54,210 --> 00:00:55,910
+There is no T two micro here.
+
+17
+00:00:55,920 --> 00:00:57,570
+We have T three micro.
+
+18
+00:00:58,420 --> 00:00:58,750
+Rabbit.
+
+19
+00:00:58,900 --> 00:01:00,790
+You access the username and password.
+
+20
+00:01:00,790 --> 00:01:05,660
+I'll keep the username as a rabbit and password as okay.
+
+21
+00:01:05,680 --> 00:01:07,360
+Anyways, I will show you the password.
+
+22
+00:01:08,530 --> 00:01:13,330
+Because I will be deleting this and this will be a private rabbit MQ instance.
+
+23
+00:01:13,330 --> 00:01:15,460
+You anyways won't be able to access it.
+
+24
+00:01:16,160 --> 00:01:19,460
+So anything to all characters and make sure you save this.
+
+25
+00:01:20,360 --> 00:01:21,800
+Before you create the instance.
+
+26
+00:01:21,800 --> 00:01:24,080
+After that, you won't be able to see this.
+
+27
+00:01:24,590 --> 00:01:27,710
+So use capital, small numbers, symbols.
+
+28
+00:01:29,230 --> 00:01:30,490
+Additional settings.
+
+29
+00:01:31,580 --> 00:01:34,550
+Broker engine version will keep it the default one.
+
+30
+00:01:35,260 --> 00:01:39,230
+If you want to store the logs of this to cloud watch, you can select this.
+
+31
+00:01:39,250 --> 00:01:43,450
+But if the log size grow more, you need to pay for it.
+
+32
+00:01:43,450 --> 00:01:45,550
+So just not select it.
+
+33
+00:01:46,480 --> 00:01:47,670
+Network and security.
+
+34
+00:01:47,680 --> 00:01:54,100
+We will be having private access because we need this as a backend service for our beans stack.
+
+35
+00:01:54,400 --> 00:01:57,130
+For instance, it will be privately accessing rabbit MQ.
+
+36
+00:01:57,160 --> 00:02:00,850
+We are not accessing it publicly over the internet, so we'll keep it private.
+
+37
+00:02:00,850 --> 00:02:02,860
+Access that will be also safe.
+
+38
+00:02:03,620 --> 00:02:07,780
+Use the default VPC subnet, so we have no separate VPC.
+
+39
+00:02:07,790 --> 00:02:11,130
+We'll just use the default VPC security group.
+
+40
+00:02:11,150 --> 00:02:14,180
+We select the existing security group we have.
+
+41
+00:02:14,180 --> 00:02:16,490
+Yeah, it has already selected that.
+
+42
+00:02:16,850 --> 00:02:19,610
+Now console is getting intelligent day by day.
+
+43
+00:02:20,560 --> 00:02:26,020
+And if you don't see this selected, then make sure you select your own security group and uncheck the
+
+44
+00:02:26,020 --> 00:02:27,400
+default security group.
+
+45
+00:02:29,520 --> 00:02:31,160
+Maintenance will keep it default.
+
+46
+00:02:31,170 --> 00:02:35,370
+Automatic maintenance maintenance window will say no preference.
+
+47
+00:02:35,820 --> 00:02:37,920
+Tag will add name tag.
+
+48
+00:02:41,180 --> 00:02:43,130
+We profile our MQ zero one.
+
+49
+00:02:43,910 --> 00:02:45,950
+And let's see next.
+
+50
+00:02:47,250 --> 00:02:50,520
+So review all the settings, especially the broker instance type.
+
+51
+00:02:50,520 --> 00:02:51,990
+It should be t three micro.
+
+52
+00:02:52,500 --> 00:02:54,270
+Otherwise you will end up paying for it.
+
+53
+00:02:54,840 --> 00:02:56,880
+Last chance to see your password.
+
+54
+00:02:56,970 --> 00:02:59,010
+After this, you won't be able to see this.
+
+55
+00:03:00,280 --> 00:03:01,990
+And they create broker.
+
+56
+00:03:03,610 --> 00:03:04,810
+Now for safety.
+
+57
+00:03:04,810 --> 00:03:08,470
+I have stored the password into my sticky note temporarily.
+
+58
+00:03:08,770 --> 00:03:10,060
+You can also do that.
+
+59
+00:03:12,020 --> 00:03:14,630
+So all three backend services are created.
+
+60
+00:03:14,630 --> 00:03:18,670
+One last thing left in the backend, which is DB initialization.
+
+61
+00:03:18,680 --> 00:03:27,410
+We need to log into our instance or my SQL login, create database and deploy our schema.
+
+62
+00:03:27,890 --> 00:03:29,550
+So we'll do that in the next lecture.
+
+63
+00:03:29,570 --> 00:03:31,640
+Wrap this up and join me in the next one.
+
