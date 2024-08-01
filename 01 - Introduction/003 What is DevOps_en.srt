@@ -1,0 +1,616 @@
+1
+00:00:01,080 --> 00:00:08,820
+Did you know that DevOps can accomplish tasks in minutes, which used to take hours or even days of
+
+2
+00:00:08,820 --> 00:00:09,540
+work?
+
+3
+00:00:10,800 --> 00:00:15,810
+So the companies can focus more on their business or the product.
+
+4
+00:00:18,150 --> 00:00:24,150
+And maybe that's why it industries adopting DevOps at such a rapid pace.
+
+5
+00:00:26,480 --> 00:00:33,170
+In next few minutes, I will show you how thousands of companies are evolving and adopting DevOps culture.
+
+6
+00:00:34,980 --> 00:00:35,610
+Hi.
+
+7
+00:00:35,700 --> 00:00:36,530
+Welcome.
+
+8
+00:00:36,540 --> 00:00:37,890
+My name is Imran.
+
+9
+00:00:37,950 --> 00:00:40,560
+I'm a DevOps consultant and a trainer.
+
+10
+00:00:40,770 --> 00:00:47,670
+Let me help you understand what is DevOps and how it can solve some business critical problems.
+
+11
+00:00:50,010 --> 00:00:53,280
+Everyone likes a good story, and here it is.
+
+12
+00:00:54,900 --> 00:00:55,770
+Meet Emma.
+
+13
+00:00:56,100 --> 00:01:00,330
+She's an artist and has a passion of collecting artworks.
+
+14
+00:01:01,470 --> 00:01:06,510
+Emma has her own art gallery from where she sells artwork to the public.
+
+15
+00:01:08,480 --> 00:01:12,170
+Emma wants to expand her business online through a mobile app.
+
+16
+00:01:14,350 --> 00:01:19,420
+Users around the world can access our gallery and make a purchase through our mobile app.
+
+17
+00:01:22,060 --> 00:01:24,490
+Emma does not have a team who can do this.
+
+18
+00:01:25,000 --> 00:01:30,910
+She'll need a team of developers, testers and admin, like people who can accomplish this task.
+
+19
+00:01:31,270 --> 00:01:36,070
+So Emma approaches a software consulting firm and explains her idea.
+
+20
+00:01:44,350 --> 00:01:51,820
+Reggie, the director of Dev and Upstream, explains her process of development, delivery and service
+
+21
+00:01:51,820 --> 00:01:52,840
+of the software.
+
+22
+00:01:55,040 --> 00:01:58,940
+Avi is the project manager of a software development team.
+
+23
+00:02:01,340 --> 00:02:05,240
+Alvey explains the software development process to Emma.
+
+24
+00:02:08,970 --> 00:02:11,640
+Freddie, head of the operations.
+
+25
+00:02:13,790 --> 00:02:18,830
+Explains Emma, how the mobile app will be hosted on the cloud server.
+
+26
+00:02:20,630 --> 00:02:24,530
+So Emma decides to sign the deal after meeting all these experts.
+
+27
+00:02:27,290 --> 00:02:33,230
+Emma is curious by nature and she wants to understand the software development process.
+
+28
+00:02:33,320 --> 00:02:35,390
+So here we go.
+
+29
+00:02:42,220 --> 00:02:47,170
+Software development is a very well-defined and organized process.
+
+30
+00:02:48,010 --> 00:02:55,420
+First phase requirements gathering and analysis information will be collected like product features.
+
+31
+00:02:55,430 --> 00:03:02,410
+Who are the users, how it will be used, some user requirements, current state of the market and few
+
+32
+00:03:02,410 --> 00:03:03,340
+other things.
+
+33
+00:03:05,120 --> 00:03:06,890
+Second phase planning.
+
+34
+00:03:07,280 --> 00:03:08,330
+What do we want?
+
+35
+00:03:09,050 --> 00:03:15,620
+It determines the cost and resource required for implementation of the product and also the risks associated
+
+36
+00:03:15,620 --> 00:03:16,220
+with it.
+
+37
+00:03:17,960 --> 00:03:24,860
+Third phase Designing Architects will design the software based on the inputs from previous phase.
+
+38
+00:03:25,070 --> 00:03:27,530
+Architects will produce design documents.
+
+39
+00:03:27,740 --> 00:03:30,540
+These will be basically a roadmap for the developers.
+
+40
+00:03:32,740 --> 00:03:34,060
+Development phase.
+
+41
+00:03:34,180 --> 00:03:41,500
+This is where developers will write the software code based on the design and they already look very
+
+42
+00:03:41,500 --> 00:03:42,580
+excited about it.
+
+43
+00:03:51,330 --> 00:03:52,760
+Software testing.
+
+44
+00:03:52,770 --> 00:03:58,110
+In this phase, the software will be tested by software testers for any defense.
+
+45
+00:03:58,320 --> 00:04:03,090
+Software will be promoted to production only after fixing all the issues.
+
+46
+00:04:07,750 --> 00:04:08,770
+Deployment.
+
+47
+00:04:08,800 --> 00:04:15,580
+At this stage, software is deployed to the production environment so users can start using the product.
+
+48
+00:04:19,769 --> 00:04:27,480
+It's the responsibility of system admin and the entire operations team to make sure software is up and
+
+49
+00:04:27,480 --> 00:04:29,070
+running all the time.
+
+50
+00:04:30,690 --> 00:04:32,820
+Final fees Maintenance.
+
+51
+00:04:33,000 --> 00:04:37,440
+It is a balance between regular changes and uptime.
+
+52
+00:04:48,300 --> 00:04:50,640
+Let's see the entire process again.
+
+53
+00:04:50,970 --> 00:04:54,570
+First requirement gathering, then planning.
+
+54
+00:04:54,840 --> 00:04:59,560
+Architects designs the software developers create the software.
+
+55
+00:04:59,580 --> 00:05:06,090
+Testing is conducted by software testers and operations team will deploy and maintain the software.
+
+56
+00:05:08,160 --> 00:05:12,750
+This entire process is called US Software Development Lifecycle.
+
+57
+00:05:12,960 --> 00:05:15,210
+In short, SDLC.
+
+58
+00:05:23,770 --> 00:05:25,030
+There are different models.
+
+59
+00:05:25,030 --> 00:05:28,420
+In SDLC, we have waterfall model.
+
+60
+00:05:30,210 --> 00:05:31,020
+Agile.
+
+61
+00:05:32,660 --> 00:05:33,160
+Spiral.
+
+62
+00:05:34,520 --> 00:05:35,480
+Big Bang.
+
+63
+00:05:35,570 --> 00:05:37,160
+And there are few others.
+
+64
+00:05:37,850 --> 00:05:43,190
+You can understand these models as part of a road race to reach the same destination.
+
+65
+00:05:43,400 --> 00:05:53,630
+As you choose a roadway based on different factors like cost risk and time taken to reach your destination
+
+66
+00:05:54,950 --> 00:05:56,420
+in a waterfall model.
+
+67
+00:05:56,450 --> 00:05:59,960
+Each phase must be completed before the next phase can begin.
+
+68
+00:06:00,080 --> 00:06:05,690
+Requirement completes, then only planning begins and then development starts.
+
+69
+00:06:05,690 --> 00:06:13,190
+When everything is completed, all the features will be tested and then maintenance phase starts.
+
+70
+00:06:15,190 --> 00:06:20,830
+It is very difficult here to go back and change something that was not well thought out in the planning.
+
+71
+00:06:21,280 --> 00:06:24,400
+Working software is produced very late in the lifecycle.
+
+72
+00:06:24,700 --> 00:06:27,130
+It may take months in our case.
+
+73
+00:06:29,190 --> 00:06:32,910
+Emma is not sure about all the requirements at once.
+
+74
+00:06:33,240 --> 00:06:38,970
+She would like to observe the product development and alter or add new ideas along the line.
+
+75
+00:06:39,270 --> 00:06:42,570
+So what for model is a no go.
+
+76
+00:06:43,110 --> 00:06:48,810
+So instead of developing all the requirements for months, it can be divided into smaller lists.
+
+77
+00:06:48,930 --> 00:06:54,960
+Work on a list for 2 to 4 weeks and then move on to the next list and so on and so forth.
+
+78
+00:06:56,800 --> 00:06:59,260
+This life cycle is called us Agile.
+
+79
+00:06:59,740 --> 00:07:02,890
+Each iteration could be 2 to 4 weeks.
+
+80
+00:07:07,690 --> 00:07:14,260
+Demonstration of the features can be given to MA after every iteration and based on the feedback from
+
+81
+00:07:14,260 --> 00:07:14,860
+MA.
+
+82
+00:07:14,920 --> 00:07:18,370
+New ideas can be injected in the next iterations.
+
+83
+00:07:26,920 --> 00:07:30,760
+So the development gets started with Agile SDLC.
+
+84
+00:07:34,090 --> 00:07:37,360
+Developers have started coding after all the planning.
+
+85
+00:07:40,370 --> 00:07:47,120
+Harvey has instructed Freddie from the operations team to deploy code on the servers so it can be further
+
+86
+00:07:47,120 --> 00:07:49,310
+tested by the software testers.
+
+87
+00:07:52,230 --> 00:07:57,420
+The operations team started deploying the code to the server as per the instructions.
+
+88
+00:07:58,770 --> 00:08:05,040
+But at times testers are not able to access the servers or even the test cases are failing.
+
+89
+00:08:07,900 --> 00:08:08,080
+I'll.
+
+90
+00:08:08,090 --> 00:08:11,140
+He has informed Freddie about the failed deployment.
+
+91
+00:08:11,590 --> 00:08:17,470
+Freddie is confused as everything was done as per the instructions and service looks healthy.
+
+92
+00:08:19,240 --> 00:08:23,110
+Agile is DLC puts extra stress on the ops team.
+
+93
+00:08:23,440 --> 00:08:25,630
+There'll be regular code changes.
+
+94
+00:08:25,720 --> 00:08:31,360
+These changes need to be deployed on the servers so testers can conduct their testings.
+
+95
+00:08:31,420 --> 00:08:35,919
+And this happens several times In a single iteration like that.
+
+96
+00:08:35,919 --> 00:08:37,780
+You have several iterations to go.
+
+97
+00:08:38,950 --> 00:08:42,400
+Ops team is tired with regular deployment requests.
+
+98
+00:08:42,760 --> 00:08:46,660
+There are no clear instructions which causes deployment failures.
+
+99
+00:08:47,140 --> 00:08:49,870
+All steam is also occupied with production support.
+
+100
+00:08:50,080 --> 00:08:54,010
+They need to maintain system uptime all the time.
+
+101
+00:08:56,960 --> 00:09:03,470
+In between these failures and fixes, Harvey has passed the deadline of demonstration.
+
+102
+00:09:04,800 --> 00:09:09,840
+Am I waiting for a long time to see the first glimpse of her mobile app?
+
+103
+00:09:11,950 --> 00:09:16,810
+Somehow the team convinces Emma and explains her about the delay.
+
+104
+00:09:18,310 --> 00:09:20,710
+Alvy is not happy with the team.
+
+105
+00:09:20,800 --> 00:09:24,850
+He reaches out to Freddy to tell him that this cannot be repeating.
+
+106
+00:09:30,800 --> 00:09:32,990
+Dev and ops are poles apart.
+
+107
+00:09:33,200 --> 00:09:36,860
+Deb is agile all about regular and quick changes.
+
+108
+00:09:37,100 --> 00:09:39,050
+Ops is ITIL driven.
+
+109
+00:09:39,170 --> 00:09:41,810
+Provides a stable environment for the product.
+
+110
+00:09:43,010 --> 00:09:46,730
+There's a big wall of confusion in between these two parties.
+
+111
+00:09:47,000 --> 00:09:53,210
+The developer tossed their code over the wall and ops team responsibility is to deploy the code on the
+
+112
+00:09:53,210 --> 00:09:54,080
+servers.
+
+113
+00:09:56,160 --> 00:10:03,420
+Developers complain about delay in deployments of steam, complaints about unclear instructions and
+
+114
+00:10:03,420 --> 00:10:05,520
+tossing their work over the wall.
+
+115
+00:10:09,350 --> 00:10:16,070
+Emma has existing customers who wants to use the app, but there are frequent delays and errors.
+
+116
+00:10:16,370 --> 00:10:18,290
+Emma is not so happy.
+
+117
+00:10:22,270 --> 00:10:25,110
+Reggie, the director, understands this very well.
+
+118
+00:10:25,120 --> 00:10:29,230
+That unhappy customer could mean direct business loss.
+
+119
+00:10:32,340 --> 00:10:40,470
+Reggie once attended an Agile conference where the host talked about DevOps as how it fixes the code
+
+120
+00:10:40,470 --> 00:10:41,640
+delivery issues.
+
+121
+00:10:42,240 --> 00:10:47,880
+Reggie understood that Dev is agile but Ops is still waterfall.
+
+122
+00:10:55,000 --> 00:11:02,380
+So Reggie decides to bring in a DevOps consultant who can fix the code delivery issue and skyrocket
+
+123
+00:11:02,380 --> 00:11:03,460
+the business.
+
+124
+00:11:06,890 --> 00:11:10,580
+He explains everyone that he does not have a magic wand.
+
+125
+00:11:10,820 --> 00:11:17,510
+Everyone has to work collaboratively, communicate effectively, and integrate the entire code delivery
+
+126
+00:11:17,510 --> 00:11:18,380
+process.
+
+127
+00:11:20,550 --> 00:11:28,080
+He explains and train dev team on ops concepts so they can communicate with ops team more effectively.
+
+128
+00:11:30,130 --> 00:11:36,370
+He also train OP's team on Agile concepts so ops can collaborate with dev team.
+
+129
+00:11:37,900 --> 00:11:40,150
+And the most important factor?
+
+130
+00:11:40,540 --> 00:11:44,920
+Automation training and instruction to every team across the board.
+
+131
+00:11:47,930 --> 00:11:55,490
+Automation of each and every task in code delivery process like code build code testing software, testing,
+
+132
+00:11:55,610 --> 00:12:00,710
+infra changes, deployments, and everything that comes along the way.
+
+133
+00:12:02,540 --> 00:12:10,550
+Wall of confusion is brought down like the Berlin Wall, and the desire is to work together and together
+
+134
+00:12:11,180 --> 00:12:12,560
+and together.
+
+135
+00:12:13,190 --> 00:12:15,110
+He seems very happy to work together.
+
+136
+00:12:17,100 --> 00:12:23,790
+Everyone collaborates like The Avengers, the shark, the smart and intelligent.
+
+137
+00:12:27,070 --> 00:12:36,160
+Except our super heroes are the developers testers, builder this team, the sysadmins, DB admins and
+
+138
+00:12:36,160 --> 00:12:37,570
+everyone across the board.
+
+139
+00:12:39,040 --> 00:12:42,190
+So the dev and ops start working together.
+
+140
+00:12:44,070 --> 00:12:50,610
+Each and every task is automated in the delivery process by every team, so the whole process can be
+
+141
+00:12:50,610 --> 00:12:51,960
+integrated together.
+
+142
+00:12:55,800 --> 00:13:00,090
+So finally, the automated and integrated delivery process.
+
+143
+00:13:00,300 --> 00:13:01,890
+Good job, everyone on board.
+
+144
+00:13:02,010 --> 00:13:03,510
+Really good job.
+
+145
+00:13:09,900 --> 00:13:13,440
+Let's see the entire automated DevOps lifecycle now.
+
+146
+00:13:25,930 --> 00:13:26,340
+And.
+
+147
+00:14:19,000 --> 00:14:19,240
+The.
+
+148
+00:14:21,160 --> 00:14:25,270
+And a completely automated DevOps lifecycle.
+
+149
+00:14:25,570 --> 00:14:28,750
+No human intervention, so no human errors.
+
+150
+00:14:28,930 --> 00:14:32,530
+It's a repeatable and timesaver, of course.
+
+151
+00:14:39,150 --> 00:14:39,690
+Emails.
+
+152
+00:14:39,690 --> 00:14:46,830
+Any request now can be delivered very quickly because everything is automated.
+
+153
+00:14:50,380 --> 00:14:53,350
+Emma is happy to see her happy customers.
+
+154
+00:14:56,190 --> 00:15:00,060
+Finally, an idea has become a full fledged business.
+

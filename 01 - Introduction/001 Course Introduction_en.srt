@@ -1,0 +1,192 @@
+1
+00:00:00,390 --> 00:00:02,910
+Presenting DevOps projects.
+
+2
+00:00:04,920 --> 00:00:14,160
+If you are a DevOps engineer and struggling to streamline your tools and services, unable to keep up
+
+3
+00:00:14,160 --> 00:00:15,900
+with new DevOps tools,
+
+4
+00:00:18,750 --> 00:00:23,400
+don't worry, I have 18 plus DevOps projects for your practice.
+
+5
+00:00:24,720 --> 00:00:26,700
+Hi, my name is Imran.
+
+6
+00:00:28,650 --> 00:00:33,540
+I have got 11 plus years of experience in DevOps and cloud computing.
+
+7
+00:00:34,820 --> 00:00:40,820
+I am a creative person with lots of ideas in DevOps which I implement in projects.
+
+8
+00:00:42,460 --> 00:00:50,710
+I am a Red Hat certified architect with cloud and DevOps skills certified in Ansible, OpenStack cluster
+
+9
+00:00:50,710 --> 00:00:53,770
+office, OpenShift, Kubernetes and Puppet.
+
+10
+00:00:54,920 --> 00:00:55,830
+You need a boost.
+
+11
+00:00:55,860 --> 00:01:02,640
+I am certified in systems DevOps, professional and also a security specialist.
+
+12
+00:01:03,660 --> 00:01:06,930
+I am also certified in DevOps foundations.
+
+13
+00:01:07,200 --> 00:01:14,580
+A VMware Professional, a Red Hat certified engineer, and also certified in Python from IDEX.
+
+14
+00:01:16,200 --> 00:01:22,860
+I can show you how to work from a sketch or scratch to a concept in DevOps.
+
+15
+00:01:24,100 --> 00:01:26,440
+And these are some of my expertise.
+
+16
+00:01:33,750 --> 00:01:36,420
+Okay, let's get down to business now.
+
+17
+00:01:38,850 --> 00:01:42,300
+Let's dig into the list of dev ops projects.
+
+18
+00:01:44,520 --> 00:01:47,430
+3 to 1.
+
+19
+00:01:47,760 --> 00:01:48,630
+Now, let's go.
+
+20
+00:01:51,130 --> 00:01:58,480
+Automate your project deployment locally by using vibrant virtual box and bash scripting.
+
+21
+00:01:58,690 --> 00:02:06,580
+This is a foundation project services used in this projects are engine X, Tomcat rabbit, MQ mem cache
+
+22
+00:02:06,580 --> 00:02:07,660
+and my skill.
+
+23
+00:02:09,990 --> 00:02:15,300
+Learn how to lift and shift your web application project to a cloud.
+
+24
+00:02:15,600 --> 00:02:23,010
+Services used easy to auto scaling, load balancers, cloud watch allowance and Route 53.
+
+25
+00:02:23,850 --> 00:02:31,920
+Learn how to refactor your web application on a cloud by using services like radius, Elastic Cache,
+
+26
+00:02:31,920 --> 00:02:38,040
+Amazon, NQ Cloud, Front, FS plus all the services used in the previous project.
+
+27
+00:02:39,210 --> 00:02:49,410
+Continuous integration of Java project by using Jenkins Git Maven Nexus Sonar Cube Check style and Slack
+
+28
+00:02:49,410 --> 00:02:49,920
+channel.
+
+29
+00:02:50,790 --> 00:03:00,060
+Continuous integration on a cloud by using a services like code commit code Build code artifact sonar
+
+30
+00:03:00,060 --> 00:03:03,120
+cloud and sense and three buckets.
+
+31
+00:03:03,810 --> 00:03:12,900
+Continuous delivery of java projects by using Jenkins Git Maven, Nexus, Sony Cube, Selenium Tomcat,
+
+32
+00:03:12,900 --> 00:03:22,650
+my SQL mem cache and rabbit MQ continuous delivery on a cloud by using services like code commit code
+
+33
+00:03:22,650 --> 00:03:32,280
+Build code Artifact Solid Cloud code Deploy code pipeline bean stack ideas and few other services.
+
+34
+00:03:33,930 --> 00:03:40,410
+Configuration Management and automation of all your sources in your project by using Ansible.
+
+35
+00:03:44,120 --> 00:03:47,430
+Set up eight of Lewis Cloud Stack using Ansible.
+
+36
+00:03:51,060 --> 00:03:56,310
+Continuous delivery project using Ansible in the mix of Jenkins pipeline.
+
+37
+00:04:02,810 --> 00:04:11,000
+Continuous delivery project by combining Jenkins pipeline with services like Beanstalk and ideas.
+
+38
+00:04:14,860 --> 00:04:22,480
+Learn how to containerized entire project stack by using Docker Docker builds Docker Hub and Docker
+
+39
+00:04:22,480 --> 00:04:23,230
+compose.
+
+40
+00:04:26,930 --> 00:04:33,920
+Learn how to set up Kubernetes cluster for production container runtime by using cups and cube.
+
+41
+00:04:38,900 --> 00:04:43,910
+Set up entire web application Java stack on Kubernetes cluster.
+
+42
+00:04:50,770 --> 00:04:58,330
+64 containers by combining Jenkins pipeline with Docker Docker Hub and Kubernetes.
+
+43
+00:05:03,070 --> 00:05:09,880
+Learn about eight of this security concepts and their implementation on your project and pipeline.
+
+44
+00:05:17,070 --> 00:05:17,240
+Vote.
+
+45
+00:05:17,340 --> 00:05:22,050
+Permission to set up your entire project stack on a cloud.
+
+46
+00:05:25,760 --> 00:05:26,600
+TerraForm.
+
+47
+00:05:26,600 --> 00:05:30,140
+You set up your entire project stack on a cloud.
+
+48
+00:05:34,960 --> 00:05:41,470
+Gain confidence, experience and lots of hands on experience with these projects.
+
