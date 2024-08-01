@@ -1,0 +1,180 @@
+1
+00:00:00,710 --> 00:00:02,950
+Okay, So let's reiterate what all we did.
+
+2
+00:00:02,969 --> 00:00:04,890
+We have fetched the source code.
+
+3
+00:00:06,640 --> 00:00:08,350
+On the branch, Doctor.
+
+4
+00:00:11,430 --> 00:00:13,320
+We create a Docker files directory.
+
+5
+00:00:13,320 --> 00:00:15,370
+Inside we have app directory.
+
+6
+00:00:15,390 --> 00:00:20,280
+We created a Docker file for app, and for that we have built our artifact.
+
+7
+00:00:20,460 --> 00:00:23,370
+So a docker file for our application image.
+
+8
+00:00:24,600 --> 00:00:25,440
+For DB image.
+
+9
+00:00:25,440 --> 00:00:29,160
+We have a docker file which is pushing the SQL file.
+
+10
+00:00:30,320 --> 00:00:37,100
+And another Docker file for Engine X, our web container, which is also copying the configuration file.
+
+11
+00:00:37,670 --> 00:00:43,310
+Once we had this, all these three Docker file with the data for engine X, the configuration file for
+
+12
+00:00:43,310 --> 00:00:47,440
+DB, the SQL file for application, the artifact.
+
+13
+00:00:47,450 --> 00:00:53,420
+Once we have prepared all this, we build the image and then we run all of them together with the Docker
+
+14
+00:00:53,420 --> 00:00:57,440
+compose file along with the images that we have built.
+
+15
+00:00:57,980 --> 00:01:03,820
+DB We also have a cache image, the official image, a rabbit image, which is official.
+
+16
+00:01:03,830 --> 00:01:05,269
+We have not made any changes there.
+
+17
+00:01:05,269 --> 00:01:08,780
+Also application, that's the image that we created.
+
+18
+00:01:09,710 --> 00:01:12,740
+So container for the pro app and the pro web.
+
+19
+00:01:14,200 --> 00:01:21,580
+Now, anybody in the world with this docker compose file can just say, Docker compose up and we'll
+
+20
+00:01:21,580 --> 00:01:23,530
+have exactly the same setup.
+
+21
+00:01:23,950 --> 00:01:25,570
+It's very much portable.
+
+22
+00:01:25,600 --> 00:01:27,310
+These are public images.
+
+23
+00:01:27,670 --> 00:01:31,120
+So anybody in the world, that's why I said anybody can fetch this image.
+
+24
+00:01:31,390 --> 00:01:36,290
+So with this Docker compose file, if you just run it on your Docker engine, you will have exactly
+
+25
+00:01:36,290 --> 00:01:41,380
+the same setup on your laptop and dev environment, queue, environment, production, environment,
+
+26
+00:01:41,380 --> 00:01:42,100
+anywhere.
+
+27
+00:01:42,790 --> 00:01:45,220
+Let's retrace the steps that we did.
+
+28
+00:01:45,250 --> 00:01:51,550
+You should know the steps to set up your stack on VMs locally or remotely anywhere.
+
+29
+00:01:51,790 --> 00:01:56,080
+You should know the steps to set up each and every service in your entire stack.
+
+30
+00:01:56,710 --> 00:02:02,050
+Once you know that you can find your right base image from Docker Hub can write Docker file to customize
+
+31
+00:02:02,050 --> 00:02:02,810
+your image.
+
+32
+00:02:02,830 --> 00:02:06,850
+You can use Docker compose file to run multi containers and test it.
+
+33
+00:02:06,880 --> 00:02:09,910
+Once you are done, you can host the image to Docker Hub.
+
+34
+00:02:11,360 --> 00:02:13,190
+And that's exactly what we did.
+
+35
+00:02:13,220 --> 00:02:14,750
+We cloned our source code.
+
+36
+00:02:16,350 --> 00:02:18,810
+We did a darker file with the right data.
+
+37
+00:02:19,140 --> 00:02:23,190
+We set Docker bill, which fetched the bass image from Docker Hub.
+
+38
+00:02:24,070 --> 00:02:25,930
+We use Docker compose to test it.
+
+39
+00:02:26,230 --> 00:02:27,570
+When we find it is good.
+
+40
+00:02:27,580 --> 00:02:29,680
+Then we pushed it back to Docker Hub.
+
+41
+00:02:30,640 --> 00:02:32,130
+So that was it.
+
+42
+00:02:32,140 --> 00:02:38,080
+In this project, I hope you have learned a lot and gain some rich experience in container using your
+
+43
+00:02:38,080 --> 00:02:38,980
+application.
+
+44
+00:02:39,550 --> 00:02:40,900
+Thank you very much for watching.
+
+45
+00:02:40,900 --> 00:02:42,460
+I'll see you in the next one.
+

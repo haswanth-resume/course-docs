@@ -1,0 +1,192 @@
+1
+00:00:02,200 --> 00:00:03,460
+For engine X.
+
+2
+00:00:04,380 --> 00:00:06,660
+Directory web.
+
+3
+00:00:08,940 --> 00:00:10,650
+Create a docker file in this.
+
+4
+00:00:18,990 --> 00:00:22,120
+So we can see from engineers any version is fine.
+
+5
+00:00:22,140 --> 00:00:23,070
+Default is fine.
+
+6
+00:00:23,070 --> 00:00:25,020
+So it's going to fetch the default image.
+
+7
+00:00:26,460 --> 00:00:28,080
+Let's also give some label.
+
+8
+00:00:28,860 --> 00:00:30,780
+I will give project.
+
+9
+00:00:32,689 --> 00:00:33,680
+Equal to.
+
+10
+00:00:34,820 --> 00:00:35,960
+The profile.
+
+11
+00:00:39,340 --> 00:00:40,840
+Q Also, one more.
+
+12
+00:00:43,880 --> 00:00:44,720
+Author.
+
+13
+00:00:47,830 --> 00:00:48,940
+And I'll give my name.
+
+14
+00:00:49,660 --> 00:00:58,480
+And if you can also use this label for our other Docker files, let's put that DB or here as well.
+
+15
+00:01:05,060 --> 00:01:12,590
+Okay, so the engine X image that we're going to use from the Docker hub, we need to change configuration
+
+16
+00:01:12,590 --> 00:01:13,250
+in that.
+
+17
+00:01:17,240 --> 00:01:20,120
+So that's an image we can use the latest version.
+
+18
+00:01:22,930 --> 00:01:23,410
+Let's see.
+
+19
+00:01:23,410 --> 00:01:25,450
+Where does it hold the configuration?
+
+20
+00:01:27,230 --> 00:01:29,480
+That's engine X main configuration file.
+
+21
+00:01:33,950 --> 00:01:35,780
+We have some variables we can use.
+
+22
+00:01:37,260 --> 00:01:42,510
+Our own configuration can be pushed in this location quarter D so we can have multiple configuration
+
+23
+00:01:42,510 --> 00:01:43,470
+in that directory.
+
+24
+00:01:46,200 --> 00:01:51,300
+So we can put it in the templates directory inside that and that will send it the configuration over
+
+25
+00:01:51,300 --> 00:01:52,910
+here, the output or here.
+
+26
+00:01:52,920 --> 00:01:55,020
+So this is the default configuration file.
+
+27
+00:01:55,020 --> 00:02:00,480
+If you want, we can erase this or we can put it in the templates directory in the config config file,
+
+28
+00:02:00,480 --> 00:02:02,550
+which will automatically replace this.
+
+29
+00:02:03,890 --> 00:02:09,139
+We will remove this configuration file, default one, and then we'll put our own configuration file
+
+30
+00:02:09,139 --> 00:02:09,710
+in that.
+
+31
+00:02:13,590 --> 00:02:17,820
+So changes to Tron Command and I see atom hyphen RF.
+
+32
+00:02:20,100 --> 00:02:27,720
+And remove that configuration file, which is the default one, and copy our configuration file caps.
+
+33
+00:02:28,740 --> 00:02:34,530
+So we'll build our own configuration file with this name and we're going to place it.
+
+34
+00:02:36,000 --> 00:02:37,500
+And dislocation.
+
+35
+00:02:42,290 --> 00:02:45,130
+With name for pro app dot conf.
+
+36
+00:02:45,140 --> 00:02:47,330
+So that becomes our default application.
+
+37
+00:02:48,800 --> 00:02:54,530
+We'll also have to create this file, so let's copy this name and the same location.
+
+38
+00:03:00,640 --> 00:03:02,680
+Okay, So that should be the configuration.
+
+39
+00:03:02,680 --> 00:03:09,670
+It's going to listen on Port 80 and it's going to forward the request to a container named Pro App on
+
+40
+00:03:09,670 --> 00:03:10,540
+Port 88.
+
+41
+00:03:11,050 --> 00:03:17,380
+So based on this configuration, we have to understand the container that we're going to run with.
+
+42
+00:03:17,380 --> 00:03:19,720
+Our application has to be of this name.
+
+43
+00:03:19,720 --> 00:03:24,070
+We have to run the container with this name in a Docker environment.
+
+44
+00:03:24,670 --> 00:03:27,940
+In a Kubernetes environment, we have to run service with this name.
+
+45
+00:03:28,180 --> 00:03:30,190
+And also we have to be careful.
+
+46
+00:03:30,190 --> 00:03:31,570
+We run it on this port.
+
+47
+00:03:33,030 --> 00:03:39,210
+Okay, let's see if all these files and we're going to not commit them.
+
+48
+00:03:41,720 --> 00:03:43,340
+Before we build and test it.
+

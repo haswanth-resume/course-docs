@@ -1,0 +1,148 @@
+1
+00:00:00,810 --> 00:00:02,910
+So we'll create one more directory in this.
+
+2
+00:00:04,059 --> 00:00:05,980
+Named DB.
+
+3
+00:00:07,689 --> 00:00:10,060
+And we'll write another Docker file in this.
+
+4
+00:00:18,720 --> 00:00:20,880
+For this will be using my skull.
+
+5
+00:00:28,870 --> 00:00:32,800
+My skull tag 5.6 or 5.7 we can use.
+
+6
+00:00:33,900 --> 00:00:34,660
+Not eight.
+
+7
+00:00:34,680 --> 00:00:36,060
+It doesn't work with their application.
+
+8
+00:00:36,060 --> 00:00:39,360
+So we can go with 5.7 or we can also go with five or six.
+
+9
+00:00:40,860 --> 00:00:43,290
+We have to set the usernames and passwords.
+
+10
+00:00:45,740 --> 00:00:48,590
+So we can do it through environment variables.
+
+11
+00:00:48,590 --> 00:00:50,270
+My SQL root Password.
+
+12
+00:00:50,270 --> 00:00:51,740
+My SQL database.
+
+13
+00:00:52,580 --> 00:00:58,580
+And my SQL user, if you want to set up any other user, will be using the root user and we'll set a
+
+14
+00:00:58,580 --> 00:01:01,250
+password for this by setting value to this variable.
+
+15
+00:01:01,760 --> 00:01:06,080
+And we'll also initialize it with our SQL file.
+
+16
+00:01:06,080 --> 00:01:10,820
+So we'll be putting our SQL file in this location so we can use add or copy command to do that.
+
+17
+00:01:13,160 --> 00:01:16,730
+Let's build the Docker file from.
+
+18
+00:01:17,700 --> 00:01:19,080
+My SQL.
+
+19
+00:01:19,830 --> 00:01:24,180
+I'm using the tag 5.7.25, which is.
+
+20
+00:01:25,080 --> 00:01:27,300
+Relevant with our V profile application.
+
+21
+00:01:30,610 --> 00:01:31,480
+Ian, we.
+
+22
+00:01:33,490 --> 00:01:38,170
+My SQL root password and I'm going to save a pro DB pass.
+
+23
+00:01:43,040 --> 00:01:47,870
+One more database so it can create a database named as accounts.
+
+24
+00:01:50,110 --> 00:01:55,450
+And we can use add or copy command to copy your SQL file in that.
+
+25
+00:01:55,450 --> 00:01:59,050
+So we will copy the SQL file from our source code.
+
+26
+00:02:00,280 --> 00:02:03,430
+So SQL file is DB underscore backup SQL.
+
+27
+00:02:05,230 --> 00:02:08,229
+And as per documentation, we have to push it in this location.
+
+28
+00:02:10,030 --> 00:02:13,120
+Okay, let's copy this SQL file in this directory.
+
+29
+00:02:14,300 --> 00:02:16,610
+So if you have in the source code.
+
+30
+00:02:17,920 --> 00:02:18,670
+Mean.
+
+31
+00:02:19,690 --> 00:02:20,720
+Resources.
+
+32
+00:02:20,740 --> 00:02:21,760
+That's the file.
+
+33
+00:02:23,670 --> 00:02:24,990
+So let's copy it.
+
+34
+00:02:28,060 --> 00:02:29,260
+And this location.
+
+35
+00:02:39,710 --> 00:02:40,850
+Yeah, it's there.
+
+36
+00:02:42,320 --> 00:02:48,770
+So when we have it in this place, when we say Doctor Bill is going to copy this SQL file into our container.
+
+37
+00:02:50,090 --> 00:02:51,170
+Okay, one more.
+

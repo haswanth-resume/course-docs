@@ -1,0 +1,544 @@
+1
+00:00:00,810 --> 00:00:08,100
+In order to build and test our application container, we need the artifact now, with the right application
+
+2
+00:00:08,340 --> 00:00:11,310
+properties file for our V profile application.
+
+3
+00:00:11,310 --> 00:00:13,170
+So let's get in our VM.
+
+4
+00:00:14,950 --> 00:00:16,690
+That's where we are running Docker.
+
+5
+00:00:18,410 --> 00:00:22,910
+And we're going to go to Directory slash Vagrant, which is a single directory, and we should find
+
+6
+00:00:22,910 --> 00:00:25,190
+our Vpro file project directory there.
+
+7
+00:00:27,720 --> 00:00:33,030
+And we find the Docker files directory there that we created and all the other three directories.
+
+8
+00:00:37,730 --> 00:00:43,430
+So if we have Docker files in every directory plus in DB directory, we have a DB SQL file and in web
+
+9
+00:00:43,430 --> 00:00:45,740
+directory we also have the engine configuration file.
+
+10
+00:00:45,740 --> 00:00:52,370
+We have to make sure in the app directory we put our artifact path staggered slash v pro file hyphen
+
+11
+00:00:52,370 --> 00:00:53,540
+v two dot var.
+
+12
+00:00:54,550 --> 00:00:56,740
+So let's build our artifact.
+
+13
+00:00:59,850 --> 00:01:01,020
+V profile project.
+
+14
+00:01:01,020 --> 00:01:06,570
+So being the directory source code directory where we have bombed out the XML file, we need MAVEN and
+
+15
+00:01:06,570 --> 00:01:10,620
+for me when we need JDK, so we'll first install JDK.
+
+16
+00:01:12,420 --> 00:01:16,120
+Open JDK hyphen eight hyphen JDK.
+
+17
+00:01:16,140 --> 00:01:17,070
+Should be fine.
+
+18
+00:01:19,980 --> 00:01:27,200
+Okay, so let's install JDK and also we need to install MAVEN after that.
+
+19
+00:01:31,790 --> 00:01:33,440
+So that's going to take some time.
+
+20
+00:01:33,470 --> 00:01:35,990
+I'll pause my screen and come back when it's done.
+
+21
+00:01:37,200 --> 00:01:39,240
+Okay, so the installation completed.
+
+22
+00:01:39,750 --> 00:01:45,090
+Now we are going to build our artifact, but before that, we need to fill in the detail of our backend
+
+23
+00:01:45,090 --> 00:01:45,990
+services.
+
+24
+00:01:46,950 --> 00:01:51,300
+So our application container can connect to backend services.
+
+25
+00:01:51,300 --> 00:01:53,940
+DB Mem cache rabbit MQ.
+
+26
+00:01:54,210 --> 00:02:01,530
+So in RC directory in our source code main resources, we have application properties file.
+
+27
+00:02:02,450 --> 00:02:05,820
+Okay, so the backend service name for DB is Wipro DB.
+
+28
+00:02:05,840 --> 00:02:10,759
+So we have to make sure we launch the container with this name on port.
+
+29
+00:02:10,789 --> 00:02:17,930
+Exposed on port 3306 and it should have a database named accounts username root and password with pro
+
+30
+00:02:17,930 --> 00:02:18,890
+db pass.
+
+31
+00:02:20,370 --> 00:02:22,770
+If you check our DB Docker file.
+
+32
+00:02:23,840 --> 00:02:26,780
+We are setting the PDB bar and accounts database in that.
+
+33
+00:02:27,350 --> 00:02:32,210
+And this path is for the root user, this password, my SQL route user.
+
+34
+00:02:32,330 --> 00:02:34,220
+So that is taken care.
+
+35
+00:02:34,460 --> 00:02:38,690
+But we have to make sure when we run the container, it should be with this name.
+
+36
+00:02:39,450 --> 00:02:43,710
+If you're going to run the DB container with a different name, then make sure you make the changes
+
+37
+00:02:43,710 --> 00:02:46,290
+over here and also the port number.
+
+38
+00:02:46,320 --> 00:02:50,970
+Similar way mem cache container should be running with this name.
+
+39
+00:02:51,240 --> 00:02:55,140
+If you wish to change the name of the container, then make sure you change it.
+
+40
+00:02:55,470 --> 00:02:56,820
+Also the port number one.
+
+41
+00:02:56,820 --> 00:02:57,930
+One, two, one, one.
+
+42
+00:03:00,020 --> 00:03:06,500
+Rabbit MK Repro MK zero one should be the name of the container Port 15672.
+
+43
+00:03:07,340 --> 00:03:10,250
+User guest and the password.
+
+44
+00:03:12,110 --> 00:03:13,520
+Should be also guessed.
+
+45
+00:03:14,480 --> 00:03:17,830
+So while we're building the images, we have to take care of these things.
+
+46
+00:03:17,840 --> 00:03:19,450
+We're building the DB image.
+
+47
+00:03:19,460 --> 00:03:22,940
+So we need to take care of this user password and port numbers.
+
+48
+00:03:24,570 --> 00:03:28,890
+But anyways, just my SQL container is exposed on port 3306.
+
+49
+00:03:29,400 --> 00:03:34,860
+And anyways, we are going to map a host port with it so we can connect it from outside also.
+
+50
+00:03:35,580 --> 00:03:36,990
+This is for initial test.
+
+51
+00:03:37,560 --> 00:03:40,290
+But in Kubernetes, Kubernetes, this may change.
+
+52
+00:03:40,860 --> 00:03:47,100
+So this application properties file is apt for our Docker environment and we really don't need to make
+
+53
+00:03:47,100 --> 00:03:48,070
+any change now.
+
+54
+00:03:48,090 --> 00:03:49,470
+Let's build our artifact.
+
+55
+00:03:51,050 --> 00:03:56,540
+So in the project directory, we're going to say move an install.
+
+56
+00:03:58,920 --> 00:04:04,770
+This is going to take some time and I will pause my screen and come back when it is completed.
+
+57
+00:04:05,640 --> 00:04:08,340
+Case the bill is completed so we should have target v profile.
+
+58
+00:04:08,340 --> 00:04:09,750
+Hyphen v dot var.
+
+59
+00:04:11,310 --> 00:04:12,420
+Let's clear the screen.
+
+60
+00:04:14,180 --> 00:04:14,840
+There.
+
+61
+00:04:18,050 --> 00:04:20,029
+That's v profile v two dot var.
+
+62
+00:04:25,090 --> 00:04:29,350
+We have a docker file over here at this location, the same place.
+
+63
+00:04:29,350 --> 00:04:35,590
+We have to copy our target directory, or you can just copy the artifact, but it should be in the target
+
+64
+00:04:35,590 --> 00:04:36,310
+directory.
+
+65
+00:04:37,360 --> 00:04:38,980
+So Docker files.
+
+66
+00:04:39,830 --> 00:04:40,400
+App.
+
+67
+00:04:53,450 --> 00:04:57,200
+So the docket file is going to copy the artifact at this location.
+
+68
+00:04:57,220 --> 00:04:59,930
+Since the same location, we have target directory.
+
+69
+00:05:01,360 --> 00:05:03,400
+And we have profile hyphen v2 dot var.
+
+70
+00:05:03,400 --> 00:05:07,570
+If you wish to delete all those things you can delete except the artifact.
+
+71
+00:05:08,670 --> 00:05:08,920
+Okay.
+
+72
+00:05:08,950 --> 00:05:10,020
+We're all set.
+
+73
+00:05:10,200 --> 00:05:13,230
+A three doctor files are ready with the data.
+
+74
+00:05:13,260 --> 00:05:15,390
+Now we're going to build the images.
+
+75
+00:05:18,580 --> 00:05:19,840
+So let's do it one by one.
+
+76
+00:05:19,840 --> 00:05:23,770
+Let's get into the Docker Files Directory app.
+
+77
+00:05:25,780 --> 00:05:33,670
+Commands Docker build hyphen t and we have to give the account name, slash the image name.
+
+78
+00:05:33,700 --> 00:05:37,090
+We already have created the repository on Docker Hub.
+
+79
+00:05:41,900 --> 00:05:43,010
+Repositories.
+
+80
+00:05:45,030 --> 00:05:46,860
+So that's going to be the path.
+
+81
+00:05:48,740 --> 00:05:50,660
+We profile slash we pro app.
+
+82
+00:05:51,420 --> 00:05:52,790
+We can copy it from here.
+
+83
+00:05:59,100 --> 00:06:00,320
+And he will also give a tag.
+
+84
+00:06:00,330 --> 00:06:01,890
+We won the capital.
+
+85
+00:06:02,970 --> 00:06:04,290
+And let's say you enter.
+
+86
+00:06:07,130 --> 00:06:08,860
+We have to mention the Docker file part.
+
+87
+00:06:08,870 --> 00:06:10,580
+So I'm just going to say DART.
+
+88
+00:06:11,660 --> 00:06:13,700
+The Docker file is in current working directory.
+
+89
+00:06:17,380 --> 00:06:18,390
+Started building first.
+
+90
+00:06:18,400 --> 00:06:19,810
+It's going to fetch the image.
+
+91
+00:06:19,810 --> 00:06:21,010
+Tomcat image.
+
+92
+00:06:22,070 --> 00:06:23,690
+There touching the image.
+
+93
+00:06:25,700 --> 00:06:29,060
+So this is going to read our Docker file and execute every instruction.
+
+94
+00:06:29,060 --> 00:06:33,080
+And finally, the output should be we should have an image with this name.
+
+95
+00:06:36,150 --> 00:06:37,670
+Okay, that is completed.
+
+96
+00:06:37,670 --> 00:06:39,500
+Let's check Docker images.
+
+97
+00:06:40,550 --> 00:06:42,500
+And we have our image.
+
+98
+00:06:43,010 --> 00:06:44,720
+Let's build the other two image.
+
+99
+00:06:49,120 --> 00:06:49,810
+DB.
+
+100
+00:06:53,110 --> 00:06:53,670
+Again.
+
+101
+00:06:56,160 --> 00:07:00,030
+Docker build hyphen t.
+
+102
+00:07:01,430 --> 00:07:03,260
+Let's get our repository path.
+
+103
+00:07:06,880 --> 00:07:07,600
+DB.
+
+104
+00:07:16,990 --> 00:07:17,500
+Colon.
+
+105
+00:07:17,500 --> 00:07:19,870
+51..
+
+106
+00:07:22,460 --> 00:07:26,000
+Touching the Michael image that is completed.
+
+107
+00:07:26,000 --> 00:07:28,910
+Let's check again Docker images.
+
+108
+00:07:30,480 --> 00:07:30,890
+Okay.
+
+109
+00:07:30,900 --> 00:07:32,100
+That is also ready.
+
+110
+00:07:33,990 --> 00:07:38,040
+Okay, final image web.
+
+111
+00:07:39,120 --> 00:07:42,150
+That's the engine x image Docker build hyphen t.
+
+112
+00:07:49,520 --> 00:07:50,690
+Let's copy the part.
+
+113
+00:07:56,290 --> 00:07:59,140
+With one dot.
+
+114
+00:08:00,940 --> 00:08:02,560
+It's affecting the Internet's image.
+
+115
+00:08:06,240 --> 00:08:07,200
+Completed.
+
+116
+00:08:09,660 --> 00:08:10,160
+All right.
+
+117
+00:08:10,170 --> 00:08:14,190
+So we have three images that are customized.
+
+118
+00:08:14,610 --> 00:08:17,520
+We need to more image Robert McEwan cache.
+
+119
+00:08:17,520 --> 00:08:19,620
+We don't need any customization on that.
+
+120
+00:08:19,800 --> 00:08:27,210
+So we're going to simply pull them, say Docker pull Engine X without any tag.
+
+121
+00:08:27,210 --> 00:08:28,800
+So it's going to take the latest.
+
+122
+00:08:30,590 --> 00:08:31,820
+Not engine X, engine x.
+
+123
+00:08:31,820 --> 00:08:38,059
+We already have docker pull mem cache dx.
+
+124
+00:08:39,370 --> 00:08:41,140
+Yes, that image managed.
+
+125
+00:08:42,980 --> 00:08:45,200
+From our official Docker registry.
+
+126
+00:08:46,300 --> 00:08:47,170
+Let's pull it.
+
+127
+00:08:53,740 --> 00:08:54,790
+Dr..
+
+128
+00:08:55,770 --> 00:08:58,710
+Pull rabbit MQ.
+
+129
+00:09:01,220 --> 00:09:02,960
+The official rabbit image.
+
+130
+00:09:05,300 --> 00:09:06,200
+Let's pull it.
+
+131
+00:09:13,290 --> 00:09:15,690
+Okay, So we should be good by now.
+
+132
+00:09:19,000 --> 00:09:21,310
+So we have all the images that we need.
+
+133
+00:09:23,860 --> 00:09:28,990
+And Unix my SQL Tomcat Rabbit, MQ and MAM.
+
+134
+00:09:30,130 --> 00:09:36,250
+So if we have successfully containerized we can say, but we cannot guarantee that as long as we don't
+
+135
+00:09:36,250 --> 00:09:37,030
+test it.
+
+136
+00:09:37,700 --> 00:09:40,460
+And we're going to test it with Docker compose.
+

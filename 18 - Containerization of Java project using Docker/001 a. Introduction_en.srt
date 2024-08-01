@@ -1,0 +1,520 @@
+1
+00:00:11,360 --> 00:00:12,890
+Welcome to the project.
+
+2
+00:00:13,690 --> 00:00:16,239
+This project is about containerization.
+
+3
+00:00:16,570 --> 00:00:21,190
+We're going to see in this project how we can containerized an existing application.
+
+4
+00:00:22,500 --> 00:00:28,980
+But first, I will talk about when you should really start content raising or when you should use any
+
+5
+00:00:28,980 --> 00:00:30,000
+container technology.
+
+6
+00:00:30,000 --> 00:00:32,159
+What are the real use cases for that?
+
+7
+00:00:32,189 --> 00:00:36,960
+And I'll also inspire you based on the statistics that we have in the current market.
+
+8
+00:00:38,070 --> 00:00:39,860
+So let's understand the scenario first.
+
+9
+00:00:42,240 --> 00:00:47,910
+So let's say you have a multi tier application stack or you have many, many services in an application
+
+10
+00:00:47,910 --> 00:00:53,520
+stack that you manage as an operations team or as DevOps team.
+
+11
+00:00:54,280 --> 00:00:57,220
+And these services are running on Veeam.
+
+12
+00:00:57,490 --> 00:01:05,230
+It could be VMs of the VMware environment or it could be cloud environment like EC two instances on
+
+13
+00:01:05,239 --> 00:01:10,140
+a cloud, or it could be your running on physical machines in your own data center.
+
+14
+00:01:10,150 --> 00:01:12,760
+Point is you're running it on operating systems.
+
+15
+00:01:14,180 --> 00:01:20,630
+And as today's trend agile, we need to do continuous deployment for any changes.
+
+16
+00:01:21,890 --> 00:01:27,440
+Are not any changes, many changes and the continuous changes in today's time.
+
+17
+00:01:27,440 --> 00:01:32,030
+And we continuously do the we continually continuously need to do the deployments.
+
+18
+00:01:33,400 --> 00:01:36,100
+Let's see problems with this scenario.
+
+19
+00:01:40,660 --> 00:01:41,290
+Forces.
+
+20
+00:01:41,290 --> 00:01:43,270
+We have to spend a lot of money.
+
+21
+00:01:43,570 --> 00:01:49,600
+We have to either procure the resource or even if you're doing it on cloud platform, there's regular
+
+22
+00:01:49,810 --> 00:01:52,450
+operational expenditure, your regular bills you have.
+
+23
+00:01:53,330 --> 00:01:55,730
+And it's not just about spending.
+
+24
+00:01:55,760 --> 00:01:59,270
+Are we really using all those resources or not?
+
+25
+00:01:59,330 --> 00:02:04,760
+If you are running, let's say, an application service or a web service and it is having ten GB of
+
+26
+00:02:04,760 --> 00:02:12,980
+RAM, is it really using ten GB of RAM RAM like overall or if you take an average of of an entire year,
+
+27
+00:02:13,010 --> 00:02:19,880
+you will find out how much resource wastage is there and that resource resource wastage is very expensive.
+
+28
+00:02:19,880 --> 00:02:24,530
+So we are spending a lot to set up our multi tier application stack.
+
+29
+00:02:25,330 --> 00:02:29,680
+Also, when we are doing deployments, there are always chances of making human errors.
+
+30
+00:02:29,830 --> 00:02:32,290
+Automation can save that a lot.
+
+31
+00:02:32,560 --> 00:02:37,420
+But then again, you would be having different kinds of environment dev staging production and they
+
+32
+00:02:37,420 --> 00:02:39,580
+will be having different different versions, different.
+
+33
+00:02:39,850 --> 00:02:41,500
+They would not be in sync.
+
+34
+00:02:42,070 --> 00:02:44,830
+And the time is today of microservice architecture.
+
+35
+00:02:45,400 --> 00:02:52,000
+If you want to use microservice architecture and implement on OS directly running on the virtual machine,
+
+36
+00:02:52,000 --> 00:02:57,460
+then you will end up spending a lot of money because in microservice you have multiple substack in a
+
+37
+00:02:57,460 --> 00:02:58,090
+stack.
+
+38
+00:02:59,020 --> 00:03:02,200
+And the point is, we are not using all that resources.
+
+39
+00:03:02,200 --> 00:03:04,330
+Mostly there'll be resource wastages.
+
+40
+00:03:05,930 --> 00:03:12,350
+Also our environments are not in sync and that because of that reason, application is not portable.
+
+41
+00:03:12,530 --> 00:03:16,840
+If it works on deaf, there are chances it will fail on queue environment.
+
+42
+00:03:16,850 --> 00:03:20,720
+If it works on queue with there are chances it may fail on production environment.
+
+43
+00:03:27,240 --> 00:03:30,090
+Containers are really the solution that we are looking for.
+
+44
+00:03:30,850 --> 00:03:37,060
+If you can containerized an application, then you can save a lot of money because containers uses very
+
+45
+00:03:37,330 --> 00:03:38,650
+less resource.
+
+46
+00:03:39,790 --> 00:03:42,220
+Because there are no operating systems in that.
+
+47
+00:03:42,550 --> 00:03:48,700
+And if you're using low resources, then it's very much suitable for a microservice architecture.
+
+48
+00:03:50,950 --> 00:03:53,230
+So we don't have to spend a lot of money.
+
+49
+00:03:55,170 --> 00:03:56,390
+In containers.
+
+50
+00:03:56,400 --> 00:03:59,490
+Deployments are done via images.
+
+51
+00:04:02,400 --> 00:04:07,440
+So if you package your images properly with all the dependencies, all the binaries, all the libraries
+
+52
+00:04:07,440 --> 00:04:12,710
+necessary, then if it works on your laptop, it's going to work on a queue environment.
+
+53
+00:04:12,760 --> 00:04:18,120
+The same thing is going to be working on production environment because we have same container image
+
+54
+00:04:18,120 --> 00:04:20,130
+across all our environments.
+
+55
+00:04:22,600 --> 00:04:26,590
+And that should also make our stack reusable.
+
+56
+00:04:26,590 --> 00:04:29,320
+We can use the same stack across multiple environments.
+
+57
+00:04:29,320 --> 00:04:30,040
+It's repeatable.
+
+58
+00:04:30,040 --> 00:04:35,710
+We can very quickly imitate our stack from production to queue queue to production.
+
+59
+00:04:36,250 --> 00:04:38,200
+So there remains benefit that we get.
+
+60
+00:04:38,200 --> 00:04:42,520
+If you're container using our application, let's see some statistics.
+
+61
+00:04:50,350 --> 00:04:53,170
+Static statistics over here are to inspire you.
+
+62
+00:04:53,170 --> 00:04:53,770
+Really?
+
+63
+00:04:53,800 --> 00:05:03,100
+There are 50% of the organization have already made half of their application containers or the containerized
+
+64
+00:05:03,100 --> 00:05:04,520
+half of their application.
+
+65
+00:05:04,540 --> 00:05:05,200
+You can see.
+
+66
+00:05:05,910 --> 00:05:07,920
+And 50% today is a huge number.
+
+67
+00:05:08,220 --> 00:05:14,160
+And 29% out of them are running it, running containers for production.
+
+68
+00:05:14,310 --> 00:05:18,600
+The production sites, the production applications are powered by containers.
+
+69
+00:05:19,290 --> 00:05:25,980
+If you are a heavy cloud user, then you should know 78% of those people are using a platform to run
+
+70
+00:05:25,980 --> 00:05:27,000
+their containers.
+
+71
+00:05:27,600 --> 00:05:36,240
+If you are DevOps, then it's automatically assumed by 81% of the organization that you would be containerized
+
+72
+00:05:36,240 --> 00:05:38,670
+in the application or managing the containers.
+
+73
+00:05:39,300 --> 00:05:42,030
+So being DevOps, it directly affects us.
+
+74
+00:05:43,740 --> 00:05:49,470
+So let's see the tools that we're going to use in this project to customize our application.
+
+75
+00:05:52,800 --> 00:05:59,190
+So we are going to use a Docker as our container runtime environment to build images and we're going
+
+76
+00:05:59,190 --> 00:06:02,310
+to contemporize our V profile application stack.
+
+77
+00:06:03,110 --> 00:06:09,230
+In our very first projects where we have seen how to set up this stack on virtual machines, then we
+
+78
+00:06:09,230 --> 00:06:15,920
+have also seen how we can run it on a cloud by using lift and shift and RE architecture, the same V
+
+79
+00:06:15,920 --> 00:06:17,690
+profile application stack.
+
+80
+00:06:17,810 --> 00:06:23,600
+We have multiple services, Engine X, Tomcat, MySQL, mem, cache, rabbit and queue.
+
+81
+00:06:23,870 --> 00:06:25,750
+So this is the existing application.
+
+82
+00:06:25,760 --> 00:06:29,660
+We are going to containerized this application and run on Docker containers.
+
+83
+00:06:29,810 --> 00:06:33,710
+When I say Docker is a tool, we are not going to just use the Docker engine.
+
+84
+00:06:33,710 --> 00:06:37,910
+There will be Docker Compose and Docker Hub as well to host our images.
+
+85
+00:06:38,300 --> 00:06:40,280
+Let's see the steps that we are going to take.
+
+86
+00:06:44,600 --> 00:06:49,670
+So you should be aware about the steps to set up our V profile stack.
+
+87
+00:06:50,060 --> 00:06:52,880
+And for that, you can go and check again.
+
+88
+00:06:53,160 --> 00:06:59,000
+And our first project where we are setting up a V profile application manually on virtual machines.
+
+89
+00:06:59,760 --> 00:07:02,640
+Once we know that, then we'll find the right base.
+
+90
+00:07:02,640 --> 00:07:06,630
+Images from Docker Hub for all the services that we're using.
+
+91
+00:07:06,630 --> 00:07:09,840
+Engine X, Tomcat, MySQL mem Cache Rabbit MQ.
+
+92
+00:07:10,170 --> 00:07:14,490
+Once we find the right base image, then we're going to write a docker file.
+
+93
+00:07:15,790 --> 00:07:17,230
+For the services that we need.
+
+94
+00:07:17,230 --> 00:07:22,270
+Customization, like, for example, Tomcat, we're going to deploy our artifact inside that.
+
+95
+00:07:22,270 --> 00:07:24,220
+So that needs customization.
+
+96
+00:07:24,220 --> 00:07:31,180
+Engine X, we need some our own configuration changes or my we need to have our own data, our own table,
+
+97
+00:07:31,180 --> 00:07:31,930
+our own schema.
+
+98
+00:07:31,930 --> 00:07:37,990
+So we'll figure out which service we need customization and we're going to write Docker file for it.
+
+99
+00:07:38,350 --> 00:07:40,300
+And with that, we're going to build the image.
+
+100
+00:07:40,300 --> 00:07:47,730
+Then once we have the image ready, we're going to use Docker to test all our containers.
+
+101
+00:07:47,740 --> 00:07:54,610
+So we have a multi container environment, we have engine x, Tomcat, mem cache rabbit MQ, my SQL.
+
+102
+00:07:54,610 --> 00:08:00,130
+So we're going to write a Docker compose file which will launch all these containers together from the
+
+103
+00:08:00,130 --> 00:08:01,630
+image that we have built.
+
+104
+00:08:02,980 --> 00:08:04,840
+Once we have that, we're going to test it.
+
+105
+00:08:06,170 --> 00:08:10,700
+If it checks, if everything checks out, fine, then we are going to host our images on Docker Hub.
+
+106
+00:08:10,700 --> 00:08:12,650
+So we'll push our images on Docker Hub.
+
+107
+00:08:16,430 --> 00:08:18,320
+Okay, then let's get started.
+
+108
+00:08:18,620 --> 00:08:21,710
+Let's do containerization using Docker.
+
+109
+00:08:22,070 --> 00:08:24,560
+But before that, let's see the architectural design.
+
+110
+00:08:25,040 --> 00:08:29,690
+So first we're going to fetch in our source code from our git repository.
+
+111
+00:08:31,020 --> 00:08:34,590
+And we're going to do the entire Docker workflow.
+
+112
+00:08:35,250 --> 00:08:37,289
+First, we're going to write Docker file.
+
+113
+00:08:38,080 --> 00:08:40,600
+For the services that needs customization.
+
+114
+00:08:40,600 --> 00:08:46,480
+So we have Engine X, Tomcat and MySQL, so we have to write three Docker files.
+
+115
+00:08:46,600 --> 00:08:51,610
+Once we have written Docker file in our source code, then we are going to use a Docker build command
+
+116
+00:08:51,790 --> 00:08:55,570
+which will get executed on a Docker engine in a Docker file.
+
+117
+00:08:55,570 --> 00:08:57,160
+We should have mentioned the base image.
+
+118
+00:08:57,160 --> 00:09:00,580
+This base images will be pulled from Docker Hub.
+
+119
+00:09:01,750 --> 00:09:06,880
+So Tomcat, Engine X and MySQL, these are three images that we are going to pull and customize them.
+
+120
+00:09:09,490 --> 00:09:12,670
+So Docker will Command is going to read the Docker file.
+
+121
+00:09:12,970 --> 00:09:14,410
+Build our image.
+
+122
+00:09:14,650 --> 00:09:18,520
+Once our images are ready, we're going to use a Docker compose.
+
+123
+00:09:19,150 --> 00:09:24,160
+We'll mention all the containers with the images and then we're going to test it.
+
+124
+00:09:25,290 --> 00:09:31,530
+Once it checks out, fine, then we're going to push our Docker images, the customised Docker images,
+
+125
+00:09:31,920 --> 00:09:34,500
+to Docker Hub in our own account.
+
+126
+00:09:36,190 --> 00:09:39,400
+So that's the entire Docker workflow that we are going to do.
+
+127
+00:09:40,120 --> 00:09:46,300
+To do this, you should have basic understanding of what is a container, what is Docker, how it works,
+
+128
+00:09:46,300 --> 00:09:52,450
+and you should have some hands on experience with Docker, like how to run a Docker container.
+
+129
+00:09:52,720 --> 00:09:55,360
+And very, very basic things of Dockers.
+
+130
+00:09:55,540 --> 00:09:58,870
+So if you're done here, join me in the exercise.
+

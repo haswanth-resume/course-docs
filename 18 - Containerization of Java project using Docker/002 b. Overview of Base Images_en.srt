@@ -1,0 +1,664 @@
+1
+00:00:01,330 --> 00:00:05,340
+So I'm on GitHub on our Repository V profile hyphen project.
+
+2
+00:00:05,350 --> 00:00:07,720
+I'm on branch local hyphen setup.
+
+3
+00:00:08,050 --> 00:00:11,320
+In this branch there is a vagrant directory.
+
+4
+00:00:13,090 --> 00:00:14,920
+And we have manual provisioning.
+
+5
+00:00:16,059 --> 00:00:19,720
+And these are a pdf to set up our services.
+
+6
+00:00:20,970 --> 00:00:28,560
+As I discussed previously, you should have already set up this project locally on your machine, manually
+
+7
+00:00:28,560 --> 00:00:34,200
+or automatically, and you should know what are the steps that are involved in setting up a V profile
+
+8
+00:00:34,200 --> 00:00:34,950
+project.
+
+9
+00:00:35,250 --> 00:00:38,910
+Because this is the project which we are going to contain arise.
+
+10
+00:00:39,000 --> 00:00:43,900
+So if you have not done it, I recommend you do that project first.
+
+11
+00:00:43,920 --> 00:00:45,750
+We profile set up locally.
+
+12
+00:00:47,360 --> 00:00:48,890
+So in this project.
+
+13
+00:00:50,010 --> 00:00:59,070
+We have six services, but we used five services Engine X Rabbit, MQ, Tomcat, MEM Cache and MySQL.
+
+14
+00:01:01,720 --> 00:01:03,700
+Is my skill set up document.
+
+15
+00:01:04,269 --> 00:01:11,050
+So if we have to contain a race or mix equal set up, then we should know what our steps that we have
+
+16
+00:01:11,050 --> 00:01:11,680
+taken.
+
+17
+00:01:12,130 --> 00:01:19,780
+If you just need a MySQL service running with username, database and password, then you can directly
+
+18
+00:01:19,780 --> 00:01:21,370
+fetch an image from Docker Hub.
+
+19
+00:01:22,320 --> 00:01:25,390
+So it is good to go to our hub Explore.
+
+20
+00:01:27,900 --> 00:01:29,190
+Search for image.
+
+21
+00:01:29,190 --> 00:01:30,180
+My school.
+
+22
+00:01:32,350 --> 00:01:34,420
+So we have my skull image over there.
+
+23
+00:01:34,420 --> 00:01:35,800
+It's an official image.
+
+24
+00:01:36,100 --> 00:01:39,220
+Official image, and it's quite popular.
+
+25
+00:01:42,670 --> 00:01:47,170
+And this is Linux based x86 64 bit as in our project.
+
+26
+00:01:47,170 --> 00:01:50,380
+Also, we're running my SQL service on a Linux machine.
+
+27
+00:01:51,070 --> 00:01:54,250
+And we need MySQL 5.6.
+
+28
+00:01:55,780 --> 00:02:01,750
+Or any five major vision and major vision five and minor vision can be anything.
+
+29
+00:02:01,960 --> 00:02:02,830
+So.
+
+30
+00:02:03,750 --> 00:02:06,360
+Support the tax and respect your Dr. Phil links.
+
+31
+00:02:06,450 --> 00:02:11,160
+So we have five or six so we can go with that tag.
+
+32
+00:02:14,840 --> 00:02:16,340
+We can see or hear.
+
+33
+00:02:16,850 --> 00:02:24,170
+What are the steps to run this container from the image Docker run in name given name hyphen E.
+
+34
+00:02:25,120 --> 00:02:31,180
+We set a variable which is going to set a MySQL root password hyphen D for background and the image
+
+35
+00:02:31,180 --> 00:02:32,920
+name colon the tag.
+
+36
+00:02:34,050 --> 00:02:37,380
+We should be very well-versed with the image that you're going to use in our project.
+
+37
+00:02:37,380 --> 00:02:39,420
+We should know everything about that image.
+
+38
+00:02:39,870 --> 00:02:42,720
+Like, what are the variables that we need to set, for example?
+
+39
+00:02:45,130 --> 00:02:50,290
+And other things like port numbers, home directories, all those things you should be aware about.
+
+40
+00:02:52,360 --> 00:02:55,120
+How we can put it in Docker compose is also.
+
+41
+00:02:56,500 --> 00:02:57,910
+Document of that.
+
+42
+00:03:00,850 --> 00:03:06,070
+You want to check the log, you can see Docker logs and the container name configuration file if you
+
+43
+00:03:06,070 --> 00:03:09,850
+want, if you want to change the configuration of our MySQL service.
+
+44
+00:03:10,300 --> 00:03:13,420
+And this is the file if you want to put our own configuration file.
+
+45
+00:03:14,320 --> 00:03:22,220
+Then we can volume map this with our host directory with hyphen v option.
+
+46
+00:03:22,240 --> 00:03:29,080
+So our configuration located in this directory can be mapped with this directory inside the container.
+
+47
+00:03:31,500 --> 00:03:35,970
+So read this document very well so you can follow along with me.
+
+48
+00:03:36,240 --> 00:03:37,380
+Environment Variable.
+
+49
+00:03:37,380 --> 00:03:38,580
+My SQL root password.
+
+50
+00:03:38,580 --> 00:03:40,170
+We can set my SQL database.
+
+51
+00:03:40,170 --> 00:03:40,740
+We can set.
+
+52
+00:03:40,740 --> 00:03:44,160
+So let's go to our document.
+
+53
+00:03:44,520 --> 00:03:53,220
+So we are setting up my SQL, my DB, my SQL Secure installation, and we are creating user called us
+
+54
+00:03:53,220 --> 00:03:53,970
+Admin.
+
+55
+00:03:55,920 --> 00:03:57,860
+Identified by ID one one, two, three.
+
+56
+00:03:57,870 --> 00:03:59,880
+The password is a username and password we have to set.
+
+57
+00:03:59,880 --> 00:04:01,590
+We can set that through variables.
+
+58
+00:04:02,500 --> 00:04:06,130
+We are to create a database named accounts so we can do that also.
+
+59
+00:04:07,140 --> 00:04:08,610
+By setting a variable.
+
+60
+00:04:09,690 --> 00:04:13,350
+My SQL underscore database and we can set the value accounts.
+
+61
+00:04:14,410 --> 00:04:15,110
+Still here.
+
+62
+00:04:15,110 --> 00:04:16,339
+It may not look that.
+
+63
+00:04:16,670 --> 00:04:19,310
+It may not seem that we need to make any customization.
+
+64
+00:04:19,310 --> 00:04:21,829
+But if you see, we are also.
+
+65
+00:04:23,060 --> 00:04:26,330
+Returning some queries from this file which create our schema.
+
+66
+00:04:27,590 --> 00:04:29,030
+So how can we do that?
+
+67
+00:04:31,660 --> 00:04:35,290
+So if we come down over here, there's initializing a fresh instance.
+
+68
+00:04:35,860 --> 00:04:41,770
+So as per the document, it says that when you run the container, when you bring up the container,
+
+69
+00:04:41,770 --> 00:04:48,370
+you put anything with an extension of dot ssh or dot SQL or dot, dot GZ.
+
+70
+00:04:48,490 --> 00:04:50,980
+In this part of the container.
+
+71
+00:04:51,950 --> 00:04:54,800
+Then the files will be executed in alphabetical order.
+
+72
+00:04:55,340 --> 00:04:58,010
+So, DOT SQL, we have a skill file.
+
+73
+00:05:01,060 --> 00:05:07,450
+And we can put it into this location when bringing up the container and those files will be initiated.
+
+74
+00:05:08,050 --> 00:05:10,960
+And that means we really need to make no customization.
+
+75
+00:05:10,960 --> 00:05:12,700
+We need to create our own image.
+
+76
+00:05:13,210 --> 00:05:18,190
+So my SQL, we definitely need to create our own image into customize.
+
+77
+00:05:20,280 --> 00:05:21,600
+Mom cash setup.
+
+78
+00:05:21,750 --> 00:05:27,670
+We install mimecast service, we start an enabled mimecast service and we run it on port 112, one one.
+
+79
+00:05:27,690 --> 00:05:29,280
+It's very simple setup.
+
+80
+00:05:29,400 --> 00:05:33,120
+I think we should be able to find an image on Docker hub which can do that.
+
+81
+00:05:33,120 --> 00:05:34,680
+We don't need customization.
+
+82
+00:05:34,860 --> 00:05:35,910
+Let's check.
+
+83
+00:05:39,220 --> 00:05:42,790
+Let's search for mem cache RD.
+
+84
+00:05:44,120 --> 00:05:45,980
+And there is an image managed.
+
+85
+00:05:49,030 --> 00:05:50,980
+So you don't need any special customisation.
+
+86
+00:05:50,980 --> 00:05:52,600
+We just want to run the service on port.
+
+87
+00:05:52,600 --> 00:05:53,950
+One, one, two, one, one.
+
+88
+00:05:54,370 --> 00:05:58,810
+Does it support that we run cache service image variants?
+
+89
+00:05:59,920 --> 00:06:00,080
+Okay.
+
+90
+00:06:00,140 --> 00:06:03,790
+It seems like there is not much information about the port over here.
+
+91
+00:06:04,450 --> 00:06:05,800
+Let's try to find one.
+
+92
+00:06:05,800 --> 00:06:06,790
+One, two, one, one.
+
+93
+00:06:06,820 --> 00:06:10,920
+There's no such information, so we can check the Docker file.
+
+94
+00:06:10,930 --> 00:06:13,210
+Let's check the latest Docker file.
+
+95
+00:06:14,950 --> 00:06:18,130
+And we should look for export support.
+
+96
+00:06:19,970 --> 00:06:20,600
+Exports.
+
+97
+00:06:20,600 --> 00:06:22,040
+One, one, two, one, one.
+
+98
+00:06:22,250 --> 00:06:23,660
+I think that should be good.
+
+99
+00:06:23,660 --> 00:06:27,350
+Then it runs mimecast service on port 112, one one.
+
+100
+00:06:27,590 --> 00:06:30,020
+So we don't need to make any customization.
+
+101
+00:06:31,910 --> 00:06:33,500
+Okay, so that's good.
+
+102
+00:06:33,980 --> 00:06:35,410
+Let's check out other service.
+
+103
+00:06:35,420 --> 00:06:35,810
+Rabbit.
+
+104
+00:06:35,810 --> 00:06:40,070
+MQ Rabbit MQ is quite a long set of we have seen.
+
+105
+00:06:41,200 --> 00:06:42,890
+That's because of the dependencies.
+
+106
+00:06:42,900 --> 00:06:48,390
+But if we have the directly a service from a container, we don't need to do those, all those dependencies.
+
+107
+00:06:49,870 --> 00:06:53,050
+So we can find an image that runs Rabbit Q service.
+
+108
+00:06:53,470 --> 00:06:55,120
+We need some customization.
+
+109
+00:06:55,210 --> 00:06:58,780
+We need a user called test with password test.
+
+110
+00:06:58,780 --> 00:07:05,380
+Or we can give different username password, but we need a rabbit MQ user and we need with a tag administrator.
+
+111
+00:07:06,440 --> 00:07:11,270
+So let's find an image of rabbit and let's see if we can do that customization or else we have to build
+
+112
+00:07:11,270 --> 00:07:12,110
+our image.
+
+113
+00:07:17,130 --> 00:07:18,450
+Okay, this rabbit on cue.
+
+114
+00:07:23,830 --> 00:07:26,290
+So we can run rabbit surveys like that.
+
+115
+00:07:26,710 --> 00:07:32,470
+Ideally, you should run these containers on some machine and check them.
+
+116
+00:07:32,470 --> 00:07:35,110
+Test them before we try to use them.
+
+117
+00:07:36,190 --> 00:07:37,750
+But we'll do along the way.
+
+118
+00:07:38,840 --> 00:07:41,250
+So it has support for some along cookie.
+
+119
+00:07:41,270 --> 00:07:43,160
+We don't need those things.
+
+120
+00:07:44,190 --> 00:07:45,300
+Node name.
+
+121
+00:07:45,300 --> 00:07:48,300
+We don't need to set up any node name management plugin.
+
+122
+00:07:48,780 --> 00:07:52,260
+We may need a management plugin so that option is there.
+
+123
+00:07:52,260 --> 00:07:55,770
+We can do that and the steps to do it with default.
+
+124
+00:07:55,770 --> 00:07:57,680
+Username and password.
+
+125
+00:07:57,690 --> 00:07:58,260
+Guessed guessed.
+
+126
+00:07:58,260 --> 00:08:01,140
+So default username and password is guessed guessed.
+
+127
+00:08:01,470 --> 00:08:07,740
+But can we override that if you need our own username and password setting Default username and password.
+
+128
+00:08:07,920 --> 00:08:11,310
+Yes, we can set this user this variable.
+
+129
+00:08:12,430 --> 00:08:14,110
+Default user and pass.
+
+130
+00:08:14,710 --> 00:08:16,150
+So I think this is good.
+
+131
+00:08:16,330 --> 00:08:20,590
+So if we don't then need to make any customization, we can just take this image, official image,
+
+132
+00:08:20,590 --> 00:08:22,600
+and we can use it in our project.
+
+133
+00:08:23,490 --> 00:08:23,700
+All right.
+
+134
+00:08:23,700 --> 00:08:26,970
+So, so far, only my SQL image that we need to customize.
+
+135
+00:08:26,970 --> 00:08:30,090
+Ma'am cache rabbit name Q Both We can use official image directly.
+
+136
+00:08:30,900 --> 00:08:31,740
+Tomcat.
+
+137
+00:08:32,190 --> 00:08:33,299
+Now, this is our main hero.
+
+138
+00:08:33,299 --> 00:08:34,590
+This is where our artifact lives.
+
+139
+00:08:34,590 --> 00:08:40,559
+And definitely there is no question that we have to customize and create our own image for this because
+
+140
+00:08:40,559 --> 00:08:43,260
+of product or artifact is really going to run on this.
+
+141
+00:08:43,260 --> 00:08:47,700
+So you won't find anyone who is giving you an image that has your application.
+
+142
+00:08:47,700 --> 00:08:50,280
+So you have to take a tomcat image, that is for sure.
+
+143
+00:08:50,280 --> 00:08:54,750
+But what all customization we need is find out about apart from artifact.
+
+144
+00:08:55,980 --> 00:08:59,580
+So steps are to set up Tomcat service so we can find an image for that.
+
+145
+00:08:59,580 --> 00:09:00,710
+So here we are.
+
+146
+00:09:00,720 --> 00:09:01,230
+Good.
+
+147
+00:09:02,200 --> 00:09:03,420
+Now it could build and deploy.
+
+148
+00:09:03,430 --> 00:09:05,560
+So we need to build our artifact.
+
+149
+00:09:06,470 --> 00:09:12,950
+We have to update this application on properties file so we can put that into our artifact itself before
+
+150
+00:09:12,950 --> 00:09:13,580
+even we build.
+
+151
+00:09:13,580 --> 00:09:18,830
+We can update application properties file with back end services, name, port number, username and
+
+152
+00:09:18,830 --> 00:09:20,900
+password and.
+
+153
+00:09:22,010 --> 00:09:22,580
+That's said.
+
+154
+00:09:23,480 --> 00:09:29,360
+So we need to take a Tomcat image, Tomcat container and we need to put our artifact with right back
+
+155
+00:09:29,360 --> 00:09:31,160
+end details in application properties file.
+
+156
+00:09:31,160 --> 00:09:33,140
+So that is the only customization we need.
+
+157
+00:09:34,330 --> 00:09:35,970
+Okay, so my SQL and Tomcat.
+
+158
+00:09:35,980 --> 00:09:41,060
+We need to create our own image engine setup engine.
+
+159
+00:09:41,500 --> 00:09:45,280
+We need to run the engine service with this configuration.
+
+160
+00:09:46,470 --> 00:09:49,500
+So we may need to build or we may not need to build.
+
+161
+00:09:49,530 --> 00:09:50,880
+There are two ways to do it.
+
+162
+00:09:51,150 --> 00:09:56,280
+While we run a container, we can put our configuration in that while running it like as a volume.
+
+163
+00:09:57,170 --> 00:10:00,360
+Or we can build an image with this configuration file.
+
+164
+00:10:00,380 --> 00:10:03,350
+So this configuration is always there in our image.
+
+165
+00:10:03,560 --> 00:10:06,200
+So whatever suits your need, you can go with that.
+
+166
+00:10:07,040 --> 00:10:10,670
+So we will build image also for engineers.
+

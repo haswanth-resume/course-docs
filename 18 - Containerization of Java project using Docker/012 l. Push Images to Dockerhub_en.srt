@@ -1,0 +1,184 @@
+1
+00:00:00,180 --> 00:00:07,890
+So once you've performed all your tests and you feel now your containers are right, then you can finally
+
+2
+00:00:07,890 --> 00:00:10,530
+push your images to Docker Hub.
+
+3
+00:00:11,400 --> 00:00:12,900
+So let's go to.
+
+4
+00:00:14,370 --> 00:00:15,240
+Oh, sure.
+
+5
+00:00:15,290 --> 00:00:15,610
+Okay.
+
+6
+00:00:15,620 --> 00:00:17,300
+I have to close this control.
+
+7
+00:00:17,330 --> 00:00:20,780
+See if I do control C, all the containers will be stopped.
+
+8
+00:00:21,110 --> 00:00:22,730
+But we'll bring it up again.
+
+9
+00:00:23,030 --> 00:00:24,650
+We'll run it in the background.
+
+10
+00:00:25,310 --> 00:00:32,119
+So we have to say Docker compose hyphen up, hyphen, hyphen d, So it's going to be running in background.
+
+11
+00:00:32,119 --> 00:00:34,370
+Then we will not be seeing the logs.
+
+12
+00:00:34,820 --> 00:00:41,060
+If you wish to see log of any container, you can just say Docker logs and you can give a container
+
+13
+00:00:41,060 --> 00:00:44,420
+name like compose a pro DB.
+
+14
+00:00:45,360 --> 00:00:47,070
+So it should show you all the logs.
+
+15
+00:00:49,370 --> 00:00:50,990
+So that's fine.
+
+16
+00:00:51,260 --> 00:00:54,800
+Now it's time to push our image to Docker Hub.
+
+17
+00:00:54,890 --> 00:00:56,860
+So we are going to do Docker login.
+
+18
+00:00:56,870 --> 00:00:59,750
+If you're using Docker Hub, you just need to say Docker login.
+
+19
+00:00:59,750 --> 00:01:02,060
+By default, it will go to Docker Hub.
+
+20
+00:01:03,500 --> 00:01:06,080
+So I'm going to give my account name.
+
+21
+00:01:08,670 --> 00:01:10,260
+And password.
+
+22
+00:01:15,190 --> 00:01:16,660
+And it says Login succeeded.
+
+23
+00:01:16,660 --> 00:01:19,240
+I have logged in and it's very easy to push.
+
+24
+00:01:19,250 --> 00:01:21,220
+I'm just going to say Docker push.
+
+25
+00:01:21,820 --> 00:01:24,010
+Let's push our app image first.
+
+26
+00:01:24,010 --> 00:01:27,760
+Colon tag we have to mention because there's no latest.
+
+27
+00:01:31,240 --> 00:01:33,850
+So it's pushing it on Docker Hub now.
+
+28
+00:01:36,440 --> 00:01:38,600
+That one image goes up on Docker Hub.
+
+29
+00:01:38,600 --> 00:01:42,770
+Lets push push the other image web.
+
+30
+00:01:48,070 --> 00:01:49,390
+And one more.
+
+31
+00:01:50,580 --> 00:01:51,400
+DB.
+
+32
+00:01:54,490 --> 00:01:54,820
+Okay.
+
+33
+00:01:54,850 --> 00:01:56,140
+The third image also.
+
+34
+00:01:56,470 --> 00:01:58,480
+Now let's go to Docker Hub.
+
+35
+00:02:02,130 --> 00:02:03,510
+Our repositories.
+
+36
+00:02:05,970 --> 00:02:06,910
+Okay, so let's see.
+
+37
+00:02:06,930 --> 00:02:07,650
+DB.
+
+38
+00:02:10,620 --> 00:02:12,930
+Okay, so there's a V1 tag.
+
+39
+00:02:14,160 --> 00:02:17,850
+And you can anytime, say, Docker pool.
+
+40
+00:02:17,850 --> 00:02:22,500
+It's a public repository, so anybody in the world can say Dr. Poole and the image name and pull it.
+
+41
+00:02:23,840 --> 00:02:25,160
+See the tags there.
+
+42
+00:02:28,440 --> 00:02:29,290
+Bills.
+
+43
+00:02:29,610 --> 00:02:36,210
+So if you want, you can have your Docker half file on your GitHub or Bitbucket and you can link it
+
+44
+00:02:36,210 --> 00:02:42,720
+with Docker Hub and it can for every comment, it will fetch your image, fetch all your Docker, have
+
+45
+00:02:42,720 --> 00:02:44,280
+file and build the image.
+
+46
+00:02:44,460 --> 00:02:45,600
+It can do that for you.
+

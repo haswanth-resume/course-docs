@@ -1,0 +1,544 @@
+1
+00:00:00,300 --> 00:00:08,010
+Now we're going to fetch our source code and we'll write Docker file to build three images Engine X,
+
+2
+00:00:08,189 --> 00:00:10,860
+Tomcat and MySQL.
+
+3
+00:00:14,190 --> 00:00:16,740
+I will use intelligence to fetch the code.
+
+4
+00:00:17,670 --> 00:00:24,450
+I'm going to store this project in the same place where we have created the vagrant file so we can access
+
+5
+00:00:24,450 --> 00:00:26,520
+it from our VM also.
+
+6
+00:00:26,970 --> 00:00:28,680
+So let's go file.
+
+7
+00:00:30,310 --> 00:00:32,830
+New project from version Control.
+
+8
+00:00:36,010 --> 00:00:37,630
+So our source code.
+
+9
+00:00:43,150 --> 00:00:44,110
+Docker engine.
+
+10
+00:00:44,110 --> 00:00:47,860
+This is the directory where I'm going to create my repository.
+
+11
+00:00:47,860 --> 00:00:50,950
+I will create a new directory inside this new folder.
+
+12
+00:00:52,000 --> 00:00:55,060
+So if we profile hyphen project.
+
+13
+00:01:00,400 --> 00:01:00,650
+Okay.
+
+14
+00:01:00,670 --> 00:01:04,629
+Make sure it's in the same directory where you have the vagrant file.
+
+15
+00:01:05,080 --> 00:01:08,890
+So it'll be easy for us to build images from our docker file then.
+
+16
+00:01:15,380 --> 00:01:15,920
+Okay.
+
+17
+00:01:16,070 --> 00:01:17,210
+Let's clone it.
+
+18
+00:01:22,710 --> 00:01:24,900
+Okay, let's shift to the branch.
+
+19
+00:01:27,420 --> 00:01:28,170
+Dr..
+
+20
+00:01:29,360 --> 00:01:30,800
+In VP hyphen Docker Ranch.
+
+21
+00:01:30,800 --> 00:01:32,000
+You already have the Docker file.
+
+22
+00:01:32,000 --> 00:01:34,670
+If you wish, you can check those Docker files as well.
+
+23
+00:01:35,000 --> 00:01:37,250
+But we're going to build it from scratch.
+
+24
+00:01:38,360 --> 00:01:39,710
+Check out this branch.
+
+25
+00:01:45,540 --> 00:01:45,780
+Okay.
+
+26
+00:01:45,780 --> 00:01:49,590
+In Docker hyphen files in this directory, we'll write our Docker files.
+
+27
+00:01:50,970 --> 00:01:53,610
+Docker find reference documentation from Docker Hub.
+
+28
+00:01:53,610 --> 00:01:58,530
+If you don't have hands on building a Docker image, then you can check it from here.
+
+29
+00:01:58,530 --> 00:02:00,080
+How to build a Docker image.
+
+30
+00:02:00,090 --> 00:02:02,070
+You need to have a docker file.
+
+31
+00:02:05,370 --> 00:02:07,590
+Dr. File de Capital there.
+
+32
+00:02:08,830 --> 00:02:12,430
+And once you have Docker file, you're given the information about the image.
+
+33
+00:02:12,430 --> 00:02:14,410
+You can run the command Docker build.
+
+34
+00:02:16,050 --> 00:02:20,760
+Hyphen t your account name and slash the image name.
+
+35
+00:02:21,150 --> 00:02:22,650
+Account name will be.
+
+36
+00:02:24,560 --> 00:02:26,210
+The one that we have over here.
+
+37
+00:02:26,210 --> 00:02:29,240
+We can create a repository already in our organization.
+
+38
+00:02:32,090 --> 00:02:33,830
+So you go to repositories.
+
+39
+00:02:36,040 --> 00:02:39,670
+We need three images, so we already create a repository for it.
+
+40
+00:02:40,780 --> 00:02:42,970
+In our organization, we profile.
+
+41
+00:02:44,980 --> 00:02:47,860
+I will name first one V profile app.
+
+42
+00:02:48,790 --> 00:02:52,540
+This repository name will be for our Tomcat image.
+
+43
+00:02:54,160 --> 00:02:57,010
+And we're going to go with public repository.
+
+44
+00:02:58,560 --> 00:02:59,430
+To create.
+
+45
+00:03:03,180 --> 00:03:11,390
+Okay, So that will be the path of our repository V profile slash our repository name colon.
+
+46
+00:03:11,390 --> 00:03:16,430
+The tag like that, we'll build two more repository or we'll create two more repositories.
+
+47
+00:03:18,260 --> 00:03:19,610
+Create a repository.
+
+48
+00:03:21,930 --> 00:03:23,720
+And so if you profile.
+
+49
+00:03:24,720 --> 00:03:27,770
+Web where will host engineers?
+
+50
+00:03:31,980 --> 00:03:34,350
+Make sure you have selected your organization.
+
+51
+00:03:35,130 --> 00:03:36,060
+To create.
+
+52
+00:03:39,840 --> 00:03:42,060
+Let's create one more for my school.
+
+53
+00:03:44,860 --> 00:03:47,170
+We profile DB.
+
+54
+00:03:51,950 --> 00:03:52,400
+Mm hmm.
+
+55
+00:03:52,750 --> 00:03:53,970
+Repository.
+
+56
+00:03:55,750 --> 00:03:57,490
+Again create a repository.
+
+57
+00:03:58,790 --> 00:04:00,530
+We profile DB.
+
+58
+00:04:03,100 --> 00:04:03,850
+Create.
+
+59
+00:04:08,230 --> 00:04:08,510
+Okay.
+
+60
+00:04:08,530 --> 00:04:10,090
+Now, in our organization.
+
+61
+00:04:11,260 --> 00:04:12,250
+We profile.
+
+62
+00:04:13,130 --> 00:04:14,180
+We should have.
+
+63
+00:04:15,990 --> 00:04:19,110
+Three repositories can and will use them.
+
+64
+00:04:20,640 --> 00:04:26,140
+So we need three Docker files to build our image and then we are going to host it after building it.
+
+65
+00:04:26,160 --> 00:04:27,810
+We're going to push it to Docker Hub.
+
+66
+00:04:30,650 --> 00:04:31,100
+Like this.
+
+67
+00:04:31,100 --> 00:04:33,650
+We can build we can get that output.
+
+68
+00:04:35,050 --> 00:04:36,370
+And then we can push it.
+
+69
+00:04:37,570 --> 00:04:41,530
+So if you don't have Hansen Docker file, you can check this documentation.
+
+70
+00:04:41,560 --> 00:04:44,650
+The few instruction, common instruction that will be using.
+
+71
+00:04:50,210 --> 00:04:52,070
+From instruction in the Docker file.
+
+72
+00:04:52,070 --> 00:04:55,160
+The Docker file is a series of instruction from instruction.
+
+73
+00:04:55,160 --> 00:04:56,240
+We give the base image.
+
+74
+00:04:56,240 --> 00:05:02,480
+We already have figured out our base images Tomcat, MySQL and Engine X.
+
+75
+00:05:02,480 --> 00:05:06,590
+We just need to figure out the right tag so we can mention the base image.
+
+76
+00:05:11,140 --> 00:05:14,320
+This is a simple docker file from the base image.
+
+77
+00:05:14,470 --> 00:05:15,340
+Copy.
+
+78
+00:05:15,370 --> 00:05:15,850
+Copy.
+
+79
+00:05:15,850 --> 00:05:19,330
+A file from your machine to the containers directory.
+
+80
+00:05:20,370 --> 00:05:22,240
+Run is going to execute this command.
+
+81
+00:05:22,260 --> 00:05:23,820
+This is Windows Command.
+
+82
+00:05:24,690 --> 00:05:27,660
+We have Linux containers, we're going to build the next images.
+
+83
+00:05:27,660 --> 00:05:30,180
+So obviously it'll be using Linux commands.
+
+84
+00:05:34,740 --> 00:05:43,060
+These are the instruction ad copy, the expose from label stop signal user volume work directory.
+
+85
+00:05:43,080 --> 00:05:46,770
+We'll be using some of them or most of them.
+
+86
+00:05:52,690 --> 00:05:59,710
+So you can see all the instruction with examples in great detail over here from seemed.
+
+87
+00:06:00,630 --> 00:06:00,960
+Run.
+
+88
+00:06:00,960 --> 00:06:05,970
+This is about run the command that you want to execute to build our image in the container.
+
+89
+00:06:07,320 --> 00:06:13,350
+Seemed to mention the binaries that we want to run in order to run the process in the container.
+
+90
+00:06:16,630 --> 00:06:17,260
+One example.
+
+91
+00:06:17,260 --> 00:06:19,240
+There is one example.
+
+92
+00:06:21,660 --> 00:06:27,450
+Label, which are like tags that we have seen in key value pairs.
+
+93
+00:06:29,340 --> 00:06:30,750
+Maintenance is deprecated.
+
+94
+00:06:30,750 --> 00:06:33,300
+So if you are already using it, stop using it.
+
+95
+00:06:33,780 --> 00:06:36,600
+Expose when we are running our binary.
+
+96
+00:06:37,020 --> 00:06:39,630
+Let's say we are running Tomcat Catalina Search run.
+
+97
+00:06:39,630 --> 00:06:43,770
+So it's going to run the service, run bind the process on Port 8080.
+
+98
+00:06:44,040 --> 00:06:46,410
+So we have to then say expose 88.
+
+99
+00:06:47,370 --> 00:06:49,230
+So expose is used for that.
+
+100
+00:06:50,120 --> 00:06:53,550
+Ian, if you want to set any environment variable, we'll try that.
+
+101
+00:06:53,570 --> 00:06:55,790
+We don't need any environment variable, but.
+
+102
+00:06:56,820 --> 00:06:59,220
+We'll just set some environment variable.
+
+103
+00:07:01,240 --> 00:07:04,060
+And if you want to push any file into your container.
+
+104
+00:07:07,550 --> 00:07:13,430
+Like in this example, any file that starts with home will be pushed into the container directory at
+
+105
+00:07:13,430 --> 00:07:14,540
+this location.
+
+106
+00:07:17,580 --> 00:07:26,160
+Add and is also copy which are similar, but ADD has more options and can also extract your zip file.
+
+107
+00:07:27,920 --> 00:07:29,690
+Copy which is similar to AD.
+
+108
+00:07:31,560 --> 00:07:36,840
+A copy and it will be very useful when you want to put your own customized data while building the image.
+
+109
+00:07:36,870 --> 00:07:41,340
+You want to push a configuration file into your container while you're building the image, or you want
+
+110
+00:07:41,340 --> 00:07:43,680
+to push your artifact that you're going to do.
+
+111
+00:07:46,090 --> 00:07:50,170
+We have entry point, which we still have higher priority than command.
+
+112
+00:07:51,160 --> 00:07:55,120
+Where we can mention a command, and with command we can pass the arguments.
+
+113
+00:07:55,420 --> 00:07:56,350
+We'll see that.
+
+114
+00:07:57,490 --> 00:07:59,020
+So for example, this.
+
+115
+00:08:00,020 --> 00:08:03,710
+Entry points when you run a container built with from this docker file.
+
+116
+00:08:05,130 --> 00:08:11,250
+As soon as you run the container, it's going to run the command top hyphen B, space hyphen C So command
+
+117
+00:08:11,250 --> 00:08:14,610
+water you mentioned in CMD will come as an argument over here.
+
+118
+00:08:15,400 --> 00:08:18,040
+Which you if you want, you can override it.
+
+119
+00:08:19,330 --> 00:08:21,730
+Like as in this example, Dr. Run.
+
+120
+00:08:23,100 --> 00:08:27,570
+The name of the image top hyphen etch.
+
+121
+00:08:30,320 --> 00:08:31,520
+These are some samples.
+
+122
+00:08:31,520 --> 00:08:36,500
+If you don't have a gain, if you don't have hands on experience on Docker file, I recommend you try
+
+123
+00:08:36,500 --> 00:08:37,460
+a few of them.
+
+124
+00:08:37,940 --> 00:08:40,340
+Like, for example, this one, which is very popular.
+
+125
+00:08:41,120 --> 00:08:46,910
+So this is going to fetch an image Debian install Apache two on it.
+
+126
+00:08:47,630 --> 00:08:53,990
+Expose it on port eight and for 43a volume will be exposed on multiple volumes.
+
+127
+00:08:54,020 --> 00:08:58,460
+Var dub dub dub var log Apache two slash etsi slash Apache two.
+
+128
+00:08:58,490 --> 00:09:01,880
+So you'll have three volumes which you can map with your host machine.
+
+129
+00:09:02,510 --> 00:09:03,350
+Entry point.
+
+130
+00:09:03,350 --> 00:09:05,910
+So as soon as you run the container, it's going to run this command.
+
+131
+00:09:05,930 --> 00:09:06,300
+Apache.
+
+132
+00:09:06,320 --> 00:09:08,570
+Ctrl hyphen, d foreground.
+
+133
+00:09:09,530 --> 00:09:13,100
+This is a very popular example to practice one, because this is very easy.
+
+134
+00:09:13,190 --> 00:09:17,090
+And also you would have already used a particular script.
+
+135
+00:09:17,150 --> 00:09:18,440
+So it's easy to understand this.
+
+136
+00:09:18,440 --> 00:09:23,870
+So you can build a Docker file with this, build a container and test it.
+

@@ -1,0 +1,320 @@
+1
+00:00:01,140 --> 00:00:01,440
+Okay.
+
+2
+00:00:01,470 --> 00:00:03,240
+Now, let's start building our images.
+
+3
+00:00:03,240 --> 00:00:04,770
+So we'll do it in this directory.
+
+4
+00:00:06,060 --> 00:00:08,610
+We'll create a subdirectory inside this.
+
+5
+00:00:09,920 --> 00:00:11,990
+New directory.
+
+6
+00:00:12,350 --> 00:00:14,870
+I will name it as app.
+
+7
+00:00:17,040 --> 00:00:19,500
+And in this, I'm going to write a Docker file.
+
+8
+00:00:21,470 --> 00:00:25,530
+The Docker file is its own format de capital.
+
+9
+00:00:25,550 --> 00:00:28,250
+You have to make sure that Docker file.
+
+10
+00:00:32,020 --> 00:00:34,600
+First instruction we are going to give is from.
+
+11
+00:00:38,100 --> 00:00:40,460
+And we're going to give the base image over here.
+
+12
+00:00:40,470 --> 00:00:45,390
+If you see intelligence has already detected that it's a docker file, you see a D over there and you
+
+13
+00:00:45,390 --> 00:00:47,910
+can see some options run on Docker.
+
+14
+00:00:47,910 --> 00:00:51,600
+So you can specify on which Docker engine you want to run this Docker file.
+
+15
+00:00:52,080 --> 00:00:57,420
+So if you want, you can install a plugin Docker plugin into IntelliJ, but it's not required.
+
+16
+00:00:57,420 --> 00:01:00,600
+We're going to build it through our VM anyways.
+
+17
+00:01:01,650 --> 00:01:02,730
+So bass image.
+
+18
+00:01:02,730 --> 00:01:07,050
+So let's go to Docker Hub and explore.
+
+19
+00:01:10,380 --> 00:01:11,490
+Tomcat.
+
+20
+00:01:15,830 --> 00:01:19,100
+So we are going to use this Tomcat image.
+
+21
+00:01:21,080 --> 00:01:25,430
+And there are many, many tags in it because it's also very popular.
+
+22
+00:01:26,450 --> 00:01:28,400
+We're going to go with it.
+
+23
+00:01:29,710 --> 00:01:29,990
+G.
+
+24
+00:01:30,250 --> 00:01:31,090
+11.
+
+25
+00:01:36,400 --> 00:01:37,810
+We can see all this in the tags.
+
+26
+00:01:38,620 --> 00:01:43,270
+So if you want to test it, you can say Docker run hyphen t hyphen forum.
+
+27
+00:01:43,660 --> 00:01:45,040
+And you can test this.
+
+28
+00:01:46,410 --> 00:01:47,340
+Catalina bass.
+
+29
+00:01:47,340 --> 00:01:49,490
+It's going to be us, our local Tomcat eight.
+
+30
+00:01:49,500 --> 00:01:51,750
+Our web apps will be inside this.
+
+31
+00:01:53,610 --> 00:01:55,080
+Nothing much about this.
+
+32
+00:01:57,960 --> 00:01:58,500
+Tags.
+
+33
+00:01:58,500 --> 00:02:01,530
+I'm going to use eight hyphen g 11.
+
+34
+00:02:03,730 --> 00:02:04,540
+This tag.
+
+35
+00:02:05,110 --> 00:02:11,620
+You have several other tags you can try from, but this is more suitable for our application V profile
+
+36
+00:02:11,620 --> 00:02:12,550
+application.
+
+37
+00:02:14,490 --> 00:02:17,820
+So let's write Tomcat image.
+
+38
+00:02:18,090 --> 00:02:20,100
+Colon eight hyphen.
+
+39
+00:02:20,930 --> 00:02:22,220
+Got 11.
+
+40
+00:02:22,640 --> 00:02:23,570
+That's from.
+
+41
+00:02:24,020 --> 00:02:27,110
+I would like to remove the default application.
+
+42
+00:02:27,710 --> 00:02:29,330
+So I'm going to run a command.
+
+43
+00:02:32,290 --> 00:02:39,490
+The home directory is user local tomcat and in that you should have a web apps.
+
+44
+00:02:41,820 --> 00:02:45,390
+I want to remove any default application or any application from that.
+
+45
+00:02:45,990 --> 00:02:50,280
+So when you run the build Docker build, it's going to bring up a container with this image.
+
+46
+00:02:50,370 --> 00:02:56,520
+Remove anything that is in the apps directory and we would like to copy our artifact, which you're
+
+47
+00:02:56,520 --> 00:02:57,390
+going to build.
+
+48
+00:02:59,430 --> 00:03:04,860
+Target slash v profile hyphen v two.
+
+49
+00:03:05,840 --> 00:03:07,130
+Dot that.
+
+50
+00:03:08,030 --> 00:03:14,330
+So we have not yet built it, but we're going to build it and we'll have it at this location and this
+
+51
+00:03:14,330 --> 00:03:15,320
+relative path.
+
+52
+00:03:15,410 --> 00:03:17,450
+We're going to copy it into us.
+
+53
+00:03:17,450 --> 00:03:18,980
+Are there is a mistake.
+
+54
+00:03:18,980 --> 00:03:19,970
+US are.
+
+55
+00:03:21,130 --> 00:03:24,520
+User Local Tomcat eight Web apps.
+
+56
+00:03:27,140 --> 00:03:28,700
+With the name root.
+
+57
+00:03:29,600 --> 00:03:30,850
+Dot var.
+
+58
+00:03:30,860 --> 00:03:38,450
+So it becomes our default application if you're going to expose it on port 88 because the process runs
+
+59
+00:03:38,450 --> 00:03:41,270
+on port 88 anyways.
+
+60
+00:03:41,270 --> 00:03:43,940
+That will be mentioned in the Tomcat image.
+
+61
+00:03:44,480 --> 00:03:50,240
+But I'm trying to use as many as options, as many as instructions as I can see CMD.
+
+62
+00:03:50,420 --> 00:03:51,590
+I will say.
+
+63
+00:03:53,340 --> 00:03:56,190
+Catalina dot as such.
+
+64
+00:03:57,190 --> 00:03:58,000
+Comma.
+
+65
+00:04:00,820 --> 00:04:01,420
+John.
+
+66
+00:04:01,810 --> 00:04:08,410
+So this binder, this script will be called, which is going to run the Tomcat process, and it's already
+
+67
+00:04:08,410 --> 00:04:11,980
+defined in the Tomcat image, so I don't need to build anything extra.
+
+68
+00:04:12,940 --> 00:04:15,580
+I would also like to set work directory.
+
+69
+00:04:28,040 --> 00:04:28,850
+Web apps.
+
+70
+00:04:28,850 --> 00:04:30,200
+I will set it this one.
+
+71
+00:04:32,120 --> 00:04:38,630
+So any command I run will be executed from here now, or I will just keep it at user local tomcat eight
+
+72
+00:04:38,630 --> 00:04:40,760
+which anyways will be there in the tomcat.
+
+73
+00:04:40,760 --> 00:04:42,500
+Image volume.
+
+74
+00:04:42,500 --> 00:04:44,960
+I will say user local Tomcat eight again.
+
+75
+00:04:44,960 --> 00:04:46,640
+So if I want I can.
+
+76
+00:04:48,670 --> 00:04:56,410
+Attach any local volume or even bind mount with this directory and I can sync this directory with my
+
+77
+00:04:56,410 --> 00:04:57,640
+host machine directory.
+
+78
+00:04:58,790 --> 00:04:59,930
+This is fine.
+
+79
+00:05:00,560 --> 00:05:01,670
+Let's see it.
+
+80
+00:05:03,580 --> 00:05:05,970
+Okay, let's build other two Docker file.
+
