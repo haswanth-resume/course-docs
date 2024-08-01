@@ -1,0 +1,188 @@
+1
+00:00:02,390 --> 00:00:08,510
+First will go through some companies cluster documentation, which are official Cuban is documentation.
+
+2
+00:00:08,720 --> 00:00:10,490
+So let's check them out.
+
+3
+00:00:11,620 --> 00:00:13,460
+Okay, I'm on Kubernetes, dot IO.
+
+4
+00:00:14,000 --> 00:00:15,560
+Let's check the documentation.
+
+5
+00:00:16,970 --> 00:00:18,080
+Getting started.
+
+6
+00:00:20,330 --> 00:00:21,320
+Learning environment.
+
+7
+00:00:21,320 --> 00:00:23,000
+We start with this first.
+
+8
+00:00:23,840 --> 00:00:25,730
+Learning communities with Mini Cube.
+
+9
+00:00:28,110 --> 00:00:34,170
+So it is to run Kubernetes cluster locally, meaning Kube runs a single node in this cluster.
+
+10
+00:00:34,170 --> 00:00:40,260
+So all the Cuban is control plane services and the node services will be running on just one virtual
+
+11
+00:00:40,260 --> 00:00:40,890
+machine.
+
+12
+00:00:42,640 --> 00:00:46,000
+And there are some features to it installing many cube.
+
+13
+00:00:46,030 --> 00:00:47,810
+So there are different ways of installing mini cube.
+
+14
+00:00:47,830 --> 00:00:51,400
+We are going to install it on Windows machine by using chocolate.
+
+15
+00:00:51,880 --> 00:00:54,640
+Once we have mini cube, we can just say mini Cube start.
+
+16
+00:00:55,240 --> 00:00:57,950
+It's going to take a moment, pull the image and bring up a VM.
+
+17
+00:00:57,970 --> 00:01:02,470
+Once our component is cluster is up, we can test it with some deployment.
+
+18
+00:01:03,560 --> 00:01:06,620
+And we can expose the services for deployment.
+
+19
+00:01:08,010 --> 00:01:09,600
+We can see the pots running.
+
+20
+00:01:12,050 --> 00:01:15,050
+You can see the URL and we can access it from the browser.
+
+21
+00:01:15,170 --> 00:01:22,220
+This is just for some local testing environment, just for a little fun and a quick hands on Kubernetes
+
+22
+00:01:22,220 --> 00:01:22,910
+cluster.
+
+23
+00:01:23,120 --> 00:01:27,020
+So first we'll do this, then we'll switch for production environments.
+
+24
+00:01:28,570 --> 00:01:31,210
+Installing Kubernetes with a deployment tools.
+
+25
+00:01:32,620 --> 00:01:35,470
+So we'll use Q radium cops.
+
+26
+00:01:35,830 --> 00:01:36,980
+Q sprays new.
+
+27
+00:01:37,000 --> 00:01:38,560
+It uses ansible.
+
+28
+00:01:39,560 --> 00:01:45,470
+We're going to see first Q radium, then we're going to see cops, and finally we'll be seeing X.
+
+29
+00:01:52,690 --> 00:01:54,910
+So it is a little longer setup.
+
+30
+00:01:54,910 --> 00:01:56,950
+So many steps you have to execute.
+
+31
+00:01:57,950 --> 00:02:04,970
+I have all those steps in some bash scripts and we're going to use Vagrant to provision multi node Kubernetes
+
+32
+00:02:04,970 --> 00:02:07,670
+cluster by using cube idiom automatically.
+
+33
+00:02:07,880 --> 00:02:10,340
+So we'll automate the automation.
+
+34
+00:02:10,370 --> 00:02:15,980
+Q Idiom is an automation tool to set up Kubernetes cluster, but there are really a lot of steps, and
+
+35
+00:02:15,980 --> 00:02:17,930
+we can automate those steps also.
+
+36
+00:02:18,690 --> 00:02:19,890
+Once we do that.
+
+37
+00:02:22,540 --> 00:02:23,040
+We'll see.
+
+38
+00:02:23,050 --> 00:02:26,350
+Cuban This cluster set up by using cops.
+
+39
+00:02:27,940 --> 00:02:31,540
+We're going to use a cloud platform and set up a Kubernetes cluster.
+
+40
+00:02:31,780 --> 00:02:33,360
+So we need to set up some tools.
+
+41
+00:02:33,370 --> 00:02:38,530
+We're going to launch a VM for that and we'll run through the setup and cost will the longest setup
+
+42
+00:02:38,530 --> 00:02:39,580
+that we have.
+
+43
+00:02:40,910 --> 00:02:44,300
+But it will give you amazing control on your Kubernetes cluster.
+
+44
+00:02:44,570 --> 00:02:51,290
+We are also going to see finally Amazon Echo's Elastic Kubernetes Service, which is the easiest production
+
+45
+00:02:51,290 --> 00:02:54,710
+great Kubernetes cluster that you can spin and manage.
+
+46
+00:02:55,480 --> 00:02:57,090
+So let's get started.
+
+47
+00:02:57,100 --> 00:02:59,080
+First, we'll do the mini cube.
+

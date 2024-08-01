@@ -1,0 +1,988 @@
+1
+00:00:01,010 --> 00:00:01,640
+Amazon.
+
+2
+00:00:01,670 --> 00:00:04,310
+IKEA's elastic Kubernetes service.
+
+3
+00:00:04,730 --> 00:00:08,300
+So you see in shops, we have to do a lot of prerequisites.
+
+4
+00:00:08,300 --> 00:00:10,580
+Then we run the cops come on and we have the cluster.
+
+5
+00:00:10,580 --> 00:00:14,090
+Then we have to use COPS command to manage that cluster.
+
+6
+00:00:14,090 --> 00:00:21,770
+Compute resource X is directly a managed service from us, and it's very easy to create a Kubernetes
+
+7
+00:00:21,770 --> 00:00:22,880
+cluster with this.
+
+8
+00:00:23,600 --> 00:00:25,310
+And that, too, for production.
+
+9
+00:00:25,580 --> 00:00:27,290
+So let's check the user guide.
+
+10
+00:00:28,100 --> 00:00:29,100
+You can read about it.
+
+11
+00:00:29,120 --> 00:00:30,560
+What is X?
+
+12
+00:00:31,380 --> 00:00:35,610
+In this section, we're just going to see how to create the Kubernetes cluster on X.
+
+13
+00:00:36,710 --> 00:00:37,760
+So we'll see.
+
+14
+00:00:37,790 --> 00:00:39,650
+Getting started with X.
+
+15
+00:00:40,980 --> 00:00:43,510
+So there are two ways to create X cluster.
+
+16
+00:00:43,530 --> 00:00:45,960
+One is through Sealy.
+
+17
+00:00:45,990 --> 00:00:46,980
+One is through console.
+
+18
+00:00:47,010 --> 00:00:48,840
+CLA is the easiest one.
+
+19
+00:00:49,230 --> 00:00:53,610
+You just need to issue of some long command and the cluster will be up and running.
+
+20
+00:00:54,310 --> 00:00:56,290
+The console way is a long way.
+
+21
+00:01:00,750 --> 00:01:08,640
+So you have to first install a ally and you have to run some commands to configure CLI.
+
+22
+00:01:10,470 --> 00:01:15,840
+Commands to run Kube Ctl on Mac OS or on Windows.
+
+23
+00:01:18,060 --> 00:01:23,430
+And then once you're done with those things, you can create an AI role for your X cluster.
+
+24
+00:01:23,460 --> 00:01:25,230
+Steps are given over here.
+
+25
+00:01:26,930 --> 00:01:31,610
+I'm running quickly over here because we're going to do it much faster through clean.
+
+26
+00:01:32,490 --> 00:01:38,850
+Guess first thing you have to do in before creating the cluster is you have to create a VPC.
+
+27
+00:01:40,790 --> 00:01:43,970
+And that can be done here through cloud formation template.
+
+28
+00:01:44,800 --> 00:01:45,010
+There.
+
+29
+00:01:45,010 --> 00:01:51,460
+You can copy that and you can launch that template, which will create a stack with all the VPC, private
+
+30
+00:01:51,460 --> 00:01:53,680
+subnet, public subnet, all those things.
+
+31
+00:01:54,700 --> 00:01:59,590
+Once your VPC is ready, then you can go to finally X service.
+
+32
+00:02:00,640 --> 00:02:04,030
+And you can launch your cluster by selecting your VPC.
+
+33
+00:02:04,930 --> 00:02:07,060
+And then inside that you have to create worker nodes.
+
+34
+00:02:07,060 --> 00:02:09,400
+So there are really a lot of steps to do.
+
+35
+00:02:09,759 --> 00:02:13,080
+The much faster way is through x steel.
+
+36
+00:02:16,040 --> 00:02:19,220
+You need a blue collar x steel tool.
+
+37
+00:02:20,370 --> 00:02:25,470
+You just you just configure it with the access credentials once you have it.
+
+38
+00:02:28,490 --> 00:02:32,030
+So once you have the X, still see a lie.
+
+39
+00:02:33,180 --> 00:02:38,790
+With right credential, you can just exit and create cluster and you give all the information and it
+
+40
+00:02:38,790 --> 00:02:41,910
+will create a multi node Kubernetes cluster for you.
+
+41
+00:02:42,330 --> 00:02:44,730
+I have a much simpler step for this.
+
+42
+00:02:45,090 --> 00:02:50,340
+We are going to launch a Vagrant VM, which is going to set up the tools that we need for EC2.
+
+43
+00:02:50,370 --> 00:02:53,610
+Then we're going to run this EC2 command and we'll have our.
+
+44
+00:02:54,890 --> 00:02:56,900
+Kubernetes cluster on X.
+
+45
+00:03:04,620 --> 00:03:08,220
+So once you have once we are done, we should see a cluster over here.
+
+46
+00:03:09,970 --> 00:03:11,200
+Right now, there's nothing.
+
+47
+00:03:12,680 --> 00:03:14,930
+Okay, So let's get started.
+
+48
+00:03:14,960 --> 00:03:17,150
+We're going to go to our source code.
+
+49
+00:03:21,570 --> 00:03:24,090
+You should be in this branch covered in this hyphen set up.
+
+50
+00:03:24,510 --> 00:03:26,850
+Get into exe directory.
+
+51
+00:03:31,900 --> 00:03:37,630
+Here you have a vibrant file which is going to execute first a script X Tools Setup search.
+
+52
+00:03:39,030 --> 00:03:42,840
+Accessing it from my sublime text editor X.
+
+53
+00:03:43,680 --> 00:03:44,940
+So that's the background file.
+
+54
+00:03:44,940 --> 00:03:46,380
+It's a simple VM.
+
+55
+00:03:47,130 --> 00:03:50,750
+Ubuntu will get created and it will execute the script.
+
+56
+00:03:50,760 --> 00:03:53,560
+X Tools hyphen Setup search.
+
+57
+00:03:54,350 --> 00:03:57,230
+The script, the Shell script is just going to set up.
+
+58
+00:03:58,390 --> 00:03:59,860
+It was silly.
+
+59
+00:04:00,460 --> 00:04:00,790
+And.
+
+60
+00:04:00,790 --> 00:04:01,540
+Exactly.
+
+61
+00:04:01,570 --> 00:04:06,100
+So based on your operating system, if you have used any Red Hat machine, it's going to install these
+
+62
+00:04:06,100 --> 00:04:08,110
+tools, zip and unzip.
+
+63
+00:04:08,110 --> 00:04:11,350
+If it's open to machine, it's going to say apt install, zip and zip.
+
+64
+00:04:11,710 --> 00:04:13,360
+Once you have zip and on zip.
+
+65
+00:04:14,290 --> 00:04:16,779
+It's going to use this URL to download a CLA.
+
+66
+00:04:16,810 --> 00:04:18,940
+This is a CLA version too.
+
+67
+00:04:19,930 --> 00:04:22,510
+So don't do a apt install it.
+
+68
+00:04:22,930 --> 00:04:24,550
+Let me give you version one.
+
+69
+00:04:24,580 --> 00:04:25,930
+We need version two.
+
+70
+00:04:25,960 --> 00:04:28,630
+So from this URL you can download it.
+
+71
+00:04:29,050 --> 00:04:34,210
+Then it's going to unzip it and there will be a script install script which will get executed and that
+
+72
+00:04:34,210 --> 00:04:36,970
+is going to set up a SEAL version two.
+
+73
+00:04:37,570 --> 00:04:39,370
+Once you have a publicly.
+
+74
+00:04:40,810 --> 00:04:43,830
+It's going to download binary of CTL.
+
+75
+00:04:44,930 --> 00:04:46,100
+From that URL.
+
+76
+00:04:49,840 --> 00:04:55,270
+So it will be downloaded in temp directory and then it will be moved to your local bin.
+
+77
+00:04:56,520 --> 00:04:58,590
+And you can run the command to check the vision.
+
+78
+00:04:58,830 --> 00:05:00,520
+Then we're going to download Cube.
+
+79
+00:05:02,100 --> 00:05:05,330
+Give it executable permission and move it to your cell local bin.
+
+80
+00:05:05,340 --> 00:05:07,760
+So we are having three tools with this script.
+
+81
+00:05:08,400 --> 00:05:09,360
+C fly.
+
+82
+00:05:10,060 --> 00:05:12,460
+ECUs Ctl and Cube Ctl.
+
+83
+00:05:13,300 --> 00:05:20,080
+Once our VM is up after executing all the scripts, we'll log into the VM and we are going to execute
+
+84
+00:05:20,080 --> 00:05:24,280
+the script x cluster hyphen setup message.
+
+85
+00:05:24,790 --> 00:05:26,530
+We are declaring some variables over here.
+
+86
+00:05:26,530 --> 00:05:31,810
+The cluster name that you're are going to give if you wish, you can change that region.
+
+87
+00:05:32,740 --> 00:05:38,920
+So I'm going to Ohio, so I'm going to select my region as Ohio US East to.
+
+88
+00:05:45,080 --> 00:05:46,130
+Node name.
+
+89
+00:05:46,520 --> 00:05:47,520
+So it's going to.
+
+90
+00:05:47,570 --> 00:05:49,370
+So you don't have a master over here.
+
+91
+00:05:49,370 --> 00:05:51,650
+The service itself is the master.
+
+92
+00:05:51,740 --> 00:05:55,250
+You have the worker node, which we just call it as node.
+
+93
+00:05:56,580 --> 00:05:58,110
+So we're going to give some name to it.
+
+94
+00:05:58,110 --> 00:06:01,260
+I'll just give Linux hyphen nodes and a key.
+
+95
+00:06:02,330 --> 00:06:04,490
+This will be the public key name.
+
+96
+00:06:05,000 --> 00:06:07,670
+So we have to create a key payer with this name.
+
+97
+00:06:08,720 --> 00:06:13,400
+So let's go to S.E. to make sure you're in the same region.
+
+98
+00:06:15,560 --> 00:06:16,460
+Quebecers.
+
+99
+00:06:18,440 --> 00:06:19,490
+Create keeper.
+
+100
+00:06:26,360 --> 00:06:27,770
+Okay, so that key will be used.
+
+101
+00:06:27,800 --> 00:06:30,170
+You can use this key to log in to your worker node.
+
+102
+00:06:34,410 --> 00:06:36,450
+Then this command will get executed.
+
+103
+00:06:37,050 --> 00:06:39,420
+If your credentials are set.
+
+104
+00:06:39,450 --> 00:06:44,580
+We have to run a double click to install a double SQL and we have to run a plus configure.
+
+105
+00:06:45,600 --> 00:06:46,950
+That's mentioned over there.
+
+106
+00:06:47,040 --> 00:06:48,030
+After that.
+
+107
+00:06:48,800 --> 00:06:51,150
+It is going to run this command.
+
+108
+00:06:51,170 --> 00:06:53,750
+If this is successful, your key is verified.
+
+109
+00:06:54,140 --> 00:06:57,050
+Then this command will get executed.
+
+110
+00:06:57,620 --> 00:07:05,540
+X, it'll create cluster the name of the cluster version, region node group name nodes.
+
+111
+00:07:05,540 --> 00:07:11,770
+How many nodes we going to with two two worker nodes, node minimum one and maximum four.
+
+112
+00:07:11,780 --> 00:07:13,610
+This is the auto scaling group size.
+
+113
+00:07:13,880 --> 00:07:16,460
+Node type 3t3 Micro.
+
+114
+00:07:16,500 --> 00:07:18,020
+There's no t two micro here.
+
+115
+00:07:18,770 --> 00:07:21,380
+Node volume size eight GB we are giving.
+
+116
+00:07:22,230 --> 00:07:27,480
+And such access as such public key hyphen hyphen managed.
+
+117
+00:07:27,930 --> 00:07:32,860
+If this is all successful, I'll script is going to print cluster created successfully.
+
+118
+00:07:32,880 --> 00:07:34,890
+Else we're going to get a failed message.
+
+119
+00:07:35,570 --> 00:07:40,880
+So all we need to do bring up the VM login and execute the script.
+
+120
+00:07:41,610 --> 00:07:42,960
+So let's do that.
+
+121
+00:07:46,030 --> 00:07:47,590
+Let's do vagrant up.
+
+122
+00:07:50,550 --> 00:07:52,100
+Okay, Now the provisioning has started.
+
+123
+00:07:52,110 --> 00:07:55,050
+It's executing our script to set up our three tools.
+
+124
+00:07:55,960 --> 00:08:00,340
+E w c Ally Cube, Ctl and X Ctl.
+
+125
+00:08:02,390 --> 00:08:03,550
+Now Cavium is up.
+
+126
+00:08:03,550 --> 00:08:05,830
+Let's log into it and search.
+
+127
+00:08:10,990 --> 00:08:12,940
+Okay, let's check our three tools.
+
+128
+00:08:12,970 --> 00:08:13,450
+E w.
+
+129
+00:08:13,450 --> 00:08:15,550
+S hyphen hyphen version.
+
+130
+00:08:17,170 --> 00:08:18,460
+It like to.
+
+131
+00:08:19,560 --> 00:08:22,020
+IKEA's Seattle version.
+
+132
+00:08:24,260 --> 00:08:29,120
+Story in is also there and then Kub Steel version.
+
+133
+00:08:31,420 --> 00:08:32,900
+Our three tools are set.
+
+134
+00:08:32,919 --> 00:08:35,289
+First, we need to do a configure.
+
+135
+00:08:36,990 --> 00:08:38,789
+Access key and secret key.
+
+136
+00:08:39,059 --> 00:08:40,890
+So let's create an IM user.
+
+137
+00:08:40,890 --> 00:08:45,540
+You can use existing IM user that you used for cops.
+
+138
+00:08:45,540 --> 00:08:47,850
+If you have deleted it, create a new user.
+
+139
+00:08:50,830 --> 00:08:52,710
+So I'm going to create a new user.
+
+140
+00:08:52,720 --> 00:08:57,130
+I will limit as x admin programmatic access.
+
+141
+00:08:58,550 --> 00:09:01,730
+Attach policy administrator access.
+
+142
+00:09:02,390 --> 00:09:03,200
+Go next.
+
+143
+00:09:08,470 --> 00:09:09,790
+Download credentials.
+
+144
+00:09:11,260 --> 00:09:13,510
+Or I can just copy paste from here itself.
+
+145
+00:09:14,110 --> 00:09:15,490
+Copy the access key.
+
+146
+00:09:33,140 --> 00:09:33,380
+Okay.
+
+147
+00:09:33,430 --> 00:09:35,300
+A blue collar is set.
+
+148
+00:09:35,900 --> 00:09:38,060
+Let's go to slash vagrant directory.
+
+149
+00:09:39,110 --> 00:09:41,600
+And we have the cluster set up script.
+
+150
+00:09:46,340 --> 00:09:48,770
+IKEA's cluster set up research.
+
+151
+00:09:51,510 --> 00:09:54,780
+If you wish to change some variable names, you can change it.
+
+152
+00:09:56,780 --> 00:09:58,520
+It's going to set these variables.
+
+153
+00:09:59,490 --> 00:10:02,330
+And on the command it lists get caller identity.
+
+154
+00:10:02,340 --> 00:10:08,070
+If this is successful, we will be running the command which will create the x cluster.
+
+155
+00:10:11,010 --> 00:10:13,590
+Okay, so let's run the script.
+
+156
+00:10:21,030 --> 00:10:22,350
+Okay, that's working.
+
+157
+00:10:23,760 --> 00:10:25,740
+Already started deploying the cluster.
+
+158
+00:10:27,170 --> 00:10:27,340
+Okay.
+
+159
+00:10:27,440 --> 00:10:31,880
+This can turn out to be very expensive if you run it for a very long time, because it is also going
+
+160
+00:10:31,880 --> 00:10:34,340
+to set up VPC with NAT gateways.
+
+161
+00:10:36,160 --> 00:10:38,360
+Distributed among multiple zones.
+
+162
+00:10:38,380 --> 00:10:40,300
+So once you are done.
+
+163
+00:10:41,440 --> 00:10:45,310
+Checking it, testing it, then deleted also.
+
+164
+00:10:46,340 --> 00:10:49,400
+Let's go to X and let's see what's happening there.
+
+165
+00:10:53,880 --> 00:10:54,070
+What's.
+
+166
+00:10:54,120 --> 00:10:55,170
+Refresh this?
+
+167
+00:10:55,320 --> 00:10:56,340
+Nothing yet.
+
+168
+00:10:57,860 --> 00:10:59,570
+Let's go and check VPC.
+
+169
+00:11:08,020 --> 00:11:08,260
+Okay.
+
+170
+00:11:08,260 --> 00:11:09,540
+You should see a new VPC.
+
+171
+00:11:09,550 --> 00:11:11,170
+This is created by our exit.
+
+172
+00:11:11,310 --> 00:11:11,920
+Come on.
+
+173
+00:11:12,700 --> 00:11:14,500
+Should see multiple subnets.
+
+174
+00:11:17,460 --> 00:11:18,870
+Six subnets.
+
+175
+00:11:19,840 --> 00:11:21,880
+Three public and three private.
+
+176
+00:11:22,690 --> 00:11:24,130
+Let's check the nerd gateway.
+
+177
+00:11:25,400 --> 00:11:27,260
+In that gateway is getting created.
+
+178
+00:11:28,230 --> 00:11:35,100
+So it's going to wait until this Nat Gateway is not up once VPC up with the NAT Gateway, the VPC stable,
+
+179
+00:11:35,100 --> 00:11:38,550
+then it's going to start launching our cluster and that VPC.
+
+180
+00:11:40,560 --> 00:11:44,520
+So I'm going to pause my screen and come back when this is completed.
+
+181
+00:11:46,450 --> 00:11:49,040
+It's long time and still the cluster is creating.
+
+182
+00:11:50,430 --> 00:11:53,430
+But we can see now the cluster creation has started.
+
+183
+00:11:53,430 --> 00:11:55,590
+At least we profile X cluster.
+
+184
+00:11:57,810 --> 00:11:58,070
+Right.
+
+185
+00:11:58,080 --> 00:12:00,000
+So this acts like your master notes.
+
+186
+00:12:00,000 --> 00:12:01,710
+You don't have a master node.
+
+187
+00:12:02,220 --> 00:12:07,350
+After some time you will see in the compute node here, the worker node group will be there and we have
+
+188
+00:12:07,350 --> 00:12:08,760
+said to worker nodes.
+
+189
+00:12:08,760 --> 00:12:11,010
+So we'll see two compute nodes over here.
+
+190
+00:12:11,550 --> 00:12:14,310
+This is all done through a cloud formation template.
+
+191
+00:12:14,790 --> 00:12:16,440
+So if you go to cloud formation.
+
+192
+00:12:18,520 --> 00:12:20,710
+Should see a cloud formation template there.
+
+193
+00:12:22,450 --> 00:12:23,470
+The events.
+
+194
+00:12:24,860 --> 00:12:27,860
+So was creating your nerd gateway.
+
+195
+00:12:28,710 --> 00:12:30,210
+And that is completed.
+
+196
+00:12:32,780 --> 00:12:34,640
+It's two shows in progress.
+
+197
+00:12:36,330 --> 00:12:37,530
+Resources.
+
+198
+00:12:39,130 --> 00:12:42,310
+C two group control plane X cluster.
+
+199
+00:12:43,240 --> 00:12:49,030
+So if not with exit command, then you have to do this yourself.
+
+200
+00:12:49,240 --> 00:12:52,780
+You have to get the cloud formation template, upload it and create the stack.
+
+201
+00:12:56,210 --> 00:13:02,150
+And that requires you to create two cloud formation stack, one for VPC and one for the x cluster.
+
+202
+00:13:02,390 --> 00:13:06,950
+And you have to take care of creating the roles and few other things.
+
+203
+00:13:07,490 --> 00:13:08,810
+So a lot of steps, really.
+
+204
+00:13:08,810 --> 00:13:09,440
+So.
+
+205
+00:13:10,220 --> 00:13:11,260
+Doing it through X.
+
+206
+00:13:11,280 --> 00:13:13,970
+CTL is the easiest and the fastest way.
+
+207
+00:13:15,230 --> 00:13:15,620
+All right.
+
+208
+00:13:15,620 --> 00:13:19,010
+So it says EEGs cluster in this region is ready.
+
+209
+00:13:19,280 --> 00:13:20,330
+Let's check it.
+
+210
+00:13:25,330 --> 00:13:27,610
+So you should see to cloud formation template here.
+
+211
+00:13:27,640 --> 00:13:31,840
+One is for the cluster, the VPC, and then the other one is for the node group.
+
+212
+00:13:32,320 --> 00:13:33,610
+Let's go to X.
+
+213
+00:13:34,670 --> 00:13:36,470
+Fresh and it is active.
+
+214
+00:13:36,650 --> 00:13:37,400
+Click on it.
+
+215
+00:13:38,690 --> 00:13:43,310
+Compute and you should see Linux nodes to desired.
+
+216
+00:13:43,820 --> 00:13:45,950
+So this is running easy to instance.
+
+217
+00:13:47,070 --> 00:13:49,530
+As same as we are running it through cops.
+
+218
+00:13:50,390 --> 00:13:52,730
+There's an option also to use for Target.
+
+219
+00:13:53,660 --> 00:13:58,160
+And if you wish, you can add here more node group you can add forget also if you want.
+
+220
+00:14:01,140 --> 00:14:01,950
+App server.
+
+221
+00:14:01,950 --> 00:14:03,420
+End Point is also there.
+
+222
+00:14:04,630 --> 00:14:06,760
+Okay, let's check the cube config file.
+
+223
+00:14:12,130 --> 00:14:14,560
+Should be in the home directory of migrant user.
+
+224
+00:14:18,690 --> 00:14:20,670
+Yes, there's a cube config file.
+
+225
+00:14:22,150 --> 00:14:23,430
+Let's run it.
+
+226
+00:14:23,460 --> 00:14:25,680
+You'll get notes.
+
+227
+00:14:29,500 --> 00:14:31,480
+So you should see the two worker notes.
+
+228
+00:14:31,480 --> 00:14:36,030
+You'll not see the master node, and then you can run all your test.
+
+229
+00:14:36,040 --> 00:14:41,650
+You can launch pod deployment services, any other object on the Kubernetes cluster.
+
+230
+00:14:41,650 --> 00:14:42,620
+It's going to be work.
+
+231
+00:14:42,640 --> 00:14:47,500
+Same as it works for any other Kubernetes cluster with Cube, CTL Command.
+
+232
+00:14:48,360 --> 00:14:52,990
+So you see with one simple script that's running this command.
+
+233
+00:14:53,010 --> 00:14:54,990
+We have a production grid.
+
+234
+00:14:54,990 --> 00:14:56,970
+Kubernetes cluster up and running.
+
+235
+00:14:57,560 --> 00:15:00,210
+And also not to mention with VPC.
+
+236
+00:15:01,250 --> 00:15:04,430
+If you are done testing over here, you can delete the cluster.
+
+237
+00:15:04,460 --> 00:15:09,440
+You should not keep it running because there's also not Gateway Linux nodes.
+
+238
+00:15:09,710 --> 00:15:12,500
+These two instances and this can turn out to be expensive.
+
+239
+00:15:12,500 --> 00:15:16,700
+So we'll delete the cluster with the cube Ctrl delete cluster.
+
+240
+00:15:17,420 --> 00:15:20,390
+So the name of our cluster we profile X cluster.
+
+241
+00:15:22,170 --> 00:15:26,070
+It's basted tender and it's going to take some time.
+
+242
+00:15:26,070 --> 00:15:28,830
+It's going to create, delete, VPC notes, everything.
+
+243
+00:15:29,630 --> 00:15:32,120
+So wait until it's completely deleted.
+
+244
+00:15:32,120 --> 00:15:37,940
+If you get any error, you can very easily go to cloud formation templates and delete the stacks.
+
+245
+00:15:37,940 --> 00:15:41,900
+That can be also done and that should be all in this video.
+
+246
+00:15:41,930 --> 00:15:43,340
+Thank you very much for watching.
+
+247
+00:15:43,340 --> 00:15:45,080
+I will see you in the next one.
+

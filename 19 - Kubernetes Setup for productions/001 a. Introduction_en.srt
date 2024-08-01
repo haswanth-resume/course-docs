@@ -1,0 +1,124 @@
+1
+00:00:11,950 --> 00:00:15,580
+Welcome to the next project in the DevOps Project series.
+
+2
+00:00:15,670 --> 00:00:21,820
+The name of this project is Kubernetes, set up on local and cloud.
+
+3
+00:00:22,590 --> 00:00:28,620
+We're going to see different ways of setting up Kubernetes cluster, starting from our local machine
+
+4
+00:00:28,620 --> 00:00:35,580
+or laptop to a cloud, a local test environment, and a production grade environment also.
+
+5
+00:00:39,920 --> 00:00:41,590
+Okay, so let's say this is your scenario.
+
+6
+00:00:41,600 --> 00:00:44,840
+You have already containerized your application.
+
+7
+00:00:45,140 --> 00:00:52,100
+You have used Docker or any other container runtime environment and you have created your container
+
+8
+00:00:52,100 --> 00:00:52,730
+images.
+
+9
+00:00:52,760 --> 00:00:57,680
+Now it's time to test it on a Kubernetes cluster.
+
+10
+00:00:58,160 --> 00:01:02,000
+And you would like to test it locally and also on the cloud.
+
+11
+00:01:04,099 --> 00:01:07,340
+So we're going to see also set up local cloud both.
+
+12
+00:01:17,140 --> 00:01:22,840
+I'll get tools that we're going to use for is Mini Cube, which will be used to set up a single Node
+
+13
+00:01:22,840 --> 00:01:27,910
+Kubernetes cluster locally on our laptop by using Oracle VM VirtualBox.
+
+14
+00:01:30,090 --> 00:01:33,650
+Then we're going to use Q ATM to set up a multi node cluster.
+
+15
+00:01:33,660 --> 00:01:42,090
+We can use Cube ATM to set up production grade cluster, local local data centers or also cloud anywhere.
+
+16
+00:01:42,180 --> 00:01:48,090
+You just need some set of compute machine Linux operating systems so you can have physical machines,
+
+17
+00:01:48,090 --> 00:01:51,060
+virtual machines, instances on the cloud.
+
+18
+00:01:52,510 --> 00:01:54,880
+Next, we're going to use cops.
+
+19
+00:01:56,000 --> 00:01:58,250
+Cops is a tool to set up a production grid.
+
+20
+00:01:58,250 --> 00:02:02,990
+Cuban This cluster on a cloud and also now it supports Google Cloud.
+
+21
+00:02:03,380 --> 00:02:11,540
+It also has a beta version that supports VMware, vSphere environment, and one of the most famous Kubernetes
+
+22
+00:02:11,540 --> 00:02:14,750
+clusters set up tool for us.
+
+23
+00:02:15,760 --> 00:02:19,250
+It has its own service, ECUs.
+
+24
+00:02:19,270 --> 00:02:23,430
+We're going to see how we can set up a Kubernetes cluster on x.
+
+25
+00:02:23,440 --> 00:02:31,210
+X is a service from us, so you just need to run some simple commands and it will have for you a production
+
+26
+00:02:31,210 --> 00:02:33,160
+grade Kubernetes cluster.
+
+27
+00:02:33,730 --> 00:02:40,400
+In my view, it's the easiest way to have a very efficient Kubernetes cluster powered by A.
+
+28
+00:02:40,720 --> 00:02:41,270
+S.
+
+29
+00:02:44,510 --> 00:02:46,430
+Okay, So our objectives are very simple.
+
+30
+00:02:46,460 --> 00:02:52,580
+We need to set up a cluster and we need to test the Kubernetes cluster local and on the cloud.
+
+31
+00:02:55,610 --> 00:02:58,550
+So let's dig in and achieve our goals.
+

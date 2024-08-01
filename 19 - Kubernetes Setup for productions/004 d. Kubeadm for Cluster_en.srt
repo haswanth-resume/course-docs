@@ -1,0 +1,1108 @@
+1
+00:00:00,510 --> 00:00:05,340
+Now let's shift our attention to production grade Cuba and this cluster.
+
+2
+00:00:07,660 --> 00:00:10,390
+By using Cuba idiom.
+
+3
+00:00:15,610 --> 00:00:17,530
+First, we need to install QB Adam.
+
+4
+00:00:20,720 --> 00:00:23,480
+So I recommend you read this documentation.
+
+5
+00:00:25,720 --> 00:00:29,410
+So we will set up Q bidding cluster on virtual machines.
+
+6
+00:00:29,500 --> 00:00:33,880
+We'll have 312 VMs, one master and two worker nodes.
+
+7
+00:00:34,180 --> 00:00:39,430
+Here are supported operating system list, the RAM they need and the CPU.
+
+8
+00:00:40,310 --> 00:00:47,840
+And we need to do some initial setup or a prerequisite before we install Q Radium and other tools first.
+
+9
+00:00:48,840 --> 00:00:56,040
+You have to do more probe and load these modules to make sure this option is set to one.
+
+10
+00:00:56,550 --> 00:00:58,860
+And don't worry, I have all this automated.
+
+11
+00:00:59,670 --> 00:01:02,010
+In Shell script, which we're going to see in a moment.
+
+12
+00:01:02,640 --> 00:01:07,470
+To set that value to one, you have to update this file with this entry.
+
+13
+00:01:10,090 --> 00:01:15,730
+So you can just run this command so this file gets updated and then you run CTL hyphen hyphen system
+
+14
+00:01:15,730 --> 00:01:20,530
+sys this you have to do on all the nodes master and worker together.
+
+15
+00:01:21,720 --> 00:01:27,720
+You can set up COVID cluster by using cube EDM and you can use Docker Engine or any other container
+
+16
+00:01:27,720 --> 00:01:28,620
+runtime environment.
+
+17
+00:01:28,620 --> 00:01:30,120
+You're going to use Docker engine.
+
+18
+00:01:32,760 --> 00:01:35,460
+So you need to install the Docker runtime environment.
+
+19
+00:01:36,340 --> 00:01:39,880
+A standard Docker installation is from the Docker documentation.
+
+20
+00:01:42,250 --> 00:01:48,020
+Once you have Docker installed after doing all the setup, then you're going to install Cube Cube let
+
+21
+00:01:48,040 --> 00:01:49,210
+and cube steel.
+
+22
+00:01:52,540 --> 00:01:57,040
+So command to install Cube, CTL, Cube, EDM and Cube led.
+
+23
+00:01:57,280 --> 00:01:59,260
+And this he has to do on all the nodes.
+
+24
+00:02:00,640 --> 00:02:05,410
+If you are not using Docker and some other container runtime environment, then you need to make some
+
+25
+00:02:05,410 --> 00:02:06,820
+C group driver up.
+
+26
+00:02:07,390 --> 00:02:08,830
+But we're going to skip that.
+
+27
+00:02:10,669 --> 00:02:13,250
+Once you're done with this, you can restart the cube lit.
+
+28
+00:02:13,700 --> 00:02:19,190
+So this common step you need to do in all the work or not once you're done with this.
+
+29
+00:02:23,320 --> 00:02:29,050
+We have to run some command on the master node, which will generate some instructions.
+
+30
+00:02:30,160 --> 00:02:34,180
+And with these instructions we can use to run on work or not.
+
+31
+00:02:34,180 --> 00:02:36,580
+So work or not can join the master node.
+
+32
+00:02:37,540 --> 00:02:41,830
+The command on the master node will be cue Adam in it with some options.
+
+33
+00:02:42,010 --> 00:02:46,450
+We have to specify the POD network and the API server ID.
+
+34
+00:02:47,180 --> 00:02:52,610
+Once we learn this cube in cube idiom init command, it is going to generate some other commands in
+
+35
+00:02:52,610 --> 00:02:56,570
+the output logs which then can be executed on the worker node.
+
+36
+00:02:57,140 --> 00:03:01,910
+So you will see output something similar to like this when you are in cube in cube idiom and it command
+
+37
+00:03:01,910 --> 00:03:02,930
+on the master node.
+
+38
+00:03:03,440 --> 00:03:07,370
+And finally, you will get this in the output.
+
+39
+00:03:08,480 --> 00:03:14,690
+Commands to create a cube config file and then a command queue idiom join, which will be executing
+
+40
+00:03:14,690 --> 00:03:18,620
+on the worker node, which will connect a worker node to the master node.
+
+41
+00:03:19,970 --> 00:03:24,290
+But in order to join the worker node to the master node, you need a network.
+
+42
+00:03:25,840 --> 00:03:28,520
+So kubuntu supports multiple networking models.
+
+43
+00:03:28,540 --> 00:03:29,920
+You can click on this link.
+
+44
+00:03:31,830 --> 00:03:36,980
+And based on the requirement, people will use any of the plugin we're going to use Vive Net.
+
+45
+00:03:36,990 --> 00:03:39,390
+So let's directly scroll down to view net.
+
+46
+00:03:48,250 --> 00:03:51,340
+Integrating Kubernetes and measures via CNI plugin.
+
+47
+00:03:56,110 --> 00:03:59,860
+It's very easy to integrate commodities via the add on.
+
+48
+00:04:00,700 --> 00:04:01,810
+Click on this link.
+
+49
+00:04:03,880 --> 00:04:06,400
+And you should get a command still apply.
+
+50
+00:04:06,710 --> 00:04:13,270
+It's going to download some Kubernetes definition file and set up a network for your pod to interact
+
+51
+00:04:13,270 --> 00:04:14,230
+with each other.
+
+52
+00:04:16,050 --> 00:04:19,769
+And that should be you should have a communist cluster by using Cuba idiom.
+
+53
+00:04:19,800 --> 00:04:23,910
+Let's go through the steps once again and we'll start after that.
+
+54
+00:04:25,540 --> 00:04:29,350
+I'll get forced, will have M.A. and worker node will log into them.
+
+55
+00:04:30,450 --> 00:04:35,400
+If you're going to do predictive sites on all the node, somewhat pro and systems, it'll come on.
+
+56
+00:04:36,820 --> 00:04:41,500
+Then you're going to install Docker engine on all the nodes, worker and master node.
+
+57
+00:04:42,070 --> 00:04:46,030
+We're going to install Cube, Cube lit and Cube CTL on all the nodes.
+
+58
+00:04:47,040 --> 00:04:52,260
+Then specific to we're going to log into Master Node, we're going to run Cube in it with some options
+
+59
+00:04:52,440 --> 00:04:53,700
+which will generate.
+
+60
+00:04:54,820 --> 00:04:59,350
+A command cube CTL node Join qubits or Cube Idiom Node Join.
+
+61
+00:05:00,100 --> 00:05:04,840
+We're going to save this command and we'll log into the worker node and we'll execute that command which
+
+62
+00:05:04,840 --> 00:05:07,810
+will join our worker node to master Node.
+
+63
+00:05:08,920 --> 00:05:12,370
+We have some script to save our cube config file.
+
+64
+00:05:12,370 --> 00:05:18,490
+Once we have that, we can log in as an ubuntu user or any normal user and run cube ctrl get node command
+
+65
+00:05:18,490 --> 00:05:20,560
+to see list of all our nodes.
+
+66
+00:05:20,980 --> 00:05:25,780
+After this, our Kubernetes cluster should be up and running and would be ready to use.
+
+67
+00:05:26,320 --> 00:05:28,060
+So let's get started.
+
+68
+00:05:28,870 --> 00:05:33,640
+I know there are a lot of steps to execute, but don't worry, I have most of it automated for you through
+
+69
+00:05:33,640 --> 00:05:34,390
+Vagrant.
+
+70
+00:05:34,570 --> 00:05:39,220
+So we're going to run the entire setup on virtual machines on our local system.
+
+71
+00:05:39,700 --> 00:05:45,970
+You can use same scripts to set up queue is to set up Kubernetes cluster by using queue atm on anywhere
+
+72
+00:05:45,970 --> 00:05:50,020
+on easy two instances or VM anywhere or even physical machines.
+
+73
+00:05:50,550 --> 00:05:52,300
+Okay, so let me open the source code.
+
+74
+00:05:59,800 --> 00:06:01,080
+So we're in Cuba.
+
+75
+00:06:01,660 --> 00:06:03,090
+So we have a vagrant file.
+
+76
+00:06:03,100 --> 00:06:05,910
+We're going to use this vibrant file to launch three VMs.
+
+77
+00:06:05,920 --> 00:06:08,130
+One is Kubernetes master.
+
+78
+00:06:08,140 --> 00:06:09,850
+We're going to name it as Cube master.
+
+79
+00:06:10,060 --> 00:06:11,830
+It's going to be two GB of RAM.
+
+80
+00:06:11,860 --> 00:06:13,870
+It will have a static IP.
+
+81
+00:06:14,880 --> 00:06:17,160
+Operating system is open to bindings 64.
+
+82
+00:06:17,190 --> 00:06:18,570
+Open to 18.
+
+83
+00:06:19,340 --> 00:06:24,590
+Instead of having a vibrant VM, if you choose to have a A++ e, c for instance, you can use that as
+
+84
+00:06:24,590 --> 00:06:25,070
+well.
+
+85
+00:06:26,230 --> 00:06:29,470
+When this VM comes up, it's going to execute a Shell script.
+
+86
+00:06:31,240 --> 00:06:32,590
+This is that Shell script.
+
+87
+00:06:34,310 --> 00:06:37,970
+So first is a variable set master IP, which is its own IP.
+
+88
+00:06:38,150 --> 00:06:40,340
+It's going to do the prerequisite command.
+
+89
+00:06:41,360 --> 00:06:47,150
+It's going to run, not prop command, it's going to load this module and it's going to create.
+
+90
+00:06:48,470 --> 00:06:50,420
+This file with this content.
+
+91
+00:06:52,350 --> 00:06:54,780
+Then run CTRL system Command.
+
+92
+00:06:55,850 --> 00:07:03,050
+If you're using a center machine, then it's going to script will detect that, find that out and execute
+
+93
+00:07:03,050 --> 00:07:03,770
+command.
+
+94
+00:07:05,720 --> 00:07:08,800
+To install and set up Docker engine on a red hat machine.
+
+95
+00:07:08,810 --> 00:07:13,310
+So basic commands as you see in the documentation.
+
+96
+00:07:14,300 --> 00:07:17,360
+Docker documentation to set up Docker engine.
+
+97
+00:07:17,360 --> 00:07:20,210
+So these command are going to set up Docker engine.
+
+98
+00:07:20,940 --> 00:07:22,830
+And then restart Docker engine.
+
+99
+00:07:24,440 --> 00:07:28,880
+If you're not using Red Hat machine, then it will execute this command.
+
+100
+00:07:29,360 --> 00:07:31,520
+And this will be good for open to machine.
+
+101
+00:07:32,270 --> 00:07:36,350
+Again, same command from the Docker documentation to install Docker engine.
+
+102
+00:07:36,950 --> 00:07:39,860
+Once you have Docker engine, you restart the Docker engine.
+
+103
+00:07:42,360 --> 00:07:45,810
+Okay, next step is to install Cube, Cube lit and Cube CTL.
+
+104
+00:07:48,800 --> 00:07:55,880
+So it's going to set up a repository, enable a repository, and this file document is a repository.
+
+105
+00:07:58,640 --> 00:08:01,580
+So we have to set SELinux to permissive mode.
+
+106
+00:08:01,730 --> 00:08:04,020
+And we are also going to do that permanently.
+
+107
+00:08:04,040 --> 00:08:11,090
+So we're going to change a select enforcing to SELinux permissive in the SELinux config file.
+
+108
+00:08:12,560 --> 00:08:17,390
+Then we're going to install cube lit cube EDM and cube Ctrl against the Yam command.
+
+109
+00:08:17,390 --> 00:08:18,860
+So this is for RedHat Machine.
+
+110
+00:08:19,650 --> 00:08:22,260
+Once you have that, I'm also stopping the firewall.
+
+111
+00:08:22,650 --> 00:08:26,460
+If you have a12 machine, then it will execute these commands.
+
+112
+00:08:27,740 --> 00:08:33,049
+To install cube lit cube EDM and Cube City and stopping the fireball.
+
+113
+00:08:33,590 --> 00:08:37,750
+Once you have that, then it is going to run the cube idiom init command.
+
+114
+00:08:37,760 --> 00:08:39,080
+This is the main command.
+
+115
+00:08:40,150 --> 00:08:42,980
+We're seeing hyphen hyphen, pod, hyphen Network, CIDR.
+
+116
+00:08:43,000 --> 00:08:45,160
+We're giving this IP range.
+
+117
+00:08:45,490 --> 00:08:47,500
+So this is going to be a support network.
+
+118
+00:08:48,870 --> 00:08:54,570
+We also have to give this option hyphen f and EPA server advertise Address the address of the master
+
+119
+00:08:54,570 --> 00:08:55,080
+node.
+
+120
+00:08:56,130 --> 00:08:58,670
+And all the output will be redirected to this file.
+
+121
+00:08:58,680 --> 00:09:01,050
+Q Bottom out dot log.
+
+122
+00:09:01,620 --> 00:09:07,020
+This file will have the commands which can be executed on the worker node, which we're going to do
+
+123
+00:09:07,020 --> 00:09:07,920
+automatically.
+
+124
+00:09:08,340 --> 00:09:12,450
+It's going to wait for 360 seconds and execute the script.
+
+125
+00:09:13,320 --> 00:09:15,810
+Set hyphen cube conflict message.
+
+126
+00:09:15,980 --> 00:09:16,950
+Let's see the script.
+
+127
+00:09:17,750 --> 00:09:19,220
+The script is very simple.
+
+128
+00:09:19,220 --> 00:09:20,360
+It's going to.
+
+129
+00:09:21,140 --> 00:09:22,190
+Copy the Q.
+
+130
+00:09:22,220 --> 00:09:24,050
+The admin dot com conf file.
+
+131
+00:09:24,260 --> 00:09:26,000
+This is going to be the cube config file.
+
+132
+00:09:27,420 --> 00:09:30,120
+To the user's home location Kube config.
+
+133
+00:09:30,540 --> 00:09:34,140
+It's going to give permission to that file ownership of the user.
+
+134
+00:09:36,000 --> 00:09:38,370
+These are the command if you're doing it for any user.
+
+135
+00:09:38,370 --> 00:09:41,250
+But these are the commands for vagrant users specifically.
+
+136
+00:09:41,950 --> 00:09:44,200
+So you would have a cube config file.
+
+137
+00:09:44,200 --> 00:09:47,050
+Then you can run cube ctrl command from the master node.
+
+138
+00:09:48,790 --> 00:09:51,970
+So once the script is executed, it's going to run a command cube.
+
+139
+00:09:52,090 --> 00:09:56,920
+It'll apply and apply these definition files.
+
+140
+00:09:57,010 --> 00:10:00,340
+This is going to create the weave net network.
+
+141
+00:10:01,200 --> 00:10:03,180
+Then it's going to halt for 60 seconds.
+
+142
+00:10:03,600 --> 00:10:09,570
+It's doing that to this file, the log file, which was generated by cubed a minute command.
+
+143
+00:10:12,370 --> 00:10:12,790
+All right.
+
+144
+00:10:12,790 --> 00:10:17,200
+And from this file, you're going to find out the cube idiom, Joint Command.
+
+145
+00:10:18,010 --> 00:10:20,860
+And we're going to put it into this script.
+
+146
+00:10:21,860 --> 00:10:25,040
+And this script will be executed on the worker node automatically.
+
+147
+00:10:26,120 --> 00:10:27,320
+So all automatic.
+
+148
+00:10:28,560 --> 00:10:31,260
+So this is the script that will get executed.
+
+149
+00:10:31,290 --> 00:10:33,840
+Main script that will get executed on the master node.
+
+150
+00:10:34,980 --> 00:10:39,360
+Q Monster, if you don't want to do it on Vagrant VM, if you want to do it on easy, for instance,
+
+151
+00:10:39,360 --> 00:10:39,870
+just launch.
+
+152
+00:10:39,870 --> 00:10:46,770
+Easy for instance, copy the script over there, make changes on the IP addresses, run the script.
+
+153
+00:10:48,640 --> 00:10:50,010
+You do make a few more changes.
+
+154
+00:10:50,020 --> 00:10:53,650
+I have written this script specifically to run on Vagrant VM.
+
+155
+00:10:54,720 --> 00:10:57,180
+But by making few changes, you can run anywhere.
+
+156
+00:10:57,540 --> 00:11:01,980
+But anyways, we're going to use cops to set up Kubernetes Cluster and AWS.
+
+157
+00:11:01,980 --> 00:11:04,110
+So you can do this on the VMs.
+
+158
+00:11:04,530 --> 00:11:04,810
+Okay.
+
+159
+00:11:04,830 --> 00:11:08,550
+Once the master node is up, it's going to bring up the worker node.
+
+160
+00:11:10,070 --> 00:11:10,790
+So one, two.
+
+161
+00:11:10,790 --> 00:11:12,140
+Bionic 64.
+
+162
+00:11:13,080 --> 00:11:15,480
+IP address two GB RAM.
+
+163
+00:11:15,840 --> 00:11:17,400
+You can set this to one GB.
+
+164
+00:11:17,440 --> 00:11:18,780
+Also, there should be fine.
+
+165
+00:11:19,420 --> 00:11:22,150
+So after the VM comes up, it's going to execute the script.
+
+166
+00:11:22,150 --> 00:11:23,590
+Script cube node.
+
+167
+00:11:24,550 --> 00:11:27,130
+One hyphen in a dot search.
+
+168
+00:11:27,160 --> 00:11:28,210
+That's the script.
+
+169
+00:11:29,420 --> 00:11:31,640
+So the script first half is similar.
+
+170
+00:11:32,090 --> 00:11:38,210
+It's going to run the pre request side, the CTL LZ mod install Docker engine based on the operating
+
+171
+00:11:38,210 --> 00:11:38,840
+system.
+
+172
+00:11:39,440 --> 00:11:40,520
+Similar thing.
+
+173
+00:11:42,130 --> 00:11:44,590
+Disable SELinux, disable firewall.
+
+174
+00:11:45,890 --> 00:11:51,740
+And then install a cube lit cube idiom and cube CTL, same as the worker node, and it will finally
+
+175
+00:11:51,740 --> 00:11:53,240
+run this script.
+
+176
+00:11:55,180 --> 00:11:56,150
+Joint command.
+
+177
+00:11:56,170 --> 00:11:58,650
+So this script will get generated automatically.
+
+178
+00:11:58,660 --> 00:12:00,490
+But I have a sample over here.
+
+179
+00:12:01,950 --> 00:12:07,470
+So the script will have a command automatically created from the script.
+
+180
+00:12:11,200 --> 00:12:11,800
+Okay there.
+
+181
+00:12:11,800 --> 00:12:14,350
+This command is generating the script automatically.
+
+182
+00:12:17,280 --> 00:12:21,450
+So it will have the command to join, so the script will get executed, will join the worker node to
+
+183
+00:12:21,450 --> 00:12:22,410
+the master node.
+
+184
+00:12:24,000 --> 00:12:24,720
+This will be over.
+
+185
+00:12:26,190 --> 00:12:28,440
+This is a sample from a previous execution.
+
+186
+00:12:30,710 --> 00:12:33,710
+Once that is done, the worker node will be joined to the master node.
+
+187
+00:12:35,160 --> 00:12:36,270
+Now No.
+
+188
+00:12:36,270 --> 00:12:39,600
+Two almost similar Cubano to any such.
+
+189
+00:12:41,290 --> 00:12:42,470
+Prerequisites.
+
+190
+00:12:42,850 --> 00:12:47,860
+Unless mod still install docker engine based on the operating system.
+
+191
+00:12:49,770 --> 00:12:52,650
+Said Kubernetes Repository Install Cube lit.
+
+192
+00:12:52,680 --> 00:12:54,420
+Cube Admin Cube Ctl.
+
+193
+00:12:56,470 --> 00:12:58,840
+And then finally running the script.
+
+194
+00:13:02,180 --> 00:13:05,240
+Which will join this worker node also to the master node.
+
+195
+00:13:05,810 --> 00:13:09,360
+See, all you to do is just get into the van near the vagrant file.
+
+196
+00:13:09,380 --> 00:13:12,710
+The same directory say vagrant up and wait for few minutes.
+
+197
+00:13:12,710 --> 00:13:15,920
+In your Kubernetes cluster with Cube, it will be up and running.
+
+198
+00:13:16,040 --> 00:13:17,510
+Let's test this.
+
+199
+00:13:18,170 --> 00:13:22,940
+If you any time wish to run all these commands manually, you can just copy paste them.
+
+200
+00:13:24,770 --> 00:13:25,730
+On the shell.
+
+201
+00:13:26,870 --> 00:13:27,970
+You just need to take care.
+
+202
+00:13:27,980 --> 00:13:32,600
+You're going to run master command on master node and node command on the node.
+
+203
+00:13:33,320 --> 00:13:34,820
+So I'm saying vagrant up.
+
+204
+00:13:38,740 --> 00:13:39,520
+You forced.
+
+205
+00:13:39,520 --> 00:13:42,580
+The M.A. is coming up and we'll execute our script.
+
+206
+00:13:45,530 --> 00:13:50,240
+So after waiting some time, the cluster is up, the VMs are up.
+
+207
+00:13:50,240 --> 00:13:53,210
+We not we don't know for sure whether the cluster is up or not.
+
+208
+00:13:53,210 --> 00:13:54,890
+So let's log in and find out.
+
+209
+00:13:57,190 --> 00:13:58,660
+Fragrant as such.
+
+210
+00:13:58,660 --> 00:14:02,800
+Cube master, This is where the cube config file is stored.
+
+211
+00:14:03,900 --> 00:14:04,610
+We're in.
+
+212
+00:14:04,610 --> 00:14:05,900
+Let's clear the screen.
+
+213
+00:14:06,560 --> 00:14:09,530
+Q I still get notes.
+
+214
+00:14:10,400 --> 00:14:12,260
+And we see everything ready.
+
+215
+00:14:12,770 --> 00:14:15,250
+So we have the cube master, which is ready.
+
+216
+00:14:15,260 --> 00:14:19,580
+We're only on Cube Master, Node one and Node two.
+
+217
+00:14:19,610 --> 00:14:20,870
+So it's a three node.
+
+218
+00:14:21,090 --> 00:14:26,450
+And this cluster you should have in your home directory cube config file.
+
+219
+00:14:27,250 --> 00:14:32,170
+You can use this file, copy it in your local machine and you can use Cube Ctrl from your machine as
+
+220
+00:14:32,170 --> 00:14:32,770
+well.
+
+221
+00:14:34,800 --> 00:14:37,890
+This file is generated when we run the companies cluster.
+
+222
+00:14:38,010 --> 00:14:44,110
+When the medium command, we run and then feed our script, it gets it got copied to the home directory.
+
+223
+00:14:44,130 --> 00:14:48,000
+We have also copied it to the root user home directory.
+
+224
+00:14:52,660 --> 00:14:54,400
+Skip config file there as well.
+
+225
+00:14:55,090 --> 00:14:56,770
+So from root is user.
+
+226
+00:14:56,770 --> 00:14:59,230
+Also you can run cube CTL get nodes.
+
+227
+00:15:00,630 --> 00:15:01,800
+And that works.
+
+228
+00:15:02,350 --> 00:15:05,520
+Okay, now let's run our usual test.
+
+229
+00:15:06,630 --> 00:15:08,550
+It'll create cluster.
+
+230
+00:15:11,240 --> 00:15:12,880
+Mean, we should have given a different name.
+
+231
+00:15:13,120 --> 00:15:15,070
+Let's give one more.
+
+232
+00:15:15,460 --> 00:15:15,860
+Hello.
+
+233
+00:15:15,880 --> 00:15:19,300
+Hyphen Cuba idiom.
+
+234
+00:15:20,110 --> 00:15:21,700
+That's the name of a deployment.
+
+235
+00:15:26,250 --> 00:15:27,900
+And we'll expose it.
+
+236
+00:15:33,120 --> 00:15:34,500
+Hello, Hyphen.
+
+237
+00:15:36,610 --> 00:15:37,870
+Q Adam.
+
+238
+00:15:38,830 --> 00:15:39,860
+On board ADHD.
+
+239
+00:15:39,880 --> 00:15:40,690
+That's fine.
+
+240
+00:15:41,510 --> 00:15:48,710
+Okay, so we should have a pod which was created from.
+
+241
+00:15:51,300 --> 00:15:52,590
+This deployment.
+
+242
+00:15:56,690 --> 00:15:58,820
+And we should also have this service.
+
+243
+00:16:00,570 --> 00:16:03,750
+So the new report is 32748.
+
+244
+00:16:05,220 --> 00:16:06,970
+You can see much in detail.
+
+245
+00:16:08,570 --> 00:16:11,210
+It'll get poured.
+
+246
+00:16:14,470 --> 00:16:15,100
+It's a cube.
+
+247
+00:16:15,320 --> 00:16:18,910
+It'll describe a pod.
+
+248
+00:16:19,930 --> 00:16:22,840
+And we'll check our pod on which node it is running.
+
+249
+00:16:27,030 --> 00:16:29,580
+So you see that it's running on cubed, not two.
+
+250
+00:16:30,420 --> 00:16:34,830
+So when you describe your part, it will give you detailed information and you can find out, find out
+
+251
+00:16:34,830 --> 00:16:35,850
+where it is running.
+
+252
+00:16:36,390 --> 00:16:37,680
+And we have exposed the port.
+
+253
+00:16:37,680 --> 00:16:39,510
+32748.
+
+254
+00:16:40,570 --> 00:16:41,800
+Let's test it.
+
+255
+00:16:43,080 --> 00:16:44,580
+Let's open our browser.
+
+256
+00:16:46,260 --> 00:16:53,610
+So I'll access it on board 3 to 7 four eight as the service has exposed on this port.
+
+257
+00:16:55,160 --> 00:16:55,650
+Right.
+
+258
+00:16:55,670 --> 00:16:56,610
+So you get the page.
+
+259
+00:16:56,630 --> 00:16:57,440
+That's awesome.
+
+260
+00:16:57,620 --> 00:17:05,270
+Now, that was about Node two, but, you know, we have a network and we can connect our pod from any
+
+261
+00:17:05,270 --> 00:17:07,310
+worker node or even master node.
+
+262
+00:17:07,319 --> 00:17:10,130
+So let's try 56.3.
+
+263
+00:17:10,130 --> 00:17:11,990
+That's cube node one.
+
+264
+00:17:13,490 --> 00:17:14,690
+That is also working.
+
+265
+00:17:15,260 --> 00:17:19,640
+And we'll also try the M.A. 56.2.
+
+266
+00:17:20,880 --> 00:17:22,079
+Now it's also working.
+
+267
+00:17:22,829 --> 00:17:29,130
+So we have successfully verified our Cube Kubernetes cluster, which we created from Cube EDM.
+
+268
+00:17:29,400 --> 00:17:34,260
+And as in this video we are just talking about setup, that should be all for cube EDM.
+
+269
+00:17:34,260 --> 00:17:40,650
+Let's hard you can heart or if you want, you can even destroy your VMs.
+
+270
+00:17:42,110 --> 00:17:43,410
+You should have three VMs.
+
+271
+00:17:43,430 --> 00:17:44,960
+Cube Master Cube Node one.
+
+272
+00:17:44,960 --> 00:17:45,950
+Cube Node two.
+
+273
+00:17:46,910 --> 00:17:49,490
+I'm going to destroy it because I don't need it now.
+
+274
+00:17:56,930 --> 00:17:59,180
+Okay, so we're done here with cube idiom.
+
+275
+00:17:59,570 --> 00:18:02,210
+Let's now shift our attention to cops.
+
+276
+00:18:03,100 --> 00:18:05,000
+That we're going to do completely on a.
+
+277
+00:18:06,160 --> 00:18:07,900
+So let's see what we're going to do.
+
