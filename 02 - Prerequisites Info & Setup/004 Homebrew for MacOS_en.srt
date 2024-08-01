@@ -1,0 +1,196 @@
+1
+00:00:00,430 --> 00:00:01,374
+Hello and welcome.
+
+2
+00:00:01,472 --> 00:00:03,270
+In this video, we will see
+
+3
+00:00:03,320 --> 00:00:06,870
+how to install Homebrew on macOS.
+
+4
+00:00:07,730 --> 00:00:11,730
+Homebrew is a tool to install softwares or packages.
+
+5
+00:00:13,190 --> 00:00:17,202
+We will be installing some software or tools in the
+
+6
+00:00:17,216 --> 00:00:21,370
+next lecture, and we will be using Homebrew on macOS.
+
+7
+00:00:21,550 --> 00:00:24,826
+So let's search for Homebrew.
+
+8
+00:00:24,958 --> 00:00:27,474
+So open your browser, search for Homebrew, and
+
+9
+00:00:27,512 --> 00:00:30,140
+click on the first link, brew sh.
+
+10
+00:00:33,690 --> 00:00:37,994
+There you see a link or the command.
+
+11
+00:00:38,102 --> 00:00:40,130
+You just need to copy this command
+
+12
+00:00:40,310 --> 00:00:42,254
+and run this command on the terminal.
+
+13
+00:00:42,302 --> 00:00:44,050
+So let's open the terminal.
+
+14
+00:00:48,550 --> 00:00:51,962
+All right, let's paste the command on
+
+15
+00:00:51,976 --> 00:00:54,820
+the terminal command v, hit Enter.
+
+16
+00:00:55,990 --> 00:00:56,390
+Enter.
+
+17
+00:00:56,440 --> 00:01:01,520
+The password hit Enter.
+
+18
+00:01:05,850 --> 00:01:08,770
+After the installation, you will see two commands.
+
+19
+00:01:09,150 --> 00:01:11,170
+I'm going to pace those commands.
+
+20
+00:01:11,550 --> 00:01:12,478
+This one.
+
+21
+00:01:12,624 --> 00:01:15,674
+Now, you don't see this after the installation
+
+22
+00:01:15,722 --> 00:01:17,950
+here, because I have already installed Brew.
+
+23
+00:01:18,390 --> 00:01:19,718
+But you will see this command.
+
+24
+00:01:19,754 --> 00:01:22,238
+You can copy and paste this in the terminal.
+
+25
+00:01:22,394 --> 00:01:23,714
+That's one command.
+
+26
+00:01:23,882 --> 00:01:25,200
+And the next one.
+
+27
+00:01:28,810 --> 00:01:30,854
+After running these two commands, you
+
+28
+00:01:30,892 --> 00:01:33,222
+can start using Brew command.
+
+29
+00:01:33,306 --> 00:01:34,754
+So if you just type Brew and hit
+
+30
+00:01:34,792 --> 00:01:38,260
+Enter, you should see some output like this.
+
+31
+00:01:40,450 --> 00:01:42,878
+Now, by using Brew command, you can install
+
+32
+00:01:42,964 --> 00:01:45,750
+software so you can search for your software.
+
+33
+00:01:45,870 --> 00:01:48,954
+We will be installing a tool called Maven.
+
+34
+00:01:49,122 --> 00:01:54,038
+So let's search for Maven, and you get
+
+35
+00:01:54,064 --> 00:01:56,154
+the command of how to install Maven.
+
+36
+00:01:56,202 --> 00:01:57,878
+So just copy this and run it in
+
+37
+00:01:57,904 --> 00:02:00,342
+your terminal, and Maven will get installed.
+
+38
+00:02:00,486 --> 00:02:01,478
+That's one example.
+
+39
+00:02:01,564 --> 00:02:02,678
+Like that, you can search for
+
+40
+00:02:02,704 --> 00:02:04,974
+any software, for example, JDK.
+
+41
+00:02:05,142 --> 00:02:07,602
+Or you can search for, let's
+
+42
+00:02:07,626 --> 00:02:10,419
+say, vagrant, which we'll be using.
+
+43
+00:02:11,230 --> 00:02:13,914
+So you get the command, find your software,
+
+44
+00:02:14,022 --> 00:02:16,410
+copy the command, run it in the terminal,
+
+45
+00:02:16,530 --> 00:02:19,070
+and the software will get installed.
+
+46
+00:02:19,450 --> 00:02:21,206
+So that is all in this video.
+
+47
+00:02:21,268 --> 00:02:22,514
+I will see you in the next one,
+
+48
+00:02:22,552 --> 00:02:25,182
+where we'll install softwares by using brew.
+
+49
+00:02:25,326 --> 00:02:27,090
+See you in the next one. Bye.
+

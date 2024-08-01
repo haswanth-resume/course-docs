@@ -1,0 +1,324 @@
+1
+00:00:00,570 --> 00:00:05,190
+Okay, so now we have a very easy way of installing software on our computer.
+
+2
+00:00:05,310 --> 00:00:11,700
+So I will show you the list of tools that you have to install based on your operating system.
+
+3
+00:00:11,700 --> 00:00:16,650
+Windows user and macOS user will execute the respective commands.
+
+4
+00:00:16,650 --> 00:00:22,860
+So in our repository, in our source code, access the branch prereqs
+
+5
+00:00:25,490 --> 00:00:27,440
+In this branch there is a PDF.
+
+6
+00:00:27,470 --> 00:00:29,270
+You can open it here itself.
+
+7
+00:00:31,580 --> 00:00:36,470
+So for Windows installing tools on Windows, once you have set up the chocolatey, now you can install
+
+8
+00:00:36,470 --> 00:00:45,530
+all these tools, choco install virtualbox and vagrant, git, JDK8, maven, awscli, Intellij and
+
+9
+00:00:45,530 --> 00:00:49,010
+Sublime Text Editor. For macOS User.
+
+10
+00:00:49,910 --> 00:00:56,480
+Same tools, but you have homebrew to install the software and before you start installing the software,
+
+11
+00:00:56,480 --> 00:00:57,980
+you have to do this.
+
+12
+00:00:58,550 --> 00:01:05,780
+You open your terminal, execute this command exactly as it is, and then check with cat command.
+
+13
+00:01:06,940 --> 00:01:11,560
+and this file should contain the letter hyphen -k.
+
+14
+00:01:12,850 --> 00:01:18,070
+And it should be without any quotes, any double qoute or single qoute if you find it is not correct.
+
+15
+00:01:18,950 --> 00:01:19,970
+Open that file.
+
+16
+00:01:19,970 --> 00:01:21,860
+It will be in your home directory.
+
+17
+00:01:22,190 --> 00:01:30,110
+Make sure this file has hyphen -k option, save it, and then start installing your software's same software
+
+18
+00:01:30,110 --> 00:01:31,730
+but with brew command.
+
+19
+00:01:33,020 --> 00:01:40,520
+If you are having mac OS with M1 chip, then you do not need to install virtualbox.
+
+20
+00:01:40,940 --> 00:01:43,550
+The first command you need to skip.
+
+21
+00:01:44,960 --> 00:01:51,530
+And you execute all the rest of the commands on your terminal, which will install these softwares except
+
+22
+00:01:51,530 --> 00:01:52,730
+VirtualBox.
+
+23
+00:01:52,730 --> 00:01:58,010
+But if you have Mac OS with intel chip, then install virtualbox execute all the commands.
+
+24
+00:01:58,520 --> 00:02:07,190
+VirtualBox on M1 chip is not supported and we will be installing its replacement, its alternative which
+
+25
+00:02:07,190 --> 00:02:08,360
+is VMware.
+
+26
+00:02:08,389 --> 00:02:10,280
+That will be in lecture 19.
+
+27
+00:02:11,260 --> 00:02:13,930
+So I will be using a choco command.
+
+28
+00:02:15,550 --> 00:02:18,100
+And installing these tools.
+
+29
+00:02:18,400 --> 00:02:22,650
+So I will open PowerShell as administrator, macOS user.
+
+30
+00:02:22,660 --> 00:02:24,520
+You need to just open your terminal.
+
+31
+00:02:24,880 --> 00:02:29,320
+I will be executing these commands one by one. Simultaneously
+
+32
+00:02:29,320 --> 00:02:39,420
+MacOS user, You need to execute the brew install command ,one by one. Except for M1  and M2 chip,
+
+33
+00:02:39,430 --> 00:02:41,770
+The first command is excluded.
+
+34
+00:02:44,490 --> 00:02:45,390
+Also observe.
+
+35
+00:02:45,390 --> 00:02:47,790
+I have specified a version over here.
+
+36
+00:02:48,000 --> 00:02:56,100
+The latest version of VirtualBox is not working with us, or I should say not working with vagrant and
+
+37
+00:02:56,100 --> 00:02:57,270
+we are having a lot of issues.
+
+38
+00:02:57,270 --> 00:02:58,310
+So we tested.
+
+39
+00:02:58,320 --> 00:03:03,180
+This is the version that we will be using for now.
+
+40
+00:03:03,210 --> 00:03:08,520
+Later, whatever version you see in this document, you may see some version for Vagrant, you may see
+
+41
+00:03:08,520 --> 00:03:09,720
+some version for Git.
+
+42
+00:03:09,810 --> 00:03:15,180
+So make sure whatever version you see in the document, you execute that same command.
+
+43
+00:03:15,330 --> 00:03:20,250
+So right now in the document, if you see this version specified, then execute that version.
+
+44
+00:03:20,600 --> 00:03:24,570
+Okay, let's download this file so we can copy paste command easily.
+
+45
+00:03:24,570 --> 00:03:25,860
+Let's click on download.
+
+46
+00:03:27,200 --> 00:03:28,730
+Let's open that file.
+
+47
+00:03:30,830 --> 00:03:32,630
+So now we can copy this.
+
+48
+00:03:32,660 --> 00:03:34,490
+you see that?
+
+49
+00:03:34,910 --> 00:03:35,690
+Copy that.
+
+50
+00:03:36,080 --> 00:03:37,700
+Let's open PowerShell.
+
+51
+00:03:37,700 --> 00:03:41,270
+So I'm going to say PowerShell on my search.
+
+52
+00:03:42,240 --> 00:03:47,270
+And I have different versions of PowerShell, so you see different versions here.
+
+53
+00:03:47,280 --> 00:03:53,700
+So just right click on it and say run as administrator only as administrator, not as normal user.
+
+54
+00:03:53,700 --> 00:04:00,060
+You should see here administrator Windows PowerShell like this, if you don't see it, close it again,
+
+55
+00:04:00,060 --> 00:04:07,200
+open as administrator, right click and as soon as I right click it copies the command, it starts installing
+
+56
+00:04:07,200 --> 00:04:09,090
+and is asking me a question.
+
+57
+00:04:09,540 --> 00:04:13,710
+I will say Capital A to accept all the questions you ask.
+
+58
+00:04:16,170 --> 00:04:18,480
+So it's going to take a moment, download and install.
+
+59
+00:04:19,140 --> 00:04:20,519
+Let's go to the next command.
+
+60
+00:04:21,910 --> 00:04:23,440
+choco install vagrant
+
+61
+00:04:24,820 --> 00:04:29,080
+I'm going to install all these commands one by one on my PowerShell.
+
+62
+00:04:29,080 --> 00:04:34,090
+And once I'm done executing all these commands, I'll finally reboot my machine.
+
+63
+00:04:35,440 --> 00:04:36,760
+I'm done with VirtualBox.
+
+64
+00:04:36,760 --> 00:04:38,890
+I'm going to install now Vagrant.
+
+65
+00:06:08,120 --> 00:06:10,850
+Alright, so I have installed all my tools.
+
+66
+00:06:12,010 --> 00:06:14,800
+I got a small error while I'm installing sublime text.
+
+67
+00:06:14,800 --> 00:06:16,840
+But anyways, it's working fine.
+
+68
+00:06:19,760 --> 00:06:24,680
+If you are not able to install any of this tool through chocolatey, then you can also find it from the
+
+69
+00:06:24,680 --> 00:06:26,270
+internet, download and install it.
+
+70
+00:06:26,270 --> 00:06:28,490
+Like for example, sublime text editor.
+
+71
+00:06:40,770 --> 00:06:43,500
+But anyway, Sublime Text editor is installed.
+
+72
+00:06:43,530 --> 00:06:45,030
+Sublime Text three.
+
+73
+00:06:46,070 --> 00:06:47,570
+So it's not a problem.
+
+74
+00:06:47,720 --> 00:06:52,850
+Now, once you're done installing all the tools you need to reboot your machine, the reboot is specifically
+
+75
+00:06:52,850 --> 00:06:53,840
+for Vagrant.
+
+76
+00:06:56,340 --> 00:07:02,220
+So if you're done installing all the tools, reboot the machine and continue when you are done.
+
+77
+00:07:08,440 --> 00:07:11,740
+Okay, so now you should have all these tools installed.
+
+78
+00:07:12,100 --> 00:07:18,430
+Oracle VirtualBox, GitBash, Vagrant, Chocolatey or homebrew based on your operating system.
+
+79
+00:07:18,730 --> 00:07:22,900
+JDK8, Maven Intellij and Sublime Text Editor.
+
+80
+00:07:23,560 --> 00:07:30,820
+If you have these tools now ready, then we can get on to the next thing, which is signing up a few
+
+81
+00:07:30,820 --> 00:07:31,540
+accounts.
+

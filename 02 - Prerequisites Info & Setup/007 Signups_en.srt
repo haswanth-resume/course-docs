@@ -1,0 +1,524 @@
+1
+00:00:00,210 --> 00:00:02,070
+So we'll create an account on GitHub.
+
+2
+00:00:02,280 --> 00:00:09,330
+We'll talk about purchasing a domain, creating an account on Docker hub, and also creating account
+
+3
+00:00:09,330 --> 00:00:10,320
+on sonarcloud.
+
+4
+00:00:12,380 --> 00:00:17,990
+And then after that, we're going to talk about AWS Free tier account and few other changes that
+
+5
+00:00:17,990 --> 00:00:19,850
+we're going to make in the AWS  account.
+
+6
+00:00:20,690 --> 00:00:22,880
+So let's get started with GitHub first.
+
+7
+00:00:24,400 --> 00:00:25,480
+So open your browser.
+
+8
+00:00:25,510 --> 00:00:27,340
+Go to github.com
+
+9
+00:00:30,480 --> 00:00:31,970
+It's a simple signup process.
+
+10
+00:00:31,980 --> 00:00:33,200
+You give a username.
+
+11
+00:00:33,240 --> 00:00:36,810
+You give the email address, password and say, Sign up.
+
+12
+00:00:38,030 --> 00:00:43,100
+And from your inbox you confirm that email address and then you should be able to log in to github.com
+
+13
+00:00:43,100 --> 00:00:43,400
+.
+
+14
+00:00:45,410 --> 00:00:47,810
+So fill in your right details and sign up.
+
+15
+00:00:51,410 --> 00:00:51,740
+Okay.
+
+16
+00:00:51,740 --> 00:00:53,030
+I need to do some verification.
+
+17
+00:00:53,030 --> 00:00:54,220
+Spiral Galaxy.
+
+18
+00:00:54,230 --> 00:00:56,440
+Okay, that's the Spiral Galaxy maybe.
+
+19
+00:00:57,420 --> 00:00:58,020
+Yes.
+
+20
+00:00:59,980 --> 00:01:00,280
+Okay.
+
+21
+00:01:00,280 --> 00:01:01,690
+So account verified there.
+
+22
+00:01:03,190 --> 00:01:07,030
+I don't want any offers on announcements.
+
+23
+00:01:07,900 --> 00:01:12,420
+I'm going to go for a free plan and that should be fine for our project.
+
+24
+00:01:15,270 --> 00:01:16,500
+Welcome to GitHub.
+
+25
+00:01:18,030 --> 00:01:18,660
+So select.
+
+26
+00:01:18,660 --> 00:01:20,190
+What kind of work do you do?
+
+27
+00:01:20,190 --> 00:01:20,800
+Mainly.
+
+28
+00:01:20,820 --> 00:01:23,580
+So I'm going to see a teacher.
+
+29
+00:01:25,090 --> 00:01:26,080
+And a student.
+
+30
+00:01:26,680 --> 00:01:26,960
+Oh.
+
+31
+00:01:27,070 --> 00:01:28,210
+I can select either of it.
+
+32
+00:01:28,240 --> 00:01:28,510
+Okay.
+
+33
+00:01:28,510 --> 00:01:29,410
+So I shall be.
+
+34
+00:01:29,440 --> 00:01:30,220
+I'm a teacher.
+
+35
+00:01:32,400 --> 00:01:33,780
+Most software engineer.
+
+36
+00:01:34,650 --> 00:01:36,460
+How much programming experience do you have?
+
+37
+00:01:36,540 --> 00:01:38,490
+Select whatever you are good at.
+
+38
+00:01:42,870 --> 00:01:49,080
+Who do you plan to use GitHub for learn git and GitHub, host project.
+
+39
+00:01:51,100 --> 00:01:52,240
+That should be good for now.
+
+40
+00:01:53,300 --> 00:01:54,680
+And you can see a complete setup.
+
+41
+00:01:57,490 --> 00:01:58,870
+After this check your inboxes.
+
+42
+00:01:58,870 --> 00:02:01,270
+Should get an email verified that email address.
+
+43
+00:02:15,340 --> 00:02:15,670
+Okay.
+
+44
+00:02:15,670 --> 00:02:18,040
+So my email is verified.
+
+45
+00:02:20,610 --> 00:02:21,720
+So that is done.
+
+46
+00:02:22,140 --> 00:02:23,730
+We have created an account on GitHub.
+
+47
+00:02:23,730 --> 00:02:25,080
+That should be fine for now.
+
+48
+00:02:25,080 --> 00:02:26,940
+We use it later.
+
+49
+00:02:28,620 --> 00:02:31,500
+Next we will talk about purchasing a domain.
+
+50
+00:02:33,050 --> 00:02:36,110
+So if you have never done this, then I'll show this to you.
+
+51
+00:02:36,110 --> 00:02:41,620
+Or else if you already know about this, then you can purchase domain from any of the domain registrar.
+
+52
+00:02:41,630 --> 00:02:42,920
+I will use GoDaddy.
+
+53
+00:02:45,840 --> 00:02:55,580
+So you can search for a domain like, for example, my dev ops projects or see if this domain is available.
+
+54
+00:02:57,110 --> 00:02:57,350
+Yeah.
+
+55
+00:02:57,680 --> 00:03:00,740
+199 per year for me.
+
+56
+00:03:01,520 --> 00:03:07,640
+So you can say add to cart and you can sign in if you don't have an account with the domain registrar, Create
+
+57
+00:03:07,640 --> 00:03:08,200
+an account.
+
+58
+00:03:08,330 --> 00:03:11,180
+purchase a domain and don't go for free domains.
+
+59
+00:03:11,180 --> 00:03:16,520
+There are also free domains, but we'll be doing so many settings in this DNS.
+
+60
+00:03:16,520 --> 00:03:22,040
+So we will need a paid domain where we can go to the advanced settings of DNS.
+
+61
+00:03:23,060 --> 00:03:29,360
+So whatever you feel like you can purchase, dot com, dot in on whatever domain you want, you give a name,
+
+62
+00:03:29,360 --> 00:03:30,290
+search for it.
+
+63
+00:03:30,770 --> 00:03:33,650
+You really don't need to get a very expensive one.
+
+64
+00:03:34,580 --> 00:03:35,920
+Any domain should be fine.
+
+65
+00:03:35,930 --> 00:03:36,250
+Okay.
+
+66
+00:03:37,040 --> 00:03:41,120
+Once you made the purchase and then you log in, you should see your domain.
+
+67
+00:03:41,210 --> 00:03:42,770
+I have groophy.in.
+
+68
+00:03:43,790 --> 00:03:50,840
+And you should see the DNS records you click on DNS service and you will see a few records.
+
+69
+00:03:50,870 --> 00:03:52,730
+We are going to add a lot of records.
+
+70
+00:03:53,720 --> 00:03:57,080
+If you know how to use it, you can start using it already.
+
+71
+00:03:57,980 --> 00:03:59,380
+But if you don't know, don't worry.
+
+72
+00:03:59,390 --> 00:04:02,150
+We'll be using it in our projects many times.
+
+73
+00:04:03,200 --> 00:04:09,380
+Okay, so once you have the domain, the next thing will do is create an account on Docker hub.
+
+74
+00:04:09,530 --> 00:04:11,300
+We just need to create account, that's all.
+
+75
+00:04:12,110 --> 00:04:13,580
+So let's go to Docker Hub.
+
+76
+00:04:16,149 --> 00:04:17,740
+Search for Docker Hub on the net.
+
+77
+00:04:17,980 --> 00:04:20,649
+You should find Docker Hub site.
+
+78
+00:04:22,380 --> 00:04:23,580
+Not that that's the wrong one.
+
+79
+00:04:24,240 --> 00:04:26,670
+Docker hub, hub.docker.com
+
+80
+00:04:31,670 --> 00:04:32,030
+Okay.
+
+81
+00:04:32,030 --> 00:04:33,050
+So we'll sign up.
+
+82
+00:04:34,920 --> 00:04:36,000
+So give some ID.
+
+83
+00:04:37,140 --> 00:04:41,730
+like a username kubeimran.
+
+84
+00:04:41,730 --> 00:04:42,360
+I'm giving.
+
+85
+00:04:44,020 --> 00:04:47,020
+And give your email address and password and say sign up.
+
+86
+00:04:47,920 --> 00:04:49,030
+I'm not a robot.
+
+87
+00:04:49,540 --> 00:04:50,050
+Sign up.
+
+88
+00:04:53,180 --> 00:04:54,260
+You need to choose a plan.
+
+89
+00:04:54,350 --> 00:04:55,770
+You can go with the free plan.
+
+90
+00:04:55,790 --> 00:04:56,690
+That should be fine.
+
+91
+00:04:58,460 --> 00:05:01,400
+Verifying your email address, so I should get an email.
+
+92
+00:05:07,760 --> 00:05:10,310
+And let me refresh it once again.
+
+93
+00:05:16,370 --> 00:05:18,170
+So we created an account on Docker hub.
+
+94
+00:05:19,190 --> 00:05:20,450
+And that's all for now.
+
+95
+00:05:20,450 --> 00:05:21,260
+On Docker Hub.
+
+96
+00:05:21,270 --> 00:05:24,740
+We are going to store Docker images on this in the Docker projects.
+
+97
+00:05:26,790 --> 00:05:27,220
+Ok last thing
+
+98
+00:05:27,220 --> 00:05:28,840
+In the sign up, we have sonar cloud.
+
+99
+00:05:29,140 --> 00:05:30,820
+Let's log into the sooner cloud.
+
+100
+00:05:37,100 --> 00:05:37,910
+sonarcloud.io.
+
+101
+00:05:37,970 --> 00:05:38,750
+.
+
+102
+00:05:38,750 --> 00:05:39,380
+Click on it.
+
+103
+00:05:41,390 --> 00:05:48,650
+And you can sign up with your GitHub account or Bitbucket azure DevOps or GitLab account. We will sign
+
+104
+00:05:48,650 --> 00:05:49,670
+up with GitHub account.
+
+105
+00:05:53,360 --> 00:05:57,920
+So as the authorized allowed, I have already signed into my GitHub account from the same browser.
+
+106
+00:05:58,370 --> 00:06:00,890
+So I'm getting this or else you will get a log in.
+
+107
+00:06:02,140 --> 00:06:02,770
+window where you
+
+108
+00:06:02,770 --> 00:06:06,100
+can use your username and password of GitHub account.
+
+109
+00:06:13,400 --> 00:06:16,460
+We will click on this, create projects manually.
+
+110
+00:06:19,060 --> 00:06:24,190
+Then you can import all of the things from GitHub, but we really don't have anything on GitHub.
+
+111
+00:06:24,190 --> 00:06:29,080
+So I'm going to create organization manually, so let's give a name.
+
+112
+00:06:30,580 --> 00:06:33,250
+So for the time being, I'm giving vprofile-projects.
+
+113
+00:06:34,460 --> 00:06:36,410
+vprofile-projects.
+
+114
+00:06:38,330 --> 00:06:39,560
+Now that has to be unique.
+
+115
+00:06:39,770 --> 00:06:41,210
+So you give your own name.
+
+116
+00:06:42,910 --> 00:06:46,510
+Every plan should be fine for us and we see clear organization.
+
+117
+00:06:48,530 --> 00:06:50,000
+So that's our organization name.
+
+118
+00:06:50,000 --> 00:06:51,720
+vprofile-projects,
+
+119
+00:06:51,740 --> 00:06:54,560
+You create your own name and a project key.
+
+120
+00:06:55,670 --> 00:06:59,060
+I'd say vpro-analysis.
+
+121
+00:06:59,060 --> 00:07:00,440
+Any project name you can give.
+
+122
+00:07:01,810 --> 00:07:02,680
+And say set up.
+
+123
+00:07:06,030 --> 00:07:11,220
+That is all this much is fine when we see when we use it into our AWS project.
+
+124
+00:07:11,230 --> 00:07:12,600
+AWS CICD project.
+
+125
+00:07:13,020 --> 00:07:18,060
+There you need to mention this organization name and project name so you can take a note or any time
+
+126
+00:07:18,060 --> 00:07:21,270
+you can log in and find out your organization name and your project name.
+
+127
+00:07:21,960 --> 00:07:22,740
+All right, then.
+
+128
+00:07:22,740 --> 00:07:24,450
+That should be all in.
+
+129
+00:07:24,450 --> 00:07:25,020
+Sign up.
+
+130
+00:07:26,260 --> 00:07:31,420
+So we are doing good, we have GitHub account now we have a domain, we have created an account on Docker hub
+
+131
+00:07:31,420 --> 00:07:36,550
+and we have a sonar cloud account and we have configured the organisation and project in sonar cloud.
+

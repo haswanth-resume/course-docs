@@ -1,0 +1,220 @@
+1
+00:00:00,540 --> 00:00:05,100
+The first tool that we'll be installing is chocolaty.
+
+2
+00:00:06,640 --> 00:00:14,320
+chocolaty is a tool in Windows to install software through command line like choice install notepad++.
+
+3
+00:00:14,320 --> 00:00:17,140
+That will be the command to install notepad++.
+
+4
+00:00:18,260 --> 00:00:20,360
+And this is not a mandatory tool.
+
+5
+00:00:21,080 --> 00:00:24,990
+You can just search for software on the Internet and download and install also.
+
+6
+00:00:25,010 --> 00:00:28,160
+But this is just to make your life easy.
+
+7
+00:00:28,970 --> 00:00:34,820
+So you open PowerShell or command prompt and run the command and install the software.
+
+8
+00:00:35,980 --> 00:00:40,630
+If you do not want to install chocolaty you are having trouble installing chocolate then you can.
+
+9
+00:00:40,630 --> 00:00:41,950
+even skip this part.
+
+10
+00:00:42,940 --> 00:00:45,550
+Then you have to install all the softwares that I show you.
+
+11
+00:00:45,550 --> 00:00:48,520
+Manually, search on the internet, download and install.
+
+12
+00:00:49,620 --> 00:00:51,450
+So just search for chocolatey.
+
+13
+00:00:52,750 --> 00:00:54,070
+This is for windows.
+
+14
+00:00:54,400 --> 00:00:59,560
+If you're using mac os, then I have another tool for you which is homebrew that I'll show you in a
+
+15
+00:00:59,560 --> 00:00:59,890
+minute.
+
+16
+00:01:02,350 --> 00:01:06,130
+So chocolatey will be our tool to install all the other tools.
+
+17
+00:01:06,850 --> 00:01:08,650
+And first we need to install chocolatey.
+
+18
+00:01:08,770 --> 00:01:10,450
+And for that, this is the command.
+
+19
+00:01:12,100 --> 00:01:14,350
+And we're going to run this command on PowerShell.
+
+20
+00:01:15,190 --> 00:01:17,790
+When we run this command in PowerShell, it will install Chocolaty.
+
+21
+00:01:17,800 --> 00:01:21,460
+And then we can use chocolate install command to install all the other tools.
+
+22
+00:01:22,240 --> 00:01:23,920
+So let me open PowerShell first.
+
+23
+00:01:24,910 --> 00:01:27,340
+You have to open PowerShell as administrator.
+
+24
+00:01:27,340 --> 00:01:29,670
+So right click and run as administrator.
+
+25
+00:01:36,040 --> 00:01:37,960
+We need to run a few commands to check.
+
+26
+00:01:39,440 --> 00:01:42,740
+If we can install chocolatey, you have to run this get execution policy.
+
+27
+00:01:42,740 --> 00:01:43,220
+command.
+
+28
+00:01:43,250 --> 00:01:46,640
+If this returns restricted, then we have to run this command.
+
+29
+00:01:58,690 --> 00:02:00,490
+So it reads All signed for me.
+
+30
+00:02:00,490 --> 00:02:04,090
+But if you received restricted, then you better run this.
+
+31
+00:02:04,090 --> 00:02:04,540
+command.
+
+32
+00:02:06,280 --> 00:02:11,410
+Just say yes to it and then you should be able to install chocolatey. So copy this command,
+
+33
+00:02:11,410 --> 00:02:15,520
+once you're done, open your PowerShell.
+
+34
+00:02:15,520 --> 00:02:17,500
+Paste this command if you should just right click.
+
+35
+00:02:17,500 --> 00:02:19,420
+It should paste. Hit enter.
+
+36
+00:02:21,900 --> 00:02:28,320
+If you get error like this, that means your antivirus maybe blocking the software to be installed.
+
+37
+00:02:30,620 --> 00:02:33,830
+I have McAfee and I'm going to disable it.
+
+38
+00:02:34,840 --> 00:02:36,340
+For 15 minutes.
+
+39
+00:02:39,000 --> 00:02:42,390
+But now you have to close PowerShell and open it once again.
+
+40
+00:02:51,580 --> 00:02:52,570
+Let's copy the command.
+
+41
+00:02:54,310 --> 00:02:55,180
+And let's run it.
+
+42
+00:02:55,750 --> 00:02:56,110
+Let's hit.
+
+43
+00:02:56,110 --> 00:02:56,470
+Enter.
+
+44
+00:02:59,130 --> 00:03:01,200
+And now it started installing Chocolaty.
+
+45
+00:03:02,860 --> 00:03:09,520
+Once you have chocolatey installed, then you can search for any software in this website.
+
+46
+00:03:10,500 --> 00:03:16,650
+If you want to install VirtualBox or we can just search for VirtualBox and it will give us the command.
+
+47
+00:03:17,490 --> 00:03:17,820
+I see.
+
+48
+00:03:17,820 --> 00:03:18,690
+I understand.
+
+49
+00:03:19,620 --> 00:03:22,140
+So if you give us the command to install VirtualBox.
+
+50
+00:03:22,260 --> 00:03:24,390
+So you can just go install VirtualBox.
+
+51
+00:03:24,390 --> 00:03:28,020
+It will install VirtualBox or any of the software that you are looking for.
+
+52
+00:03:28,680 --> 00:03:29,940
+Like IntelliJ
+
+53
+00:03:36,140 --> 00:03:36,280
+Okay.
+
+54
+00:03:36,560 --> 00:03:40,160
+So you get the commands and then you can install your tools.
+
+55
+00:03:42,610 --> 00:03:45,280
+That was a convenient tool for Windows user.
+

@@ -1,0 +1,2016 @@
+1
+00:00:02,200 --> 00:00:04,810
+Next we have to talk about AWS.
+
+2
+00:00:04,810 --> 00:00:09,700
+We are going to create a free tier account on AWS and also do some changes on that.
+
+3
+00:00:10,240 --> 00:00:15,130
+Like we will create an IAM user with multi-factor authentication, we will set a billing alarm.
+
+4
+00:00:15,130 --> 00:00:22,060
+So in case accidently, if you use any expensive service or if you have kept your resources that you have not
+
+5
+00:00:22,060 --> 00:00:24,790
+cleaned, then we should get bills.
+
+6
+00:00:24,850 --> 00:00:28,420
+So as soon as a bills are spiking, we should get an alarm.
+
+7
+00:00:28,420 --> 00:00:29,920
+We should get a notification.
+
+8
+00:00:31,230 --> 00:00:33,420
+And finally, we're going to create a certificate.
+
+9
+00:00:34,950 --> 00:00:40,620
+From AWS ACM service, Amazon Certificate Managers Service which will be used for https, secure connection.
+
+10
+00:00:41,870 --> 00:00:42,860
+Secure connection.
+
+11
+00:00:43,100 --> 00:00:45,440
+So let's get started with AWS.
+
+12
+00:00:47,080 --> 00:00:51,940
+All right, so just search for AWS free tier and you will find some links.
+
+13
+00:00:52,450 --> 00:00:54,850
+This one, Free Cloud Computing Services.
+
+14
+00:00:55,270 --> 00:00:55,930
+Click on this.
+
+15
+00:00:58,060 --> 00:01:04,239
+And AWS has created some really nice video explaining you what is free tier and how do you use it?
+
+16
+00:01:05,540 --> 00:01:08,960
+And also to check if you are exceeding year limit.
+
+17
+00:01:10,560 --> 00:01:13,550
+So I recommend you take your time and watch these videos.
+
+18
+00:01:13,560 --> 00:01:21,900
+But in short, I will tell you we are  creating aws free tier account so we can use AWS cloud computing
+
+19
+00:01:21,900 --> 00:01:23,010
+without paying.
+
+20
+00:01:24,110 --> 00:01:26,690
+Anything or paying little bit of amount.
+
+21
+00:01:27,140 --> 00:01:33,320
+Now I see a little bit of amount because we will be crossing our free tier limit in some of projects.
+
+22
+00:01:34,810 --> 00:01:41,710
+And when we do that, I am going to alert you. Now since this is a complete hands on course and we will
+
+23
+00:01:41,710 --> 00:01:43,720
+be seeing many production use cases.
+
+24
+00:01:43,750 --> 00:01:46,450
+Obviously, we need to go more than free tier.
+
+25
+00:01:48,080 --> 00:01:51,380
+But that would be very minimum, and you really don't need to worry about it.
+
+26
+00:01:52,490 --> 00:01:55,970
+We will be also setting billing alarms so if we get any bills.
+
+27
+00:01:57,240 --> 00:02:00,930
+We will get a notification and we can clean our resources.
+
+28
+00:02:02,530 --> 00:02:05,020
+So I would say just create the free tier account.
+
+29
+00:02:05,390 --> 00:02:07,060
+Let's click on create a free account.
+
+30
+00:02:08,639 --> 00:02:11,490
+First giving up the email address.
+
+31
+00:02:13,410 --> 00:02:14,740
+So that's what I am giving.
+
+32
+00:02:14,760 --> 00:02:15,990
+I am now DevOps.
+
+33
+00:02:16,290 --> 00:02:19,470
+Make sure this email address exists because we need to verify this.
+
+34
+00:02:20,040 --> 00:02:21,870
+Do not use any fake details here.
+
+35
+00:02:23,240 --> 00:02:26,670
+You can give an account name, so I'm just going to give the same name.
+
+36
+00:02:26,690 --> 00:02:29,390
+I am now dev ops.
+
+37
+00:02:31,820 --> 00:02:32,480
+And let's see.
+
+38
+00:02:32,480 --> 00:02:33,770
+Verify email address.
+
+39
+00:02:35,750 --> 00:02:38,000
+So let's get the verification code.
+
+40
+00:02:39,150 --> 00:02:39,360
+Okay.
+
+41
+00:02:39,360 --> 00:02:44,850
+So I got the verification code in my inbox and I am going to just paste it there.
+
+42
+00:02:45,920 --> 00:02:46,610
+Verify.
+
+43
+00:02:49,410 --> 00:02:51,240
+Next is root user password.
+
+44
+00:02:51,270 --> 00:02:57,630
+Make sure it is longer and it contains alphanumeric character and even symbols.
+
+45
+00:02:59,250 --> 00:03:03,550
+And if you say you cannot remember such password, then use password managers.
+
+46
+00:03:03,570 --> 00:03:05,280
+There are many online available.
+
+47
+00:03:06,390 --> 00:03:08,740
+But really do not give a simple password.
+
+48
+00:03:08,760 --> 00:03:11,280
+This is going to be your public cloud account.
+
+49
+00:03:12,810 --> 00:03:14,330
+So be careful with this.
+
+50
+00:03:16,300 --> 00:03:16,570
+Okay.
+
+51
+00:03:16,570 --> 00:03:21,850
+Next personal account you go to select and fill in all this detail.
+
+52
+00:03:21,850 --> 00:03:24,880
+I will quickly fill this and go to the next step.
+
+53
+00:03:26,880 --> 00:03:27,200
+Okay.
+
+54
+00:03:27,210 --> 00:03:28,830
+Next comes the card detail.
+
+55
+00:03:28,830 --> 00:03:30,360
+You can use credit or debit card.
+
+56
+00:03:31,170 --> 00:03:36,060
+And let me tell you, if it's a debit card, Indian debit card, it will detect ₹2.
+
+57
+00:03:37,150 --> 00:03:42,280
+And for international call it is going to use $1 which is mentioned over here.
+
+58
+00:03:42,280 --> 00:03:46,540
+This is verification and it is just to verify your identity.
+
+59
+00:03:46,540 --> 00:03:47,170
+Do not worry.
+
+60
+00:03:47,170 --> 00:03:49,690
+It is not going to take any money from your account.
+
+61
+00:03:50,820 --> 00:03:57,300
+As long as we are in free tier and we keep our account clean, we won't see any bills or very, very
+
+62
+00:03:57,300 --> 00:03:58,200
+minute bill.
+
+63
+00:03:59,890 --> 00:04:02,410
+So I will fill in all this detail and go to the next step.
+
+64
+00:04:03,310 --> 00:04:06,970
+Okay, next comes verification of your phone number.
+
+65
+00:04:06,980 --> 00:04:11,050
+So give you a phone number and get an estimate and verify this.
+
+66
+00:04:13,370 --> 00:04:13,730
+Okay.
+
+67
+00:04:13,940 --> 00:04:16,190
+Then comes next support plan.
+
+68
+00:04:16,760 --> 00:04:20,930
+So we are really going to use basic support free.
+
+69
+00:04:22,540 --> 00:04:29,230
+When you're working for a project, there is a chance that the company would have taken a business support.
+
+70
+00:04:30,470 --> 00:04:36,590
+And I can tell you many of the places I have seen people are not even using the regular support, even
+
+71
+00:04:36,590 --> 00:04:37,400
+if they have plans.
+
+72
+00:04:37,400 --> 00:04:44,360
+So check when you're working on a project, if you have a support and if you get into issues with AWS
+
+73
+00:04:44,360 --> 00:04:47,900
+or Google Cloud or Azure, anything in check if they have support.
+
+74
+00:04:47,900 --> 00:04:51,380
+And you can directly talk to the tech support team anyway.
+
+75
+00:04:51,530 --> 00:04:56,410
+And that is for later part, let's just select basic support for now and see complete sign up.
+
+76
+00:04:57,160 --> 00:04:57,860
+All right.
+
+77
+00:04:57,860 --> 00:04:59,080
+Congratulations.
+
+78
+00:04:59,090 --> 00:04:59,330
+It says
+
+79
+00:04:59,630 --> 00:05:01,130
+And we say thank you.
+
+80
+00:05:01,160 --> 00:05:03,920
+Let's go to the AWS Management Console.
+
+81
+00:05:06,270 --> 00:05:06,600
+Okay.
+
+82
+00:05:06,660 --> 00:05:07,240
+Let's see.
+
+83
+00:05:07,260 --> 00:05:08,280
+Sign in to console.
+
+84
+00:05:11,100 --> 00:05:14,520
+So this will be your very regular page to log into a console.
+
+85
+00:05:16,160 --> 00:05:18,890
+And this account is called a root user account.
+
+86
+00:05:18,890 --> 00:05:25,880
+So whenever I use the word root user, AWS root user, that means this account which you use to sign
+
+87
+00:05:25,880 --> 00:05:26,900
+sign up for AWS.
+
+88
+00:05:27,770 --> 00:05:28,760
+So let's say next.
+
+89
+00:05:30,510 --> 00:05:30,870
+All right.
+
+90
+00:05:30,900 --> 00:05:31,470
+captcha.
+
+91
+00:05:33,000 --> 00:05:33,540
+Password.
+
+92
+00:05:36,700 --> 00:05:36,960
+Okay.
+
+93
+00:05:36,970 --> 00:05:39,310
+Now, let me take a pause here and talk about this.
+
+94
+00:05:40,810 --> 00:05:43,120
+AWS is now offering a new console.
+
+95
+00:05:44,160 --> 00:05:51,270
+That means the UI, the website, this console is getting updated and this happens very regularly.
+
+96
+00:05:51,280 --> 00:05:56,260
+It's really difficult to keep updating video simultaneously with the new console.
+
+97
+00:05:56,260 --> 00:06:01,840
+So you see new console now and a few months you will see a few new things and you it just keep on happening.
+
+98
+00:06:03,050 --> 00:06:10,250
+That's not a big concern because the features and services that I'm showing you in the video will be
+
+99
+00:06:10,250 --> 00:06:12,140
+same, but the UI will be different.
+
+100
+00:06:12,140 --> 00:06:12,590
+So.
+
+101
+00:06:13,720 --> 00:06:20,680
+I will be constantly updating the course, but then there will be a chance where I will be lagging.
+
+102
+00:06:20,680 --> 00:06:24,010
+Or like me, many of the instructors are facing this problem.
+
+103
+00:06:25,310 --> 00:06:29,450
+But that is really not a serious concern for you because UI will be different.
+
+104
+00:06:29,450 --> 00:06:31,210
+The settings, the features will be same.
+
+105
+00:06:31,220 --> 00:06:35,600
+So we just need to click instead of left, maybe need to click on right or maybe just need to look a
+
+106
+00:06:35,840 --> 00:06:36,730
+little bit more.
+
+107
+00:06:37,370 --> 00:06:41,740
+Well, let me tell you, I'll be constantly updating the video so you will have minimal problems.
+
+108
+00:06:41,750 --> 00:06:44,300
+So let's switch to new console home.
+
+109
+00:06:45,950 --> 00:06:46,190
+Okay.
+
+110
+00:06:46,190 --> 00:06:51,080
+So as we are now in, we will check whether our account is really active or not.
+
+111
+00:06:52,600 --> 00:06:59,260
+And for that I recommend a small test you will see ec2 hear, which is a virtual machine service
+
+112
+00:06:59,260 --> 00:06:59,920
+or from here.
+
+113
+00:06:59,920 --> 00:07:01,330
+Also you can search for service.
+
+114
+00:07:01,330 --> 00:07:02,230
+EC2.
+
+115
+00:07:03,530 --> 00:07:04,760
+And you can click on this.
+
+116
+00:07:06,640 --> 00:07:11,180
+And if you get a screen like I'm getting like instance zero, everything zero.
+
+117
+00:07:11,200 --> 00:07:12,820
+And you see the details over here.
+
+118
+00:07:14,170 --> 00:07:16,990
+That means our account is active, it's enabled.
+
+119
+00:07:17,620 --> 00:07:23,080
+Otherwise you will get some errors over here which will be like verify your phone or card or something
+
+120
+00:07:23,080 --> 00:07:23,490
+like that.
+
+121
+00:07:23,590 --> 00:07:25,480
+Click on that and you verify the details.
+
+122
+00:07:25,930 --> 00:07:31,180
+And if you think everything you have verified, still your account is not active, it is showing errors,
+
+123
+00:07:31,990 --> 00:07:34,450
+then you check with the support team.
+
+124
+00:07:34,450 --> 00:07:35,770
+So you go to.
+
+125
+00:07:36,840 --> 00:07:42,540
+There, support center and you create a ticket and you can chat also with them.
+
+126
+00:07:42,540 --> 00:07:43,680
+You give them the details.
+
+127
+00:07:43,680 --> 00:07:45,030
+My account is not active.
+
+128
+00:07:45,030 --> 00:07:48,750
+They will immediately activate it or maybe take a little bit of time.
+
+129
+00:07:50,440 --> 00:07:50,650
+Okay.
+
+130
+00:07:50,650 --> 00:07:57,100
+Now, since we have our account, let's quickly do a few very important things, starting with creating
+
+131
+00:07:57,100 --> 00:07:57,820
+a user.
+
+132
+00:07:58,480 --> 00:08:05,560
+The user that we logged in is a root user and I do not recommend using a root user to use AWS services.
+
+133
+00:08:05,560 --> 00:08:11,380
+We are going to create another user called as just IAM user so find IAM service.
+
+134
+00:08:11,380 --> 00:08:11,980
+Click on it.
+
+135
+00:08:14,700 --> 00:08:15,000
+Okay.
+
+136
+00:08:15,000 --> 00:08:18,060
+So the first thing we see here is security recommendation.
+
+137
+00:08:18,330 --> 00:08:20,760
+It says Add MFA for root user.
+
+138
+00:08:21,060 --> 00:08:23,490
+MFA is multi-factor authentication.
+
+139
+00:08:24,270 --> 00:08:28,560
+So basically you will have a software installed on your phone.
+
+140
+00:08:29,950 --> 00:08:35,710
+Which is Google authenticator and it is going to show you six digit code and every time you need to enter
+
+141
+00:08:35,710 --> 00:08:37,450
+that along with your password.
+
+142
+00:08:38,970 --> 00:08:41,220
+Just like your OTP, SMS based.
+
+143
+00:08:41,309 --> 00:08:46,440
+This is going to be OTP with Google Authenticator, so we will do that first.
+
+144
+00:08:46,440 --> 00:08:47,910
+Very important, Add MFA.
+
+145
+00:08:49,180 --> 00:08:55,210
+And it says Activate MFA, click on this button, see virtual MFA device and continue.
+
+146
+00:08:57,260 --> 00:08:58,730
+And it will show a QR code.
+
+147
+00:09:00,240 --> 00:09:03,600
+You need to install Google Authenticator on your phone.
+
+148
+00:09:05,480 --> 00:09:12,260
+Which is something like this, and you just click on add here and scan the barcode and you will get
+
+149
+00:09:12,260 --> 00:09:15,980
+a six digit number here which gets refreshed every 30 seconds.
+
+150
+00:09:16,460 --> 00:09:18,380
+So I will do that on my phone quickly.
+
+151
+00:09:21,180 --> 00:09:21,460
+Okay.
+
+152
+00:09:21,460 --> 00:09:22,080
+I just did it.
+
+153
+00:09:22,080 --> 00:09:29,820
+And you need to enter the MFA code that you get on your app and wait for 32nd it gets refreshed, then
+
+154
+00:09:29,820 --> 00:09:33,240
+enter the second one and just say Assign MFA.
+
+155
+00:09:34,890 --> 00:09:35,250
+Okay.
+
+156
+00:09:35,430 --> 00:09:36,150
+That is done.
+
+157
+00:09:37,820 --> 00:09:39,230
+Now we'll go to Dashboard.
+
+158
+00:09:42,140 --> 00:09:42,460
+Okay.
+
+159
+00:09:42,470 --> 00:09:43,220
+So this is all green.
+
+160
+00:09:43,220 --> 00:09:45,380
+Let's go to users. Now
+
+161
+00:09:45,410 --> 00:09:48,710
+We will be using and I am user I will say add user.
+
+162
+00:09:51,940 --> 00:09:56,290
+Now I will give my username as admin or I will see it admin.
+
+163
+00:09:57,380 --> 00:09:59,720
+And you have to select your password.
+
+164
+00:10:00,650 --> 00:10:05,060
+Now, there are two types of access types to access types.
+
+165
+00:10:05,840 --> 00:10:08,270
+One is console, which is through the browser.
+
+166
+00:10:09,520 --> 00:10:11,710
+Console means even new access to the browser.
+
+167
+00:10:11,710 --> 00:10:16,480
+Basically that's called aws console and another one is programmatic access.
+
+168
+00:10:16,570 --> 00:10:22,300
+This is going to be, we will be using this when we use AWS CLI or when we use automation.
+
+169
+00:10:23,360 --> 00:10:30,080
+Like when you use Ansible or TerraForm to access AWS resources, then we are going to use this.
+
+170
+00:10:30,260 --> 00:10:31,640
+For now, do not use this.
+
+171
+00:10:32,000 --> 00:10:32,420
+And.
+
+172
+00:10:33,680 --> 00:10:35,390
+One more alert over here.
+
+173
+00:10:36,810 --> 00:10:37,620
+Access keys.
+
+174
+00:10:37,620 --> 00:10:39,660
+Secret keys are very, very dangerous.
+
+175
+00:10:40,920 --> 00:10:42,540
+If you are not careful with them.
+
+176
+00:10:43,560 --> 00:10:45,570
+So remember this for your life.
+
+177
+00:10:47,200 --> 00:10:50,930
+If you have access, key and secret key, keep it very, very safe.
+
+178
+00:10:50,950 --> 00:10:55,700
+Do not post them on public repository or public places.
+
+179
+00:10:55,720 --> 00:10:58,780
+Make sure nobody has access to it except you.
+
+180
+00:11:00,430 --> 00:11:07,000
+Because if it is publicly available, it will be immediately hacked and there'll be immediate bitcoin
+
+181
+00:11:07,000 --> 00:11:09,160
+mining starting in your account.
+
+182
+00:11:10,810 --> 00:11:12,160
+And you will see huge bills.
+
+183
+00:11:12,190 --> 00:11:14,490
+It's a big problem when you're working in projects.
+
+184
+00:11:15,530 --> 00:11:17,570
+If it's your free your personal account.
+
+185
+00:11:19,380 --> 00:11:20,470
+There'll be some limits to it.
+
+186
+00:11:20,490 --> 00:11:23,340
+It cannot go more than a certain limit and AWS will alert you.
+
+187
+00:11:23,340 --> 00:11:27,690
+But for projects, business accounts, you will have unlimited.
+
+188
+00:11:28,650 --> 00:11:30,880
+Access and so as the hacker will also have.
+
+189
+00:11:30,880 --> 00:11:33,780
+So if bitcoin mining if not that, then there will be ransom.
+
+190
+00:11:35,370 --> 00:11:36,150
+And it's very.
+
+191
+00:11:37,150 --> 00:11:43,390
+This one's very, very common hack that happens with AWS accounts, and it is only if we are
+
+192
+00:11:43,390 --> 00:11:44,030
+not careful.
+
+193
+00:11:44,050 --> 00:11:45,580
+Otherwise, it's very, very safe.
+
+194
+00:11:46,270 --> 00:11:52,690
+So for now, just go with console access, auto generate password, or you can say custom password and
+
+195
+00:11:52,690 --> 00:11:53,650
+give your own password.
+
+196
+00:11:53,680 --> 00:11:58,320
+I'll just go with auto generate and this password will be reset when we log in with this.
+
+197
+00:11:58,330 --> 00:11:59,650
+So let's go next.
+
+198
+00:12:00,750 --> 00:12:02,200
+Attach existing policy now.
+
+199
+00:12:02,220 --> 00:12:09,660
+This is what makes it very dangerous or maybe useful policies are permissions for this user.
+
+200
+00:12:09,670 --> 00:12:14,850
+So I'm saying administrator access because we will use this user throughout the course to do many admin
+
+201
+00:12:14,850 --> 00:12:15,210
+work.
+
+202
+00:12:16,050 --> 00:12:19,860
+So we need this policy administrator access go next.
+
+203
+00:12:21,330 --> 00:12:23,580
+Next review create user.
+
+204
+00:12:26,340 --> 00:12:28,020
+So I have the username and password.
+
+205
+00:12:28,020 --> 00:12:30,270
+I'm going to download .csv file.
+
+206
+00:12:31,850 --> 00:12:33,770
+And that will contain username and password.
+
+207
+00:12:33,800 --> 00:12:34,610
+Let's close this.
+
+208
+00:12:37,910 --> 00:12:38,210
+Okay.
+
+209
+00:12:38,210 --> 00:12:39,950
+Along with this, we need to do also one more thing.
+
+210
+00:12:39,950 --> 00:12:43,790
+Let's go to Dashboard and we need to customize this link.
+
+211
+00:12:43,790 --> 00:12:49,250
+This is the link that we, the IAM user, will use to log into the account and it contains the account
+
+212
+00:12:49,250 --> 00:12:54,740
+ID and I'm going to create an alias instead of account ID so giving some name.
+
+213
+00:12:55,580 --> 00:12:59,900
+So I'll just see I am now DevOps, same name or you can give a different name.
+
+214
+00:13:00,260 --> 00:13:04,220
+So that will be the URL for the iam user to log into this account.
+
+215
+00:13:05,570 --> 00:13:06,410
+save changes.
+
+216
+00:13:08,350 --> 00:13:08,620
+Okay.
+
+217
+00:13:08,620 --> 00:13:11,320
+Next we will set up MFA for this user.
+
+218
+00:13:11,320 --> 00:13:12,370
+Also very important.
+
+219
+00:13:12,380 --> 00:13:13,300
+Go to this user.
+
+220
+00:13:15,650 --> 00:13:16,970
+Security credentials.
+
+221
+00:13:19,270 --> 00:13:21,430
+And will see assign MFA device.
+
+222
+00:13:22,940 --> 00:13:24,260
+And same process.
+
+223
+00:13:27,550 --> 00:13:27,880
+Okay.
+
+224
+00:13:27,880 --> 00:13:28,070
+Good.
+
+225
+00:13:28,090 --> 00:13:33,970
+Now our account is safe and we have an IAM  user and this user has administrative access permission and
+
+226
+00:13:33,970 --> 00:13:35,320
+you can add more permission.
+
+227
+00:13:35,320 --> 00:13:41,620
+I mean, administrator is the maximum, but if you want to create account for anybody else and you don't
+
+228
+00:13:41,620 --> 00:13:46,630
+want administrator access, you can change the access also like read access or a specific service access.
+
+229
+00:13:47,530 --> 00:13:48,040
+Okay, good.
+
+230
+00:13:48,040 --> 00:13:49,180
+Our account is safe.
+
+231
+00:13:49,180 --> 00:13:49,750
+Secure.
+
+232
+00:13:51,310 --> 00:13:52,630
+And this is from others.
+
+233
+00:13:53,410 --> 00:14:01,750
+We also want to safeguard our account from our own actions, which is, irresponsibly
+
+234
+00:14:01,810 --> 00:14:06,730
+if you kept something ON for a very, very long time, you get huge bills and you should have a billing
+
+235
+00:14:06,730 --> 00:14:07,060
+alarm.
+
+236
+00:14:07,270 --> 00:14:09,340
+There are so many horror stories about that.
+
+237
+00:14:09,340 --> 00:14:12,430
+Even there are many memes floating on the Internet about this.
+
+238
+00:14:13,920 --> 00:14:17,580
+So if you kept something accidentally ON for a long time.
+
+239
+00:14:19,240 --> 00:14:24,700
+You can set a billing alarm and you get an email notification that your bill is crossing about certain
+
+240
+00:14:24,700 --> 00:14:26,920
+dollars and you can check.
+
+241
+00:14:28,430 --> 00:14:29,660
+And fix those things.
+
+242
+00:14:31,280 --> 00:14:32,210
+Now get for this one.
+
+243
+00:14:32,210 --> 00:14:36,080
+We will be going to, not here, this question mark.
+
+244
+00:14:36,710 --> 00:14:37,160
+Oops.
+
+245
+00:14:37,160 --> 00:14:37,580
+Sorry.
+
+246
+00:14:37,730 --> 00:14:39,230
+They have, they keep moving things.
+
+247
+00:14:40,990 --> 00:14:45,160
+We will go to the billing dashboard and click on Billing Dashboard.
+
+248
+00:14:47,160 --> 00:14:48,690
+So you can keep checking this.
+
+249
+00:14:48,690 --> 00:14:51,810
+I recommend, you know, before you go to sleep, just check your bills.
+
+250
+00:14:51,810 --> 00:14:53,460
+How much it is every night.
+
+251
+00:14:53,460 --> 00:14:55,860
+Or maybe once you wake up in the morning.
+
+252
+00:14:56,220 --> 00:14:57,420
+But I'm setting here.
+
+253
+00:14:57,420 --> 00:15:00,300
+Free tier alerts or billing alerts.
+
+254
+00:15:00,300 --> 00:15:00,660
+Sorry.
+
+255
+00:15:01,110 --> 00:15:03,960
+So here you have option billing preferences.
+
+256
+00:15:03,960 --> 00:15:04,650
+Click on that.
+
+257
+00:15:06,270 --> 00:15:12,180
+And here, here select receive pdf invoice by email receive free tier usage alerts.
+
+258
+00:15:12,690 --> 00:15:15,100
+So if you cross your free tier, you will get alerts.
+
+259
+00:15:15,120 --> 00:15:16,590
+Let's give our email address there.
+
+260
+00:15:18,580 --> 00:15:20,200
+And receive billing alerts.
+
+261
+00:15:21,430 --> 00:15:23,080
+So select all these things.
+
+262
+00:15:23,110 --> 00:15:24,220
+save preference.
+
+263
+00:15:28,230 --> 00:15:28,550
+Okay.
+
+264
+00:15:28,560 --> 00:15:30,610
+Now let's click on this AWS logo here.
+
+265
+00:15:30,630 --> 00:15:31,380
+Let's go back.
+
+266
+00:15:32,900 --> 00:15:37,520
+And now you have to find a service called as Cloud Watch.
+
+267
+00:15:38,390 --> 00:15:40,780
+Cloud Watch is monitoring service.
+
+268
+00:15:40,790 --> 00:15:43,790
+We will be using this monitoring service in our course.
+
+269
+00:15:45,510 --> 00:15:48,750
+But right now we all we need to monitor is our bills.
+
+270
+00:15:49,350 --> 00:15:53,910
+And you need to be in this North Virginia region over here.
+
+271
+00:15:54,630 --> 00:15:56,970
+We will understand later what this region means.
+
+272
+00:15:56,970 --> 00:15:59,540
+But think of this as like a data center.
+
+273
+00:15:59,760 --> 00:16:01,710
+So you need to be here in North Virginia.
+
+274
+00:16:02,100 --> 00:16:04,740
+If you are somewhere else, make sure you select, north Virginia.
+
+275
+00:16:06,020 --> 00:16:08,360
+And we will go to alarms.
+
+276
+00:16:10,770 --> 00:16:12,150
+We click on all alarms.
+
+277
+00:16:14,680 --> 00:16:16,120
+And we will create alarm.
+
+278
+00:16:17,810 --> 00:16:20,660
+Select your metric on what you want to set the alarm.
+
+279
+00:16:23,010 --> 00:16:25,390
+You should see billing if you do not see billing.
+
+280
+00:16:25,410 --> 00:16:29,880
+Make sure you have put those checkmarks on and you are in North Virginia region.
+
+281
+00:16:30,270 --> 00:16:32,940
+Then only you will see this billing metric over here.
+
+282
+00:16:33,450 --> 00:16:37,380
+Click on that will set total estimated charge on that.
+
+283
+00:16:37,380 --> 00:16:43,650
+We want to set the alarm and we'll select the currency USD and select metric.
+
+284
+00:16:47,810 --> 00:16:49,390
+Now, you really do need to understand this.
+
+285
+00:16:49,400 --> 00:16:51,300
+now. We have a separate section for this one.
+
+286
+00:16:51,320 --> 00:16:55,940
+All you need to do is you go here and you say, let's say, five.
+
+287
+00:16:56,030 --> 00:17:02,150
+So if I say five and my bill crosses more than $5, I will get email notification.
+
+288
+00:17:02,570 --> 00:17:02,800
+Okay.
+
+289
+00:17:03,170 --> 00:17:05,300
+So you can set like that and you can say go next.
+
+290
+00:17:07,680 --> 00:17:09,510
+Now to set notification.
+
+291
+00:17:09,690 --> 00:17:14,280
+It uses a service called SNS Simple Notification Service.
+
+292
+00:17:14,700 --> 00:17:19,640
+We need to give our email address here so we do not have any sns topic.
+
+293
+00:17:20,550 --> 00:17:26,400
+SNS topic basically means there will be mostly an email address attached to the topic.
+
+294
+00:17:26,970 --> 00:17:31,530
+So we do not have any topic will create new topic and will give topic a name.
+
+295
+00:17:32,400 --> 00:17:36,960
+I will call this as let's say monitoring team.
+
+296
+00:17:39,100 --> 00:17:41,350
+We can give any name there and give the email address.
+
+297
+00:17:42,300 --> 00:17:43,740
+And say create  topic.
+
+298
+00:17:44,910 --> 00:17:47,660
+Now this topic will exist in North Virginia region.
+
+299
+00:17:47,670 --> 00:17:49,440
+You can use it any time you want.
+
+300
+00:17:49,710 --> 00:17:51,480
+You can just select your topic and use it.
+
+301
+00:17:51,750 --> 00:17:56,850
+We will be using this later, for now, just billing alarms and just say next.
+
+302
+00:17:58,330 --> 00:17:59,220
+Give alarm a name
+
+303
+00:17:59,260 --> 00:18:01,060
+I just see billing alert.
+
+304
+00:18:02,490 --> 00:18:03,060
+.
+
+305
+00:18:03,570 --> 00:18:10,260
+Or maybe AWS building alert, give something scary, but not too much scary.
+
+306
+00:18:10,260 --> 00:18:11,580
+Otherwise it will go to spam.
+
+307
+00:18:12,800 --> 00:18:13,070
+Yeah.
+
+308
+00:18:13,100 --> 00:18:13,520
+Let's go.
+
+309
+00:18:13,520 --> 00:18:13,910
+Next.
+
+310
+00:18:15,220 --> 00:18:18,130
+And this is all our settings and to create alarm.
+
+311
+00:18:20,830 --> 00:18:21,000
+Okay.
+
+312
+00:18:21,070 --> 00:18:21,580
+So.
+
+313
+00:18:23,100 --> 00:18:24,770
+We need to confirm your email address.
+
+314
+00:18:24,780 --> 00:18:27,090
+So let's go to our inbox, Gmail inbox.
+
+315
+00:18:28,540 --> 00:18:33,910
+So I get this email in my Gmail because I have a Gmail account, confirm subscription.
+
+316
+00:18:36,280 --> 00:18:36,570
+Okay.
+
+317
+00:18:36,640 --> 00:18:37,300
+That's confirmed.
+
+318
+00:18:37,330 --> 00:18:37,990
+Let's go back.
+
+319
+00:18:41,160 --> 00:18:42,870
+And we need to wait for a moment.
+
+320
+00:18:44,370 --> 00:18:44,670
+Okay.
+
+321
+00:18:44,670 --> 00:18:46,140
+There's a refresh button over here.
+
+322
+00:18:46,140 --> 00:18:47,160
+You can keep trying that.
+
+323
+00:18:48,560 --> 00:18:48,830
+Okay.
+
+324
+00:18:48,830 --> 00:18:51,620
+After a minute or so I get to the status as, okay.
+
+325
+00:18:51,620 --> 00:18:54,560
+That is because my bill is less than $5.
+
+326
+00:18:54,560 --> 00:18:58,700
+When it goes more than $5, I get notification and here you should see alarm.
+
+327
+00:18:59,860 --> 00:19:00,550
+All right, good.
+
+328
+00:19:00,610 --> 00:19:06,820
+Three things knocked down, created the account, set IAM user with MFA and created billing alarm.
+
+329
+00:19:07,930 --> 00:19:08,560
+We're doing good.
+
+330
+00:19:08,770 --> 00:19:09,670
+One more last thing.
+
+331
+00:19:11,220 --> 00:19:15,900
+We need to create a public certificate for our domain.
+
+332
+00:19:16,350 --> 00:19:17,520
+We purchased a domain.
+
+333
+00:19:18,910 --> 00:19:23,350
+And we will use a certificate to validate the certificate with the domain.
+
+334
+00:19:23,560 --> 00:19:29,620
+But what that really means is you see here to https, any website you see a https, there is this lock
+
+335
+00:19:29,980 --> 00:19:35,100
+symbol or you click on that and you should see here this connection is secure.
+
+336
+00:19:35,110 --> 00:19:37,020
+And how do you say it's a secure?
+
+337
+00:19:37,030 --> 00:19:37,920
+What's the guarantee?
+
+338
+00:19:37,930 --> 00:19:38,320
+So.
+
+339
+00:19:39,640 --> 00:19:41,230
+This has a valid certificate.
+
+340
+00:19:41,770 --> 00:19:46,060
+Now, when we set up our project, we will be also setting up HTTPS secure connection.
+
+341
+00:19:46,450 --> 00:19:50,650
+And what validates that is the certificate, which is tied to your domain.
+
+342
+00:19:51,130 --> 00:19:54,250
+So this certificate is tied to Amazon.com domain.
+
+343
+00:19:55,300 --> 00:20:00,940
+Now click on this and you should see the certificates that this certificate is for this.
+
+344
+00:20:02,180 --> 00:20:07,220
+Certificate details, certification path, etc. Now.
+
+345
+00:20:08,910 --> 00:20:10,590
+If you do not understand anything.
+
+346
+00:20:10,590 --> 00:20:12,220
+Whatever I said about the certificate.
+
+347
+00:20:12,240 --> 00:20:12,870
+Do not worry.
+
+348
+00:20:12,870 --> 00:20:13,890
+We have the project.
+
+349
+00:20:13,890 --> 00:20:15,350
+were we will we use it.
+
+350
+00:20:15,360 --> 00:20:20,280
+All you need to do is you need to go to the service called ACM Certificate Manager.
+
+351
+00:20:23,140 --> 00:20:27,160
+And remember the zone outside the region where you're creating the certificate.
+
+352
+00:20:28,210 --> 00:20:32,200
+Now we're creating a certificate from AWS itself and this one is going to be free.
+
+353
+00:20:32,650 --> 00:20:36,190
+You can also purchase certificate from other providers also.
+
+354
+00:20:36,730 --> 00:20:37,930
+But we will keep it free.
+
+355
+00:20:37,930 --> 00:20:43,300
+So we said it was cert and will request a public certificate, go next.
+
+356
+00:20:45,060 --> 00:20:51,120
+And you need to give your domain name here and you have to say star dot your domain.
+
+357
+00:20:51,150 --> 00:20:52,320
+So I have a domain.
+
+358
+00:20:53,070 --> 00:20:54,120
+k8s
+
+359
+00:20:56,440 --> 00:20:58,540
+k8sengineers.com
+
+360
+00:20:58,930 --> 00:21:01,150
+Make sure you're giving the right domain here.
+
+361
+00:21:02,650 --> 00:21:06,100
+I see many people are making typographical mistake in this one.
+
+362
+00:21:06,130 --> 00:21:06,850
+Be careful.
+
+363
+00:21:07,030 --> 00:21:08,470
+Give proper domain name.
+
+364
+00:21:09,460 --> 00:21:15,900
+And then how is this certificate validated with this domain that the certificate belongs to this domain?
+
+365
+00:21:15,910 --> 00:21:16,900
+How is it validated?
+
+366
+00:21:16,930 --> 00:21:19,300
+Well, we can do DNS validation.
+
+367
+00:21:19,690 --> 00:21:20,920
+or  email validation.
+
+368
+00:21:20,920 --> 00:21:26,200
+DNS validation is quick, so give a name to the certificate we will say name.
+
+369
+00:21:27,760 --> 00:21:29,070
+I will say same thing k8s
+
+370
+00:21:29,090 --> 00:21:29,650
+This.
+
+371
+00:21:31,080 --> 00:21:32,580
+So I have multiple domains.
+
+372
+00:21:32,580 --> 00:21:35,580
+I have grroophy.in, k8sengineers and few other.
+
+373
+00:21:35,580 --> 00:21:40,800
+So I'm just showing you with this domain, whatever domain you purchased, give the correct name over
+
+374
+00:21:40,800 --> 00:21:41,100
+here.
+
+375
+00:21:41,160 --> 00:21:41,600
+k8sengineers.com
+
+376
+00:21:41,610 --> 00:21:42,750
+k8sengineers.com
+
+377
+00:21:44,170 --> 00:21:45,780
+Like that, request.
+
+378
+00:21:47,670 --> 00:21:49,770
+Now for a moment, you won't see anything over here.
+
+379
+00:21:49,770 --> 00:21:56,250
+Just click on this refresh button and you should see there is a certificate I.D. and it is pending validation.
+
+380
+00:21:57,580 --> 00:21:59,440
+So it is not verified.
+
+381
+00:21:59,440 --> 00:22:02,470
+The way we verify this will click on this ID here.
+
+382
+00:22:03,100 --> 00:22:03,790
+Scroll down.
+
+383
+00:22:04,600 --> 00:22:05,710
+And you see here.
+
+384
+00:22:05,770 --> 00:22:06,130
+CNAME name
+
+385
+00:22:06,130 --> 00:22:07,690
+CNAME name
+
+386
+00:22:07,690 --> 00:22:07,960
+and CNAME Value
+
+387
+00:22:07,960 --> 00:22:08,470
+CNAME Value.
+
+388
+00:22:08,560 --> 00:22:10,390
+You need to create this record.
+
+389
+00:22:11,370 --> 00:22:12,750
+Where you created your domain.
+
+390
+00:22:12,870 --> 00:22:14,580
+So I created on GoDaddy.
+
+391
+00:22:15,030 --> 00:22:18,450
+And I'm going to create this record over there.
+
+392
+00:22:19,770 --> 00:22:22,020
+If you still do not see this, refresh your page.
+
+393
+00:22:22,020 --> 00:22:22,890
+You will see that.
+
+394
+00:22:23,730 --> 00:22:25,590
+And now let me go to GoDaddy.
+
+395
+00:22:27,340 --> 00:22:27,660
+Okay.
+
+396
+00:22:27,670 --> 00:22:34,660
+So I go to my products and these are my two products two domain grouchy.in and k8sengineers I'm going
+
+397
+00:22:34,660 --> 00:22:36,430
+to go to k8sengineers.
+
+398
+00:22:37,810 --> 00:22:39,650
+I click here on Manage Domain.
+
+399
+00:22:39,670 --> 00:22:41,950
+Now, this UI may also change, so you just need to.
+
+400
+00:22:43,060 --> 00:22:46,960
+Manage DNS if you don't find the option as I am showing you would here.
+
+401
+00:22:47,880 --> 00:22:50,130
+Check with them or just search you will find it.
+
+402
+00:22:50,820 --> 00:22:52,020
+Go to manage DNS.
+
+403
+00:22:53,140 --> 00:22:54,280
+And you need to come over here.
+
+404
+00:22:54,280 --> 00:22:55,210
+DNS Records.
+
+405
+00:22:55,240 --> 00:23:01,480
+Now, DNS Records are basically mapping that for this IP address or for this name.
+
+406
+00:23:01,480 --> 00:23:03,880
+This is the IP address or for this name.
+
+407
+00:23:05,090 --> 00:23:06,170
+You have some other names.
+
+408
+00:23:06,180 --> 00:23:11,060
+For example I'll show you www maps to k8sengineers.com.
+
+409
+00:23:11,070 --> 00:23:13,250
+So that's one record like that.
+
+410
+00:23:13,280 --> 00:23:14,990
+We'll see how to create records later.
+
+411
+00:23:15,000 --> 00:23:18,020
+For now, what you need to do is you need to say ADD.
+
+412
+00:23:19,200 --> 00:23:21,300
+And you need to select here, CNAME.
+
+413
+00:23:22,630 --> 00:23:25,450
+And here you give the name, and here you give the value.
+
+414
+00:23:27,200 --> 00:23:27,440
+Okay.
+
+415
+00:23:27,440 --> 00:23:28,910
+So copy that.
+
+416
+00:23:30,420 --> 00:23:31,560
+That goes in the name.
+
+417
+00:23:33,030 --> 00:23:33,840
+Pasted there.
+
+418
+00:23:35,190 --> 00:23:37,020
+And just a moment.
+
+419
+00:23:38,040 --> 00:23:39,630
+I'm going to remove this full stop.
+
+420
+00:23:41,100 --> 00:23:41,430
+Okay.
+
+421
+00:23:42,870 --> 00:23:43,920
+Copy the value.
+
+422
+00:23:46,080 --> 00:23:47,190
+Paste it there again.
+
+423
+00:23:47,190 --> 00:23:48,270
+I'll remove this full stop.
+
+424
+00:23:49,400 --> 00:23:50,930
+And say add record.
+
+425
+00:23:52,160 --> 00:23:56,390
+Now when you click on add record, it will tell you that this record should be like this.
+
+426
+00:23:57,050 --> 00:23:57,290
+All right.
+
+427
+00:23:57,290 --> 00:24:01,160
+When you're trying to see what it is, trying to create a record like this here, k8sengineers.com
+
+428
+00:24:01,160 --> 00:24:02,570
+k8sengineers.com
+
+429
+00:24:02,570 --> 00:24:03,270
+Which is wrong.
+
+430
+00:24:03,770 --> 00:24:04,670
+It should be like this.
+
+431
+00:24:05,210 --> 00:24:07,220
+So you say yes, this is good and save.
+
+432
+00:24:09,930 --> 00:24:10,230
+Okay.
+
+433
+00:24:10,230 --> 00:24:18,150
+So the record is created and our ACM service, which is this one, it will try to resolve this name
+
+434
+00:24:18,150 --> 00:24:23,730
+with this value and that may take a few minutes or sometimes even an hour.
+
+435
+00:24:24,420 --> 00:24:27,690
+Very rarely takes an hour, but just wait for some time.
+
+436
+00:24:28,470 --> 00:24:34,950
+So you need to just keep checking whether it is pending validation or is it issued.
+
+437
+00:24:34,950 --> 00:24:40,710
+So keep refreshing this in a minute or 5 minutes like that and you should see this ok in some time.
+
+438
+00:24:41,070 --> 00:24:42,690
+So I will wait for a few minutes.
+
+439
+00:24:44,850 --> 00:24:49,080
+Okay, that was like just a minute or so and I get the certificate issued.
+
+440
+00:24:49,080 --> 00:24:54,660
+You should see that if you're not seeing this for a long, long time, still showing pending validation,
+
+441
+00:24:54,660 --> 00:24:58,080
+then delete the certificate created once again.
+
+442
+00:24:59,470 --> 00:25:03,810
+And again, add the record because mostly it's typographical mistake.
+
+443
+00:25:03,820 --> 00:25:10,420
+And if you think everything is perfect, you verified nothing is wrong, then check with your domain
+
+444
+00:25:10,420 --> 00:25:12,880
+registrar whether your domain is active or not.
+
+445
+00:25:12,890 --> 00:25:15,490
+Sometimes you just create a domain and it's not even active.
+
+446
+00:25:16,870 --> 00:25:17,090
+Okay.
+
+447
+00:25:17,110 --> 00:25:20,500
+So check with, like if I have issue I will check with GoDaddy.
+
+448
+00:25:20,500 --> 00:25:23,050
+I will check with the support that I created this record.
+
+449
+00:25:23,050 --> 00:25:23,980
+It's not working.
+
+450
+00:25:24,400 --> 00:25:26,140
+And there should be help helping you.
+
+451
+00:25:27,750 --> 00:25:28,230
+All right.
+
+452
+00:25:28,470 --> 00:25:29,190
+That was good.
+
+453
+00:25:31,060 --> 00:25:32,650
+And really good job.
+
+454
+00:25:34,650 --> 00:25:37,500
+We have set AWS account in a very, very practical way.
+
+455
+00:25:39,440 --> 00:25:40,630
+Oh, one thing is missing.
+
+456
+00:25:40,640 --> 00:25:45,140
+We have to log in with the IAM user so we will sign out.
+
+457
+00:25:47,540 --> 00:25:47,900
+Okay.
+
+458
+00:25:48,410 --> 00:25:51,500
+I just signed out without getting the URL, so I'm going to log in again.
+
+459
+00:25:52,650 --> 00:25:53,610
+With my root account.
+
+460
+00:25:53,610 --> 00:25:55,050
+I'm logging in with the root account.
+
+461
+00:25:55,230 --> 00:25:56,060
+Okay.
+
+462
+00:25:56,430 --> 00:25:57,930
+I'm going to refresh this one.
+
+463
+00:26:01,580 --> 00:26:04,100
+I dunno, I have many times problem with this.
+
+464
+00:26:06,530 --> 00:26:08,330
+wrong captcha it says many times.
+
+465
+00:26:11,980 --> 00:26:12,280
+Okay.
+
+466
+00:26:12,430 --> 00:26:14,920
+See it's asking MFA code now that's how you're secure.
+
+467
+00:26:20,050 --> 00:26:20,470
+Okay.
+
+468
+00:26:21,070 --> 00:26:22,000
+Let's go to IAM.
+
+469
+00:26:24,290 --> 00:26:25,970
+And you can find the link over here.
+
+470
+00:26:26,090 --> 00:26:26,720
+There you see.
+
+471
+00:26:27,870 --> 00:26:31,170
+Copy that URL and just put it in the browser.
+
+472
+00:26:34,670 --> 00:26:36,050
+And that's my account name.
+
+473
+00:26:36,050 --> 00:26:39,830
+imnowdevops and I think I have same as my username.
+
+474
+00:26:44,260 --> 00:26:45,040
+That's a sign in.
+
+475
+00:26:48,010 --> 00:26:48,670
+Oh my bad.
+
+476
+00:26:48,740 --> 00:26:55,870
+I have the username as itadmin that I have created and I downloaded the CSV file which has the password.
+
+477
+00:26:55,870 --> 00:26:58,720
+Also, I know I'm showing you the password, but this will be reset.
+
+478
+00:27:01,090 --> 00:27:04,330
+So account name is imnowdevops, username is this.
+
+479
+00:27:05,630 --> 00:27:07,070
+And that's the password.
+
+480
+00:27:08,430 --> 00:27:10,140
+And we will see signing.
+
+481
+00:27:11,440 --> 00:27:12,250
+MFA code.
+
+482
+00:27:15,090 --> 00:27:15,400
+Okay.
+
+483
+00:27:15,420 --> 00:27:18,420
+Resetting the password, it will ask you to reset the password.
+
+484
+00:27:25,130 --> 00:27:26,510
+Confirm password change.
+
+485
+00:27:28,000 --> 00:27:29,050
+Switch to new console.
+
+486
+00:27:31,080 --> 00:27:31,420
+Nice.
+
+487
+00:27:31,440 --> 00:27:34,880
+Now we are done and you can use this.
+
+488
+00:27:34,890 --> 00:27:35,760
+IAM user.
+
+489
+00:27:37,730 --> 00:27:38,630
+Throughout the course.
+
+490
+00:27:38,750 --> 00:27:42,800
+Whenever you have a problem, go back to your root user and you can use the root user also.
+
+491
+00:27:42,800 --> 00:27:44,480
+But I recommend always use this.
+
+492
+00:27:44,480 --> 00:27:45,230
+IAM user.
+
+493
+00:27:46,870 --> 00:27:47,320
+All right.
+
+494
+00:27:47,350 --> 00:27:49,210
+That is all in the setup part.
+
+495
+00:27:50,900 --> 00:27:51,260
+Alright.
+
+496
+00:27:51,260 --> 00:27:53,720
+So we have installed a lot of tools on our system.
+
+497
+00:27:53,720 --> 00:28:00,560
+We have signed up on multiple accounts and we have made AWS account useful and secure for us.
+
+498
+00:28:01,160 --> 00:28:02,450
+All the tools are installed.
+
+499
+00:28:02,450 --> 00:28:10,430
+We have signed up to these four places, GitHub domain, Docker hub,sonar cloud and we have created
+
+500
+00:28:10,430 --> 00:28:11,660
+AWS free tier account
+
+501
+00:28:12,590 --> 00:28:18,140
+IAM user with the MFA , Billing Alarm and Certificate, so we're going to use all these things throughout
+
+502
+00:28:18,140 --> 00:28:19,940
+our projects different, different projects.
+
+503
+00:28:21,130 --> 00:28:24,340
+So wrap this up and join me in project videos.
+
+504
+00:28:25,000 --> 00:28:26,710
+Thank you very much for watching this one.
+

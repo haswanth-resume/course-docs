@@ -1,0 +1,248 @@
+1
+00:00:11,112 --> 00:00:14,387
+Hello and welcome to the prerequisites session.
+
+2
+00:00:14,737 --> 00:00:18,127
+In this video we are going to talk about what are
+
+3
+00:00:18,145 --> 00:00:21,500
+the skills that you need to have in this course.
+
+4
+00:00:22,462 --> 00:00:24,667
+So in order to follow along in this
+
+5
+00:00:24,715 --> 00:00:28,057
+course, you need to have some understanding about
+
+6
+00:00:28,210 --> 00:00:31,492
+Linux systems and intermediate knowledge should be fine.
+
+7
+00:00:31,690 --> 00:00:35,082
+Some basics of scripting knowledge like Bash scripting
+
+8
+00:00:35,247 --> 00:00:36,847
+or even if you have knowledge of any
+
+9
+00:00:36,880 --> 00:00:38,947
+other scripting language that is also fine.
+
+10
+00:00:39,055 --> 00:00:41,482
+Some troubleshooting skills you need to have.
+
+11
+00:00:41,635 --> 00:00:44,557
+You get into issues and then you find out what is
+
+12
+00:00:44,560 --> 00:00:48,172
+the what are the problems and then you fix them, which
+
+13
+00:00:48,205 --> 00:00:51,562
+will be really based on your previous experience with your job
+
+14
+00:00:51,625 --> 00:00:53,987
+or with some tools that you have learned.
+
+15
+00:00:54,337 --> 00:00:56,387
+Basics of AWS.
+
+16
+00:00:57,262 --> 00:01:00,027
+If you have knowledge of EC Two, elastic load,
+
+17
+00:01:00,057 --> 00:01:03,622
+balancer, s, three buckets, this should be enough.
+
+18
+00:01:03,805 --> 00:01:05,827
+There are so many other services that we are going to
+
+19
+00:01:05,845 --> 00:01:09,322
+learn in all these projects that we're going to do and
+
+20
+00:01:09,355 --> 00:01:12,637
+I'm going to explain about those services, how to use them
+
+21
+00:01:12,775 --> 00:01:15,662
+and how to include them into the projects.
+
+22
+00:01:17,062 --> 00:01:20,647
+Some networking and security concepts like
+
+23
+00:01:20,680 --> 00:01:25,077
+port numbers, protocols, firewalls and securities.
+
+24
+00:01:25,257 --> 00:01:28,267
+If you already used AWS EC Two, then
+
+25
+00:01:28,315 --> 00:01:30,322
+things like security group should be fine.
+
+26
+00:01:30,355 --> 00:01:31,462
+If you have knowledge and security
+
+27
+00:01:31,525 --> 00:01:32,992
+group that should be fine.
+
+28
+00:01:33,190 --> 00:01:35,722
+And some basics of virtualization concepts like
+
+29
+00:01:35,755 --> 00:01:39,622
+virtual machines, virtual storage, virtual networks which
+
+30
+00:01:39,655 --> 00:01:41,912
+you'd have already used in AWS.
+
+31
+00:01:48,812 --> 00:01:51,647
+Intermediate understanding of Jenkins or some hands on
+
+32
+00:01:51,680 --> 00:01:54,377
+experience on Jenkins tool, some hands on experience
+
+33
+00:01:54,470 --> 00:01:57,697
+on ansible like writing very, very basic, basic
+
+34
+00:01:57,742 --> 00:02:01,627
+playbooks, having understanding of continuous integration and continuous
+
+35
+00:02:01,657 --> 00:02:04,022
+delivery and understanding should be fine.
+
+36
+00:02:04,205 --> 00:02:06,652
+Because we have many projects on continuous integration
+
+37
+00:02:06,682 --> 00:02:08,520
+and continuous delivery, we are going to do
+
+38
+00:02:08,555 --> 00:02:11,327
+all that, but having a basic knowledge of
+
+39
+00:02:11,345 --> 00:02:13,812
+that will be an added advantage.
+
+40
+00:02:14,612 --> 00:02:18,912
+Basic knowledge of containers, especially docker,
+
+41
+00:02:20,237 --> 00:02:22,487
+like installing docker engine and running
+
+42
+00:02:22,550 --> 00:02:25,102
+some very very basic docker containers.
+
+43
+00:02:25,282 --> 00:02:28,412
+So all these are the predicacides for this course.
+
+44
+00:02:28,550 --> 00:02:30,497
+The skills that you need to have.
+
+45
+00:02:30,680 --> 00:02:32,537
+If you feel that you are not so sure
+
+46
+00:02:32,600 --> 00:02:35,672
+about these skills, then you can even join my
+
+47
+00:02:35,705 --> 00:02:40,927
+decoding DevOps live online course where I cover DevOps
+
+48
+00:02:40,957 --> 00:02:43,887
+from the very scratch starting from the Linux machines
+
+49
+00:02:44,537 --> 00:02:47,017
+and you will get a deep understanding of Jenkins,
+
+50
+00:02:47,077 --> 00:02:52,622
+ansible continuous integration, continuous delivery, docker kubernetes and many
+
+51
+00:02:52,655 --> 00:02:54,225
+many AWS services.
+
+52
+00:02:54,587 --> 00:02:56,152
+That is if you are a total newbie.
+
+53
+00:02:56,182 --> 00:02:58,397
+But if you don't know any of this tool or any
+
+54
+00:02:58,430 --> 00:03:01,652
+of this technology that are in the previco sites, then you
+
+55
+00:03:01,670 --> 00:03:05,297
+can either learn them before you start the course or when
+
+56
+00:03:05,330 --> 00:03:07,337
+you get into the course, when you get into a project
+
+57
+00:03:07,400 --> 00:03:10,052
+and you feel that you need to know this technology at
+
+58
+00:03:10,070 --> 00:03:11,700
+that time, also you can learn.
+
+59
+00:03:13,412 --> 00:03:14,897
+So all the very best and
+
+60
+00:03:14,930 --> 00:03:17,252
+good luck for the upcoming project.
+
+61
+00:03:17,345 --> 00:03:18,512
+Thank you very much for watching.
+
+62
+00:03:18,575 --> 00:03:19,675
+I'll see you in the next one.
+

@@ -1,0 +1,15 @@
+
+002 Vprofile-Repository-Guthub
+https://github.com/devopshydclub/vprofile-project.git
+
+003 Install-Chocolatey
+https://chocolatey.org/install
+
+003 Find-your-software-in-chocolatey
+https://community.chocolatey.org/packages
+
+004 Homebrew
+https://brew.sh/
+
+005 Prereqs-doc
+https://github.com/devopshydclub/vprofile-project/blob/prereqs/Prereqs_doc.pdf
