@@ -1,0 +1,1168 @@
+1
+00:00:00,450 --> 00:00:01,730
+Hello and welcome.
+
+2
+00:00:01,740 --> 00:00:06,689
+In this lecture, we will see how to create virtual machines on a mac OS.
+
+3
+00:00:07,670 --> 00:00:10,700
+This is more specific to the M1 chip.
+
+4
+00:00:11,840 --> 00:00:16,309
+The most popular Veeam creation tool is Oracle Veeam Virtual Box.
+
+5
+00:00:17,290 --> 00:00:21,160
+But on mac OS M1 chip, it is not supported.
+
+6
+00:00:21,790 --> 00:00:28,650
+So we will be using VMware desktop to create virtual machines and to automatically create virtual machines.
+
+7
+00:00:28,660 --> 00:00:30,460
+We will be using Vagrant.
+
+8
+00:00:30,760 --> 00:00:38,800
+So we have to set up a vagrant plus a VMware desktop Fusion in this lecture also.
+
+9
+00:00:38,800 --> 00:00:42,790
+Then we will see how to create a virtual machine by using Vagrant and VMware.
+
+10
+00:00:42,790 --> 00:00:53,710
+Together we will create a Ubuntu operating system, VM and another VM with Fedora, which is similar
+
+11
+00:00:53,710 --> 00:00:56,080
+to CentOS operating system.
+
+12
+00:00:57,640 --> 00:01:04,290
+Okay, so this is the ten step guide of how to set up a virtual machine on your Mac OS.
+
+13
+00:01:05,280 --> 00:01:09,900
+So download this document and from the resource section and go through it.
+
+14
+00:01:09,990 --> 00:01:13,620
+Most of them are commands that we will be running on the terminal.
+
+15
+00:01:14,340 --> 00:01:17,920
+Also, you have to create an account on a VMware.
+
+16
+00:01:17,940 --> 00:01:23,790
+I've given the link over here, but most of the steps are going to be getting executed on the terminal.
+
+17
+00:01:25,890 --> 00:01:27,840
+So let's open the terminal.
+
+18
+00:01:30,410 --> 00:01:32,900
+And let's run the commands one by one.
+
+19
+00:01:34,250 --> 00:01:36,530
+Forced installing Rosetta.
+
+20
+00:01:36,560 --> 00:01:38,240
+So just copy paste the command.
+
+21
+00:01:40,980 --> 00:01:43,890
+Second installing vagrant with brew.
+
+22
+00:01:48,360 --> 00:01:49,500
+Okay, next.
+
+23
+00:01:49,500 --> 00:01:53,400
+Third, you need to create an account on a VMware website here.
+
+24
+00:01:54,190 --> 00:01:59,620
+So sign up, create an account, then login with that account and there is a link.
+
+25
+00:01:59,650 --> 00:02:03,580
+Click on that and download VMware Fusion and install it.
+
+26
+00:02:03,610 --> 00:02:07,810
+So after logged in, once you click on the link, you should come to this page.
+
+27
+00:02:07,990 --> 00:02:09,820
+Download VMware Fusion.
+
+28
+00:02:16,300 --> 00:02:17,380
+Open the software.
+
+29
+00:02:17,410 --> 00:02:18,490
+Click on that.
+
+30
+00:02:19,890 --> 00:02:22,020
+And it should start the installation.
+
+31
+00:02:28,170 --> 00:02:31,050
+OC open system preferences.
+
+32
+00:02:33,070 --> 00:02:35,970
+And provide accessibility to VMware Fusion.
+
+33
+00:02:35,980 --> 00:02:37,070
+Click on this lock.
+
+34
+00:02:37,090 --> 00:02:39,610
+Enter your password.
+
+35
+00:02:41,410 --> 00:02:47,710
+And put a checkmark on VMware Fusion there and that is installed and it has permission now.
+
+36
+00:02:49,550 --> 00:02:50,360
+Okay, Next.
+
+37
+00:02:50,390 --> 00:02:52,970
+Copy this command and create a link.
+
+38
+00:03:03,960 --> 00:03:05,370
+This link is created.
+
+39
+00:03:05,370 --> 00:03:12,150
+Now we will use this link and download VMware provider, so let's copy this link.
+
+40
+00:03:15,730 --> 00:03:16,060
+Okay.
+
+41
+00:03:16,270 --> 00:03:18,730
+So once this is downloaded, install it.
+
+42
+00:03:26,020 --> 00:03:30,190
+Double click on that icon and it should start the installation.
+
+43
+00:03:36,960 --> 00:03:38,130
+Enter your password.
+
+44
+00:03:47,800 --> 00:03:50,140
+Next install this vagrant plugin.
+
+45
+00:03:54,870 --> 00:03:57,570
+Okay, so we are now done with the setup.
+
+46
+00:03:57,600 --> 00:04:02,130
+Now it's time to create a virtual machine by using Vagrant and VMware.
+
+47
+00:04:02,370 --> 00:04:04,410
+So let me clear the screen here.
+
+48
+00:04:04,620 --> 00:04:07,860
+And let me make this full screen terminal.
+
+49
+00:04:10,790 --> 00:04:13,200
+I guess we are going to create two virtual machine.
+
+50
+00:04:13,220 --> 00:04:16,399
+One is open to other, one is Fedora.
+
+51
+00:04:16,430 --> 00:04:23,990
+Fedora is similar to send to a seven or just send to us whenever I see centers for Windows user.
+
+52
+00:04:23,990 --> 00:04:30,680
+You have to understand that I'm talking about Fedora for MacBook M1 and M2 chip.
+
+53
+00:04:31,310 --> 00:04:33,020
+I'll come to that point in a moment.
+
+54
+00:04:33,500 --> 00:04:35,210
+Let's go to the document first.
+
+55
+00:04:37,150 --> 00:04:42,940
+Okay, So the steps are we need to create this folder VMs open to inside that we need to place a file
+
+56
+00:04:42,940 --> 00:04:49,600
+called Vagrant file with V Capital, and the content of that file will be this.
+
+57
+00:04:51,960 --> 00:04:56,580
+Okay, so let's create the folders or directories.
+
+58
+00:04:57,490 --> 00:05:02,670
+So come back to the terminal, run p w d command, see where you are users.
+
+59
+00:05:02,680 --> 00:05:04,870
+Imran I'm in my home directory.
+
+60
+00:05:05,470 --> 00:05:06,640
+I do ls.
+
+61
+00:05:08,070 --> 00:05:08,820
+Look here.
+
+62
+00:05:08,820 --> 00:05:11,390
+I'm going to get into the desktop directory.
+
+63
+00:05:11,400 --> 00:05:19,800
+So CD desktop in that we are going to create a folder called us VMs.
+
+64
+00:05:21,290 --> 00:05:28,050
+We go into that VMs folder and inside that we're going to create a folder called as Ubuntu.
+
+65
+00:05:28,070 --> 00:05:29,240
+That's the first.
+
+66
+00:05:30,110 --> 00:05:32,630
+Let's, let's create one more folder.
+
+67
+00:05:34,390 --> 00:05:35,170
+Federal.
+
+68
+00:05:39,020 --> 00:05:43,100
+Okay, then let's get into the Ubuntu folder.
+
+69
+00:05:44,800 --> 00:05:46,210
+Run p w d command.
+
+70
+00:05:46,480 --> 00:05:49,900
+You should be in this place if you are ever lost.
+
+71
+00:05:49,900 --> 00:05:52,120
+Just type c d and hit enter.
+
+72
+00:05:52,870 --> 00:05:55,110
+You will come back to your home directory.
+
+73
+00:05:55,120 --> 00:05:57,850
+This is the symbol of the home directory, this tilde.
+
+74
+00:05:58,390 --> 00:05:59,770
+So I'm in my home directory.
+
+75
+00:05:59,770 --> 00:06:04,450
+I'm going to get into desktop VMs open to.
+
+76
+00:06:07,590 --> 00:06:09,000
+Let's clear the screen.
+
+77
+00:06:09,970 --> 00:06:13,910
+Once again, we're going to run the command volume.
+
+78
+00:06:13,930 --> 00:06:18,720
+This is a text editor and we give the file name, vagrant file.
+
+79
+00:06:19,120 --> 00:06:25,870
+Make sure the file name is exactly as it is V Capital, all the other small and there is no extension
+
+80
+00:06:25,870 --> 00:06:26,860
+at the end.
+
+81
+00:06:28,950 --> 00:06:30,340
+And hit enter.
+
+82
+00:06:30,360 --> 00:06:34,920
+When you do this, this is going to open up a file with the name of Vagrant file.
+
+83
+00:06:36,260 --> 00:06:39,290
+And you should see here new and the file name.
+
+84
+00:06:39,650 --> 00:06:41,900
+You need to get into insert mode.
+
+85
+00:06:42,410 --> 00:06:44,780
+Type I as in India.
+
+86
+00:06:45,990 --> 00:06:48,360
+And you will see you are in insert mode here.
+
+87
+00:06:48,390 --> 00:06:50,970
+Now you can type the content over here.
+
+88
+00:06:51,480 --> 00:06:53,520
+But not typing just anything.
+
+89
+00:06:53,640 --> 00:06:55,650
+We are going to copy this content.
+
+90
+00:06:56,290 --> 00:06:59,620
+Select this content Control authority command.
+
+91
+00:06:59,650 --> 00:07:00,250
+See?
+
+92
+00:07:01,240 --> 00:07:04,120
+Go back to the terminal Command V.
+
+93
+00:07:04,150 --> 00:07:05,020
+Paste it.
+
+94
+00:07:06,080 --> 00:07:07,940
+Now escape.
+
+95
+00:07:08,120 --> 00:07:09,590
+Make sure you hit escape.
+
+96
+00:07:09,590 --> 00:07:11,350
+The insert mode will be gone.
+
+97
+00:07:11,360 --> 00:07:12,720
+Now you have to hit.
+
+98
+00:07:12,740 --> 00:07:16,810
+Colon w q save and quit.
+
+99
+00:07:16,820 --> 00:07:18,350
+Or write and quit.
+
+100
+00:07:18,500 --> 00:07:18,680
+Hit.
+
+101
+00:07:18,680 --> 00:07:19,220
+Enter.
+
+102
+00:07:20,540 --> 00:07:23,260
+You do less and now you will see a vagrant file.
+
+103
+00:07:23,270 --> 00:07:23,570
+Here.
+
+104
+00:07:23,570 --> 00:07:27,200
+You can run cat command to print the content of this file.
+
+105
+00:07:27,230 --> 00:07:28,580
+Cat Vagrant file.
+
+106
+00:07:30,080 --> 00:07:32,370
+Now let's understand a few lines of this code.
+
+107
+00:07:32,390 --> 00:07:36,140
+Later, we will dive deep into Valorant in the background section.
+
+108
+00:07:36,140 --> 00:07:38,600
+But for now, a few things you need to understand.
+
+109
+00:07:39,200 --> 00:07:41,000
+One is the box name here.
+
+110
+00:07:41,390 --> 00:07:43,940
+Config dot vm, dot box box.
+
+111
+00:07:43,940 --> 00:07:47,030
+You can also call them as images VM images.
+
+112
+00:07:47,060 --> 00:07:50,780
+These are readymade images available on Vagrant Cloud.
+
+113
+00:07:51,290 --> 00:07:58,220
+So when we run the command vagrant up, it is going to first download this box and then create a VM
+
+114
+00:07:58,220 --> 00:07:59,000
+from that.
+
+115
+00:07:59,930 --> 00:08:02,330
+And the IPO of the film will be this.
+
+116
+00:08:02,480 --> 00:08:06,050
+And we are using VMware desktop to create VMs.
+
+117
+00:08:08,060 --> 00:08:11,540
+Okay, So let me take you to one green cloud.
+
+118
+00:08:13,480 --> 00:08:17,320
+Okay, so just search for Vagrant Cloud on Google.
+
+119
+00:08:17,410 --> 00:08:19,120
+And that's the first link.
+
+120
+00:08:21,180 --> 00:08:24,810
+So there are many boxes over here or images over here.
+
+121
+00:08:24,840 --> 00:08:26,730
+We need to find appropriate one.
+
+122
+00:08:26,910 --> 00:08:35,010
+So in the dropdown, click on VMware desktop because we are using VMware desktop and Mac OS, M one
+
+123
+00:08:35,010 --> 00:08:35,490
+and M two.
+
+124
+00:08:35,490 --> 00:08:40,230
+Chip has the erm architecture just type erm in the search.
+
+125
+00:08:41,520 --> 00:08:47,220
+And you will see all the ARM based boxes for VMware desktop.
+
+126
+00:08:47,250 --> 00:08:53,250
+Now, they're not many and many of them doesn't work properly with our setup.
+
+127
+00:08:53,520 --> 00:09:00,110
+The box team that I have selected is the one that I tested it and many people have tested it.
+
+128
+00:09:00,120 --> 00:09:01,350
+It works very well.
+
+129
+00:09:02,170 --> 00:09:04,630
+And we will be using this box.
+
+130
+00:09:04,840 --> 00:09:09,730
+But if you want to find the boxes, a different box, I have shown you how you can do that.
+
+131
+00:09:09,820 --> 00:09:11,500
+You can just change it over here.
+
+132
+00:09:11,920 --> 00:09:17,020
+Now, this box I'm using this version, this is specific version that we want.
+
+133
+00:09:17,050 --> 00:09:17,590
+Now.
+
+134
+00:09:18,470 --> 00:09:21,740
+If you're using any other box, do not mention any version.
+
+135
+00:09:21,740 --> 00:09:24,320
+It will just download the latest version of the box.
+
+136
+00:09:24,620 --> 00:09:28,100
+This version again is only for this box.
+
+137
+00:09:29,600 --> 00:09:33,500
+And we are going to run a command of vagrant up.
+
+138
+00:09:34,230 --> 00:09:34,950
+Which will.
+
+139
+00:09:35,750 --> 00:09:37,340
+Download the box first.
+
+140
+00:09:37,340 --> 00:09:42,830
+Now I already have this box downloaded in the machine so it is not going to download once again for
+
+141
+00:09:42,830 --> 00:09:43,610
+you first time.
+
+142
+00:09:43,610 --> 00:09:45,770
+It is going to download and bring up a VM.
+
+143
+00:09:46,160 --> 00:09:50,900
+It is going to open up this UI which will show you the VM coming up.
+
+144
+00:09:50,930 --> 00:09:52,430
+You don't need to do anything over here.
+
+145
+00:09:52,430 --> 00:09:53,930
+Just minimize this.
+
+146
+00:09:54,870 --> 00:09:57,090
+Or maybe take a look and then minimize.
+
+147
+00:09:58,240 --> 00:10:00,100
+You need to be on the terminal only.
+
+148
+00:10:01,350 --> 00:10:02,790
+I see the VM is coming up.
+
+149
+00:10:03,120 --> 00:10:05,820
+You see, it took hardly a minute to bring up the VM.
+
+150
+00:10:05,820 --> 00:10:06,450
+First time.
+
+151
+00:10:06,450 --> 00:10:07,800
+It will take a little long.
+
+152
+00:10:08,650 --> 00:10:11,440
+Now the VM is up to log in.
+
+153
+00:10:11,440 --> 00:10:15,130
+Inside this VM, you need to run the command vagrant search.
+
+154
+00:10:16,280 --> 00:10:17,140
+Ragland said.
+
+155
+00:10:17,140 --> 00:10:20,110
+You need to make sure you are in that same folder.
+
+156
+00:10:21,690 --> 00:10:23,830
+So this will log in in the VM.
+
+157
+00:10:23,850 --> 00:10:25,920
+Now you see the prompt has changed.
+
+158
+00:10:25,950 --> 00:10:29,290
+Look at this prompt and look at the previous prompt.
+
+159
+00:10:29,310 --> 00:10:33,030
+This was the MacBook Prompt and now we are in the VM.
+
+160
+00:10:33,030 --> 00:10:34,410
+This is the VM prompt.
+
+161
+00:10:35,280 --> 00:10:36,190
+You run the command.
+
+162
+00:10:36,210 --> 00:10:37,950
+Pseudo hyphen i.
+
+163
+00:10:39,550 --> 00:10:46,570
+And when the command ip id r show to see whether you got the IP address or not, that's the IP address
+
+164
+00:10:46,570 --> 00:10:47,390
+of your VM.
+
+165
+00:10:48,460 --> 00:10:49,880
+Yep, That's all here.
+
+166
+00:10:49,900 --> 00:10:51,010
+Just exit.
+
+167
+00:10:51,970 --> 00:10:53,620
+Once again type exit.
+
+168
+00:10:54,830 --> 00:10:59,090
+Till you come back to your prompt, you're logged out of the venue.
+
+169
+00:10:59,300 --> 00:11:02,270
+Exit the last time we are back.
+
+170
+00:11:02,660 --> 00:11:04,070
+Now, let me clear the screen.
+
+171
+00:11:04,730 --> 00:11:12,260
+You can run the command vagrant status to check the status or status of your VM, and it says it is
+
+172
+00:11:12,260 --> 00:11:12,920
+running.
+
+173
+00:11:13,370 --> 00:11:15,020
+We are going to power off.
+
+174
+00:11:15,020 --> 00:11:15,470
+Vagrant.
+
+175
+00:11:15,470 --> 00:11:16,130
+Halt!
+
+176
+00:11:17,680 --> 00:11:19,840
+Which is to power off or shut down.
+
+177
+00:11:21,890 --> 00:11:22,790
+That's off.
+
+178
+00:11:24,900 --> 00:11:27,060
+Let's check the status once again.
+
+179
+00:11:27,090 --> 00:11:29,820
+You can do the up arrow and go to the previous command.
+
+180
+00:11:29,850 --> 00:11:31,530
+Migrant status.
+
+181
+00:11:34,330 --> 00:11:34,470
+Okay.
+
+182
+00:11:34,570 --> 00:11:36,640
+You see, it is not running.
+
+183
+00:11:37,030 --> 00:11:41,380
+Now you can any time just run vagrant up as it sees and bring up the VM.
+
+184
+00:11:42,180 --> 00:11:44,190
+If you don't need it, you can also delete it.
+
+185
+00:11:44,190 --> 00:11:45,990
+Vagrant and destroy.
+
+186
+00:11:49,960 --> 00:11:50,890
+Yes.
+
+187
+00:11:50,890 --> 00:11:51,280
+Why?
+
+188
+00:11:51,310 --> 00:11:51,970
+For yes.
+
+189
+00:11:51,970 --> 00:11:53,170
+And it is going to delete.
+
+190
+00:11:53,170 --> 00:11:54,850
+Destroy means delete the VM.
+
+191
+00:11:54,850 --> 00:11:56,320
+The VM will be gone.
+
+192
+00:11:57,060 --> 00:11:59,520
+If you run Vagrant up, the VM will come back.
+
+193
+00:11:59,520 --> 00:12:01,950
+But it is going to be a new VM after that.
+
+194
+00:12:02,580 --> 00:12:04,590
+Now that's about open to.
+
+195
+00:12:04,860 --> 00:12:06,430
+Let's go to now fedora.
+
+196
+00:12:06,450 --> 00:12:09,060
+So again type CD and hit enter.
+
+197
+00:12:09,750 --> 00:12:10,860
+Clear the screen.
+
+198
+00:12:11,910 --> 00:12:15,480
+Let's go to desktop vms.
+
+199
+00:12:16,110 --> 00:12:16,920
+Fedora.
+
+200
+00:12:18,630 --> 00:12:20,550
+And let's do the same over here.
+
+201
+00:12:20,670 --> 00:12:21,980
+There's no file here now.
+
+202
+00:12:21,990 --> 00:12:23,940
+V, I am vagrant file.
+
+203
+00:12:23,940 --> 00:12:24,510
+Once again.
+
+204
+00:12:24,510 --> 00:12:25,470
+V Capital.
+
+205
+00:12:26,040 --> 00:12:26,910
+Hit enter.
+
+206
+00:12:27,630 --> 00:12:29,070
+Get into the insert mode.
+
+207
+00:12:29,070 --> 00:12:30,540
+I as in India.
+
+208
+00:12:31,050 --> 00:12:31,920
+Within insert mode.
+
+209
+00:12:31,920 --> 00:12:33,360
+Let's go to the document.
+
+210
+00:12:34,210 --> 00:12:38,020
+And this is the setting or configuration for Fedora.
+
+211
+00:12:38,050 --> 00:12:39,430
+Let's copy all this.
+
+212
+00:12:41,540 --> 00:12:42,620
+Command C.
+
+213
+00:12:43,440 --> 00:12:44,370
+Let's go back.
+
+214
+00:12:44,970 --> 00:12:45,380
+Come on.
+
+215
+00:12:45,390 --> 00:12:46,500
+V basted.
+
+216
+00:12:48,560 --> 00:12:48,870
+Okay.
+
+217
+00:12:48,890 --> 00:12:50,390
+Here, you see the box name?
+
+218
+00:12:50,390 --> 00:12:51,970
+It's different for open two.
+
+219
+00:12:51,980 --> 00:12:55,490
+We had an open two box for here for Federer.
+
+220
+00:12:55,490 --> 00:12:57,740
+Obviously we have Federer 35 box.
+
+221
+00:12:58,010 --> 00:13:06,290
+And whenever I see center is seven or center is eight, anything sent to us in the lectures for Windows
+
+222
+00:13:06,290 --> 00:13:14,570
+user, that means for MacBook, M1 and M1 chip, sorry, M1 and M2 chip, you need to go with this box.
+
+223
+00:13:14,570 --> 00:13:15,740
+Federer 35.
+
+224
+00:13:15,740 --> 00:13:24,680
+Exactly this box you can experiment with other box later, but for now, just keep that box escape colon.
+
+225
+00:13:25,440 --> 00:13:27,900
+W q say when could.
+
+226
+00:13:29,380 --> 00:13:31,540
+And we're going to say vagrant up.
+
+227
+00:13:32,780 --> 00:13:35,180
+Which will bring up a federal VMM for us.
+
+228
+00:13:37,240 --> 00:13:37,390
+Okay.
+
+229
+00:13:37,650 --> 00:13:39,950
+Again, it opens up this DUI.
+
+230
+00:13:39,990 --> 00:13:41,040
+It can minimize that.
+
+231
+00:13:41,040 --> 00:13:42,330
+We are not using that.
+
+232
+00:13:42,840 --> 00:13:44,100
+We'll be using terminal.
+
+233
+00:13:45,750 --> 00:13:47,100
+Okay, the VM is up.
+
+234
+00:13:47,130 --> 00:13:49,470
+Let's check migrant status.
+
+235
+00:13:52,380 --> 00:13:52,740
+Right.
+
+236
+00:13:52,740 --> 00:13:53,550
+It's running.
+
+237
+00:13:53,550 --> 00:13:55,050
+Let me clear the screen.
+
+238
+00:13:56,280 --> 00:13:59,620
+Let's do vagrant search to log in now.
+
+239
+00:13:59,640 --> 00:14:01,710
+I will be logging into the federal VM now.
+
+240
+00:14:01,710 --> 00:14:02,220
+Right.
+
+241
+00:14:02,570 --> 00:14:04,860
+And I need to be in that directory.
+
+242
+00:14:05,310 --> 00:14:06,360
+See the prompt?
+
+243
+00:14:06,480 --> 00:14:09,180
+I'm in the VM pseudo hyphen i.
+
+244
+00:14:10,750 --> 00:14:13,090
+IP ADR show.
+
+245
+00:14:15,270 --> 00:14:15,630
+Yeah.
+
+246
+00:14:16,050 --> 00:14:18,960
+Got vip v good exit.
+
+247
+00:14:19,470 --> 00:14:21,210
+And once again, exit.
+
+248
+00:14:22,390 --> 00:14:24,700
+And we are back to our MacBook.
+
+249
+00:14:26,330 --> 00:14:26,630
+Okay.
+
+250
+00:14:26,660 --> 00:14:28,730
+Now let's power off.
+
+251
+00:14:28,730 --> 00:14:31,670
+Or I can just delete it and destroy.
+
+252
+00:14:31,670 --> 00:14:32,900
+I can do that as well.
+
+253
+00:14:33,170 --> 00:14:36,230
+Hyphen, hyphen, hyphen, hyphen force.
+
+254
+00:14:36,530 --> 00:14:37,970
+Forcefully delete the VM.
+
+255
+00:14:37,970 --> 00:14:39,230
+Don't ask me any question.
+
+256
+00:14:39,230 --> 00:14:40,790
+Just delete it like that.
+
+257
+00:14:42,170 --> 00:14:45,920
+And whenever you want to bring up the theme or any theme.
+
+258
+00:14:46,670 --> 00:14:48,770
+So I'm back to a normal terminal.
+
+259
+00:14:48,770 --> 00:14:52,520
+I'm in the home directory, I go to VMs.
+
+260
+00:14:53,280 --> 00:14:56,580
+Sorry, I go to desktop VMs.
+
+261
+00:14:57,520 --> 00:14:58,450
+I can type.
+
+262
+00:14:58,870 --> 00:15:00,490
+I go to one, two.
+
+263
+00:15:02,290 --> 00:15:05,500
+There's the vagrant file, and I can just do vagrant up.
+
+264
+00:15:05,620 --> 00:15:07,300
+Or you can check the status first.
+
+265
+00:15:07,420 --> 00:15:08,440
+Vagrant up.
+
+266
+00:15:09,520 --> 00:15:14,350
+And this will bring up the VM or create a new VM if it does not exist.
+
+267
+00:15:15,760 --> 00:15:16,360
+Okay.
+
+268
+00:15:16,660 --> 00:15:18,160
+Since this is coming up.
+
+269
+00:15:18,920 --> 00:15:20,000
+Now it's already up.
+
+270
+00:15:20,480 --> 00:15:24,620
+Anyways, a few important points that I want to add.
+
+271
+00:15:24,620 --> 00:15:31,100
+Compared to Windows user, you will see Windows user have will have option of many other boxes compared
+
+272
+00:15:31,100 --> 00:15:33,980
+to MacBook M1 and M2 chip.
+
+273
+00:15:34,220 --> 00:15:36,280
+The problem is actually the M1 and M2 chip.
+
+274
+00:15:36,290 --> 00:15:39,170
+There are not many boxes available for this architecture.
+
+275
+00:15:39,380 --> 00:15:47,510
+So for we will be using these specific boxes that I have mentioned later in the Vagrant section once
+
+276
+00:15:47,510 --> 00:15:49,700
+you become proficient with Vagrant.
+
+277
+00:15:49,730 --> 00:15:51,620
+After Linux we have vagrant session.
+
+278
+00:15:51,620 --> 00:15:55,190
+Once you become proficient, then you can do your experiments.
+
+279
+00:15:55,190 --> 00:15:57,820
+But till then keep the boxes.
+
+280
+00:15:57,830 --> 00:16:01,250
+Same name of the boxes as I have shown you now.
+
+281
+00:16:02,360 --> 00:16:06,980
+Keep in mind we have limited choice when it comes to M1 and M2 chip.
+
+282
+00:16:09,020 --> 00:16:14,410
+So do not worry too much about the commands that you have seen, the text, the code that you have seen.
+
+283
+00:16:14,420 --> 00:16:18,620
+You will be learning all that in detail later in Linux session.
+
+284
+00:16:18,620 --> 00:16:23,540
+You're going to get very proficient with command line in Wagner and we'll be learning a lot of Wagner
+
+285
+00:16:23,540 --> 00:16:27,650
+and then later we'll be doing batch scripting, we'll be doing cloud computing.
+
+286
+00:16:27,650 --> 00:16:30,950
+So it will take some time to become proficient with all this.
+
+287
+00:16:30,950 --> 00:16:32,450
+This is just the VM set up.
+
+288
+00:16:32,450 --> 00:16:34,340
+So take it easy, bring up the VM.
+
+289
+00:16:34,340 --> 00:16:36,350
+That's all we need to do for now.
+
+290
+00:16:37,190 --> 00:16:37,670
+All right, then.
+
+291
+00:16:37,670 --> 00:16:39,350
+That is all in this lecture.
+
+292
+00:16:39,350 --> 00:16:41,180
+I will see you in the next one.
+
