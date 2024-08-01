@@ -1,0 +1,444 @@
+1
+00:00:00,970 --> 00:00:02,350
+How Jenkins should be up.
+
+2
+00:00:02,380 --> 00:00:03,640
+Let's try to log in.
+
+3
+00:00:07,860 --> 00:00:08,940
+And we are in.
+
+4
+00:00:08,940 --> 00:00:09,690
+This is fine.
+
+5
+00:00:09,690 --> 00:00:11,040
+We can log out from here.
+
+6
+00:00:11,460 --> 00:00:12,930
+Let's go to a browser.
+
+7
+00:00:14,170 --> 00:00:16,270
+Let's refresh the Jenkins page.
+
+8
+00:00:25,600 --> 00:00:32,950
+I recommend you have Jenkins of TX to small minimum TX to micro will run very slow, so make sure you
+
+9
+00:00:32,950 --> 00:00:34,540
+have Jenkins TX to small.
+
+10
+00:00:35,520 --> 00:00:35,790
+Do you do?
+
+11
+00:00:35,790 --> 00:00:38,400
+My cross should also run, but it will be a little slower.
+
+12
+00:00:39,550 --> 00:00:42,490
+Next, we'll create the Kubernetes cluster from cops.
+
+13
+00:00:42,490 --> 00:00:45,040
+But before that, let's install a few plugins.
+
+14
+00:00:45,640 --> 00:00:47,470
+So let's go to manage Jenkins.
+
+15
+00:00:49,800 --> 00:00:50,940
+Manage plugins.
+
+16
+00:00:54,240 --> 00:00:55,230
+Available.
+
+17
+00:00:56,340 --> 00:00:58,350
+We need the Docker plugin.
+
+18
+00:00:58,530 --> 00:01:02,370
+So a Docker pipeline and a Docker plugin.
+
+19
+00:01:03,340 --> 00:01:06,520
+And we'll also need the pipeline utility.
+
+20
+00:01:15,710 --> 00:01:17,360
+Pipeline and utility steps.
+
+21
+00:01:17,360 --> 00:01:20,120
+This is for Jenkins pipeline as a code.
+
+22
+00:01:20,840 --> 00:01:26,300
+Sort of put a checkmark on all these three plugins, Docker Pipeline, Docker and pipeline utility steps
+
+23
+00:01:26,300 --> 00:01:28,460
+and say install without a restart.
+
+24
+00:01:30,780 --> 00:01:33,810
+All right, While this is happening, let's log into our cops.
+
+25
+00:01:33,840 --> 00:01:34,980
+Easy, to instance.
+
+26
+00:01:36,450 --> 00:01:39,210
+From here, we're going to create Kubernetes cluster.
+
+27
+00:01:54,620 --> 00:01:58,240
+So in my history, I already have the command to create the Kubernetes cluster.
+
+28
+00:01:58,250 --> 00:02:00,350
+I'm going to create it with the same name.
+
+29
+00:02:01,230 --> 00:02:02,910
+I'm going to use the same bucket.
+
+30
+00:02:03,540 --> 00:02:08,580
+You can use exactly the same setup as you did in Cuba in this setup project.
+
+31
+00:02:09,740 --> 00:02:10,800
+Zones.
+
+32
+00:02:10,820 --> 00:02:11,570
+Zones.
+
+33
+00:02:11,600 --> 00:02:12,800
+We are changing.
+
+34
+00:02:14,330 --> 00:02:16,100
+We are running it currently.
+
+35
+00:02:16,100 --> 00:02:20,450
+I'm running it currently in Oregon region, so I'm going to give write zone names.
+
+36
+00:02:24,610 --> 00:02:27,910
+US west to a and us vest to be.
+
+37
+00:02:27,910 --> 00:02:29,530
+I'll use these two zones.
+
+38
+00:02:35,720 --> 00:02:36,050
+Node.
+
+39
+00:02:36,050 --> 00:02:37,820
+Count two is fine.
+
+40
+00:02:38,690 --> 00:02:44,330
+T2 Micro should be fine master size due to micro fine and the same DNS zone name.
+
+41
+00:02:45,310 --> 00:02:46,420
+Let's hit enter.
+
+42
+00:02:55,020 --> 00:02:56,760
+Cops Update Cluster.
+
+43
+00:02:57,810 --> 00:02:59,790
+We should actually create the cluster.
+
+44
+00:03:11,670 --> 00:03:16,140
+So the creation process started and as we know, it's going to take some time.
+
+45
+00:03:16,380 --> 00:03:21,210
+By the time we will install Helme in this copse issue, for instance.
+
+46
+00:03:21,210 --> 00:03:24,000
+So let's go to helm documentation.
+
+47
+00:03:29,940 --> 00:03:31,620
+Helm search.
+
+48
+00:03:32,870 --> 00:03:40,220
+So there is no plugin that I could found and I did not find any plugin of Helme in Jenkins.
+
+49
+00:03:40,400 --> 00:03:44,180
+But maybe by the time you're watching the video you should find some plugin.
+
+50
+00:03:44,750 --> 00:03:47,070
+But anyways, you don't need that help plugin.
+
+51
+00:03:47,090 --> 00:03:53,300
+We are going to add the corpse issue two instance as a slave to Jenkins and will run Helm command.
+
+52
+00:03:54,290 --> 00:03:56,600
+From cops itself.
+
+53
+00:03:56,840 --> 00:03:58,600
+So we really don't need that plugin.
+
+54
+00:03:58,680 --> 00:04:03,200
+V but need to install help in this instance.
+
+55
+00:04:03,200 --> 00:04:05,690
+So let's go to documentation.
+
+56
+00:04:09,140 --> 00:04:15,310
+So if you don't know about helm, Hell basically is a packaging system for definition files.
+
+57
+00:04:15,320 --> 00:04:22,540
+We can package our entire all the definitions for our project stack and we can also deploy to cover
+
+58
+00:04:22,550 --> 00:04:23,480
+this cluster.
+
+59
+00:04:23,810 --> 00:04:29,660
+So instead of managing all the definition file for deployment service volumes, all the different different
+
+60
+00:04:29,660 --> 00:04:32,660
+definition file, we maintain and manage separately.
+
+61
+00:04:32,660 --> 00:04:39,200
+Instead of that, we can use Helm to package all of them and run them or update them on Kubernetes cluster.
+
+62
+00:04:42,280 --> 00:04:47,650
+So it is Helme helps you manage Kubernetes Application Help Charts.
+
+63
+00:04:48,520 --> 00:04:55,150
+Charts are actually the collection of our definition files, so we can define everything by using charts.
+
+64
+00:04:55,850 --> 00:04:59,750
+If you want to learn a few more things about Helm, you can check the Quick Start guide.
+
+65
+00:04:59,780 --> 00:05:01,490
+You can check the architecture of Helm.
+
+66
+00:05:01,820 --> 00:05:04,010
+And there's a small interaction video as well.
+
+67
+00:05:04,550 --> 00:05:10,730
+There's so many things in helm, but to get started with we, we can create the package in helm and
+
+68
+00:05:10,730 --> 00:05:13,190
+we can deploy our application by using Helm.
+
+69
+00:05:15,260 --> 00:05:16,610
+Let's go to get started.
+
+70
+00:05:17,970 --> 00:05:19,020
+So political sites.
+
+71
+00:05:19,020 --> 00:05:20,610
+We need a communist cluster.
+
+72
+00:05:21,060 --> 00:05:23,400
+We should already have all the security configuration.
+
+73
+00:05:23,400 --> 00:05:25,620
+It is saying installing and configuring Helme.
+
+74
+00:05:25,620 --> 00:05:27,120
+So let's install helme.
+
+75
+00:05:29,320 --> 00:05:32,170
+So let's go to the official release page.
+
+76
+00:05:32,380 --> 00:05:37,660
+We can do it through home rules of your MacBook, but we're installing it on a Linux instance.
+
+77
+00:05:38,560 --> 00:05:40,270
+Let's check the installation guide.
+
+78
+00:05:42,130 --> 00:05:49,870
+So we just need to download the binary, extract it and put it to use our local bin held pot.
+
+79
+00:05:50,550 --> 00:05:52,080
+So let's download that.
+
+80
+00:05:56,610 --> 00:05:58,170
+The latest one will go with.
+
+81
+00:06:01,650 --> 00:06:03,540
+So Linux aimed 64.
+
+82
+00:06:03,570 --> 00:06:04,690
+That should be fine.
+
+83
+00:06:04,710 --> 00:06:05,850
+Is it a download link?
+
+84
+00:06:05,850 --> 00:06:06,720
+Let's check it.
+
+85
+00:06:10,150 --> 00:06:11,440
+Yeah, that's a download link.
+
+86
+00:06:11,440 --> 00:06:12,250
+Let's copy it.
+
+87
+00:06:12,250 --> 00:06:13,600
+Copy link, address.
+
+88
+00:06:13,990 --> 00:06:16,240
+Let's go to a COPS instance.
+
+89
+00:06:25,020 --> 00:06:26,370
+So downloaded Helme.
+
+90
+00:06:26,370 --> 00:06:28,770
+I'm going to extract it our exit.
+
+91
+00:06:28,800 --> 00:06:29,070
+V.
+
+92
+00:06:29,090 --> 00:06:29,790
+F.
+
+93
+00:06:30,270 --> 00:06:30,810
+L.
+
+94
+00:06:33,070 --> 00:06:35,740
+Should have Linux aimed 64 directory.
+
+95
+00:06:36,760 --> 00:06:40,270
+So we have this binary we are going to move it to.
+
+96
+00:06:44,500 --> 00:06:45,400
+Move.
+
+97
+00:06:45,740 --> 00:06:46,830
+Hell, yeah.
+
+98
+00:06:46,850 --> 00:06:49,870
+We're going to move it to use our local bin.
+
+99
+00:06:50,080 --> 00:06:50,500
+The name?
+
+100
+00:06:50,500 --> 00:06:51,100
+Same name.
+
+101
+00:06:51,100 --> 00:06:51,600
+Helm.
+
+102
+00:06:54,020 --> 00:06:56,060
+And let's see if we can access helm.
+
+103
+00:06:56,090 --> 00:06:57,350
+Hyphen hyphen help.
+
+104
+00:06:58,530 --> 00:06:59,460
+Yes.
+
+105
+00:07:00,920 --> 00:07:02,630
+Okay, so we have this set up now.
+
+106
+00:07:02,630 --> 00:07:07,250
+We are going to prepare our repository with all the data.
+
+107
+00:07:07,730 --> 00:07:09,570
+We'll create charts in that.
+
+108
+00:07:09,590 --> 00:07:12,020
+We'll have the Docker file and the Jenkins file.
+
+109
+00:07:12,800 --> 00:07:18,230
+Before that, let's check whether we have our COVID cluster up or not.
+
+110
+00:07:19,070 --> 00:07:20,210
+It's up and running.
+
+111
+00:07:21,030 --> 00:07:23,610
+So we'll prepare the repository next.
+

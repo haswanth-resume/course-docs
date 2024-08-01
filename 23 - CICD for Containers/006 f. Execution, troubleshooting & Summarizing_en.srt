@@ -1,0 +1,676 @@
+1
+00:00:00,300 --> 00:00:01,490
+All of this looks good.
+
+2
+00:00:01,500 --> 00:00:03,480
+Let's test it on Jenkins.
+
+3
+00:00:03,810 --> 00:00:05,939
+Let's create a new job in Jenkins.
+
+4
+00:00:07,970 --> 00:00:08,740
+Mm.
+
+5
+00:00:08,750 --> 00:00:11,030
+Cube secede.
+
+6
+00:00:12,890 --> 00:00:13,850
+Pipeline.
+
+7
+00:00:18,120 --> 00:00:18,990
+Scroll down.
+
+8
+00:00:21,860 --> 00:00:25,760
+We're going to copy clone the source code from Git.
+
+9
+00:00:29,030 --> 00:00:32,330
+So I prepared a new repository and I'm going to give that.
+
+10
+00:00:41,600 --> 00:00:43,070
+If you have not done it.
+
+11
+00:00:44,190 --> 00:00:47,670
+Then use the Vpro file project repository.
+
+12
+00:00:48,440 --> 00:00:52,200
+And the Branch Cube CD Cube.
+
+13
+00:00:52,220 --> 00:00:53,300
+You can use that.
+
+14
+00:00:54,500 --> 00:00:56,810
+Since I created everything from the scratch.
+
+15
+00:00:56,810 --> 00:01:00,230
+So I'm going to use that Branch is master.
+
+16
+00:01:03,040 --> 00:01:05,319
+Okay, so I don't need to change any branch.
+
+17
+00:01:06,010 --> 00:01:06,850
+Jenkins file?
+
+18
+00:01:06,850 --> 00:01:07,430
+Yes.
+
+19
+00:01:07,500 --> 00:01:08,500
+Save.
+
+20
+00:01:11,540 --> 00:01:12,920
+Okay, time to test it.
+
+21
+00:01:12,950 --> 00:01:14,240
+Let's build now.
+
+22
+00:01:16,450 --> 00:01:18,460
+So that is going to take some time.
+
+23
+00:01:20,950 --> 00:01:24,970
+So I'm going to pause my screen and come back when this is completed.
+
+24
+00:01:26,500 --> 00:01:29,530
+There seemed to be a failure at the sonar cube level.
+
+25
+00:01:29,560 --> 00:01:30,310
+Let's find out.
+
+26
+00:01:30,310 --> 00:01:31,120
+What is it?
+
+27
+00:01:32,190 --> 00:01:34,050
+So the job is failing.
+
+28
+00:01:39,460 --> 00:01:42,220
+Cannot be reached sooner, Cube server cannot be reached.
+
+29
+00:01:42,220 --> 00:01:44,510
+That should be the IP address of Owner Cube.
+
+30
+00:01:44,530 --> 00:01:45,400
+Let's check it.
+
+31
+00:01:46,730 --> 00:01:50,000
+One 7231 731.
+
+32
+00:01:52,300 --> 00:01:54,430
+And that seems right for me.
+
+33
+00:01:54,640 --> 00:01:56,440
+Probably it's then the security group.
+
+34
+00:01:56,440 --> 00:01:58,000
+Let's check the security group.
+
+35
+00:02:02,270 --> 00:02:03,830
+I think I have the wrong rule.
+
+36
+00:02:05,870 --> 00:02:09,800
+So all traffic allowed from Jenkins Security group.
+
+37
+00:02:11,070 --> 00:02:12,720
+That's the Jenkins security group.
+
+38
+00:02:14,140 --> 00:02:15,100
+To save.
+
+39
+00:02:18,680 --> 00:02:20,960
+Okay, let's run it once again.
+
+40
+00:02:29,990 --> 00:02:33,980
+So there seems to be one more failure, but it's actually not a failure.
+
+41
+00:02:34,010 --> 00:02:35,930
+The pipeline has aborted.
+
+42
+00:02:36,530 --> 00:02:37,940
+Let's check the output.
+
+43
+00:02:45,510 --> 00:02:47,250
+So analysis was successful.
+
+44
+00:02:47,250 --> 00:02:50,310
+It should have uploaded everything to other cube server.
+
+45
+00:02:52,410 --> 00:02:54,960
+So we have all the output over here.
+
+46
+00:02:55,410 --> 00:02:57,960
+We can also create quality gates for this.
+
+47
+00:02:59,830 --> 00:03:02,080
+You already have one previous quality gate.
+
+48
+00:03:02,440 --> 00:03:04,900
+If you want to create a new one, you can create that.
+
+49
+00:03:04,900 --> 00:03:07,450
+And let's attach the quality gates.
+
+50
+00:03:08,480 --> 00:03:09,620
+To a project.
+
+51
+00:03:11,080 --> 00:03:12,160
+Quality gates.
+
+52
+00:03:16,990 --> 00:03:18,580
+But the problem was not this.
+
+53
+00:03:19,060 --> 00:03:21,640
+We need to set up the web hook.
+
+54
+00:03:22,600 --> 00:03:23,830
+If you see here.
+
+55
+00:03:26,680 --> 00:03:28,960
+Checking status of sojourner Cup tasks.
+
+56
+00:03:28,960 --> 00:03:34,840
+So Jenkins is waiting for a sonar cube to respond back with the quality gate status.
+
+57
+00:03:34,930 --> 00:03:39,990
+But but sorry, Sonar Cube has no idea about where is Jenkins.
+
+58
+00:03:40,000 --> 00:03:42,400
+So we have to set up a web hook for that.
+
+59
+00:03:42,490 --> 00:03:44,680
+We need to do this in pipeline as a code.
+
+60
+00:03:45,070 --> 00:03:50,920
+Previously, if you remember, if in normal freestyle project where we give the quality gates and in
+
+61
+00:03:50,920 --> 00:03:55,900
+the Jenkins itself, we mention where to check the quality gates in Jenkins.
+
+62
+00:03:58,960 --> 00:04:00,250
+Configure system.
+
+63
+00:04:06,600 --> 00:04:08,460
+So we have quality gates ownership.
+
+64
+00:04:08,460 --> 00:04:10,050
+So we mention the detail over here.
+
+65
+00:04:10,050 --> 00:04:12,840
+But in pipeline as a code, we are not using this.
+
+66
+00:04:13,140 --> 00:04:16,420
+We're expecting Sonner Q to know Jenkins.
+
+67
+00:04:16,440 --> 00:04:19,950
+And for that purpose, we need to create a web hook for this.
+
+68
+00:04:19,950 --> 00:04:22,950
+So get into your Sonner Q Project.
+
+69
+00:04:23,220 --> 00:04:24,540
+Project Settings.
+
+70
+00:04:25,080 --> 00:04:26,040
+Web Hooks.
+
+71
+00:04:27,700 --> 00:04:32,680
+It says no web hook defined will create a web hook to give a name.
+
+72
+00:04:32,920 --> 00:04:35,200
+Jenkins Web hook.
+
+73
+00:04:36,660 --> 00:04:42,390
+So we have to give the URL at HTTP colon slash slash the private IP of Jenkins will use.
+
+74
+00:04:53,700 --> 00:05:02,160
+Colon 88 slash, we have to say sooner Cube hyphen, verb hook.
+
+75
+00:05:03,810 --> 00:05:04,440
+This is fine.
+
+76
+00:05:04,440 --> 00:05:05,400
+Let's create it.
+
+77
+00:05:06,650 --> 00:05:08,900
+And we shall tested once again.
+
+78
+00:05:11,630 --> 00:05:12,800
+Cube sued.
+
+79
+00:05:14,050 --> 00:05:15,610
+That's really the job.
+
+80
+00:05:19,650 --> 00:05:20,160
+All right.
+
+81
+00:05:20,160 --> 00:05:23,020
+This time it seems it completed successfully.
+
+82
+00:05:23,040 --> 00:05:24,420
+Let's check the logs.
+
+83
+00:05:27,930 --> 00:05:30,510
+So in the queue, which is quality gate is okay.
+
+84
+00:05:31,350 --> 00:05:35,130
+Docker build process starts if you see it has taken the right name.
+
+85
+00:05:35,280 --> 00:05:37,430
+Version V three.
+
+86
+00:05:37,440 --> 00:05:38,610
+That's the build ID.
+
+87
+00:05:42,010 --> 00:05:44,530
+And that it builds the image successfully.
+
+88
+00:05:44,530 --> 00:05:50,110
+And then the Docker login to Docker hub account log in succeeded.
+
+89
+00:05:51,020 --> 00:05:53,420
+And pushing the image to Docker Hub.
+
+90
+00:06:01,200 --> 00:06:07,800
+So in Docker Hub, we have the images or image with two different tag latest and V three.
+
+91
+00:06:12,380 --> 00:06:13,040
+Docker.
+
+92
+00:06:13,040 --> 00:06:17,430
+RMI removes the unused image once it is uploaded to Docker Hub.
+
+93
+00:06:17,450 --> 00:06:20,180
+We don't need it on Jenkins, so we are removing it.
+
+94
+00:06:21,540 --> 00:06:24,660
+And then finally the helm upgrade install command.
+
+95
+00:06:25,140 --> 00:06:29,130
+If you see the app image name is correct.
+
+96
+00:06:29,490 --> 00:06:34,650
+It's time to log into our cops two instance and verify that as well.
+
+97
+00:06:44,470 --> 00:06:46,270
+Helm list.
+
+98
+00:06:46,750 --> 00:06:47,200
+Hyphen.
+
+99
+00:06:47,200 --> 00:06:47,590
+Hyphen.
+
+100
+00:06:47,590 --> 00:06:48,850
+Namespace.
+
+101
+00:06:49,880 --> 00:06:50,630
+Prod.
+
+102
+00:06:52,860 --> 00:06:54,420
+And we see charts are deployed.
+
+103
+00:06:54,420 --> 00:06:57,720
+We should see our parts also keep Ctrl get parts.
+
+104
+00:06:59,890 --> 00:07:01,810
+Of course in namespace prod.
+
+105
+00:07:05,560 --> 00:07:06,630
+So that's our part.
+
+106
+00:07:06,640 --> 00:07:08,080
+Let's check the image.
+
+107
+00:07:08,110 --> 00:07:09,190
+Keep still.
+
+108
+00:07:10,540 --> 00:07:11,650
+Describe.
+
+109
+00:07:14,820 --> 00:07:15,630
+Bond.
+
+110
+00:07:16,930 --> 00:07:18,280
+Skew the board name.
+
+111
+00:07:21,660 --> 00:07:23,520
+Now again, the namespace.
+
+112
+00:07:27,260 --> 00:07:35,330
+And we should see the image with v3q It'll get a.
+
+113
+00:07:35,330 --> 00:07:35,640
+C.
+
+114
+00:07:35,640 --> 00:07:36,200
+C.
+
+115
+00:07:37,700 --> 00:07:39,170
+Why forever namespace fraud.
+
+116
+00:07:39,200 --> 00:07:40,840
+That's the load balancer URL.
+
+117
+00:07:40,850 --> 00:07:41,900
+Let's check it.
+
+118
+00:07:50,240 --> 00:07:52,270
+And our application is up already.
+
+119
+00:07:52,280 --> 00:07:53,480
+Let's try log in.
+
+120
+00:07:55,310 --> 00:07:56,630
+I'd be honored to score VP.
+
+121
+00:07:56,660 --> 00:07:57,580
+Password admin.
+
+122
+00:07:57,590 --> 00:07:58,640
+Underscore VP.
+
+123
+00:07:59,860 --> 00:08:00,640
+Scared in.
+
+124
+00:08:01,710 --> 00:08:03,720
+And the DB is verified there.
+
+125
+00:08:04,320 --> 00:08:12,120
+So the entire application stack is deployed successfully by using help from Jenkins and fetching the
+
+126
+00:08:12,120 --> 00:08:14,370
+latest image for our application.
+
+127
+00:08:15,040 --> 00:08:17,530
+Now whenever a developer makes a code change.
+
+128
+00:08:19,260 --> 00:08:21,600
+You can configure a build trigger.
+
+129
+00:08:23,010 --> 00:08:27,510
+Paul Lithium or you can do it for every minute also.
+
+130
+00:08:30,110 --> 00:08:31,100
+Receive this.
+
+131
+00:08:34,120 --> 00:08:37,120
+Then every time there is a comet.
+
+132
+00:08:38,570 --> 00:08:42,740
+On the repository on this branch.
+
+133
+00:08:43,159 --> 00:08:45,200
+This pipeline will get triggered.
+
+134
+00:08:45,620 --> 00:08:49,010
+The latest image will be built and stored on Docker Hub.
+
+135
+00:08:51,160 --> 00:08:56,560
+And that same latest image will be deployed to our Kubernetes cluster by using Hel.
+
+136
+00:08:57,580 --> 00:09:01,690
+So let's reiterate, the architectural design developer makes a code change.
+
+137
+00:09:01,690 --> 00:09:03,010
+It goes to GitHub.
+
+138
+00:09:03,100 --> 00:09:07,960
+In GitHub, we have source code, Docker file helm charts.
+
+139
+00:09:07,960 --> 00:09:10,210
+Everything will be fetched by Jenkins.
+
+140
+00:09:11,620 --> 00:09:17,120
+Unit test integration test sonar code analysis will be conducted.
+
+141
+00:09:17,140 --> 00:09:19,660
+Result will be uploaded to sonar cube server.
+
+142
+00:09:19,660 --> 00:09:22,180
+The quality gates will be checked.
+
+143
+00:09:23,060 --> 00:09:25,220
+Based on the status pass or fail.
+
+144
+00:09:25,220 --> 00:09:32,480
+If it's passed, then a docker image can be built and then we can push this Docker image to Docker Hub,
+
+145
+00:09:32,660 --> 00:09:36,830
+which can be then later downloaded over the Kubernetes cluster.
+
+146
+00:09:37,340 --> 00:09:38,750
+We are doing it through Helme.
+
+147
+00:09:38,750 --> 00:09:43,340
+We're using Helm to deploy the charts to the Kubernetes cluster.
+
+148
+00:09:47,580 --> 00:09:50,610
+If you're done with this, then try a few more build.
+
+149
+00:09:52,180 --> 00:10:00,280
+See how the latest image is deployed by helm to the Kubernetes cluster automatically from Jenkins.
+
+150
+00:10:00,580 --> 00:10:05,620
+And once you are done experimenting with all this, you can then delete your cluster.
+
+151
+00:10:07,320 --> 00:10:11,550
+So I'm on cops issue, for instance, and I'm going to delete this cluster.
+
+152
+00:10:11,550 --> 00:10:14,880
+Now cops delete cluster.
+
+153
+00:10:19,290 --> 00:10:25,590
+Once this is done, I will shut down my cops etc. instance, I'll keep it so I can launch as many as
+
+154
+00:10:25,590 --> 00:10:27,870
+time birds cluster as I want.
+
+155
+00:10:29,680 --> 00:10:32,920
+And it also shut down my jenkins.
+
+156
+00:10:33,780 --> 00:10:35,220
+So cube server.
+
+157
+00:10:40,490 --> 00:10:42,230
+If you want, you can dominate.
+
+158
+00:10:43,400 --> 00:10:45,710
+But I recommend you take It's a backup.
+
+159
+00:10:45,710 --> 00:10:52,820
+As I have explained in the secede project, how to take backup of your CD stack, taking the backup
+
+160
+00:10:52,820 --> 00:10:54,560
+and storing it on S3 bucket.
+
+161
+00:10:54,560 --> 00:10:55,280
+You can do that.
+
+162
+00:10:55,280 --> 00:10:58,100
+So you can then later reuse it through cloud formation.
+
+163
+00:10:58,100 --> 00:11:02,300
+You can launch the entire stack and do more and more experiments.
+
+164
+00:11:03,900 --> 00:11:09,870
+So I hope you have enjoyed and learned a lot in this project.
+
+165
+00:11:10,770 --> 00:11:17,100
+Whenever you are in a microservice architecture application design, then you will get such problems
+
+166
+00:11:17,130 --> 00:11:24,780
+of continuous deployment and you can solve them by using continuous delivery of your Docker images to
+
+167
+00:11:24,780 --> 00:11:26,400
+the Kubernetes cluster.
+
+168
+00:11:27,990 --> 00:11:29,930
+Thank you very much for watching this video.
+
+169
+00:11:29,940 --> 00:11:31,770
+I will see you in the next one.
+

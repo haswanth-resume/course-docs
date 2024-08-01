@@ -1,0 +1,500 @@
+1
+00:00:11,610 --> 00:00:14,100
+A very warm welcome to our next project.
+
+2
+00:00:14,790 --> 00:00:19,980
+The next project is about continuous delivery for Docker containers.
+
+3
+00:00:21,300 --> 00:00:28,140
+You can see four or off Docker containers in this project will be continuously building Docker images
+
+4
+00:00:28,140 --> 00:00:30,300
+and deploying it to Kubernetes cluster.
+
+5
+00:00:31,120 --> 00:00:33,130
+So let's understand the scenario.
+
+6
+00:00:33,160 --> 00:00:35,890
+Problem, statement and solution.
+
+7
+00:00:36,390 --> 00:00:39,550
+We'll understand when such projects are implemented.
+
+8
+00:00:43,840 --> 00:00:47,320
+You will see mostly such projects in microservice architecture.
+
+9
+00:00:51,020 --> 00:00:51,680
+But it's not.
+
+10
+00:00:51,800 --> 00:00:54,040
+But it's not just about microservice architecture.
+
+11
+00:00:54,050 --> 00:00:54,500
+Anywhere.
+
+12
+00:00:54,500 --> 00:00:57,110
+You have containers, Docker containers.
+
+13
+00:00:58,310 --> 00:01:00,590
+There you can implement such kind of projects.
+
+14
+00:01:01,340 --> 00:01:04,250
+But mostly today is the time of microservice architecture.
+
+15
+00:01:05,640 --> 00:01:10,380
+And if an application has microservice design, then they will be containerized.
+
+16
+00:01:10,530 --> 00:01:11,520
+The application.
+
+17
+00:01:12,360 --> 00:01:15,840
+So you would have a containerized application, probably Docker images.
+
+18
+00:01:16,900 --> 00:01:19,990
+And then the developers are making continuous code changes.
+
+19
+00:01:19,990 --> 00:01:22,750
+They are making the product better and better and better.
+
+20
+00:01:24,090 --> 00:01:30,030
+So the build and release and ops team really need to cope with these regular code changes.
+
+21
+00:01:34,110 --> 00:01:39,360
+So with continuous chord changes, there has to be continuous build and test process.
+
+22
+00:01:39,780 --> 00:01:42,690
+It has to be regular build of your containers.
+
+23
+00:01:43,110 --> 00:01:47,910
+And if you containers are getting built regularly, it needs to be deployed regularly.
+
+24
+00:01:48,840 --> 00:01:55,020
+Now, possibly the container images can be automated locally itself building of container images, but
+
+25
+00:01:55,020 --> 00:01:57,420
+the deployment goes to the operations team.
+
+26
+00:01:58,720 --> 00:02:05,410
+And operations team will be maintaining and managing container orchestration tools like Kubernetes cluster.
+
+27
+00:02:06,780 --> 00:02:09,690
+And they will be in charge of running your containers.
+
+28
+00:02:10,600 --> 00:02:18,130
+So the request goes to the ops team to deploy Docker images on any container runtime environment like
+
+29
+00:02:18,130 --> 00:02:18,760
+Docker.
+
+30
+00:02:25,020 --> 00:02:29,940
+So we know there will be continuous chord changes, continuous building of images.
+
+31
+00:02:29,940 --> 00:02:34,500
+So the ops team will get continuous deployment requests.
+
+32
+00:02:35,840 --> 00:02:39,830
+Now, first of all, the manual deployment process creates a dependency.
+
+33
+00:02:40,530 --> 00:02:40,890
+Here.
+
+34
+00:02:40,890 --> 00:02:44,430
+The team is dependent on the ops team folder for the deployment.
+
+35
+00:02:45,780 --> 00:02:48,630
+Which really breaks the chain of continuous delivery.
+
+36
+00:02:49,050 --> 00:02:51,360
+And of course, it's time consuming.
+
+37
+00:02:57,990 --> 00:03:03,240
+So primarily we need to automate the build and release process of container images.
+
+38
+00:03:04,380 --> 00:03:09,150
+As we are building continuously Docker images, we also need to deploy continuously.
+
+39
+00:03:10,560 --> 00:03:14,070
+And this should be as fast as the code commits are happening.
+
+40
+00:03:15,340 --> 00:03:20,800
+So as soon as a developer makes a code change, we should automatically build a docker image and should
+
+41
+00:03:20,800 --> 00:03:27,880
+be able to also deploy it automatically to an orchestration environment like Kubernetes.
+
+42
+00:03:29,200 --> 00:03:32,560
+So we need to have a continuous deployment process.
+
+43
+00:03:34,010 --> 00:03:38,810
+So, yes, we are talking about a continuous delivery or a continuous deployment pipeline.
+
+44
+00:03:39,810 --> 00:03:41,670
+For Docker containers.
+
+45
+00:03:43,070 --> 00:03:46,230
+So in this project, we are going to use a variety of tools.
+
+46
+00:03:46,250 --> 00:03:49,670
+Let's see the tools that we're going to use in this project.
+
+47
+00:03:53,680 --> 00:03:55,810
+Starting with Kubernetes cluster.
+
+48
+00:03:56,890 --> 00:04:02,320
+Which will be your container orchestration tool and docker engine.
+
+49
+00:04:04,090 --> 00:04:08,560
+Which will be using to build our Docker images and also to test our Docker images.
+
+50
+00:04:10,620 --> 00:04:17,459
+Jenkins will be using as a seed server Docker hub where we'll be hosting our Docker images.
+
+51
+00:04:22,880 --> 00:04:27,800
+Helm will be using for packaging and deploying our images to combat this cluster.
+
+52
+00:04:29,160 --> 00:04:34,770
+And not just Docker images, the complete stack of our applications we can deploy with help.
+
+53
+00:04:34,770 --> 00:04:36,060
+And that's what we're going to do.
+
+54
+00:04:37,730 --> 00:04:43,910
+We'll be using Git as a version control system maven to build our Java code and software cube server
+
+55
+00:04:43,910 --> 00:04:45,470
+for the code analysis.
+
+56
+00:04:47,870 --> 00:04:50,290
+The objective of this project is very simple.
+
+57
+00:04:50,300 --> 00:04:56,120
+We have to do continuous delivery for containers, especially the Docker containers.
+
+58
+00:04:59,100 --> 00:05:02,310
+All right, let's see the architectural design for this project.
+
+59
+00:05:06,900 --> 00:05:12,990
+Okay, so when the developer makes a code change to the git repository, it will be committed to git
+
+60
+00:05:12,990 --> 00:05:13,650
+hub.
+
+61
+00:05:14,340 --> 00:05:16,470
+We're going to push the code to GitHub.
+
+62
+00:05:16,530 --> 00:05:22,860
+Jenkins is going to fetch the code and this code will also include Docker file, which will be used
+
+63
+00:05:22,860 --> 00:05:24,270
+to build the Docker image.
+
+64
+00:05:24,720 --> 00:05:25,800
+Jenkins file.
+
+65
+00:05:25,800 --> 00:05:29,940
+We're going to use pipeline as a code and also the helm charts.
+
+66
+00:05:30,270 --> 00:05:33,060
+So Jenkins is going to fetch all the changes.
+
+67
+00:05:33,910 --> 00:05:35,410
+Will do its test.
+
+68
+00:05:36,370 --> 00:05:43,090
+We'll do the code analysis by using check style and sonar Q scanner and will upload the result to.
+
+69
+00:05:43,270 --> 00:05:44,320
+On the cube server.
+
+70
+00:05:44,680 --> 00:05:46,900
+I'm going to use sonar cube server in this project.
+
+71
+00:05:46,900 --> 00:05:49,660
+If you wish to use a sonar cloud, you can do that.
+
+72
+00:05:50,970 --> 00:05:57,060
+If all the quality gates are good on the code, then we're going to build the artifact with Maven and
+
+73
+00:05:57,060 --> 00:06:02,010
+then a Docker build process will start, which will build a Docker image.
+
+74
+00:06:02,750 --> 00:06:08,960
+If everything is good and everything passes, then the Docker image will be pushed to Docker Hub.
+
+75
+00:06:09,890 --> 00:06:12,710
+Where we're going to maintain our Docker Docker repository.
+
+76
+00:06:13,450 --> 00:06:17,650
+If this push is successful, then we're going to use help from Jenkins.
+
+77
+00:06:18,040 --> 00:06:23,720
+We're going to basically add our cops VM as a slave, and we're going to run help from there.
+
+78
+00:06:23,740 --> 00:06:25,270
+So Jenkins will be running.
+
+79
+00:06:25,270 --> 00:06:30,250
+Helm charts will deploy help charts to the Kubernetes cluster.
+
+80
+00:06:31,220 --> 00:06:35,630
+This help chart deployment will create everything for us if we wish to.
+
+81
+00:06:36,380 --> 00:06:41,480
+Along with parts running through deployments, we can also set up a services.
+
+82
+00:06:41,510 --> 00:06:43,010
+Secrets of volumes.
+
+83
+00:06:43,010 --> 00:06:45,440
+Everything through help charts.
+
+84
+00:06:46,990 --> 00:06:55,150
+If you already have those things, it will only implement the changes like a new image tag for an application
+
+85
+00:06:55,150 --> 00:06:55,750
+pod.
+
+86
+00:06:58,920 --> 00:07:03,660
+So let's see now the flow of execution step by step, what we are going to do in this project.
+
+87
+00:07:03,660 --> 00:07:05,490
+And then we'll implement all this.
+
+88
+00:07:09,360 --> 00:07:11,730
+We need to have a continuous integration setup.
+
+89
+00:07:12,900 --> 00:07:15,540
+We need a Jenkins sooner cube nexus.
+
+90
+00:07:15,540 --> 00:07:17,100
+We can skip if you want.
+
+91
+00:07:17,860 --> 00:07:21,490
+Basically similar setup as we did in the continuous integration project.
+
+92
+00:07:21,850 --> 00:07:23,650
+We need a Docker hub account.
+
+93
+00:07:24,280 --> 00:07:27,790
+You can use the same as you use in the Containerization project.
+
+94
+00:07:28,850 --> 00:07:32,510
+If you wish, you can create a new Docker River account also.
+
+95
+00:07:33,640 --> 00:07:37,320
+Speaking to the store, the Docker hub credential in Jenkins.
+
+96
+00:07:38,100 --> 00:07:42,030
+We're going to set up Docker engines, Docker engine in Jenkins.
+
+97
+00:07:43,280 --> 00:07:48,510
+We need few extra plug ins along with what we already have for content integration.
+
+98
+00:07:48,530 --> 00:07:53,270
+We need a Docker pipeline plugin, Docker plugin and pipeline utility plugin.
+
+99
+00:07:54,060 --> 00:07:56,520
+We're going to use pipeline as a code in this project.
+
+100
+00:07:56,520 --> 00:07:58,980
+So we need the pipeline utility plugin.
+
+101
+00:08:00,000 --> 00:08:05,430
+Then we'll create this cluster with cops, as we did in the Kubernetes setup project.
+
+102
+00:08:05,940 --> 00:08:09,510
+So you should have done already all the prerequisites for cops.
+
+103
+00:08:09,960 --> 00:08:15,270
+We're just going to run the command to run the Kubernetes, to create the Kubernetes cluster by using
+
+104
+00:08:15,270 --> 00:08:15,990
+cops.
+
+105
+00:08:17,270 --> 00:08:20,150
+Then we'll install hell in the cops VM.
+
+106
+00:08:20,600 --> 00:08:25,220
+We're going to have cops on an easy instance as we have Jenkins Sonar Cuban access.
+
+107
+00:08:25,220 --> 00:08:26,300
+We'll also have cops.
+
+108
+00:08:26,300 --> 00:08:27,200
+VM From where?
+
+109
+00:08:27,200 --> 00:08:33,380
+We're the cops, to instance, from where we'll create the Kubernetes cluster and we install Helm in
+
+110
+00:08:33,380 --> 00:08:33,980
+that.
+
+111
+00:08:35,390 --> 00:08:37,390
+Then we'll create help charts.
+
+112
+00:08:37,400 --> 00:08:42,350
+We'll be also putting variables in them for an application image.
+
+113
+00:08:43,409 --> 00:08:46,500
+And then we'll test the charts in the Kubernetes cluster.
+
+114
+00:08:46,500 --> 00:08:52,320
+In the test namespace, we'll create a namespace, and we're going to test our charts in that here.
+
+115
+00:08:52,320 --> 00:08:58,380
+When I say charge, that means your entire stack, our entire V profile stack in this case.
+
+116
+00:09:02,410 --> 00:09:07,360
+We're going to add our cops themed cops, easy to instance, as a Jenkins slave.
+
+117
+00:09:08,790 --> 00:09:10,740
+Will create a pipeline code.
+
+118
+00:09:10,860 --> 00:09:17,850
+It's going to be it's going to be declarative where we'll mention the build test, Docker, build process
+
+119
+00:09:18,360 --> 00:09:20,790
+and help chart deployment process.
+
+120
+00:09:21,880 --> 00:09:26,320
+We didn't need to update our Git repository with help charts that we have created.
+
+121
+00:09:26,350 --> 00:09:33,460
+Docker file for application image and Jenkins file where we created the pipeline code.
+
+122
+00:09:34,420 --> 00:09:38,050
+Once we have all this ready, we're going to create a Jenkins job for Pipeline.
+
+123
+00:09:38,380 --> 00:09:40,030
+We're going to run and test it.
+
+124
+00:09:41,180 --> 00:09:42,770
+Okay, then what are you waiting for?
+
+125
+00:09:42,800 --> 00:09:44,090
+Let's just dive in.
+
