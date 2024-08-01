@@ -1,0 +1,332 @@
+1
+00:00:12,290 --> 00:00:13,850
+Welcome to the project.
+
+2
+00:00:14,000 --> 00:00:18,470
+This is a follow up project from continuous integration on Jenkins.
+
+3
+00:00:18,980 --> 00:00:22,910
+The name of this project is Jenkins Pipeline as a code.
+
+4
+00:00:25,420 --> 00:00:27,880
+There are some prerequisites for this project.
+
+5
+00:00:28,120 --> 00:00:32,800
+You should have done continuous integration with Jenkins in our project, or you already have some hands
+
+6
+00:00:32,800 --> 00:00:33,850
+on experience.
+
+7
+00:00:34,240 --> 00:00:37,330
+You should have a setup of Jenkins Nexus and so on.
+
+8
+00:00:37,420 --> 00:00:38,290
+Cube server.
+
+9
+00:00:42,290 --> 00:00:43,340
+About this project.
+
+10
+00:00:43,340 --> 00:00:47,180
+We are going to see how we can automatically create Jenkins jobs.
+
+11
+00:00:47,630 --> 00:00:53,720
+So in our project of continuous integration with Jenkins, we have created all the jobs manually one
+
+12
+00:00:53,720 --> 00:00:56,330
+by one, and then finally connected them together.
+
+13
+00:00:57,350 --> 00:01:01,460
+In this project, we're going to see a scripted way of creating the entire pipeline.
+
+14
+00:01:04,879 --> 00:01:11,270
+Before we get started with this project, I will take a small session on what is pipeline, how to write
+
+15
+00:01:11,270 --> 00:01:15,020
+it by using Jenkins Pipeline Dstl.
+
+16
+00:01:15,630 --> 00:01:19,530
+So let's first understand about Pipeline as a code in Jenkins.
+
+17
+00:01:20,440 --> 00:01:20,670
+Okay.
+
+18
+00:01:20,680 --> 00:01:26,650
+So let me take you with a little overview of what is pipeline as the code, some prerequisite, as I
+
+19
+00:01:26,650 --> 00:01:31,630
+discussed continuous integration with Jenkins project you have already done or you have some hands on
+
+20
+00:01:31,630 --> 00:01:38,050
+experience you should have already the setup of Jenkins nexus and so on our Cube server.
+
+21
+00:01:38,410 --> 00:01:44,320
+If you don't have, then it's time to set it first and then you can continue with this video.
+
+22
+00:01:47,690 --> 00:01:47,900
+Okay.
+
+23
+00:01:47,900 --> 00:01:50,660
+So what it really is, Pipeline is a code.
+
+24
+00:01:50,810 --> 00:01:57,950
+It's Jenkins way of setting up a pipeline automatically by using a file called us Jenkins file J Capital
+
+25
+00:01:57,950 --> 00:01:58,460
+there.
+
+26
+00:01:58,670 --> 00:02:03,140
+So we can put this file in our source code or we can write it in the Jenkins job itself.
+
+27
+00:02:03,990 --> 00:02:09,270
+Jenkins file really defines the stages in the pipeline as we create jobs.
+
+28
+00:02:09,720 --> 00:02:13,230
+There'll be different stages in the Jenkins file defined.
+
+29
+00:02:14,070 --> 00:02:21,750
+Jenkins file is a text file, and it has its own domain specific language, but it's very close to groovy.
+
+30
+00:02:22,020 --> 00:02:26,880
+But you really don't need to know groovy to write a Jenkins file.
+
+31
+00:02:28,670 --> 00:02:30,170
+There are two syntax.
+
+32
+00:02:30,290 --> 00:02:33,680
+One is scripted and the other one is declarative.
+
+33
+00:02:34,160 --> 00:02:36,230
+Declarative is the way forward now.
+
+34
+00:02:36,560 --> 00:02:39,260
+And we're going to use declarative in this project.
+
+35
+00:02:40,810 --> 00:02:42,790
+Okay, some concepts in the pipeline.
+
+36
+00:02:43,870 --> 00:02:48,610
+First of all, you have pipeline that's going to be the main block and everything inside Pipeline will
+
+37
+00:02:48,610 --> 00:02:50,200
+be executed by Jenkins.
+
+38
+00:02:51,170 --> 00:02:52,670
+Nodes or agent.
+
+39
+00:02:52,670 --> 00:02:54,040
+They are both settings.
+
+40
+00:02:54,050 --> 00:02:58,370
+You can define where this pipeline can get executed, on which node or on which agent.
+
+41
+00:02:59,150 --> 00:03:02,600
+There are stages where the actual execution happened.
+
+42
+00:03:02,690 --> 00:03:04,460
+In stages you have steps.
+
+43
+00:03:04,910 --> 00:03:12,860
+The steps could be commands like Maven Instal or git pull or upload artifact to Nexis or any such step
+
+44
+00:03:12,860 --> 00:03:15,170
+that you want to execute from your pipeline.
+
+45
+00:03:15,560 --> 00:03:17,300
+Let's understand the syntax.
+
+46
+00:03:18,350 --> 00:03:19,700
+That's how it looks.
+
+47
+00:03:19,880 --> 00:03:24,530
+So you have pipeline block and inside that you have all the other settings.
+
+48
+00:03:24,530 --> 00:03:26,690
+Let's understand all the settings one by one.
+
+49
+00:03:28,780 --> 00:03:29,740
+Pipeline.
+
+50
+00:03:29,740 --> 00:03:31,090
+That's the main block of code.
+
+51
+00:03:31,090 --> 00:03:35,290
+So use a pipeline to curly braces and everything comes inside your pipeline code.
+
+52
+00:03:36,380 --> 00:03:40,970
+In pipeline, you have things like agent, you can define where the job is going to run.
+
+53
+00:03:41,030 --> 00:03:43,430
+Tools from your global tool configuration.
+
+54
+00:03:43,430 --> 00:03:45,350
+If you have included some tools.
+
+55
+00:03:45,530 --> 00:03:50,180
+Then you can mention the tools like Sonar Scanner or MAVEN or JDK.
+
+56
+00:03:50,510 --> 00:03:55,730
+Environment will be the environment variable and stages will be the steps that we're going to execute
+
+57
+00:03:55,730 --> 00:03:56,600
+in our job.
+
+58
+00:03:59,470 --> 00:04:04,480
+So the agent block will look something like this agent you'll have you'll give the name of the agent,
+
+59
+00:04:04,660 --> 00:04:10,840
+the label, or you can just say agent any also so it can run any on any node, even master or slave
+
+60
+00:04:10,990 --> 00:04:11,710
+and tools.
+
+61
+00:04:11,710 --> 00:04:16,660
+You give the name and you mentioned the tool name that you have included in global tool configuration.
+
+62
+00:04:18,440 --> 00:04:21,079
+Other things in pipelines are environment variable.
+
+63
+00:04:21,500 --> 00:04:27,140
+So setting variable of value so it can be used in your steps, in your stages.
+
+64
+00:04:27,440 --> 00:04:33,200
+Like in this case you see some nexus variable which we are going to use in our pipeline.
+
+65
+00:04:35,970 --> 00:04:36,690
+Stages.
+
+66
+00:04:36,690 --> 00:04:39,750
+That's where the main execution goes.
+
+67
+00:04:39,750 --> 00:04:41,760
+In stages you have stage.
+
+68
+00:04:41,760 --> 00:04:47,760
+You can have multiple stage, like one stage that clones the source code, other stage that is going
+
+69
+00:04:47,760 --> 00:04:52,350
+to run maven, build another stage which can publish the artifact to access.
+
+70
+00:04:52,620 --> 00:04:57,360
+And like that you can have stages to deploy, artifact to do code analysis.
+
+71
+00:04:57,360 --> 00:04:59,340
+You can have a number of stages there.
+
+72
+00:05:03,060 --> 00:05:04,140
+In stage.
+
+73
+00:05:04,140 --> 00:05:09,420
+So you have stages inside that, you have stage, you can have multiple stage and in stage you have
+
+74
+00:05:09,420 --> 00:05:10,200
+steps.
+
+75
+00:05:10,200 --> 00:05:16,650
+This is where you put the actual command and also post installation step, like probably you want to
+
+76
+00:05:16,650 --> 00:05:19,500
+send email notification or want to archive the artifact.
+
+77
+00:05:20,680 --> 00:05:24,370
+Something like this stage.
+
+78
+00:05:24,670 --> 00:05:27,360
+In parentheses, you give the name of the stage.
+
+79
+00:05:27,370 --> 00:05:33,490
+Then inside that you have steps like Maven install and you can have post installation step like archiving
+
+80
+00:05:33,490 --> 00:05:36,700
+artifact, or you can print some message also like echo.
+
+81
+00:05:37,830 --> 00:05:43,470
+Okay, So in DevOps, like everything needs automation, even your pipeline is automated with Jenkins
+
+82
+00:05:43,470 --> 00:05:44,190
+file.
+
+83
+00:05:44,580 --> 00:05:46,740
+So now let's do some hands on.
+

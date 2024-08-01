@@ -1,0 +1,376 @@
+1
+00:00:01,830 --> 00:00:03,270
+So, Jenkins, what are your dog?
+
+2
+00:00:03,270 --> 00:00:05,370
+And you can click on Pipeline here.
+
+3
+00:00:07,350 --> 00:00:09,390
+And you can see getting started with Pipeline.
+
+4
+00:00:09,390 --> 00:00:10,640
+What is Jenkins Pipeline?
+
+5
+00:00:10,650 --> 00:00:11,700
+You can read about it.
+
+6
+00:00:13,150 --> 00:00:16,149
+Declarative versus scripted pipeline syntax.
+
+7
+00:00:16,149 --> 00:00:17,560
+Declarative is now way forward.
+
+8
+00:00:17,560 --> 00:00:20,830
+Scripted was what you will see, but it's still supported.
+
+9
+00:00:26,060 --> 00:00:29,310
+There's a syntax and every step is mentioned.
+
+10
+00:00:29,330 --> 00:00:30,290
+What they do.
+
+11
+00:00:33,090 --> 00:00:38,940
+Some example of the pipeline like we did build, test and will deploy it also.
+
+12
+00:00:43,010 --> 00:00:47,610
+The empirical side defining a pipeline, how you can define a pipeline as we did.
+
+13
+00:00:50,340 --> 00:00:51,990
+That's the way we did pipeline script.
+
+14
+00:00:51,990 --> 00:00:54,390
+We put our script over there and we executed it.
+
+15
+00:00:57,880 --> 00:00:58,960
+There's also one more thing.
+
+16
+00:00:59,170 --> 00:01:02,560
+There is a snippet generator you can generate.
+
+17
+00:01:02,890 --> 00:01:04,480
+You can mention something over here.
+
+18
+00:01:04,480 --> 00:01:08,200
+You can give a name and you can click on Generate Pipeline script it will generate.
+
+19
+00:01:08,980 --> 00:01:10,270
+The snippet for you.
+
+20
+00:01:10,780 --> 00:01:12,430
+It's in our Jenkins.
+
+21
+00:01:24,370 --> 00:01:30,700
+Look, some examples are also given over here like steps shall command and executing unit tool to read
+
+22
+00:01:30,700 --> 00:01:31,540
+the XML.
+
+23
+00:01:33,530 --> 00:01:34,340
+Deploy.
+
+24
+00:01:35,570 --> 00:01:36,230
+Expression.
+
+25
+00:01:36,230 --> 00:01:38,000
+You can put a conditions also.
+
+26
+00:01:43,300 --> 00:01:45,880
+Defining variables in your Jenkins file.
+
+27
+00:01:45,880 --> 00:01:51,970
+So you have to say def variable and its value to def really means I'm defining a variable.
+
+28
+00:01:52,960 --> 00:01:57,340
+I know if you see the only python, if you python if you already use python def there means something
+
+29
+00:01:57,340 --> 00:01:57,610
+else.
+
+30
+00:01:57,610 --> 00:01:59,320
+It's defining a function here.
+
+31
+00:01:59,320 --> 00:02:01,030
+It means defining a variable.
+
+32
+00:02:02,820 --> 00:02:03,990
+Using environment variable.
+
+33
+00:02:03,990 --> 00:02:09,300
+You can use environment variable also in your pipeline like build ID build number, which you're going
+
+34
+00:02:09,300 --> 00:02:10,289
+to use also.
+
+35
+00:02:12,110 --> 00:02:13,040
+Like this.
+
+36
+00:02:13,990 --> 00:02:14,280
+Ian.
+
+37
+00:02:14,320 --> 00:02:16,180
+We don't build it in curly braces.
+
+38
+00:02:16,510 --> 00:02:21,760
+Curly braces, and you have to say envy and the variable and this is going to return you the build it
+
+39
+00:02:21,760 --> 00:02:22,480
+can't build it.
+
+40
+00:02:23,410 --> 00:02:26,770
+So that's how you access variable in your Jenkins file.
+
+41
+00:02:30,230 --> 00:02:32,810
+Setting variables value dynamically.
+
+42
+00:02:34,930 --> 00:02:35,830
+Handling credentials.
+
+43
+00:02:35,830 --> 00:02:37,570
+How can you access credentials?
+
+44
+00:02:42,110 --> 00:02:43,910
+Usernames and passwords.
+
+45
+00:02:45,040 --> 00:02:51,130
+So there are a lot of information over here, but you must be using some plugins like we're using Nexus
+
+46
+00:02:51,130 --> 00:02:55,060
+Artifact uploader plugin or we're using Sonar KUBE scanner plugin.
+
+47
+00:02:55,330 --> 00:03:01,180
+Those information will not be over here, how to write those things, but you can check that into the
+
+48
+00:03:01,180 --> 00:03:03,160
+documentation of the plugin itself.
+
+49
+00:03:05,130 --> 00:03:11,970
+Okay, so I just did a little search Sonar Jenkins plugin and sonar cube documentation you have directly.
+
+50
+00:03:11,970 --> 00:03:13,290
+You can search that.
+
+51
+00:03:13,290 --> 00:03:14,250
+You can find that.
+
+52
+00:03:14,980 --> 00:03:15,730
+So.
+
+53
+00:03:17,000 --> 00:03:23,750
+Scroll down using a Jenkins pipeline, how you can use that with sonar.
+
+54
+00:03:23,750 --> 00:03:24,620
+Cuban environment.
+
+55
+00:03:24,620 --> 00:03:26,210
+You mentioned the environment.
+
+56
+00:03:27,560 --> 00:03:27,800
+All right.
+
+57
+00:03:27,800 --> 00:03:29,000
+Printing something over here.
+
+58
+00:03:29,000 --> 00:03:37,970
+Node any o stage seem fetching the source code stage sooner analysis defining your sooner scanner tool
+
+59
+00:03:37,970 --> 00:03:38,270
+there.
+
+60
+00:03:38,270 --> 00:03:39,650
+Let me zoom it a bit.
+
+61
+00:03:42,900 --> 00:03:46,620
+So like we from global tool configuration, we say sonar scanner.
+
+62
+00:03:46,620 --> 00:03:50,430
+We want to download sonar scanner from Jenkins global tool configuration.
+
+63
+00:03:50,580 --> 00:03:51,900
+And we mention it over there.
+
+64
+00:03:51,900 --> 00:03:55,050
+And then in the pipeline we mentioned which tool you want to use.
+
+65
+00:03:55,050 --> 00:03:56,040
+We give the name.
+
+66
+00:03:57,480 --> 00:03:59,160
+So defining variable, actually.
+
+67
+00:03:59,830 --> 00:04:00,210
+All right.
+
+68
+00:04:00,260 --> 00:04:01,700
+With sonar cube environment.
+
+69
+00:04:01,700 --> 00:04:04,180
+Then you give the your sonar cube server detail.
+
+70
+00:04:04,190 --> 00:04:12,410
+So as in a continuous integration project with Jenkins, we have set up the Jenkins and sonar integration.
+
+71
+00:04:12,870 --> 00:04:13,050
+All right.
+
+72
+00:04:13,070 --> 00:04:13,640
+So.
+
+73
+00:04:17,450 --> 00:04:18,769
+Mannie Jenkins.
+
+74
+00:04:20,690 --> 00:04:21,920
+Configure system.
+
+75
+00:04:24,390 --> 00:04:26,970
+And this is where we included there.
+
+76
+00:04:27,300 --> 00:04:28,170
+So why not keep server?
+
+77
+00:04:28,320 --> 00:04:31,680
+So we have given the owner hyphen pro you URL and the token.
+
+78
+00:04:32,640 --> 00:04:34,500
+So this is your owner cube environment.
+
+79
+00:04:36,440 --> 00:04:40,550
+And I actually have to say switch sooner, Cuban environment, give the environment name and the execution
+
+80
+00:04:40,550 --> 00:04:41,540
+that you want to do.
+
+81
+00:04:42,380 --> 00:04:48,120
+So this is going to execute the sonar scanner scanner home, which is declared over here.
+
+82
+00:04:48,140 --> 00:04:51,650
+So it's going to call this tool run the sonar scanner.
+
+83
+00:04:51,960 --> 00:04:52,150
+All right.
+
+84
+00:04:52,160 --> 00:04:54,230
+And there are a few more steps that we are going to mention.
+
+85
+00:04:54,230 --> 00:04:56,810
+We're going to pass so many parameters to it.
+
+86
+00:04:58,170 --> 00:05:02,130
+So first, you know how to write a Jenkins file, and then you can put any plug in that you want.
+
+87
+00:05:02,160 --> 00:05:04,080
+You can go to the plugin documentation.
+
+88
+00:05:04,290 --> 00:05:08,880
+So once you are done with this, you can terminate your Jenkins server.
+
+89
+00:05:09,300 --> 00:05:12,330
+In the next project, we will create Jenkins next.
+
+90
+00:05:12,420 --> 00:05:14,880
+So all the servers once again.
+
+91
+00:05:14,880 --> 00:05:17,310
+So I recommend you terminate this instance.
+
+92
+00:05:21,030 --> 00:05:25,200
+So that was some quick view on the Jenkins pipeline.
+
+93
+00:05:25,680 --> 00:05:29,850
+We'll see this much in detail in the next project.
+
+94
+00:05:30,610 --> 00:05:33,040
+So wrap this up and join me in the next project.
+

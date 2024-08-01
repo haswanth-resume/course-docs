@@ -1,0 +1,848 @@
+1
+00:00:01,080 --> 00:00:06,540
+I'm in my management console and I will be going to easy to service.
+
+2
+00:00:12,290 --> 00:00:13,190
+I will launch when?
+
+3
+00:00:13,190 --> 00:00:14,390
+Easy to instance.
+
+4
+00:00:15,390 --> 00:00:17,880
+Where I will run the Jenkins service.
+
+5
+00:00:17,880 --> 00:00:21,990
+If you already have a Jenkins service running, you can use the same one.
+
+6
+00:00:22,440 --> 00:00:27,210
+If not, just follow me and launch when you see instance with Jenkins service.
+
+7
+00:00:27,810 --> 00:00:30,930
+Let's first get all the steps of installing Jenkins.
+
+8
+00:00:32,369 --> 00:00:35,280
+Open a text editor and write down these steps.
+
+9
+00:00:35,280 --> 00:00:37,530
+Forced sudo apt.
+
+10
+00:00:40,530 --> 00:00:41,370
+Update.
+
+11
+00:00:42,710 --> 00:00:49,190
+So we'll be using Ubuntu 22 instance and we'll be running app command to install jenkins and few other
+
+12
+00:00:49,190 --> 00:00:51,410
+tools after that.
+
+13
+00:00:51,410 --> 00:00:55,330
+Sudo apt install open key.
+
+14
+00:00:55,580 --> 00:00:56,420
+Oops.
+
+15
+00:00:57,290 --> 00:00:58,490
+Hyphen eat hyphen.
+
+16
+00:00:58,490 --> 00:01:00,980
+JDC, hyphen y.
+
+17
+00:01:01,280 --> 00:01:02,060
+And.
+
+18
+00:01:02,800 --> 00:01:05,770
+Sudo apt install maven hyphen y.
+
+19
+00:01:06,430 --> 00:01:10,960
+Make sure you have the installation command first and then maven.
+
+20
+00:01:11,500 --> 00:01:14,860
+Don't change the order or don't mix into one command.
+
+21
+00:01:15,590 --> 00:01:18,110
+Then we'll get the steps of installing Jenkins.
+
+22
+00:01:18,970 --> 00:01:23,860
+So I just google install Jenkins installing Jenkins the Jenkins dot IO.
+
+23
+00:01:24,980 --> 00:01:25,850
+Linux.
+
+24
+00:01:28,020 --> 00:01:29,160
+Debian ubuntu.
+
+25
+00:01:29,820 --> 00:01:32,160
+Make sure you are in this documentation.
+
+26
+00:01:32,160 --> 00:01:35,050
+The steps might change whatever steps you see.
+
+27
+00:01:35,070 --> 00:01:36,420
+Use the same step.
+
+28
+00:01:37,500 --> 00:01:38,850
+Copy all this command.
+
+29
+00:01:44,120 --> 00:01:45,110
+Hyphen y.
+
+30
+00:01:45,680 --> 00:01:51,800
+So wherever you have install an get install or APT install, just make sure you put a hyphen y and at
+
+31
+00:01:51,800 --> 00:01:57,800
+the beginning of this file, just write this hash, exclamation slash bin bash.
+
+32
+00:02:00,210 --> 00:02:03,070
+I will show you how we are going to run all these commands.
+
+33
+00:02:03,400 --> 00:02:05,500
+So let's go to Easy to Dashboard.
+
+34
+00:02:05,530 --> 00:02:07,180
+Let's say launch instance.
+
+35
+00:02:07,930 --> 00:02:08,949
+Launch instance.
+
+36
+00:02:09,490 --> 00:02:12,550
+We'll call it as Jenkins server.
+
+37
+00:02:13,450 --> 00:02:14,980
+Let's put a hyphen there.
+
+38
+00:02:15,640 --> 00:02:22,340
+And we will go with open to and we'll select open to 21 to 23 tier eligible.
+
+39
+00:02:22,360 --> 00:02:25,390
+Make sure you select that one and not any other.
+
+40
+00:02:25,390 --> 00:02:26,720
+Open to 20 I.
+
+41
+00:02:29,600 --> 00:02:32,060
+Scroll down instance typed e to micro will be fine.
+
+42
+00:02:32,060 --> 00:02:33,410
+Let's create a key pair.
+
+43
+00:02:34,040 --> 00:02:42,680
+We'll give this name as Jenkins key and keep it pem file because I will be using get batch to login.
+
+44
+00:02:47,170 --> 00:02:50,020
+Okay, come down creating the security group.
+
+45
+00:02:50,680 --> 00:02:53,680
+We will go to edit in the network setting.
+
+46
+00:02:53,890 --> 00:02:57,220
+Call it as Jenkins hyphen sg.
+
+47
+00:02:58,170 --> 00:03:08,670
+Type some description there 22 allowed from my IP and add one more rule which sees port 8080 allowed
+
+48
+00:03:08,670 --> 00:03:10,290
+from my IP.
+
+49
+00:03:11,040 --> 00:03:13,840
+Jenkins will run its web service on Port 88.
+
+50
+00:03:13,890 --> 00:03:18,990
+So we need to allow that rule 88 from my IP so we can access Jenkins on Port 88.
+
+51
+00:03:19,590 --> 00:03:20,440
+Scroll down.
+
+52
+00:03:20,460 --> 00:03:22,080
+Go to advanced details.
+
+53
+00:03:23,180 --> 00:03:28,220
+Come till the end and open your text editor where you have written all the commands.
+
+54
+00:03:29,680 --> 00:03:33,400
+Select copy and paste it there.
+
+55
+00:03:33,520 --> 00:03:36,230
+Make sure the first line is this.
+
+56
+00:03:36,250 --> 00:03:38,920
+Otherwise, this commands will not run.
+
+57
+00:03:39,780 --> 00:03:40,010
+Yeah.
+
+58
+00:03:40,020 --> 00:03:42,540
+And let's say launch instance.
+
+59
+00:03:45,320 --> 00:03:46,820
+View all instances.
+
+60
+00:03:47,790 --> 00:03:49,590
+So this will take some time.
+
+61
+00:03:50,570 --> 00:03:53,720
+I will pause my screen and come back when this is ready.
+
+62
+00:03:56,850 --> 00:04:00,690
+Okay, let's access it on Port 88.
+
+63
+00:04:00,960 --> 00:04:09,510
+Copy the public IP access on Port 88 and it should ask you to open this file and enter the password
+
+64
+00:04:09,510 --> 00:04:10,350
+from that file.
+
+65
+00:04:10,350 --> 00:04:13,080
+So we need to do a search to the Jenkins.
+
+66
+00:04:13,440 --> 00:04:17,100
+Again, copy the IP open get bash.
+
+67
+00:04:19,620 --> 00:04:22,560
+This is such hype and I downloads Jenkins key.
+
+68
+00:04:23,760 --> 00:04:27,280
+Want to add the rate and pace the IP.
+
+69
+00:04:32,420 --> 00:04:35,420
+To pseudo hyphen i.
+
+70
+00:04:36,340 --> 00:04:37,540
+Clear the screen.
+
+71
+00:04:38,830 --> 00:04:41,320
+Cat and let's copy the file name.
+
+72
+00:04:42,670 --> 00:04:43,900
+That file is.
+
+73
+00:04:43,900 --> 00:04:44,740
+Copy that.
+
+74
+00:04:48,220 --> 00:04:50,230
+And that you have the unlocked password.
+
+75
+00:04:50,620 --> 00:04:51,130
+Copy that.
+
+76
+00:04:51,130 --> 00:04:51,940
+Password.
+
+77
+00:04:52,940 --> 00:04:54,200
+In pasted here.
+
+78
+00:04:54,920 --> 00:04:55,790
+Continue.
+
+79
+00:04:57,020 --> 00:05:00,140
+We will see install suggested plugins, click on that.
+
+80
+00:05:03,170 --> 00:05:05,930
+A username I'll give as admin.
+
+81
+00:05:07,990 --> 00:05:09,640
+And then some password.
+
+82
+00:05:11,230 --> 00:05:15,000
+Full name and email address.
+
+83
+00:05:15,010 --> 00:05:19,300
+I will say I'd been at mail dot com save and continue.
+
+84
+00:05:20,660 --> 00:05:22,100
+See when finish.
+
+85
+00:05:23,740 --> 00:05:25,570
+Start using Jenkins.
+
+86
+00:05:27,470 --> 00:05:27,640
+Okay.
+
+87
+00:05:27,770 --> 00:05:30,140
+We need to install some plugins.
+
+88
+00:05:30,930 --> 00:05:33,990
+The task that we are going to execute after this.
+
+89
+00:05:33,990 --> 00:05:37,500
+We need those plugins, so you need to click on Manage Jenkins.
+
+90
+00:05:38,750 --> 00:05:41,000
+And go to manage plugins.
+
+91
+00:05:41,930 --> 00:05:43,580
+And click on available.
+
+92
+00:05:45,140 --> 00:05:46,910
+And a search for.
+
+93
+00:05:47,680 --> 00:05:48,790
+Pipeline here.
+
+94
+00:05:48,790 --> 00:05:50,590
+Pipe line.
+
+95
+00:05:52,810 --> 00:05:56,150
+If you come down, you will see pipeline utility steps.
+
+96
+00:05:56,170 --> 00:06:02,440
+Click on that checkmark on that and pipeline MAVEN integration check mark on that.
+
+97
+00:06:04,200 --> 00:06:05,460
+And this is fine.
+
+98
+00:06:05,460 --> 00:06:07,740
+Let's click on install without restart.
+
+99
+00:06:13,050 --> 00:06:15,190
+Okay, those plugins are installed.
+
+100
+00:06:15,210 --> 00:06:20,940
+Now we can start writing our pipeline code and execute some job on a Jenkins.
+
+101
+00:06:22,530 --> 00:06:29,130
+Now pipeline is really text, so you can use any text editor to write the pipeline.
+
+102
+00:06:29,130 --> 00:06:30,210
+I'm going to use Intel.
+
+103
+00:06:30,570 --> 00:06:36,450
+You can use a text, notepad, notepad, plus plus voice code, anything that you prefer.
+
+104
+00:06:37,110 --> 00:06:41,910
+Later in the project you will see we are going to use voice code or intel.
+
+105
+00:06:43,110 --> 00:06:45,120
+But now you can use anything you want.
+
+106
+00:06:45,120 --> 00:06:47,730
+So let's open the text editor.
+
+107
+00:06:51,910 --> 00:06:53,020
+So I'll use intelligence.
+
+108
+00:06:53,050 --> 00:06:55,570
+You can really use anything to write Pipeline.
+
+109
+00:07:30,440 --> 00:07:35,560
+If you're supposed to put this into the motion control system, then you should create a file with named
+
+110
+00:07:35,560 --> 00:07:36,820
+Jenkins file.
+
+111
+00:07:36,850 --> 00:07:40,030
+But I'm going to just execute it from the Jenkins job.
+
+112
+00:07:40,030 --> 00:07:42,790
+So it doesn't matter what I name over here.
+
+113
+00:07:43,410 --> 00:07:47,760
+But if you're putting it in your project source code, then it should be with this name.
+
+114
+00:07:47,760 --> 00:07:48,030
+J.
+
+115
+00:07:48,030 --> 00:07:49,620
+Capital Jenkins file.
+
+116
+00:07:50,850 --> 00:07:54,270
+First thing is you see pipeline calibrates.
+
+117
+00:07:57,860 --> 00:07:59,270
+Indentation does not matter.
+
+118
+00:07:59,270 --> 00:08:02,390
+But it's good to do because it looks good.
+
+119
+00:08:03,230 --> 00:08:04,090
+Agent I'm saying.
+
+120
+00:08:04,100 --> 00:08:07,880
+Agent Any I want to execute it on any node.
+
+121
+00:08:07,880 --> 00:08:09,590
+Master slave does not matter.
+
+122
+00:08:10,640 --> 00:08:11,340
+And then I'll see.
+
+123
+00:08:11,360 --> 00:08:12,350
+Stages.
+
+124
+00:08:17,410 --> 00:08:18,040
+In stages.
+
+125
+00:08:18,040 --> 00:08:19,570
+I have different stage.
+
+126
+00:08:23,060 --> 00:08:27,620
+And you see stage and you give parentheses and then you can give the name of the state.
+
+127
+00:08:28,070 --> 00:08:32,299
+So I'm going to say fetch code.
+
+128
+00:08:35,919 --> 00:08:38,169
+And open, close curly braces.
+
+129
+00:08:39,730 --> 00:08:43,510
+And in this, you have steps that will do the actual execution.
+
+130
+00:08:48,660 --> 00:08:54,000
+If you want to fetch the source code from the pipeline, then you can say git branch.
+
+131
+00:08:54,000 --> 00:08:56,070
+So it is going to invoke your git plugin.
+
+132
+00:08:58,250 --> 00:09:00,230
+And then you mentioned the branch name.
+
+133
+00:09:01,160 --> 00:09:01,910
+Now I'm saying.
+
+134
+00:09:02,300 --> 00:09:07,550
+So there is a branch in our repository with pipeline as a code named P.
+
+135
+00:09:09,020 --> 00:09:13,940
+You can check that the Jenkins file already exists over there, but we will not be using that Jenkins
+
+136
+00:09:13,940 --> 00:09:14,150
+file.
+
+137
+00:09:14,150 --> 00:09:15,650
+We'll be writing our own file.
+
+138
+00:09:16,750 --> 00:09:19,210
+You are allow for repository in single code.
+
+139
+00:09:22,990 --> 00:09:25,680
+If I execute this, it should fetch the source code.
+
+140
+00:09:25,690 --> 00:09:27,970
+But then we want to do something with the source code.
+
+141
+00:09:28,150 --> 00:09:31,770
+So we'll write another stage.
+
+142
+00:09:32,050 --> 00:09:32,890
+Stage?
+
+143
+00:09:36,000 --> 00:09:37,800
+Inequalities build.
+
+144
+00:09:43,770 --> 00:09:44,910
+And you step.
+
+145
+00:09:46,900 --> 00:09:48,100
+Steps.
+
+146
+00:09:52,960 --> 00:09:58,300
+So if you want to execute Shell command, you can just say as such and in single or double code, you
+
+147
+00:09:58,300 --> 00:10:01,900
+can give the command that you want to execute, I want to say and install.
+
+148
+00:10:02,080 --> 00:10:03,750
+So that's our second stage.
+
+149
+00:10:03,760 --> 00:10:05,440
+Let's write one more stage.
+
+150
+00:10:10,590 --> 00:10:12,540
+Will give the stage name as test.
+
+151
+00:10:19,790 --> 00:10:20,660
+Steps.
+
+152
+00:10:24,700 --> 00:10:29,620
+And I'll see Shell execute and even test for me.
+
+153
+00:10:30,910 --> 00:10:32,440
+Okay, so we have three stages.
+
+154
+00:10:32,470 --> 00:10:36,250
+First stage is going to fetch the source code by using the gate plugin.
+
+155
+00:10:36,880 --> 00:10:42,730
+Second stage is build, which is going to run a step shell command and then install.
+
+156
+00:10:42,760 --> 00:10:46,530
+Third stage name test is going to run, right?
+
+157
+00:10:46,840 --> 00:10:47,500
+Is going to run.
+
+158
+00:10:47,500 --> 00:10:50,710
+One more step a shell command and we in test.
+
+159
+00:10:52,830 --> 00:10:54,150
+So let's copy this.
+
+160
+00:10:55,670 --> 00:10:57,080
+And let's go to Jenkins.
+
+161
+00:10:58,150 --> 00:11:00,340
+So we'll create a new item.
+
+162
+00:11:01,830 --> 00:11:02,820
+We'll give a name.
+
+163
+00:11:05,620 --> 00:11:15,010
+Sample pipeline as a code and you have to select here pipeline, not freestyle pipeline and say, okay.
+
+164
+00:11:17,100 --> 00:11:20,340
+Initially it may look similar, but if you come down, it's a different thing.
+
+165
+00:11:20,490 --> 00:11:21,960
+You have something called a pipeline.
+
+166
+00:11:21,960 --> 00:11:25,260
+There is no build or post build action over here.
+
+167
+00:11:25,620 --> 00:11:31,560
+You have just built triggers, some settings, and then finally the pipeline.
+
+168
+00:11:32,010 --> 00:11:34,590
+So you can pace your pipeline right over here.
+
+169
+00:11:34,890 --> 00:11:36,330
+That's one way.
+
+170
+00:11:36,630 --> 00:11:40,410
+Another way is you can say pipeline script from Seam.
+
+171
+00:11:41,910 --> 00:11:43,650
+You can select the source code manager.
+
+172
+00:11:44,250 --> 00:11:50,160
+For example, you can give the URL, you can give the branch, and then in your branch you should have
+
+173
+00:11:50,160 --> 00:11:52,890
+a file named as Jenkins File Capital.
+
+174
+00:11:53,160 --> 00:11:54,390
+I'll show you a sample.
+
+175
+00:11:54,760 --> 00:12:02,340
+So if you come to our source code GitHub repository, you can search for a C pipeline as a code.
+
+176
+00:12:03,110 --> 00:12:03,860
+At one.
+
+177
+00:12:05,870 --> 00:12:08,780
+And you see a file called Jenkins file if you click on it.
+
+178
+00:12:11,340 --> 00:12:13,140
+You should see the entire pipeline.
+
+179
+00:12:14,510 --> 00:12:15,950
+And there are a lot of things over here.
+
+180
+00:12:15,950 --> 00:12:17,000
+We'll understand it.
+
+181
+00:12:19,180 --> 00:12:23,080
+Okay, so you should have Jenkins file in your top level directory.
+
+182
+00:12:25,670 --> 00:12:32,000
+But we are going to just say here pipeline script and we'll execute the script that we have written.
+
+183
+00:12:32,180 --> 00:12:34,880
+This is a declarative, again, not a scripted way.
+
+184
+00:12:34,880 --> 00:12:39,590
+If I'm saying scripting, scripting that just to tell you that we're not creating jobs manually, this
+
+185
+00:12:39,590 --> 00:12:40,550
+is a declarative way.
+
+186
+00:12:40,550 --> 00:12:45,140
+I'll also take you through the documentation of Jenkins pipeline as a code.
+
+187
+00:12:46,760 --> 00:12:47,990
+Now we can see if this.
+
+188
+00:12:50,330 --> 00:12:51,800
+And we can say build now.
+
+189
+00:12:55,800 --> 00:12:57,510
+Okay, now you should see stage view.
+
+190
+00:12:57,540 --> 00:12:58,820
+First stage is happening.
+
+191
+00:12:58,830 --> 00:13:00,060
+It is fetching the source code.
+
+192
+00:13:00,060 --> 00:13:01,770
+You can see the logs also there.
+
+193
+00:13:03,040 --> 00:13:03,310
+All right.
+
+194
+00:13:03,310 --> 00:13:04,870
+That's little neat.
+
+195
+00:13:07,250 --> 00:13:08,120
+Then, Bill.
+
+196
+00:13:08,980 --> 00:13:09,940
+Belongs.
+
+197
+00:13:18,920 --> 00:13:20,800
+A good test is happening.
+
+198
+00:13:20,810 --> 00:13:21,710
+Logs.
+
+199
+00:13:21,740 --> 00:13:22,970
+You can see the logs.
+
+200
+00:13:24,360 --> 00:13:28,230
+Or you can see the entire log at once by going over here.
+
+201
+00:13:29,920 --> 00:13:34,690
+And you see a log of every stage, every step that is getting executed.
+
+202
+00:13:36,480 --> 00:13:37,730
+And it's a success.
+
+203
+00:13:40,120 --> 00:13:45,040
+If you're wondering where is workspace, then every build will have its own workspace.
+
+204
+00:13:45,040 --> 00:13:47,680
+So you click on this build ID.
+
+205
+00:13:48,790 --> 00:13:51,130
+And scroll down these workspaces.
+
+206
+00:13:52,580 --> 00:14:00,690
+And you can see as a workspace sample pipeline is a code and you see all the data build the source code.
+
+207
+00:14:00,710 --> 00:14:02,630
+So you should see the artifact as well.
+
+208
+00:14:06,290 --> 00:14:09,710
+If you're wondering, there's too much of data in this Jenkins file.
+
+209
+00:14:10,600 --> 00:14:15,160
+Don't worry this documentation for that and we can check it over from there.
+
+210
+00:14:15,160 --> 00:14:22,390
+And also every plugin that you have used or you want to use will have a documentation to how to write
+
+211
+00:14:22,390 --> 00:14:23,710
+it in your Jenkins file.
+
+212
+00:14:24,860 --> 00:14:27,530
+So let's go to the documentation.
+

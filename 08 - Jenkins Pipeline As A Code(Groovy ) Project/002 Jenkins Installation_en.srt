@@ -1,0 +1,596 @@
+1
+00:00:00,790 --> 00:00:07,120
+I'm in a management console and we're going to launch an easy two instance and install Jenkins on that.
+
+2
+00:00:07,750 --> 00:00:10,450
+So let's see the installation steps.
+
+3
+00:00:12,200 --> 00:00:14,060
+So search for Jenkins documentation.
+
+4
+00:00:14,060 --> 00:00:15,230
+You should find the link.
+
+5
+00:00:15,230 --> 00:00:16,550
+Jenkins dot IO.
+
+6
+00:00:18,860 --> 00:00:22,400
+The Jenkins documentation has improved now a lot.
+
+7
+00:00:22,940 --> 00:00:23,630
+Let's see.
+
+8
+00:00:23,630 --> 00:00:24,950
+Installing Jenkins.
+
+9
+00:00:26,540 --> 00:00:31,870
+So the subchapter is you can set it up on Docker, Kubernetes, Linux.
+
+10
+00:00:31,880 --> 00:00:33,290
+So let's see Linux.
+
+11
+00:00:34,130 --> 00:00:41,480
+So in Linux you have one two Fedora Red Hat and they're prerequisites and it's really very minimum.
+
+12
+00:00:41,780 --> 00:00:46,190
+We need really minimum one GB of RAM and some disk space.
+
+13
+00:00:46,190 --> 00:00:49,880
+So easy to instance should be fine for us the two micro.
+
+14
+00:00:50,420 --> 00:00:53,330
+So these are the steps for ubuntu installation.
+
+15
+00:00:53,660 --> 00:00:55,880
+Let's copy all this commands.
+
+16
+00:00:57,990 --> 00:00:59,420
+That's open text editor.
+
+17
+00:00:59,430 --> 00:01:01,080
+I will be using Sublime.
+
+18
+00:01:01,080 --> 00:01:04,379
+You can use Notepad, Notepad plus plus anything.
+
+19
+00:01:05,209 --> 00:01:07,190
+Let's paste all these commands.
+
+20
+00:01:08,600 --> 00:01:11,120
+At the end where you see app get installed.
+
+21
+00:01:11,120 --> 00:01:12,950
+Jenkins Just put a hyphen y.
+
+22
+00:01:14,320 --> 00:01:15,470
+Go at the top.
+
+23
+00:01:16,090 --> 00:01:21,250
+So these are the steps of installing Jenkins, but we also have some dependencies that we will be installing.
+
+24
+00:01:21,250 --> 00:01:28,450
+So for starts with sudo apt update and even before that we have to give this line hash, exclamation
+
+25
+00:01:28,450 --> 00:01:31,270
+slash bin slash bash.
+
+26
+00:01:31,540 --> 00:01:35,020
+Keep in mind if you don't give that line, we will be running it from user data.
+
+27
+00:01:35,020 --> 00:01:41,830
+If you don't give this line, this these commands or the script will not run from easy to user data.
+
+28
+00:01:42,520 --> 00:01:47,740
+We need to install jdc sudo apt install open.
+
+29
+00:01:48,510 --> 00:01:53,120
+JDK hyphen 11 hyphen jdc oops.
+
+30
+00:01:53,130 --> 00:01:55,260
+JDC hyphen y.
+
+31
+00:01:55,890 --> 00:01:59,700
+So now Jenkins doesn't support to run on JDK eight.
+
+32
+00:01:59,850 --> 00:02:02,280
+So we are going with JDK 11.
+
+33
+00:02:03,420 --> 00:02:09,990
+Next, we will also install MAVEN app, install maven hyphen VI so we can run our builds.
+
+34
+00:02:10,889 --> 00:02:13,890
+But I will be skipping this command for now.
+
+35
+00:02:14,010 --> 00:02:20,760
+We will see what happens if we do not install the correct tools, what errors we get, and how do we
+
+36
+00:02:20,760 --> 00:02:21,280
+fix it.
+
+37
+00:02:21,300 --> 00:02:22,210
+We'll see that.
+
+38
+00:02:22,230 --> 00:02:25,380
+So these are all the commands to install Jenkins.
+
+39
+00:02:26,490 --> 00:02:31,710
+Let's copy all this and let's go to our easy to console.
+
+40
+00:02:34,240 --> 00:02:34,660
+Let's see.
+
+41
+00:02:34,660 --> 00:02:35,770
+Launch instance.
+
+42
+00:02:37,150 --> 00:02:40,540
+We'll call it as Jenkins server.
+
+43
+00:02:42,270 --> 00:02:43,170
+One two.
+
+44
+00:02:43,470 --> 00:02:47,280
+You have to select here open to 20 and be very careful.
+
+45
+00:02:47,280 --> 00:02:51,300
+Open to 23 tier eligible this one and not any other.
+
+46
+00:02:51,300 --> 00:02:52,350
+Open to 20.
+
+47
+00:02:55,420 --> 00:02:57,280
+Okay, scroll down now.
+
+48
+00:02:57,280 --> 00:03:04,990
+We can we will start with t to micro, but if you see your Jenkins instance becomes unresponsive, then
+
+49
+00:03:04,990 --> 00:03:10,300
+you may need to increase its instance type from PT to micro to t to small.
+
+50
+00:03:11,350 --> 00:03:14,290
+I'm going to directly go with PT to Small here.
+
+51
+00:03:15,840 --> 00:03:16,380
+Keep it.
+
+52
+00:03:16,410 --> 00:03:17,970
+We will create a key pair.
+
+53
+00:03:18,670 --> 00:03:25,680
+They create new key pair and I will call it as Jenkins hyphen key.
+
+54
+00:03:26,010 --> 00:03:30,240
+Make sure the PEM file is selected here and they create key pair.
+
+55
+00:03:32,540 --> 00:03:33,740
+Let's save this.
+
+56
+00:03:34,860 --> 00:03:37,470
+Make sure the Jenkins key is selected there.
+
+57
+00:03:39,200 --> 00:03:41,120
+In the network setting, click on Edit.
+
+58
+00:03:41,120 --> 00:03:43,190
+We will create our own security group.
+
+59
+00:03:43,980 --> 00:03:52,920
+So select create new security group and give the name as Jenkins S.G. hyphen there.
+
+60
+00:03:56,520 --> 00:04:07,050
+So we need to allow rule as a search 22 from my IP and then add another rule which is 80 sorry, 8080
+
+61
+00:04:07,680 --> 00:04:12,130
+from my IP now 22.
+
+62
+00:04:12,150 --> 00:04:17,279
+So we can do such and 88, so we can access it from the browser.
+
+63
+00:04:18,089 --> 00:04:21,149
+And once your work is done for today, you shut it down.
+
+64
+00:04:21,149 --> 00:04:24,570
+Tomorrow you power on tomorrow, your public IP may change.
+
+65
+00:04:24,570 --> 00:04:29,520
+So you need to again come back to the security group of Jenkins and you have to say, edit rule and
+
+66
+00:04:29,520 --> 00:04:31,080
+my IP select again.
+
+67
+00:04:31,110 --> 00:04:32,880
+Your IP will change here.
+
+68
+00:04:34,960 --> 00:04:42,940
+Now in the advanced details, drop down, scroll down, go to user data, and let's copy your script
+
+69
+00:04:45,040 --> 00:04:46,570
+and paste it there.
+
+70
+00:04:46,990 --> 00:04:48,060
+A few things to verify.
+
+71
+00:04:48,070 --> 00:04:54,130
+Make sure hash exclamation bin bash is there and there is hyphen y wherever there is apt install command.
+
+72
+00:04:55,980 --> 00:04:57,660
+There's JDK 11.
+
+73
+00:04:58,320 --> 00:05:00,660
+And now let's launch this instance.
+
+74
+00:05:04,510 --> 00:05:06,280
+Click on that instance ID.
+
+75
+00:05:14,290 --> 00:05:14,570
+Okay.
+
+76
+00:05:14,590 --> 00:05:16,000
+After waiting for some time.
+
+77
+00:05:17,800 --> 00:05:21,940
+Let's check the user interface.
+
+78
+00:05:25,330 --> 00:05:27,520
+And it's installed successfully.
+
+79
+00:05:27,970 --> 00:05:33,760
+If you don't get this page, check the security group or log into the Jenkins and check the installation
+
+80
+00:05:33,760 --> 00:05:34,480
+steps.
+
+81
+00:05:34,810 --> 00:05:40,090
+So we need to unlock Jenkins and in and this file has the unlock password.
+
+82
+00:05:40,090 --> 00:05:41,950
+So we log into Jenkins now.
+
+83
+00:05:42,720 --> 00:05:43,770
+As such, Logan.
+
+84
+00:05:51,260 --> 00:05:57,350
+So if your installation, your user data does not go through, maybe there could be something wrong
+
+85
+00:05:57,470 --> 00:05:59,660
+in your user data shell script.
+
+86
+00:05:59,660 --> 00:06:04,580
+So you can check that by running the command curl and this URL.
+
+87
+00:06:07,650 --> 00:06:14,970
+This URL girl and this URL, they should return the user data script there.
+
+88
+00:06:15,300 --> 00:06:18,480
+So if there is a mistake then no problem.
+
+89
+00:06:18,480 --> 00:06:21,570
+You can run these commands manually one by one.
+
+90
+00:06:21,810 --> 00:06:23,490
+Let's check the status.
+
+91
+00:06:23,490 --> 00:06:25,380
+Sys CTL status.
+
+92
+00:06:26,160 --> 00:06:27,180
+Jenkins.
+
+93
+00:06:27,720 --> 00:06:30,360
+So Jenkins is active running.
+
+94
+00:06:30,510 --> 00:06:33,120
+Let's hit queue quit from this.
+
+95
+00:06:33,120 --> 00:06:41,010
+So if you see it's not active and running, you should see the user data what it is.
+
+96
+00:06:41,010 --> 00:06:44,310
+If you made a mistake, then run all the commands manually.
+
+97
+00:06:44,940 --> 00:06:46,740
+Let me clear the screen.
+
+98
+00:06:47,710 --> 00:06:52,480
+So once the Jenkins is installed, its home directory will be this var lib.
+
+99
+00:06:53,020 --> 00:06:54,160
+Jenkins.
+
+100
+00:06:55,560 --> 00:06:57,420
+So this is the home directory of Jenkins.
+
+101
+00:06:57,420 --> 00:07:04,590
+All the data of Jenkins will be in this directory, and this password file is also in the same directory.
+
+102
+00:07:05,010 --> 00:07:06,510
+Let's check the password.
+
+103
+00:07:08,450 --> 00:07:10,040
+That's the unlocked password.
+
+104
+00:07:10,850 --> 00:07:11,840
+So it will be random.
+
+105
+00:07:11,840 --> 00:07:13,490
+It will be different for every one.
+
+106
+00:07:16,030 --> 00:07:18,550
+Space the password and continue.
+
+107
+00:07:20,680 --> 00:07:26,470
+Okay, so Jenkins main powerhouse are its plug ins, huge collection of plug ins.
+
+108
+00:07:26,470 --> 00:07:31,000
+And Jenkins has so many popular plug ins, which Jenkins suggests that you should be installing that.
+
+109
+00:07:31,090 --> 00:07:34,120
+Or you can also select from the popular plug ins.
+
+110
+00:07:34,120 --> 00:07:36,850
+So lets select plug ins to install.
+
+111
+00:07:38,750 --> 00:07:43,850
+Now these are some popular plugins that you can go with and you have different section organization
+
+112
+00:07:43,850 --> 00:07:45,290
+and and administration.
+
+113
+00:07:45,290 --> 00:07:46,970
+You have these popular plugins.
+
+114
+00:07:47,240 --> 00:07:51,620
+Then you have build features plugin and this you have SSH agent.
+
+115
+00:07:51,620 --> 00:07:54,770
+So wherever it's checkmark, that plugin will be installed.
+
+116
+00:07:55,280 --> 00:08:00,860
+Build tool like maybe we don't want ADD and we want node.js.
+
+117
+00:08:01,340 --> 00:08:06,140
+So Jenkins is running on a Linux machine, so we will not be able to use RMS build.
+
+118
+00:08:06,170 --> 00:08:13,490
+But if you integrate Jenkins master with a Windows slave node, then we can run Windows build also.
+
+119
+00:08:13,520 --> 00:08:15,890
+We'll be seeing that in master slave concept.
+
+120
+00:08:17,880 --> 00:08:22,140
+Popular build analysis and reporting tools like Cobertura G-Unit.
+
+121
+00:08:23,140 --> 00:08:24,820
+So go through this list.
+
+122
+00:08:24,850 --> 00:08:26,350
+Check and uncheck a few.
+
+123
+00:08:26,380 --> 00:08:27,440
+Doesn't matter, really.
+
+124
+00:08:27,460 --> 00:08:29,830
+We are going to install plug in manually also.
+
+125
+00:08:30,190 --> 00:08:33,370
+Whenever the need comes, we'll find the right plugin and install them.
+
+126
+00:08:35,360 --> 00:08:37,520
+So I'm just going to say install.
+
+127
+00:08:39,539 --> 00:08:42,840
+And wait for few minutes till the installation is completed.
+
+128
+00:08:44,080 --> 00:08:45,380
+Time to set a user.
+
+129
+00:08:45,400 --> 00:08:50,650
+I'll set a user named admin and it will give some password to it.
+
+130
+00:08:54,260 --> 00:08:58,040
+You can set any user you want, that user will have full access.
+
+131
+00:09:07,690 --> 00:09:09,160
+Let's see when continue.
+
+132
+00:09:12,030 --> 00:09:16,380
+So at the time of installation, the Jenkins IP address is this.
+
+133
+00:09:17,170 --> 00:09:20,890
+So that is going to record in the Jenkins Earl.
+
+134
+00:09:21,250 --> 00:09:27,330
+And I want you to remember this because easy to instance that we are using is having dynamic IP.
+
+135
+00:09:27,340 --> 00:09:31,210
+You shut down and then you power on its IP will change.
+
+136
+00:09:31,450 --> 00:09:37,750
+That will not affect in accessing the Jenkins but there are a few places where we'll be using Jenkins
+
+137
+00:09:37,750 --> 00:09:43,090
+Earl or Jenkins will be using its own URL and that URL may be older one.
+
+138
+00:09:43,300 --> 00:09:46,190
+We'll see how to fix it when we get that problem.
+
+139
+00:09:46,210 --> 00:09:49,480
+But keep this in mind regarding your easy to instance.
+
+140
+00:09:49,480 --> 00:09:52,600
+If you need a static IP, then go for elastic IP.
+
+141
+00:09:52,900 --> 00:09:55,180
+But for learning purpose it should be fine.
+
+142
+00:09:55,450 --> 00:09:56,710
+Save and finish.
+
+143
+00:09:58,830 --> 00:10:00,600
+Start using Jenkins.
+
+144
+00:10:04,840 --> 00:10:07,450
+And it says Welcome to Jenkins.
+
+145
+00:10:07,870 --> 00:10:08,230
+Nice.
+
+146
+00:10:08,230 --> 00:10:09,760
+A new and better UI.
+
+147
+00:10:11,360 --> 00:10:11,630
+Okay.
+
+148
+00:10:11,630 --> 00:10:14,870
+So the first step you see here is creating a job.
+
+149
+00:10:15,600 --> 00:10:17,490
+And that's what we'll do first.
+
