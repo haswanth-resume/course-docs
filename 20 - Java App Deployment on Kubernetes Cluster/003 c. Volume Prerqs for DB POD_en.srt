@@ -1,0 +1,168 @@
+1
+00:00:02,090 --> 00:00:08,119
+Now, before we start writing definition files for our parts, we have to create a volume for our DB
+
+2
+00:00:08,119 --> 00:00:14,630
+port so it can store the MySQL data which gets stored in var lib my SQL into EBS volume.
+
+3
+00:00:15,170 --> 00:00:16,880
+So let's create an EBS volume.
+
+4
+00:00:18,310 --> 00:00:21,760
+It was easy to create volume availability zone.
+
+5
+00:00:21,760 --> 00:00:24,070
+I have selected us east to a.
+
+6
+00:00:24,840 --> 00:00:26,130
+Size just three GB.
+
+7
+00:00:26,130 --> 00:00:27,240
+That should be fine.
+
+8
+00:00:27,870 --> 00:00:31,200
+Volume type GB two and we got the volume ID.
+
+9
+00:00:31,230 --> 00:00:32,640
+We're going to take a note of it.
+
+10
+00:00:34,730 --> 00:00:35,480
+For the time being.
+
+11
+00:00:35,480 --> 00:00:37,280
+I'm going to put it in my sticky notes.
+
+12
+00:00:38,120 --> 00:00:43,280
+Now we have to make sure when we run our DB port it should be running on a node which is in the same
+
+13
+00:00:43,280 --> 00:00:48,500
+zone, same availability zone, and we can make that through node selector option in our definition
+
+14
+00:00:48,500 --> 00:00:49,070
+file.
+
+15
+00:00:49,550 --> 00:00:53,840
+Node selector works with labels, so we're going to create our own label.
+
+16
+00:00:56,750 --> 00:00:58,580
+Keep ctrl get notes.
+
+17
+00:00:58,580 --> 00:00:59,350
+Hyphen hyphen.
+
+18
+00:00:59,360 --> 00:01:00,860
+Show hyphen.
+
+19
+00:01:02,440 --> 00:01:03,340
+Labels.
+
+20
+00:01:04,000 --> 00:01:06,130
+So we should see the available labels.
+
+21
+00:01:06,400 --> 00:01:07,860
+They are existing labels.
+
+22
+00:01:07,870 --> 00:01:09,430
+If you want, we can use them.
+
+23
+00:01:09,640 --> 00:01:11,650
+But we'll create our own label.
+
+24
+00:01:13,410 --> 00:01:15,060
+Keep Ctrl get nodes.
+
+25
+00:01:15,060 --> 00:01:16,410
+Let's get the node name.
+
+26
+00:01:18,960 --> 00:01:19,780
+Keep Ctrl.
+
+27
+00:01:19,800 --> 00:01:23,070
+Describe Node.
+
+28
+00:01:24,110 --> 00:01:25,760
+And let me check this node.
+
+29
+00:01:26,120 --> 00:01:27,230
+It's in which zone?
+
+30
+00:01:27,350 --> 00:01:30,980
+So I can grab with us hyphen.
+
+31
+00:01:32,590 --> 00:01:34,330
+East hyphen two.
+
+32
+00:01:37,480 --> 00:01:39,700
+Okay this is in US east to a.
+
+33
+00:01:39,730 --> 00:01:45,490
+So this node should be good to run our DB part, but we'll label both the nodes.
+
+34
+00:01:46,360 --> 00:01:50,500
+So it'll label nodes.
+
+35
+00:01:51,720 --> 00:01:56,940
+Will select a node name and will give a label called a zone equal to.
+
+36
+00:01:58,630 --> 00:02:00,220
+US is to a.
+
+37
+00:02:03,910 --> 00:02:07,870
+Let's label our other node with the US East to be.
+
+38
+00:02:07,900 --> 00:02:10,090
+Now I have selected only these two zones.
+
+39
+00:02:10,389 --> 00:02:14,710
+If you want, you can describe this other node and check in which zone it is.
+
+40
+00:02:22,710 --> 00:02:24,260
+Okay, so I have given two labels.
+
+41
+00:02:24,270 --> 00:02:29,000
+We are done with our setup and the prerequisite that was required to run our project.
+
+42
+00:02:29,010 --> 00:02:31,320
+Now we'll start writing the definition files.
+

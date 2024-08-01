@@ -1,0 +1,772 @@
+1
+00:00:02,190 --> 00:00:04,590
+Okay, now we'll write our DB definition file.
+
+2
+00:00:06,820 --> 00:00:07,450
+So.
+
+3
+00:00:08,730 --> 00:00:09,420
+Going to see.
+
+4
+00:00:09,600 --> 00:00:10,560
+Fine.
+
+5
+00:00:15,040 --> 00:00:17,670
+The below DB deployment via email.
+
+6
+00:00:17,710 --> 00:00:18,660
+This is fine.
+
+7
+00:00:18,670 --> 00:00:19,450
+This is good.
+
+8
+00:00:20,590 --> 00:00:27,690
+So we're going to run our DB with deployment apps.
+
+9
+00:00:27,700 --> 00:00:35,530
+Slash V one is the API version for IT kind deployment.
+
+10
+00:00:38,920 --> 00:00:44,890
+It will use some metadata like name of course, the pro DB.
+
+11
+00:00:46,400 --> 00:00:47,480
+Labels.
+
+12
+00:00:50,410 --> 00:00:54,800
+App Colon, the pro DB.
+
+13
+00:00:55,810 --> 00:00:59,170
+This label is going to be for our service definition file.
+
+14
+00:00:59,350 --> 00:01:02,320
+So we're going to create a service of type cluster IP.
+
+15
+00:01:02,650 --> 00:01:07,990
+And our service is going to route the request to any part that has this label.
+
+16
+00:01:09,160 --> 00:01:12,280
+I'm talking specifically about the database service.
+
+17
+00:01:13,330 --> 00:01:16,810
+Now let's give the specifications spec.
+
+18
+00:01:19,580 --> 00:01:23,330
+So I'll say selector if I already have some part.
+
+19
+00:01:25,240 --> 00:01:30,910
+With this label app with Pro DB, then that will be already considered in this deployment definition
+
+20
+00:01:30,910 --> 00:01:31,450
+file.
+
+21
+00:01:33,020 --> 00:01:37,310
+This is not a mandatory setting for now, but if you want, you can give or you can ignore as well.
+
+22
+00:01:37,550 --> 00:01:39,800
+Replicas, I'm going to say just one.
+
+23
+00:01:39,800 --> 00:01:40,820
+We just need one DB.
+
+24
+00:01:40,850 --> 00:01:42,710
+We are not doing any clustering here.
+
+25
+00:01:44,140 --> 00:01:45,040
+Template.
+
+26
+00:01:45,740 --> 00:01:48,200
+Now, by definition, metadata.
+
+27
+00:01:49,550 --> 00:01:50,540
+Labels.
+
+28
+00:01:52,380 --> 00:01:55,590
+App Colon, Apple TV.
+
+29
+00:01:57,250 --> 00:02:01,960
+So the part will have this label specification about the part.
+
+30
+00:02:03,650 --> 00:02:05,180
+Let's give the containers detail.
+
+31
+00:02:05,210 --> 00:02:06,170
+Containers.
+
+32
+00:02:06,350 --> 00:02:10,729
+Name the probe and image.
+
+33
+00:02:13,280 --> 00:02:16,730
+So we're going to use the image from our Containerization project.
+
+34
+00:02:20,210 --> 00:02:25,010
+Nats, we profile app we profile back again.
+
+35
+00:02:25,190 --> 00:02:26,450
+We profile DB.
+
+36
+00:02:32,610 --> 00:02:33,330
+And tag.
+
+37
+00:02:33,330 --> 00:02:34,350
+We have only won there.
+
+38
+00:02:34,350 --> 00:02:35,160
+We won.
+
+39
+00:02:40,860 --> 00:02:41,670
+Ports.
+
+40
+00:02:42,120 --> 00:02:45,120
+So our service runs on Port 3306.
+
+41
+00:02:45,780 --> 00:02:50,820
+So I'm going to say name of my service V Pro db hyphen port.
+
+42
+00:02:51,060 --> 00:02:52,710
+That's the name we'll give to our port.
+
+43
+00:02:53,850 --> 00:02:56,970
+Container Port three three is zero six.
+
+44
+00:02:58,710 --> 00:03:02,970
+Some environment variable to read the MySQL db password.
+
+45
+00:03:02,970 --> 00:03:04,800
+We have stored it in the secret.
+
+46
+00:03:05,040 --> 00:03:07,080
+So we have to access it from the secret.
+
+47
+00:03:07,470 --> 00:03:09,360
+The name of our variable.
+
+48
+00:03:10,370 --> 00:03:14,720
+Is my school underscore route underscore password.
+
+49
+00:03:15,870 --> 00:03:20,430
+So we have to set value for this variable and we're going to get the value from.
+
+50
+00:03:22,720 --> 00:03:24,400
+Secret key reference.
+
+51
+00:03:28,070 --> 00:03:29,450
+Name of the secret.
+
+52
+00:03:29,480 --> 00:03:33,230
+So we created a secret with the name app Hyphen secret.
+
+53
+00:03:37,310 --> 00:03:39,380
+Their apparent secret that one.
+
+54
+00:03:39,380 --> 00:03:42,530
+And from that we are going to say DB pass.
+
+55
+00:03:44,060 --> 00:03:46,970
+The key is going to be db hyphen pos.
+
+56
+00:03:48,120 --> 00:03:53,910
+So the value will be fetched from this DB pass variable and will be assigned into this variable in the
+
+57
+00:03:53,910 --> 00:03:55,380
+port in the container.
+
+58
+00:03:56,310 --> 00:04:03,150
+If you have created a volume and I want my DB port to be running in the same zone where we have created
+
+59
+00:04:03,150 --> 00:04:03,930
+the volume.
+
+60
+00:04:04,720 --> 00:04:07,080
+Okay, so now we give the node selected information.
+
+61
+00:04:07,080 --> 00:04:12,900
+This will be going in the same line as the containers node selector, not node name.
+
+62
+00:04:13,630 --> 00:04:15,130
+Node selector.
+
+63
+00:04:16,180 --> 00:04:17,709
+We have given label.
+
+64
+00:04:17,740 --> 00:04:18,700
+Zone.
+
+65
+00:04:20,500 --> 00:04:23,350
+US hyphen East.
+
+66
+00:04:24,750 --> 00:04:26,160
+Hyphen to a.
+
+67
+00:04:27,060 --> 00:04:28,650
+So not running in this zone.
+
+68
+00:04:28,650 --> 00:04:30,750
+We have given a label to this already.
+
+69
+00:04:38,030 --> 00:04:40,670
+Okay, so you still get nodes, hyphen hyphen.
+
+70
+00:04:40,670 --> 00:04:40,940
+Sure.
+
+71
+00:04:40,940 --> 00:04:47,180
+Hyphen labels and they're zone us east to be zone US east to a.
+
+72
+00:04:47,210 --> 00:04:53,450
+So we created our EBS volume in this zone and for this node which is in in this zone we are given a
+
+73
+00:04:53,450 --> 00:04:54,020
+label.
+
+74
+00:04:54,170 --> 00:05:00,200
+So our pod will run only on the node which is in the same zone which has this label.
+
+75
+00:05:04,220 --> 00:05:07,820
+Okay, Now let's give the volumes, detail volumes.
+
+76
+00:05:09,330 --> 00:05:14,250
+Name will save a pro hyphen db hyphen data.
+
+77
+00:05:17,100 --> 00:05:19,410
+It's an elastic block store.
+
+78
+00:05:20,800 --> 00:05:21,310
+Volume.
+
+79
+00:05:21,550 --> 00:05:23,800
+We have already taken note of the volume ID.
+
+80
+00:05:30,770 --> 00:05:35,210
+So this volume will be attached, will give the file system type.
+
+81
+00:05:35,210 --> 00:05:39,320
+So it should also format it with extension for.
+
+82
+00:05:40,870 --> 00:05:41,360
+Okay.
+
+83
+00:05:41,380 --> 00:05:43,510
+Except there'll be one problem now.
+
+84
+00:05:43,690 --> 00:05:45,100
+You'll not be able to spot.
+
+85
+00:05:45,100 --> 00:05:47,830
+Will not be able to attach to this EBS volume.
+
+86
+00:05:48,700 --> 00:05:53,860
+And that's because in cooperatives, we have to give a tag to the volume that we want to attach.
+
+87
+00:05:54,070 --> 00:05:57,400
+And I will show you what tag we need to give to the EBS volume.
+
+88
+00:05:57,430 --> 00:06:00,300
+You can do it through command line or you can do it through console also.
+
+89
+00:06:00,390 --> 00:06:02,710
+So let's go do it through console easily.
+
+90
+00:06:03,190 --> 00:06:05,890
+So let's go to EBS Volume.
+
+91
+00:06:09,450 --> 00:06:11,430
+So we are in this same region.
+
+92
+00:06:12,120 --> 00:06:13,860
+See, that's the volume.
+
+93
+00:06:14,880 --> 00:06:17,100
+You can match it with the volume ID?
+
+94
+00:06:17,820 --> 00:06:19,100
+Yes, that's the volume.
+
+95
+00:06:19,110 --> 00:06:21,090
+And we have to give one tag over here.
+
+96
+00:06:21,090 --> 00:06:27,840
+So then only your part will be able to attach to this volume or note is going to attach the volume.
+
+97
+00:06:27,870 --> 00:06:30,570
+Otherwise you'll get permission denied errors.
+
+98
+00:06:30,690 --> 00:06:35,610
+So the tag is Kubernetes cluster.
+
+99
+00:06:36,810 --> 00:06:39,390
+And your cluster name.
+
+100
+00:06:39,870 --> 00:06:45,030
+So my cluster name is V Cube dot graphy dot n.
+
+101
+00:06:46,770 --> 00:06:51,480
+So whatever name you have given to your Kubernetes cluster, you have to give the same name over here.
+
+102
+00:06:52,630 --> 00:06:56,170
+So while creating the Kubernetes cluster command, we give Hyphen F a name.
+
+103
+00:06:56,380 --> 00:06:57,940
+That's the name of your cluster.
+
+104
+00:07:01,200 --> 00:07:02,220
+So give that.
+
+105
+00:07:02,220 --> 00:07:06,540
+If you don't give this, then you will not be able to map and you can see it's throwing you permission
+
+106
+00:07:06,540 --> 00:07:07,470
+denied errors.
+
+107
+00:07:09,270 --> 00:07:10,320
+So this should be good.
+
+108
+00:07:11,460 --> 00:07:14,370
+Okay, Now we're going to say map this volume to the pod.
+
+109
+00:07:15,030 --> 00:07:17,670
+So we have to say volume mounts.
+
+110
+00:07:19,770 --> 00:07:20,520
+Mount Bath.
+
+111
+00:07:20,520 --> 00:07:23,100
+I want to mount it at their lib.
+
+112
+00:07:23,580 --> 00:07:30,240
+My school name repro hyphen db hyphen data.
+
+113
+00:07:30,420 --> 00:07:32,790
+This is the name of the volume that we are creating over here.
+
+114
+00:07:32,970 --> 00:07:36,000
+So the volume gets created over here and gets mounted over here.
+
+115
+00:07:37,080 --> 00:07:40,740
+Now, you may also get one more error if you just roll this out.
+
+116
+00:07:43,860 --> 00:07:45,210
+And the data will be coming.
+
+117
+00:07:45,390 --> 00:07:47,700
+Sorry, the error will be coming from the pod.
+
+118
+00:07:48,390 --> 00:07:50,780
+You can see Cube CTL logs and the pod name.
+
+119
+00:07:50,790 --> 00:07:58,050
+You can see log in the pod telling that volume or storage is not free or it's not empty.
+
+120
+00:07:58,260 --> 00:08:02,670
+There's already data when we format it with extension.
+
+121
+00:08:03,150 --> 00:08:07,090
+It's going to create a directory over there called Lost plus found.
+
+122
+00:08:07,110 --> 00:08:08,820
+That's what happens in Linux.
+
+123
+00:08:08,910 --> 00:08:15,020
+And if the volume mounts is finding that there's already a data, then it will not mount it.
+
+124
+00:08:15,030 --> 00:08:17,010
+So you have to pass an argument.
+
+125
+00:08:17,010 --> 00:08:19,950
+You can pass arguments to your pod or your containers.
+
+126
+00:08:19,950 --> 00:08:21,240
+You can see args.
+
+127
+00:08:23,150 --> 00:08:25,280
+So you have to pass this argument.
+
+128
+00:08:26,030 --> 00:08:28,580
+Ignore hyphen db hyphen directory.
+
+129
+00:08:29,520 --> 00:08:30,960
+Equal to lost.
+
+130
+00:08:32,760 --> 00:08:34,289
+Plus found.
+
+131
+00:08:34,950 --> 00:08:39,600
+So that directory, if it's there, it's going to ignore it and it will attach the volume.
+
+132
+00:08:40,220 --> 00:08:42,720
+Okay, let's go through the definition file once again.
+
+133
+00:08:43,289 --> 00:08:44,550
+Deployment.
+
+134
+00:08:44,580 --> 00:08:51,090
+That's the label match Label replica one Template labels spec.
+
+135
+00:08:51,890 --> 00:08:54,770
+So it can also alert you for some issues.
+
+136
+00:08:55,970 --> 00:08:56,420
+All right.
+
+137
+00:08:56,750 --> 00:08:58,140
+This is about the label.
+
+138
+00:08:58,160 --> 00:08:58,940
+This is good.
+
+139
+00:09:01,360 --> 00:09:09,520
+Image Path Volume Mount Option Port 3306 My root password note selector seems good.
+
+140
+00:09:09,520 --> 00:09:10,500
+Let's save it.
+
+141
+00:09:10,510 --> 00:09:11,350
+Committed.
+
+142
+00:09:12,870 --> 00:09:14,400
+DB part.
+
+143
+00:09:21,020 --> 00:09:22,250
+And let's push it.
+
+144
+00:09:22,580 --> 00:09:25,610
+I want to make a test on it because there's so many things in this.
+
+145
+00:09:34,040 --> 00:09:35,400
+So get pulled.
+
+146
+00:09:38,030 --> 00:09:38,450
+Yeah.
+
+147
+00:09:39,040 --> 00:09:40,260
+Okay, let's test it.
+
+148
+00:09:40,280 --> 00:09:45,980
+Cube CTL create hyphen F with pro db deployment.
+
+149
+00:09:47,350 --> 00:09:48,520
+It is deployment created.
+
+150
+00:09:48,520 --> 00:09:50,890
+Let's see if it'll get deploy.
+
+151
+00:09:54,670 --> 00:09:56,040
+It'll get bored.
+
+152
+00:09:56,890 --> 00:10:00,550
+And the real information should come from this board.
+
+153
+00:10:01,160 --> 00:10:08,800
+Q It'll describe poor if there is any issue while creating the poor or mounting the volume.
+
+154
+00:10:08,920 --> 00:10:10,150
+We should find it here.
+
+155
+00:10:11,590 --> 00:10:13,570
+It's still at pulling image state.
+
+156
+00:10:17,190 --> 00:10:22,410
+Look, if you're getting an error warning, back off, restarting fail, it's trying to restart the
+
+157
+00:10:22,410 --> 00:10:23,880
+container for some reason.
+
+158
+00:10:24,960 --> 00:10:27,880
+Cube still get bored.
+
+159
+00:10:27,900 --> 00:10:29,670
+Let's see the logs of this part.
+
+160
+00:10:30,360 --> 00:10:32,220
+Keep Seattle logs.
+
+161
+00:10:37,020 --> 00:10:37,590
+Okay.
+
+162
+00:10:38,750 --> 00:10:40,430
+And there is some issue with this option.
+
+163
+00:10:40,430 --> 00:10:41,270
+Let's check it.
+
+164
+00:10:45,630 --> 00:10:48,270
+Yeah, of course it should be hyphen hyphen.
+
+165
+00:10:48,270 --> 00:10:48,940
+Ignore.
+
+166
+00:10:49,950 --> 00:10:49,990
+Of.
+
+167
+00:10:50,070 --> 00:10:51,000
+See that?
+
+168
+00:10:53,110 --> 00:10:54,040
+That's committed.
+
+169
+00:11:02,640 --> 00:11:05,910
+So it's saying that it's an invalid argument like that.
+
+170
+00:11:07,530 --> 00:11:09,030
+Okay, let's try once again.
+
+171
+00:11:10,030 --> 00:11:10,270
+Okay.
+
+172
+00:11:10,290 --> 00:11:11,310
+I'm going to delete this.
+
+173
+00:11:11,340 --> 00:11:14,460
+Keep Ctrl, get deploy.
+
+174
+00:11:15,830 --> 00:11:21,290
+Keep ctrl delete deploy the pro db.
+
+175
+00:11:23,090 --> 00:11:24,610
+Let's fetch the latest changes.
+
+176
+00:11:24,620 --> 00:11:25,430
+Get pull.
+
+177
+00:11:27,270 --> 00:11:27,720
+Okay.
+
+178
+00:11:27,750 --> 00:11:30,720
+There is a new comet we can see.
+
+179
+00:11:31,380 --> 00:11:32,190
+Should be good now.
+
+180
+00:11:32,550 --> 00:11:35,220
+It'll create hyphen f.
+
+181
+00:11:39,570 --> 00:11:39,810
+Yeah.
+
+182
+00:11:39,840 --> 00:11:40,650
+Let's check Cuba.
+
+183
+00:11:40,730 --> 00:11:42,150
+It'll get bored.
+
+184
+00:11:44,930 --> 00:11:46,160
+Keep still.
+
+185
+00:11:46,850 --> 00:11:49,670
+Describe pod.
+
+186
+00:11:50,240 --> 00:11:51,680
+Still creating the container.
+
+187
+00:11:51,710 --> 00:11:53,720
+Let's find out whether it's done or not.
+
+188
+00:11:55,070 --> 00:11:56,180
+Now it seems done.
+
+189
+00:11:56,600 --> 00:12:04,760
+Attach volume succeeded container image created Container started container should be healthy now.
+
+190
+00:12:07,290 --> 00:12:07,960
+Okay.
+
+191
+00:12:07,980 --> 00:12:10,260
+So I recommend first you test this.
+
+192
+00:12:10,290 --> 00:12:15,720
+Now, after this, you're going to create all the deployment definition files and spin all of them together.
+
+193
+00:12:16,800 --> 00:12:17,670
+Let's go then.
+

@@ -1,0 +1,216 @@
+1
+00:00:00,390 --> 00:00:01,620
+Next, Robert McHugh.
+
+2
+00:00:06,640 --> 00:00:07,730
+Kind deployment.
+
+3
+00:00:07,750 --> 00:00:11,170
+Name Viper MQ zero one as the label.
+
+4
+00:00:12,430 --> 00:00:15,940
+Same label for the selectors replica one.
+
+5
+00:00:16,940 --> 00:00:19,670
+And this will be the label of our pod.
+
+6
+00:00:19,700 --> 00:00:25,760
+Specification Container Name Wipro MQ zero one Image Rabbit MQ.
+
+7
+00:00:25,880 --> 00:00:31,160
+So if you don't have a customized image for this and we don't need it again, this is an official image
+
+8
+00:00:31,160 --> 00:00:32,090
+from Docker Hub.
+
+9
+00:00:33,420 --> 00:00:33,810
+Port.
+
+10
+00:00:33,850 --> 00:00:35,170
+15672.
+
+11
+00:00:35,190 --> 00:00:36,750
+That's the name of the port.
+
+12
+00:00:37,080 --> 00:00:41,010
+Now we have to set two environment variable over here.
+
+13
+00:00:41,220 --> 00:00:45,180
+One is for the rabbit MQ user and rabbit MQ.
+
+14
+00:00:45,210 --> 00:00:47,130
+Second is for the rabbit MQ password.
+
+15
+00:00:47,490 --> 00:00:48,810
+So we're going to say.
+
+16
+00:00:50,630 --> 00:00:50,820
+E.
+
+17
+00:00:50,870 --> 00:00:51,470
+And V.
+
+18
+00:00:53,850 --> 00:00:54,600
+First.
+
+19
+00:00:55,990 --> 00:00:56,770
+Naeem.
+
+20
+00:01:00,750 --> 00:01:01,550
+Rabbit.
+
+21
+00:01:02,250 --> 00:01:03,040
+MQ.
+
+22
+00:01:03,060 --> 00:01:05,220
+Underscore default.
+
+23
+00:01:06,330 --> 00:01:07,830
+Underscore pass.
+
+24
+00:01:08,670 --> 00:01:13,110
+This is the variable as per the official documentation of rabbit image.
+
+25
+00:01:14,630 --> 00:01:15,380
+On Docker hub.
+
+26
+00:01:15,410 --> 00:01:17,840
+So that's the variable you have to assign the value.
+
+27
+00:01:17,840 --> 00:01:20,660
+And we have already encoded this value in the secret.
+
+28
+00:01:20,660 --> 00:01:24,650
+So we're going to say value from secret key reference.
+
+29
+00:01:25,850 --> 00:01:30,080
+Key is item Q hyphen pass the name of the secret.
+
+30
+00:01:30,080 --> 00:01:31,430
+Also you have to give name.
+
+31
+00:01:33,230 --> 00:01:35,090
+App hyphen secret.
+
+32
+00:01:36,620 --> 00:01:38,420
+This is coming from this app.
+
+33
+00:01:38,420 --> 00:01:40,540
+Secret Arabic Pass.
+
+34
+00:01:41,510 --> 00:01:42,260
+Secret Name.
+
+35
+00:01:42,260 --> 00:01:42,500
+App.
+
+36
+00:01:42,500 --> 00:01:42,830
+Hyphen.
+
+37
+00:01:42,830 --> 00:01:43,490
+Secret.
+
+38
+00:01:47,010 --> 00:01:48,540
+Also the username.
+
+39
+00:01:48,540 --> 00:01:49,290
+The username.
+
+40
+00:01:49,290 --> 00:01:51,070
+We can just give just like that.
+
+41
+00:01:51,090 --> 00:02:00,840
+So you're going to say name rabbit mq underscore default underscore user.
+
+42
+00:02:01,820 --> 00:02:08,660
+And value not from just a value is.
+
+43
+00:02:09,850 --> 00:02:10,600
+Guest.
+
+44
+00:02:14,040 --> 00:02:16,260
+Guest username and guest password.
+
+45
+00:02:16,830 --> 00:02:18,840
+Password We have kept in the secret.
+
+46
+00:02:21,290 --> 00:02:29,120
+Okay, cluster I p for this rabbit MQ so I'm going to see item Q hyphen cip, dot y html.
+
+47
+00:02:31,030 --> 00:02:33,430
+Support 15672 Target Port.
+
+48
+00:02:33,430 --> 00:02:33,880
+Wipro.
+
+49
+00:02:33,880 --> 00:02:35,320
+MQ hyphen port.
+
+50
+00:02:38,220 --> 00:02:40,350
+Abraham, You haven't put that on the board.
+
+51
+00:02:43,380 --> 00:02:44,400
+Selector app.
+
+52
+00:02:44,400 --> 00:02:45,450
+Wipro MQ.
+
+53
+00:02:48,640 --> 00:02:51,040
+Their label app Wipro MQ.
+
+54
+00:02:51,930 --> 00:02:53,730
+So you should match these things.
+

@@ -1,0 +1,404 @@
+1
+00:00:00,390 --> 00:00:02,430
+Now our main hero Tom application.
+
+2
+00:00:02,430 --> 00:00:02,880
+So.
+
+3
+00:00:04,730 --> 00:00:05,480
+File.
+
+4
+00:00:07,510 --> 00:00:11,740
+Pro App Deployment Definition dot HTML.
+
+5
+00:00:13,780 --> 00:00:17,590
+Okay so the default things kind deployment apps we want version.
+
+6
+00:00:18,640 --> 00:00:19,690
+Replica one.
+
+7
+00:00:20,540 --> 00:00:24,020
+Match label template, and that's the label of our pod.
+
+8
+00:00:27,140 --> 00:00:28,910
+Specification about this.
+
+9
+00:00:32,100 --> 00:00:34,820
+Container's name Vpro app.
+
+10
+00:00:34,830 --> 00:00:36,030
+That's the name I'll give.
+
+11
+00:00:36,150 --> 00:00:37,260
+Image.
+
+12
+00:00:37,260 --> 00:00:40,440
+And we have a customized image for this on the Docker hub.
+
+13
+00:00:45,470 --> 00:00:46,280
+That one.
+
+14
+00:00:48,390 --> 00:00:49,410
+V Profile.
+
+15
+00:00:49,800 --> 00:00:51,480
+V Profile App.
+
+16
+00:00:51,600 --> 00:00:53,010
+Tag v one.
+
+17
+00:00:58,590 --> 00:01:00,360
+And that's the capital over there.
+
+18
+00:01:00,990 --> 00:01:07,380
+If you want, you can use my same image, but I still recommend you go to the Containerization project
+
+19
+00:01:07,380 --> 00:01:10,680
+and have your own images because you can use this image.
+
+20
+00:01:10,680 --> 00:01:11,400
+These are public.
+
+21
+00:01:11,430 --> 00:01:12,780
+There's no problem with it.
+
+22
+00:01:13,740 --> 00:01:18,330
+Container Port v Pro app hyphen port.
+
+23
+00:01:18,390 --> 00:01:19,710
+That's the name I'll give.
+
+24
+00:01:20,490 --> 00:01:21,840
+That's the.
+
+25
+00:01:23,940 --> 00:01:26,070
+Nima, I have to give the fort first.
+
+26
+00:01:32,010 --> 00:01:32,300
+Yeah.
+
+27
+00:01:32,310 --> 00:01:33,120
+Sometime This act.
+
+28
+00:01:33,120 --> 00:01:35,340
+Weird name.
+
+29
+00:01:36,700 --> 00:01:38,790
+If a pro app hyphen port.
+
+30
+00:01:40,270 --> 00:01:41,320
+This is fine.
+
+31
+00:01:41,800 --> 00:01:46,240
+So all our deployment has one single container in them.
+
+32
+00:01:46,420 --> 00:01:52,690
+But in this are going to have multiple containers in this pod one our normal container or main process
+
+33
+00:01:52,690 --> 00:01:54,580
+which will be created from this image.
+
+34
+00:01:55,000 --> 00:02:03,970
+And the other two I'm going to give in it container and it containers name in it hyphen my DB.
+
+35
+00:02:04,000 --> 00:02:09,639
+I want the DB container to be created first and then it should create this pod.
+
+36
+00:02:11,160 --> 00:02:16,650
+And for that, I'm going to have a shell script executed from.
+
+37
+00:02:17,690 --> 00:02:19,130
+The Xbox.
+
+38
+00:02:22,270 --> 00:02:22,510
+Okay.
+
+39
+00:02:22,510 --> 00:02:24,670
+That's an image box, I think.
+
+40
+00:02:24,670 --> 00:02:25,090
+Yeah.
+
+41
+00:02:25,600 --> 00:02:25,960
+That's right.
+
+42
+00:02:25,960 --> 00:02:26,860
+Busy box.
+
+43
+00:02:27,800 --> 00:02:28,700
+Okay, that's cool.
+
+44
+00:02:28,700 --> 00:02:31,610
+It's also showing us the images from Docker Hub.
+
+45
+00:02:32,800 --> 00:02:33,910
+That's so nice.
+
+46
+00:02:36,030 --> 00:02:42,120
+So I want this container to be created from this image and should run this command for me.
+
+47
+00:02:44,130 --> 00:02:46,530
+Okay, so the command is so in it container.
+
+48
+00:02:46,530 --> 00:02:53,880
+So it will come first and one when this container work is completed, then it will launch this container.
+
+49
+00:02:54,030 --> 00:02:58,800
+So this container will be halted as long as this container does not finish its work.
+
+50
+00:02:58,800 --> 00:03:01,850
+And its work is to really check the DB port.
+
+51
+00:03:01,890 --> 00:03:03,470
+Or should I say DB service?
+
+52
+00:03:03,480 --> 00:03:08,490
+So we are running a bash until loop and we're doing nest lookup vibro DB.
+
+53
+00:03:08,520 --> 00:03:12,930
+So as long as it does not return true, this loop will be continuously running.
+
+54
+00:03:12,930 --> 00:03:18,270
+And while it's running we are printing a code waiting for my DB slip 2 seconds.
+
+55
+00:03:18,720 --> 00:03:24,930
+So we're doing this printing and we're executing sleep two command, so it's going to sleep for 2 seconds.
+
+56
+00:03:24,930 --> 00:03:27,400
+So every 2 seconds is going to run and look of the bro.
+
+57
+00:03:27,420 --> 00:03:31,740
+DB If it does not return true, it does not result to any value.
+
+58
+00:03:32,010 --> 00:03:34,470
+That means it's false and it will keep on running.
+
+59
+00:03:36,300 --> 00:03:38,430
+Okay, so I'm creating a dependency over here.
+
+60
+00:03:39,800 --> 00:03:43,130
+And this example is directly from the Kubernetes documentation.
+
+61
+00:03:43,980 --> 00:03:48,960
+So whenever you have dependencies like that you can link by init containers.
+
+62
+00:03:52,440 --> 00:03:52,740
+Okay.
+
+63
+00:03:53,040 --> 00:03:55,140
+Also, one more dependency will create.
+
+64
+00:03:55,950 --> 00:03:58,860
+Same thing for the Prakash one.
+
+65
+00:03:58,860 --> 00:04:01,830
+So we'll also wait for the web Prakash and service to come up.
+
+66
+00:04:03,060 --> 00:04:04,710
+So it's going to fetch the busy box image.
+
+67
+00:04:04,740 --> 00:04:07,260
+Run a container and run this command on that container.
+
+68
+00:04:08,860 --> 00:04:13,930
+When its job is completed, when this command completes successfully, the containers will be dead and
+
+69
+00:04:13,930 --> 00:04:16,450
+then our main container will be launched.
+
+70
+00:04:18,230 --> 00:04:18,420
+Yeah.
+
+71
+00:04:18,500 --> 00:04:22,970
+Let's see if this and let's create the service definition file for this.
+
+72
+00:04:22,970 --> 00:04:32,660
+And we would like to have a load balancer before this app hyphen service, dot y.
+
+73
+00:04:32,690 --> 00:04:33,560
+E html.
+
+74
+00:04:35,600 --> 00:04:38,090
+Okay, so I'm going to say API version.
+
+75
+00:04:39,890 --> 00:04:42,470
+We one of kind.
+
+76
+00:04:44,460 --> 00:04:45,450
+Service.
+
+77
+00:04:46,950 --> 00:04:47,730
+Receive this.
+
+78
+00:04:47,730 --> 00:04:48,070
+Oops.
+
+79
+00:04:48,090 --> 00:04:49,860
+I have not gotten colon there yet.
+
+80
+00:04:49,890 --> 00:04:51,000
+Let me see if this now.
+
+81
+00:04:51,960 --> 00:04:52,240
+Okay.
+
+82
+00:04:52,820 --> 00:04:54,950
+Now I can get easy options.
+
+83
+00:04:55,190 --> 00:04:56,270
+Metadata.
+
+84
+00:04:56,870 --> 00:05:02,090
+Name the Pro app hyphen service.
+
+85
+00:05:04,530 --> 00:05:05,400
+Spec.
+
+86
+00:05:07,550 --> 00:05:08,390
+Put.
+
+87
+00:05:09,610 --> 00:05:10,640
+Port number 80.
+
+88
+00:05:10,660 --> 00:05:16,390
+I'm just going to write it on default http port Target, Port V Pro App hyphen port.
+
+89
+00:05:16,390 --> 00:05:18,190
+That's the port 88.
+
+90
+00:05:21,090 --> 00:05:21,450
+Five one.
+
+91
+00:05:21,450 --> 00:05:21,750
+Port.
+
+92
+00:05:21,750 --> 00:05:22,650
+Port 80.
+
+93
+00:05:26,210 --> 00:05:28,790
+Protocol TCP.
+
+94
+00:05:33,120 --> 00:05:35,520
+And this line will have selector.
+
+95
+00:05:37,720 --> 00:05:38,410
+No, not here.
+
+96
+00:05:38,410 --> 00:05:39,010
+Sorry.
+
+97
+00:05:39,040 --> 00:05:39,610
+There.
+
+98
+00:05:40,860 --> 00:05:41,790
+Selector.
+
+99
+00:05:43,040 --> 00:05:52,970
+App Colon, the pro app type is going to be load balancer, so it's going to launch an elastic load
+
+100
+00:05:52,970 --> 00:05:53,750
+balancer.
+
+101
+00:05:56,020 --> 00:05:56,490
+Okay.
+

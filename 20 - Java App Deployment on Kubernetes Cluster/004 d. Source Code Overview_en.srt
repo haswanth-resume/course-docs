@@ -1,0 +1,220 @@
+1
+00:00:00,330 --> 00:00:02,400
+While writing the definition file.
+
+2
+00:00:02,400 --> 00:00:08,610
+If you feel that you want to see all the definition file before you make a decision, then search for
+
+3
+00:00:08,610 --> 00:00:11,610
+a branch cube app in our repository.
+
+4
+00:00:13,790 --> 00:00:15,680
+We have a directory here, Kubernetes.
+
+5
+00:00:16,510 --> 00:00:16,930
+In this.
+
+6
+00:00:16,930 --> 00:00:18,610
+We have a pro hyphen app.
+
+7
+00:00:19,120 --> 00:00:21,420
+And here we have all the definition files.
+
+8
+00:00:21,430 --> 00:00:25,840
+So if you want to check DB deployment definition file, you can check it.
+
+9
+00:00:25,870 --> 00:00:29,870
+We're going to write it from the scratch in our and we're going to keep it in a different repository.
+
+10
+00:00:30,220 --> 00:00:35,440
+You can put it in your own repository, like I'm going to put it in a different repository that I have
+
+11
+00:00:35,440 --> 00:00:36,550
+already cloned on my intel.
+
+12
+00:00:36,730 --> 00:00:38,380
+It's a fresh this.
+
+13
+00:00:38,770 --> 00:00:40,480
+There's no data in it for now.
+
+14
+00:00:41,200 --> 00:00:43,050
+There's some more information that we need to collect.
+
+15
+00:00:43,060 --> 00:00:44,440
+Let's get that first.
+
+16
+00:00:45,160 --> 00:00:49,990
+So in Containerization project, we have containers in our view profile application and we need the
+
+17
+00:00:50,020 --> 00:00:51,140
+we need the image part.
+
+18
+00:00:51,160 --> 00:00:53,530
+So I'm on my Docker hub account.
+
+19
+00:00:53,920 --> 00:00:55,870
+I'll get into my organization.
+
+20
+00:00:55,870 --> 00:00:57,220
+We have repositories.
+
+21
+00:00:57,940 --> 00:00:59,500
+We're going to use these two images.
+
+22
+00:00:59,500 --> 00:01:01,960
+We profile app and we profile DB.
+
+23
+00:01:02,170 --> 00:01:03,810
+We're not going to use Engine X image.
+
+24
+00:01:03,820 --> 00:01:07,690
+We'll be spinning up an elastic load balancer automatically instead of that.
+
+25
+00:01:15,360 --> 00:01:16,890
+We profile D.B.?
+
+26
+00:01:18,430 --> 00:01:19,510
+Jack Beaven is there.
+
+27
+00:01:19,510 --> 00:01:20,860
+We'll be using that tag.
+
+28
+00:01:24,580 --> 00:01:25,750
+The profile app.
+
+29
+00:01:26,670 --> 00:01:27,630
+We went Tag.
+
+30
+00:01:28,430 --> 00:01:30,890
+This v profile app image was created.
+
+31
+00:01:32,800 --> 00:01:33,760
+From this branch.
+
+32
+00:01:33,760 --> 00:01:35,050
+Containerisation.
+
+33
+00:01:36,720 --> 00:01:39,630
+Now that Docker Docker branch.
+
+34
+00:01:42,480 --> 00:01:43,650
+Dr. Branch.
+
+35
+00:01:44,790 --> 00:01:45,090
+Don't.
+
+36
+00:01:45,180 --> 00:01:45,810
+Fine.
+
+37
+00:01:47,020 --> 00:01:47,530
+App.
+
+38
+00:01:49,890 --> 00:01:50,640
+Doka finds.
+
+39
+00:01:50,670 --> 00:01:57,650
+This is the Docker file that created a V profile app image, and we have copied an artifact inside that
+
+40
+00:01:57,660 --> 00:01:59,610
+this artifact was generated.
+
+41
+00:02:01,610 --> 00:02:06,110
+And it has application properties file from our source code.
+
+42
+00:02:07,570 --> 00:02:08,560
+Resources.
+
+43
+00:02:09,500 --> 00:02:11,450
+Application dot properties file.
+
+44
+00:02:12,350 --> 00:02:16,520
+So when container comes off from this image, it will have this application properties file, it will
+
+45
+00:02:16,520 --> 00:02:24,170
+look for the back end services with this name with pro db username, root password, Vibro db pass and
+
+46
+00:02:24,170 --> 00:02:28,730
+that for mem cache and that one for rabbit MQ and rabbit mkv.
+
+47
+00:02:28,730 --> 00:02:34,880
+You also have the username guest guest and the password guest also note down the port numbers.
+
+48
+00:02:35,450 --> 00:02:40,310
+These are very important information to collect before we create our definition files because we need
+
+49
+00:02:40,310 --> 00:02:45,140
+to define these information so our application can access the back end services.
+
+50
+00:02:45,170 --> 00:02:47,150
+There are two sensitive information over here.
+
+51
+00:02:47,180 --> 00:02:50,690
+One is the database password and one is the rabbit MQ password.
+
+52
+00:02:51,750 --> 00:02:56,730
+And it wouldn't be ideal to put to put these passwords into text format.
+
+53
+00:02:56,730 --> 00:03:00,000
+So first we have to encrypt this password with secret.
+
+54
+00:03:00,690 --> 00:03:06,060
+And then from our pod definition, we can access these encrypted passwords.
+
+55
+00:03:06,690 --> 00:03:08,670
+Not really encrypted, but encoded.
+

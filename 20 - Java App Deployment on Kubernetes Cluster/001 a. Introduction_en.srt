@@ -1,0 +1,260 @@
+1
+00:00:10,700 --> 00:00:12,290
+Welcome to the project.
+
+2
+00:00:12,770 --> 00:00:17,360
+This project is about deploying web application on Kubernetes cluster.
+
+3
+00:00:21,360 --> 00:00:23,520
+So let's understand our situation first.
+
+4
+00:00:24,210 --> 00:00:29,640
+We have a multi tier web application stack, which is already containerized.
+
+5
+00:00:30,910 --> 00:00:35,680
+And we're going to use the V profile Web application, which we containerised in our previous projects.
+
+6
+00:00:36,160 --> 00:00:40,120
+So your Web application is containerized and you have also tested it.
+
+7
+00:00:40,480 --> 00:00:43,420
+Now it's time to host it for production.
+
+8
+00:00:45,240 --> 00:00:47,280
+Running containers for production.
+
+9
+00:00:48,530 --> 00:00:49,730
+He's little different.
+
+10
+00:00:52,190 --> 00:00:59,030
+The requirement could be you need high availability so your containers don't go down and also high availability
+
+11
+00:00:59,360 --> 00:01:00,740
+on your compute node.
+
+12
+00:01:03,280 --> 00:01:05,830
+The requirement is also for full tolerance.
+
+13
+00:01:06,100 --> 00:01:12,370
+If something happens to the containers and they are not responding, they should also auto heal.
+
+14
+00:01:14,910 --> 00:01:21,540
+It should be also convenient to scale containers and also the compute resource on which your containers
+
+15
+00:01:21,540 --> 00:01:22,260
+are running.
+
+16
+00:01:23,390 --> 00:01:29,000
+Platform independent and also portable, flexible, agile.
+
+17
+00:01:29,150 --> 00:01:35,480
+So we should be able to run our containers on local cloud, virtual machines, physical machines, and
+
+18
+00:01:35,480 --> 00:01:41,810
+should be able to run on dev kuah production, different environment easily and conveniently.
+
+19
+00:01:45,080 --> 00:01:47,330
+We can use container orchestration tool.
+
+20
+00:01:47,360 --> 00:01:48,560
+Kubernetes.
+
+21
+00:01:49,100 --> 00:01:53,180
+Kubernetes is today the best container orchestration tool in the market.
+
+22
+00:01:53,300 --> 00:01:59,570
+It's very mature and a rock solid platform to run your containers for production.
+
+23
+00:02:00,340 --> 00:02:02,470
+Let's also check some statistics.
+
+24
+00:02:12,070 --> 00:02:13,240
+In today's time.
+
+25
+00:02:13,660 --> 00:02:19,300
+Kubernetes is one of the most used tools in the containerized platform, and these statistics are here
+
+26
+00:02:19,300 --> 00:02:20,170
+to prove them.
+
+27
+00:02:20,470 --> 00:02:24,880
+77% of containers today run on Kubernetes.
+
+28
+00:02:25,030 --> 00:02:31,390
+If we include Redshift and Rancher, which are already built on Kubernetes, then it's 89%.
+
+29
+00:02:31,900 --> 00:02:37,750
+56% of the organizations have reported that they're going to increase the usage of Kubernetes in the
+
+30
+00:02:37,750 --> 00:02:38,920
+next 12 months.
+
+31
+00:02:39,130 --> 00:02:41,380
+And that should be by end of 2020.
+
+32
+00:02:41,710 --> 00:02:50,230
+From 2019 to 2020, there's 28% growth in usage of Kubernetes cluster for production containers.
+
+33
+00:02:50,680 --> 00:02:52,350
+This is a huge number.
+
+34
+00:02:52,360 --> 00:02:58,660
+So we can understand Kubernetes has taken the container orchestration or container world by storm.
+
+35
+00:03:00,220 --> 00:03:02,290
+So in this project we are going to use.
+
+36
+00:03:04,180 --> 00:03:10,690
+Our Java V profile application, which we have containerized and we are going to run it on Kubernetes
+
+37
+00:03:10,780 --> 00:03:13,150
+cluster for production.
+
+38
+00:03:14,220 --> 00:03:15,930
+Let's see how we're going to do it.
+
+39
+00:03:19,980 --> 00:03:20,910
+So we need a Cuban.
+
+40
+00:03:20,910 --> 00:03:22,410
+This cluster already.
+
+41
+00:03:23,370 --> 00:03:27,570
+And I'm going to use COPS to launch my COVID cluster.
+
+42
+00:03:27,900 --> 00:03:34,200
+You can check the project of Kubernetes setup where I've explained how you can use crops to set up production
+
+43
+00:03:34,200 --> 00:03:35,580
+grid, Kubernetes cluster.
+
+44
+00:03:36,820 --> 00:03:39,010
+We also need containerised applications.
+
+45
+00:03:39,010 --> 00:03:40,900
+We are going to use a V file.
+
+46
+00:03:41,290 --> 00:03:46,130
+We have already done a project on container using our Vpro file application.
+
+47
+00:03:46,150 --> 00:03:47,860
+So these are two main requirements.
+
+48
+00:03:47,860 --> 00:03:53,830
+We need a Kubernetes cluster and we need containerized application and we are using a V profile application.
+
+49
+00:03:54,070 --> 00:03:58,180
+So, you know, in V profile application, we have a MySQL container that needs.
+
+50
+00:03:58,990 --> 00:04:02,410
+Volume to store its data so we can have persistent data.
+
+51
+00:04:02,440 --> 00:04:08,200
+So for that, we're going to create an EBS volume to run our DB pod.
+
+52
+00:04:11,690 --> 00:04:15,020
+Then we're going to label Node with zone names.
+
+53
+00:04:15,140 --> 00:04:21,950
+We're going to create EBS volume in a zone and we need our pod to be running on the same node or on
+
+54
+00:04:21,950 --> 00:04:25,310
+the same zone where we created the EBS volume.
+
+55
+00:04:25,790 --> 00:04:28,820
+So for this, we're going to label our nodes with zone names.
+
+56
+00:04:28,820 --> 00:04:32,960
+So when we run our DB part, we'll select Node based on the zones.
+
+57
+00:04:33,230 --> 00:04:35,480
+Once we are ready with all these steps.
+
+58
+00:04:38,010 --> 00:04:39,640
+Then we are going to write Cuban.
+
+59
+00:04:39,660 --> 00:04:41,250
+This definition files.
+
+60
+00:04:43,020 --> 00:04:47,070
+To create our objects on this cluster we're going to use.
+
+61
+00:04:47,100 --> 00:04:50,760
+Deployment service, secret and volume.
+
+62
+00:04:52,940 --> 00:04:54,980
+So let's make it happen.
+
+63
+00:04:56,200 --> 00:05:03,130
+The only thing I want you to do now is have a Cuban disk cluster created with cops and also take note
+
+64
+00:05:03,130 --> 00:05:08,260
+of your images, which you have created in the Containerization Project.
+
+65
+00:05:08,890 --> 00:05:10,480
+All right, so let's make it happen.
+

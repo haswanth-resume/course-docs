@@ -1,0 +1,256 @@
+1
+00:00:00,270 --> 00:00:00,480
+Okay.
+
+2
+00:00:00,540 --> 00:00:01,080
+Let's check.
+
+3
+00:00:01,080 --> 00:00:04,500
+We have a secret file, DB cluster IP cache.
+
+4
+00:00:04,500 --> 00:00:08,610
+Cluster IP and cache Deployment Rabbit MQ Cluster IP Rabbit.
+
+5
+00:00:08,610 --> 00:00:09,690
+MQ Deployment.
+
+6
+00:00:11,620 --> 00:00:11,850
+Okay.
+
+7
+00:00:11,890 --> 00:00:12,880
+I think we're good.
+
+8
+00:00:12,880 --> 00:00:13,900
+Let's commit.
+
+9
+00:00:17,750 --> 00:00:22,010
+That's it for Profile app services.
+
+10
+00:00:23,240 --> 00:00:23,930
+Commit.
+
+11
+00:00:26,390 --> 00:00:27,560
+And let's push it.
+
+12
+00:00:33,510 --> 00:00:35,280
+Okay, Let's fetch it now.
+
+13
+00:00:48,270 --> 00:00:48,590
+Okay.
+
+14
+00:00:48,600 --> 00:00:50,280
+We have pulled all the changes.
+
+15
+00:00:51,900 --> 00:00:53,070
+Let's do it now.
+
+16
+00:00:53,100 --> 00:00:59,610
+So Ctrl create hyphen F and I'm just going to say dot, so it's going to read all the definition files.
+
+17
+00:00:59,610 --> 00:01:01,110
+I don't need to do one by one.
+
+18
+00:01:03,840 --> 00:01:04,140
+Okay.
+
+19
+00:01:04,170 --> 00:01:05,120
+A few errors we got.
+
+20
+00:01:05,129 --> 00:01:07,020
+It's a secret already exist.
+
+21
+00:01:07,260 --> 00:01:08,910
+We probably already exist.
+
+22
+00:01:10,160 --> 00:01:12,890
+And that's the cluster IP which we created and we deployment.
+
+23
+00:01:12,890 --> 00:01:15,470
+So these three things you already created previously for testing.
+
+24
+00:01:15,470 --> 00:01:18,800
+So that's really not an error for us.
+
+25
+00:01:18,800 --> 00:01:21,050
+We could have done apply instead of create.
+
+26
+00:01:21,650 --> 00:01:23,750
+So if it already exists, you don't get any error.
+
+27
+00:01:24,800 --> 00:01:25,750
+And that should be fine.
+
+28
+00:01:25,760 --> 00:01:26,450
+Let's check now.
+
+29
+00:01:26,450 --> 00:01:28,640
+Keeps you till get deploy.
+
+30
+00:01:32,640 --> 00:01:33,010
+Okay.
+
+31
+00:01:33,150 --> 00:01:35,880
+The pro app is still not up.
+
+32
+00:01:36,090 --> 00:01:40,310
+I think it's waiting for it back in port part.
+
+33
+00:01:40,380 --> 00:01:41,250
+Oh, it's still up.
+
+34
+00:01:41,430 --> 00:01:42,060
+Already up?
+
+35
+00:01:42,270 --> 00:01:43,320
+Yeah, it's up.
+
+36
+00:01:43,320 --> 00:01:44,250
+Everything is up.
+
+37
+00:01:44,760 --> 00:01:46,590
+Keep Ctrl, get SBC.
+
+38
+00:01:47,970 --> 00:01:49,970
+Get load balancer endpoint.
+
+39
+00:01:50,750 --> 00:01:53,990
+Let's copy that and let's test it.
+
+40
+00:01:58,980 --> 00:01:59,120
+Okay.
+
+41
+00:01:59,220 --> 00:02:00,330
+It's not yet up.
+
+42
+00:02:00,690 --> 00:02:02,400
+That's because I think.
+
+43
+00:02:03,840 --> 00:02:07,320
+And a load balancer would be still doing the health check.
+
+44
+00:02:09,729 --> 00:02:10,270
+Yeah.
+
+45
+00:02:11,910 --> 00:02:13,590
+Okay, health check is happening.
+
+46
+00:02:13,900 --> 00:02:14,120
+Okay.
+
+47
+00:02:14,150 --> 00:02:15,330
+It's in service now.
+
+48
+00:02:18,070 --> 00:02:22,240
+No, it took a while because our application takes some time to come up.
+
+49
+00:02:22,570 --> 00:02:27,910
+Let's log in and try admin, underscore VP, admin, underscore VP.
+
+50
+00:02:27,940 --> 00:02:30,100
+So we're getting the page from Tomcat application.
+
+51
+00:02:30,100 --> 00:02:30,970
+This is good.
+
+52
+00:02:31,000 --> 00:02:32,420
+Let's try log in.
+
+53
+00:02:32,440 --> 00:02:35,370
+If this works, then DB will be also verified.
+
+54
+00:02:35,380 --> 00:02:36,730
+Yes, we're in.
+
+55
+00:02:37,060 --> 00:02:40,690
+So we're also able to connect to the DB port.
+
+56
+00:02:41,320 --> 00:02:42,050
+Let's check it out.
+
+57
+00:02:42,080 --> 00:02:42,670
+MQ.
+
+58
+00:02:43,880 --> 00:02:48,560
+I would MQ initiated all users for mem cache.
+
+59
+00:02:48,950 --> 00:02:50,330
+Let's fetch user.
+
+60
+00:02:52,110 --> 00:02:52,830
+Back.
+
+61
+00:02:55,430 --> 00:02:56,120
+All right.
+
+62
+00:02:56,810 --> 00:02:58,790
+All the services are verified.
+
+63
+00:02:59,300 --> 00:03:05,840
+So from containerisation of a project, now we are running our containerized application on production
+
+64
+00:03:05,840 --> 00:03:07,400
+grid, Kubernetes cluster.
+

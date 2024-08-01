@@ -1,0 +1,252 @@
+1
+00:00:00,150 --> 00:00:07,170
+We have an end point and we can also put this into our GoDaddy or we can also use a Route 53.
+
+2
+00:00:08,070 --> 00:00:09,510
+Let's go to Route 53.
+
+3
+00:00:09,900 --> 00:00:11,550
+We'll put the key name entry.
+
+4
+00:00:13,240 --> 00:00:14,830
+Let's go to hostage zones.
+
+5
+00:00:17,380 --> 00:00:18,580
+That's our whole zone.
+
+6
+00:00:19,420 --> 00:00:20,710
+Let's create a record.
+
+7
+00:00:21,130 --> 00:00:22,450
+Simple record.
+
+8
+00:00:28,230 --> 00:00:29,520
+Okay, we'll see.
+
+9
+00:00:30,700 --> 00:00:30,990
+I will see.
+
+10
+00:00:31,000 --> 00:00:36,450
+Like this blog endpoint will select our load balancer.
+
+11
+00:00:41,230 --> 00:00:42,430
+It's in Ohio.
+
+12
+00:00:42,460 --> 00:00:44,470
+US is to Ohio.
+
+13
+00:00:48,530 --> 00:00:50,000
+Yeah, that's the one.
+
+14
+00:00:51,870 --> 00:00:52,720
+Record.
+
+15
+00:00:53,600 --> 00:00:56,120
+It's seen a record was taken as a record.
+
+16
+00:00:58,050 --> 00:00:59,670
+Okay, let's keep it as it is.
+
+17
+00:01:00,940 --> 00:01:03,130
+Blog dot cubed or graphy dot rn.
+
+18
+00:01:03,160 --> 00:01:04,540
+Define simple record.
+
+19
+00:01:05,850 --> 00:01:07,170
+Let's create records.
+
+20
+00:01:11,760 --> 00:01:12,060
+Okay.
+
+21
+00:01:12,090 --> 00:01:14,040
+Let's test it with this URL.
+
+22
+00:01:20,570 --> 00:01:22,240
+Yeah, that's working.
+
+23
+00:01:22,730 --> 00:01:23,690
+That's awesome.
+
+24
+00:01:23,840 --> 00:01:24,260
+You know what?
+
+25
+00:01:24,290 --> 00:01:26,120
+I'll create an account this time.
+
+26
+00:01:26,390 --> 00:01:27,380
+Create an account?
+
+27
+00:01:29,180 --> 00:01:36,050
+Username Cube Master Cube at Monster.com.
+
+28
+00:01:36,050 --> 00:01:37,970
+Some fake email address there.
+
+29
+00:01:41,780 --> 00:01:42,710
+To password.
+
+30
+00:01:42,710 --> 00:01:45,350
+It has to be think a digit.
+
+31
+00:01:46,050 --> 00:01:46,860
+Sign up.
+
+32
+00:01:49,040 --> 00:01:50,870
+Yes, we're able to also sign up.
+
+33
+00:01:51,920 --> 00:01:53,900
+This looks pretty neat.
+
+34
+00:01:56,160 --> 00:02:01,470
+So yes, we have successfully deployed our application to Kubernetes cluster.
+
+35
+00:02:02,610 --> 00:02:05,130
+By using these simple definition files.
+
+36
+00:02:07,630 --> 00:02:10,539
+We already have all the definition files in the branch.
+
+37
+00:02:11,430 --> 00:02:12,480
+Q branch.
+
+38
+00:02:12,480 --> 00:02:18,270
+So if you want, we can check that out before writing it, so you'll have an idea before writing it.
+
+39
+00:02:18,270 --> 00:02:25,920
+So Kubernetes in that you have pro hyphen app and all the definitions files are here, so you can just
+
+40
+00:02:25,920 --> 00:02:31,860
+fetch it and you can just say cubes, it'll create hyphen f dot and you know, it will just launch the
+
+41
+00:02:31,860 --> 00:02:32,880
+entire stack.
+
+42
+00:02:33,060 --> 00:02:36,900
+And I recommend you go through all the options and write your own definition files.
+
+43
+00:02:37,860 --> 00:02:39,120
+And that's pretty neat.
+
+44
+00:02:39,120 --> 00:02:40,800
+And it's time for the cleanup now.
+
+45
+00:02:40,800 --> 00:02:42,450
+So let's clean up everything.
+
+46
+00:02:43,410 --> 00:02:49,920
+Well, if you want to delete your application, you can just skip ctrl from the same directory.
+
+47
+00:02:50,310 --> 00:02:50,520
+Okay.
+
+48
+00:02:50,520 --> 00:02:58,170
+Very high definition file can skip ctrl delete hyphen f dot.
+
+49
+00:03:02,250 --> 00:03:05,160
+That should be done in in a few seconds.
+
+50
+00:03:05,940 --> 00:03:10,560
+And when you're done with your practice, you just delete the Kubernetes cluster with cops, delete
+
+51
+00:03:10,560 --> 00:03:15,060
+command, and it will anyway, is delete everything inside that, including the load balancer.
+
+52
+00:03:16,620 --> 00:03:19,140
+So I'm going to say cops delete cluster.
+
+53
+00:03:23,200 --> 00:03:24,910
+So it's going to wait for some time.
+
+54
+00:03:24,910 --> 00:03:31,690
+And, you know, by the time it will keep attempting re attempting the deletion, once you cluster is
+
+55
+00:03:31,690 --> 00:03:34,870
+deleted, you can stop your cops instance.
+
+56
+00:03:35,110 --> 00:03:35,500
+All right.
+
+57
+00:03:35,740 --> 00:03:41,350
+Keep all your dependencies and then, you know, you can launch your cluster anytime you want by running.
+
+58
+00:03:41,350 --> 00:03:42,790
+Cops create cluster command.
+
+59
+00:03:43,510 --> 00:03:43,840
+All right.
+
+60
+00:03:43,840 --> 00:03:46,290
+So that was all in this project.
+
+61
+00:03:46,300 --> 00:03:48,190
+I hope you have learned a lot.
+
+62
+00:03:48,370 --> 00:03:50,050
+Thank you very much for watching.
+
+63
+00:03:50,050 --> 00:03:51,670
+I will see you in the next one.
+
