@@ -1,0 +1,700 @@
+1
+00:00:00,210 --> 00:00:01,470
+So that did it.
+
+2
+00:00:04,270 --> 00:00:04,550
+Okay.
+
+3
+00:00:04,570 --> 00:00:07,900
+Now we need an Internet gateway for our public subnet.
+
+4
+00:00:08,050 --> 00:00:10,270
+So we'll create an Internet gateway.
+
+5
+00:00:11,380 --> 00:00:12,070
+Let's say.
+
+6
+00:00:14,030 --> 00:00:18,470
+Internet gateway set up.
+
+7
+00:00:20,560 --> 00:00:24,190
+Easy to underscore, but there's no hyphen.
+
+8
+00:00:24,190 --> 00:00:25,900
+What's taking hyphen automatically?
+
+9
+00:00:26,290 --> 00:00:30,250
+AC to underscore VPC underscore GW.
+
+10
+00:00:30,550 --> 00:00:31,930
+That's the name of the module.
+
+11
+00:00:34,660 --> 00:00:38,560
+Okay, first thing VPC ID, I can really copy it from there itself.
+
+12
+00:00:38,590 --> 00:00:39,220
+See that?
+
+13
+00:00:39,730 --> 00:00:41,740
+Because I'm already using it in the other module.
+
+14
+00:00:42,910 --> 00:00:45,560
+So in this VPC, I'm going to create this Internet gateway.
+
+15
+00:00:45,580 --> 00:00:46,990
+Again, check the documentation.
+
+16
+00:00:46,990 --> 00:00:52,480
+You have this option VPC ID in this module region also.
+
+17
+00:00:53,830 --> 00:00:54,940
+That's convenient.
+
+18
+00:00:57,030 --> 00:00:59,070
+State also see.
+
+19
+00:01:01,580 --> 00:01:06,950
+You know, you just need to put hands on few cloud models and then things will become very easy.
+
+20
+00:01:07,040 --> 00:01:08,510
+Resource tags.
+
+21
+00:01:11,690 --> 00:01:13,940
+But see, these two are very different module.
+
+22
+00:01:14,180 --> 00:01:15,350
+It was check again.
+
+23
+00:01:15,350 --> 00:01:23,420
+I know for sure that this option is available in this module, but don't copy paste options from different
+
+24
+00:01:23,420 --> 00:01:24,110
+different modules.
+
+25
+00:01:24,590 --> 00:01:28,010
+There is a chance that this option may not be available in this module.
+
+26
+00:01:29,190 --> 00:01:30,720
+These are two different models.
+
+27
+00:01:31,020 --> 00:01:33,690
+But I know for sure it's available, so I'm putting that.
+
+28
+00:01:35,450 --> 00:01:37,640
+And of course, I want to register the output.
+
+29
+00:01:37,850 --> 00:01:38,870
+I have to change this name.
+
+30
+00:01:40,490 --> 00:01:40,820
+Name it.
+
+31
+00:01:40,820 --> 00:01:44,750
+As we profile GW Internet gateway like that.
+
+32
+00:01:46,070 --> 00:01:47,390
+Register the output.
+
+33
+00:01:49,240 --> 00:01:52,120
+Registering to GW underscore out.
+
+34
+00:01:53,320 --> 00:01:55,030
+That should create an Internet gateway.
+
+35
+00:01:57,020 --> 00:01:58,370
+Let's see if this.
+
+36
+00:02:00,630 --> 00:02:01,620
+GW.
+
+37
+00:02:06,590 --> 00:02:07,340
+Control shift.
+
+38
+00:02:07,340 --> 00:02:09,229
+Key push.
+
+39
+00:02:22,070 --> 00:02:23,900
+Ansible hyphen playbook.
+
+40
+00:02:23,940 --> 00:02:25,060
+VPC setup.
+
+41
+00:02:25,070 --> 00:02:29,210
+So now this should create a new internet gateway for us.
+
+42
+00:02:30,900 --> 00:02:32,730
+By checking all our subnets.
+
+43
+00:02:34,160 --> 00:02:35,480
+Well, there is a problem.
+
+44
+00:02:37,800 --> 00:02:38,350
+Oops.
+
+45
+00:02:38,410 --> 00:02:39,810
+Oh, that's a genuine mistake.
+
+46
+00:02:41,020 --> 00:02:44,910
+Register is saying that it's not a supported parameter.
+
+47
+00:02:45,970 --> 00:02:48,350
+Okay, then I can quickly understand that Why?
+
+48
+00:02:48,370 --> 00:02:49,120
+Why it's happening.
+
+49
+00:02:49,120 --> 00:02:50,950
+It's thinking register is is an option.
+
+50
+00:02:50,950 --> 00:02:53,410
+Because I made indentation mistakes.
+
+51
+00:02:54,070 --> 00:02:57,430
+Register should be in line with the module.
+
+52
+00:02:58,150 --> 00:02:59,740
+Yeah, like that.
+
+53
+00:03:01,010 --> 00:03:02,750
+Okay, let's fix that.
+
+54
+00:03:18,860 --> 00:03:20,300
+Let's pull the changes.
+
+55
+00:03:22,450 --> 00:03:23,590
+And let's execute.
+
+56
+00:03:31,790 --> 00:03:32,630
+And there you go.
+
+57
+00:03:32,870 --> 00:03:34,240
+Internet Gateway got created.
+
+58
+00:03:34,250 --> 00:03:35,120
+Let's check it.
+
+59
+00:03:40,480 --> 00:03:40,800
+Okay.
+
+60
+00:03:40,840 --> 00:03:41,620
+That's up there.
+
+61
+00:03:41,620 --> 00:03:41,750
+Yeah.
+
+62
+00:03:41,770 --> 00:03:42,250
+Sorry.
+
+63
+00:03:42,280 --> 00:03:43,690
+Internet gateway there.
+
+64
+00:03:44,960 --> 00:03:46,700
+And you should see the Internet gateway.
+
+65
+00:03:47,730 --> 00:03:50,970
+Again, there is an existing internet gateway of default VPC.
+
+66
+00:03:51,000 --> 00:03:55,740
+Just name it as default, something that it's easily recognizable for you.
+
+67
+00:03:55,950 --> 00:03:59,040
+So you don't accidentally delete your Internet gateway.
+
+68
+00:04:00,580 --> 00:04:04,750
+And then you'll have no internet to your CD instances which are in default.
+
+69
+00:04:05,380 --> 00:04:06,730
+VPC can.
+
+70
+00:04:08,510 --> 00:04:10,360
+Okay, so we have created Internet Gateway.
+
+71
+00:04:10,370 --> 00:04:17,300
+This is for the public subnet to route traffic, but the route table will tell the public subnet to
+
+72
+00:04:17,329 --> 00:04:20,480
+go and access this internet gateway and vice versa.
+
+73
+00:04:20,600 --> 00:04:25,820
+So we need to create a route table now and map it to our public subnet.
+
+74
+00:04:26,750 --> 00:04:28,760
+Again, like the drought tables here.
+
+75
+00:04:29,330 --> 00:04:30,710
+Existing drought table.
+
+76
+00:04:30,860 --> 00:04:35,600
+And if you see it's map to it's not map to any subnet this drought table.
+
+77
+00:04:37,920 --> 00:04:38,460
+Okay.
+
+78
+00:04:38,730 --> 00:04:39,570
+Wait a second.
+
+79
+00:04:40,310 --> 00:04:41,910
+No, I'm looking at a right wrong place.
+
+80
+00:04:41,940 --> 00:04:42,630
+Yeah, There.
+
+81
+00:04:43,350 --> 00:04:45,360
+That's that table.
+
+82
+00:04:46,430 --> 00:04:53,700
+As these three subnets, or he can say this three public subnet of default VPC has this route table.
+
+83
+00:04:54,850 --> 00:04:59,500
+And it's routing the traffic, all the traffic to Internet gateway like that.
+
+84
+00:04:59,500 --> 00:05:05,620
+We need a route table for our public subnet as well so it can route the traffic to the Internet gateway.
+
+85
+00:05:05,710 --> 00:05:07,390
+So next we're going to create.
+
+86
+00:05:08,990 --> 00:05:09,920
+Roundtable.
+
+87
+00:05:12,800 --> 00:05:13,190
+Okay.
+
+88
+00:05:13,520 --> 00:05:14,400
+That's the module.
+
+89
+00:05:14,420 --> 00:05:15,370
+Easy to underscore.
+
+90
+00:05:15,380 --> 00:05:15,830
+VPC.
+
+91
+00:05:15,830 --> 00:05:17,150
+Underscore root table.
+
+92
+00:05:17,330 --> 00:05:20,990
+Again mentioning VPC, ID mentioning the region.
+
+93
+00:05:22,130 --> 00:05:23,850
+And let's also give it a tag.
+
+94
+00:05:23,950 --> 00:05:24,770
+Tags.
+
+95
+00:05:26,500 --> 00:05:27,170
+Name.
+
+96
+00:05:29,110 --> 00:05:32,920
+We profile hyphen pub arty.
+
+97
+00:05:33,940 --> 00:05:35,100
+Okay, This is just a tag.
+
+98
+00:05:35,110 --> 00:05:36,580
+You can give anything if you want.
+
+99
+00:05:37,750 --> 00:05:40,090
+Now this is for which subnets.
+
+100
+00:05:40,090 --> 00:05:45,670
+So you have to mention the subnets is an option here subnets and you have to mention the list of subnets.
+
+101
+00:05:46,540 --> 00:05:47,890
+So three public subnets.
+
+102
+00:05:48,130 --> 00:05:51,310
+So we have to give the variables here which we have only stored.
+
+103
+00:05:57,240 --> 00:05:59,460
+So Pop's about right.
+
+104
+00:06:00,450 --> 00:06:01,860
+If you want, you can print it.
+
+105
+00:06:03,160 --> 00:06:04,410
+Using debug module.
+
+106
+00:06:04,830 --> 00:06:10,140
+But there is a key in that called a subnet, which has the key caller's ID that is going to return you
+
+107
+00:06:10,140 --> 00:06:11,640
+the subnet idea of that.
+
+108
+00:06:15,750 --> 00:06:16,080
+Okay.
+
+109
+00:06:16,080 --> 00:06:16,560
+Like that.
+
+110
+00:06:16,560 --> 00:06:18,540
+Similarly for all the others.
+
+111
+00:06:22,030 --> 00:06:24,610
+The variables I'm giving in a proper format.
+
+112
+00:06:24,640 --> 00:06:27,010
+You see, it's very easy for me to use and change them.
+
+113
+00:06:27,310 --> 00:06:29,680
+Like pops up, one pops up, two pops of three.
+
+114
+00:06:30,770 --> 00:06:34,420
+I don't even need to go there and see the variable name, right?
+
+115
+00:06:34,420 --> 00:06:37,480
+Because if it's a proper format, it's easy to follow.
+
+116
+00:06:38,650 --> 00:06:38,920
+Okay.
+
+117
+00:06:38,950 --> 00:06:45,280
+So those are the subnets for the in this row, for this route, table and routes now where the traffic
+
+118
+00:06:45,280 --> 00:06:46,630
+should be rounded routes.
+
+119
+00:06:47,140 --> 00:06:50,170
+So destination.
+
+120
+00:06:51,280 --> 00:06:52,990
+So this is list of routes.
+
+121
+00:06:52,990 --> 00:06:55,630
+So it's going to be hyphen and the destination.
+
+122
+00:06:55,630 --> 00:06:56,080
+Right.
+
+123
+00:06:56,110 --> 00:06:58,840
+0.0.0.0/0.
+
+124
+00:06:58,840 --> 00:07:03,220
+So all the traffic is routed to.
+
+125
+00:07:05,120 --> 00:07:05,930
+Gateway.
+
+126
+00:07:06,110 --> 00:07:08,510
+So option Gateway underscore ID.
+
+127
+00:07:12,350 --> 00:07:17,600
+So the internet gateway guide so ICW dot underscore out.
+
+128
+00:07:20,140 --> 00:07:21,940
+Dot gateway.
+
+129
+00:07:23,300 --> 00:07:27,710
+Underscore ID and store its output.
+
+130
+00:07:27,740 --> 00:07:31,380
+Make sure registers in the proper indentation.
+
+131
+00:07:31,520 --> 00:07:32,480
+Register.
+
+132
+00:07:33,520 --> 00:07:34,230
+Bob.
+
+133
+00:07:34,730 --> 00:07:35,500
+Artie!
+
+134
+00:07:37,880 --> 00:07:39,350
+Underscore out.
+
+135
+00:07:40,350 --> 00:07:45,000
+I'll just see small out if that's looking a little complicated.
+
+136
+00:07:45,000 --> 00:07:46,460
+You're not sure about the option?
+
+137
+00:07:46,470 --> 00:07:48,300
+Just checking the documentation.
+
+138
+00:07:50,270 --> 00:07:51,050
+VPC.
+
+139
+00:07:51,080 --> 00:07:53,540
+Easy to underscore VPC underscore table.
+
+140
+00:07:56,800 --> 00:08:00,040
+Kemp, You can see all the options that I have used.
+
+141
+00:08:00,860 --> 00:08:01,720
+Routes.
+
+142
+00:08:01,970 --> 00:08:03,750
+State subnets.
+
+143
+00:08:03,840 --> 00:08:04,310
+Right.
+
+144
+00:08:04,730 --> 00:08:09,410
+You can see state an array of subnets to add to this route table.
+
+145
+00:08:09,410 --> 00:08:10,820
+Write the list array.
+
+146
+00:08:11,180 --> 00:08:13,430
+And you can see the example very easily.
+
+147
+00:08:14,650 --> 00:08:18,650
+Now, documentation is the king.
+
+148
+00:08:19,070 --> 00:08:22,160
+And you follow the king generally.
+
+149
+00:08:22,520 --> 00:08:23,000
+Okay.
+
+150
+00:08:23,120 --> 00:08:24,170
+Let's go back.
+
+151
+00:08:25,900 --> 00:08:27,270
+That's going to create a round table.
+
+152
+00:08:27,280 --> 00:08:29,560
+Let's see if this committed.
+
+153
+00:08:31,820 --> 00:08:35,960
+Routing table for public subnet.
+
+154
+00:08:37,360 --> 00:08:40,030
+Commit and let's push.
+
+155
+00:08:43,159 --> 00:08:45,800
+Let's just check the indentation once again.
+
+156
+00:08:51,120 --> 00:08:51,510
+Yeah.
+
+157
+00:08:51,840 --> 00:08:52,140
+Okay.
+
+158
+00:08:52,170 --> 00:08:53,010
+Seems good.
+
+159
+00:08:53,820 --> 00:08:54,930
+Let's go get pull.
+
+160
+00:08:57,280 --> 00:08:58,750
+Let's execute the playbook.
+
+161
+00:09:02,130 --> 00:09:03,300
+So everything is done.
+
+162
+00:09:03,300 --> 00:09:08,670
+We have it is now going to create a route table map all our public subnet with it.
+
+163
+00:09:09,360 --> 00:09:12,510
+And we'll make sure the traffic is forwarded to Internet Gateway.
+
+164
+00:09:15,650 --> 00:09:17,220
+Now that's a success.
+
+165
+00:09:17,230 --> 00:09:18,220
+Let's see that.
+
+166
+00:09:21,770 --> 00:09:23,120
+Okay, let's refresh this.
+
+167
+00:09:25,260 --> 00:09:25,680
+Yeah.
+
+168
+00:09:26,220 --> 00:09:27,360
+So there you go.
+
+169
+00:09:27,540 --> 00:09:28,200
+October.
+
+170
+00:09:30,290 --> 00:09:33,350
+So Route 0.00/0.
+
+171
+00:09:33,380 --> 00:09:42,240
+Forwarding the traffic to our Internet Gateway Subnet Association three public subnets are mapped out.
+
+172
+00:09:42,270 --> 00:09:46,160
+You can go to the subnets and from there you can see this round table, right?
+
+173
+00:09:47,320 --> 00:09:49,480
+And this existing, this is default.
+
+174
+00:09:49,930 --> 00:09:52,140
+So we name it as default underscore.
+
+175
+00:09:52,520 --> 00:09:56,050
+And so I don't accidentally make any change to it.
+

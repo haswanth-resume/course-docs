@@ -1,0 +1,544 @@
+1
+00:00:00,710 --> 00:00:06,650
+Okay, so now let's get started and started with our VPC playbook.
+
+2
+00:00:06,890 --> 00:00:08,690
+So I'm going to say new.
+
+3
+00:00:10,260 --> 00:00:14,370
+And I'll just see file, just give an extension, that's all.
+
+4
+00:00:14,400 --> 00:00:18,700
+So the playbook, I'm going to name it as VPC setup dot yaml.
+
+5
+00:00:20,630 --> 00:00:20,960
+Yeah.
+
+6
+00:00:20,990 --> 00:00:24,000
+You see, it's just see reading it there as why am I look.
+
+7
+00:00:24,110 --> 00:00:25,940
+So it's going to understand now yaml.
+
+8
+00:00:26,510 --> 00:00:30,140
+So for host on local host.
+
+9
+00:00:32,290 --> 00:00:36,640
+Connection and all this from our warmup exercises, Right.
+
+10
+00:00:37,210 --> 00:00:38,350
+Connection local.
+
+11
+00:00:39,390 --> 00:00:40,680
+Gather facts.
+
+12
+00:00:42,570 --> 00:00:43,050
+False.
+
+13
+00:00:43,050 --> 00:00:45,060
+I don't want to get together any facts.
+
+14
+00:00:45,720 --> 00:00:46,680
+Tasks.
+
+15
+00:00:48,660 --> 00:00:52,590
+For Starsk, We're going to import our variables files because we're going to use that.
+
+16
+00:00:53,190 --> 00:01:00,720
+So let's name that task and say import VPC variables.
+
+17
+00:01:02,750 --> 00:01:03,060
+Okay.
+
+18
+00:01:03,110 --> 00:01:04,290
+You see, I hit enter.
+
+19
+00:01:04,330 --> 00:01:06,860
+It automatically goes in the same line, Right?
+
+20
+00:01:06,990 --> 00:01:08,570
+So that's the benefit of it is.
+
+21
+00:01:09,840 --> 00:01:18,390
+So we're going to use include underscore versus module and we'll mention the path of our variables or
+
+22
+00:01:18,540 --> 00:01:18,870
+better.
+
+23
+00:01:18,870 --> 00:01:21,300
+I was thinking to put variables into a vast directory.
+
+24
+00:01:21,300 --> 00:01:22,050
+So you know what?
+
+25
+00:01:22,050 --> 00:01:23,700
+Let's create a directory here.
+
+26
+00:01:27,640 --> 00:01:31,510
+New directory, I will create a directory named as VARs.
+
+27
+00:01:32,900 --> 00:01:33,710
+In this directory.
+
+28
+00:01:33,710 --> 00:01:35,480
+We'll put our variables file.
+
+29
+00:01:37,000 --> 00:01:38,230
+Okay, let's move it.
+
+30
+00:01:39,550 --> 00:01:40,660
+Three factor.
+
+31
+00:01:44,600 --> 00:01:44,960
+Yeah.
+
+32
+00:01:44,960 --> 00:01:46,790
+This is much better, actually.
+
+33
+00:01:47,820 --> 00:01:48,840
+So do that.
+
+34
+00:01:50,120 --> 00:01:54,950
+Or it doesn't matter if you keep it in the same level, but just convenience.
+
+35
+00:01:55,790 --> 00:01:57,230
+And also good practice.
+
+36
+00:01:58,350 --> 00:02:00,750
+And whether you have mentioned just mentioned the path.
+
+37
+00:02:00,750 --> 00:02:05,250
+So I'm going to say I have put it into verse VPC, underscore a set up.
+
+38
+00:02:05,250 --> 00:02:07,050
+That's my variable file name.
+
+39
+00:02:08,970 --> 00:02:09,360
+Yeah.
+
+40
+00:02:11,050 --> 00:02:11,290
+Okay.
+
+41
+00:02:11,320 --> 00:02:12,190
+That's first thing.
+
+42
+00:02:14,230 --> 00:02:14,400
+Okay.
+
+43
+00:02:14,420 --> 00:02:17,560
+And I'm going to mention first task to create the VPC range.
+
+44
+00:02:20,110 --> 00:02:22,840
+Let's create the profile.
+
+45
+00:02:22,870 --> 00:02:23,740
+VPC.
+
+46
+00:02:24,850 --> 00:02:27,950
+The model we have is easy to underscore.
+
+47
+00:02:27,970 --> 00:02:28,840
+VPC.
+
+48
+00:02:28,960 --> 00:02:30,200
+Underscore net.
+
+49
+00:02:30,220 --> 00:02:31,480
+That's the module name.
+
+50
+00:02:31,480 --> 00:02:33,400
+And you have several options with that.
+
+51
+00:02:33,550 --> 00:02:35,770
+First, the name of the VPC.
+
+52
+00:02:38,260 --> 00:02:43,210
+And if you're going to access our variable, we have the variable, right?
+
+53
+00:02:43,300 --> 00:02:48,700
+VPC underscore name that will mention, yes, this is much better.
+
+54
+00:02:50,070 --> 00:02:52,200
+CIDR underscore block.
+
+55
+00:03:00,370 --> 00:03:04,080
+So let's access the variable name VPC CIDR.
+
+56
+00:03:04,130 --> 00:03:04,690
+Right.
+
+57
+00:03:07,190 --> 00:03:12,380
+Now, if you're not so much fan of using variables and you just mentioned that static value and you're
+
+58
+00:03:12,380 --> 00:03:18,170
+wondering why not directly give the names instead of giving the variables and then having it in extra
+
+59
+00:03:18,170 --> 00:03:19,220
+variable files?
+
+60
+00:03:19,580 --> 00:03:24,230
+Well, it's because so you can reuse when I'm going to give you the same code.
+
+61
+00:03:24,260 --> 00:03:26,090
+You'll understand the difference.
+
+62
+00:03:26,420 --> 00:03:28,280
+You don't need to edit the playbook.
+
+63
+00:03:28,310 --> 00:03:30,410
+You just need to change the variable value.
+
+64
+00:03:30,410 --> 00:03:31,190
+And that's it.
+
+65
+00:03:31,400 --> 00:03:31,830
+You're done.
+
+66
+00:03:31,850 --> 00:03:32,900
+You can execute your playbook.
+
+67
+00:03:33,290 --> 00:03:34,730
+So it makes the code reusable.
+
+68
+00:03:34,730 --> 00:03:37,250
+So you try to use variable as much as you can.
+
+69
+00:03:38,750 --> 00:03:40,580
+Region will mention.
+
+70
+00:03:41,240 --> 00:03:45,260
+So we have defined the variable as just region.
+
+71
+00:03:46,910 --> 00:03:52,220
+A few few other options that I learned which will need DNS support.
+
+72
+00:03:52,230 --> 00:03:52,680
+Yes.
+
+73
+00:03:52,680 --> 00:03:53,610
+DNS hostname.
+
+74
+00:03:53,610 --> 00:03:53,970
+Yes.
+
+75
+00:03:53,970 --> 00:03:56,280
+Tenancy default, state and present.
+
+76
+00:03:56,280 --> 00:04:00,300
+Anyways, the state is by default as present.
+
+77
+00:04:00,960 --> 00:04:06,570
+So this will create our VPC, but as from the warmup exercise, remember we have to store the output.
+
+78
+00:04:07,750 --> 00:04:08,060
+Right.
+
+79
+00:04:08,070 --> 00:04:10,860
+We're going to use let's say variable called VPC out.
+
+80
+00:04:12,070 --> 00:04:14,410
+It's going to store the output of the execution.
+
+81
+00:04:14,590 --> 00:04:21,670
+If you have doubt in these options and the name of the playbook, just go to Ansible documentation.
+
+82
+00:04:25,370 --> 00:04:25,560
+Yeah.
+
+83
+00:04:25,620 --> 00:04:26,780
+Let's go back here.
+
+84
+00:04:27,470 --> 00:04:28,190
+Go back.
+
+85
+00:04:30,470 --> 00:04:34,610
+VPC underscore net configure a virtual private cloud.
+
+86
+00:04:34,610 --> 00:04:36,530
+So check in the documentation.
+
+87
+00:04:36,530 --> 00:04:42,270
+You have the dependencies, mentioned all the options, mentioned DNS support, DNS host name camp.
+
+88
+00:04:43,430 --> 00:04:45,320
+And you'll have an example as well.
+
+89
+00:04:46,820 --> 00:04:52,250
+So very conveniently you can access the information and as per your requirement, you can change the
+
+90
+00:04:52,250 --> 00:04:53,480
+options if you want.
+
+91
+00:04:54,470 --> 00:04:56,480
+So keep that in mind.
+
+92
+00:04:56,660 --> 00:05:02,120
+All the modules that I'm going to use, you can check in the documentation, see all the options, and
+
+93
+00:05:02,120 --> 00:05:06,020
+that's how we're going to execute this entire project.
+
+94
+00:05:06,560 --> 00:05:12,170
+If you want, you can simultaneously take notes or screenshots of modules, or then you can make a list
+
+95
+00:05:12,170 --> 00:05:13,550
+of modules that you've used.
+
+96
+00:05:13,760 --> 00:05:15,910
+Making the list of modules should be more than enough.
+
+97
+00:05:15,920 --> 00:05:19,550
+You don't need to really do anything because documentation is online available.
+
+98
+00:05:19,550 --> 00:05:23,330
+You can just search for the module and you can see everything with examples.
+
+99
+00:05:24,080 --> 00:05:25,790
+Let's do this first here.
+
+100
+00:05:26,030 --> 00:05:28,340
+We'll do an execution, then we'll come back.
+
+101
+00:05:28,580 --> 00:05:30,050
+So I'm going to save it.
+
+102
+00:05:30,050 --> 00:05:31,730
+Control this control key.
+
+103
+00:05:32,550 --> 00:05:36,100
+And I'll see VPC set up.
+
+104
+00:05:36,120 --> 00:05:37,500
+That's the commit message.
+
+105
+00:05:39,970 --> 00:05:41,280
+And I'm going to push it.
+
+106
+00:05:41,290 --> 00:05:41,740
+Control.
+
+107
+00:05:41,740 --> 00:05:42,580
+Shift key.
+
+108
+00:05:43,090 --> 00:05:44,140
+Push it to GitHub.
+
+109
+00:05:47,770 --> 00:05:48,190
+Okay.
+
+110
+00:05:48,760 --> 00:05:50,290
+And let's do it.
+
+111
+00:05:50,320 --> 00:05:50,980
+Pull.
+
+112
+00:05:53,740 --> 00:05:55,210
+Things are going to change now.
+
+113
+00:05:55,420 --> 00:05:58,480
+You'll have a variable directory and a VPC setup playbook.
+
+114
+00:06:01,270 --> 00:06:02,030
+Yes.
+
+115
+00:06:02,050 --> 00:06:02,370
+Okay.
+
+116
+00:06:02,380 --> 00:06:03,540
+Let's do an execution now.
+
+117
+00:06:03,550 --> 00:06:06,190
+Ansible hyphen playbook.
+
+118
+00:06:07,080 --> 00:06:08,280
+VPC set up.
+
+119
+00:06:08,700 --> 00:06:10,650
+If everything is good, this will work.
+
+120
+00:06:13,910 --> 00:06:15,020
+And that worked.
+
+121
+00:06:15,530 --> 00:06:16,940
+So it should have created a VPC.
+
+122
+00:06:16,970 --> 00:06:19,850
+Let's go and check in our console.
+
+123
+00:06:21,320 --> 00:06:22,640
+So you go to.
+
+124
+00:06:23,560 --> 00:06:24,810
+VPC.
+
+125
+00:06:27,600 --> 00:06:30,330
+Okay, so your VPC is.
+
+126
+00:06:30,510 --> 00:06:32,910
+So we have our VPC created.
+
+127
+00:06:32,910 --> 00:06:34,860
+We profile, underscore VPC.
+
+128
+00:06:37,110 --> 00:06:37,230
+Yeah.
+
+129
+00:06:37,350 --> 00:06:41,760
+And now we can we can create subnets and route tables and all those things in that.
+
+130
+00:06:41,910 --> 00:06:43,180
+That's the default VPC.
+
+131
+00:06:43,200 --> 00:06:45,270
+I recommend you just give a name.
+
+132
+00:06:45,270 --> 00:06:51,720
+Clearly default because you know, when you're doing this exercise you will tend to delete VPC.
+
+133
+00:06:51,750 --> 00:06:56,340
+Be careful, don't delete your default VPC or else you'll you'll be in a big mess.
+
+134
+00:06:56,700 --> 00:06:57,760
+Be careful with that.
+
+135
+00:06:57,780 --> 00:06:59,550
+Don't delete your default VPC.
+
+136
+00:07:01,750 --> 00:07:04,810
+So only play with your own VPC that you have created.
+

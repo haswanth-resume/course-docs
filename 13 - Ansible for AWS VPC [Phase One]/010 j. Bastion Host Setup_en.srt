@@ -1,0 +1,852 @@
+1
+00:00:00,090 --> 00:00:02,490
+So now let's move to our next task.
+
+2
+00:00:04,120 --> 00:00:07,600
+Which is setting up Bastion host and we're going to write a new playbook for that.
+
+3
+00:00:07,600 --> 00:00:11,350
+So we'll say new file will limit us.
+
+4
+00:00:11,350 --> 00:00:12,550
+Bastion.
+
+5
+00:00:13,640 --> 00:00:15,470
+Hyphen instance.
+
+6
+00:00:15,830 --> 00:00:17,120
+Dot wireman.
+
+7
+00:00:22,230 --> 00:00:23,880
+Okay, There's a mistake in this file.
+
+8
+00:00:23,910 --> 00:00:25,320
+Let's delete this file.
+
+9
+00:00:26,040 --> 00:00:26,910
+Wrong name.
+
+10
+00:00:37,340 --> 00:00:37,660
+Yeah.
+
+11
+00:00:37,670 --> 00:00:38,450
+This is good.
+
+12
+00:00:40,750 --> 00:00:44,050
+Okay, so the global settings and then tasks.
+
+13
+00:00:45,400 --> 00:00:47,560
+First we have to include the variables.
+
+14
+00:00:48,400 --> 00:00:52,120
+So bastion host setup, I should give it here.
+
+15
+00:00:55,040 --> 00:01:02,540
+So Bastian set up this variable file, which is having the image of the Bastion host region and my IP
+
+16
+00:01:02,540 --> 00:01:03,710
+for the security group.
+
+17
+00:01:06,720 --> 00:01:10,050
+The other variable file also will include that we have just created.
+
+18
+00:01:12,550 --> 00:01:15,490
+Well, this file does not exist in our machine.
+
+19
+00:01:15,490 --> 00:01:22,420
+We created in the Ansible control machine, and we have to either commit it from there or we have to
+
+20
+00:01:22,420 --> 00:01:23,620
+create that file over here.
+
+21
+00:01:23,620 --> 00:01:25,720
+So we will come at it from there.
+
+22
+00:01:28,280 --> 00:01:30,270
+Okay, so in our repository.
+
+23
+00:01:31,990 --> 00:01:33,070
+They did not get it right.
+
+24
+00:01:33,070 --> 00:01:36,640
+So whatever changes we make, we can push it back.
+
+25
+00:01:38,120 --> 00:01:38,780
+To GitHub.
+
+26
+00:01:38,780 --> 00:01:42,560
+So we've created a new file over here, so we're going to commit that.
+
+27
+00:01:52,040 --> 00:01:54,620
+So I need to set a global name.
+
+28
+00:01:55,920 --> 00:01:58,230
+And the global email.
+
+29
+00:02:17,060 --> 00:02:18,140
+And then we'll commit.
+
+30
+00:02:23,580 --> 00:02:24,360
+And we'll push it.
+
+31
+00:02:24,360 --> 00:02:25,350
+Get push.
+
+32
+00:02:28,960 --> 00:02:31,180
+We have pushed the change now from our intelligence.
+
+33
+00:02:31,210 --> 00:02:32,620
+Let's pull that change.
+
+34
+00:02:39,480 --> 00:02:39,670
+Okay.
+
+35
+00:02:39,820 --> 00:02:42,000
+So I pulled it and we have.
+
+36
+00:02:44,160 --> 00:02:45,240
+The output file.
+
+37
+00:02:45,690 --> 00:02:51,090
+Now if you're using GitHub public repository, which ideally you'll not use in projects.
+
+38
+00:02:52,030 --> 00:02:54,280
+But keep in mind, this is very valuable information.
+
+39
+00:02:54,280 --> 00:02:57,670
+It can turn very valuable to people who want to exploit also.
+
+40
+00:02:57,670 --> 00:03:02,200
+So be careful and don't put it in public repository in your real projects.
+
+41
+00:03:02,560 --> 00:03:03,940
+Okay, let's fall back.
+
+42
+00:03:08,720 --> 00:03:13,520
+So before creating the Bastion host before launching the instance, we'll have a key pair and we'll
+
+43
+00:03:13,520 --> 00:03:14,780
+create a security group.
+
+44
+00:03:16,210 --> 00:03:18,340
+It's the same thing from our warmup exercise.
+
+45
+00:03:18,790 --> 00:03:19,870
+We create a key.
+
+46
+00:03:20,170 --> 00:03:25,630
+We store the output and we save the private key into this file.
+
+47
+00:03:26,600 --> 00:03:28,970
+Only if the file is created.
+
+48
+00:03:31,330 --> 00:03:34,450
+Next, we'll create a security group for our Bastion host.
+
+49
+00:03:35,500 --> 00:03:43,870
+So let's name our task Cricket Security group for Bastion Host.
+
+50
+00:03:45,740 --> 00:03:47,850
+And the model is easy to underscore.
+
+51
+00:03:47,870 --> 00:03:48,620
+Group.
+
+52
+00:03:51,830 --> 00:03:58,400
+So name of the security group, some description over it and the region which it is taking it from this
+
+53
+00:03:58,400 --> 00:03:58,910
+file.
+
+54
+00:03:59,180 --> 00:04:01,610
+Sorry, Bastion setup file.
+
+55
+00:04:02,510 --> 00:04:03,900
+That's where the region is mentioned.
+
+56
+00:04:03,920 --> 00:04:04,880
+That variable.
+
+57
+00:04:07,470 --> 00:04:12,510
+But the other information we have to mention, the VPC ID, where we want to create the security group.
+
+58
+00:04:12,630 --> 00:04:16,079
+So we definitely don't want it to be in a default VPC.
+
+59
+00:04:16,110 --> 00:04:21,540
+We want it to be in a VPC that we have created and we have all that information in output VARs file.
+
+60
+00:04:22,450 --> 00:04:25,120
+So we can say VPC underscore ID.
+
+61
+00:04:30,620 --> 00:04:33,530
+And let's get that variable, the ID.
+
+62
+00:04:38,480 --> 00:04:42,530
+So as I told you, this information all will turn very, very useful.
+
+63
+00:04:43,070 --> 00:04:48,030
+Now, let's give rules to the security group so you can just set rules and you can give a list of rules.
+
+64
+00:04:48,050 --> 00:04:50,610
+We have just only one rule in this 22.
+
+65
+00:04:50,630 --> 00:04:54,830
+From my IP, again, my IP variable is in.
+
+66
+00:04:56,560 --> 00:04:57,310
+Here.
+
+67
+00:04:58,310 --> 00:05:00,530
+So you better get your IP.
+
+68
+00:05:00,560 --> 00:05:01,730
+Put it over there.
+
+69
+00:05:02,640 --> 00:05:04,590
+And don't forget to use slash 32.
+
+70
+00:05:07,560 --> 00:05:13,830
+So this should create the security group, but you want to store the output into a variable again.
+
+71
+00:05:15,150 --> 00:05:19,320
+So in the next task where we launch easy to instance, we'll refer this.
+
+72
+00:05:20,200 --> 00:05:21,430
+As the security group.
+
+73
+00:05:25,750 --> 00:05:26,000
+Okay.
+
+74
+00:05:26,020 --> 00:05:32,230
+Now let's create the instance creating Bastion host.
+
+75
+00:05:32,260 --> 00:05:33,250
+You can see like that.
+
+76
+00:05:36,010 --> 00:05:37,480
+Module is easy to.
+
+77
+00:05:39,550 --> 00:05:41,670
+Default key underscore name.
+
+78
+00:05:42,210 --> 00:05:43,230
+That's the option.
+
+79
+00:05:43,230 --> 00:05:46,120
+So you can use the same name as you create it for the key.
+
+80
+00:05:46,140 --> 00:05:51,050
+You can either access it from the variable also, or you can just give the name as you have given in
+
+81
+00:05:51,060 --> 00:05:51,900
+your playbook.
+
+82
+00:05:54,090 --> 00:05:54,800
+Other options.
+
+83
+00:05:54,810 --> 00:05:56,070
+Instance type data.
+
+84
+00:05:56,070 --> 00:05:57,420
+Micro image.
+
+85
+00:05:58,300 --> 00:06:03,220
+Bastion underscore AMI again, it's already mentioned over here.
+
+86
+00:06:04,210 --> 00:06:04,540
+Wait.
+
+87
+00:06:04,540 --> 00:06:04,810
+Yes.
+
+88
+00:06:04,810 --> 00:06:07,000
+We'll wait until this becomes up and running.
+
+89
+00:06:07,000 --> 00:06:10,840
+This becomes healthy and maximum we're going to wait for 300 seconds.
+
+90
+00:06:11,440 --> 00:06:11,680
+Okay.
+
+91
+00:06:11,710 --> 00:06:14,650
+Now, the important part over here, if you're going to give tags.
+
+92
+00:06:16,830 --> 00:06:21,040
+Okay, so we're using three tags and here it's instance underscore tags.
+
+93
+00:06:21,040 --> 00:06:23,050
+That's the option, not resource tags.
+
+94
+00:06:24,470 --> 00:06:26,330
+Name, project and owner.
+
+95
+00:06:26,930 --> 00:06:30,170
+Now, if I execute this playbook, it will create easy.
+
+96
+00:06:30,170 --> 00:06:33,920
+For instance, if I execute it again, again, it will create a pseudo instance.
+
+97
+00:06:33,920 --> 00:06:36,380
+So this is not important by default.
+
+98
+00:06:36,380 --> 00:06:37,730
+So you have to make it item potent.
+
+99
+00:06:37,730 --> 00:06:42,380
+And the way we do it first, you give the tag and you give the number of instance that you want.
+
+100
+00:06:42,560 --> 00:06:43,310
+Like I want.
+
+101
+00:06:43,310 --> 00:06:44,630
+Exactly.
+
+102
+00:06:46,770 --> 00:06:49,200
+Exact count one, only one instance.
+
+103
+00:06:49,980 --> 00:06:53,280
+And then we're going to give an option count, underscore, tag.
+
+104
+00:06:55,870 --> 00:06:59,440
+So you give the same tags over their count tag.
+
+105
+00:06:59,560 --> 00:07:01,120
+Now, what this will do is.
+
+106
+00:07:03,890 --> 00:07:06,650
+When you execute force, it will check whether this count.
+
+107
+00:07:07,510 --> 00:07:08,830
+Of tax exist or not.
+
+108
+00:07:08,830 --> 00:07:12,040
+If it does not exist, it will create the instance next time.
+
+109
+00:07:12,040 --> 00:07:14,290
+When you run the playbook, it will c count the tag.
+
+110
+00:07:14,290 --> 00:07:17,830
+It already exists, so it will not create the instance.
+
+111
+00:07:18,130 --> 00:07:19,870
+So that should make it important.
+
+112
+00:07:19,870 --> 00:07:21,490
+Also exact count one.
+
+113
+00:07:21,490 --> 00:07:23,650
+So this tag is going to count once.
+
+114
+00:07:23,650 --> 00:07:28,060
+If you have this tag one time, then it will not launch the instance.
+
+115
+00:07:28,360 --> 00:07:31,990
+So you have to be careful at this know such kind of places.
+
+116
+00:07:33,330 --> 00:07:36,750
+Group underscore ID so security group ID.
+
+117
+00:07:39,720 --> 00:07:43,770
+So you already stored that into a variable bastion underscore out.
+
+118
+00:07:45,940 --> 00:07:49,810
+And it has a key close group underscore ID.
+
+119
+00:07:51,030 --> 00:07:55,170
+Again, when you use any task, don't assume it will be ID or group ID.
+
+120
+00:07:55,200 --> 00:08:00,420
+Print it by using debug module and see whether whether it exists or not.
+
+121
+00:08:01,410 --> 00:08:05,010
+Finally, let's register all this information into a variable.
+
+122
+00:08:05,010 --> 00:08:07,290
+If you want to use, you can use it later.
+
+123
+00:08:10,090 --> 00:08:10,480
+All right.
+
+124
+00:08:10,480 --> 00:08:11,950
+So that should be done.
+
+125
+00:08:12,340 --> 00:08:14,530
+Let's just verify indentation once again.
+
+126
+00:08:15,250 --> 00:08:17,200
+Now, at a glance, it seems good.
+
+127
+00:08:17,380 --> 00:08:19,180
+Let's try executed.
+
+128
+00:08:20,620 --> 00:08:21,160
+Not forced.
+
+129
+00:08:21,160 --> 00:08:22,240
+We have to commit it.
+
+130
+00:08:39,440 --> 00:08:39,740
+Okay.
+
+131
+00:08:39,770 --> 00:08:40,429
+Let's pushed.
+
+132
+00:08:41,510 --> 00:08:44,570
+Let's go to our instance and let's pull it.
+
+133
+00:08:53,380 --> 00:08:53,800
+All right.
+
+134
+00:08:53,800 --> 00:09:01,300
+So a few tasks, including few variables creating key pair, storing the private key, creating security
+
+135
+00:09:01,300 --> 00:09:04,090
+group, and then finally creating the instance.
+
+136
+00:09:06,090 --> 00:09:08,340
+Except there is one problem in this.
+
+137
+00:09:08,550 --> 00:09:09,960
+I hope you notice that.
+
+138
+00:09:11,240 --> 00:09:11,870
+We discussed.
+
+139
+00:09:11,870 --> 00:09:19,190
+We are going to create our bastion host in a public subnet we just mentioned here the group id we have
+
+140
+00:09:19,190 --> 00:09:20,570
+not mentioned here.
+
+141
+00:09:21,430 --> 00:09:25,510
+The CBC subnet it in which subnet do you want to create it?
+
+142
+00:09:26,920 --> 00:09:28,030
+So let's go back.
+
+143
+00:09:31,110 --> 00:09:31,770
+VPC.
+
+144
+00:09:31,800 --> 00:09:33,800
+Underscore subnet.
+
+145
+00:09:33,810 --> 00:09:35,400
+Underscore ID.
+
+146
+00:09:40,940 --> 00:09:43,430
+Okay, so let's find out the variable.
+
+147
+00:09:44,480 --> 00:09:48,290
+It's an output verse and let's say you want to create it in this subnet.
+
+148
+00:09:48,290 --> 00:09:49,640
+First public subnet.
+
+149
+00:09:50,290 --> 00:09:51,350
+So copy the name.
+
+150
+00:09:55,410 --> 00:09:58,450
+So you see that output vase file really turned out very helpful.
+
+151
+00:09:58,470 --> 00:10:01,110
+We got VPC ID from it.
+
+152
+00:10:01,500 --> 00:10:02,880
+You got region from it.
+
+153
+00:10:02,910 --> 00:10:04,920
+We got public subnet ID from it.
+
+154
+00:10:05,730 --> 00:10:06,720
+Let's see it.
+
+155
+00:10:06,990 --> 00:10:07,830
+It's committed.
+
+156
+00:10:21,610 --> 00:10:21,720
+Okay.
+
+157
+00:10:21,800 --> 00:10:23,770
+I think I need to wait for a second or so.
+
+158
+00:10:24,560 --> 00:10:24,940
+Slow down.
+
+159
+00:10:24,940 --> 00:10:25,790
+So once again.
+
+160
+00:10:25,810 --> 00:10:26,230
+Yeah.
+
+161
+00:10:31,430 --> 00:10:32,450
+Let's test it.
+
+162
+00:10:32,450 --> 00:10:34,160
+And simple hyphen playbook.
+
+163
+00:10:38,880 --> 00:10:39,200
+Okay.
+
+164
+00:10:39,300 --> 00:10:40,440
+There's the mistake.
+
+165
+00:10:41,340 --> 00:10:41,910
+Name?
+
+166
+00:10:41,910 --> 00:10:42,630
+Colon.
+
+167
+00:10:47,690 --> 00:10:49,010
+I'll keep the same comment.
+
+168
+00:11:07,060 --> 00:11:08,320
+Started the execution.
+
+169
+00:11:10,170 --> 00:11:10,530
+Okay.
+
+170
+00:11:10,560 --> 00:11:12,630
+That's because of the register.
+
+171
+00:11:12,900 --> 00:11:14,940
+So that is a very easy mistake to make.
+
+172
+00:11:14,940 --> 00:11:15,150
+Right.
+
+173
+00:11:15,150 --> 00:11:18,030
+But there are actually two levels of indentation here, right.
+
+174
+00:11:18,480 --> 00:11:21,630
+So rules this already indentation.
+
+175
+00:11:22,020 --> 00:11:22,440
+All right.
+
+176
+00:11:22,590 --> 00:11:24,660
+So fix that.
+
+177
+00:11:25,380 --> 00:11:27,390
+Let's see what committed.
+
+178
+00:11:39,870 --> 00:11:41,070
+Okay, let's pull it.
+
+179
+00:11:51,260 --> 00:11:55,860
+Okay, So the execution completed and I was also waiting for a few minutes for it to become stable.
+
+180
+00:11:55,860 --> 00:11:56,970
+The instance will be stable.
+
+181
+00:11:56,970 --> 00:12:00,330
+Let's go to our management console.
+
+182
+00:12:00,990 --> 00:12:01,580
+Let's go to e.
+
+183
+00:12:01,590 --> 00:12:02,400
+C to.
+
+184
+00:12:08,160 --> 00:12:10,260
+Okay, so we have the Bastion host.
+
+185
+00:12:10,590 --> 00:12:11,400
+Let's see.
+
+186
+00:12:12,570 --> 00:12:14,100
+In the networking section.
+
+187
+00:12:15,570 --> 00:12:18,540
+That's a VPC ID, that's our subnet.
+
+188
+00:12:18,720 --> 00:12:24,270
+Now, we did not mention VPC ID, but we do mention subnet ID and that of course belongs to that VPC.
+
+189
+00:12:24,300 --> 00:12:26,130
+So it's got created.
+
+190
+00:12:26,160 --> 00:12:27,840
+It should have a public IP.
+
+191
+00:12:28,050 --> 00:12:31,890
+Yes, and we can log into it, but the login key is in the control machine.
+
+192
+00:12:31,890 --> 00:12:32,520
+So.
+
+193
+00:12:33,780 --> 00:12:35,250
+Let's just do a cat.
+
+194
+00:12:38,630 --> 00:12:39,470
+Some key.
+
+195
+00:12:41,220 --> 00:12:45,870
+Come out and I'm going to create a file.
+
+196
+00:12:49,030 --> 00:12:51,450
+Been downloaded directly with the same name.
+
+197
+00:12:52,410 --> 00:12:57,030
+You can use different name also and will copy all this content.
+
+198
+00:12:57,420 --> 00:12:58,620
+Private Key content.
+
+199
+00:13:01,760 --> 00:13:01,960
+Let's see.
+
+200
+00:13:02,020 --> 00:13:02,740
+Gender.
+
+201
+00:13:05,010 --> 00:13:07,170
+Or if you want, you can just do an SEP.
+
+202
+00:13:07,230 --> 00:13:09,330
+But this is an easier option.
+
+203
+00:13:09,720 --> 00:13:11,250
+Now I have my key.
+
+204
+00:13:12,060 --> 00:13:18,870
+Log into my bastion host and the user is easy to hyphen user because it's an Amazon Linux.
+
+205
+00:13:20,250 --> 00:13:22,080
+Oh, let's get the public IP again.
+
+206
+00:13:28,460 --> 00:13:32,900
+So if you're able to log in, if you are able to log in, then the public subnets are verified.
+
+207
+00:13:33,320 --> 00:13:34,700
+Yes, we're able to log in.
+
+208
+00:13:34,700 --> 00:13:36,320
+So public subnets are verified.
+
+209
+00:13:36,620 --> 00:13:40,880
+Now, from this bastion host, I can log into instances which are in private subnet.
+
+210
+00:13:40,910 --> 00:13:46,700
+If I launch an instance in a private subnet, so I should be able to log in to those private instances
+
+211
+00:13:46,700 --> 00:13:49,190
+which are in private subnet from this bastion host.
+
+212
+00:13:49,430 --> 00:13:55,280
+And we'll see that in the next project where we're going to set up our entire stack in this secure and
+
+213
+00:13:55,280 --> 00:13:56,750
+highly available VPC.
+

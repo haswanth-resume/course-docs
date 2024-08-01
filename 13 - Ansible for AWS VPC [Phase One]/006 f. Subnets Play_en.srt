@@ -1,0 +1,856 @@
+1
+00:00:00,330 --> 00:00:01,440
+Okay, so that's done.
+
+2
+00:00:01,440 --> 00:00:04,470
+Let's go next let's create now subnets in those VPC.
+
+3
+00:00:11,160 --> 00:00:13,110
+First, I will create a public subnet.
+
+4
+00:00:14,310 --> 00:00:18,690
+That's the name of the task I'm giving the model Is this easy to underscore, VPC, underscore subnet,
+
+5
+00:00:18,690 --> 00:00:20,250
+and you can mention all the options.
+
+6
+00:00:20,250 --> 00:00:26,430
+The first option we're interested in mentioning is the VPC ID, in which VPC do you have to create your
+
+7
+00:00:26,430 --> 00:00:27,510
+dimension that right.
+
+8
+00:00:27,840 --> 00:00:28,590
+So.
+
+9
+00:00:30,630 --> 00:00:31,600
+How do we know?
+
+10
+00:00:31,620 --> 00:00:34,050
+Well, we have stored the output VPC out.
+
+11
+00:00:34,350 --> 00:00:35,130
+Yes.
+
+12
+00:00:36,180 --> 00:00:39,930
+And that should have the ID so you can print it.
+
+13
+00:00:39,930 --> 00:00:41,250
+You can debug this.
+
+14
+00:00:42,370 --> 00:00:45,220
+I will add, you know, like a debug option there.
+
+15
+00:00:45,310 --> 00:00:49,180
+So debug task so you can see the output.
+
+16
+00:00:51,710 --> 00:00:52,580
+The that.
+
+17
+00:00:55,080 --> 00:00:56,370
+VPC out.
+
+18
+00:00:59,010 --> 00:01:01,410
+So the entire execution is going to be like that.
+
+19
+00:01:01,410 --> 00:01:05,190
+We execute a task, we store the output, and then we use it.
+
+20
+00:01:06,270 --> 00:01:11,820
+So if you're not sure about the key inside that, then just print that and you can see.
+
+21
+00:01:12,670 --> 00:01:15,610
+The keys and the sub keys inside there and the values inside that.
+
+22
+00:01:19,680 --> 00:01:26,190
+Other options region have specified again Region variable a z zone variable Zone one.
+
+23
+00:01:27,350 --> 00:01:28,960
+But we have their zone one.
+
+24
+00:01:28,970 --> 00:01:32,060
+So first public subnet will be in zone one.
+
+25
+00:01:32,210 --> 00:01:33,260
+That's zone one.
+
+26
+00:01:34,470 --> 00:01:35,700
+State present.
+
+27
+00:01:36,570 --> 00:01:39,360
+So again, that is also mentioned cider.
+
+28
+00:01:40,080 --> 00:01:40,590
+Bob.
+
+29
+00:01:40,590 --> 00:01:43,490
+Sub one cider pops up.
+
+30
+00:01:43,500 --> 00:01:44,190
+Nice name.
+
+31
+00:01:45,290 --> 00:01:45,560
+Okay.
+
+32
+00:01:45,560 --> 00:01:45,860
+Yeah.
+
+33
+00:01:45,860 --> 00:01:49,490
+So pub sub one cider.
+
+34
+00:01:50,300 --> 00:01:52,220
+So that's going to be the value for it.
+
+35
+00:01:56,080 --> 00:01:56,630
+A few more.
+
+36
+00:01:56,650 --> 00:01:59,820
+Option map underscore public.
+
+37
+00:01:59,830 --> 00:02:04,660
+So we're going to launch easy to instance under this public subnet and they should automatically get
+
+38
+00:02:04,660 --> 00:02:05,380
+a public IP.
+
+39
+00:02:05,380 --> 00:02:06,310
+So map public.
+
+40
+00:02:06,310 --> 00:02:13,210
+Yes that option also tags resource underscore tags.
+
+41
+00:02:14,230 --> 00:02:15,790
+So name.
+
+42
+00:02:15,940 --> 00:02:22,180
+Otherwise it will not show the name in the tags and limit us v profile hyphen pub.
+
+43
+00:02:23,120 --> 00:02:25,310
+Sub one.
+
+44
+00:02:26,150 --> 00:02:26,590
+Yeah.
+
+45
+00:02:26,600 --> 00:02:31,340
+And again, store the output into a variable register.
+
+46
+00:02:33,440 --> 00:02:40,970
+Pub sub pub sub one underscore out.
+
+47
+00:02:41,770 --> 00:02:45,170
+Okay, that should create one public subnet with all these details.
+
+48
+00:02:45,200 --> 00:02:46,430
+Let's test it.
+
+49
+00:02:47,330 --> 00:02:48,200
+Save it.
+
+50
+00:02:48,530 --> 00:02:50,600
+Control K.
+
+51
+00:02:51,500 --> 00:02:54,050
+Comet sub one.
+
+52
+00:02:58,640 --> 00:02:59,030
+Control.
+
+53
+00:02:59,030 --> 00:02:59,840
+Shift k.
+
+54
+00:02:59,870 --> 00:03:00,710
+Push it.
+
+55
+00:03:03,820 --> 00:03:06,100
+And let's first pull it.
+
+56
+00:03:12,100 --> 00:03:12,400
+Yeah.
+
+57
+00:03:12,400 --> 00:03:13,720
+So let's check it.
+
+58
+00:03:17,760 --> 00:03:19,010
+All right, let's test it.
+
+59
+00:03:19,020 --> 00:03:21,120
+What is not a new line character there?
+
+60
+00:03:23,260 --> 00:03:25,450
+I have not given any one character that give it.
+
+61
+00:03:26,380 --> 00:03:27,790
+That looks really ugly.
+
+62
+00:03:28,710 --> 00:03:29,210
+Okay.
+
+63
+00:03:29,220 --> 00:03:32,080
+I would once again, same commitment.
+
+64
+00:03:32,310 --> 00:03:32,910
+I'll give.
+
+65
+00:03:34,200 --> 00:03:35,490
+Control shift key.
+
+66
+00:03:54,450 --> 00:03:56,130
+Now this is much better.
+
+67
+00:03:57,830 --> 00:03:59,570
+Okay, let's do the execution now.
+
+68
+00:03:59,690 --> 00:04:02,510
+And Sybil hyphen Playbook, VPC setup.
+
+69
+00:04:03,110 --> 00:04:05,600
+We already have a VPC, so it's not going to do anything.
+
+70
+00:04:05,600 --> 00:04:08,090
+And we got an indentation error.
+
+71
+00:04:09,030 --> 00:04:11,070
+And let's fix it also.
+
+72
+00:04:11,580 --> 00:04:13,350
+Yeah, I was just showing you.
+
+73
+00:04:13,350 --> 00:04:17,339
+So you know, you will get such kind of errors, indentation errors, which are very common and it's
+
+74
+00:04:17,339 --> 00:04:19,050
+very easy to see it in the ID.
+
+75
+00:04:19,079 --> 00:04:21,060
+That's what I wanted to point out, actually.
+
+76
+00:04:21,089 --> 00:04:23,220
+See, that's an error I made.
+
+77
+00:04:24,210 --> 00:04:24,550
+Right.
+
+78
+00:04:24,590 --> 00:04:27,680
+So this should be the same line as the name, right?
+
+79
+00:04:27,680 --> 00:04:29,270
+And I've given here four spaces.
+
+80
+00:04:29,270 --> 00:04:30,050
+This is fine.
+
+81
+00:04:30,050 --> 00:04:33,730
+If you want, you can just reduce it to two space or one space.
+
+82
+00:04:33,740 --> 00:04:35,510
+But I have not given this space.
+
+83
+00:04:35,510 --> 00:04:37,460
+It has given it automatically.
+
+84
+00:04:38,900 --> 00:04:42,920
+And so even by using ID, there is chances of making mistakes like this.
+
+85
+00:04:43,520 --> 00:04:45,770
+So just check your code once again.
+
+86
+00:04:45,770 --> 00:04:46,760
+You should be fine.
+
+87
+00:04:49,920 --> 00:04:50,330
+All right.
+
+88
+00:04:50,330 --> 00:04:52,850
+It's in the same line as everything you can see there.
+
+89
+00:04:53,060 --> 00:04:57,580
+That line dropping right register is in the same line as easy to write.
+
+90
+00:04:57,590 --> 00:04:59,240
+All these options are in the same line.
+
+91
+00:04:59,240 --> 00:05:02,570
+Then you have indentation for the resource tag names option.
+
+92
+00:05:03,440 --> 00:05:09,170
+So verify that this is a very common error and very simple actually to find out.
+
+93
+00:05:10,730 --> 00:05:14,060
+So let me save this.
+
+94
+00:05:18,000 --> 00:05:19,020
+Control shift.
+
+95
+00:05:19,020 --> 00:05:21,990
+Key push.
+
+96
+00:05:28,570 --> 00:05:29,530
+Get pull.
+
+97
+00:05:33,770 --> 00:05:35,270
+That's executed once again.
+
+98
+00:05:38,260 --> 00:05:39,400
+And that is good.
+
+99
+00:05:39,490 --> 00:05:39,970
+Yeah.
+
+100
+00:05:40,510 --> 00:05:40,810
+Yeah.
+
+101
+00:05:40,810 --> 00:05:41,110
+Sorry.
+
+102
+00:05:41,110 --> 00:05:41,270
+Yeah.
+
+103
+00:05:41,290 --> 00:05:42,040
+No, it's good.
+
+104
+00:05:42,280 --> 00:05:46,120
+So it created a one single public subnet in our VPC.
+
+105
+00:05:46,720 --> 00:05:48,630
+I just wanted to show you this.
+
+106
+00:05:48,640 --> 00:05:51,370
+And we stored the output in our printing it VPC output.
+
+107
+00:05:52,210 --> 00:05:58,450
+All right, so you get VPC there, you get the ID.
+
+108
+00:05:59,290 --> 00:06:00,580
+Night we had.
+
+109
+00:06:01,300 --> 00:06:07,150
+So variable name dot VPC, dot ID gives you the VPC ID like that.
+
+110
+00:06:07,180 --> 00:06:08,290
+All the task.
+
+111
+00:06:08,320 --> 00:06:11,200
+We're going to store the output and we're going to use it if you want.
+
+112
+00:06:11,200 --> 00:06:13,480
+You can just use a debug module and print it.
+
+113
+00:06:13,480 --> 00:06:16,270
+I'm going to comment the debug module after this.
+
+114
+00:06:18,160 --> 00:06:20,470
+Because that's going to be too much of output.
+
+115
+00:06:22,440 --> 00:06:23,190
+Commanded.
+
+116
+00:06:23,990 --> 00:06:24,500
+Okay.
+
+117
+00:06:24,530 --> 00:06:27,650
+Now, since you understood how to do that, let's Right.
+
+118
+00:06:27,680 --> 00:06:29,500
+Let's put all the other subnets.
+
+119
+00:06:29,510 --> 00:06:33,750
+We have total six subnets to create one we have already given.
+
+120
+00:06:33,770 --> 00:06:38,520
+Now give five other subnet information and it's going to be as similar as this.
+
+121
+00:06:38,570 --> 00:06:40,100
+Just the names will change.
+
+122
+00:06:40,550 --> 00:06:40,850
+Okay.
+
+123
+00:06:40,880 --> 00:06:41,840
+Next task.
+
+124
+00:06:41,870 --> 00:06:42,560
+Similar.
+
+125
+00:06:42,560 --> 00:06:45,770
+As I said, names are going to change because we're using all variables.
+
+126
+00:06:46,250 --> 00:06:51,500
+Second public subnet rpc ID region zone two.
+
+127
+00:06:52,040 --> 00:06:53,510
+Second VPC sorry.
+
+128
+00:06:53,510 --> 00:06:56,960
+Second subnet in second zone State Prison CIDR.
+
+129
+00:06:56,960 --> 00:06:59,510
+Again, we're picking up from the variable file.
+
+130
+00:07:01,570 --> 00:07:02,980
+Yeah, that one.
+
+131
+00:07:04,460 --> 00:07:05,870
+My my public.
+
+132
+00:07:05,870 --> 00:07:06,520
+Yes.
+
+133
+00:07:06,530 --> 00:07:07,640
+Resource tag.
+
+134
+00:07:08,640 --> 00:07:10,080
+And let me change the name.
+
+135
+00:07:13,730 --> 00:07:18,980
+We profile and we store the output into variable pops sub underscore out.
+
+136
+00:07:20,810 --> 00:07:21,960
+Third public subnet.
+
+137
+00:07:22,010 --> 00:07:23,060
+Again, similar.
+
+138
+00:07:23,090 --> 00:07:24,710
+This is going to be in zone three.
+
+139
+00:07:25,220 --> 00:07:26,690
+CIDR is different.
+
+140
+00:07:27,720 --> 00:07:31,140
+And the name, of course, and storing it the output into a variable.
+
+141
+00:07:31,500 --> 00:07:33,120
+So three public subnet there.
+
+142
+00:07:34,000 --> 00:07:36,430
+And let's test at least this much first.
+
+143
+00:07:37,830 --> 00:07:38,730
+Save it.
+
+144
+00:07:39,450 --> 00:07:40,320
+Not run.
+
+145
+00:07:40,950 --> 00:07:41,820
+Save it.
+
+146
+00:07:42,480 --> 00:07:43,230
+Commit.
+
+147
+00:07:44,950 --> 00:07:52,570
+Some one, two three Bob some commit message.
+
+148
+00:07:53,290 --> 00:07:56,890
+You should give a proper correct message when you're working in a project.
+
+149
+00:07:58,770 --> 00:07:59,100
+Oh, yeah.
+
+150
+00:07:59,170 --> 00:08:00,370
+Control shift key.
+
+151
+00:08:01,380 --> 00:08:02,070
+Bush.
+
+152
+00:08:09,070 --> 00:08:10,060
+It will.
+
+153
+00:08:14,040 --> 00:08:14,970
+Ansible hyphen.
+
+154
+00:08:14,970 --> 00:08:15,440
+Playbook.
+
+155
+00:08:15,450 --> 00:08:15,940
+VPC.
+
+156
+00:08:15,960 --> 00:08:16,680
+Setup.
+
+157
+00:08:19,480 --> 00:08:20,520
+So VPC is already there.
+
+158
+00:08:20,530 --> 00:08:22,350
+First public subnet is already there.
+
+159
+00:08:22,360 --> 00:08:24,790
+So it's going to create the second and third public subnet.
+
+160
+00:08:25,520 --> 00:08:26,960
+Okay, let's check that.
+
+161
+00:08:28,740 --> 00:08:30,060
+Let's go to subnets.
+
+162
+00:08:31,270 --> 00:08:33,700
+We should see three public subnet.
+
+163
+00:08:34,190 --> 00:08:35,020
+Yeah, three subnet.
+
+164
+00:08:35,020 --> 00:08:39,760
+Actually, there's nothing public about this subnets yet, but we got it right.
+
+165
+00:08:39,789 --> 00:08:40,659
+20.1.
+
+166
+00:08:40,659 --> 00:08:42,159
+20.2 23.
+
+167
+00:08:42,370 --> 00:08:43,059
+Yes.
+
+168
+00:08:46,060 --> 00:08:46,410
+Yeah.
+
+169
+00:08:46,930 --> 00:08:47,200
+Yeah.
+
+170
+00:08:47,350 --> 00:08:48,130
+This is better.
+
+171
+00:08:48,580 --> 00:08:50,260
+20.1, 20.2 23.
+
+172
+00:08:50,260 --> 00:08:54,520
+And they are scattered across three zones to A, to B, to C.
+
+173
+00:08:55,530 --> 00:08:58,590
+Yeah, and they're definitely part of our own VPC.
+
+174
+00:09:00,450 --> 00:09:00,530
+Right.
+
+175
+00:09:00,600 --> 00:09:01,710
+That's our VPC.
+
+176
+00:09:02,220 --> 00:09:03,420
+So we did good.
+
+177
+00:09:04,200 --> 00:09:05,940
+Let's now create other three subnets.
+
+178
+00:09:05,940 --> 00:09:08,040
+We're going to name them as private subnet.
+
+179
+00:09:08,040 --> 00:09:09,240
+Three private subnet.
+
+180
+00:09:09,540 --> 00:09:15,300
+So let's go to intelligent and almost similar, but these are going to be private subnet.
+
+181
+00:09:16,440 --> 00:09:19,110
+So after these three public subnet, three private subnet.
+
+182
+00:09:19,410 --> 00:09:21,450
+So you see nothing much changes.
+
+183
+00:09:21,450 --> 00:09:27,390
+You can really copy paste your task and just change the names and the variables of course.
+
+184
+00:09:27,930 --> 00:09:30,600
+So creating one private subnet in zone one.
+
+185
+00:09:30,840 --> 00:09:35,070
+So first private subnet in zone one, that's the CIDR range.
+
+186
+00:09:37,570 --> 00:09:42,550
+Yeah, that 140 and we'll have 4.05.0 and 6.0.
+
+187
+00:09:44,580 --> 00:09:47,160
+So this is 4.0 in zone one.
+
+188
+00:09:47,910 --> 00:09:51,150
+This is five zero in zone two.
+
+189
+00:09:54,190 --> 00:09:56,830
+And this is 6.0 in zone three.
+
+190
+00:09:58,610 --> 00:10:00,890
+And we are naming them as private subnet.
+
+191
+00:10:01,230 --> 00:10:03,620
+And also remember, we are storing its output.
+
+192
+00:10:05,810 --> 00:10:07,430
+Yeah, which will be useful later.
+
+193
+00:10:08,750 --> 00:10:10,880
+I'm going to see if this comet.
+
+194
+00:10:30,750 --> 00:10:32,340
+Yeah, it was new code.
+
+195
+00:10:37,270 --> 00:10:39,340
+So three new subnets.
+
+196
+00:10:40,660 --> 00:10:41,620
+Private one.
+
+197
+00:10:41,620 --> 00:10:42,490
+Private two.
+
+198
+00:10:42,490 --> 00:10:43,540
+Private three.
+
+199
+00:10:45,050 --> 00:10:45,760
+To execute.
+
+200
+00:11:00,160 --> 00:11:01,660
+Okay, let's check that.
+
+201
+00:11:03,900 --> 00:11:05,010
+Let's refresh.
+
+202
+00:11:06,580 --> 00:11:08,980
+And you should have know three private subnet.
+
+203
+00:11:09,980 --> 00:11:11,540
+One, two, three.
+
+204
+00:11:12,640 --> 00:11:13,600
+And so.
+
+205
+00:11:14,330 --> 00:11:14,480
+Now.
+
+206
+00:11:14,480 --> 00:11:15,110
+That's public.
+
+207
+00:11:15,110 --> 00:11:15,740
+Sorry.
+
+208
+00:11:17,410 --> 00:11:18,050
+All right.
+
+209
+00:11:19,840 --> 00:11:20,230
+You know what?
+
+210
+00:11:20,230 --> 00:11:21,670
+I should do it like this.
+
+211
+00:11:24,080 --> 00:11:26,810
+4.05.06 or three zero.
+
+212
+00:11:28,000 --> 00:11:32,680
+Private subnet one private subnet two private subnet three in our VPC and they should be into three
+
+213
+00:11:32,680 --> 00:11:36,790
+different zones as same as public subnet two A to B to C.
+
+214
+00:11:36,970 --> 00:11:37,840
+That's nice.
+

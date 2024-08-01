@@ -1,0 +1,1060 @@
+1
+00:00:01,240 --> 00:00:04,689
+Okay, Now we are going to do a sample.
+
+2
+00:00:05,930 --> 00:00:09,350
+Begin to write a simple task to create an easy to keep pair.
+
+3
+00:00:10,330 --> 00:00:17,260
+And we'll see what all we need to do when we need to automate or we need to access services from Ansible.
+
+4
+00:00:17,380 --> 00:00:22,150
+If you're used and if you're not used Ansible for cloud automation, then this will be very helpful
+
+5
+00:00:22,150 --> 00:00:22,780
+for you.
+
+6
+00:00:22,840 --> 00:00:26,890
+Once we get over this, then we'll start writing Playbook to set up our VPC stack.
+
+7
+00:00:27,430 --> 00:00:33,940
+So let's create a project directory and I'm going to name it as VPC.
+
+8
+00:00:35,060 --> 00:00:39,560
+Hyphen stack hyphen v profile.
+
+9
+00:00:41,530 --> 00:00:43,180
+So let's get into the directory.
+
+10
+00:00:45,230 --> 00:00:49,640
+Okay, let's go to the module index and sample module index documentation.
+
+11
+00:00:49,940 --> 00:00:51,800
+We can go to the cloud modules.
+
+12
+00:00:53,200 --> 00:00:58,900
+And you'll see all the cloud models, especially in the Amazon section, you see all the models.
+
+13
+00:00:59,170 --> 00:01:03,220
+So we'll go with very simple one, easy to key first.
+
+14
+00:01:03,910 --> 00:01:11,410
+So let's see how to use this module and what are the problems that we'll get and how to get over.
+
+15
+00:01:12,180 --> 00:01:13,110
+With those problems.
+
+16
+00:01:13,110 --> 00:01:14,320
+Again, so easy to underscore.
+
+17
+00:01:14,340 --> 00:01:15,180
+Key module.
+
+18
+00:01:16,200 --> 00:01:20,630
+This depends on python greater than 2.6 and boto.
+
+19
+00:01:20,630 --> 00:01:22,400
+So check the requirement of the module.
+
+20
+00:01:23,060 --> 00:01:25,700
+Based on the requirement you have to install the dependencies.
+
+21
+00:01:25,700 --> 00:01:30,560
+You'll see that now again, access key and secret key is there, but do not use it.
+
+22
+00:01:31,550 --> 00:01:33,140
+So a simple task.
+
+23
+00:01:33,170 --> 00:01:35,480
+This is going to create a key peer.
+
+24
+00:01:36,270 --> 00:01:36,660
+Yeah.
+
+25
+00:01:37,830 --> 00:01:38,540
+So name.
+
+26
+00:01:38,550 --> 00:01:39,300
+Easy to underscore.
+
+27
+00:01:39,300 --> 00:01:39,640
+Key.
+
+28
+00:01:39,660 --> 00:01:41,370
+Name of the key.
+
+29
+00:01:42,530 --> 00:01:43,520
+So let's get in.
+
+30
+00:01:43,850 --> 00:01:46,240
+Let's write our test playbook.
+
+31
+00:01:46,250 --> 00:01:49,370
+We'll see a test x dot y mil.
+
+32
+00:01:52,910 --> 00:01:54,110
+So the horse.
+
+33
+00:01:54,560 --> 00:01:58,100
+So the execution will be on local host.
+
+34
+00:01:59,030 --> 00:02:02,870
+And connection also we can specify we can say connection local.
+
+35
+00:02:04,870 --> 00:02:06,250
+Gather facts.
+
+36
+00:02:06,250 --> 00:02:11,740
+I don't want to gather any facts because it's going to be gathering facts of my control machine locally,
+
+37
+00:02:11,740 --> 00:02:12,760
+which is waste of time.
+
+38
+00:02:12,760 --> 00:02:14,650
+So I'm going to say gather fact false.
+
+39
+00:02:16,240 --> 00:02:17,080
+Tasks.
+
+40
+00:02:17,410 --> 00:02:20,290
+So we are going to mention our task.
+
+41
+00:02:22,000 --> 00:02:24,760
+Or, you know, we can just simply copy paste from there.
+
+42
+00:02:25,880 --> 00:02:26,780
+I like that.
+
+43
+00:02:31,790 --> 00:02:33,860
+All right, Let's take care of the indentation.
+
+44
+00:02:41,840 --> 00:02:43,370
+Okay, sort of example.
+
+45
+00:02:43,370 --> 00:02:46,040
+I will give them a sample.
+
+46
+00:02:47,090 --> 00:02:47,870
+How about that?
+
+47
+00:02:48,060 --> 00:02:49,100
+Okay, just a sample.
+
+48
+00:02:49,100 --> 00:02:49,310
+Okay.
+
+49
+00:02:49,340 --> 00:02:50,150
+Just to test.
+
+50
+00:02:50,180 --> 00:02:51,160
+You can see this a.
+
+51
+00:02:52,810 --> 00:02:55,090
+Warm up before we actually write our playbook.
+
+52
+00:02:56,530 --> 00:02:59,020
+So this is going to create a key pair.
+
+53
+00:03:00,690 --> 00:03:01,340
+So let's see.
+
+54
+00:03:01,350 --> 00:03:04,450
+Ansible hyphen playbook dest.
+
+55
+00:03:05,880 --> 00:03:06,990
+Let's run our playbook.
+
+56
+00:03:07,200 --> 00:03:08,700
+And let's face errors.
+
+57
+00:03:09,210 --> 00:03:10,320
+Yes, as I told you.
+
+58
+00:03:11,130 --> 00:03:11,690
+So this.
+
+59
+00:03:11,910 --> 00:03:13,140
+This module that we're using.
+
+60
+00:03:13,140 --> 00:03:15,180
+Easy to key depends on bottle.
+
+61
+00:03:15,300 --> 00:03:16,950
+So you need to install bottle.
+
+62
+00:03:17,190 --> 00:03:20,670
+So it is telling you you need to have bottle core or bottle three.
+
+63
+00:03:21,910 --> 00:03:23,920
+Because you're using Python three.
+
+64
+00:03:25,120 --> 00:03:27,460
+So there are two ways of installing boto.
+
+65
+00:03:27,490 --> 00:03:31,480
+You can use PIP or you can use directly app commands.
+
+66
+00:03:31,870 --> 00:03:37,000
+I prefer app commands rather than using PIP because pip will give you a very latest version, but it
+
+67
+00:03:37,000 --> 00:03:38,170
+could be very buggy.
+
+68
+00:03:38,830 --> 00:03:44,920
+So we can just make a search pseudo app search bottle.
+
+69
+00:03:47,250 --> 00:03:47,740
+Through people.
+
+70
+00:03:47,740 --> 00:03:50,400
+Also, you can install and you can install any version also with PIP.
+
+71
+00:03:50,400 --> 00:03:54,300
+But this is much easier and convenient if you're only using Linux.
+
+72
+00:03:54,600 --> 00:03:58,260
+So python three, hyphen porto you have python three hyphen portal three.
+
+73
+00:03:58,260 --> 00:04:00,060
+Python three hyphen two core.
+
+74
+00:04:00,970 --> 00:04:03,850
+Okay, I'll just Python three have one.
+
+75
+00:04:04,010 --> 00:04:04,440
+Yeah.
+
+76
+00:04:04,480 --> 00:04:04,820
+Yeah.
+
+77
+00:04:04,840 --> 00:04:06,580
+So this is Python interface.
+
+78
+00:04:06,580 --> 00:04:07,960
+So let's try that first.
+
+79
+00:04:09,820 --> 00:04:13,270
+So it's a sudo apt install.
+
+80
+00:04:18,399 --> 00:04:21,820
+Install that run app update if you have not executed it.
+
+81
+00:04:23,980 --> 00:04:24,330
+Okay.
+
+82
+00:04:24,400 --> 00:04:24,880
+Um.
+
+83
+00:04:28,260 --> 00:04:30,060
+Okay, now let's try the execution again.
+
+84
+00:04:30,060 --> 00:04:32,220
+And as I told you, this is this is a trial run.
+
+85
+00:04:32,430 --> 00:04:34,020
+So we're going to try with few things.
+
+86
+00:04:36,270 --> 00:04:36,400
+Okay.
+
+87
+00:04:36,610 --> 00:04:37,900
+It still feels okay.
+
+88
+00:04:37,930 --> 00:04:40,630
+It's still telling me that there is a problem.
+
+89
+00:04:40,630 --> 00:04:43,570
+So let's install now to core.
+
+90
+00:04:44,260 --> 00:04:47,890
+Yeah, but to core because it is also telling us about the core.
+
+91
+00:04:48,880 --> 00:04:53,730
+Motoko is already installed installs as a dependency with the same module.
+
+92
+00:04:53,740 --> 00:04:55,810
+Sorry, same package Python.
+
+93
+00:04:57,070 --> 00:04:58,600
+Python three hyphen bottle.
+
+94
+00:04:59,860 --> 00:05:00,570
+So.
+
+95
+00:05:00,570 --> 00:05:04,900
+Well, let's try Other one is a python three.
+
+96
+00:05:05,650 --> 00:05:07,270
+Let's run a search or bottle.
+
+97
+00:05:08,570 --> 00:05:10,970
+Python three hyphen mortar three is also there.
+
+98
+00:05:11,270 --> 00:05:12,350
+Let's try that.
+
+99
+00:05:23,220 --> 00:05:26,010
+I'll just say python three ball three install.
+
+100
+00:05:31,220 --> 00:05:33,500
+And let's try the execution now.
+
+101
+00:05:37,100 --> 00:05:37,640
+Okay.
+
+102
+00:05:37,910 --> 00:05:40,400
+I think it work, but we have a different error now, right?
+
+103
+00:05:40,780 --> 00:05:41,220
+Etc..
+
+104
+00:05:41,240 --> 00:05:44,270
+Key module requires a region and none was found.
+
+105
+00:05:45,020 --> 00:05:50,360
+So now you know for sure that easy to underscore key module needs this package.
+
+106
+00:05:50,360 --> 00:05:52,190
+Python three hyphen border three.
+
+107
+00:05:53,360 --> 00:05:58,550
+So there are various cloud modules and based on the requirement will install the dependency.
+
+108
+00:05:58,640 --> 00:06:00,800
+If you want, you can keep all of them.
+
+109
+00:06:01,190 --> 00:06:05,210
+Nothing is going to harm you, but initially you can find out like this.
+
+110
+00:06:05,720 --> 00:06:09,500
+Now it is telling us to find the region or mention the region.
+
+111
+00:06:09,620 --> 00:06:11,210
+Let's mention the region.
+
+112
+00:06:12,140 --> 00:06:13,220
+So there is a.
+
+113
+00:06:15,080 --> 00:06:18,200
+Argument region and you can mention the region.
+
+114
+00:06:18,980 --> 00:06:21,110
+So let's go to our region.
+
+115
+00:06:22,860 --> 00:06:23,070
+Okay.
+
+116
+00:06:23,070 --> 00:06:24,200
+We have US East too.
+
+117
+00:06:24,210 --> 00:06:25,800
+Let's create it in this region.
+
+118
+00:06:26,700 --> 00:06:28,200
+You can check in the documentation.
+
+119
+00:06:28,200 --> 00:06:29,670
+There will be option region.
+
+120
+00:06:32,810 --> 00:06:39,500
+If you don't want to mention it, you can set global variables also like this region or easy to underscore
+
+121
+00:06:39,500 --> 00:06:45,500
+region, and so you don't need to mention it in every module that also you can do.
+
+122
+00:06:46,010 --> 00:06:51,080
+But for now, let's keep it like this and let's see one quit.
+
+123
+00:06:51,800 --> 00:06:52,940
+And let's try now.
+
+124
+00:06:56,040 --> 00:06:56,320
+All right.
+
+125
+00:06:56,340 --> 00:06:57,870
+That worked, right?
+
+126
+00:06:57,960 --> 00:07:01,320
+But we had created key payer.
+
+127
+00:07:01,620 --> 00:07:02,670
+It was the private key.
+
+128
+00:07:02,700 --> 00:07:04,710
+Generally, if you do it through console, it will download.
+
+129
+00:07:04,710 --> 00:07:05,190
+Right.
+
+130
+00:07:05,640 --> 00:07:07,080
+But now it's not showing.
+
+131
+00:07:07,780 --> 00:07:11,980
+Well, it returns the value, but then we are not using that value.
+
+132
+00:07:12,400 --> 00:07:17,710
+Every Ansible task returns and JSON output and in that output there should be definitely key.
+
+133
+00:07:17,710 --> 00:07:20,500
+But we are not using that.
+
+134
+00:07:20,740 --> 00:07:22,060
+We are not saving that.
+
+135
+00:07:23,560 --> 00:07:25,990
+So anyways, let's, let's go and check our key first.
+
+136
+00:07:26,790 --> 00:07:32,160
+So let's go to key players in this region and we should see the sample key.
+
+137
+00:07:32,850 --> 00:07:33,360
+Yeah.
+
+138
+00:07:33,980 --> 00:07:34,140
+Okay.
+
+139
+00:07:34,230 --> 00:07:35,700
+I'm going to delete this key.
+
+140
+00:07:37,570 --> 00:07:38,470
+Because.
+
+141
+00:07:39,360 --> 00:07:40,850
+It's going to send you the private key.
+
+142
+00:07:40,860 --> 00:07:44,440
+Then later you can't like, redownload the private key, right?
+
+143
+00:07:44,460 --> 00:07:45,960
+It's not again.
+
+144
+00:07:46,740 --> 00:07:53,610
+So I'm going to edit this playbook and very important thing with cloud task or any API based task is
+
+145
+00:07:53,610 --> 00:07:57,090
+you should store the output into a variable.
+
+146
+00:07:57,630 --> 00:07:59,970
+So I'm going to give the variable name as key out.
+
+147
+00:08:00,680 --> 00:08:01,040
+Right?
+
+148
+00:08:01,200 --> 00:08:07,980
+And then you can print it when you're initially, if you have first time using a module, then you store
+
+149
+00:08:07,980 --> 00:08:09,660
+the output and see the content.
+
+150
+00:08:10,880 --> 00:08:13,230
+Okay, that's a key out.
+
+151
+00:08:13,980 --> 00:08:17,940
+Let's print it with debug module so you'll see the content.
+
+152
+00:08:17,940 --> 00:08:23,060
+And then based on that, we can decide where if we have the private key and then we can store it into
+
+153
+00:08:23,060 --> 00:08:24,030
+a file also.
+
+154
+00:08:26,220 --> 00:08:27,300
+So I deleted the key.
+
+155
+00:08:27,300 --> 00:08:29,040
+So it's going to recreate the key again.
+
+156
+00:08:30,140 --> 00:08:32,299
+And you get the output back.
+
+157
+00:08:33,630 --> 00:08:33,750
+Yeah.
+
+158
+00:08:33,799 --> 00:08:35,070
+And there's the private key.
+
+159
+00:08:36,400 --> 00:08:43,120
+So that Jason content has a key called key out in that you have a key called Sprite underscore key and
+
+160
+00:08:43,120 --> 00:08:46,270
+the output is really the value is really the private key.
+
+161
+00:08:46,570 --> 00:08:50,580
+This we can copy paste in a file and then we can start using it.
+
+162
+00:08:50,590 --> 00:08:52,030
+But that's manual work.
+
+163
+00:08:54,240 --> 00:08:56,430
+So what we're going to do is.
+
+164
+00:08:57,910 --> 00:09:02,110
+We should be storing it into a file so we can use copy module.
+
+165
+00:09:02,380 --> 00:09:05,860
+Let's give a name store.
+
+166
+00:09:07,990 --> 00:09:09,190
+Log in key.
+
+167
+00:09:10,170 --> 00:09:12,060
+And we can say copy module.
+
+168
+00:09:14,580 --> 00:09:16,530
+And we'll see content.
+
+169
+00:09:17,300 --> 00:09:17,580
+All right.
+
+170
+00:09:17,580 --> 00:09:18,810
+So we have content.
+
+171
+00:09:19,640 --> 00:09:22,640
+So Coppi also has the option of content instead of sauce.
+
+172
+00:09:22,640 --> 00:09:25,370
+If you'll never use the content option, check checking the documentation.
+
+173
+00:09:25,370 --> 00:09:26,750
+You can just mention the content, right?
+
+174
+00:09:26,750 --> 00:09:27,430
+Whatever you want.
+
+175
+00:09:27,440 --> 00:09:31,790
+You can put it into double quotes and you can store it in a destination file.
+
+176
+00:09:32,270 --> 00:09:38,240
+In our case, we are going to store the private key, so we have already stored the output into the
+
+177
+00:09:38,240 --> 00:09:39,530
+variable we need to access.
+
+178
+00:09:39,560 --> 00:09:40,550
+Key out.
+
+179
+00:09:40,910 --> 00:09:49,370
+Key out is our variable in that you have a key called a key that has another key close, private, underscore
+
+180
+00:09:49,370 --> 00:09:51,590
+key, and that has the content of our.
+
+181
+00:09:53,440 --> 00:09:54,610
+Private key file.
+
+182
+00:09:55,150 --> 00:10:01,480
+So we're going to use this key out dot, ky, dot private, underscore key and access it and store it
+
+183
+00:10:01,480 --> 00:10:02,650
+into a file.
+
+184
+00:10:05,450 --> 00:10:07,220
+Okay, let's open the playbook again.
+
+185
+00:10:08,240 --> 00:10:17,000
+So the content will be double quotes and the variable name in curly braces to calibrations.
+
+186
+00:10:17,030 --> 00:10:25,460
+So key out, that's our variable name, dot key we have inside that private underscore key.
+
+187
+00:10:26,420 --> 00:10:31,130
+So that should return us the private key content and destination.
+
+188
+00:10:31,130 --> 00:10:38,180
+We'll say store it in the current working directory with the name sample hyphen key dot pem.
+
+189
+00:10:39,040 --> 00:10:41,560
+Okay, now let's execute that.
+
+190
+00:10:42,850 --> 00:10:47,630
+Kiyosaki dot private underscore key this is good key out.
+
+191
+00:10:47,650 --> 00:10:49,870
+Dot ki dot right underscore key.
+
+192
+00:10:50,170 --> 00:10:50,620
+Yeah.
+
+193
+00:10:51,910 --> 00:10:52,130
+Okay.
+
+194
+00:10:52,180 --> 00:10:53,920
+But now you'll see a new problem.
+
+195
+00:10:58,720 --> 00:11:00,130
+It is undefined variable.
+
+196
+00:11:00,130 --> 00:11:05,560
+It is it says that no private key because if you check now the key already exist.
+
+197
+00:11:05,560 --> 00:11:08,130
+So now it's not going to return back the private key.
+
+198
+00:11:08,140 --> 00:11:11,680
+So you see under inside key you don't have private underscore key value.
+
+199
+00:11:12,630 --> 00:11:14,910
+But we can test it very well if you don't have a key.
+
+200
+00:11:16,740 --> 00:11:17,400
+Delete the key.
+
+201
+00:11:17,400 --> 00:11:18,990
+Let's delete the key once again.
+
+202
+00:11:22,910 --> 00:11:24,200
+And let's go back.
+
+203
+00:11:24,740 --> 00:11:26,520
+If we execute it now, it should work.
+
+204
+00:11:26,540 --> 00:11:29,180
+It should store the private key into a file.
+
+205
+00:11:29,780 --> 00:11:33,560
+You see, we have the private key and has saved it into a file.
+
+206
+00:11:34,520 --> 00:11:35,300
+Let's see.
+
+207
+00:11:35,630 --> 00:11:37,460
+Unless you have the sample key.
+
+208
+00:11:38,570 --> 00:11:40,070
+See that it worked.
+
+209
+00:11:41,120 --> 00:11:43,360
+But then we have multiple tasks in our playbook.
+
+210
+00:11:43,370 --> 00:11:46,120
+We keep adding the task and we execute.
+
+211
+00:11:46,130 --> 00:11:47,570
+Then it's going to throw us error.
+
+212
+00:11:47,570 --> 00:11:49,340
+If we add another task, we execute the playbook.
+
+213
+00:11:49,340 --> 00:11:51,520
+It's going to throw us error and the execution will stop.
+
+214
+00:11:51,530 --> 00:11:54,340
+So now we have to handle this error, right?
+
+215
+00:11:54,380 --> 00:11:58,160
+So in the output we see change as false, right?
+
+216
+00:11:58,160 --> 00:12:03,020
+So when the query is created only then we will save it.
+
+217
+00:12:03,320 --> 00:12:04,760
+Else will not save it.
+
+218
+00:12:05,570 --> 00:12:07,190
+So we need to put a condition.
+
+219
+00:12:10,670 --> 00:12:12,410
+So we'll put a condition there.
+
+220
+00:12:13,490 --> 00:12:14,180
+When.
+
+221
+00:12:16,680 --> 00:12:17,820
+Key out.
+
+222
+00:12:18,690 --> 00:12:20,310
+Not changed.
+
+223
+00:12:21,510 --> 00:12:26,610
+Now you don't even need to say equal to true or anything because its value is anyways true or false.
+
+224
+00:12:26,610 --> 00:12:27,600
+You don't need to compare it.
+
+225
+00:12:27,600 --> 00:12:30,870
+You can just a key out dot change if its value is true.
+
+226
+00:12:30,900 --> 00:12:35,850
+If the key gets created and the value is going to be true, then only it's going to save the key or
+
+227
+00:12:35,850 --> 00:12:37,640
+else it's going to be skip it.
+
+228
+00:12:37,860 --> 00:12:39,720
+Okay, So let's see this.
+
+229
+00:12:43,200 --> 00:12:45,060
+Okay, now let's execute it once again.
+
+230
+00:12:47,420 --> 00:12:48,710
+You see it skipped it.
+
+231
+00:12:48,710 --> 00:12:48,920
+Right.
+
+232
+00:12:48,920 --> 00:12:51,380
+And then, you know, we really handling the error.
+
+233
+00:12:51,380 --> 00:12:54,920
+We can add multiple tasks and we can execute this many times you want.
+
+234
+00:12:55,540 --> 00:12:55,920
+All right.
+
+235
+00:12:56,030 --> 00:12:59,240
+If so, you used Ansible for system task, right?
+
+236
+00:12:59,240 --> 00:13:01,100
+And you've seen always it's important.
+
+237
+00:13:01,100 --> 00:13:04,190
+But in cloud there are some issues when you're using cloud models.
+
+238
+00:13:04,190 --> 00:13:05,810
+So I wanted to highlight that.
+
+239
+00:13:05,810 --> 00:13:09,290
+And also it's a little warm up before we begin our cloud automation.
+
+240
+00:13:09,590 --> 00:13:15,610
+Important points to note over here is when you execute a task API based task, like a cloud task easy
+
+241
+00:13:15,620 --> 00:13:16,490
+to key here.
+
+242
+00:13:16,640 --> 00:13:23,300
+This uses bottle connects to your account and it's going to return output in JSON format, so you better
+
+243
+00:13:23,300 --> 00:13:24,200
+save it.
+
+244
+00:13:24,500 --> 00:13:31,010
+So every time you use a module, you better save that output into a variable, so you are going to use
+
+245
+00:13:31,010 --> 00:13:32,660
+it in the next task.
+
+246
+00:13:32,690 --> 00:13:35,960
+Most of the time we use it, we refer it into next task.
+
+247
+00:13:36,170 --> 00:13:40,430
+Like, for example, we create a security group and after that we're going to create easy.
+
+248
+00:13:40,430 --> 00:13:43,730
+For instance, so we create security group, we store the ID.
+
+249
+00:13:44,030 --> 00:13:48,230
+Then while we're launching you to instance in the next task, we'll refer that way.
+
+250
+00:13:48,230 --> 00:13:51,410
+We'll refer the security group ID from that variable.
+
+251
+00:13:51,500 --> 00:13:54,590
+So store the output and then use it.
+
+252
+00:13:56,070 --> 00:14:02,640
+And if your tasks are not important, then you have to add some intelligence and make them important.
+
+253
+00:14:02,970 --> 00:14:09,220
+So these are like little differences that you will find when you use API based tasks from system task
+
+254
+00:14:09,750 --> 00:14:11,700
+easy to easy to instances.
+
+255
+00:14:11,700 --> 00:14:12,720
+Security Group.
+
+256
+00:14:12,750 --> 00:14:13,440
+VPC.
+
+257
+00:14:13,470 --> 00:14:15,330
+We're going to do all use all those models.
+
+258
+00:14:15,330 --> 00:14:16,500
+These are all API.
+
+259
+00:14:17,040 --> 00:14:18,480
+It will make API calls.
+
+260
+00:14:19,700 --> 00:14:22,220
+Okay, So I hope this was clear.
+
+261
+00:14:22,990 --> 00:14:26,050
+And a very good warm up before we begin our actual project.
+
+262
+00:14:26,530 --> 00:14:28,660
+So now let's save this.
+
+263
+00:14:28,660 --> 00:14:30,190
+If you want, you can delete this.
+
+264
+00:14:30,310 --> 00:14:31,750
+We are not going to need this.
+
+265
+00:14:32,050 --> 00:14:34,120
+So I'm going to just delete this one.
+

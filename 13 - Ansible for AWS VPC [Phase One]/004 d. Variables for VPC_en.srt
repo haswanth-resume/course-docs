@@ -1,0 +1,840 @@
+1
+00:00:00,420 --> 00:00:01,650
+So one more completed.
+
+2
+00:00:01,650 --> 00:00:04,580
+Let's move now to our main workout.
+
+3
+00:00:04,620 --> 00:00:05,040
+Right?
+
+4
+00:00:05,040 --> 00:00:10,920
+So main project work, we are going to set up VPC stack by using Ansible playbook.
+
+5
+00:00:11,880 --> 00:00:16,200
+We're going to write a long, long PE playbook starting in this project and also in the next project.
+
+6
+00:00:16,200 --> 00:00:17,730
+We'll be having long, long playbooks.
+
+7
+00:00:17,850 --> 00:00:25,530
+And if you're already interested in using any ID like Intel J or Sublime or anything, you can go with
+
+8
+00:00:25,530 --> 00:00:25,950
+that.
+
+9
+00:00:25,950 --> 00:00:29,970
+But then make sure you create a git repository and push the code from there.
+
+10
+00:00:29,970 --> 00:00:31,830
+And here we're going to pull that code.
+
+11
+00:00:32,070 --> 00:00:37,890
+So let's do that setup first and it's optional if you like, do it or else you can just write your playbook
+
+12
+00:00:38,160 --> 00:00:39,420
+by using VIM editor.
+
+13
+00:00:39,420 --> 00:00:40,470
+That is also fine.
+
+14
+00:00:41,160 --> 00:00:43,560
+So for this, I'm going to create an account.
+
+15
+00:00:43,770 --> 00:00:45,360
+Sorry, I already have an account on GitHub.
+
+16
+00:00:45,360 --> 00:00:47,520
+I'm going to create a repository on GitHub.
+
+17
+00:00:48,810 --> 00:00:49,590
+So.
+
+18
+00:00:50,300 --> 00:00:53,330
+So log in to your GitHub account and create a repository.
+
+19
+00:00:54,350 --> 00:00:56,990
+We'll name it as Ansible.
+
+20
+00:01:00,050 --> 00:01:00,430
+Answer.
+
+21
+00:01:00,500 --> 00:01:04,220
+Bill hyphen eight s hyphen vpc.
+
+22
+00:01:05,129 --> 00:01:07,740
+Okay, Let's give that name to be safe.
+
+23
+00:01:07,770 --> 00:01:09,090
+Put it private.
+
+24
+00:01:09,360 --> 00:01:14,610
+I'm going to keep it public because anyways, I am not going to put anything over there, any access
+
+25
+00:01:14,730 --> 00:01:15,210
+in secret.
+
+26
+00:01:15,330 --> 00:01:16,470
+This is where things go wrong.
+
+27
+00:01:16,980 --> 00:01:22,910
+You put access key and secret key, and you put your playbooks or your code in the public repository.
+
+28
+00:01:22,920 --> 00:01:23,910
+You're exposed.
+
+29
+00:01:24,420 --> 00:01:25,770
+So be careful over here.
+
+30
+00:01:25,770 --> 00:01:28,050
+Select private if you're not so sure.
+
+31
+00:01:28,200 --> 00:01:31,140
+Or skip this altogether.
+
+32
+00:01:31,170 --> 00:01:34,380
+GitHub work itself and read me.
+
+33
+00:01:34,380 --> 00:01:36,600
+Dot md file Create repository.
+
+34
+00:01:39,580 --> 00:01:42,190
+So I'm going to store all my playbooks over here.
+
+35
+00:01:42,760 --> 00:01:44,880
+I'm going to push my playbooks.
+
+36
+00:01:44,890 --> 00:01:52,750
+I'll write it on my system by using intelligent, push it on GitHub, and then from my system, from
+
+37
+00:01:52,750 --> 00:01:54,520
+my control machine, I'm going to pull the code.
+
+38
+00:01:55,570 --> 00:01:56,860
+I'll do it both ways.
+
+39
+00:01:57,910 --> 00:01:58,870
+Again, this is optional.
+
+40
+00:01:58,870 --> 00:02:02,920
+If you don't want, you can just directly start using through Vim editor.
+
+41
+00:02:03,920 --> 00:02:04,180
+Okay.
+
+42
+00:02:04,180 --> 00:02:06,160
+Now I'm an intelligent ID.
+
+43
+00:02:07,540 --> 00:02:10,300
+If you've gone through prerequisite video, we have already.
+
+44
+00:02:10,300 --> 00:02:13,840
+I already shown you how to set this up with GitHub.
+
+45
+00:02:15,090 --> 00:02:18,360
+So we're going to put everything on our GitHub repository that we just created.
+
+46
+00:02:18,360 --> 00:02:20,670
+So we're going to say VCs.
+
+47
+00:02:21,920 --> 00:02:25,610
+Get from version control or first, let's create a new project.
+
+48
+00:02:26,560 --> 00:02:30,100
+Project from version control that is also good.
+
+49
+00:02:30,370 --> 00:02:32,710
+And we can mention the repository URL.
+
+50
+00:02:34,050 --> 00:02:36,090
+So copy your repository url.
+
+51
+00:02:36,630 --> 00:02:37,950
+Mention it over there.
+
+52
+00:02:38,460 --> 00:02:40,260
+Mention a part where you want to save it.
+
+53
+00:02:40,560 --> 00:02:41,920
+I'll keep it in my drive.
+
+54
+00:02:41,940 --> 00:02:42,870
+I'll say clone.
+
+55
+00:02:47,900 --> 00:02:49,910
+I would like to open it in a new window.
+
+56
+00:02:50,810 --> 00:02:52,790
+And I'll close this old window.
+
+57
+00:02:55,560 --> 00:02:57,370
+So we have a redeemed file.
+
+58
+00:02:57,390 --> 00:02:59,550
+Nothing else we can add our content.
+
+59
+00:02:59,970 --> 00:03:07,590
+I guess the first thing in our Playbook stack, we're going to create variables, file first variable
+
+60
+00:03:07,590 --> 00:03:11,760
+file for VPC and then variable file for bastion setup.
+
+61
+00:03:11,790 --> 00:03:13,300
+So I'll create two files.
+
+62
+00:03:13,320 --> 00:03:14,970
+It's going to be just a text file.
+
+63
+00:03:15,510 --> 00:03:17,580
+So it's a new file.
+
+64
+00:03:18,290 --> 00:03:23,060
+And we'll name it as VPC underscore setup.
+
+65
+00:03:23,940 --> 00:03:28,680
+If you're doing this first time, just use the same names from the next execution.
+
+66
+00:03:28,710 --> 00:03:30,060
+You can start changing this name.
+
+67
+00:03:30,060 --> 00:03:32,910
+And because we're going to refer the same name in our playbook.
+
+68
+00:03:33,360 --> 00:03:35,160
+So we pick underscore, setup.
+
+69
+00:03:36,410 --> 00:03:37,760
+It's just a text file.
+
+70
+00:03:40,200 --> 00:03:40,920
+Yes.
+
+71
+00:03:41,130 --> 00:03:43,700
+So I would also like to add it in my git repository.
+
+72
+00:03:43,710 --> 00:03:43,950
+Yes.
+
+73
+00:03:43,950 --> 00:03:44,460
+Add.
+
+74
+00:03:45,140 --> 00:03:49,760
+And let's mention the variables, starting with first VPC name.
+
+75
+00:03:51,950 --> 00:03:53,120
+And let's give a name.
+
+76
+00:03:53,120 --> 00:03:56,810
+I will say we profile hyphen VPC.
+
+77
+00:03:58,370 --> 00:03:58,810
+Okay.
+
+78
+00:04:00,160 --> 00:04:01,590
+Give me capital.
+
+79
+00:04:01,960 --> 00:04:03,070
+No, this is fine.
+
+80
+00:04:03,490 --> 00:04:04,810
+Let's give capital here.
+
+81
+00:04:04,840 --> 00:04:06,160
+We profile VPC.
+
+82
+00:04:07,450 --> 00:04:08,950
+That's one variable I've defined.
+
+83
+00:04:09,040 --> 00:04:10,410
+Then VPC range.
+
+84
+00:04:10,420 --> 00:04:11,950
+Let's give VPC range.
+
+85
+00:04:14,110 --> 00:04:15,670
+Range is not just range.
+
+86
+00:04:16,540 --> 00:04:19,120
+So let's keep the variable in VPC.
+
+87
+00:04:20,370 --> 00:04:35,340
+Sider the seed capital there for sider and let's decide a range 172 170 2.23.0.0 slash 60 and we're
+
+88
+00:04:35,340 --> 00:04:37,560
+going to subnet that with.
+
+89
+00:04:38,590 --> 00:04:41,950
+You're going to take six subnets from that or slash 24.
+
+90
+00:04:42,190 --> 00:04:44,860
+So let's mention the subnet ranges also.
+
+91
+00:04:46,870 --> 00:04:47,740
+Subnet.
+
+92
+00:04:49,030 --> 00:04:49,780
+French.
+
+93
+00:04:52,780 --> 00:04:58,420
+So six subnets, three public subnets, and three private subnets.
+
+94
+00:04:59,760 --> 00:05:03,960
+Get carved out from the main VPC network.
+
+95
+00:05:03,990 --> 00:05:08,670
+So 20.1, 20.2, 23, then 20.4, 20.5, 26.
+
+96
+00:05:08,670 --> 00:05:10,170
+All of slash 24.
+
+97
+00:05:10,200 --> 00:05:11,960
+So you're going to get to 56.
+
+98
+00:05:12,930 --> 00:05:13,680
+But.
+
+99
+00:05:14,810 --> 00:05:16,340
+It will also resolve some IP.
+
+100
+00:05:16,340 --> 00:05:18,620
+So you'll have like 251 IP per subnet.
+
+101
+00:05:19,020 --> 00:05:22,730
+Okay, So these are variables just we're going to access this variable in our playbook.
+
+102
+00:05:23,240 --> 00:05:25,340
+That's where the main fun happens.
+
+103
+00:05:25,940 --> 00:05:28,610
+Region will set a region name.
+
+104
+00:05:30,110 --> 00:05:34,580
+Now you can set a global value also if you want, but I just wanted to use more variables in this project,
+
+105
+00:05:34,580 --> 00:05:37,490
+so I'm going to mention region also.
+
+106
+00:05:39,040 --> 00:05:45,550
+So I'm really using US East to make sure it's in tribal codes.
+
+107
+00:05:45,970 --> 00:05:51,340
+It's not mandated to put this in double code, but since there is a hyphen, I try to use double codes.
+
+108
+00:05:52,610 --> 00:05:57,120
+And now these subnets will be created in three zones, as I already told you.
+
+109
+00:05:57,140 --> 00:05:59,300
+So we'll mention the zone names.
+
+110
+00:06:03,870 --> 00:06:04,090
+Okay.
+
+111
+00:06:04,170 --> 00:06:05,730
+These are three zones I'm using.
+
+112
+00:06:05,730 --> 00:06:10,560
+If you are not sure about those zone names, just go to your EC two dashboard.
+
+113
+00:06:12,670 --> 00:06:15,070
+Scroll down and you should see the zone names over here.
+
+114
+00:06:15,100 --> 00:06:19,180
+US is to a us is to be us is to see.
+
+115
+00:06:20,200 --> 00:06:21,400
+That's compared to that.
+
+116
+00:06:22,380 --> 00:06:22,970
+Nope, sorry.
+
+117
+00:06:22,980 --> 00:06:23,910
+One and a half given.
+
+118
+00:06:23,910 --> 00:06:25,090
+So I made a mistake.
+
+119
+00:06:25,110 --> 00:06:25,320
+Good.
+
+120
+00:06:25,320 --> 00:06:26,160
+I confirmed.
+
+121
+00:06:29,110 --> 00:06:31,540
+But anyways, it's going to alert you when you execute the playbook.
+
+122
+00:06:31,540 --> 00:06:33,400
+No such zone found something like that.
+
+123
+00:06:36,010 --> 00:06:38,980
+We'll also set one more variable state.
+
+124
+00:06:39,250 --> 00:06:40,600
+We'll give it a present.
+
+125
+00:06:41,710 --> 00:06:44,080
+This is the variable file for the VPC setup.
+
+126
+00:06:45,500 --> 00:06:46,460
+All right, let's control.
+
+127
+00:06:46,460 --> 00:06:47,450
+Let's save that.
+
+128
+00:06:47,480 --> 00:06:53,270
+We'll also added into our git repository, but also we'll create one more file first, one more variable
+
+129
+00:06:53,270 --> 00:06:53,900
+file.
+
+130
+00:06:54,020 --> 00:06:55,760
+This will be for Bastion host.
+
+131
+00:06:56,390 --> 00:07:01,880
+So let's name this file as Bastion underscore setup.
+
+132
+00:07:04,240 --> 00:07:05,050
+Text file.
+
+133
+00:07:05,960 --> 00:07:07,490
+So we have here.
+
+134
+00:07:07,700 --> 00:07:11,900
+Bastion underscore ami this variable will mention the EMI.
+
+135
+00:07:12,500 --> 00:07:14,030
+So let's get the my ID.
+
+136
+00:07:14,030 --> 00:07:15,870
+So let's go to s.
+
+137
+00:07:16,800 --> 00:07:17,550
+Easy to.
+
+138
+00:07:19,080 --> 00:07:20,340
+Launch instance.
+
+139
+00:07:20,430 --> 00:07:24,630
+So you can use Amazon Linux, you can use RedHat, you can use Ubuntu, you know, you can just copy
+
+140
+00:07:24,630 --> 00:07:24,780
+the.
+
+141
+00:07:25,680 --> 00:07:28,200
+But my suggestion is for bastion host.
+
+142
+00:07:28,200 --> 00:07:32,790
+You really go with some secure EMI like from one from CIS.
+
+143
+00:07:33,810 --> 00:07:34,800
+They're not free.
+
+144
+00:07:35,720 --> 00:07:37,000
+There are charges for it.
+
+145
+00:07:37,720 --> 00:07:43,900
+But if you're investing money on project, you'll definitely can spend that much for secure EMI.
+
+146
+00:07:44,560 --> 00:07:48,460
+So this will be a single point of entry to our VPC from public networks.
+
+147
+00:07:48,460 --> 00:07:54,070
+So we have to make sure this is rock solid, robust, safe, secure.
+
+148
+00:07:54,880 --> 00:08:00,040
+So you can use hard images at one from SES, which is very popular and there are a few other if you
+
+149
+00:08:00,040 --> 00:08:02,410
+have your own choice, you can use some hardened amis.
+
+150
+00:08:03,930 --> 00:08:11,430
+Because normally mice will definitely have no bugs or vulnerabilities that can be exploited by the hackers.
+
+151
+00:08:12,350 --> 00:08:13,760
+So I recommend such amis.
+
+152
+00:08:13,760 --> 00:08:15,610
+But this is not free.
+
+153
+00:08:15,620 --> 00:08:20,000
+And for our project exercise, we want to keep things free as much as we can.
+
+154
+00:08:20,000 --> 00:08:22,190
+So we'll go with Amazon Linux to.
+
+155
+00:08:24,150 --> 00:08:25,770
+Can't copy the ID.
+
+156
+00:08:29,070 --> 00:08:32,970
+And let's face it, based on your region, it will be different.
+
+157
+00:08:33,210 --> 00:08:34,200
+So check that.
+
+158
+00:08:34,950 --> 00:08:38,909
+If I see the same image in a different region, it will have a different ID.
+
+159
+00:08:40,140 --> 00:08:42,480
+Region will also mention region here.
+
+160
+00:08:42,900 --> 00:08:43,770
+So.
+
+161
+00:08:44,540 --> 00:08:45,620
+US is to.
+
+162
+00:08:49,110 --> 00:08:50,700
+Double code not required.
+
+163
+00:08:51,810 --> 00:08:57,080
+We are also going to create security group for this bastion host and in the security group we are allowed
+
+164
+00:08:57,090 --> 00:09:04,710
+traffic 22 as such only from my IP, only from where we like in your case to be your IP, of course,
+
+165
+00:09:04,710 --> 00:09:05,940
+but we'll create a variable.
+
+166
+00:09:05,940 --> 00:09:09,870
+Call us my IP and find out your IP.
+
+167
+00:09:09,870 --> 00:09:10,720
+What is my IP?
+
+168
+00:09:10,740 --> 00:09:13,680
+Just Google it and just put it over here with slash 32.
+
+169
+00:09:14,700 --> 00:09:19,650
+So assuming your IP is that you can change that, now I'm going to cheat.
+
+170
+00:09:19,650 --> 00:09:20,820
+That's not my actual IP.
+
+171
+00:09:20,820 --> 00:09:22,380
+I'm going to change it with the real IP.
+
+172
+00:09:24,090 --> 00:09:26,970
+Okay, I'm done setting up both the variables file.
+
+173
+00:09:27,820 --> 00:09:28,720
+I can write playbook.
+
+174
+00:09:28,720 --> 00:09:32,140
+But first, you know, let's save it and let's commit it.
+
+175
+00:09:32,680 --> 00:09:36,510
+We'll pull this from our system, from our Ansible control machine.
+
+176
+00:09:36,520 --> 00:09:38,350
+So control K to commit.
+
+177
+00:09:38,890 --> 00:09:45,550
+You can give a commit message variables file and get.
+
+178
+00:09:46,630 --> 00:09:48,400
+And that's the message they commit.
+
+179
+00:09:50,420 --> 00:09:58,130
+Okay control shift key to push it to your repository is push so you can select the branch.
+
+180
+00:09:58,130 --> 00:09:59,060
+Say push.
+
+181
+00:10:03,330 --> 00:10:04,650
+Yes, it's pushing there.
+
+182
+00:10:04,980 --> 00:10:06,840
+Now, let's go to GitHub.
+
+183
+00:10:07,820 --> 00:10:09,560
+And let's refresh this.
+
+184
+00:10:10,620 --> 00:10:13,890
+So we should see two new files and the Kermit message.
+
+185
+00:10:13,950 --> 00:10:16,110
+Now we are going to clone this.
+
+186
+00:10:21,780 --> 00:10:23,700
+It's a git clone.
+
+187
+00:10:30,440 --> 00:10:34,850
+Ansible is VPC and we'll keep that as our project name now.
+
+188
+00:10:37,540 --> 00:10:37,930
+All right.
+
+189
+00:10:37,930 --> 00:10:39,070
+So I did that.
+
+190
+00:10:39,070 --> 00:10:45,250
+So you can very conveniently write ansible playbooks the yaml file in your ID.
+
+191
+00:10:45,520 --> 00:10:51,490
+You get all the help from ID, all the features, and then you can just pull it and run it from here.
+
+192
+00:10:53,110 --> 00:11:00,400
+I also recommend you can install a YAML plugin for IntelliJ or whatever id you're using.
+
+193
+00:11:00,400 --> 00:11:07,630
+Just install a YAML plugin so it can highlight all our syntax that will be easier for us.
+
+194
+00:11:07,900 --> 00:11:10,510
+So for intelligent, let's install the plugin.
+
+195
+00:11:12,120 --> 00:11:13,350
+Intelligent Ansible.
+
+196
+00:11:13,350 --> 00:11:13,950
+So.
+
+197
+00:11:14,360 --> 00:11:15,880
+So plugin support.
+
+198
+00:11:15,900 --> 00:11:16,800
+Let's check that.
+
+199
+00:11:20,710 --> 00:11:23,340
+There is not really a ansible plugin.
+
+200
+00:11:23,350 --> 00:11:24,670
+It's yaml plugin.
+
+201
+00:11:25,570 --> 00:11:28,360
+So we can say get and select a version.
+
+202
+00:11:29,900 --> 00:11:30,350
+Oh, wait.
+
+203
+00:11:32,610 --> 00:11:33,330
+Yes.
+
+204
+00:11:33,450 --> 00:11:33,770
+Oh yeah.
+
+205
+00:11:33,780 --> 00:11:36,930
+You can directly click it from their intelligent ID.
+
+206
+00:11:39,280 --> 00:11:42,730
+So it's going to radically install it in your intelligence.
+
+207
+00:11:43,180 --> 00:11:44,370
+You'll get an option like this.
+
+208
+00:11:44,380 --> 00:11:48,010
+Just say, okay, so now your intelligence will have YAML support.
+
+209
+00:11:48,010 --> 00:11:50,290
+So if you write yaml code it will highlight.
+
+210
+00:11:50,620 --> 00:11:53,770
+It will highlight the indentation, the columns, everything.
+

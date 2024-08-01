@@ -1,0 +1,216 @@
+1
+00:00:00,510 --> 00:00:03,540
+So that should be all in this project.
+
+2
+00:00:03,540 --> 00:00:06,040
+But wait, we have to do a little cleanup.
+
+3
+00:00:06,060 --> 00:00:09,990
+We have Nat Gateway Elastic IP and those things should be removed.
+
+4
+00:00:10,320 --> 00:00:12,720
+So let's go to our VPC section.
+
+5
+00:00:13,580 --> 00:00:14,600
+Nat Gateway.
+
+6
+00:00:15,750 --> 00:00:21,360
+If you'd like to keep this VPC, you can except delete the navigate and release the elastic IP.
+
+7
+00:00:27,100 --> 00:00:29,740
+So that will take some time to delete the net gateway.
+
+8
+00:00:30,340 --> 00:00:34,600
+Once the Nat Gateway is deleted, you make sure you go to elastic IP section.
+
+9
+00:00:35,540 --> 00:00:38,930
+And you have to say release elastic IP address.
+
+10
+00:00:39,770 --> 00:00:44,090
+But that's going to not be you know, that's not going to be working right now because it's already
+
+11
+00:00:44,090 --> 00:00:46,220
+attached to Nat Gateway and you'll get an error.
+
+12
+00:00:48,100 --> 00:00:49,750
+By the time you can delete your bastion.
+
+13
+00:00:49,750 --> 00:00:50,380
+Host.
+
+14
+00:00:58,990 --> 00:01:01,750
+If you also wish to terminate your instance, you can.
+
+15
+00:01:02,210 --> 00:01:06,670
+If you have the source code in our repository.
+
+16
+00:01:07,000 --> 00:01:12,310
+So in our repository you can really access it from GitHub also.
+
+17
+00:01:13,510 --> 00:01:17,260
+So we have the branch Ansible hyphen VPC.
+
+18
+00:01:17,470 --> 00:01:22,840
+Check out this branch and you should see all the code that we have used in this project.
+
+19
+00:01:23,820 --> 00:01:25,200
+Use it as a reference.
+
+20
+00:01:25,200 --> 00:01:27,930
+It's better you write the code by yourself, step by step.
+
+21
+00:01:27,930 --> 00:01:28,710
+Everything.
+
+22
+00:01:29,470 --> 00:01:31,570
+But still all the information is available.
+
+23
+00:01:31,570 --> 00:01:33,430
+The VPC setup playbook is there.
+
+24
+00:01:35,520 --> 00:01:37,000
+The Bastion instance.
+
+25
+00:01:38,970 --> 00:01:40,110
+Variables.
+
+26
+00:01:43,160 --> 00:01:47,090
+And feel free to change the value of variables as per your wish.
+
+27
+00:01:47,210 --> 00:01:51,320
+As per your region, you want to use as per the zone that you want to use.
+
+28
+00:01:52,230 --> 00:01:52,390
+Okay.
+
+29
+00:01:52,440 --> 00:01:55,770
+So as we're talking, this Nat Gateway is also deleted.
+
+30
+00:01:57,270 --> 00:02:02,760
+And now I should be able to release the elastic IP or it takes still some time.
+
+31
+00:02:06,070 --> 00:02:07,010
+Yeah, it's done.
+
+32
+00:02:07,030 --> 00:02:08,229
+If you're getting an error.
+
+33
+00:02:09,000 --> 00:02:11,370
+Elastic grip is already attached, so wait for a few minutes.
+
+34
+00:02:11,370 --> 00:02:16,500
+It will release the elastic IP from the nat Gateway and then you can release the elastic IP back to
+
+35
+00:02:16,500 --> 00:02:23,010
+the pool if you wish to keep other things like VPC subnets routable, you can keep that.
+
+36
+00:02:23,160 --> 00:02:27,810
+And anyways, you have the code, you can launch NAT gateways and all the things whenever you want.
+
+37
+00:02:28,620 --> 00:02:29,370
+All right then.
+
+38
+00:02:29,370 --> 00:02:35,100
+Then let's wrap up this project video with the architectural design that we have seen.
+
+39
+00:02:35,250 --> 00:02:42,690
+So we created the playbook which access the variables, and we have specified the list of modules.
+
+40
+00:02:43,350 --> 00:02:45,090
+It used Python bottle.
+
+41
+00:02:45,100 --> 00:02:47,460
+If you remember, we installed the bottle library.
+
+42
+00:02:47,460 --> 00:02:53,160
+We make API connection to a cloud or account by using the IM roles.
+
+43
+00:02:53,160 --> 00:02:54,570
+We created the VPC.
+
+44
+00:02:55,290 --> 00:02:57,270
+In three zones we created.
+
+45
+00:02:57,270 --> 00:02:59,040
+In the diagram, you have just two zones.
+
+46
+00:02:59,930 --> 00:03:01,100
+Public subnet.
+
+47
+00:03:02,330 --> 00:03:05,090
+With internet gateway and round table connection.
+
+48
+00:03:08,250 --> 00:03:13,500
+We created private subnets with Nat Gateway and out table connection.
+
+49
+00:03:15,240 --> 00:03:20,910
+And of course, the Bastion host we also created Keep It and Security Group for the Bastion host And
+
+50
+00:03:20,910 --> 00:03:23,670
+then we launch the instance in the security group.
+
+51
+00:03:25,560 --> 00:03:27,780
+So that will be all in this project.
+
+52
+00:03:27,780 --> 00:03:29,400
+I hope you have learned a lot.
+
+53
+00:03:30,540 --> 00:03:32,220
+Thank you very much for watching this.
+
+54
+00:03:32,220 --> 00:03:34,020
+I will see you in the next one.
+

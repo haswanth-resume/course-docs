@@ -1,0 +1,616 @@
+1
+00:00:10,800 --> 00:00:12,240
+Welcome to the project.
+
+2
+00:00:12,690 --> 00:00:16,650
+This project is cloud automation with Ansible.
+
+3
+00:00:16,800 --> 00:00:20,400
+Yes, we're going to automate cloud tasks by using Ansible.
+
+4
+00:00:20,790 --> 00:00:25,320
+Let's see the scenario and understand when this would be required.
+
+5
+00:00:30,800 --> 00:00:39,800
+Okay, So let's say you have a diverse cloud management team and their job is to deploy setup infrastructure
+
+6
+00:00:39,800 --> 00:00:40,610
+on the cloud.
+
+7
+00:00:41,720 --> 00:00:47,150
+So any new project comes in, this team is going to be in charge of setting up the infrastructure,
+
+8
+00:00:47,390 --> 00:00:54,620
+deploying the stack on the cloud, and making all the regular changes as and when required before we
+
+9
+00:00:54,620 --> 00:00:57,200
+implement any project on a cloud.
+
+10
+00:00:57,990 --> 00:00:59,880
+We ideally set a VPC.
+
+11
+00:01:01,340 --> 00:01:01,580
+All right.
+
+12
+00:01:01,580 --> 00:01:10,580
+So this team will be in charge of setting up a VPC on a cloud to provide the security and high availability
+
+13
+00:01:10,580 --> 00:01:11,570
+to the project.
+
+14
+00:01:12,200 --> 00:01:16,040
+And also, this team is getting a regular request for deployment.
+
+15
+00:01:16,580 --> 00:01:19,490
+So let's see how Project A where you need to set up some VPC.
+
+16
+00:01:19,520 --> 00:01:20,710
+Then you have project B there.
+
+17
+00:01:20,720 --> 00:01:23,150
+Also you need to set up some VPC your project C.
+
+18
+00:01:23,800 --> 00:01:26,830
+So like that, many such requests, regular requests they get.
+
+19
+00:01:30,650 --> 00:01:33,730
+Now, as you know, VPC consists of many moving parts.
+
+20
+00:01:33,740 --> 00:01:40,370
+There are so many things when we are setting up a VPC, you have a subnets, NAT gateways, internet
+
+21
+00:01:40,370 --> 00:01:47,540
+gateways, route table, any SEAL rules, security group instances in that elastic IP and so many more
+
+22
+00:01:47,540 --> 00:01:48,140
+things.
+
+23
+00:01:48,440 --> 00:01:51,260
+And not to mention the bastion host.
+
+24
+00:01:52,190 --> 00:01:54,710
+Which it's also called as a jump server.
+
+25
+00:01:54,800 --> 00:01:58,640
+Mostly these jump server or bastion hosts are provided.
+
+26
+00:01:59,990 --> 00:02:07,110
+Or used to have an SSH connection to your instances in private, VPC or even RDP connections.
+
+27
+00:02:07,130 --> 00:02:11,660
+So we can see it's a single point of entry from a public network into your private network.
+
+28
+00:02:12,320 --> 00:02:17,690
+Now if you're doing such thing, there is always a chance of making a human error, a typographical
+
+29
+00:02:17,690 --> 00:02:20,570
+error, or some configuration misfire.
+
+30
+00:02:20,600 --> 00:02:27,770
+Because of this or these human errors, you may have a non-functional or an exposed VPC, which is exposed
+
+31
+00:02:27,770 --> 00:02:29,180
+publicly on the Internet.
+
+32
+00:02:30,860 --> 00:02:35,540
+Also, not to mention managing all these things is a time consuming task.
+
+33
+00:02:35,540 --> 00:02:38,420
+First is the setup, then regular changes.
+
+34
+00:02:39,230 --> 00:02:42,380
+So if everything is happening through console or even CLI.
+
+35
+00:02:43,170 --> 00:02:45,780
+It's really difficult to track all the changes.
+
+36
+00:02:52,340 --> 00:02:58,910
+So in order to save our time and track all the changes, you need to have configuration management of
+
+37
+00:02:58,970 --> 00:02:59,840
+VPC.
+
+38
+00:03:00,350 --> 00:03:05,270
+We need to have a completely automated setup so we can avoid human errors.
+
+39
+00:03:05,270 --> 00:03:10,310
+And any changes we are going to do in the VPC will be managed centrally.
+
+40
+00:03:10,310 --> 00:03:13,130
+So there should be a centralized change management system.
+
+41
+00:03:13,400 --> 00:03:17,000
+Now if you are automating all this, we'll be doing it through probably some code.
+
+42
+00:03:17,030 --> 00:03:24,230
+In Ansible we have playbooks written in YAML format and it's text and we can version control it so we
+
+43
+00:03:24,230 --> 00:03:27,680
+can track who made the change when the change was made.
+
+44
+00:03:27,980 --> 00:03:31,340
+So we can use gate and do version controlling of our code.
+
+45
+00:03:31,340 --> 00:03:33,920
+So we'll have infrastructure as a code.
+
+46
+00:03:33,950 --> 00:03:39,200
+Now these are some quick benefits that I'm talking about, but this really gives many more benefits.
+
+47
+00:03:39,530 --> 00:03:46,490
+We know for sure CSC adds business value, but also anything that you automate, especially in cloud,
+
+48
+00:03:46,670 --> 00:03:48,950
+also adds a lot of business values.
+
+49
+00:03:49,730 --> 00:03:52,040
+So let's see some statistics now.
+
+50
+00:04:00,520 --> 00:04:07,390
+Now as per statistics, 70%, 71% of the organizations who are doing cloud automation have found they
+
+51
+00:04:07,390 --> 00:04:09,520
+have 10% more revenue growth.
+
+52
+00:04:09,880 --> 00:04:15,940
+84% of the company have said, yes, they have seen increased revenue and also they have lowered their
+
+53
+00:04:15,940 --> 00:04:17,140
+operations cost.
+
+54
+00:04:17,470 --> 00:04:20,320
+81% have become more innovative.
+
+55
+00:04:20,350 --> 00:04:24,880
+So when you have things automated, you don't need to be doing tasks manually.
+
+56
+00:04:24,880 --> 00:04:28,070
+You get more time to find more innovative solutions.
+
+57
+00:04:28,090 --> 00:04:31,270
+And 84% said they have become more agile.
+
+58
+00:04:31,510 --> 00:04:33,610
+And that's what we're looking in DevOps, really.
+
+59
+00:04:33,640 --> 00:04:37,060
+We need processes to be more agile, more quick.
+
+60
+00:04:37,240 --> 00:04:44,140
+So cloud automation sounds cool, but also it adds a lot of business value and that is as per the statistics.
+
+61
+00:04:44,440 --> 00:04:45,880
+And numbers don't lie.
+
+62
+00:04:46,700 --> 00:04:50,840
+Okay, so let's see what we're going to do, what tools we're going to use in this project.
+
+63
+00:04:53,060 --> 00:05:00,740
+So we're going to do we're going to use Ansible to automate a VPC setup and also Bastion host.
+
+64
+00:05:00,950 --> 00:05:06,020
+So you'll have bunch of Ansible playbooks that will set up VPC on a cloud.
+
+65
+00:05:06,020 --> 00:05:09,530
+And also we'll have a bastion host which will be used to log in.
+
+66
+00:05:10,360 --> 00:05:15,790
+After this, there will be another Ansible project where you will use this VPC setup and deploy the
+
+67
+00:05:15,790 --> 00:05:21,370
+entire web application, stack the V profile web application stack that we have been setting up manually
+
+68
+00:05:21,370 --> 00:05:26,200
+so far now will automatically automatically setup that entire stack by using Ansible.
+
+69
+00:05:26,500 --> 00:05:27,670
+That's in the next project.
+
+70
+00:05:27,670 --> 00:05:32,050
+In this project, we lay out the infrastructure for it automatically.
+
+71
+00:05:35,070 --> 00:05:37,380
+So let's make it happen.
+
+72
+00:05:39,700 --> 00:05:45,040
+So before I show you all the code that you're going to use and we're going to have really a lot of code
+
+73
+00:05:45,040 --> 00:05:49,840
+in that before I show you that, before we get into that, let's see the architectural design of what
+
+74
+00:05:49,840 --> 00:05:51,220
+exactly we're going to do.
+
+75
+00:05:52,350 --> 00:05:54,960
+So join me in the architectural design.
+
+76
+00:05:56,190 --> 00:06:01,830
+So starting in the architecture, we have the playbooks, we'll have some bunch of playbooks and these
+
+77
+00:06:01,830 --> 00:06:06,930
+playbooks will be using some variables which you are going to define in virus file and some Ansible
+
+78
+00:06:06,930 --> 00:06:07,890
+configuration.
+
+79
+00:06:08,600 --> 00:06:12,830
+This playbook will be powered with a lot of modules that we're going to use to set up the VPC.
+
+80
+00:06:13,220 --> 00:06:21,800
+These modules are going to use the world famous Python bottle, which will make an API call to our cloud
+
+81
+00:06:21,800 --> 00:06:22,490
+account.
+
+82
+00:06:22,880 --> 00:06:29,900
+First thing it will do is it is going to set up a VPC, a VPC that will have subnets in two zones.
+
+83
+00:06:29,900 --> 00:06:31,640
+We will be using two zones.
+
+84
+00:06:31,880 --> 00:06:34,820
+So zone one will have some subnet.
+
+85
+00:06:34,820 --> 00:06:36,770
+Zone two will have some other subnets.
+
+86
+00:06:38,300 --> 00:06:40,070
+Forced to start with in the zone.
+
+87
+00:06:40,070 --> 00:06:42,860
+We will have a public subnet in first zone.
+
+88
+00:06:42,950 --> 00:06:45,560
+Second zone will have one more public subnet.
+
+89
+00:06:46,780 --> 00:06:52,150
+This public subnet will route the request to Internet Gateway by using their route table, so they'll
+
+90
+00:06:52,150 --> 00:06:57,400
+have a route table every subnet and this town route table is going to route the request to Internet
+
+91
+00:06:57,400 --> 00:07:01,750
+Gateway and then the traffic can go on the internet or can be coming from the Internet.
+
+92
+00:07:03,420 --> 00:07:06,150
+We'll also have private subnet in both the zones.
+
+93
+00:07:07,390 --> 00:07:11,170
+One zone will have one private subnet, another zone will have another private subnet.
+
+94
+00:07:11,590 --> 00:07:15,070
+And again there will be a route table which is going to route all the requests.
+
+95
+00:07:15,070 --> 00:07:17,410
+Outgoing request to Nat Gateway.
+
+96
+00:07:18,740 --> 00:07:20,270
+Let's see again in the full view.
+
+97
+00:07:20,480 --> 00:07:25,460
+So a VPC distributed in two zones, Zone one and zone two.
+
+98
+00:07:25,580 --> 00:07:27,500
+One Public subnet in Zone one.
+
+99
+00:07:27,500 --> 00:07:29,480
+One public subnet in another zone.
+
+100
+00:07:29,510 --> 00:07:34,190
+Private subnet also will be distributed like that among two zones.
+
+101
+00:07:34,760 --> 00:07:36,620
+Every subnet will have a route table.
+
+102
+00:07:36,650 --> 00:07:37,670
+Public subnet will route.
+
+103
+00:07:37,670 --> 00:07:43,190
+The request to Internet gateway and private subnet will route the request to NAD Gateway, and the NAD
+
+104
+00:07:43,190 --> 00:07:47,630
+Gateway can throw the traffic to Internet gateway through the route table of public subnet.
+
+105
+00:07:48,290 --> 00:07:54,650
+Also, not to mention we'll have a bastion host a jump server which will be in a public subnet so we
+
+106
+00:07:54,650 --> 00:07:56,390
+can access it from the internet.
+
+107
+00:07:58,580 --> 00:08:04,460
+And then that Bastion host can have connection to private EC2 instances, instances which are in private
+
+108
+00:08:04,460 --> 00:08:05,120
+subnet.
+
+109
+00:08:05,660 --> 00:08:08,750
+And there will be, of course, a security group on the Bastion host.
+
+110
+00:08:08,780 --> 00:08:12,890
+So this entire setup we're going to do through our playbooks.
+
+111
+00:08:13,630 --> 00:08:14,680
+So we run the playbook.
+
+112
+00:08:14,680 --> 00:08:20,860
+Playbook is going to use some module, some variables, use Python bottle, connect to a cloud, set
+
+113
+00:08:20,860 --> 00:08:25,060
+up the VPC with four subnets each having route table.
+
+114
+00:08:25,850 --> 00:08:30,410
+Internet gateway and nat gateway for public subnet and private subnet respectively.
+
+115
+00:08:30,830 --> 00:08:37,820
+And also finally, a bastion host, which will be a single point of entry into our VPC from the Internet.
+
+116
+00:08:38,900 --> 00:08:40,669
+So this is what we are going to do.
+
+117
+00:08:41,159 --> 00:08:42,740
+We'll log into our account.
+
+118
+00:08:42,770 --> 00:08:46,310
+We'll create an easy instance to run our Ansible playbook.
+
+119
+00:08:46,580 --> 00:08:49,530
+And we're going to select a region which has three zones.
+
+120
+00:08:49,550 --> 00:08:51,290
+That's not mandatory.
+
+121
+00:08:51,860 --> 00:08:54,090
+You can do what are we doing in any region?
+
+122
+00:08:54,110 --> 00:08:56,010
+We can set up VPC in any region.
+
+123
+00:08:56,030 --> 00:09:00,740
+But just to follow along the project, you're going to select a region that has three zones.
+
+124
+00:09:02,740 --> 00:09:04,690
+We're going to install Ansible in that easy.
+
+125
+00:09:04,690 --> 00:09:07,660
+For instance, where we set up, we're going to install Boto.
+
+126
+00:09:07,660 --> 00:09:12,250
+That is the dependency to do the cloud automation.
+
+127
+00:09:13,170 --> 00:09:15,480
+We're going to set up an easy two role for Ansible.
+
+128
+00:09:15,480 --> 00:09:20,430
+So Ansible, easy to instance, can connect to all the services like VPC and all.
+
+129
+00:09:21,310 --> 00:09:22,090
+Authentication.
+
+130
+00:09:22,090 --> 00:09:24,280
+So we're not going to use Access key and secret here.
+
+131
+00:09:24,310 --> 00:09:29,640
+We're going to use roles which is much more safer option you if you are already on a US.
+
+132
+00:09:31,390 --> 00:09:37,630
+Then we'll create a project directory in our instance, for instance, and we're going to execute a
+
+133
+00:09:37,630 --> 00:09:40,150
+sample task to create a key pair.
+
+134
+00:09:41,120 --> 00:09:45,460
+Now, if you have never done cloud automation with Ansible, you're using Ansible to do system automation.
+
+135
+00:09:45,470 --> 00:09:48,050
+There is a little difference in doing cloud automation.
+
+136
+00:09:48,050 --> 00:09:54,950
+So while we're doing this task, a simple task or a sample task to create a key pair, you will see
+
+137
+00:09:54,950 --> 00:09:55,870
+the differences.
+
+138
+00:09:55,880 --> 00:09:59,330
+Once you get that, then you can follow along or all the tasks.
+
+139
+00:10:00,450 --> 00:10:02,510
+We will create two variables file.
+
+140
+00:10:02,520 --> 00:10:04,290
+One will have VPC information.
+
+141
+00:10:04,290 --> 00:10:06,330
+One will have Bastion host information.
+
+142
+00:10:07,280 --> 00:10:09,980
+So we're not really going to use static entries in our playbook.
+
+143
+00:10:09,980 --> 00:10:11,930
+Will fetch that from variable file.
+
+144
+00:10:13,790 --> 00:10:19,550
+Then we'll write our main playbook, which is to set up the VPC stack.
+
+145
+00:10:20,030 --> 00:10:25,400
+This playbook will set up VPC subnets, Internet, gateway, route table, everything.
+
+146
+00:10:26,190 --> 00:10:31,170
+And then we are going to write another playbook, which is going to set up a bastion host in the public
+
+147
+00:10:31,170 --> 00:10:34,200
+subnet of our VPC with write rules.
+
+148
+00:10:36,430 --> 00:10:42,220
+We're going to use a site YAML file then and we'll put entries of both the playbooks so we will finally
+
+149
+00:10:42,220 --> 00:10:48,460
+execute site ML, which will in turn execute VPC, set up Playbook and Bastion setup playbook.
+
+150
+00:10:49,630 --> 00:10:53,440
+Once we are done setting up our entire stack, we should have.
+
+151
+00:10:54,200 --> 00:11:00,020
+This entire VPC with four subnets routable Nat Gateway, an internet gateway.
+
+152
+00:11:00,710 --> 00:11:02,630
+And also the Bastion host.
+
+153
+00:11:03,230 --> 00:11:04,970
+So what are you waiting for?
+
+154
+00:11:05,000 --> 00:11:06,230
+Let's dive in.
+

@@ -1,0 +1,624 @@
+1
+00:00:00,750 --> 00:00:03,810
+Okay, I'm logged in to my management console.
+
+2
+00:00:04,170 --> 00:00:08,640
+Currently I'm in North Virginia region, but I will switch to Ohio region.
+
+3
+00:00:11,290 --> 00:00:15,600
+So as I told you, we need a region which has minimum three zones.
+
+4
+00:00:15,610 --> 00:00:18,070
+Or if you have only three zone, that is much better.
+
+5
+00:00:18,460 --> 00:00:22,150
+That's not really a mandatory requirement for this project.
+
+6
+00:00:22,150 --> 00:00:25,600
+But we need minimum three zones because we are in this project.
+
+7
+00:00:25,600 --> 00:00:29,740
+We're going to set up a VPC stack distributed in three zones.
+
+8
+00:00:30,040 --> 00:00:34,990
+So you can select any region of your choice really, but should have minimum three zones.
+
+9
+00:00:35,230 --> 00:00:37,150
+So I'll be on a higher region.
+
+10
+00:00:37,690 --> 00:00:41,920
+So we'll launch easy, for instance, where we're going to install Ansible.
+
+11
+00:00:43,250 --> 00:00:45,290
+And let's go to S.E. to.
+
+12
+00:00:46,990 --> 00:00:48,070
+Instances.
+
+13
+00:00:49,310 --> 00:00:50,870
+Or forced easy to dashboard.
+
+14
+00:00:50,900 --> 00:00:52,820
+You see, it has three zones.
+
+15
+00:00:53,590 --> 00:00:53,750
+Yeah.
+
+16
+00:00:53,840 --> 00:00:55,490
+So we can go ahead with this.
+
+17
+00:00:56,390 --> 00:00:57,800
+Here we have launch instance button.
+
+18
+00:00:57,800 --> 00:00:59,660
+So let's say launch instance.
+
+19
+00:01:00,750 --> 00:01:03,330
+We'll go with Ubuntu 1 to 20.
+
+20
+00:01:03,330 --> 00:01:04,290
+Should be fine.
+
+21
+00:01:05,480 --> 00:01:06,830
+1 to 18 is also good.
+
+22
+00:01:07,220 --> 00:01:08,340
+We'll go with RT to Micro.
+
+23
+00:01:08,360 --> 00:01:14,530
+We don't need any great compute power for to run our ansible because ansible really does not run anything.
+
+24
+00:01:14,540 --> 00:01:18,590
+It's going to be mostly working like a client only so it doesn't run any service.
+
+25
+00:01:18,590 --> 00:01:21,470
+We don't call it as a server, we call it a control machine.
+
+26
+00:01:22,130 --> 00:01:23,840
+So T2 Micro should be fine.
+
+27
+00:01:23,870 --> 00:01:24,770
+Let's go next.
+
+28
+00:01:25,920 --> 00:01:26,700
+One instance.
+
+29
+00:01:26,700 --> 00:01:31,160
+And while it's coming up we'll also provision it with ansible.
+
+30
+00:01:31,170 --> 00:01:34,200
+So we'll run apt update sudo.
+
+31
+00:01:37,560 --> 00:01:41,130
+Zero apt install ansible.
+
+32
+00:01:41,850 --> 00:01:42,790
+This is fine.
+
+33
+00:01:42,810 --> 00:01:48,030
+Now in ubuntu 20 they should give you latest version of ansible, but if you are on a 1 to 18, check
+
+34
+00:01:48,030 --> 00:01:50,330
+the installation document of ansible.
+
+35
+00:01:50,340 --> 00:01:53,310
+You need to add even the repository details.
+
+36
+00:01:53,310 --> 00:01:54,960
+So you add the repository detail.
+
+37
+00:01:54,960 --> 00:02:00,510
+It's going to install ansible from the ansible repository, but in 1 to 20 you can just say install
+
+38
+00:02:00,510 --> 00:02:02,250
+ansible and that should be fine.
+
+39
+00:02:03,920 --> 00:02:04,610
+Oh, of course.
+
+40
+00:02:05,060 --> 00:02:12,740
+We need to also add our interpreter part exclamation slash bin slash bash.
+
+41
+00:02:13,190 --> 00:02:14,660
+And then let's go next.
+
+42
+00:02:15,310 --> 00:02:21,850
+So you're going to take all default and just give it a name control machine.
+
+43
+00:02:22,670 --> 00:02:24,230
+Or you can just call it as control.
+
+44
+00:02:25,700 --> 00:02:26,540
+They should be good.
+
+45
+00:02:26,900 --> 00:02:27,800
+Create security group.
+
+46
+00:02:27,800 --> 00:02:29,420
+So we'll just create a security group.
+
+47
+00:02:29,450 --> 00:02:30,320
+It's pretty simple.
+
+48
+00:02:30,320 --> 00:02:32,090
+We just need to do a search to this.
+
+49
+00:02:32,510 --> 00:02:37,280
+So we'll just name Ansible security group and we'll say 22 from my IP.
+
+50
+00:02:38,900 --> 00:02:39,200
+Let's go.
+
+51
+00:02:39,200 --> 00:02:41,120
+Next lunch.
+
+52
+00:02:42,230 --> 00:02:43,940
+Okay, Let's create a key pair.
+
+53
+00:02:44,640 --> 00:02:46,290
+So create a keeper.
+
+54
+00:02:46,560 --> 00:02:51,780
+Let's name it as Ansible hyphen Ohio.
+
+55
+00:02:52,500 --> 00:02:54,150
+Python key.
+
+56
+00:02:55,790 --> 00:02:56,450
+Download.
+
+57
+00:02:58,850 --> 00:03:00,560
+And, let's say, launch instance.
+
+58
+00:03:03,700 --> 00:03:05,260
+We'll wait for a minute or so.
+
+59
+00:03:08,010 --> 00:03:09,360
+Our instance is up.
+
+60
+00:03:09,360 --> 00:03:10,470
+Let's log in to it.
+
+61
+00:03:10,470 --> 00:03:11,820
+Let's copy the public IP.
+
+62
+00:03:13,160 --> 00:03:13,950
+Let's see.
+
+63
+00:03:13,970 --> 00:03:17,600
+It's a search for nine keys in the downloads directory.
+
+64
+00:03:18,750 --> 00:03:23,160
+Principal Ohio is certainly open to.
+
+65
+00:03:26,040 --> 00:03:26,940
+And we're in.
+
+66
+00:03:28,410 --> 00:03:30,090
+Okay, let's check the Ansible version.
+
+67
+00:03:30,090 --> 00:03:32,010
+We should already have no ansible.
+
+68
+00:03:33,300 --> 00:03:34,680
+2.9.6.
+
+69
+00:03:34,680 --> 00:03:36,160
+That's latest version.
+
+70
+00:03:36,180 --> 00:03:43,050
+If you're using ubuntu 18 as I told you, use the ansible repository to install ansible from.
+
+71
+00:03:43,380 --> 00:03:49,740
+You can find the steps in the ansible documentation installation section talking about ansible documentation.
+
+72
+00:03:49,800 --> 00:03:55,650
+If you already have used ansible to do some cloud automation, you know there is a setup.
+
+73
+00:03:55,950 --> 00:03:59,760
+If you have not done cloud automation ever with Ansible.
+
+74
+00:04:01,010 --> 00:04:07,430
+So it's better you go through the documentation and find out what all you need to write a playbook and
+
+75
+00:04:07,430 --> 00:04:10,640
+make it working or get it working for cloud automation.
+
+76
+00:04:12,250 --> 00:04:14,710
+Okay, so Ansible is documentation.
+
+77
+00:04:14,710 --> 00:04:16,779
+That's what I Google and click on it.
+
+78
+00:04:19,019 --> 00:04:21,510
+So we specifically using it as.
+
+79
+00:04:22,520 --> 00:04:23,670
+So you can read about it.
+
+80
+00:04:23,690 --> 00:04:26,090
+You see, it's going to talk about board two three module.
+
+81
+00:04:26,810 --> 00:04:29,510
+The installation happens on local host.
+
+82
+00:04:30,420 --> 00:04:35,750
+And for authentication your account details you need to export these keys, access key and secret key.
+
+83
+00:04:35,760 --> 00:04:37,590
+So you need to have an IAM user.
+
+84
+00:04:38,290 --> 00:04:43,510
+With Access Key and Secret key, and you need to give the right policy so it can perform the task.
+
+85
+00:04:43,990 --> 00:04:48,790
+Now, ideally, it's an exporting variable should be fine.
+
+86
+00:04:49,970 --> 00:04:55,490
+Or if you want to store it into variable, you can use Ansible vault to encrypt your access key and
+
+87
+00:04:55,490 --> 00:04:56,270
+secret key.
+
+88
+00:04:56,780 --> 00:05:01,730
+But whatever the case, do not mention your access key and secret key in your playbooks.
+
+89
+00:05:03,020 --> 00:05:03,800
+Do not mention it.
+
+90
+00:05:03,800 --> 00:05:05,750
+You need to mention it outside.
+
+91
+00:05:05,780 --> 00:05:11,060
+Either you export the variable on the system or you first encrypt it.
+
+92
+00:05:11,060 --> 00:05:12,650
+And then you can access it.
+
+93
+00:05:12,800 --> 00:05:13,310
+Can.
+
+94
+00:05:14,150 --> 00:05:15,800
+Or better if you're already on it.
+
+95
+00:05:16,160 --> 00:05:20,630
+Like I'm using easy to instance, and from there I'm going to run Ansible playbook.
+
+96
+00:05:20,840 --> 00:05:25,280
+The better practice over here should be using roles, easy to roles.
+
+97
+00:05:26,090 --> 00:05:28,400
+I am roles which you're going to attach to, easy to.
+
+98
+00:05:28,430 --> 00:05:30,050
+So that's what we'll do.
+
+99
+00:05:31,280 --> 00:05:34,460
+So we'll go to I am service and we'll create role.
+
+100
+00:05:37,650 --> 00:05:42,690
+So this rolls will save you from the trouble of access Key and secret key managing access.
+
+101
+00:05:42,850 --> 00:05:43,320
+Secret key?
+
+102
+00:05:43,320 --> 00:05:48,510
+Because there's always chance of exposing those keys, especially when you're using it with version
+
+103
+00:05:48,510 --> 00:05:49,890
+control by mistake.
+
+104
+00:05:49,890 --> 00:05:56,850
+You put it on GitHub public repository and the hackers bots are going to pick that up automatically
+
+105
+00:05:56,850 --> 00:06:01,230
+and do bitcoin mining on your account or even hijack your account.
+
+106
+00:06:01,530 --> 00:06:03,960
+So be careful with the access key and secret key.
+
+107
+00:06:04,320 --> 00:06:11,100
+So it's better easy to instance, you just create a role, let's say easy to next permission.
+
+108
+00:06:12,690 --> 00:06:17,850
+And I'm going to give you full admin access to this because I'm going to do a lot of things with Ansible
+
+109
+00:06:17,850 --> 00:06:18,330
+Playbook.
+
+110
+00:06:18,360 --> 00:06:21,070
+I'm going to launch VPC UCC two.
+
+111
+00:06:21,090 --> 00:06:25,710
+So you can specifically find your policies and enter it to be more secure.
+
+112
+00:06:26,670 --> 00:06:28,410
+I'm going with Administrator access.
+
+113
+00:06:30,720 --> 00:06:31,760
+Let's give this a name.
+
+114
+00:06:31,770 --> 00:06:34,560
+We'll name it as Ansible admin.
+
+115
+00:06:35,860 --> 00:06:37,510
+Yeah, I'll sleep with that.
+
+116
+00:06:41,140 --> 00:06:46,510
+Okay, so I have a roll created ansible admin and I'm going to assign it to my ec2 instance, my control
+
+117
+00:06:46,510 --> 00:06:47,170
+machine.
+
+118
+00:06:47,530 --> 00:06:52,930
+We go to instance settings modify iam role.
+
+119
+00:06:53,640 --> 00:06:55,650
+Will select our role and civil admin.
+
+120
+00:06:56,990 --> 00:07:02,050
+If you don't find it yet after creating, just do a refresh and you should find it or you can use it.
+
+121
+00:07:02,060 --> 00:07:02,840
+Created from here.
+
+122
+00:07:02,840 --> 00:07:03,080
+Also.
+
+123
+00:07:03,080 --> 00:07:03,650
+That's new thing.
+
+124
+00:07:03,650 --> 00:07:04,550
+That's nice.
+
+125
+00:07:06,000 --> 00:07:06,930
+Let's deceive.
+
+126
+00:07:11,070 --> 00:07:13,260
+Now let's test it.
+
+127
+00:07:14,490 --> 00:07:17,220
+So to make a test, I can use this command.
+
+128
+00:07:17,220 --> 00:07:18,270
+Eight plus six.
+
+129
+00:07:18,270 --> 00:07:19,280
+Get caller I.D..
+
+130
+00:07:19,290 --> 00:07:20,970
+I get caller identity.
+
+131
+00:07:21,120 --> 00:07:23,790
+So if this works, your authentication is working.
+
+132
+00:07:23,880 --> 00:07:25,270
+You can see the road name there.
+
+133
+00:07:25,290 --> 00:07:26,760
+What role is being used?
+
+134
+00:07:27,790 --> 00:07:30,960
+Oh, and by the way, to run this command, you need to have a SQL.
+
+135
+00:07:31,030 --> 00:07:42,600
+So if you're on Ubuntu, you can just say sudo apt install a cli, install a cli first a c ally.
+
+136
+00:07:45,010 --> 00:07:51,850
+And then you can run that command or you can run you run any other CLI command to test your authentication.
+
+137
+00:07:51,850 --> 00:07:54,000
+So our authentication is really working with the roles.
+
+138
+00:07:54,010 --> 00:07:55,360
+Now we can move ahead.
+
+139
+00:07:56,500 --> 00:07:59,560
+Once again, this is important.
+
+140
+00:07:59,650 --> 00:08:07,960
+So I'm telling this once again, do not put your access key and secret key in your playbooks just to
+
+141
+00:08:07,990 --> 00:08:08,950
+sample this.
+
+142
+00:08:08,980 --> 00:08:10,000
+I will show you.
+
+143
+00:08:10,980 --> 00:08:12,750
+Let's go to a module in module.
+
+144
+00:08:12,870 --> 00:08:17,310
+So this is easy to module of Ansible.
+
+145
+00:08:21,080 --> 00:08:23,440
+And you can do all this, right?
+
+146
+00:08:23,450 --> 00:08:24,590
+You can launch an instance with this.
+
+147
+00:08:24,620 --> 00:08:25,520
+You're going to see that.
+
+148
+00:08:26,290 --> 00:08:29,950
+But it will also have options for access key and secret key.
+
+149
+00:08:33,370 --> 00:08:35,799
+I see that it is access can a secret key.
+
+150
+00:08:35,799 --> 00:08:37,750
+So you can mention that, right.
+
+151
+00:08:38,500 --> 00:08:43,840
+So that module, that task is going to use this access key to authenticate to your account.
+
+152
+00:08:44,290 --> 00:08:48,250
+But if you're practicing, you may put it on a public repository like GitHub.
+
+153
+00:08:48,250 --> 00:08:51,250
+Public repository, and this can be seen by everyone.
+
+154
+00:08:51,650 --> 00:08:53,710
+Okay, So this turns out to be very dangerous.
+
+155
+00:08:53,860 --> 00:08:58,960
+So avoid mentioning access key in secret kind of playbook just to be safe.
+
+156
+00:08:59,530 --> 00:09:04,360
+Either export them or if you're already on us, just use the rules as I did.
+
