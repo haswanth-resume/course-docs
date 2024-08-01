@@ -1,0 +1,452 @@
+1
+00:00:01,220 --> 00:00:01,609
+All right.
+
+2
+00:00:01,609 --> 00:00:04,090
+In this lecture, we will be doing three things.
+
+3
+00:00:04,100 --> 00:00:06,890
+One, creating an S3 bucket.
+
+4
+00:00:08,000 --> 00:00:14,300
+Second create I am user with correct policy beans tech policy and as three policy.
+
+5
+00:00:14,330 --> 00:00:17,310
+Third, creating the beans tag application.
+
+6
+00:00:17,330 --> 00:00:18,920
+Let's start with.
+
+7
+00:00:19,690 --> 00:00:20,400
+Am.
+
+8
+00:00:21,780 --> 00:00:22,980
+Let's go to Imam.
+
+9
+00:00:25,420 --> 00:00:26,560
+Users.
+
+10
+00:00:27,720 --> 00:00:28,890
+Add user.
+
+11
+00:00:31,390 --> 00:00:34,420
+We'll call this a secede hyphen been.
+
+12
+00:00:35,580 --> 00:00:38,250
+Programmatic access next.
+
+13
+00:00:39,620 --> 00:00:41,420
+Attach existing policy.
+
+14
+00:00:41,430 --> 00:00:49,700
+Now this user will be used by a CLI and it needs to first access the S3 bucket to upload and download
+
+15
+00:00:49,700 --> 00:00:50,660
+the artifact.
+
+16
+00:00:51,640 --> 00:00:57,460
+So Amazon is three full access and it will also access the bean stack environment.
+
+17
+00:00:58,410 --> 00:01:01,590
+To deploy the latest artifact from S3 bucket.
+
+18
+00:01:02,130 --> 00:01:08,730
+So being stack full access also will give to two policy being stack and S3.
+
+19
+00:01:12,500 --> 00:01:12,680
+Okay.
+
+20
+00:01:12,680 --> 00:01:13,970
+Let's create the user.
+
+21
+00:01:17,370 --> 00:01:19,590
+Download the CSV file.
+
+22
+00:01:23,920 --> 00:01:27,550
+So let's see these credentials in the Jenkins right now.
+
+23
+00:01:28,350 --> 00:01:31,860
+So go to manage Jenkins.
+
+24
+00:01:33,470 --> 00:01:35,060
+Manage credentials.
+
+25
+00:01:37,780 --> 00:01:38,860
+Jenkins.
+
+26
+00:01:39,820 --> 00:01:41,290
+Global credentials.
+
+27
+00:01:42,580 --> 00:01:48,850
+Now there's already a credential access keys and secret keys saved in my Jenkins from previous projects,
+
+28
+00:01:49,210 --> 00:01:52,420
+but that does not have correct policy as we need.
+
+29
+00:01:53,110 --> 00:01:55,000
+So we create a new credentials.
+
+30
+00:01:56,410 --> 00:01:58,690
+Will say plus credentials.
+
+31
+00:02:00,090 --> 00:02:04,140
+We limit as has been crits.
+
+32
+00:02:08,380 --> 00:02:10,750
+Let's paste the axis key here.
+
+33
+00:02:16,790 --> 00:02:18,090
+And the secret key.
+
+34
+00:02:18,110 --> 00:02:23,750
+Now yes, I will be clicking on show and you will be seeing my secret key also.
+
+35
+00:02:23,900 --> 00:02:26,990
+But after this lecture, I'm going to delete this one.
+
+36
+00:02:29,350 --> 00:02:30,220
+Create.
+
+37
+00:02:32,290 --> 00:02:33,130
+Remember this name?
+
+38
+00:02:33,220 --> 00:02:35,650
+A bean bean creds.
+
+39
+00:02:35,680 --> 00:02:41,260
+We will be using this in our click command to deploy our artifact to bean stack.
+
+40
+00:02:41,650 --> 00:02:43,330
+It will be in the Jenkins file.
+
+41
+00:02:47,230 --> 00:02:48,640
+Now get one thing knocked out.
+
+42
+00:02:48,640 --> 00:02:49,870
+Let's go to S3.
+
+43
+00:02:49,870 --> 00:02:51,760
+Let's create an S3 bucket.
+
+44
+00:02:54,060 --> 00:02:56,100
+So I will say create bucket.
+
+45
+00:02:57,200 --> 00:02:58,940
+And let's give Bucket a name.
+
+46
+00:02:59,210 --> 00:03:02,990
+I will call it as a pro C, C, D bin.
+
+47
+00:03:03,200 --> 00:03:08,940
+Now you make sure you create the bucket with a different name because I'm already using this name.
+
+48
+00:03:08,960 --> 00:03:10,760
+You will not be able to use this name.
+
+49
+00:03:10,760 --> 00:03:15,110
+So create a different name of your S3 bucket if you want it unique.
+
+50
+00:03:15,110 --> 00:03:18,290
+Just add some numbers like that so it becomes unique.
+
+51
+00:03:19,210 --> 00:03:19,540
+Okay.
+
+52
+00:03:19,540 --> 00:03:21,550
+So let's just go down.
+
+53
+00:03:21,580 --> 00:03:22,180
+That's it.
+
+54
+00:03:22,360 --> 00:03:23,590
+Just create bucket.
+
+55
+00:03:27,340 --> 00:03:27,650
+Okay.
+
+56
+00:03:27,670 --> 00:03:30,100
+Now, the last thing is Bienstock.
+
+57
+00:03:33,540 --> 00:03:36,630
+This is where we'll be deploying our artifact.
+
+58
+00:03:37,410 --> 00:03:43,290
+You must have already experience with Bienstock if you're following all the projects we used Bienstock.
+
+59
+00:03:43,650 --> 00:03:49,350
+When we did Re Architecture Project, we hosted a profile application on Bienstock and then we configured
+
+60
+00:03:49,350 --> 00:03:50,400
+the backend services.
+
+61
+00:03:50,400 --> 00:03:53,940
+Also in this project will be just configuring Bienstock.
+
+62
+00:03:55,010 --> 00:03:56,400
+Not the back end services.
+
+63
+00:03:56,400 --> 00:03:57,500
+So create application.
+
+64
+00:03:57,500 --> 00:03:58,730
+Let's give it a name.
+
+65
+00:03:59,360 --> 00:04:02,090
+I will just call it as Vpro app again.
+
+66
+00:04:02,090 --> 00:04:03,200
+Give a different name.
+
+67
+00:04:03,200 --> 00:04:04,550
+Make sure it's unique.
+
+68
+00:04:06,720 --> 00:04:08,190
+Platform Tomcat.
+
+69
+00:04:08,280 --> 00:04:11,250
+Take all defaults, configure more options.
+
+70
+00:04:13,140 --> 00:04:14,640
+Custom configuration.
+
+71
+00:04:16,640 --> 00:04:20,720
+So we will be changing the capacity we will be having.
+
+72
+00:04:21,560 --> 00:04:24,290
+To micro only, not to too small.
+
+73
+00:04:25,010 --> 00:04:28,280
+And we will say we need two instances minimum.
+
+74
+00:04:28,280 --> 00:04:29,870
+Two maximum for.
+
+75
+00:04:33,070 --> 00:04:34,270
+And save.
+
+76
+00:04:36,170 --> 00:04:38,570
+Deployment, rolling updates and deployment.
+
+77
+00:04:38,570 --> 00:04:39,260
+Edit.
+
+78
+00:04:39,500 --> 00:04:42,280
+So we don't want it to do all at once.
+
+79
+00:04:42,290 --> 00:04:44,060
+You want to do it one at a time.
+
+80
+00:04:44,060 --> 00:04:44,990
+So rolling.
+
+81
+00:04:45,590 --> 00:04:51,080
+So we are seeing two instances to start with and we are going to give size 50%.
+
+82
+00:04:51,080 --> 00:04:53,850
+So it's going to upgrade one instance at a time.
+
+83
+00:04:53,850 --> 00:04:55,610
+We will be seeing how it upgrades.
+
+84
+00:04:56,300 --> 00:04:57,760
+And that is it.
+
+85
+00:04:57,770 --> 00:04:58,490
+Save.
+
+86
+00:05:00,270 --> 00:05:00,410
+Okay.
+
+87
+00:05:00,600 --> 00:05:05,940
+Later, we need to do the health check changes to slash logging for the load for the target group.
+
+88
+00:05:05,940 --> 00:05:06,990
+We will do that.
+
+89
+00:05:08,160 --> 00:05:09,780
+Let's create the app now.
+
+90
+00:05:11,900 --> 00:05:13,730
+So this will take some time.
+
+91
+00:05:13,880 --> 00:05:17,510
+I'm going to pause my screen and come back when this is completed.
+
+92
+00:05:18,750 --> 00:05:18,900
+Okay.
+
+93
+00:05:19,130 --> 00:05:21,320
+After like 5 minutes it completed.
+
+94
+00:05:21,440 --> 00:05:23,450
+So we have an application.
+
+95
+00:05:23,450 --> 00:05:25,070
+Let's click on applications.
+
+96
+00:05:25,860 --> 00:05:27,310
+Application name pro app.
+
+97
+00:05:27,320 --> 00:05:31,040
+It has an environment, the pro app, hyphen E and V.
+
+98
+00:05:31,910 --> 00:05:34,820
+This will use for staging and for production.
+
+99
+00:05:34,820 --> 00:05:38,180
+We'll create one more environment in the same application.
+
+100
+00:05:38,540 --> 00:05:40,460
+So let's click on this environment.
+
+101
+00:05:43,440 --> 00:05:46,890
+This environment is running a sample application.
+
+102
+00:05:46,890 --> 00:05:48,870
+That's the URL of the load balancer.
+
+103
+00:05:48,870 --> 00:05:52,530
+If you click on that control and click.
+
+104
+00:05:54,100 --> 00:05:55,930
+So that's the sample application.
+
+105
+00:05:56,140 --> 00:06:02,650
+And if we come to application versions, we can see this and this is deployed in the environment.
+
+106
+00:06:03,070 --> 00:06:05,680
+So application can have multiple versions.
+
+107
+00:06:05,680 --> 00:06:10,240
+You can choose and select to deploy.
+
+108
+00:06:11,200 --> 00:06:12,690
+On the environment that you want.
+
+109
+00:06:12,700 --> 00:06:16,840
+We currently just have one environment and the same portion is deployed.
+
+110
+00:06:18,160 --> 00:06:25,030
+We will see in the next lectures how we are going to upload our own version and deploy it to the right
+
+111
+00:06:25,030 --> 00:06:26,050
+environment.
+
+112
+00:06:27,360 --> 00:06:29,970
+So that is all here in this lecture.
+
+113
+00:06:30,090 --> 00:06:33,840
+Complete this and join me in the next lecture.
+

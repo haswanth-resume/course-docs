@@ -1,0 +1,416 @@
+1
+00:00:00,610 --> 00:00:00,840
+Okay.
+
+2
+00:00:00,910 --> 00:00:03,700
+So let's look at in a flow now.
+
+3
+00:00:05,170 --> 00:00:09,900
+So we have to pipeline the staging pipeline and production pipeline.
+
+4
+00:00:09,910 --> 00:00:14,050
+So let's say the developer makes the code change.
+
+5
+00:00:14,200 --> 00:00:15,730
+Let's switch to.
+
+6
+00:00:17,780 --> 00:00:18,860
+Check out.
+
+7
+00:00:22,940 --> 00:00:24,020
+Stage.
+
+8
+00:00:25,650 --> 00:00:26,790
+You know, why not just do it?
+
+9
+00:00:26,790 --> 00:00:28,120
+Everything from the voice code.
+
+10
+00:00:28,170 --> 00:00:29,730
+Once again, code dot.
+
+11
+00:00:33,820 --> 00:00:35,800
+So I'm in the staging branch.
+
+12
+00:00:35,800 --> 00:00:36,370
+Right.
+
+13
+00:00:36,490 --> 00:00:43,120
+And assuming developers are making code change and really we don't make any code change here while practicing,
+
+14
+00:00:43,360 --> 00:00:46,180
+we just make some changes to read more file.
+
+15
+00:00:46,180 --> 00:00:53,980
+We'll add some hash there and we'll see control s save assuming developer made the code change.
+
+16
+00:00:53,980 --> 00:00:54,460
+Right.
+
+17
+00:00:54,610 --> 00:00:56,890
+Save it and then commit and push.
+
+18
+00:00:59,560 --> 00:01:00,030
+Okay.
+
+19
+00:01:00,220 --> 00:01:03,910
+Testing stage pipeline.
+
+20
+00:01:04,670 --> 00:01:08,180
+Control less so developer made the code change.
+
+21
+00:01:08,180 --> 00:01:09,410
+They tested it locally.
+
+22
+00:01:09,410 --> 00:01:11,690
+Now they're going to push it to.
+
+23
+00:01:13,420 --> 00:01:14,240
+GitHub.
+
+24
+00:01:14,260 --> 00:01:17,440
+And once they push, that should trigger.
+
+25
+00:01:19,080 --> 00:01:22,740
+This pipeline, staging pipeline there, it got triggered, right?
+
+26
+00:01:22,740 --> 00:01:24,960
+So let's wait for it to complete.
+
+27
+00:01:26,900 --> 00:01:27,040
+Okay.
+
+28
+00:01:27,140 --> 00:01:30,620
+So after a few minutes, the deployment completed successfully.
+
+29
+00:01:31,220 --> 00:01:31,760
+Right.
+
+30
+00:01:31,760 --> 00:01:33,800
+So gets the notification.
+
+31
+00:01:34,810 --> 00:01:35,010
+Right.
+
+32
+00:01:35,050 --> 00:01:40,810
+And then the software testing team quality assurance or whoever is responsible test it validates it.
+
+33
+00:01:40,810 --> 00:01:42,010
+Everything is fine.
+
+34
+00:01:42,010 --> 00:01:45,910
+They give a go ahead to deploy it for the production environment.
+
+35
+00:01:46,110 --> 00:01:46,360
+All right.
+
+36
+00:01:46,390 --> 00:01:50,920
+So all we need to do is then we will check out.
+
+37
+00:01:52,740 --> 00:01:54,810
+To the production branch.
+
+38
+00:01:56,540 --> 00:01:57,060
+All right.
+
+39
+00:01:57,610 --> 00:01:59,190
+Okay, let me clear the screen.
+
+40
+00:01:59,370 --> 00:02:03,180
+Now we need to merge all the change from staging to production.
+
+41
+00:02:03,180 --> 00:02:04,830
+Since it is tested, everything is good.
+
+42
+00:02:04,830 --> 00:02:07,260
+So we say get merge.
+
+43
+00:02:12,030 --> 00:02:14,330
+Merged with the staging branch.
+
+44
+00:02:14,340 --> 00:02:21,000
+The production branch also comes at the same level as the staging branch once that is done.
+
+45
+00:02:21,930 --> 00:02:23,280
+Then the.
+
+46
+00:02:23,970 --> 00:02:24,360
+Sorry.
+
+47
+00:02:24,360 --> 00:02:25,440
+I need to push it.
+
+48
+00:02:25,440 --> 00:02:25,740
+Right.
+
+49
+00:02:25,740 --> 00:02:28,710
+Get push origin.
+
+50
+00:02:33,070 --> 00:02:36,340
+You can do it from here or you can do it from the VTS code also.
+
+51
+00:02:37,060 --> 00:02:38,320
+So we push it.
+
+52
+00:02:39,480 --> 00:02:41,010
+Let's go to.
+
+53
+00:02:42,710 --> 00:02:44,150
+The production job.
+
+54
+00:02:46,770 --> 00:02:47,130
+Okay.
+
+55
+00:02:47,160 --> 00:02:48,000
+There you see that?
+
+56
+00:02:48,000 --> 00:02:48,990
+It already started.
+
+57
+00:02:48,990 --> 00:02:51,990
+And if you click it later, it will already complete.
+
+58
+00:02:52,020 --> 00:02:52,500
+You see that?
+
+59
+00:02:52,500 --> 00:02:53,880
+That happened very quickly.
+
+60
+00:02:56,110 --> 00:03:01,330
+So in Bienstock you see we have the new version and the new versions will be also deployed.
+
+61
+00:03:01,360 --> 00:03:08,190
+Make sure there is a gap in between the staging pipeline and the merge that you do.
+
+62
+00:03:08,270 --> 00:03:13,360
+And because Bienstock is going to take some time to deploy the latest version.
+
+63
+00:03:14,510 --> 00:03:14,680
+Right.
+
+64
+00:03:14,770 --> 00:03:18,820
+So we have two instances, 50%, one instance at a time.
+
+65
+00:03:18,820 --> 00:03:21,400
+So it's going to take some time for the deployment.
+
+66
+00:03:22,150 --> 00:03:29,020
+So once the staging environment deployment is completed, then merge the code with the production branch,
+
+67
+00:03:29,020 --> 00:03:31,450
+which will trigger the production deployment pipeline.
+
+68
+00:03:31,450 --> 00:03:36,850
+And then it is going to deploy the latest version, which will be same as the staging version.
+
+69
+00:03:37,960 --> 00:03:38,500
+All right.
+
+70
+00:03:38,500 --> 00:03:39,070
+Very well.
+
+71
+00:03:39,070 --> 00:03:41,170
+Once this is tested, all fine.
+
+72
+00:03:41,170 --> 00:03:43,750
+Try do the deployment a few more times.
+
+73
+00:03:43,870 --> 00:03:45,490
+See, everything works fine.
+
+74
+00:03:45,490 --> 00:03:51,280
+And when you are done, some cleanup steps we need to do first.
+
+75
+00:03:51,280 --> 00:03:52,600
+Starting with.
+
+76
+00:03:53,590 --> 00:04:00,340
+Now let's shut down Jenkins nexus and sooner QB as you'll see extra instances over here those with the
+
+77
+00:04:00,340 --> 00:04:01,210
+bean stack instance.
+
+78
+00:04:01,210 --> 00:04:06,670
+So let's select sonar nexus Jenkins and we'll see.
+
+79
+00:04:06,680 --> 00:04:07,690
+Stop.
+
+80
+00:04:09,250 --> 00:04:10,210
+Power off.
+
+81
+00:04:11,480 --> 00:04:14,030
+And these Bienstock instance will not do anything.
+
+82
+00:04:14,040 --> 00:04:18,959
+We will delete the beans tag application, which will in turn delete everything for us.
+
+83
+00:04:18,959 --> 00:04:20,700
+So the application.
+
+84
+00:04:22,620 --> 00:04:23,940
+Delete the application.
+
+85
+00:04:24,870 --> 00:04:28,200
+And let's give the application name.
+
+86
+00:04:29,150 --> 00:04:35,150
+And delete, which in tone will delete delete to other environments, to environments, and then delete
+
+87
+00:04:35,150 --> 00:04:38,000
+the application if it is not deleted.
+
+88
+00:04:38,030 --> 00:04:41,570
+This will take some time, so check after some time.
+
+89
+00:04:41,570 --> 00:04:44,510
+If it is not deleted, then try and delete it multiple times.
+
+90
+00:04:44,630 --> 00:04:46,970
+Sometimes it just holds.
+
+91
+00:04:47,390 --> 00:04:48,910
+It is not in the correct state.
+
+92
+00:04:48,920 --> 00:04:52,700
+We cannot delete it now, so wait and then delete it.
+
+93
+00:04:52,850 --> 00:04:54,640
+That's all you need to do in the cleanup part.
+
+94
+00:04:54,650 --> 00:04:57,950
+Delete the profile application and.
+
+95
+00:04:58,590 --> 00:05:00,750
+Stop your instances.
+
+96
+00:05:00,870 --> 00:05:09,150
+If you want, you can delete the S3 bucket but the 17.3 and be not big size it multiple versions you
+
+97
+00:05:09,150 --> 00:05:10,200
+should have right.
+
+98
+00:05:11,860 --> 00:05:17,290
+So this should not take much space so I won't charge you anything.
+
+99
+00:05:17,290 --> 00:05:22,390
+But if you want to delete the three bucket first delete all the objects, then delete the SD bucket.
+
+100
+00:05:22,390 --> 00:05:24,610
+And that's all in the cleanup part.
+
+101
+00:05:24,640 --> 00:05:25,960
+Keep the instances.
+
+102
+00:05:25,960 --> 00:05:26,980
+We will need them.
+
+103
+00:05:27,820 --> 00:05:29,920
+That is all in this lecture.
+
+104
+00:05:29,920 --> 00:05:31,960
+I will see you in the next one.
+
