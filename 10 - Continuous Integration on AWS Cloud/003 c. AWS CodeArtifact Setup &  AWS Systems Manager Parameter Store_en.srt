@@ -1,0 +1,528 @@
+1
+00:00:01,200 --> 00:00:02,130
+Getting started.
+
+2
+00:00:02,220 --> 00:00:08,670
+So now we'll create a repository in code artefact, which will be used by our build job maven, build
+
+3
+00:00:08,670 --> 00:00:12,090
+job or MAVEN, build your download dependencies from here.
+
+4
+00:00:12,090 --> 00:00:14,520
+So we'll create repository.
+
+5
+00:00:17,160 --> 00:00:23,790
+Okay, let's give the name as v profile hyphen maven hyphen repo and give some description.
+
+6
+00:00:26,660 --> 00:00:28,790
+So public upstream repository.
+
+7
+00:00:28,790 --> 00:00:31,430
+I want to have Maven Central store.
+
+8
+00:00:32,630 --> 00:00:35,630
+So from here it's going to download the dependency and keep it.
+
+9
+00:00:36,590 --> 00:00:38,900
+And we profile Maven repo repository.
+
+10
+00:00:39,650 --> 00:00:40,580
+Let's go next.
+
+11
+00:00:41,120 --> 00:00:41,510
+Yes.
+
+12
+00:00:41,510 --> 00:00:42,870
+You want to create it for this account.
+
+13
+00:00:42,890 --> 00:00:45,920
+You have to select a domain and it will give a domain name.
+
+14
+00:00:46,070 --> 00:00:50,240
+So we'll give a domain name as I'm going to give it as visual path.
+
+15
+00:00:52,950 --> 00:00:54,080
+And this should be good.
+
+16
+00:00:54,090 --> 00:00:54,540
+Let's go.
+
+17
+00:00:54,540 --> 00:00:55,170
+Next.
+
+18
+00:00:57,390 --> 00:00:59,460
+So you see the external connection.
+
+19
+00:00:59,460 --> 00:01:00,300
+It is telling.
+
+20
+00:01:01,230 --> 00:01:01,590
+Domain.
+
+21
+00:01:01,590 --> 00:01:03,990
+It is going to use this visual path.
+
+22
+00:01:04,440 --> 00:01:07,020
+It will have a Maven central store repository.
+
+23
+00:01:08,050 --> 00:01:10,660
+We just connected to this group repository.
+
+24
+00:01:11,500 --> 00:01:13,570
+So we really created our repository.
+
+25
+00:01:13,600 --> 00:01:14,310
+Oh, not yet.
+
+26
+00:01:14,320 --> 00:01:16,180
+Let's click on Create Repository.
+
+27
+00:01:22,800 --> 00:01:27,330
+Okay, let's go to click on Repository and you should see two repositories now.
+
+28
+00:01:27,780 --> 00:01:32,070
+This is what is going to store the dependencies.
+
+29
+00:01:33,120 --> 00:01:36,810
+So you can click on it and you can see how you can connect to it.
+
+30
+00:01:36,810 --> 00:01:38,610
+There is a view connection, instruction.
+
+31
+00:01:40,750 --> 00:01:42,460
+Select package manager MVPs.
+
+32
+00:01:42,460 --> 00:01:46,470
+And so if you're going to use package manager MVPs and if you're going to run like MVPs and install
+
+33
+00:01:46,480 --> 00:01:48,100
+right, we will need dependencies.
+
+34
+00:01:48,640 --> 00:01:52,710
+So what you need to do, you need to run this command which is going to give you a token.
+
+35
+00:01:52,720 --> 00:01:58,060
+We have to use an IAM user and we feed the information in settings dot XML file.
+
+36
+00:01:59,940 --> 00:02:01,680
+Mr. Information.
+
+37
+00:02:04,000 --> 00:02:05,660
+So we'll do all this.
+
+38
+00:02:05,680 --> 00:02:08,440
+We already have settings dot xml file with the details.
+
+39
+00:02:08,440 --> 00:02:10,750
+We're going to just make the changes over there.
+
+40
+00:02:10,780 --> 00:02:19,490
+But before that, we need to export this variable, which actually is going to run a command, a base
+
+41
+00:02:19,540 --> 00:02:22,150
+code artifact, get authorization token.
+
+42
+00:02:22,810 --> 00:02:27,060
+And this command has to be run with a user privilege IM user.
+
+43
+00:02:27,070 --> 00:02:29,710
+So we're going to now create an I am user for this.
+
+44
+00:02:30,100 --> 00:02:33,760
+So let's go back to IM console user.
+
+45
+00:02:33,940 --> 00:02:42,460
+Say add user and we'll limit as we profile hyphen code artifact.
+
+46
+00:02:43,340 --> 00:02:45,110
+Hyphen admin.
+
+47
+00:02:46,610 --> 00:02:49,250
+Programmatic access will need for this one.
+
+48
+00:02:51,190 --> 00:02:52,030
+Policy.
+
+49
+00:02:53,540 --> 00:02:56,570
+So I'll just say code artefact.
+
+50
+00:02:58,610 --> 00:03:01,790
+So for this one, you can also create your own policy.
+
+51
+00:03:02,700 --> 00:03:07,200
+But to keep it simple for this one, I'm going to use code artifact admin access policy.
+
+52
+00:03:07,890 --> 00:03:11,880
+Or you can create your own policy and you can only target your own repository.
+
+53
+00:03:12,300 --> 00:03:16,230
+So Aaron should be your own code artifact repository.
+
+54
+00:03:16,680 --> 00:03:19,140
+But for now, I'll just keep it.
+
+55
+00:03:19,960 --> 00:03:21,580
+It managed policy.
+
+56
+00:03:21,760 --> 00:03:22,660
+Let's go next.
+
+57
+00:03:28,050 --> 00:03:29,890
+Look, I'll download the credentials.
+
+58
+00:03:32,250 --> 00:03:39,150
+Now you need to have a CLI in your system because we going to run that export command.
+
+59
+00:03:41,400 --> 00:03:44,520
+And we're going to run this command on our local machine.
+
+60
+00:03:44,520 --> 00:03:46,590
+So we need a blue collar for this.
+
+61
+00:03:46,830 --> 00:03:52,410
+So from previous project, if you have not installed a blue seal, then I recommend you install them.
+
+62
+00:03:53,810 --> 00:03:55,520
+So you can do it through PowerShell.
+
+63
+00:04:02,660 --> 00:04:03,680
+PowerShell width.
+
+64
+00:04:03,680 --> 00:04:07,070
+We have to open with admin run as administrator.
+
+65
+00:04:09,150 --> 00:04:12,390
+And you can use Choko install command.
+
+66
+00:04:18,649 --> 00:04:21,160
+If you have not installed it, install it now.
+
+67
+00:04:21,170 --> 00:04:23,900
+I already have it installed so I'm not going to run it again.
+
+68
+00:04:26,080 --> 00:04:28,510
+So you can run a configure.
+
+69
+00:04:30,370 --> 00:04:32,980
+And set up the credentials that you have just downloaded.
+
+70
+00:04:36,180 --> 00:04:39,900
+So from my credentials file, I'm going to overwrite the existing credentials.
+
+71
+00:04:45,210 --> 00:04:50,320
+Well, anyways, I'm going to delete this user, so I don't mind showing it to you now, but it's quite
+
+72
+00:04:50,320 --> 00:04:52,810
+very dangerous if you expose this credentials.
+
+73
+00:04:53,290 --> 00:04:54,850
+So make sure you give you a right region.
+
+74
+00:04:54,850 --> 00:04:58,900
+US East one is right for me, so I'll keep it as it is output for my JSON.
+
+75
+00:05:00,210 --> 00:05:01,740
+Okay, once you have this setup.
+
+76
+00:05:03,130 --> 00:05:06,200
+Will copy this command and run it.
+
+77
+00:05:06,850 --> 00:05:09,490
+Which should give us a token and return.
+
+78
+00:05:13,130 --> 00:05:14,780
+Hey, cool Dollar.
+
+79
+00:05:14,810 --> 00:05:15,960
+Let me see.
+
+80
+00:05:15,980 --> 00:05:18,080
+Does it have value or not?
+
+81
+00:05:18,410 --> 00:05:19,640
+And there's a token.
+
+82
+00:05:20,090 --> 00:05:21,860
+So we're going to store this token.
+
+83
+00:05:21,920 --> 00:05:26,030
+Some parameter store from where our code job is going to get it.
+
+84
+00:05:26,990 --> 00:05:28,520
+But now it's time.
+
+85
+00:05:28,520 --> 00:05:29,360
+Before we do that.
+
+86
+00:05:29,360 --> 00:05:30,830
+Now it's time to change our settings.
+
+87
+00:05:30,850 --> 00:05:32,030
+Dot XML file.
+
+88
+00:05:32,210 --> 00:05:34,760
+So let's go to our repository.
+
+89
+00:05:42,310 --> 00:05:44,230
+And switch to.
+
+90
+00:05:45,460 --> 00:05:47,290
+Sci hyphenate s.
+
+91
+00:05:49,490 --> 00:05:51,920
+So you'll see a settings dot XML file over here.
+
+92
+00:05:54,930 --> 00:05:57,120
+So we have to make some changes over here.
+
+93
+00:05:58,530 --> 00:06:02,610
+So we'll keep username as it goes over there.
+
+94
+00:06:02,610 --> 00:06:09,150
+And there is a variable which we are going to define from some parameters to, as I told you to login
+
+95
+00:06:09,570 --> 00:06:10,650
+and.
+
+96
+00:06:11,980 --> 00:06:14,560
+You are over here repository URL.
+
+97
+00:06:15,040 --> 00:06:17,350
+So we are going to change that.
+
+98
+00:06:33,750 --> 00:06:34,560
+Copy that.
+
+99
+00:06:38,360 --> 00:06:40,250
+And let's face it over there.
+
+100
+00:06:43,090 --> 00:06:44,110
+For Miller.
+
+101
+00:06:45,260 --> 00:06:49,040
+So the name domain name here changed the domain name.
+
+102
+00:06:51,100 --> 00:06:52,830
+To the domain name that you have used.
+
+103
+00:06:52,840 --> 00:06:54,940
+I have used domain name as visual path.
+
+104
+00:06:59,000 --> 00:07:01,750
+You can really get the details from here also if you want to.
+
+105
+00:07:03,190 --> 00:07:10,810
+And change this URL as well and make sure to give that a forward slash after that URL.
+
+106
+00:07:17,320 --> 00:07:17,570
+Okay.
+
+107
+00:07:17,620 --> 00:07:18,890
+This should be good over here.
+
+108
+00:07:18,910 --> 00:07:20,530
+Let's save and quit this.
+
+109
+00:07:22,120 --> 00:07:26,380
+We will also update our XML file with the URL.
+
+110
+00:07:34,200 --> 00:07:35,910
+You can keep the idea name same.
+
+111
+00:07:35,910 --> 00:07:37,470
+It really does not matter here.
+
+112
+00:07:38,190 --> 00:07:39,780
+Let's just save this.
+
+113
+00:07:42,640 --> 00:07:46,000
+And we are going to make the chief commit the changes.
+
+114
+00:07:46,000 --> 00:08:01,180
+Get at dot, get comet hyphen, m, c updated poem and settings with code artifact details.
+
+115
+00:08:05,590 --> 00:08:06,000
+Okay.
+
+116
+00:08:06,010 --> 00:08:07,230
+And then we'll push it.
+
+117
+00:08:07,240 --> 00:08:10,210
+This is going to go all the way to our repository.
+
+118
+00:08:10,420 --> 00:08:10,780
+Oh.
+
+119
+00:08:12,310 --> 00:08:13,280
+Get push.
+
+120
+00:08:13,300 --> 00:08:15,880
+Origin si hyphen.
+
+121
+00:08:15,880 --> 00:08:16,060
+E.
+
+122
+00:08:16,060 --> 00:08:16,350
+W.
+
+123
+00:08:16,360 --> 00:08:16,930
+S.
+
+124
+00:08:19,410 --> 00:08:22,500
+This should have been updated in our code repository.
+
+125
+00:08:23,220 --> 00:08:26,190
+I would also like to show one more setting over here to you.
+
+126
+00:08:27,540 --> 00:08:30,900
+So in that XML file, we have also given one more setting.
+
+127
+00:08:30,900 --> 00:08:33,000
+In this particular branch, we have the setting.
+
+128
+00:08:33,390 --> 00:08:40,110
+We are setting up a variable timestamp so it will automatically get the timestamp in this format and
+
+129
+00:08:40,110 --> 00:08:42,900
+this will be used to version our artifact.
+
+130
+00:08:43,780 --> 00:08:43,929
+Okay.
+
+131
+00:08:44,080 --> 00:08:45,610
+So these two lines there.
+
+132
+00:08:48,920 --> 00:08:52,130
+Which will be useful in the build project.
+

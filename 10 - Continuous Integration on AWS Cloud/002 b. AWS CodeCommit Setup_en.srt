@@ -1,0 +1,924 @@
+1
+00:00:00,490 --> 00:00:01,870
+Okay, time for action now.
+
+2
+00:00:01,870 --> 00:00:04,030
+Let's get into a console.
+
+3
+00:00:04,689 --> 00:00:04,880
+Okay.
+
+4
+00:00:04,930 --> 00:00:11,050
+I'm in my management console and I'm going to first go to the service code Commit.
+
+5
+00:00:15,140 --> 00:00:15,470
+Okay.
+
+6
+00:00:15,650 --> 00:00:20,150
+In the left side, you see all the services Anyways that we need are here.
+
+7
+00:00:20,150 --> 00:00:27,650
+Code commit code, artifact code, build code, deploy code pipeline so you can use an axis, all these
+
+8
+00:00:27,650 --> 00:00:29,990
+services from one single pane.
+
+9
+00:00:31,910 --> 00:00:32,210
+Okay.
+
+10
+00:00:32,479 --> 00:00:39,680
+If you go to some other region, like, for example, if you go to North California, not California
+
+11
+00:00:39,680 --> 00:00:43,070
+region does not have code, artifact service and few other.
+
+12
+00:00:43,850 --> 00:00:46,400
+So if you don't see code artifact, check your region.
+
+13
+00:00:46,400 --> 00:00:50,270
+Probably you're in a region that does not have code artifact service.
+
+14
+00:00:51,050 --> 00:00:52,520
+I'm in North Virginia.
+
+15
+00:00:53,850 --> 00:00:56,880
+For this project, you can use any region of your choice.
+
+16
+00:00:57,680 --> 00:01:00,770
+But just make sure there is a code artifact service over there.
+
+17
+00:01:01,100 --> 00:01:06,260
+Let's go to code commit repository and we'll say create repository here.
+
+18
+00:01:07,420 --> 00:01:18,010
+We'll give Repository a name, we will name it as V profile hyphen repo, or I'll say we profile hyphen
+
+19
+00:01:18,010 --> 00:01:19,870
+code hyphen repo.
+
+20
+00:01:21,120 --> 00:01:24,030
+You can give some description over there and few tags.
+
+21
+00:01:24,970 --> 00:01:32,860
+If you'd like to enable Amazon Code Guru for Java project, you can put a checkmark over there so it
+
+22
+00:01:32,860 --> 00:01:34,270
+will improve your code quality.
+
+23
+00:01:34,270 --> 00:01:39,490
+It will give you it will do code analysis and give you the result, which is a very convenient service.
+
+24
+00:01:39,490 --> 00:01:44,500
+So directly developers instead of building and then doing code analysis, they can test it automatically
+
+25
+00:01:44,500 --> 00:01:46,330
+with code guru service as well.
+
+26
+00:01:47,440 --> 00:01:49,570
+Okay, I'm going to create this repository.
+
+27
+00:01:51,050 --> 00:01:55,520
+And you can access this repository by using HTTPS connection and SSH connection.
+
+28
+00:01:56,330 --> 00:02:01,670
+As DPS comes with username and password and there is always a risk of exposing your password.
+
+29
+00:02:01,920 --> 00:02:06,260
+So search is a preferred method and will use this method.
+
+30
+00:02:10,110 --> 00:02:12,480
+So there are steps how you can configure it.
+
+31
+00:02:13,720 --> 00:02:15,040
+We're going to follow this.
+
+32
+00:02:15,680 --> 00:02:19,020
+But in order to do that, we also need an I am user.
+
+33
+00:02:19,040 --> 00:02:21,800
+So I will go to IAM service.
+
+34
+00:02:23,940 --> 00:02:28,170
+So an IAM user that you're going to create will have access to a service.
+
+35
+00:02:28,170 --> 00:02:30,510
+So let's go to user add user.
+
+36
+00:02:31,330 --> 00:02:32,890
+And let's give a username.
+
+37
+00:02:34,460 --> 00:02:39,380
+Mm v profile hyphen Code hyphen admin.
+
+38
+00:02:40,390 --> 00:02:43,150
+So for the time being, we'll just see Programatic access.
+
+39
+00:02:43,150 --> 00:02:45,590
+But we are not going to use access keys anyways.
+
+40
+00:02:45,610 --> 00:02:47,470
+We're going to use SSH credentials.
+
+41
+00:02:48,590 --> 00:02:49,730
+Attach policy.
+
+42
+00:02:51,630 --> 00:02:57,000
+So if you want, you can directly give code, commit full access, but that will give access to all
+
+43
+00:02:57,000 --> 00:02:58,260
+the code repository.
+
+44
+00:02:58,260 --> 00:03:02,310
+So we want specific, we only need for the repository that we created.
+
+45
+00:03:02,310 --> 00:03:03,840
+So we'll create policy.
+
+46
+00:03:05,860 --> 00:03:07,270
+Will choose the service.
+
+47
+00:03:11,000 --> 00:03:12,380
+Code commit.
+
+48
+00:03:16,260 --> 00:03:20,490
+You can fine tune all kinds of actions that this policy can take.
+
+49
+00:03:20,910 --> 00:03:21,720
+List.
+
+50
+00:03:22,640 --> 00:03:29,300
+Reid I'll just give all I can just select a word here also, because I'm going to be very specific.
+
+51
+00:03:29,300 --> 00:03:34,280
+I'm talking about only my code repository that I created resources.
+
+52
+00:03:34,970 --> 00:03:36,740
+We'll talk about the specific resource.
+
+53
+00:03:36,740 --> 00:03:37,850
+Add an.
+
+54
+00:03:39,270 --> 00:03:40,170
+Region.
+
+55
+00:03:40,380 --> 00:03:44,190
+So our repository is in US East one.
+
+56
+00:03:46,940 --> 00:03:48,680
+And the repository name.
+
+57
+00:03:49,130 --> 00:03:50,990
+So we'll get a repository name.
+
+58
+00:03:54,120 --> 00:03:56,460
+We profile hyphen code hyphen repo.
+
+59
+00:04:04,070 --> 00:04:05,360
+So I'm being very specific.
+
+60
+00:04:05,360 --> 00:04:08,750
+I'm saying this repository in this region.
+
+61
+00:04:10,690 --> 00:04:12,790
+If you want to put some conditions, you can do that.
+
+62
+00:04:12,790 --> 00:04:17,350
+But we are going to skip this one and we'll say review policy.
+
+63
+00:04:17,800 --> 00:04:19,540
+We'll give this policy a name.
+
+64
+00:04:21,310 --> 00:04:25,240
+So I'm going to say we profile code admin repository, full access.
+
+65
+00:04:25,240 --> 00:04:26,500
+That's quite a long name.
+
+66
+00:04:26,500 --> 00:04:29,080
+We can even give a better description.
+
+67
+00:04:30,100 --> 00:04:31,450
+And they create policy.
+
+68
+00:04:36,350 --> 00:04:38,010
+And it would scan for this.
+
+69
+00:04:38,030 --> 00:04:39,200
+We profile.
+
+70
+00:04:41,810 --> 00:04:46,700
+I have a code admin repository, full access, so I'm going to select my policy.
+
+71
+00:04:48,220 --> 00:04:50,620
+And I can just check it once again if I want.
+
+72
+00:04:52,380 --> 00:04:53,730
+You can see all the actions.
+
+73
+00:04:53,940 --> 00:04:57,090
+I'm going to go back to this place where we are creating user.
+
+74
+00:04:57,090 --> 00:04:57,540
+From here.
+
+75
+00:04:57,540 --> 00:04:58,800
+We click on Create Policy.
+
+76
+00:04:58,800 --> 00:05:00,390
+We already have a policy now.
+
+77
+00:05:02,060 --> 00:05:06,440
+So refresh this once again and paste your policy name.
+
+78
+00:05:07,190 --> 00:05:09,440
+So you can see the policy selected.
+
+79
+00:05:09,470 --> 00:05:10,340
+Go next.
+
+80
+00:05:10,610 --> 00:05:12,410
+You can use some tag if you want.
+
+81
+00:05:13,250 --> 00:05:14,600
+And to create user.
+
+82
+00:05:17,330 --> 00:05:19,880
+Okay, so a user get created with the policy.
+
+83
+00:05:20,360 --> 00:05:22,670
+And I'm going to close this again.
+
+84
+00:05:22,730 --> 00:05:23,900
+Go to your user.
+
+85
+00:05:26,160 --> 00:05:27,540
+Security credentials.
+
+86
+00:05:27,750 --> 00:05:29,970
+So we really don't need access can secret key.
+
+87
+00:05:29,970 --> 00:05:33,930
+So you can either make it inactive or better just delete these keys.
+
+88
+00:05:34,110 --> 00:05:34,980
+We don't need it.
+
+89
+00:05:35,010 --> 00:05:37,830
+We need six keys for a code commit.
+
+90
+00:05:38,610 --> 00:05:41,280
+So we have to upload ssh public key.
+
+91
+00:05:42,480 --> 00:05:45,270
+So a gendered squeeze from our local machine.
+
+92
+00:05:45,600 --> 00:05:48,810
+So let's open gate bash to generate keys.
+
+93
+00:05:48,810 --> 00:05:51,720
+We are going to issue the command key gen.
+
+94
+00:05:53,990 --> 00:05:57,230
+And we'll keep it at that location, but with a different name.
+
+95
+00:06:03,410 --> 00:06:06,050
+Well, let me test for pro hyphen code.
+
+96
+00:06:08,610 --> 00:06:09,300
+Commit.
+
+97
+00:06:11,090 --> 00:06:13,950
+Underscore underscore rc.
+
+98
+00:06:14,330 --> 00:06:16,340
+I will keep created with this name.
+
+99
+00:06:18,920 --> 00:06:28,270
+Once the keys are created, let's go to our directory and you can see they're the private key.
+
+100
+00:06:28,280 --> 00:06:29,450
+They're the public key.
+
+101
+00:06:30,200 --> 00:06:32,150
+So let's catch the public key.
+
+102
+00:06:35,320 --> 00:06:36,370
+Let's copy it.
+
+103
+00:06:38,290 --> 00:06:40,030
+And let's store it.
+
+104
+00:06:42,400 --> 00:06:44,530
+Let's see, upload as a public key.
+
+105
+00:06:45,940 --> 00:06:50,500
+Be stood there, make sure there are no extra space or anything just to upload.
+
+106
+00:06:52,140 --> 00:06:54,840
+And you will get an such key ID over here.
+
+107
+00:06:56,550 --> 00:07:00,030
+Now we'll create a config file, a search config file.
+
+108
+00:07:02,660 --> 00:07:03,940
+I see in place.
+
+109
+00:07:09,370 --> 00:07:12,400
+Let's create a config file which as such will use.
+
+110
+00:07:14,210 --> 00:07:19,460
+So when we use the code commit service at that time, it's going to use the in the config file that
+
+111
+00:07:19,460 --> 00:07:20,080
+will be mentioned.
+
+112
+00:07:20,090 --> 00:07:27,170
+If it's code commit is the host name, then use this access key, this username and this key to login.
+
+113
+00:07:29,190 --> 00:07:31,890
+So there you have.
+
+114
+00:07:33,110 --> 00:07:34,670
+So if the host is.
+
+115
+00:07:35,540 --> 00:07:36,830
+Good code comment.
+
+116
+00:07:37,520 --> 00:07:41,090
+Then the username changed that to the user.
+
+117
+00:07:48,120 --> 00:07:50,840
+To copy this user such key ID.
+
+118
+00:07:53,740 --> 00:07:58,270
+Mention it there and the file name that we created.
+
+119
+00:07:59,120 --> 00:08:01,610
+So let's verify the file name once again.
+
+120
+00:08:03,820 --> 00:08:05,130
+And that's the file name.
+
+121
+00:08:16,100 --> 00:08:17,730
+So for you, I will create.
+
+122
+00:08:17,750 --> 00:08:21,980
+You will create this config file in the repository.
+
+123
+00:08:22,010 --> 00:08:28,190
+You can check in a branch sai hyphen, a w s and you can find this config file which you can use.
+
+124
+00:08:29,060 --> 00:08:29,990
+See if this.
+
+125
+00:08:31,990 --> 00:08:38,230
+We also have to make sure that our config file permission should be 600.
+
+126
+00:08:40,500 --> 00:08:42,539
+In Linux, this will be mandatory.
+
+127
+00:08:44,600 --> 00:08:47,390
+Okay, Now let's make a test with our credentials.
+
+128
+00:08:49,560 --> 00:08:51,990
+Run this command search space.
+
+129
+00:08:53,930 --> 00:08:55,880
+This URL hit enter.
+
+130
+00:08:59,850 --> 00:09:03,330
+And it says you have successfully authenticated our search.
+
+131
+00:09:03,330 --> 00:09:06,990
+So our authentication is really working for troubleshooting purpose.
+
+132
+00:09:06,990 --> 00:09:10,560
+If there's something not working, you can use an hyphen v option.
+
+133
+00:09:11,570 --> 00:09:18,410
+And you can see much in detail what is being used, what user, all that you can see for troubleshooting
+
+134
+00:09:18,410 --> 00:09:19,130
+purposes.
+
+135
+00:09:20,320 --> 00:09:23,640
+Okay, now I can really clone my repository.
+
+136
+00:09:23,640 --> 00:09:24,660
+Also, let's test it.
+
+137
+00:09:24,660 --> 00:09:26,220
+I'll go to the temp directory.
+
+138
+00:09:30,750 --> 00:09:34,710
+So repository clone URL and we'll use zoo URL.
+
+139
+00:09:37,320 --> 00:09:38,490
+There's just a test.
+
+140
+00:09:38,700 --> 00:09:40,320
+We're going to do it a little different.
+
+141
+00:09:40,320 --> 00:09:41,560
+But just run a test like this.
+
+142
+00:09:41,580 --> 00:09:42,420
+Get clone.
+
+143
+00:09:42,750 --> 00:09:47,310
+So this will also validate whether your user has privilege on this repository or not.
+
+144
+00:09:49,110 --> 00:09:50,040
+Yes.
+
+145
+00:09:53,310 --> 00:10:00,840
+If you're able to successfully clone this, then that means a user that you used in user that also has
+
+146
+00:10:00,840 --> 00:10:02,910
+privilege to access this repository.
+
+147
+00:10:03,390 --> 00:10:06,300
+Once you have cloned, then you can put the data and commit it back.
+
+148
+00:10:06,300 --> 00:10:07,920
+But we're going to do a little different.
+
+149
+00:10:08,070 --> 00:10:12,760
+We already have a code repository from GitHub that we clone.
+
+150
+00:10:12,780 --> 00:10:18,690
+We're going to transition that code repository from GitHub to code commit.
+
+151
+00:10:19,810 --> 00:10:21,730
+So I will go to my f drive.
+
+152
+00:10:24,900 --> 00:10:27,780
+If you don't have the source code, you can clone it.
+
+153
+00:10:29,230 --> 00:10:33,250
+If your done previous project, you should already have cloned it.
+
+154
+00:10:35,530 --> 00:10:35,780
+Okay.
+
+155
+00:10:35,800 --> 00:10:38,560
+Like I already have it, so I'm going to switch.
+
+156
+00:10:39,770 --> 00:10:41,090
+To my repository.
+
+157
+00:10:41,510 --> 00:10:44,180
+And this is a git repository.
+
+158
+00:10:44,180 --> 00:10:44,540
+Yes.
+
+159
+00:10:44,540 --> 00:10:47,300
+And but the remote repository over here is.
+
+160
+00:10:50,680 --> 00:10:51,760
+GitHub.
+
+161
+00:10:51,880 --> 00:10:54,370
+So what are data that we push?
+
+162
+00:10:54,400 --> 00:10:57,160
+It gets sync to GitHub remote repository.
+
+163
+00:10:57,700 --> 00:11:01,300
+Instead of this, we will be having our code commit repository.
+
+164
+00:11:02,260 --> 00:11:03,820
+So let's do the transition.
+
+165
+00:11:04,210 --> 00:11:10,450
+So first just run the command, get branch hyphen, L, list all your branches and check out to the
+
+166
+00:11:10,450 --> 00:11:14,170
+branch that you want to use that you want to push to code commit.
+
+167
+00:11:15,220 --> 00:11:18,820
+First I'm going to check out the master branch.
+
+168
+00:11:20,290 --> 00:11:22,900
+Okay, then I'm going to run this command.
+
+169
+00:11:24,830 --> 00:11:26,330
+Which list all the branches.
+
+170
+00:11:26,330 --> 00:11:30,740
+It does not get the branch that has head and the master name.
+
+171
+00:11:31,670 --> 00:11:36,050
+And we're going to use the cut command and field three, which will just give us.
+
+172
+00:11:37,050 --> 00:11:38,520
+The branch name, right.
+
+173
+00:11:38,610 --> 00:11:40,140
+So we can very easily.
+
+174
+00:11:42,910 --> 00:11:43,870
+Get the branch name.
+
+175
+00:11:43,870 --> 00:11:51,700
+I'm going to send all this output to a file temp if you wish to do it like this automatically.
+
+176
+00:11:51,700 --> 00:11:57,130
+Otherwise you can just run git, check out command as many branches you have that you can run or you
+
+177
+00:11:57,130 --> 00:11:59,260
+can do it like this quickly, automatically.
+
+178
+00:12:00,250 --> 00:12:02,050
+I just named those branches.
+
+179
+00:12:05,280 --> 00:12:11,340
+I guess I have all the branches in ten branches file and I'm now going to run it on a for loop.
+
+180
+00:12:13,100 --> 00:12:14,030
+For.
+
+181
+00:12:15,890 --> 00:12:17,300
+I in?
+
+182
+00:12:19,130 --> 00:12:21,200
+Tactics kit.
+
+183
+00:12:25,170 --> 00:12:32,460
+Do a CO dollar I and you can just first print it whether it's really printing the right branch name.
+
+184
+00:12:32,730 --> 00:12:33,570
+Yes.
+
+185
+00:12:35,100 --> 00:12:39,540
+Now, instead of doing an echo and printing it, we are going to do get.
+
+186
+00:12:41,100 --> 00:12:43,200
+Check out Dollar I.
+
+187
+00:12:44,050 --> 00:12:45,910
+Really a quick way to check out all the branches.
+
+188
+00:12:45,910 --> 00:12:48,340
+If you have many branches, then it will be stupid to run.
+
+189
+00:12:48,370 --> 00:12:49,720
+Get check out that many times.
+
+190
+00:12:50,020 --> 00:12:52,390
+Just do some automation and get over with it.
+
+191
+00:12:55,040 --> 00:12:55,430
+Okay.
+
+192
+00:12:55,460 --> 00:12:58,130
+We did get check out to all the branches.
+
+193
+00:12:58,250 --> 00:12:59,180
+Let's run it.
+
+194
+00:12:59,330 --> 00:13:00,700
+Branch hyphen.
+
+195
+00:13:02,060 --> 00:13:04,400
+See that these branches are all check out.
+
+196
+00:13:05,370 --> 00:13:06,540
+I checked out.
+
+197
+00:13:09,780 --> 00:13:15,390
+Next, if you have some tags in your repository, you can say get fetch, hyphen, hyphen tags.
+
+198
+00:13:18,870 --> 00:13:26,790
+Once you are good with this, then we are going to remove the remote repository which is currently GitHub
+
+199
+00:13:27,300 --> 00:13:28,260
+origin.
+
+200
+00:13:28,290 --> 00:13:30,060
+Get remote item origin.
+
+201
+00:13:33,450 --> 00:13:42,280
+And we will add our code commit repository, git remote, add origin and the URL.
+
+202
+00:13:42,300 --> 00:13:45,150
+So let's get that search review URL.
+
+203
+00:13:50,030 --> 00:13:51,380
+Closeness is such.
+
+204
+00:13:58,920 --> 00:14:00,090
+And just hit enter.
+
+205
+00:14:00,390 --> 00:14:07,860
+Now you can check in your config, file it config file Leicester Remote repositories.
+
+206
+00:14:07,860 --> 00:14:08,970
+Now code comment.
+
+207
+00:14:09,000 --> 00:14:09,790
+That's nice.
+
+208
+00:14:09,810 --> 00:14:11,880
+Now let's push all our changes.
+
+209
+00:14:12,240 --> 00:14:18,630
+Get push origin, hyphen, hyphen all.
+
+210
+00:14:22,940 --> 00:14:27,710
+All these branches are now on code repository.
+
+211
+00:14:28,640 --> 00:14:31,880
+If you have any tag, you can push all your tags as well.
+
+212
+00:14:31,910 --> 00:14:36,650
+Git push hyphen hyphen tags.
+
+213
+00:14:36,650 --> 00:14:38,420
+You'll absolutely have some tags.
+
+214
+00:14:40,160 --> 00:14:43,160
+Once that is done, let's check.
+
+215
+00:14:44,430 --> 00:14:46,320
+Let's go to repository.
+
+216
+00:14:47,880 --> 00:14:51,390
+Must check a repository and.
+
+217
+00:14:51,810 --> 00:14:52,260
+Come on.
+
+218
+00:14:52,290 --> 00:14:52,800
+Yeah.
+
+219
+00:14:53,510 --> 00:14:54,270
+Okay, great.
+
+220
+00:14:54,630 --> 00:14:57,450
+Branch is the master branch.
+
+221
+00:14:57,480 --> 00:14:59,310
+Yeah, it's the master branch.
+
+222
+00:15:02,380 --> 00:15:03,210
+Yes.
+
+223
+00:15:03,220 --> 00:15:06,850
+And we should have our CI hyphen plus branch.
+
+224
+00:15:08,470 --> 00:15:09,160
+There.
+
+225
+00:15:12,970 --> 00:15:16,690
+Okay, So in this branch, you have some files and files.
+
+226
+00:15:17,020 --> 00:15:18,550
+You'll see more files over here.
+
+227
+00:15:18,550 --> 00:15:21,520
+One is a search config file and a few other files over here.
+
+228
+00:15:23,660 --> 00:15:23,870
+Okay.
+
+229
+00:15:23,900 --> 00:15:26,450
+So you can use this for the search config.
+
+230
+00:15:26,720 --> 00:15:29,270
+Other files we have will come to it in a moment.
+
+231
+00:15:29,720 --> 00:15:32,780
+Now let's switch your attention to code artifact.
+

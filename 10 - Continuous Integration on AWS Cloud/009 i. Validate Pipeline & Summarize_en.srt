@@ -1,0 +1,248 @@
+1
+00:00:01,280 --> 00:00:01,630
+Okay.
+
+2
+00:00:01,670 --> 00:00:04,550
+You can run one more test by committing the code.
+
+3
+00:00:04,820 --> 00:00:08,870
+So if the developer makes a code, change to the repository.
+
+4
+00:00:11,650 --> 00:00:14,740
+It should automatically detect that and trigger the pipeline.
+
+5
+00:00:14,770 --> 00:00:16,480
+Let's test that also.
+
+6
+00:00:17,470 --> 00:00:18,580
+So let's open.
+
+7
+00:00:18,610 --> 00:00:19,600
+Get back.
+
+8
+00:00:19,990 --> 00:00:22,050
+You can use the ID as the developer.
+
+9
+00:00:22,060 --> 00:00:23,710
+Users like Intel AG.
+
+10
+00:00:25,610 --> 00:00:28,010
+And this is the code comet.
+
+11
+00:00:31,890 --> 00:00:32,790
+Yes.
+
+12
+00:00:34,280 --> 00:00:36,710
+And let's make some changes.
+
+13
+00:00:39,660 --> 00:00:42,570
+So let's open read me dot MD file.
+
+14
+00:00:43,610 --> 00:00:46,910
+And just please extra hash.
+
+15
+00:00:47,870 --> 00:00:52,220
+So we're not making any serious code change, but we are making change to some file which should be
+
+16
+00:00:52,220 --> 00:00:52,940
+detected.
+
+17
+00:00:53,860 --> 00:00:55,510
+Get ad dot.
+
+18
+00:00:56,530 --> 00:00:59,770
+Get comet hyphen M.
+
+19
+00:01:02,280 --> 00:01:06,210
+Testing code pipeline.
+
+20
+00:01:08,820 --> 00:01:10,320
+And time to push.
+
+21
+00:01:10,830 --> 00:01:12,210
+So get push.
+
+22
+00:01:14,150 --> 00:01:16,400
+Origin ci hyphen.
+
+23
+00:01:16,430 --> 00:01:16,610
+E.
+
+24
+00:01:16,610 --> 00:01:16,930
+W.
+
+25
+00:01:16,940 --> 00:01:18,110
+S on this branch.
+
+26
+00:01:18,110 --> 00:01:27,020
+If there is any comment then it should be detected by events, cloud watch events and that should trigger
+
+27
+00:01:27,020 --> 00:01:27,680
+the pipeline.
+
+28
+00:01:27,680 --> 00:01:28,460
+Let's check it.
+
+29
+00:01:30,130 --> 00:01:30,290
+Okay.
+
+30
+00:01:30,620 --> 00:01:31,170
+Nothing yet.
+
+31
+00:01:31,190 --> 00:01:32,540
+Let's refresh the screen.
+
+32
+00:01:35,280 --> 00:01:36,060
+All right.
+
+33
+00:01:36,150 --> 00:01:36,870
+You see that?
+
+34
+00:01:36,870 --> 00:01:38,050
+That started?
+
+35
+00:01:38,070 --> 00:01:39,510
+It's in progress.
+
+36
+00:01:40,400 --> 00:01:42,920
+So you had to wait a few more minutes for this to complete.
+
+37
+00:01:42,920 --> 00:01:46,100
+And then you can see the artifact in the S3 bucket.
+
+38
+00:01:48,470 --> 00:01:50,720
+Now let's reiterate what we did.
+
+39
+00:01:51,740 --> 00:01:55,700
+So as like a developer makes a code change and commits in the git repository.
+
+40
+00:01:56,830 --> 00:01:58,690
+The pipeline should get triggered.
+
+41
+00:02:01,100 --> 00:02:04,790
+So latest source code will be fetched in the pipeline.
+
+42
+00:02:05,600 --> 00:02:11,600
+Then our code build job, which is running sonar code analysis, will get triggered.
+
+43
+00:02:12,170 --> 00:02:15,230
+It will download any dependency from code artifact.
+
+44
+00:02:17,830 --> 00:02:21,280
+And we'll also check for quality gates.
+
+45
+00:02:23,470 --> 00:02:28,690
+If that completed successfully, it is going to run the build job, which is going to generate the artifact.
+
+46
+00:02:29,470 --> 00:02:32,860
+Any dependency will be downloaded again from code artefact.
+
+47
+00:02:33,620 --> 00:02:37,580
+And the resulting artifact will be stored into S3 bucket.
+
+48
+00:02:39,250 --> 00:02:43,000
+So this is a continuous integration pipeline.
+
+49
+00:02:43,450 --> 00:02:47,890
+So no, no need of managing Jenkins server, Nexus server.
+
+50
+00:02:47,920 --> 00:02:51,820
+So on the Cube server, we're using all cloud based solutions.
+
+51
+00:02:52,540 --> 00:02:58,240
+So people, I recommend you not to delete these jobs, not to delete this pipeline because anyways,
+
+52
+00:02:58,240 --> 00:02:59,410
+they are not chargeable.
+
+53
+00:02:59,440 --> 00:03:01,270
+They're only chargeable when you run it.
+
+54
+00:03:01,270 --> 00:03:07,000
+And if you are free to your account anyways, you'll not be charged for many, many bills.
+
+55
+00:03:07,030 --> 00:03:09,600
+Just check the free tier service.
+
+56
+00:03:09,610 --> 00:03:12,400
+How many hours of free years are allowed in code build?
+
+57
+00:03:12,700 --> 00:03:14,600
+And I think you have enough number.
+
+58
+00:03:14,620 --> 00:03:20,860
+So do not delete this pipeline because we are going to use this pipeline in our next projects where
+
+59
+00:03:20,860 --> 00:03:23,650
+we're going to extend this to continuous delivery pipeline.
+
+60
+00:03:23,770 --> 00:03:27,280
+I hope you have enjoyed this and learned a lot.
+
+61
+00:03:27,640 --> 00:03:30,040
+Thank you very much for watching this project video.
+
+62
+00:03:30,070 --> 00:03:31,960
+I will see you in the next one.
+

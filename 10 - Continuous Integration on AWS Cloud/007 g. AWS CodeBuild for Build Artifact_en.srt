@@ -1,0 +1,348 @@
+1
+00:00:03,730 --> 00:00:04,070
+Okay.
+
+2
+00:00:04,090 --> 00:00:07,450
+Now time to create our next job, which is going to build the artifact.
+
+3
+00:00:09,230 --> 00:00:11,660
+So let's go to build a project.
+
+4
+00:00:12,140 --> 00:00:12,720
+Mm.
+
+5
+00:00:12,740 --> 00:00:17,390
+We profile hyphen, build hyphen artifact.
+
+6
+00:00:19,960 --> 00:00:23,740
+So score our repository branch.
+
+7
+00:00:24,370 --> 00:00:24,970
+C.
+
+8
+00:00:25,000 --> 00:00:25,480
+Hyphen a.
+
+9
+00:00:25,480 --> 00:00:25,780
+W.
+
+10
+00:00:25,780 --> 00:00:26,380
+S.
+
+11
+00:00:28,260 --> 00:00:29,610
+It's going to be almost similar.
+
+12
+00:00:29,760 --> 00:00:31,590
+Build spec file will be different.
+
+13
+00:00:32,159 --> 00:00:34,920
+Amazon Linux open to will use.
+
+14
+00:00:36,020 --> 00:00:40,460
+Standard image, standard 3.0.
+
+15
+00:00:42,230 --> 00:00:44,270
+This is going to create a service role.
+
+16
+00:00:44,270 --> 00:00:48,680
+And this also we have to update so it can access the parameter store.
+
+17
+00:00:50,100 --> 00:00:55,330
+This job needs the parameter of a code artefact token.
+
+18
+00:00:56,340 --> 00:00:59,960
+At one token access, it needs its code artifact token.
+
+19
+00:00:59,970 --> 00:01:03,000
+So for that, we need to update this role later.
+
+20
+00:01:05,000 --> 00:01:10,730
+Okay, build commands, insert, build command, switch to Ed and let's see our source code.
+
+21
+00:01:11,000 --> 00:01:13,790
+So I build spec file in the source code.
+
+22
+00:01:14,870 --> 00:01:19,730
+Let's add files and here you have build, underscore, build spec file.
+
+23
+00:01:23,070 --> 00:01:24,720
+So you copy all this content.
+
+24
+00:01:31,340 --> 00:01:32,960
+Select all based.
+
+25
+00:01:34,740 --> 00:01:35,220
+Okay.
+
+26
+00:01:35,550 --> 00:01:43,620
+Parameter store variable code Artifact auth token will give it value as code artifact hyphen token.
+
+27
+00:01:44,670 --> 00:01:47,070
+The variable that we created in parameter store.
+
+28
+00:01:47,850 --> 00:01:50,850
+So that's only one thing we need to change over here.
+
+29
+00:01:50,850 --> 00:01:51,360
+Install.
+
+30
+00:01:51,360 --> 00:01:58,680
+We need JDBC settings data XML file gets copied, Prebuilt command we are installing.
+
+31
+00:01:58,830 --> 00:01:59,940
+Let's see it from here.
+
+32
+00:01:59,940 --> 00:02:01,020
+This is better view.
+
+33
+00:02:01,530 --> 00:02:02,610
+A little bigger view.
+
+34
+00:02:03,660 --> 00:02:03,900
+Right.
+
+35
+00:02:03,900 --> 00:02:09,660
+So installing JDK there we are copying settings dot xml file from our source code to dot m two directory
+
+36
+00:02:10,050 --> 00:02:11,220
+into directory.
+
+37
+00:02:11,670 --> 00:02:19,560
+Then apt update and we install JQ, we install apache maven extract it, create a link for it, and
+
+38
+00:02:19,560 --> 00:02:23,340
+then we run the command MV and clean install hyphens.
+
+39
+00:02:23,670 --> 00:02:24,780
+Skip test.
+
+40
+00:02:25,880 --> 00:02:28,520
+So I don't want to run unit test and code analysis over here.
+
+41
+00:02:28,520 --> 00:02:35,930
+So I'm just going to say skip test and artifacts file and the file, you have to give the list of the
+
+42
+00:02:35,930 --> 00:02:36,650
+files.
+
+43
+00:02:36,650 --> 00:02:42,680
+So any file that ends with not valid directory in the target directory, any file that ends with DOT,
+
+44
+00:02:42,680 --> 00:02:48,260
+where will be our artifact and our artifact will have a timestamp as well.
+
+45
+00:02:48,260 --> 00:02:51,140
+We have updated or a prompt XML file.
+
+46
+00:02:54,660 --> 00:02:57,030
+So artifact will even have a timestamp.
+
+47
+00:03:00,930 --> 00:03:03,870
+And that we'll finally upload it to the SD bucket.
+
+48
+00:03:06,720 --> 00:03:07,440
+So.
+
+49
+00:03:08,820 --> 00:03:10,320
+Everything copied over here.
+
+50
+00:03:11,950 --> 00:03:14,320
+So here we are not saying anything.
+
+51
+00:03:14,950 --> 00:03:16,270
+Log group name.
+
+52
+00:03:16,450 --> 00:03:20,530
+So I'll select the same log group that I selected for the previous project.
+
+53
+00:03:23,790 --> 00:03:24,660
+Logs.
+
+54
+00:03:33,540 --> 00:03:36,840
+So they have the same group for the screen name.
+
+55
+00:03:37,880 --> 00:03:40,490
+I will just say billed job.
+
+56
+00:03:43,000 --> 00:03:44,920
+To create build project.
+
+57
+00:03:50,610 --> 00:03:50,880
+Okay.
+
+58
+00:03:52,220 --> 00:03:54,560
+Last one thing in this job.
+
+59
+00:03:55,900 --> 00:03:57,130
+Bailout effect job.
+
+60
+00:03:58,400 --> 00:03:59,000
+Edit.
+
+61
+00:04:00,070 --> 00:04:02,680
+Environment will copy the role name.
+
+62
+00:04:09,010 --> 00:04:10,420
+And we'll go to Imam.
+
+63
+00:04:11,270 --> 00:04:12,080
+Rules.
+
+64
+00:04:13,790 --> 00:04:15,380
+The search for a role.
+
+65
+00:04:18,910 --> 00:04:19,360
+Nope.
+
+66
+00:04:19,899 --> 00:04:20,680
+Not found.
+
+67
+00:04:21,279 --> 00:04:23,020
+Oh, I think I need to refresh this.
+
+68
+00:04:23,090 --> 00:04:23,590
+Yeah.
+
+69
+00:04:24,100 --> 00:04:24,880
+There it is.
+
+70
+00:04:26,090 --> 00:04:27,260
+Attach policy.
+
+71
+00:04:27,890 --> 00:04:29,540
+We already have a policy created.
+
+72
+00:04:29,540 --> 00:04:30,560
+We'll use that.
+
+73
+00:04:31,340 --> 00:04:32,630
+That was for solar.
+
+74
+00:04:32,630 --> 00:04:35,610
+We created the same policy we need.
+
+75
+00:04:35,630 --> 00:04:39,560
+This policy gives permission to access the same parameter store.
+
+76
+00:04:40,250 --> 00:04:41,870
+Let's attach this policy.
+
+77
+00:04:42,750 --> 00:04:44,010
+And we should be good.
+
+78
+00:04:46,580 --> 00:04:47,570
+Cancel this.
+
+79
+00:04:50,140 --> 00:04:52,160
+Okay, time to test this job as well.
+
+80
+00:04:52,180 --> 00:04:53,530
+Let's say start, build.
+
+81
+00:04:57,640 --> 00:04:58,900
+Single build.
+
+82
+00:04:59,920 --> 00:05:00,880
+Same branch.
+
+83
+00:05:01,000 --> 00:05:02,080
+They start build.
+
+84
+00:05:03,710 --> 00:05:08,680
+But it has started to phase details and this will also take some time.
+
+85
+00:05:08,700 --> 00:05:12,390
+I'll pause my screen by the time and we'll come back once this is done.
+
+86
+00:05:13,300 --> 00:05:15,730
+Okay, so this job completed successfully.
+
+87
+00:05:16,640 --> 00:05:17,990
+Can completed.
+

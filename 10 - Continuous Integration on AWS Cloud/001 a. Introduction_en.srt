@@ -1,0 +1,616 @@
+1
+00:00:11,050 --> 00:00:12,910
+Welcome to the project.
+
+2
+00:00:13,750 --> 00:00:18,610
+Name of this project is continuous integration on us.
+
+3
+00:00:19,720 --> 00:00:25,570
+If you have gone through continuous integration project of Jenkins and tools, then you know there is
+
+4
+00:00:25,570 --> 00:00:30,200
+an extra overhead of managing Jenkins server, Nexus server and so on a cube server.
+
+5
+00:00:30,220 --> 00:00:36,580
+In this project we are going to use some of the very cool services where we can set up continuous integration
+
+6
+00:00:36,580 --> 00:00:41,620
+very easily, very quickly and we don't need to manage servers.
+
+7
+00:00:41,830 --> 00:00:43,150
+I know that's pretty cool.
+
+8
+00:00:43,480 --> 00:00:50,400
+So first let's understand continuous integration and how you can achieve it by using services.
+
+9
+00:00:53,230 --> 00:00:54,520
+So this is the scenario.
+
+10
+00:00:54,520 --> 00:01:00,220
+Let's say you have a product development and Agile SDLC is in motion.
+
+11
+00:01:00,850 --> 00:01:06,460
+So bunch of smart developers in an Agile team will regularly make code changes.
+
+12
+00:01:06,880 --> 00:01:09,970
+So there'll be multiple code changes every day.
+
+13
+00:01:10,510 --> 00:01:16,480
+And all this code needs to be tested because this is what actually is building your product.
+
+14
+00:01:16,870 --> 00:01:20,170
+So this code needs to be regularly built and tested.
+
+15
+00:01:23,640 --> 00:01:29,340
+So usually in an enterprise there will be a separate build and release team who will be doing this job
+
+16
+00:01:29,370 --> 00:01:32,040
+of building, testing and releasing the code.
+
+17
+00:01:32,070 --> 00:01:38,130
+Or if it's a small industry, then they'll be it will be developers responsibility to merge and integrate
+
+18
+00:01:38,130 --> 00:01:38,880
+this code.
+
+19
+00:01:41,980 --> 00:01:47,290
+So yes, there are regular code changes, also called commits or pull requests.
+
+20
+00:01:47,650 --> 00:01:52,810
+Developers will be dependent on build and release team, usually to test the code and move it to the
+
+21
+00:01:52,810 --> 00:01:57,190
+next level in the release cycle, but not so frequently.
+
+22
+00:01:57,190 --> 00:02:01,120
+The code will be tested if there are any bugs or error.
+
+23
+00:02:01,150 --> 00:02:05,530
+It will be known late due to these bugs and errors in the code.
+
+24
+00:02:05,530 --> 00:02:06,880
+Keep accumulating.
+
+25
+00:02:07,150 --> 00:02:09,580
+And let's say these got accumulated.
+
+26
+00:02:12,550 --> 00:02:14,440
+The problem goes more deeper.
+
+27
+00:02:14,620 --> 00:02:21,400
+Now developers need to rework to fix these bugs and errors, which is time consuming process and teams
+
+28
+00:02:21,400 --> 00:02:23,260
+would be already approaching the deadline.
+
+29
+00:02:24,010 --> 00:02:29,650
+So product owners really need to test the code as fast as it's building.
+
+30
+00:02:30,190 --> 00:02:35,890
+But that's not possible because the build and release team is doing a manual process.
+
+31
+00:02:36,190 --> 00:02:41,740
+And also there are approvals and ticketing system in place which delays the process more further.
+
+32
+00:02:44,430 --> 00:02:49,160
+So a solution to this problem is regular build and test for every comet.
+
+33
+00:02:49,170 --> 00:02:55,170
+So as soon as there is a code change, the code needs to be built and tested at the same time.
+
+34
+00:02:55,440 --> 00:02:58,690
+But if the process is manual, this will not be possible.
+
+35
+00:02:58,710 --> 00:03:02,430
+So you need to have an automated build and release process.
+
+36
+00:03:03,420 --> 00:03:10,320
+And whenever there is a build and test of the code, the developer should get notified automatically.
+
+37
+00:03:11,150 --> 00:03:17,750
+So if there is a build failure, if the code is not passing your quality gates or if there is any bug,
+
+38
+00:03:17,750 --> 00:03:23,150
+any kind of error, the developers will be stopped doing whatever they're doing and force they'll fix
+
+39
+00:03:23,150 --> 00:03:23,870
+the code.
+
+40
+00:03:28,430 --> 00:03:34,070
+So if you have such kind of automation framework in place which will regularly build and test the code
+
+41
+00:03:34,070 --> 00:03:40,670
+for every commit, then you're also removing dependency of developers from build and release team.
+
+42
+00:03:44,580 --> 00:03:50,370
+This process is itself called a continuous integration process, and there are various ways of setting
+
+43
+00:03:50,370 --> 00:03:50,790
+it.
+
+44
+00:03:51,300 --> 00:03:55,710
+We can use continuous integration server or we can even use cloud services.
+
+45
+00:03:58,130 --> 00:04:01,640
+Now if you're willing to set up continuous integration server.
+
+46
+00:04:02,530 --> 00:04:08,020
+To set up a continuous integration process, then we know there will be an extra overhead of managing
+
+47
+00:04:08,020 --> 00:04:08,740
+those servers.
+
+48
+00:04:08,890 --> 00:04:14,650
+There will be regular maintenance of the servers and you need extra time and effort to do it.
+
+49
+00:04:26,260 --> 00:04:32,050
+If you don't want extra overhead of managing continuous integration server and remove all the operational
+
+50
+00:04:32,050 --> 00:04:39,280
+overhead with it and we can use some very cool services to set up the continuous integration pipeline.
+
+51
+00:04:41,920 --> 00:04:45,190
+So we'll set up a continuous integration pipeline on us.
+
+52
+00:04:45,220 --> 00:04:48,490
+The first benefits, of course, we get is short.
+
+53
+00:04:48,500 --> 00:04:52,840
+MTR mean time to repair will be shorter.
+
+54
+00:04:55,460 --> 00:04:56,840
+It's going to be agile.
+
+55
+00:04:56,900 --> 00:04:59,690
+We're going to have no human intervention in this.
+
+56
+00:05:01,720 --> 00:05:04,480
+If there is any fault that can be isolated very quickly.
+
+57
+00:05:04,480 --> 00:05:10,660
+And if we are setting up on it by using cloud services, then there is no operational overhead.
+
+58
+00:05:11,260 --> 00:05:16,340
+So we get all the benefits of continuous integration without any operational overhead.
+
+59
+00:05:16,360 --> 00:05:18,130
+If we do it on cloud.
+
+60
+00:05:22,150 --> 00:05:27,310
+Okay, So let's see the sources that we are going to use to set up this continuous integration pipeline,
+
+61
+00:05:27,700 --> 00:05:34,120
+starting with Code Commit, which will be a version control system or version control system repository,
+
+62
+00:05:34,120 --> 00:05:35,290
+remote repository.
+
+63
+00:05:35,620 --> 00:05:38,890
+The next service will be using is code artifact.
+
+64
+00:05:39,850 --> 00:05:44,290
+Maven is going to download dependency from code artifact repository.
+
+65
+00:05:48,320 --> 00:05:51,410
+Good build to run our build process.
+
+66
+00:05:51,410 --> 00:05:52,760
+So we are going to run.
+
+67
+00:05:53,770 --> 00:05:54,850
+Maven Bill.
+
+68
+00:05:55,210 --> 00:05:59,050
+We're also going to run code analysis, sonar, cube analysis.
+
+69
+00:05:59,500 --> 00:06:04,780
+So to run code analysis and to run the build process, we'll use a code build service.
+
+70
+00:06:06,770 --> 00:06:10,070
+It could deploy service we'll use to deploy our artifact.
+
+71
+00:06:10,070 --> 00:06:13,730
+And in this project, we're going to deploy our artifact to S3 bucket.
+
+72
+00:06:21,860 --> 00:06:27,770
+So we are not going to set up Solar Cube server, but there is a Cerner Cerner Cloud, which is a cloud
+
+73
+00:06:27,770 --> 00:06:29,900
+based solar cube server, you can see.
+
+74
+00:06:30,110 --> 00:06:35,060
+So we'll just create an account on Sony Cloud and we're going to push all our result from code build
+
+75
+00:06:35,060 --> 00:06:36,260
+to Cerner Cloud.
+
+76
+00:06:40,140 --> 00:06:42,630
+Check style for code analysis will be using.
+
+77
+00:06:43,170 --> 00:06:47,760
+And finally, code pipeline, which is going to integrate all these jobs together.
+
+78
+00:06:49,090 --> 00:06:51,370
+Okay, so let's achieve our goals.
+
+79
+00:06:52,090 --> 00:06:56,050
+Before that, we'll see the architecture of continuous integration pipeline.
+
+80
+00:06:59,220 --> 00:07:07,410
+So first our developer are going to make code changes by using their ID like Intel J or whatever they're
+
+81
+00:07:07,410 --> 00:07:08,100
+using.
+
+82
+00:07:08,430 --> 00:07:10,620
+There'll be a git repository connected to it.
+
+83
+00:07:11,700 --> 00:07:16,290
+And for that local git repository, the remote repository will be.
+
+84
+00:07:17,310 --> 00:07:18,500
+Our code comet.
+
+85
+00:07:18,510 --> 00:07:22,440
+And whenever there is a code commit, the pipeline will get trigger.
+
+86
+00:07:23,560 --> 00:07:31,750
+First the code get pushed to a code commit, which will be like GitHub for us over here in the US.
+
+87
+00:07:32,350 --> 00:07:38,200
+So as soon as there is a new commit, the next job will trigger, which is a code build job.
+
+88
+00:07:38,860 --> 00:07:42,800
+But it is going to run sonar scanner and do code analysis.
+
+89
+00:07:42,840 --> 00:07:45,940
+It will also run check style from this job.
+
+90
+00:07:47,300 --> 00:07:51,920
+For any dependency, it is going to download it from a code artifact.
+
+91
+00:07:52,890 --> 00:07:53,790
+And then.
+
+92
+00:07:56,000 --> 00:08:04,460
+This job will also upload the reports to SoundCloud and get the result, which then will trigger another
+
+93
+00:08:04,460 --> 00:08:05,270
+code build job.
+
+94
+00:08:05,270 --> 00:08:07,280
+And this will be building artifact.
+
+95
+00:08:07,610 --> 00:08:11,690
+In this job, we're going to build our artifact, version it and store it.
+
+96
+00:08:13,620 --> 00:08:20,280
+On S3 bucket and also if there is any dependencies required for MAVEN build, it will be again downloaded
+
+97
+00:08:20,280 --> 00:08:22,500
+from code artifact service.
+
+98
+00:08:25,880 --> 00:08:27,680
+So it's a pretty simple architectural diagram.
+
+99
+00:08:27,710 --> 00:08:29,030
+Have a look once again.
+
+100
+00:08:29,960 --> 00:08:31,790
+Pause the video if you want.
+
+101
+00:08:32,330 --> 00:08:34,370
+I will run through the play once again.
+
+102
+00:08:53,740 --> 00:08:56,350
+Okay, let's see the flow of execution now.
+
+103
+00:09:01,100 --> 00:09:04,520
+First, we'll set up everything on blue, so you log into a plus account.
+
+104
+00:09:04,910 --> 00:09:08,530
+We're going to go to code, commit service, and we're going to take some action.
+
+105
+00:09:08,540 --> 00:09:10,850
+We'll create code commit repository.
+
+106
+00:09:11,330 --> 00:09:16,600
+We'll create an I am user with code commit policy, which will have privilege to access this code commit
+
+107
+00:09:16,640 --> 00:09:17,510
+repository.
+
+108
+00:09:18,780 --> 00:09:21,830
+And locally in our machine, we are going to generate such keys.
+
+109
+00:09:21,840 --> 00:09:25,110
+We are going to do search based login to this code repository.
+
+110
+00:09:25,560 --> 00:09:29,130
+We'll exchange the keys with the IAM user that we created.
+
+111
+00:09:29,580 --> 00:09:33,060
+So we set up the authentication to our code repository.
+
+112
+00:09:34,710 --> 00:09:40,800
+Then we'll take source code from GitHub, download in our local machine and then we're going to switch
+
+113
+00:09:40,800 --> 00:09:42,780
+to code commit repository.
+
+114
+00:09:43,860 --> 00:09:50,310
+So you'll also learn how to switch between two git repositories with all the commits, all the history.
+
+115
+00:09:51,160 --> 00:09:53,440
+Next, we'll go to Code Artefact service.
+
+116
+00:09:54,870 --> 00:09:59,100
+In this service, you're going to create a repository which is going to store MAVEN dependencies.
+
+117
+00:09:59,580 --> 00:10:02,490
+And for this also we need an another IAM user.
+
+118
+00:10:03,920 --> 00:10:06,880
+Which can access code artifact repository.
+
+119
+00:10:06,890 --> 00:10:13,370
+We're going to install a CLI on our local machine and we'll configure it with a plus item access key
+
+120
+00:10:13,370 --> 00:10:14,420
+and secret key.
+
+121
+00:10:15,600 --> 00:10:18,300
+We'll run a command that is going to give us a token.
+
+122
+00:10:20,120 --> 00:10:21,440
+For authentication.
+
+123
+00:10:21,440 --> 00:10:28,280
+Then we are going to update settings, XML file with the repository detail with the code artifact Repository
+
+124
+00:10:28,280 --> 00:10:28,910
+detail.
+
+125
+00:10:29,240 --> 00:10:35,120
+We'll update that XML file so it can fetch dependency from code artifact.
+
+126
+00:10:40,700 --> 00:10:42,680
+Okay, Now we'll start setting up the build job.
+
+127
+00:10:42,680 --> 00:10:47,150
+The first build job will be setting up is going to be for sonar analysis.
+
+128
+00:10:47,150 --> 00:10:49,490
+So we're going to create an account on sonar cloud.
+
+129
+00:10:51,090 --> 00:10:52,980
+We're going to generate a token over there.
+
+130
+00:10:53,370 --> 00:10:59,520
+And this information of sonar token and Project Key and all the sonar details we're going to store in
+
+131
+00:10:59,550 --> 00:11:01,170
+some parameter stores.
+
+132
+00:11:01,470 --> 00:11:04,680
+So we don't need to specify them in the build job directly.
+
+133
+00:11:04,680 --> 00:11:09,030
+Or build job is going to get those parameters from some parameter store.
+
+134
+00:11:10,060 --> 00:11:11,260
+Will create a build job.
+
+135
+00:11:12,570 --> 00:11:13,800
+I would build job.
+
+136
+00:11:13,950 --> 00:11:21,090
+When we create, we get a role and we're going to update this role with some parameters to access.
+
+137
+00:11:21,540 --> 00:11:25,740
+So our code job code build job can access some parameter stores.
+
+138
+00:11:26,990 --> 00:11:28,860
+Then we'll create a notification.
+
+139
+00:11:28,880 --> 00:11:31,760
+You can do it for SMS notification or Slack.
+
+140
+00:11:31,940 --> 00:11:34,700
+We're going to do in this project as soon as notification.
+
+141
+00:11:35,780 --> 00:11:41,930
+Then we'll set up a build project which is going to build the artefact and deploy to S3 bucket.
+
+142
+00:11:42,950 --> 00:11:47,600
+Begin to update our XML file with artifact versions with timestamps.
+
+143
+00:11:47,600 --> 00:11:52,220
+So automatically our artifact will be version with a timestamp with the current timestamp.
+
+144
+00:11:53,300 --> 00:11:57,950
+So what are properties required for this build project like code artifact information?
+
+145
+00:11:58,400 --> 00:12:02,150
+We're going to store all that properties in some parameter store again.
+
+146
+00:12:06,110 --> 00:12:08,050
+And this code build job.
+
+147
+00:12:08,060 --> 00:12:11,890
+What we're going to create will also need access to parameter store.
+
+148
+00:12:11,900 --> 00:12:14,540
+So we're going to update the roll code, build roll.
+
+149
+00:12:17,160 --> 00:12:24,570
+Once we have all this ready, then we're going to finally connect everything with Pipeline plus code.
+
+150
+00:12:24,570 --> 00:12:31,530
+Pipeline code, commit job test code, job, which will be our sonar code analysis job and the build
+
+151
+00:12:31,530 --> 00:12:35,190
+job, which will build the artifact and upload to S3 bucket.
+
+152
+00:12:36,140 --> 00:12:38,240
+And then finally, we'll test our pipeline.
+
+153
+00:12:38,240 --> 00:12:43,100
+We'll make a code change and we'll see how automatically this pipeline triggers.
+
+154
+00:12:43,100 --> 00:12:46,250
+And we get a well tested artifact in S3 bucket.
+
