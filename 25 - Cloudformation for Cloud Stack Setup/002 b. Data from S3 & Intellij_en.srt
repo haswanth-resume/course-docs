@@ -1,0 +1,204 @@
+1
+00:00:02,290 --> 00:00:08,680
+Any time in the project, if you wish to see the resources that we're using, you can use it as confirmation
+
+2
+00:00:08,680 --> 00:00:09,560
+documentation.
+
+3
+00:00:10,180 --> 00:00:11,220
+That's one thing.
+
+4
+00:00:11,230 --> 00:00:17,770
+And also all the templates that you're going to write in this project are already available in our repository.
+
+5
+00:00:18,580 --> 00:00:24,640
+So either you can clone it in your local machine if you don't have already clone or you can just check
+
+6
+00:00:24,640 --> 00:00:25,390
+it from the browser.
+
+7
+00:00:25,390 --> 00:00:28,210
+Also, cloud formation is the branch in the repository.
+
+8
+00:00:29,430 --> 00:00:30,630
+Kudi project.
+
+9
+00:00:32,100 --> 00:00:34,410
+So that's our main route to complete.
+
+10
+00:00:36,270 --> 00:00:38,160
+So all the code of the root template.
+
+11
+00:00:40,470 --> 00:00:42,600
+And also our child emplace.
+
+12
+00:00:44,400 --> 00:00:52,320
+For example, let's take example of C.A.T. history rule so you can see already the template is available
+
+13
+00:00:52,320 --> 00:00:52,830
+over here.
+
+14
+00:00:52,860 --> 00:00:54,120
+This is for your reference.
+
+15
+00:00:54,870 --> 00:00:56,300
+We're going to do all this step by step.
+
+16
+00:00:56,310 --> 00:01:01,110
+We're going to create each and every file, link all of them together through route template.
+
+17
+00:01:01,110 --> 00:01:02,760
+And then we're going to create the stack.
+
+18
+00:01:03,950 --> 00:01:11,810
+OK, as already discussed, you should have already a backup on your S3 bucket of our S.A.T. data.
+
+19
+00:01:13,330 --> 00:01:20,260
+OK, so I have a bucket named CD Hyphen, detA, Hyphen V profile, and in this bucket I have Jenkins'
+
+20
+00:01:20,260 --> 00:01:27,070
+backup Nexxus Backup, PostgreSQL Sooner Cube and Tomcat user SML.
+
+21
+00:01:27,070 --> 00:01:30,760
+Also context are similar to configuration file and for archives.
+
+22
+00:01:31,330 --> 00:01:38,590
+I'm going to keep this tab open because I will need the bucket name and I will also need this file name
+
+23
+00:01:38,590 --> 00:01:40,460
+that I'm going to put in my templates.
+
+24
+00:01:41,120 --> 00:01:43,060
+OK, I'm going to create one more bucket.
+
+25
+00:01:44,020 --> 00:01:46,510
+I will leave it as a profile hyphen.
+
+26
+00:01:46,510 --> 00:01:47,800
+S.I Sudi.
+
+27
+00:01:48,770 --> 00:01:50,780
+IFN templates.
+
+28
+00:01:54,910 --> 00:02:01,240
+I'm creating in the same region, Ohio region, willing to store our child templates into this bucket
+
+29
+00:02:01,870 --> 00:02:03,010
+or create this bucket.
+
+30
+00:02:06,030 --> 00:02:13,980
+Gave me that bucket and we have to create a folder with a specific name, stack hyphen template.
+
+31
+00:02:15,670 --> 00:02:21,730
+If you wish to create it with a different name, no down its name, so we're going to update this in
+
+32
+00:02:21,730 --> 00:02:23,710
+our automation template.
+
+33
+00:02:32,440 --> 00:02:39,370
+This is it, I'm going to upload my child template and address three Buchard that I have my back up
+
+34
+00:02:39,380 --> 00:02:39,780
+stored.
+
+35
+00:02:41,110 --> 00:02:46,830
+If you don't have this backup backup still don't worry, you can still follow along in the project.
+
+36
+00:02:47,500 --> 00:02:50,620
+Only thing is that you won't be able to restore the data, that's all.
+
+37
+00:02:50,620 --> 00:02:53,490
+But the project execution will go on fine anyways.
+
+38
+00:02:54,370 --> 00:02:56,440
+OK, now we're going to create a keeper.
+
+39
+00:02:56,920 --> 00:02:58,570
+Let me go to the Secret to Service.
+
+40
+00:03:01,150 --> 00:03:02,330
+Let's create a keeper.
+
+41
+00:03:02,350 --> 00:03:05,200
+We have to remember its name or any of us will get a job.
+
+42
+00:03:05,410 --> 00:03:11,170
+We can select the keeper and give them a CIA CD hyphen, STAC hyphen key.
+
+43
+00:03:14,140 --> 00:03:15,220
+Create Kiefer.
+
+44
+00:03:16,810 --> 00:03:21,430
+OK, now let's start writing our templates, so let me open in.
+
+45
+00:03:24,070 --> 00:03:26,930
+There is a cloud formation plugin in intelligence.
+
+46
+00:03:28,150 --> 00:03:31,360
+I already have it installed, if you want, you can install that.
+
+47
+00:03:35,580 --> 00:03:40,320
+Logging section, check for eatables cloud formation template and have it installed.
+
+48
+00:03:43,590 --> 00:03:46,590
+Out, you can just Google it, obvious cloud formation plugin.
+
+49
+00:03:48,120 --> 00:03:50,230
+Intelligence, you can install it like that.
+
+50
+00:03:50,250 --> 00:03:50,640
+Also.
+
+51
+00:03:51,910 --> 00:03:55,720
+Once you have it installed, restart your ID.
+

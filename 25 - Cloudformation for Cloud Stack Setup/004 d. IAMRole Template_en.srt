@@ -1,0 +1,360 @@
+1
+00:00:00,690 --> 00:00:03,030
+OK, next template is our.
+
+2
+00:00:04,110 --> 00:00:10,200
+First template in our CDs is Astraea rule for Cecilio giving the right template for this.
+
+3
+00:00:13,720 --> 00:00:15,940
+And it was confirmation Yamal downplayed.
+
+4
+00:00:18,590 --> 00:00:23,990
+Amy, the CIA sued three rule dot, yeah.
+
+5
+00:00:27,400 --> 00:00:34,960
+And I don't need this if you have never created a resource stream and you never created a rule, I am
+
+6
+00:00:34,960 --> 00:00:40,990
+role, then you can check from the documentation how to create it for Mission User Guide.
+
+7
+00:00:43,240 --> 00:00:47,020
+Let's go to template reference resources and property.
+
+8
+00:00:49,870 --> 00:00:55,810
+I am also so let's find the IMS service, I am I there I am.
+
+9
+00:00:57,000 --> 00:00:59,610
+And I am role, let's click on that.
+
+10
+00:01:00,900 --> 00:01:02,640
+OK, let's make it smaller.
+
+11
+00:01:03,720 --> 00:01:05,080
+We're going to use Jason.
+
+12
+00:01:05,150 --> 00:01:11,340
+Now, Jason, Yemen, so that these are the properties can directly go to the example and see how it
+
+13
+00:01:11,340 --> 00:01:11,780
+is done.
+
+14
+00:01:17,150 --> 00:01:21,830
+OK, so there are two things done when we create I am through cloud formation template, we have to
+
+15
+00:01:21,830 --> 00:01:26,750
+create the role and we have to create the profile instance profile.
+
+16
+00:01:27,260 --> 00:01:31,760
+When you do it through console, this gets you just create the role and we create the instant profile
+
+17
+00:01:31,760 --> 00:01:33,080
+you don't need to create separately.
+
+18
+00:01:35,730 --> 00:01:42,870
+So resources, the name, the logical odor, you can give it Iblis, I am rural properties, you have
+
+19
+00:01:42,870 --> 00:01:51,240
+assume rule policy document the vision statement effect, allow principle service that is going to use
+
+20
+00:01:51,240 --> 00:01:51,800
+this rule.
+
+21
+00:01:52,860 --> 00:01:54,220
+That's where our main attention is.
+
+22
+00:01:54,220 --> 00:02:01,080
+So this role we're going to create is going to be for EU action estis assume roles that can assume that
+
+23
+00:02:01,080 --> 00:02:01,350
+role.
+
+24
+00:02:02,450 --> 00:02:07,670
+OK, Path is Route Policy's name of a policy.
+
+25
+00:02:08,680 --> 00:02:15,010
+Policy document, vision, no statement effect, allow action, what action you can define the actions,
+
+26
+00:02:15,280 --> 00:02:17,410
+read, write, list, all the other actions.
+
+27
+00:02:18,640 --> 00:02:20,650
+Resources for which resource?
+
+28
+00:02:21,280 --> 00:02:25,870
+This is for easy to solve is so easy to do so we can take action on which resource S3.
+
+29
+00:02:27,230 --> 00:02:33,480
+Dinamo would what are you are actually going to use Stryder, OK, so then instanced profile, including
+
+30
+00:02:33,500 --> 00:02:39,260
+instanced profiler's illogicality path route disinformation rules.
+
+31
+00:02:40,170 --> 00:02:44,330
+The role that you created up here would rule that illogicality.
+
+32
+00:02:46,110 --> 00:02:52,110
+OK, so this creates the instant profile also, if you want to know more about all these options, everything
+
+33
+00:02:52,110 --> 00:02:57,570
+is mentioned in the documentation, you can read about them a role in what you have to give police's
+
+34
+00:02:57,900 --> 00:03:00,180
+permission, boundaries you can set forth.
+
+35
+00:03:00,180 --> 00:03:01,770
+What are the path that we are setting.
+
+36
+00:03:03,780 --> 00:03:08,550
+OK, I'm going to take this example and I'm going to make changes toward.
+
+37
+00:03:09,660 --> 00:03:10,200
+Kopi.
+
+38
+00:03:15,460 --> 00:03:23,620
+OK, first, the logical idea will change as a VP, like we profile as three role, that should be fine.
+
+39
+00:03:23,800 --> 00:03:26,640
+I'm going to as I assign you don't do so.
+
+40
+00:03:26,650 --> 00:03:27,340
+This is fine.
+
+41
+00:03:30,030 --> 00:03:33,510
+There's no ruling given over here I'm going to give the ruling name.
+
+42
+00:03:37,220 --> 00:03:38,630
+That's the option name.
+
+43
+00:03:40,550 --> 00:03:45,530
+OK, so that's the only way I'm going to give OK, now to showing everything that you see, it's showing
+
+44
+00:03:45,530 --> 00:03:46,720
+the documentation also.
+
+45
+00:03:47,120 --> 00:03:47,990
+That's pretty nice.
+
+46
+00:03:48,650 --> 00:03:50,800
+OK, so you don't need to go to chlorpromazine.
+
+47
+00:03:50,810 --> 00:03:56,900
+Also, every time I saw the confirmation documentation, you don't need to go, OK, that is going to
+
+48
+00:03:56,900 --> 00:03:58,010
+create the policy.
+
+49
+00:03:58,010 --> 00:04:00,410
+I'm going to give policies and different name.
+
+50
+00:04:03,340 --> 00:04:05,800
+The profile is three full access.
+
+51
+00:04:07,580 --> 00:04:16,490
+Resource allocation, the resource which I'm going I'm going to give Iran a W.S. Colen history, so
+
+52
+00:04:16,490 --> 00:04:17,390
+you have to give it in air.
+
+53
+00:04:17,390 --> 00:04:18,230
+Informatica.
+
+54
+00:04:20,060 --> 00:04:21,800
+Star, that is important.
+
+55
+00:04:23,280 --> 00:04:28,870
+OK, for instance, profi, we can change this illogicality, we can change this name also OK, with
+
+56
+00:04:28,890 --> 00:04:37,560
+Phoebe instanced profile, Raffo refer to Zietz only showing that as red does not exist because that's
+
+57
+00:04:37,560 --> 00:04:39,540
+the name we have given to our.
+
+58
+00:04:40,620 --> 00:04:41,340
+Resource.
+
+59
+00:04:43,350 --> 00:04:44,960
+Yes, OK.
+
+60
+00:04:44,990 --> 00:04:51,810
+Also, you can give name your instant profile, instant profile name, that's the option.
+
+61
+00:04:51,810 --> 00:04:52,680
+And the name.
+
+62
+00:04:54,500 --> 00:04:55,640
+OK, see this?
+
+63
+00:04:57,430 --> 00:05:01,390
+And ladies, again, in our motion control, so you can any time go and check.
+
+64
+00:05:02,570 --> 00:05:03,290
+Combatted.
+
+65
+00:05:04,450 --> 00:05:06,220
+That's yeah, that's already open to.
+
+66
+00:05:07,240 --> 00:05:14,770
+So, you know, go to the cloud formation branch, check CCD, all dot Yamal, compare it with your
+
+67
+00:05:14,770 --> 00:05:15,310
+template.
+
+68
+00:05:19,730 --> 00:05:22,700
+OK, one more thing we have to do over here is we have to.
+
+69
+00:05:26,660 --> 00:05:33,890
+Export the information of this role so it can be imported in the next Templer, Jenkins is going to
+
+70
+00:05:35,000 --> 00:05:39,110
+assume this role and we to attach this role to the Jenkins' instance.
+
+71
+00:05:40,990 --> 00:05:47,410
+So we have to export the data from here so we can import, so not like we're exporting the detail about
+
+72
+00:05:47,410 --> 00:05:52,720
+this role so it can be imported in other template like Jenkins'.
+
+73
+00:05:53,530 --> 00:05:55,090
+For that, we use Output's.
+
+74
+00:06:01,500 --> 00:06:02,350
+Outputs.
+
+75
+00:06:04,050 --> 00:06:08,730
+And we can give some name, like I'm saying, BP free all details.
+
+76
+00:06:11,280 --> 00:06:16,320
+Description, if you want, why it's not highlighting syntax.
+
+77
+00:06:18,740 --> 00:06:20,270
+OK, value.
+
+78
+00:06:22,050 --> 00:06:23,180
+The capital there.
+
+79
+00:06:24,850 --> 00:06:31,360
+So we have to actually refer to the profile name, exclamation.
+
+80
+00:06:35,250 --> 00:06:36,210
+It just this.
+
+81
+00:06:41,110 --> 00:06:46,250
+OK, so this is the output, so this will print the output, but we want to export it.
+
+82
+00:06:46,250 --> 00:06:47,900
+So here to give an option export.
+
+83
+00:06:51,450 --> 00:06:58,620
+And you have to give me name, so I'm going to give the name of this template, see this as three.
+
+84
+00:06:59,640 --> 00:07:06,400
+Rule, which is important to give the rule in the name of the template, codicils the name, or either
+
+85
+00:07:06,400 --> 00:07:11,560
+you can use the variable dollar calibrates, you can establish track name, we can use that also.
+
+86
+00:07:13,050 --> 00:07:15,130
+And then hyphen some name.
+
+87
+00:07:15,480 --> 00:07:21,540
+So so this will be actually the name of the variable that we can import it later in the next template.
+
+88
+00:07:23,930 --> 00:07:30,200
+OK, so this template is ready, this should create an three roll, I'm sorry, and I am roll with S3
+
+89
+00:07:30,200 --> 00:07:33,830
+full access and should export the details of it.
+
+90
+00:07:33,830 --> 00:07:35,720
+So next it can imported.
+

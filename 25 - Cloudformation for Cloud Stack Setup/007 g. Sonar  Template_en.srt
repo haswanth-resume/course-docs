@@ -1,0 +1,228 @@
+1
+00:00:02,050 --> 00:00:05,260
+OK, so the other template should be just similar.
+
+2
+00:00:05,290 --> 00:00:07,510
+Next, we're going to set up, so let's see if this.
+
+3
+00:00:12,690 --> 00:00:14,520
+Civil liberties sonar.
+
+4
+00:00:15,500 --> 00:00:17,030
+Darte Yamal.
+
+5
+00:00:19,410 --> 00:00:24,420
+OK, this is as similar as the Jenkintown played via accepting.
+
+6
+00:00:25,420 --> 00:00:33,670
+The rolling Jenkins stack name we have parameter for IP name that also is coming from the master route
+
+7
+00:00:33,680 --> 00:00:37,570
+template, instant type mapping and mapping.
+
+8
+00:00:40,650 --> 00:00:42,120
+Resources logical.
+
+9
+00:00:42,510 --> 00:00:45,570
+In that instance, we are launching an instance, Sudheer Properties.
+
+10
+00:00:46,520 --> 00:00:55,310
+His name, image I.D., some tag security groups honor S.G., which is mentioned down there instanced
+
+11
+00:00:55,310 --> 00:00:59,990
+profile, same import value roll template name, there's a variable.
+
+12
+00:01:00,350 --> 00:01:02,450
+So in its value will be this.
+
+13
+00:01:03,750 --> 00:01:07,410
+OK, and that is coming from our master template.
+
+14
+00:01:08,670 --> 00:01:10,810
+Now, sorry, from this generation.
+
+15
+00:01:11,710 --> 00:01:18,250
+Across the street, all this value will be assigned over here and that is passed down.
+
+16
+00:01:19,980 --> 00:01:26,080
+Warrior Rolton proclaims its value will be Cadastral Hyphen Vestris?
+
+17
+00:01:26,080 --> 00:01:27,090
+S profile name.
+
+18
+00:01:29,020 --> 00:01:31,230
+That one CD30 downplayed.
+
+19
+00:01:32,550 --> 00:01:37,680
+OK, same thing what we did in Nexxus and Jenkins, OK, user data.
+
+20
+00:01:38,820 --> 00:01:42,390
+OK, see the entire sonor set up as we did in Sikri Pipeline.
+
+21
+00:01:44,880 --> 00:01:50,160
+OK, till the engineers set up the differences, we copy the.
+
+22
+00:01:51,670 --> 00:01:55,210
+Backup is three bucket name.
+
+23
+00:01:56,810 --> 00:02:01,460
+Your archive name downloaded to opt, this is sooner back up.
+
+24
+00:02:02,580 --> 00:02:03,450
+Extracted.
+
+25
+00:02:04,810 --> 00:02:10,840
+Give the permission, then the PostgreSQL sonar cube is when you bring up it's going to create a lot
+
+26
+00:02:10,840 --> 00:02:12,850
+of schemas in the polls.
+
+27
+00:02:12,880 --> 00:02:17,200
+Gursky also taken its backup, also extracted to Vasilyev.
+
+28
+00:02:18,240 --> 00:02:25,200
+Downloaded to Ghaleb, extracted, changed the permission start PostgreSQL and starts Owner-Occupied
+
+29
+00:02:25,380 --> 00:02:27,530
+and rebooted Sonor Cube.
+
+30
+00:02:27,560 --> 00:02:33,470
+This is necessary, OK, there's some issue so just keep that reboot once everything is done.
+
+31
+00:02:33,480 --> 00:02:37,740
+It bounced the reboot the entire instant's and your data will be back up.
+
+32
+00:02:40,330 --> 00:02:46,270
+OK, so no security group 22 allowed from my iPad, allowed from IP.
+
+33
+00:02:48,130 --> 00:02:53,590
+And also, we are adding a rule to allow a different Jenkins.
+
+34
+00:02:53,620 --> 00:02:59,230
+Jenkins is going to upload the report to Sonakshi observers of U.S. security group in Greece.
+
+35
+00:03:00,260 --> 00:03:01,610
+Sooner's, Ezgi.
+
+36
+00:03:03,340 --> 00:03:06,460
+OK, not once on the Regi group idea offered.
+
+37
+00:03:07,600 --> 00:03:08,830
+Social Security group.
+
+38
+00:03:13,850 --> 00:03:16,390
+The Jenkins' security group like.
+
+39
+00:03:17,670 --> 00:03:23,730
+And so when he says IP protocol minus one, that means all the protocol, all the protocol.
+
+40
+00:03:24,880 --> 00:03:31,860
+So like all traffic allowed from Jenkins like that, OK, we are updating also Jenkins' security group.
+
+41
+00:03:31,870 --> 00:03:32,320
+Yes.
+
+42
+00:03:32,320 --> 00:03:39,250
+In Sonar Templated updating jenkins' security group, because this traffic is going to be both Sonor
+
+43
+00:03:39,250 --> 00:03:40,750
+and Jenkins' so soon.
+
+44
+00:03:40,750 --> 00:03:43,270
+That allows all traffic from jinking security groups.
+
+45
+00:03:43,270 --> 00:03:49,600
+S.V. We are saying security group Ingress Gruppo, the import value jinking security group.
+
+46
+00:03:50,110 --> 00:03:52,060
+OK, all traffic.
+
+47
+00:03:52,570 --> 00:03:55,630
+So Security Group will be soon our security group.
+
+48
+00:03:56,680 --> 00:03:59,920
+You can see this is just the opposite of what we are doing over here.
+
+49
+00:04:00,640 --> 00:04:04,420
+Here we are allowing all traffic from jinking security group to Sonor.
+
+50
+00:04:05,110 --> 00:04:10,300
+Here we are allowing all traffic from Social Security group to jenkins'.
+
+51
+00:04:12,140 --> 00:04:17,490
+OK, and this is of templated updating the Jenkins' security group here, and we can do that because
+
+52
+00:04:17,490 --> 00:04:19,700
+we are exporting the Jenkins' security group Idee.
+
+53
+00:04:20,890 --> 00:04:27,510
+We can import it, use it security group, use the resource and update the rules, it care.
+
+54
+00:04:29,820 --> 00:04:31,620
+So that is sooner, let's see it.
+
+55
+00:04:36,210 --> 00:04:36,780
+Check it.
+
+56
+00:04:38,430 --> 00:04:41,670
+Very far from it, Sonador, Yamal from the repository.
+
+57
+00:04:41,730 --> 00:04:42,690
+If everything is good.
+

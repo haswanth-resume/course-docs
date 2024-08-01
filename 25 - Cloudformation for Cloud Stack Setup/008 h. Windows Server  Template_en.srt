@@ -1,0 +1,112 @@
+1
+00:00:06,900 --> 00:00:11,530
+OK, next, I will talk about the Windows Server.
+
+2
+00:00:11,550 --> 00:00:16,320
+OK, when guest dark yammered.
+
+3
+00:00:17,900 --> 00:00:25,070
+And this is also as similar as the setup of Jenkins, Nexis and sonar, except this is Windows Server.
+
+4
+00:00:26,560 --> 00:00:32,320
+So, Amy, it's of course, what will be of the Windows Server accepting this parameter for the rule
+
+5
+00:00:32,330 --> 00:00:40,160
+name Jenkins template name Libicki, name an instance due to small and bigger incidents like Sonorant
+
+6
+00:00:40,160 --> 00:00:44,020
+Nexus mapping of Microsoft Windows Server.
+
+7
+00:00:45,640 --> 00:00:52,460
+OK, resource windows test, logical and easy to instant's again, instant type keaney imagery.
+
+8
+00:00:54,410 --> 00:00:55,360
+Remove that.
+
+9
+00:00:57,810 --> 00:01:02,040
+Tag security group, wind test, S.G., which will go down there.
+
+10
+00:01:03,170 --> 00:01:12,800
+It's just profile, again, importing the value of the role profile name, user base64, sub power shall
+
+11
+00:01:13,370 --> 00:01:14,960
+not shelter power shell.
+
+12
+00:01:16,070 --> 00:01:21,430
+So installing May one, the spelling mistake there.
+
+13
+00:01:23,790 --> 00:01:25,110
+Google Chrome get.
+
+14
+00:01:32,190 --> 00:01:34,050
+And creating a jenkins' directly.
+
+15
+00:01:34,620 --> 00:01:36,210
+So some powerful commands there.
+
+16
+00:01:38,150 --> 00:01:42,330
+What's going on is just going to set chocolate and then we're going to use chocolate to install Judy.
+
+17
+00:01:42,380 --> 00:01:47,150
+Give me one Google Chrome and get the Windows Test Security Group.
+
+18
+00:01:49,370 --> 00:01:54,950
+So one rule three three eight nine and out from my IP, and then we're updating it, security group,
+
+19
+00:01:55,280 --> 00:01:59,000
+security group, Ingress Windows Distinguished Operating Group.
+
+20
+00:02:00,110 --> 00:02:03,950
+All protocol, Social Security group jinking.
+
+21
+00:02:03,970 --> 00:02:07,320
+So we're allowing all traffic from jinking security group.
+
+22
+00:02:08,060 --> 00:02:14,950
+Then again, I'm updating jinking security group here also like we did in sonar back the other way.
+
+23
+00:02:16,040 --> 00:02:23,270
+Right, this allows all traffic from Jenkins and this resource is going to update jinking security group
+
+24
+00:02:23,270 --> 00:02:27,590
+and allow all traffic from Windows Security Group.
+
+25
+00:02:29,130 --> 00:02:33,690
+Yet here again, you can use get tribute, right, because it's creating and getting written the same
+
+26
+00:02:33,690 --> 00:02:36,190
+template so I can see when Industries G.
+
+27
+00:02:37,550 --> 00:02:44,630
+If you start logical idea of the security group group, so get the security group idea of windows and
+
+28
+00:02:44,630 --> 00:02:47,580
+that will be upgraded in the security rules.
+

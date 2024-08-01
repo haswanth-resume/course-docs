@@ -1,0 +1,400 @@
+1
+00:00:00,270 --> 00:00:05,600
+Let's create the next template now after this, you can create it in any order, I'll go for next.
+
+2
+00:00:05,630 --> 00:00:09,000
+This next nexxus don't Yamal.
+
+3
+00:00:12,240 --> 00:00:17,430
+Parameters seem as what we are doing it in Jenkins' plus one extra parameter, so I just copy everything
+
+4
+00:00:17,430 --> 00:00:17,970
+from here.
+
+5
+00:00:20,730 --> 00:00:27,600
+Plus, one more parameter, which will be the jinking security group, OK, so Jenkins Astatke name,
+
+6
+00:00:27,600 --> 00:00:32,810
+that's the name I'm giving for the property type string defoliating.
+
+7
+00:00:32,820 --> 00:00:35,400
+This is the name of the template.
+
+8
+00:00:35,400 --> 00:00:40,020
+OK, that's why I was telling you, use similar name as I'm using.
+
+9
+00:00:40,020 --> 00:00:44,070
+Or if you're using a different name for your template, then make sure you're giving right name.
+
+10
+00:00:44,070 --> 00:00:44,520
+Viniar.
+
+11
+00:00:45,430 --> 00:00:49,760
+Importing the values back then, other three same properties.
+
+12
+00:00:50,510 --> 00:00:56,530
+OK, next is mappings of EMI so that also we can copy from here again.
+
+13
+00:01:02,190 --> 00:01:09,090
+OK, next is resourced to launch, for instance, this will be similar to the JENKINS'.
+
+14
+00:01:11,920 --> 00:01:20,860
+Resources that are illogicality, sutta instance, instant's deep kini am I don't need this.
+
+15
+00:01:23,040 --> 00:01:24,000
+Some dags.
+
+16
+00:01:26,110 --> 00:01:30,970
+Security groups referring to a security group that is not yet created, but we are going to created
+
+17
+00:01:31,450 --> 00:01:34,330
+instant profile and import value.
+
+18
+00:01:35,780 --> 00:01:45,590
+So it can dash that role user data script that will be different, of course, but similar process you're
+
+19
+00:01:45,590 --> 00:01:52,400
+going to set up next to us through a script and then you're going to download the backup from a bucket
+
+20
+00:01:52,400 --> 00:01:53,900
+and then extracted.
+
+21
+00:01:55,920 --> 00:01:59,130
+OK, so installing this is this will be for the center.
+
+22
+00:01:59,670 --> 00:02:03,090
+I have to actually remove this map and this is not going to be for.
+
+23
+00:02:04,200 --> 00:02:11,630
+Want to do this, I have to do mapping the image of the Center seven instance, I can take that from
+
+24
+00:02:11,630 --> 00:02:12,500
+the repository.
+
+25
+00:02:13,530 --> 00:02:14,210
+Schirach.
+
+26
+00:02:15,360 --> 00:02:16,110
+Nexxus.
+
+27
+00:02:19,260 --> 00:02:25,740
+These are the areas of the Centerstone instance, it's easy for me to copy if you want your for you
+
+28
+00:02:25,740 --> 00:02:31,860
+also you can copy it from the repository, but if you want, you can find the right amedee for yourself
+
+29
+00:02:31,860 --> 00:02:33,060
+and change the values there.
+
+30
+00:02:39,330 --> 00:02:40,530
+OK, let's go through this.
+
+31
+00:02:42,180 --> 00:02:45,510
+So installing JDK, installing A.W. Seelie.
+
+32
+00:02:46,740 --> 00:02:51,960
+Creating, directing AppNexus, creating a temporary or directly nexus in temp.
+
+33
+00:02:53,010 --> 00:02:55,620
+Download Nexxus from this URL.
+
+34
+00:02:58,100 --> 00:03:06,050
+And get it to take your name and remove the Tarbell sync temporariness, it directly will be extracted
+
+35
+00:03:06,050 --> 00:03:08,030
+to slash Nexxus.
+
+36
+00:03:09,990 --> 00:03:16,830
+And the user nexxus give the permission to this directory, so seems to have what we did in the CD project.
+
+37
+00:03:17,500 --> 00:03:22,950
+OK, then set up a system defined so you can manage Nexus with systems.
+
+38
+00:03:22,950 --> 00:03:23,670
+You come on.
+
+39
+00:03:25,940 --> 00:03:32,630
+Make sure you make a configuration change so you can run Nexxus Services, Nexxus user and start and
+
+40
+00:03:32,630 --> 00:03:36,970
+enable Nexus service by here, you should have the Nexus service up and running.
+
+41
+00:03:36,980 --> 00:03:40,910
+Next step is to download our data from the S3 bucket.
+
+42
+00:03:41,540 --> 00:03:42,770
+It allows us to keep.
+
+43
+00:03:44,460 --> 00:03:46,890
+But downloader of director.
+
+44
+00:03:48,740 --> 00:03:52,130
+So Kudayev, when you die, when we profile, that's my bucket name.
+
+45
+00:03:54,790 --> 00:04:02,200
+Yeah, and the archaic name Nexxus Hyphen, Kudi hyphen, vibro hyphen ProductID Desert.
+
+46
+00:04:04,230 --> 00:04:10,410
+What your name, whatever name you have taken, you give the right name here now directly go to obdurately
+
+47
+00:04:10,860 --> 00:04:15,060
+stop Nixa service, extract the Nexus Bako.
+
+48
+00:04:16,180 --> 00:04:22,350
+Make sure you tune the permission and then you start there and enable the next service finally rebooted,
+
+49
+00:04:23,260 --> 00:04:27,830
+that should set up the next service with the data, OK?
+
+50
+00:04:27,850 --> 00:04:30,490
+Next is the Nexus security group that we are creating.
+
+51
+00:04:30,490 --> 00:04:34,180
+So I'm giving the logical Odey, which I have used already here.
+
+52
+00:04:35,700 --> 00:04:37,540
+Their security group, NextG.
+
+53
+00:04:38,010 --> 00:04:47,570
+Yeah, these things should match otherwise this Cusato solitudes 22 from IP data from IP 088, one from
+
+54
+00:04:47,600 --> 00:04:48,880
+IP nine.
+
+55
+00:04:49,110 --> 00:04:50,430
+But one more thing, right?
+
+56
+00:04:50,850 --> 00:04:53,580
+The JENKINS' is going to upload the artifact to Nexus.
+
+57
+00:04:54,180 --> 00:04:57,390
+So Jenkins' also needs to connect to Nexxus on Port Aditi one.
+
+58
+00:04:58,590 --> 00:05:03,170
+So this will create the security group, but then we need to update it with one more rule.
+
+59
+00:05:04,070 --> 00:05:11,010
+So I'm going to give a new logical idea here and see a nexus.
+
+60
+00:05:14,010 --> 00:05:19,200
+She interests going to use a new resource over here.
+
+61
+00:05:20,500 --> 00:05:28,960
+That one security group in Greece, which will inject new rules to an existing security group, properties
+
+62
+00:05:28,960 --> 00:05:35,650
+group, so for which security groups are trying to do this, so the U2 security group ID.
+
+63
+00:05:35,680 --> 00:05:40,030
+So for the security group, the same security group that the security nexuses astrological.
+
+64
+00:05:40,030 --> 00:05:42,970
+Odey So I have it in the same.
+
+65
+00:05:43,900 --> 00:05:44,300
+Template.
+
+66
+00:05:44,830 --> 00:05:46,690
+So I can use git attribute function.
+
+67
+00:05:47,560 --> 00:05:52,840
+So I'm going to function, get attribute Nexxus as a group, so that one.
+
+68
+00:05:53,910 --> 00:05:59,430
+And when I say group three, I get the group idea or hear something, security group ingress rule for
+
+69
+00:05:59,430 --> 00:06:00,450
+this particular group.
+
+70
+00:06:00,690 --> 00:06:01,670
+Next, a security group.
+
+71
+00:06:01,950 --> 00:06:02,650
+What is the rule?
+
+72
+00:06:03,190 --> 00:06:10,930
+Rule is IP Protocol TCP from 81 to 80, 81 allowed from a security group, from jinking security group.
+
+73
+00:06:11,340 --> 00:06:13,020
+So I have to say here.
+
+74
+00:06:13,950 --> 00:06:14,670
+Source.
+
+75
+00:06:17,530 --> 00:06:20,710
+So security group and why is this endangered their.
+
+76
+00:06:24,040 --> 00:06:26,230
+OK, this is fine sauce security group.
+
+77
+00:06:26,530 --> 00:06:31,240
+And now to give the Jenkins security group I.D., but we're exporting that.
+
+78
+00:06:33,410 --> 00:06:37,830
+Right, and Jenkins, their export named Genk hyphenates Jodi.
+
+79
+00:06:38,910 --> 00:06:46,080
+OK, so that is the name of the template, OK, hyphen is that should give Yemeni security group that
+
+80
+00:06:46,080 --> 00:06:49,710
+variable and we are taking it, accepting it.
+
+81
+00:06:50,760 --> 00:06:51,390
+We're here.
+
+82
+00:06:53,140 --> 00:06:57,060
+The name injunct so I can really see.
+
+83
+00:06:59,220 --> 00:07:02,460
+After imported the value a function import value.
+
+84
+00:07:04,060 --> 00:07:10,450
+And then substitute with Dawla Jenkins TICC name, so the variable I'm using over here, this is going
+
+85
+00:07:10,450 --> 00:07:12,730
+to return the Jenkins stack name.
+
+86
+00:07:14,100 --> 00:07:17,830
+Which actually I am storing it over here in the properties, OK?
+
+87
+00:07:17,880 --> 00:07:23,040
+Jenkins Techmeme and its value will be Jinkx, which is the name of the template.
+
+88
+00:07:25,380 --> 00:07:31,290
+OK, so that is like Genk hyphen is Jidi, which is going to give me the security group that is getting
+
+89
+00:07:31,290 --> 00:07:32,340
+exploded over here.
+
+90
+00:07:35,600 --> 00:07:41,870
+So the biggest problem, really, in Néstor Stack is exporting and importing value, once you get hold
+
+91
+00:07:41,870 --> 00:07:47,130
+of this one, exporting, importing, then Mr. Stack is really amazing thing, OK?
+
+92
+00:07:47,750 --> 00:07:51,850
+The only trouble that we face is exporting and importing values.
+
+93
+00:07:51,860 --> 00:07:53,920
+So surpassing values between two downplayed.
+
+94
+00:07:54,380 --> 00:07:55,880
+Remember, three steps of this.
+
+95
+00:07:56,120 --> 00:07:57,440
+You export something.
+
+96
+00:07:58,350 --> 00:08:04,860
+Then you take as a parameter input for that and then you use them.
+
+97
+00:08:06,290 --> 00:08:12,230
+OK, so it's three steps, multiple functions are involved over here, import value, export, import,
+
+98
+00:08:12,320 --> 00:08:12,860
+sub.
+
+99
+00:08:14,140 --> 00:08:20,800
+But once you get hold of this one, then you will always do next attack because it's very good for reusability.
+
+100
+00:08:22,050 --> 00:08:28,350
+And I can use this template individually or I can use it with the stack, also with the Néstor stack.
+

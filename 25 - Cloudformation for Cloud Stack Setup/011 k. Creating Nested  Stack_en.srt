@@ -1,0 +1,268 @@
+1
+00:00:00,660 --> 00:00:08,070
+OK, this is it, I'm going to do one thing, I'm going to create a director here named this stack hyphen
+
+2
+00:00:08,109 --> 00:00:14,040
+template, which is similar to same folder name as we created in the three Buchard.
+
+3
+00:00:14,610 --> 00:00:18,690
+But it's not it does not have any impact here.
+
+4
+00:00:20,160 --> 00:00:22,590
+Just for the sake of understanding.
+
+5
+00:00:22,590 --> 00:00:25,470
+I'm just going to move all child and plate.
+
+6
+00:00:26,810 --> 00:00:32,890
+To stand there actually make you can't move this or move.
+
+7
+00:00:34,280 --> 00:00:35,870
+OK, let's try one by one.
+
+8
+00:00:36,260 --> 00:00:36,590
+No.
+
+9
+00:00:38,100 --> 00:00:39,690
+It's not walking from here.
+
+10
+00:00:41,000 --> 00:00:42,240
+I just do it from the show.
+
+11
+00:00:46,620 --> 00:00:50,550
+I'm going to move all of them to Stack downplayed.
+
+12
+00:00:52,050 --> 00:00:57,240
+And then I'm going to bring back the CIA CD.
+
+13
+00:00:59,170 --> 00:01:01,080
+Template here.
+
+14
+00:01:06,620 --> 00:01:10,600
+And just for understanding, it's not going to make any change.
+
+15
+00:01:10,730 --> 00:01:11,240
+In fact.
+
+16
+00:01:12,860 --> 00:01:16,850
+OK, we have one last thing to do in the templates.
+
+17
+00:01:19,400 --> 00:01:23,450
+So in a route template, we have to give all the child in place name.
+
+18
+00:01:26,410 --> 00:01:36,130
+So Azriel for Kulina templated CDs, three older women aren't seeing Sudie as three year old daughter
+
+19
+00:01:36,130 --> 00:01:36,780
+Hawaii.
+
+20
+00:01:39,330 --> 00:01:45,960
+OK, like that update, all the templates with the right, you all begin to upload it to the S3 bucket
+
+21
+00:01:46,170 --> 00:01:47,390
+if you have not yet done it.
+
+22
+00:01:47,400 --> 00:01:49,530
+But let's give the name first and then we'll upload.
+
+23
+00:01:50,830 --> 00:02:00,100
+OK, we understood why I'm to be cured or why Animal Sonador, why animal next to I email I'm the one
+
+24
+00:02:00,280 --> 00:02:05,320
+kuai I am a Jenkins doctor, I am a three year old daughter.
+
+25
+00:02:05,330 --> 00:02:11,050
+I am an updated update your IP as well, whatever your current diabetes.
+
+26
+00:02:11,560 --> 00:02:13,390
+So you don't need to try it again.
+
+27
+00:02:13,750 --> 00:02:15,400
+And you as you can override that later.
+
+28
+00:02:18,440 --> 00:02:22,070
+OK, now time to upload our child template to a three bucket.
+
+29
+00:02:24,150 --> 00:02:29,850
+OK, so go to the bucket that you created for your template, get into the directly stack hyphen template.
+
+30
+00:02:30,820 --> 00:02:31,720
+Kaseem name.
+
+31
+00:02:35,780 --> 00:02:37,130
+Stack hyphen template.
+
+32
+00:02:37,210 --> 00:02:41,420
+OK, so it should be same named as in the all upload.
+
+33
+00:02:42,820 --> 00:02:49,570
+Our final OK, go to your territory where you have the template stack template, copy all of them.
+
+34
+00:02:51,270 --> 00:02:52,200
+And they applaud.
+
+35
+00:02:56,500 --> 00:02:58,660
+Session has expired, Gary Log-in.
+
+36
+00:03:04,140 --> 00:03:05,130
+And upload.
+
+37
+00:03:09,130 --> 00:03:10,630
+OK, all of them are uploaded.
+
+38
+00:03:11,770 --> 00:03:19,270
+OK, so compared again, your bucket name slash template, so the stack template directly anda template
+
+39
+00:03:19,270 --> 00:03:21,670
+name with the URL if there is any mistake corrected.
+
+40
+00:03:23,230 --> 00:03:27,850
+OK, market names, the directly slash the template name seemed completely.
+
+41
+00:03:28,780 --> 00:03:33,830
+As you applauded in the bucket, once you're confirmed, everything is good.
+
+42
+00:03:34,210 --> 00:03:37,060
+Then let's go to the cloud formation service.
+
+43
+00:03:45,360 --> 00:03:47,310
+OK, and will create Jack.
+
+44
+00:03:49,370 --> 00:03:50,630
+Upload template.
+
+45
+00:03:54,370 --> 00:04:00,370
+OK, so your route template, OK, Scotty template, not Winemiller template, which is in turn is going
+
+46
+00:04:00,370 --> 00:04:06,340
+to call all your child templates, all your nested stack template, which are already uploaded in the
+
+47
+00:04:06,610 --> 00:04:07,030
+bucket.
+
+48
+00:04:07,060 --> 00:04:08,890
+OK, so this template is going to call.
+
+49
+00:04:10,120 --> 00:04:16,420
+All these templates, which is already mentioned in the template template, you can check in the designer
+
+50
+00:04:16,420 --> 00:04:17,380
+who were in designer.
+
+51
+00:04:19,360 --> 00:04:25,630
+And see if there is any syntax error, anything you can fix that get, you see the lines that actually
+
+52
+00:04:25,870 --> 00:04:26,650
+depends on.
+
+53
+00:04:27,720 --> 00:04:28,770
+I validate.
+
+54
+00:04:29,910 --> 00:04:34,140
+See if there is any syntax that a template is valid, but it's going to only validate the root template.
+
+55
+00:04:38,380 --> 00:04:39,220
+Create Stack.
+
+56
+00:04:44,020 --> 00:04:44,920
+Let's go next.
+
+57
+00:04:46,130 --> 00:04:52,190
+You can to name just the profile hyphen S.I Sude hyphen STAC.
+
+58
+00:04:53,440 --> 00:05:01,470
+OK, parameters, you already created a key restack you and select that, change your IP if it's different,
+
+59
+00:05:02,200 --> 00:05:04,190
+that is the value coming from the template.
+
+60
+00:05:05,170 --> 00:05:06,150
+I'm good with that.
+
+61
+00:05:06,160 --> 00:05:06,970
+Let's go next.
+
+62
+00:05:08,430 --> 00:05:09,150
+And next.
+
+63
+00:05:11,200 --> 00:05:16,390
+OK, when you're creating a nested stack, you will get this, I acknowledge that Eatables confirmation
+
+64
+00:05:16,390 --> 00:05:21,880
+might create a resource because recruiting I'm a resource and this option you will get might require
+
+65
+00:05:21,880 --> 00:05:24,450
+the following capability, capability to expand.
+
+66
+00:05:24,460 --> 00:05:27,490
+Just put a checkmark there and to create stack.
+
+67
+00:05:30,210 --> 00:05:35,340
+This is going to take some time, so I'm going to pause my skin and come back when this is completed.
+

@@ -1,0 +1,140 @@
+1
+00:00:00,630 --> 00:00:02,040
+OK, let's see that.
+
+2
+00:00:03,110 --> 00:00:05,480
+OK, next hour, Tomcat application server.
+
+3
+00:00:08,530 --> 00:00:13,720
+So named this the zero one QE darte YAML.
+
+4
+00:00:15,860 --> 00:00:17,180
+So, again, similar story.
+
+5
+00:00:18,760 --> 00:00:19,960
+Taking parameters.
+
+6
+00:00:21,160 --> 00:00:22,390
+Ahmed mapping.
+
+7
+00:00:24,070 --> 00:00:25,260
+Went to him, OK?
+
+8
+00:00:26,320 --> 00:00:29,030
+We want to embrace launching the instance.
+
+9
+00:00:30,260 --> 00:00:38,300
+With the right role, so for this Tomcat server that gets created, will also download data actually
+
+10
+00:00:38,300 --> 00:00:41,030
+to configuration file that you already have interestedly Buckett.
+
+11
+00:00:43,740 --> 00:00:49,980
+Contact Tzadik, Semillon Tomcat uses Dodig Semmel, if you followed through the backup video, then
+
+12
+00:00:49,980 --> 00:00:52,520
+you would have taken backup of these two files as well.
+
+13
+00:00:55,490 --> 00:01:05,000
+OK, so the user data to install JDK download timecards set up Tomcat Hartill here we are setting up
+
+14
+00:01:05,000 --> 00:01:10,190
+Tomcat and then it is to download the Tomcat user's XML file.
+
+15
+00:01:12,400 --> 00:01:18,970
+At this location, us, our local Tomcat at Constant Caduceus SML, so this file will be overwritten
+
+16
+00:01:18,970 --> 00:01:20,470
+with the file that we are deploying.
+
+17
+00:01:22,190 --> 00:01:23,930
+Also, context, Artec, Semmel.
+
+18
+00:01:26,060 --> 00:01:28,280
+We shall be or return at this location.
+
+19
+00:01:32,530 --> 00:01:36,160
+OK, change ownership, Tom, get down here to use our local downgraded.
+
+20
+00:01:38,140 --> 00:01:40,060
+Create a system, define.
+
+21
+00:01:41,450 --> 00:01:48,440
+Start any animal down, get service, so as seen provisioning of a Doncasters that we did in products.
+
+22
+00:01:50,240 --> 00:01:58,400
+OK, then, security group, that's the logical as G 22 allowed from my iPad, allowed from anywhere,
+
+23
+00:01:58,550 --> 00:02:01,330
+because we're going to run software testing exit from the Internet.
+
+24
+00:02:01,340 --> 00:02:02,720
+So I'm single out from anywhere.
+
+25
+00:02:03,710 --> 00:02:05,870
+OK, then upgrade the security group rule.
+
+26
+00:02:07,980 --> 00:02:10,039
+It put 88 allowed from Jenkins.
+
+27
+00:02:10,080 --> 00:02:16,350
+Jenkins is going to upload the artifact to Tomcat, so we're going to see AT&T allowed from the Jenkins
+
+28
+00:02:16,350 --> 00:02:17,000
+security group.
+
+29
+00:02:20,240 --> 00:02:28,400
+And then we're going to output value over here, application security globally, the Dompierre security
+
+30
+00:02:28,400 --> 00:02:28,670
+group.
+
+31
+00:02:29,450 --> 00:02:34,430
+Now, this will be used in that database template again, that we are going right next and the last
+
+32
+00:02:34,430 --> 00:02:34,670
+one.
+
+33
+00:02:35,690 --> 00:02:43,940
+So the proposed group, we're going to export it with this name, the Peru app 01 Culiacan is the template
+
+34
+00:02:43,940 --> 00:02:45,220
+name hyphenated.
+
+35
+00:02:46,460 --> 00:02:47,570
+OK, see this?
+

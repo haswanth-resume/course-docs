@@ -1,0 +1,440 @@
+1
+00:00:00,660 --> 00:00:02,630
+OK, so let's create a new project here.
+
+2
+00:00:04,720 --> 00:00:06,000
+Just just a project.
+
+3
+00:00:07,530 --> 00:00:08,460
+Empty project.
+
+4
+00:00:09,640 --> 00:00:12,130
+Namely, does cloud formation.
+
+5
+00:00:14,650 --> 00:00:15,970
+I think project.
+
+6
+00:00:20,540 --> 00:00:21,260
+This window.
+
+7
+00:00:26,130 --> 00:00:29,880
+OK, first, we're going to write a master template, the template.
+
+8
+00:00:35,900 --> 00:00:40,430
+OK, if you have a little plug in installed, you should see your established cloud formation, Yamal
+
+9
+00:00:40,430 --> 00:00:40,910
+complete.
+
+10
+00:00:43,440 --> 00:00:45,630
+We're going to name the standard a CD.
+
+11
+00:00:48,540 --> 00:00:49,710
+Template DOT.
+
+12
+00:00:50,190 --> 00:00:52,350
+Choose any other name if you wish to.
+
+13
+00:00:52,600 --> 00:00:53,240
+No problem.
+
+14
+00:00:55,220 --> 00:01:00,710
+OK, we don't need this, so we're going to take two parameters.
+
+15
+00:01:04,330 --> 00:01:05,410
+One is skipper.
+
+16
+00:01:07,760 --> 00:01:10,400
+We just keep your description.
+
+17
+00:01:13,350 --> 00:01:14,190
+We'll see.
+
+18
+00:01:16,970 --> 00:01:20,020
+See, I see the stack.
+
+19
+00:01:22,000 --> 00:01:24,430
+Key type.
+
+20
+00:01:29,690 --> 00:01:36,890
+OK, he said to keep working him so it will already list our existing keeper in the region that we are
+
+21
+00:01:36,890 --> 00:01:42,350
+creating one more, we are going to take his IP myopia limit.
+
+22
+00:01:43,670 --> 00:01:46,420
+This is what the security group that we are going to create for instances.
+
+23
+00:01:46,420 --> 00:01:50,900
+So our security group will already have 22 already from IP.
+
+24
+00:01:50,900 --> 00:01:53,180
+So we don't need to add the manually.
+
+25
+00:01:55,030 --> 00:02:00,850
+You can if you want, you can give a default value if you don't want to move that line and you can enter
+
+26
+00:02:00,850 --> 00:02:03,930
+it when, you know, when recruiting, creating the stack.
+
+27
+00:02:04,780 --> 00:02:09,350
+So to parameter it will accept and then let's define the resources.
+
+28
+00:02:09,759 --> 00:02:12,400
+So this is the route template, master template.
+
+29
+00:02:12,400 --> 00:02:14,560
+This template is going to call the child template.
+
+30
+00:02:16,430 --> 00:02:21,450
+You can refer to the documentation available as confirmation documentation, working with nested stacks,
+
+31
+00:02:21,450 --> 00:02:22,990
+so you understand how it really works.
+
+32
+00:02:23,450 --> 00:02:26,720
+You have a master template and you can call the other child templates.
+
+33
+00:02:27,260 --> 00:02:35,120
+This will do mostly for reusability so the child can use individually or you can group all of them together.
+
+34
+00:02:35,120 --> 00:02:39,230
+And, you know, Master Orroroo template can call the child tax.
+
+35
+00:02:39,620 --> 00:02:41,470
+We call them as nested stack.
+
+36
+00:02:41,480 --> 00:02:47,880
+I was using the word child's tag just for the understanding so you can use the nested stack or the child's
+
+37
+00:02:47,880 --> 00:02:53,540
+stack in any other rootstock, or you can use them individually also.
+
+38
+00:02:55,020 --> 00:02:57,930
+There's also example of how to do it, you have templates.
+
+39
+00:03:00,870 --> 00:03:05,490
+Anyways, I'm going to take you through all those things, so let's go back to it.
+
+40
+00:03:07,410 --> 00:03:14,160
+So I'm going to see resources for some and it's not highlighting my cloud formation syntax.
+
+41
+00:03:14,960 --> 00:03:16,200
+You can write invited.
+
+42
+00:03:18,080 --> 00:03:24,360
+So we have to give the name of your child Templer child stack or the nastiest tax.
+
+43
+00:03:24,380 --> 00:03:30,470
+So first I'm going to say a street rule for C.A.T. that's going to be our foster template.
+
+44
+00:03:32,500 --> 00:03:34,960
+And we have to see type.
+
+45
+00:03:36,810 --> 00:03:40,650
+Eatables, confirmation stack and the properties.
+
+46
+00:03:43,780 --> 00:03:46,580
+Part of your child, completely UNTAC.
+
+47
+00:03:47,290 --> 00:03:51,430
+So that's done through a city budget, we already have an extra budget where we're going to upload our
+
+48
+00:03:51,430 --> 00:03:51,970
+template.
+
+49
+00:03:52,450 --> 00:03:57,160
+So I'm going to first give the dummy UOL, then we'll update it.
+
+50
+00:03:59,640 --> 00:04:01,710
+The mural is in not the complete Ural.
+
+51
+00:04:03,050 --> 00:04:09,680
+So should he be as close as three Amazon able dot com slash and the bucket name that we created for
+
+52
+00:04:09,680 --> 00:04:10,410
+our templates?
+
+53
+00:04:10,680 --> 00:04:11,580
+Let's your that.
+
+54
+00:04:12,410 --> 00:04:14,240
+So in this we are going to upload our template.
+
+55
+00:04:14,450 --> 00:04:15,410
+So copy that name.
+
+56
+00:04:20,250 --> 00:04:25,920
+Slash and the template name, the template that we're going to create, we have not yet created, so
+
+57
+00:04:25,920 --> 00:04:27,160
+we're going to name this later.
+
+58
+00:04:29,040 --> 00:04:31,020
+So this is going to be my first stack.
+
+59
+00:04:31,710 --> 00:04:35,400
+The next stack I would like to launch is Jenkins' instance.
+
+60
+00:04:36,150 --> 00:04:37,800
+Jenkins' instance.
+
+61
+00:04:39,210 --> 00:04:40,430
+A similar thing.
+
+62
+00:04:42,580 --> 00:04:49,090
+But you see, it depends on option over here, so I'm creating a dependency I'm seeing first create
+
+63
+00:04:49,090 --> 00:04:51,250
+this deck and then only create this deck.
+
+64
+00:04:51,250 --> 00:04:56,930
+So if cloud formation is trying to create this target, will it is a depends on so it will go to that
+
+65
+00:04:56,950 --> 00:04:58,750
+stack and will create that stack forced.
+
+66
+00:04:59,780 --> 00:05:04,920
+Can also hear the directly named STAC hyphen template.
+
+67
+00:05:04,940 --> 00:05:05,780
+We are going to put.
+
+68
+00:05:07,380 --> 00:05:09,600
+Our template in this directory industry, Buchard.
+
+69
+00:05:14,750 --> 00:05:16,070
+Stack contemplate.
+
+70
+00:05:18,230 --> 00:05:22,530
+OK, the template name, how we are going to get that in the end once you're done getting all the child
+
+71
+00:05:22,540 --> 00:05:23,090
+templates.
+
+72
+00:05:24,770 --> 00:05:31,910
+Also with this, I'm going to pass the two parameters that I am taking over here, keep air and my IP
+
+73
+00:05:32,150 --> 00:05:41,570
+to this template, so I'm going to see parameters within and I'm going to use a different name to pass
+
+74
+00:05:41,570 --> 00:05:41,720
+it.
+
+75
+00:05:41,720 --> 00:05:46,660
+Key name, use the similar properties that I'm using.
+
+76
+00:05:47,180 --> 00:05:50,330
+Otherwise, you'll have a problem later of referring it.
+
+77
+00:05:51,440 --> 00:05:54,950
+So I'm going to see a ref key here.
+
+78
+00:05:56,860 --> 00:06:04,840
+So Parameter Keenan will be passed when the stack is creating and its value will be keeping whatever
+
+79
+00:06:04,840 --> 00:06:09,910
+we select over here while creating this tag, its value will be assigned to this parameter when we pass
+
+80
+00:06:09,920 --> 00:06:10,760
+to the stack.
+
+81
+00:06:11,470 --> 00:06:14,140
+So when you are launching Jenkins' instance through the stack.
+
+82
+00:06:15,560 --> 00:06:20,840
+Through the template, we need to keep your name and we also need an IP.
+
+83
+00:06:22,810 --> 00:06:29,890
+To put in a security group ruled my IP, I'm going to refer to my.
+
+84
+00:06:33,450 --> 00:06:39,650
+Exactly same name after you hear what I'm doing, taking over here, so its value will be assigned over
+
+85
+00:06:39,660 --> 00:06:42,660
+here and you pass to this particular stack.
+
+86
+00:06:44,540 --> 00:06:45,690
+Jenkins, for instance.
+
+87
+00:06:46,820 --> 00:06:50,810
+OK, now, similarly, I give information of all the child STAC.
+
+88
+00:06:52,130 --> 00:06:53,720
+OK, AB 01 QE.
+
+89
+00:06:55,050 --> 00:07:03,540
+And this depends on Jenkins' instance, so if cloud formation is trying to launch this stack at, then
+
+90
+00:07:03,540 --> 00:07:06,870
+it will see depends on Jenkins' instance, it will go and try to launch this.
+
+91
+00:07:07,290 --> 00:07:12,030
+That also depends on estriol also kind of creating a dependency, a spiral dependency.
+
+92
+00:07:12,350 --> 00:07:16,350
+This will get created, then this will get created and then this will get created.
+
+93
+00:07:16,620 --> 00:07:19,110
+So it's going to be in all of that we are defining.
+
+94
+00:07:20,290 --> 00:07:25,030
+Template, you all, we are going to give the template name later, again, we are passing two properties
+
+95
+00:07:25,330 --> 00:07:29,020
+name and the IP address, same with the Nexus server.
+
+96
+00:07:29,030 --> 00:07:30,850
+Depends on Jenkins' instance.
+
+97
+00:07:32,750 --> 00:07:40,280
+Template Eurail Pass passing two parameters keep and IP address Zauner server same.
+
+98
+00:07:42,510 --> 00:07:48,600
+Database server, same databases are back and actually not just database, but Rabbit Memcache will
+
+99
+00:07:48,600 --> 00:07:50,220
+be also set up over here.
+
+100
+00:07:51,420 --> 00:07:57,900
+And also Windows Server, if you want to run the software testing, if you wish to not create any of
+
+101
+00:07:57,900 --> 00:08:00,760
+the child's tag, just comment them, OK?
+
+102
+00:08:00,780 --> 00:08:02,340
+Just use hash and comment them.
+
+103
+00:08:03,240 --> 00:08:04,200
+You don't need to remove them.
+
+104
+00:08:04,200 --> 00:08:05,100
+Just put it over there.
+
+105
+00:08:05,100 --> 00:08:09,630
+Just comment them like you don't want a database of doing one application and you don't want Windows
+
+106
+00:08:09,630 --> 00:08:09,960
+Server.
+
+107
+00:08:09,960 --> 00:08:17,070
+You can comment if you just want continuous integration setup and Jenkins' Nexus and so Nasso just comment
+
+108
+00:08:17,070 --> 00:08:17,940
+all the others.
+
+109
+00:08:18,120 --> 00:08:20,160
+So it's not like a child.
+
+110
+00:08:20,440 --> 00:08:24,780
+Jack, I'm saving it for now, but I'm going to come back and update this.
+

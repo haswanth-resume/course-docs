@@ -1,0 +1,408 @@
+1
+00:00:02,190 --> 00:00:09,480
+OK, so after some time, the stack complete stack creation completed and we have remained stagnant,
+
+2
+00:00:09,480 --> 00:00:14,790
+has created the nested stack you see there, you can check the nested stack output as.
+
+3
+00:00:17,450 --> 00:00:21,410
+And drinking Jenkins instance is Sonic Observer.
+
+4
+00:00:23,400 --> 00:00:24,390
+Nexus server.
+
+5
+00:00:26,500 --> 00:00:29,230
+All right, and all the other sports services.
+
+6
+00:00:31,010 --> 00:00:32,090
+Let's check the output's.
+
+7
+00:00:33,390 --> 00:00:34,150
+Now, output here.
+
+8
+00:00:34,170 --> 00:00:38,220
+We're not printing anything in this main template S3.
+
+9
+00:00:39,730 --> 00:00:46,120
+Yeah, so Disvalue we're exporting says the key name, and this is the export name.
+
+10
+00:00:50,580 --> 00:00:57,660
+Jenkins, so we are exporting food, things like Jenkins' instance, ID, IP address, not exporting
+
+11
+00:00:57,660 --> 00:01:03,000
+Saidy, printing ID, private IP, public IP, the one that we are exporting.
+
+12
+00:01:03,000 --> 00:01:04,530
+Mr. Jenkins security.
+
+13
+00:01:04,530 --> 00:01:05,120
+Krupali.
+
+14
+00:01:06,210 --> 00:01:07,080
+That's the value.
+
+15
+00:01:09,080 --> 00:01:14,930
+OK, so on that observer, you're not exporting anything here next to server, not exporting anything.
+
+16
+00:01:16,540 --> 00:01:21,230
+Application server, the Tomcat that we are exporting at this name.
+
+17
+00:01:21,250 --> 00:01:22,180
+That's Disvalue.
+
+18
+00:01:23,730 --> 00:01:25,800
+Which is used in our DB STAC.
+
+19
+00:01:26,850 --> 00:01:32,130
+Windows to serve are not exporting anything, server, nothing, OK?
+
+20
+00:01:33,670 --> 00:01:36,520
+Let's see all our services, let's go to you to.
+
+21
+00:01:38,090 --> 00:01:39,800
+But I have to read this.
+
+22
+00:01:43,990 --> 00:01:47,680
+OK, let's check running instances for instances we have.
+
+23
+00:01:49,170 --> 00:01:55,500
+OK, so we should have Nexxus server database server, jenkins' application servers or not server.
+
+24
+00:01:55,530 --> 00:01:57,810
+Let's check the next jenkins' again.
+
+25
+00:01:57,810 --> 00:01:59,120
+Let's log into Jenkins'.
+
+26
+00:02:03,640 --> 00:02:06,420
+Coolen, 88 Lydiard.
+
+27
+00:02:09,090 --> 00:02:14,010
+I should directly just login pages, so it is back with the data.
+
+28
+00:02:19,040 --> 00:02:20,420
+How do you see the jobs?
+
+29
+00:02:22,950 --> 00:02:30,060
+And all the plug ins, everything, water, we have taken the backup in city project that is restored
+
+30
+00:02:30,060 --> 00:02:30,540
+back.
+
+31
+00:02:31,590 --> 00:02:33,540
+You can check all the other services like that.
+
+32
+00:02:33,540 --> 00:02:39,920
+You can log into Nexus, Sonor Cube, all these instances and you can check the data.
+
+33
+00:02:41,070 --> 00:02:44,540
+But does a record stack has the data and all data.
+
+34
+00:02:45,030 --> 00:02:49,320
+So things like IP address of Nexus Server, for example.
+
+35
+00:02:52,120 --> 00:02:55,540
+It will be in all right, so you have to update those things.
+
+36
+00:02:59,580 --> 00:03:04,020
+That's an old IP when we took the backup to the new IP will be different.
+
+37
+00:03:08,550 --> 00:03:11,600
+And that is the one I told you should make those changes.
+
+38
+00:03:15,800 --> 00:03:16,430
+Sievert.
+
+39
+00:03:21,950 --> 00:03:23,930
+Also in a big job, big project.
+
+40
+00:03:25,340 --> 00:03:29,240
+The downloading artifact, if you're downloading artifacts from the Nexus, then you know, you should
+
+41
+00:03:29,240 --> 00:03:34,940
+have you have to update those IP addresses in the properties Nexxus IP address.
+
+42
+00:03:40,460 --> 00:03:46,670
+Talking about Sonakshi observers, Sustainer, KUB details you mention in the Conficker beach.
+
+43
+00:03:48,120 --> 00:03:49,170
+Configure system.
+
+44
+00:03:53,320 --> 00:03:57,520
+And so that's an old private type of Nexxus server.
+
+45
+00:03:57,550 --> 00:04:02,530
+You should update that Dukan will be old, so you have to generally should generate a new token.
+
+46
+00:04:03,140 --> 00:04:07,570
+There should be same token because Sonor CubeSat will also be restored, but it could have expired.
+
+47
+00:04:07,570 --> 00:04:11,320
+So it's better you log into Soknacki Observer, generate a new token.
+
+48
+00:04:13,100 --> 00:04:14,880
+All right, let's see, so in the Q.
+
+49
+00:04:23,110 --> 00:04:29,440
+OK, so it took time to set up the Sonoko to provision the Internet on YouTube, and there was also
+
+50
+00:04:29,440 --> 00:04:29,980
+a reboot.
+
+51
+00:04:29,990 --> 00:04:38,800
+So once your stack is ready, wait for like 10 minutes or 15 minutes, let your entire stack become
+
+52
+00:04:38,800 --> 00:04:40,750
+stable, let everything get provision.
+
+53
+00:04:40,750 --> 00:04:42,040
+It will automatically come up.
+
+54
+00:04:45,310 --> 00:04:46,960
+OK, so the Sonakshi Observer.
+
+55
+00:04:49,960 --> 00:04:50,620
+Log-in.
+
+56
+00:04:55,480 --> 00:05:02,020
+So you should see your project, we all all the data that you have stored previously generate the new
+
+57
+00:05:02,020 --> 00:05:02,500
+Tolkan.
+
+58
+00:05:12,420 --> 00:05:15,330
+All right, copy it and then restore it back.
+
+59
+00:05:22,360 --> 00:05:29,080
+All right, add a new credentialled story or talk on the new on IP address also for the quality gates.
+
+60
+00:05:29,080 --> 00:05:30,510
+Also, you should have the token there.
+
+61
+00:05:30,520 --> 00:05:36,520
+Also change the IP address to the new IP address, make all the changes and then you should be good
+
+62
+00:05:36,520 --> 00:05:36,900
+to go.
+
+63
+00:05:36,910 --> 00:05:39,340
+You can just run your pipeline and tested later.
+
+64
+00:05:40,030 --> 00:05:42,010
+But we are not getting into that into this project.
+
+65
+00:05:42,010 --> 00:05:44,110
+We already covered that in secret projects.
+
+66
+00:05:44,980 --> 00:05:49,840
+So this project should be of a great help to you, really where you want.
+
+67
+00:05:49,840 --> 00:05:56,080
+You have your templates ready when you want it and just launch the entire stack, do all your R&D learning
+
+68
+00:05:56,080 --> 00:05:56,890
+and you plug it in.
+
+69
+00:05:56,920 --> 00:06:02,650
+Jenkins, you're trying something new, new integration with Jenkins' integrating gink into something
+
+70
+00:06:02,650 --> 00:06:08,590
+new, some new other new tools so you don't need to keep this instance is always light when you want.
+
+71
+00:06:08,590 --> 00:06:12,040
+It can bring up make changes your back up online.
+
+72
+00:06:12,820 --> 00:06:16,360
+And they should also give you idea how Mr. Stack really work.
+
+73
+00:06:16,360 --> 00:06:23,920
+When you're working on a project, there'll be so many things you can ride solo, single, single templates.
+
+74
+00:06:24,370 --> 00:06:24,600
+Yeah.
+
+75
+00:06:24,820 --> 00:06:27,520
+For different project where you need you can combine them through.
+
+76
+00:06:27,540 --> 00:06:29,170
+Good template.
+
+77
+00:06:30,100 --> 00:06:35,590
+OK, once you're done testing everything, then you can just delete your stack.
+
+78
+00:06:38,850 --> 00:06:43,240
+OK, so you delete the root template and that is going to delete all the other templates.
+
+79
+00:06:43,680 --> 00:06:44,520
+Also, one more thing.
+
+80
+00:06:44,520 --> 00:06:50,520
+If you're making any changes to the child template with the nested templates, then make sure you upload
+
+81
+00:06:50,520 --> 00:06:51,930
+it back to the EU Buchard.
+
+82
+00:06:53,790 --> 00:06:58,350
+OK, any change you make to your templates, Shalgam plates.
+
+83
+00:06:59,670 --> 00:07:05,010
+All right, any time you make change, you upload it back to the history bucket because your routine
+
+84
+00:07:05,160 --> 00:07:06,410
+is going to read it from here.
+
+85
+00:07:06,420 --> 00:07:08,040
+So it should be updated here.
+
+86
+00:07:09,570 --> 00:07:14,670
+Once you're done testing all this, just delete your template that is going to delete all the child
+
+87
+00:07:14,670 --> 00:07:15,510
+templates as well.
+
+88
+00:07:16,260 --> 00:07:17,230
+Child stacks.
+
+89
+00:07:18,240 --> 00:07:19,620
+Also, one more last thing.
+
+90
+00:07:19,620 --> 00:07:26,360
+If you don't want to create all the resources, you just maybe you want Jenkins' next year or we want
+
+91
+00:07:26,370 --> 00:07:27,730
+just Jenkins' next year sooner.
+
+92
+00:07:27,780 --> 00:07:30,760
+You don't want other services just coming them.
+
+93
+00:07:31,560 --> 00:07:39,630
+OK, put hash over there to all this, which you don't want to spend this entire resource commented
+
+94
+00:07:39,630 --> 00:07:40,550
+and then launch it.
+
+95
+00:07:40,560 --> 00:07:46,530
+So, you know, those, that particular instance will not be launched and you wish you can check our
+
+96
+00:07:46,530 --> 00:07:47,340
+repository.
+
+97
+00:07:51,280 --> 00:07:54,280
+And access this templates and use them.
+
+98
+00:07:56,660 --> 00:07:59,700
+OK, then that should be all in this project.
+
+99
+00:07:59,720 --> 00:08:01,310
+Thank you very much for watching.
+
+100
+00:08:01,310 --> 00:08:03,020
+I hope you have learned a lot.
+
+101
+00:08:03,980 --> 00:08:05,020
+So keep practicing.
+
+102
+00:08:05,030 --> 00:08:06,650
+I will see you in the next one.
+

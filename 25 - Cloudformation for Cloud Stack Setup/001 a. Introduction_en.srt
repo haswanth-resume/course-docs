@@ -1,0 +1,404 @@
+1
+00:00:12,210 --> 00:00:17,290
+Forming a eastlack with cloud formation, that's what we're going to do in this project.
+
+2
+00:00:17,310 --> 00:00:17,880
+Welcome.
+
+3
+00:00:18,330 --> 00:00:23,520
+In this project, we're going to set up a stack of some services by using cloud formation.
+
+4
+00:00:29,500 --> 00:00:36,970
+OK, in this project, we're going to set up a CCD stack or a restore or CCD Jack Honorables on Eatables
+
+5
+00:00:36,970 --> 00:00:38,070
+Easy to insurgences.
+
+6
+00:00:38,620 --> 00:00:46,300
+We're going to set up our Jenkins' Nexxus, Sonoko Windows Server application server and database server.
+
+7
+00:00:46,840 --> 00:00:50,120
+And yes, you can use this project for yourself, actually.
+
+8
+00:00:50,140 --> 00:00:56,490
+This project is for you to help you do all your R&D pipeline.
+
+9
+00:00:57,280 --> 00:01:01,040
+But that does not mean there is no real world use case for this.
+
+10
+00:01:01,540 --> 00:01:05,680
+We do similar things in real time, maybe instead of Jenkins' next.
+
+11
+00:01:05,740 --> 00:01:08,140
+So we have a stack of some other services.
+
+12
+00:01:08,380 --> 00:01:16,030
+So you want to bring back your Stacho services to life from a backup that you have taken somewhere you
+
+13
+00:01:16,030 --> 00:01:17,600
+can use a similar approach.
+
+14
+00:01:18,130 --> 00:01:20,470
+Now let's understand why we are doing this project.
+
+15
+00:01:25,000 --> 00:01:32,470
+OK, we know for you or in a project, if you have to continuously maintain servers, easy instances
+
+16
+00:01:32,470 --> 00:01:35,710
+or any server with storage, there is a cost to it.
+
+17
+00:01:35,800 --> 00:01:39,670
+If it's continuously running, there'll be long term charges.
+
+18
+00:01:40,480 --> 00:01:48,040
+So we might think of taking a backup through RMI, taken Amayo, for instance, and storage dump it.
+
+19
+00:01:48,310 --> 00:01:49,710
+But then there's storage costs.
+
+20
+00:01:50,020 --> 00:01:55,160
+One, two are fine, but if you are like 10, 15, then the storage cost is more OK.
+
+21
+00:01:55,630 --> 00:02:00,160
+So then we can delete it and then we can manually setup everything again.
+
+22
+00:02:00,160 --> 00:02:01,600
+But that's time consuming.
+
+23
+00:02:01,750 --> 00:02:07,810
+Now imagine you have to set up the entire ACSU stack, Nexxus Jenkins on a cube again and again and
+
+24
+00:02:07,810 --> 00:02:12,460
+again, as you've been doing in the projects, which is fine for project using step by step.
+
+25
+00:02:12,460 --> 00:02:13,450
+You can do it right.
+
+26
+00:02:14,390 --> 00:02:19,930
+But new technologies are changing the new new plug ins in Jenkins, a new new ways of doing city pipeline.
+
+27
+00:02:20,270 --> 00:02:21,920
+And you need to do all those R&D.
+
+28
+00:02:23,080 --> 00:02:28,770
+So doing a set up every time, if you don't want to dig back up, it will be time consuming.
+
+29
+00:02:29,110 --> 00:02:35,590
+Plus, there is huge chances of making human error and it's also difficult to remember what we did in
+
+30
+00:02:35,590 --> 00:02:37,870
+this such in such situations we can use.
+
+31
+00:02:42,160 --> 00:02:49,330
+Cloud formation enables us to confirmation is in automation tool or an automation service provided by
+
+32
+00:02:49,330 --> 00:02:55,390
+AWB, if you have gone through confirmation introductory videos, if you already know confirmation,
+
+33
+00:02:55,930 --> 00:02:59,880
+you know, once you have your templates ready, it will be so easy to launch your stack.
+
+34
+00:03:00,190 --> 00:03:04,450
+Plus, if it's automated, then there is no chance of making human errors.
+
+35
+00:03:07,240 --> 00:03:12,880
+In cloud formation, we like template so we can maintain the state of the infrastructure and cloud formation
+
+36
+00:03:12,880 --> 00:03:19,660
+and you can compare your template with the existing state of your infrastructure and make the differential
+
+37
+00:03:19,660 --> 00:03:21,100
+changes just like terraform.
+
+38
+00:03:25,590 --> 00:03:30,420
+And if everything are in template, text file, you can do version control, you have infrastructure
+
+39
+00:03:30,420 --> 00:03:32,580
+as a code, then it's repeatable.
+
+40
+00:03:32,580 --> 00:03:36,870
+You can do it as many as time for different different environments, reuseable for different different
+
+41
+00:03:36,870 --> 00:03:38,490
+environments and different different scopes.
+
+42
+00:03:44,070 --> 00:03:50,130
+OK, so we are going to use cloud formation, as I already discussed, and automate our established
+
+43
+00:03:50,160 --> 00:03:51,320
+cloud services.
+
+44
+00:03:51,870 --> 00:03:56,340
+So confirmation acts like a configuration management tool for eatables account.
+
+45
+00:03:58,050 --> 00:04:00,780
+Let's just reiterate once again, what are we going to do in this project?
+
+46
+00:04:03,000 --> 00:04:09,180
+We are going to set up a select stack for our profile project, will have Jenkins', will have a nexus,
+
+47
+00:04:09,540 --> 00:04:15,630
+will have a Sonoko observer, plus some other services like Tomcat, MySQL, Memcache Robotham in the
+
+48
+00:04:15,630 --> 00:04:16,589
+backend services.
+
+49
+00:04:17,190 --> 00:04:23,430
+And we're going to fetch our data from the S3 bucket to restore the data that we have taken back up
+
+50
+00:04:23,430 --> 00:04:25,410
+in continuous delivery and project.
+
+51
+00:04:25,890 --> 00:04:28,870
+I've made a video in every project.
+
+52
+00:04:28,890 --> 00:04:32,490
+You can check how to take backup of your KRYSTEXXA.
+
+53
+00:04:32,490 --> 00:04:35,330
+You already need that backup in the next three buckets stored.
+
+54
+00:04:35,730 --> 00:04:39,600
+We are going to use that backup to restore our industry stack.
+
+55
+00:04:43,780 --> 00:04:45,510
+All right, then, let's make it happen.
+
+56
+00:04:47,110 --> 00:04:49,460
+OK, let's understand the flow of execution.
+
+57
+00:04:49,480 --> 00:04:54,460
+I hope you have gone through the introductory videos of cloud formation or you already have some experience
+
+58
+00:04:54,460 --> 00:04:55,380
+with permission.
+
+59
+00:04:56,080 --> 00:05:02,890
+So we're going to check your data on the three bucket we have taken back up in CD project of Jenkins'
+
+60
+00:05:02,890 --> 00:05:07,210
+next to Sonakshi, taken the data back tarballs on a three bucket.
+
+61
+00:05:07,210 --> 00:05:08,110
+So we're going to check that.
+
+62
+00:05:08,560 --> 00:05:09,670
+We're going to go down the bucket.
+
+63
+00:05:09,670 --> 00:05:12,910
+Namenda files file names in that S3 bucket.
+
+64
+00:05:14,060 --> 00:05:18,540
+We're going to create one more extra bucket to upload our templates that we're going to write.
+
+65
+00:05:18,560 --> 00:05:23,060
+So we're just going to create in this step, we'll just create the bucket and we'll create a folder
+
+66
+00:05:23,060 --> 00:05:28,790
+named Stack Hyphen template inside that initially keep the same folder name.
+
+67
+00:05:29,000 --> 00:05:30,500
+Then later, if you want, you can change.
+
+68
+00:05:30,500 --> 00:05:32,390
+Then you have to change the templates also.
+
+69
+00:05:33,690 --> 00:05:38,260
+We didn't know down the bucket in the folder names, so we are two things to note down now.
+
+70
+00:05:38,280 --> 00:05:43,590
+We have an extra bucket where we have the data backup, so we have to narrow down its name and file
+
+71
+00:05:43,590 --> 00:05:48,750
+names and another history bucket where we are going to upload our templates, the cloud formation template.
+
+72
+00:05:48,750 --> 00:05:52,020
+So we are going to go down that bucket name and the folder name inside that.
+
+73
+00:05:53,410 --> 00:05:58,720
+OK, we already have data now we can get started, we can create a key keeper that will be used to log
+
+74
+00:05:58,720 --> 00:06:00,760
+into instances that will get launched.
+
+75
+00:06:02,680 --> 00:06:09,290
+We are going to write a root template named Create Dot Wireman, you can choose to write a different
+
+76
+00:06:09,290 --> 00:06:09,860
+name also.
+
+77
+00:06:10,280 --> 00:06:11,890
+So this will be exoskeleton.
+
+78
+00:06:11,900 --> 00:06:15,920
+What we are going to do, this will be the main template.
+
+79
+00:06:15,920 --> 00:06:18,890
+That is that that is going to call the child templates.
+
+80
+00:06:22,440 --> 00:06:29,550
+So the child templates going to then write the child templates for CCD three roll document, a template
+
+81
+00:06:29,550 --> 00:06:34,100
+that is going to create an S3 three role which will be attached to two instances.
+
+82
+00:06:34,890 --> 00:06:40,260
+Then we're going to write another child template, Jenkins Dot Wireman, which will set up jinking service
+
+83
+00:06:41,130 --> 00:06:46,670
+on Ecija instance, download backup from the S3 Buchard, and for that we need the extra role.
+
+84
+00:06:47,340 --> 00:06:49,890
+But in this place, which is going to write, we are not going to execute.
+
+85
+00:06:49,890 --> 00:06:55,500
+We can run a test though, where the idea is to run everything from the root template as nested stack.
+
+86
+00:06:55,520 --> 00:06:56,940
+We're going to do a nested stack.
+
+87
+00:06:58,740 --> 00:07:05,010
+Then you begin to write a Nexus Dot Yamal template and it's going to set up Nexus, download the up
+
+88
+00:07:05,190 --> 00:07:12,440
+and restore it sooner, setting up Sooner Cube server and then restoring from the backup Windows Test
+
+89
+00:07:12,450 --> 00:07:12,840
+Server.
+
+90
+00:07:12,870 --> 00:07:15,600
+This is just provision and execute some powerful command.
+
+91
+00:07:16,980 --> 00:07:22,320
+Application server, which is going to set up to get service and download it to configurations from
+
+92
+00:07:22,320 --> 00:07:23,090
+the S3 bucket.
+
+93
+00:07:24,250 --> 00:07:28,330
+Database server just providing the service with some initial data, that's all.
+
+94
+00:07:29,340 --> 00:07:36,450
+Once we have it, we're going to update all this child name on the part in the three bucket into the
+
+95
+00:07:36,450 --> 00:07:43,650
+root template, once all our templates are ready template and all the child templates then begin to
+
+96
+00:07:43,650 --> 00:07:44,100
+upload.
+
+97
+00:07:44,100 --> 00:07:46,860
+All our child emptied the bucket that he created.
+
+98
+00:07:47,900 --> 00:07:50,150
+In the folder stack hyphen template.
+
+99
+00:07:51,220 --> 00:07:57,430
+And if you don't hear the final step is to create the Néstor tag by using our template secret template
+
+100
+00:07:57,430 --> 00:07:58,040
+document.
+
+101
+00:07:58,840 --> 00:08:01,180
+All right, then, let's get started.
+

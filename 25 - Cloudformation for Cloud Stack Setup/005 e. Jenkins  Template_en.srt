@@ -1,0 +1,524 @@
+1
+00:00:00,930 --> 00:00:02,600
+OK, so let's create the next template.
+
+2
+00:00:06,640 --> 00:00:16,149
+For Jenkins instance, I'll give first parameters, the parameters that are supplied to this template.
+
+3
+00:00:17,650 --> 00:00:18,560
+First parameter.
+
+4
+00:00:19,420 --> 00:00:26,730
+So give some name, description, type, string, default value so you can set C.A.T. estriol.
+
+5
+00:00:26,740 --> 00:00:31,480
+So this should be the name of the template that is sending the output.
+
+6
+00:00:33,320 --> 00:00:35,030
+OK, C.A.T., estradiol.
+
+7
+00:00:37,810 --> 00:00:42,700
+So the value it exports can be the story into this parameter.
+
+8
+00:00:43,920 --> 00:00:44,280
+OK.
+
+9
+00:00:45,800 --> 00:00:47,080
+Secret template.
+
+10
+00:00:47,100 --> 00:00:53,700
+OK, this, but this template is sending two parameters Kinnamon my IP, so we have to accept those
+
+11
+00:00:53,700 --> 00:00:54,930
+two parameters also.
+
+12
+00:00:58,910 --> 00:01:00,530
+My IP type string.
+
+13
+00:01:01,080 --> 00:01:04,340
+Same name has is given over here.
+
+14
+00:01:06,430 --> 00:01:09,400
+Kini, nyp kini.
+
+15
+00:01:10,410 --> 00:01:11,310
+Third parameter.
+
+16
+00:01:13,430 --> 00:01:16,820
+Incidence type type string default value due to micro.
+
+17
+00:01:17,930 --> 00:01:20,660
+If you wish, you can change it while you're launching the instance.
+
+18
+00:01:22,740 --> 00:01:24,430
+So four parameters, really.
+
+19
+00:01:24,600 --> 00:01:27,900
+One is coming from our output.
+
+20
+00:01:29,300 --> 00:01:37,850
+In case you roll the other two next to coming from your master template or template key name in my IP.
+
+21
+00:01:39,310 --> 00:01:46,090
+And this is just a parameter whose value you can change it while you're launching this attack based
+
+22
+00:01:46,090 --> 00:01:49,710
+on which region this is launch, we're going to launch an easy distance from this.
+
+23
+00:01:50,020 --> 00:01:53,410
+So we have to set the EMI values based on the region.
+
+24
+00:01:53,420 --> 00:01:54,580
+We're going to do mapping.
+
+25
+00:01:56,030 --> 00:02:03,320
+Mappings, some name, give your region name, EMI and the EMI ID.
+
+26
+00:02:04,760 --> 00:02:12,750
+So this is open to 18 Amedee, so check your region, find the amenities, they should be safe, but
+
+27
+00:02:12,750 --> 00:02:17,220
+if it changes or if you're not able if you're getting an error, not able to find this Amedee while
+
+28
+00:02:17,220 --> 00:02:23,070
+you're launching this attack, then find the Amedee from the region that you use and make these entries
+
+29
+00:02:23,070 --> 00:02:23,590
+over there.
+
+30
+00:02:24,120 --> 00:02:31,530
+OK, so I may be launching it into this region just one or two or US one or U.S. West one.
+
+31
+00:02:32,190 --> 00:02:36,360
+So I've just given the list of the region that I generally use.
+
+32
+00:02:37,800 --> 00:02:40,650
+Make a list like that and find DMORT.
+
+33
+00:02:41,820 --> 00:02:48,150
+OK, now we'll give the resource to launch Odyssey instance, so resources.
+
+34
+00:02:51,220 --> 00:02:52,920
+Let's take it one level down.
+
+35
+00:02:58,500 --> 00:03:05,130
+And Amy, does Jenkins' in in Jenkins' instance.
+
+36
+00:03:07,720 --> 00:03:08,710
+OK, Colin.
+
+37
+00:03:10,330 --> 00:03:10,870
+Type.
+
+38
+00:03:14,650 --> 00:03:17,650
+Less colon, colon to.
+
+39
+00:03:19,140 --> 00:03:26,080
+Capital, the colon colon instance, and then properties.
+
+40
+00:03:29,790 --> 00:03:37,170
+Instance type, so revoted instance time, we're taking the parameter NEITZEL By default to two micro.
+
+41
+00:03:38,260 --> 00:03:48,940
+OK, next, probably the key name, again, referring to key name over here that comes from your master
+
+42
+00:03:48,940 --> 00:03:49,420
+template.
+
+43
+00:03:50,720 --> 00:03:58,200
+OK, so user input that will be sent to the stimulate child template and then it will be assigned all
+
+44
+00:03:58,220 --> 00:03:59,250
+here in this property.
+
+45
+00:04:00,170 --> 00:04:01,490
+OK, next image.
+
+46
+00:04:02,300 --> 00:04:04,970
+OK, so finding a map and then let's give.
+
+47
+00:04:07,380 --> 00:04:11,220
+So finding my in my region map, that's name.
+
+48
+00:04:12,430 --> 00:04:16,720
+It was a region that we have the value of the region where we are launching it.
+
+49
+00:04:16,750 --> 00:04:24,620
+So if you're doing it on us E two, then we'll get this right, because we said in that region, Emek
+
+50
+00:04:24,640 --> 00:04:25,280
+is the key.
+
+51
+00:04:25,810 --> 00:04:34,120
+So it's going to find that EMI and then the value will be taken and will be assigned to imagery sometimes.
+
+52
+00:04:38,160 --> 00:04:43,680
+And value is going to be joining with Jenkins' in this particular region.
+
+53
+00:04:43,710 --> 00:04:47,630
+So that is going to give us the region naem security groups.
+
+54
+00:04:47,640 --> 00:04:52,470
+I have not yet created the security group resource, but will Laforet it will create a security group
+
+55
+00:04:52,470 --> 00:04:55,260
+resource with this logical Odey Casal.
+
+56
+00:04:55,260 --> 00:04:56,370
+We already have the name.
+
+57
+00:04:58,690 --> 00:05:02,110
+OK, I am instance.
+
+58
+00:05:03,720 --> 00:05:04,590
+Profile.
+
+59
+00:05:06,890 --> 00:05:15,050
+If this is the one that we have already exported from C.A.T. history role and we are going to you imported,
+
+60
+00:05:15,050 --> 00:05:16,520
+so I'm going to say function.
+
+61
+00:05:23,070 --> 00:05:23,880
+Import.
+
+62
+00:05:24,980 --> 00:05:25,670
+Value.
+
+63
+00:05:27,150 --> 00:05:27,720
+Colin.
+
+64
+00:05:28,870 --> 00:05:37,060
+And I'm going to use function sub, which is going to substitute now dubh sub.
+
+65
+00:05:43,170 --> 00:05:43,860
+Donna.
+
+66
+00:05:48,810 --> 00:05:52,860
+So there again, this is going to have the exported value.
+
+67
+00:05:55,360 --> 00:05:57,520
+And inside that, we have.
+
+68
+00:06:00,720 --> 00:06:01,440
+That very.
+
+69
+00:06:07,540 --> 00:06:10,450
+So that we have the idea of your instanced profile.
+
+70
+00:06:11,530 --> 00:06:12,040
+So.
+
+71
+00:06:13,440 --> 00:06:17,080
+Import valediction to import disvalue and store it into this.
+
+72
+00:06:17,670 --> 00:06:20,730
+So this instance profile can be attached to the U.S. Dunstan's.
+
+73
+00:06:21,710 --> 00:06:27,530
+Which will give a street full access so this instance can download data from the EU budget, which will
+
+74
+00:06:27,530 --> 00:06:29,070
+need now in the user data.
+
+75
+00:06:29,090 --> 00:06:35,150
+We're going to write the script and have the script to set up Jenkins' instance.
+
+76
+00:06:37,000 --> 00:06:45,460
+OK, so that is the user data function, base64, base64, Wal-Mart substitute is a script, so things
+
+77
+00:06:45,460 --> 00:06:52,630
+that we already did install JDK install me one good unzip, install A.W. Seelie and then.
+
+78
+00:06:54,200 --> 00:07:00,590
+Steps to install Jenkins, wait for 10 seconds, stop Jenkins, now Jenkins is installed, going to
+
+79
+00:07:00,590 --> 00:07:06,230
+stop Jenkins, wait for 10 seconds and then I'm going to download.
+
+80
+00:07:07,210 --> 00:07:09,670
+Data from the S3 Buckett in Vasiliev.
+
+81
+00:07:10,480 --> 00:07:16,120
+OK, so you have to give the bucket name over here on which you have taken the backup.
+
+82
+00:07:20,350 --> 00:07:21,790
+OK, that bucket name.
+
+83
+00:07:24,630 --> 00:07:28,260
+And which are already given and the archive file.
+
+84
+00:07:31,640 --> 00:07:35,030
+Jenkins underscores 60 jobs, dialogue and.
+
+85
+00:07:37,280 --> 00:07:42,940
+OK, so it's going to copy that file from the EU budget and put it in Vasiliev directly, then we do
+
+86
+00:07:42,960 --> 00:07:48,370
+see to validate it, to then be extracted, we change the ownership of the directive jenkins' jenkins'
+
+87
+00:07:48,370 --> 00:07:50,440
+user and then reboot.
+
+88
+00:07:51,310 --> 00:07:59,230
+Not mandatory, but safe to do reboot, not really mandatory, but nevertheless I do it so, you know,
+
+89
+00:08:00,100 --> 00:08:02,260
+everything gets loaded perfectly fine.
+
+90
+00:08:02,900 --> 00:08:05,200
+OK, now it's time to clear the Jenkins' Security Group.
+
+91
+00:08:10,260 --> 00:08:13,690
+You have to make sure in this particular incident, yeah.
+
+92
+00:08:14,760 --> 00:08:16,080
+OK, I'll see Jenkins.
+
+93
+00:08:17,860 --> 00:08:18,430
+ASG.
+
+94
+00:08:19,580 --> 00:08:24,410
+I have not recruited the Jenkins security group, but the logical idea I will give, same as I have
+
+95
+00:08:24,410 --> 00:08:27,410
+mentioned over here, Jenkins is chief.
+
+96
+00:08:30,180 --> 00:08:32,520
+So I don't have any issues.
+
+97
+00:08:36,830 --> 00:08:37,730
+Two simple rules.
+
+98
+00:08:39,679 --> 00:08:40,640
+For the security group.
+
+99
+00:08:42,740 --> 00:08:52,640
+In Greece, 22 allowed from maybe OK, now this might be your offering is coming over here, maybe then
+
+100
+00:08:52,640 --> 00:08:53,240
+it is.
+
+101
+00:08:55,140 --> 00:08:57,030
+Supplied from here.
+
+102
+00:08:58,320 --> 00:09:04,200
+From your master template, which is going to be coming as a user input or the default value will be
+
+103
+00:09:04,200 --> 00:09:04,680
+passed.
+
+104
+00:09:10,360 --> 00:09:14,440
+OK, then I'm just giving from anywhere you can again change it to.
+
+105
+00:09:16,160 --> 00:09:17,450
+Jeff Miyabe.
+
+106
+00:09:20,080 --> 00:09:21,010
+My IP.
+
+107
+00:09:22,060 --> 00:09:23,250
+OK, that should be fine.
+
+108
+00:09:25,320 --> 00:09:30,510
+OK, we're going to output some value for printing and we're going to output the value of the jinking
+
+109
+00:09:30,520 --> 00:09:36,990
+security group to next instances, the next other instances that we are going to create is going to
+
+110
+00:09:36,990 --> 00:09:40,810
+allow port all traffic from jinking security group.
+
+111
+00:09:41,190 --> 00:09:46,560
+So when this dinking security group gets created, it will have an idea that we have to export for the
+
+112
+00:09:46,560 --> 00:09:49,830
+next template, plus a few more values to print.
+
+113
+00:09:50,630 --> 00:09:51,690
+OK, output.
+
+114
+00:09:51,700 --> 00:09:52,980
+We're just printing things.
+
+115
+00:09:53,160 --> 00:09:55,980
+Maintenance, public IP address value.
+
+116
+00:09:55,980 --> 00:09:58,620
+Gedda attribute jenkins' instance dot, public IP.
+
+117
+00:09:58,620 --> 00:10:05,700
+So jenkins' instance, dot public IP is going to return the public IP.
+
+118
+00:10:06,970 --> 00:10:13,930
+To getting the attribute there is just footprinting, also the private IP, OK, instance ID.
+
+119
+00:10:16,530 --> 00:10:17,920
+This just just for fun, OK?
+
+120
+00:10:17,940 --> 00:10:22,980
+All these three things, if you don't want to print it, fine, because anyways, once we launch the
+
+121
+00:10:22,980 --> 00:10:26,910
+instances, we can get that eyepiece by going to issue two instances.
+
+122
+00:10:27,660 --> 00:10:28,710
+But this is important.
+
+123
+00:10:29,980 --> 00:10:35,860
+We want the jinking security group to be exported for the next templated, so give us some name jinking
+
+124
+00:10:35,870 --> 00:10:42,830
+security group, some description value will be function, get attribute jenkins' security group gruppioni.
+
+125
+00:10:44,050 --> 00:10:48,190
+The two values are part of this function jenkins' as they are.
+
+126
+00:10:49,140 --> 00:10:51,000
+And the group.
+
+127
+00:10:51,240 --> 00:10:56,790
+So it's going to down a group idea and this is then exported to with this name Jinkx hyphen Asgharzadeh,
+
+128
+00:10:57,450 --> 00:11:00,520
+which then can be used in other templates that we are going to create.
+
+129
+00:11:00,540 --> 00:11:04,680
+Now, again, if you wish to refer for this template.
+
+130
+00:11:06,170 --> 00:11:07,770
+So go to the repository.
+
+131
+00:11:13,320 --> 00:11:15,720
+OK, you can read all the details from here.
+
