@@ -1,0 +1,92 @@
+1
+00:00:00,630 --> 00:00:00,940
+Okay.
+
+2
+00:00:00,960 --> 00:00:02,760
+Now, let's get into the controller.
+
+3
+00:00:04,230 --> 00:00:04,710
+Let's run.
+
+4
+00:00:04,710 --> 00:00:05,610
+Get, pull, set, pull.
+
+5
+00:00:05,610 --> 00:00:07,140
+All the changes that we made.
+
+6
+00:00:08,280 --> 00:00:09,030
+This is good.
+
+7
+00:00:09,360 --> 00:00:11,280
+Let's go to provision Stack.
+
+8
+00:00:13,050 --> 00:00:16,020
+If we're going to execute side of playbook again.
+
+9
+00:00:17,130 --> 00:00:22,350
+So if you already executed Beloit via email and this file which set up the host entries, these two
+
+10
+00:00:22,350 --> 00:00:24,090
+file will get executed once again.
+
+11
+00:00:24,480 --> 00:00:27,720
+Then DB dot ML will set up the database service.
+
+12
+00:00:27,750 --> 00:00:30,450
+DB deploy will deploy SQL file.
+
+13
+00:00:30,630 --> 00:00:33,270
+MEM cache is going to set up mem cache service.
+
+14
+00:00:33,510 --> 00:00:39,420
+Rabbit MQ is going to set up rabbit MQ server application server is going to install setup, tomcat
+
+15
+00:00:39,420 --> 00:00:40,680
+and deploy artifact.
+
+16
+00:00:40,680 --> 00:00:44,370
+Also, anything fails, it's going to roll back as well.
+
+17
+00:00:44,900 --> 00:00:48,990
+And finally, Engine X will be set up by web dot ML.
+
+18
+00:00:49,020 --> 00:00:55,290
+Once the engine comes up, starts serving the request, it will be also in the load balancer will show.
+
+19
+00:00:59,260 --> 00:01:03,490
+In the instances it will show in service once the Internet service comes up.
+
+20
+00:01:06,730 --> 00:01:07,300
+All right.
+
+21
+00:01:07,330 --> 00:01:08,740
+Let's do it.
+
+22
+00:01:08,860 --> 00:01:10,360
+And simple hyphen playbook.
+
+23
+00:01:10,400 --> 00:01:11,590
+Side dot y.
+

@@ -1,0 +1,184 @@
+1
+00:00:01,500 --> 00:00:04,830
+Now let's start writing our playbook one by one in the same order.
+
+2
+00:00:04,860 --> 00:00:07,290
+So for now, I'm going to close all this.
+
+3
+00:00:13,470 --> 00:00:14,160
+And I'll open.
+
+4
+00:00:14,660 --> 00:00:17,430
+Vimal billed Vimal we have to create first.
+
+5
+00:00:17,700 --> 00:00:18,840
+So in the same order.
+
+6
+00:00:19,820 --> 00:00:24,420
+Provision Stack file build dot y.
+
+7
+00:00:24,560 --> 00:00:25,000
+L.
+
+8
+00:00:28,230 --> 00:00:33,870
+OC build playbook will get executed locally on the local host on the controller machine.
+
+9
+00:00:34,200 --> 00:00:34,770
+Let's become.
+
+10
+00:00:34,770 --> 00:00:39,330
+Yes, we don't need to give that, but because it's already an ansible configuration file.
+
+11
+00:00:39,330 --> 00:00:40,320
+But that's fine.
+
+12
+00:00:41,430 --> 00:00:46,920
+So we're going to first install some dependencies by using APT module in a loop, we're going to run
+
+13
+00:00:46,920 --> 00:00:50,190
+this git open JDK eight and MAVEN.
+
+14
+00:00:51,550 --> 00:00:51,970
+Next.
+
+15
+00:00:51,970 --> 00:00:55,840
+By using Git module, we're going to clone our repository.
+
+16
+00:00:56,630 --> 00:00:58,340
+Branch VP hyphen rim.
+
+17
+00:00:58,880 --> 00:01:03,650
+We're going to put it into this directory and register output into a variable.
+
+18
+00:01:05,180 --> 00:01:09,410
+Then we'll run the we'll use command module and we'll run the command and even install.
+
+19
+00:01:09,680 --> 00:01:15,260
+And it will do a CD change directory into V profile hyphen repo right there.
+
+20
+00:01:15,740 --> 00:01:18,190
+Only if there is a commit.
+
+21
+00:01:18,200 --> 00:01:20,630
+So get underscore status dot changed.
+
+22
+00:01:20,720 --> 00:01:21,320
+All right.
+
+23
+00:01:21,350 --> 00:01:23,820
+So this will be true if there is any new commit.
+
+24
+00:01:23,820 --> 00:01:25,310
+It's only if a new commit is there?
+
+25
+00:01:25,310 --> 00:01:29,600
+I would like to build it and register the output into this variable.
+
+26
+00:01:30,960 --> 00:01:32,640
+Now we should have the artifact.
+
+27
+00:01:34,350 --> 00:01:38,220
+So by using copy module, we'll copy the artifacts source.
+
+28
+00:01:39,700 --> 00:01:47,080
+So we profile report target slash star dot var Any var file in the target directory will be copied to
+
+29
+00:01:47,080 --> 00:01:48,310
+the files directory.
+
+30
+00:01:48,850 --> 00:01:51,010
+So we should also have a files directory then.
+
+31
+00:01:51,010 --> 00:01:52,900
+So let's create a files directory.
+
+32
+00:01:56,270 --> 00:02:01,160
+And we make sure we create some empty file in that so it can keep track of this path.
+
+33
+00:02:09,850 --> 00:02:14,140
+Okay, so in the file directory route dot var artifact will be copied.
+
+34
+00:02:14,680 --> 00:02:18,910
+Then we're going to copy the SQL file into the files directory again.
+
+35
+00:02:18,940 --> 00:02:25,960
+So we profile repo Z Main Resources DB backup dot SQL file will be copied into this directory with this
+
+36
+00:02:25,960 --> 00:02:26,500
+name.
+
+37
+00:02:27,460 --> 00:02:29,230
+Let's save this.
+
+38
+00:02:31,480 --> 00:02:37,420
+If you don't wish to write all the steps, then you can copy all this from our source code repository.
+
+39
+00:02:37,710 --> 00:02:39,820
+As of now, I'm going to save this.
+
+40
+00:02:39,820 --> 00:02:40,870
+Commit this.
+
+41
+00:02:42,100 --> 00:02:44,410
+It's a build playbook.
+
+42
+00:02:52,840 --> 00:02:58,270
+Okay, First I will just run this playbook individually, not through Cytomel, just to make a test.
+
+43
+00:02:59,580 --> 00:03:01,110
+So let's pull everything.
+
+44
+00:03:04,440 --> 00:03:08,190
+So we should have now built vimal file a files directory also.
+
+45
+00:03:08,610 --> 00:03:09,930
+Let's run the playbook.
+
+46
+00:03:15,660 --> 00:03:19,210
+Okay, while this is happening, we'll write the next playbook.
+

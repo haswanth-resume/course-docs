@@ -1,0 +1,52 @@
+1
+00:00:00,090 --> 00:00:02,730
+Next playbook cache will.
+
+2
+00:00:03,719 --> 00:00:05,580
+This is also a very easy playbook.
+
+3
+00:00:12,490 --> 00:00:18,130
+Executing on MSI server group with apt module very installing mem cache.
+
+4
+00:00:18,610 --> 00:00:23,080
+We start and enable mem cache service and then we enable the remote login.
+
+5
+00:00:23,080 --> 00:00:28,660
+So with line in file module, we're going to search anything that starts with hyphen L and replace it
+
+6
+00:00:28,660 --> 00:00:31,360
+with hyphen l 0.0.0.
+
+7
+00:00:32,400 --> 00:00:36,900
+So then Mukesh will listen on all the IP addresses, not just the local IP.
+
+8
+00:00:37,980 --> 00:00:43,650
+We can take backup of the file before it make changes, and then we call the handler to restart cache
+
+9
+00:00:43,710 --> 00:00:44,460
+service.
+
+10
+00:00:46,400 --> 00:00:47,480
+So that's pretty simple.
+
+11
+00:00:47,480 --> 00:00:48,170
+Playbook.
+
+12
+00:00:48,170 --> 00:00:51,620
+Install the package, start and enable make configuration change.
+
+13
+00:00:51,950 --> 00:00:53,270
+Restart the service.
+

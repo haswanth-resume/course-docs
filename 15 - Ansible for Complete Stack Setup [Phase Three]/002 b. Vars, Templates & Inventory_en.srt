@@ -1,0 +1,248 @@
+1
+00:00:00,390 --> 00:00:00,540
+Now.
+
+2
+00:00:00,660 --> 00:00:04,290
+Now let's start writing a playbook to provision our entire stack.
+
+3
+00:00:09,770 --> 00:00:16,430
+Okay, So now in our repository, we had this previous playbooks that we used to set up VPC and launch
+
+4
+00:00:16,430 --> 00:00:17,300
+instances.
+
+5
+00:00:17,510 --> 00:00:19,520
+We'll just close all of this.
+
+6
+00:00:23,250 --> 00:00:24,570
+To avoid any clutter.
+
+7
+00:00:27,240 --> 00:00:29,310
+Okay, First we need to take care of our variables.
+
+8
+00:00:29,320 --> 00:00:30,830
+So we already have in group bars.
+
+9
+00:00:30,840 --> 00:00:35,490
+We have the variables, the IP addresses of for all our machines.
+
+10
+00:00:35,970 --> 00:00:37,890
+We also have the inventory file.
+
+11
+00:00:38,850 --> 00:00:40,200
+We need one more variable.
+
+12
+00:00:40,200 --> 00:00:42,000
+I'm going to create a new file here.
+
+13
+00:00:44,870 --> 00:00:46,970
+DB RV group.
+
+14
+00:00:48,490 --> 00:00:50,440
+Create that file text file.
+
+15
+00:00:51,440 --> 00:00:56,210
+So we'll give DB user, DB pass and DB name the three variables.
+
+16
+00:00:56,480 --> 00:01:03,620
+We'll also need to templates that we'll be pushing it to our application server and web server respectively.
+
+17
+00:01:04,430 --> 00:01:06,950
+So we'll create a template directory here.
+
+18
+00:01:10,680 --> 00:01:13,110
+In this templates, we'll create two files.
+
+19
+00:01:16,500 --> 00:01:19,740
+Application dot j to.
+
+20
+00:01:21,860 --> 00:01:24,680
+This is going to be our application properties file.
+
+21
+00:01:25,460 --> 00:01:32,210
+So the data for this file you can pick up from our source code so you can go to our repository, we
+
+22
+00:01:32,210 --> 00:01:38,120
+profile project and you can go to VB hyphen branch or any CD branch.
+
+23
+00:01:38,120 --> 00:01:38,960
+You can go.
+
+24
+00:01:40,130 --> 00:01:42,050
+HRC main.
+
+25
+00:01:44,240 --> 00:01:45,350
+Resources.
+
+26
+00:01:46,880 --> 00:01:48,590
+Application date properties file.
+
+27
+00:01:50,170 --> 00:01:51,370
+Let's copy it.
+
+28
+00:01:59,570 --> 00:01:59,760
+Okay.
+
+29
+00:01:59,810 --> 00:02:01,090
+We don't need to make any change here.
+
+30
+00:02:01,100 --> 00:02:05,430
+DB 0101 This is we're going to prepare a host file.
+
+31
+00:02:05,450 --> 00:02:10,880
+It is the host file and push it on every machine so our application server should be able to connect
+
+32
+00:02:10,880 --> 00:02:13,940
+to with to the backend with their names.
+
+33
+00:02:14,690 --> 00:02:16,430
+Okay, we need one more template.
+
+34
+00:02:19,050 --> 00:02:23,480
+For engine x engine x v pro g two For simplicity.
+
+35
+00:02:23,490 --> 00:02:25,080
+Keep the same name for now.
+
+36
+00:02:27,350 --> 00:02:30,350
+There's going to be the routing entry for when we access engine service.
+
+37
+00:02:30,350 --> 00:02:32,330
+It's going to route to the application server.
+
+38
+00:02:38,540 --> 00:02:40,190
+So that should be the content.
+
+39
+00:02:40,820 --> 00:02:43,950
+If we access it on Port 80, it's going to listen on port it.
+
+40
+00:02:43,970 --> 00:02:47,150
+It's going to route the request to app zero one on Port 88.
+
+41
+00:02:47,900 --> 00:02:49,670
+These two configurations are important.
+
+42
+00:02:49,760 --> 00:02:54,680
+So when it routes to application server application Server four backend is going to use this file to
+
+43
+00:02:54,680 --> 00:02:57,740
+route to database cache and rabbit MQ.
+
+44
+00:02:58,500 --> 00:03:02,490
+DB password admin and DB user admin and password one to admin.
+
+45
+00:03:02,490 --> 00:03:03,270
+One, two, three.
+
+46
+00:03:03,930 --> 00:03:07,590
+You mentioned the same in the variables file, so we're going to use that in our playbook.
+
+47
+00:03:08,920 --> 00:03:11,860
+Also for rabbit to test user and test password.
+
+48
+00:03:12,760 --> 00:03:14,020
+Okay, that should be good.
+
+49
+00:03:14,020 --> 00:03:15,730
+Let's close this one for now.
+
+50
+00:03:16,900 --> 00:03:18,610
+Except this one provision stack.
+
+51
+00:03:19,090 --> 00:03:21,880
+Now we'll create ansible configuration file.
+
+52
+00:03:27,210 --> 00:03:28,380
+So does the configuration file.
+
+53
+00:03:28,380 --> 00:03:31,290
+In default settings, we have inventory inventory hyphen vpro.
+
+54
+00:03:31,740 --> 00:03:33,270
+Which is this file.
+
+55
+00:03:36,550 --> 00:03:39,400
+Post key checking false Forks five.
+
+56
+00:03:39,790 --> 00:03:42,580
+That's not mandatory setting log file.
+
+57
+00:03:42,660 --> 00:03:45,010
+It will also create a log file in current working directory.
+
+58
+00:03:45,010 --> 00:03:48,980
+Timeout 15 seconds privilege escalation becomes Yes.
+
+59
+00:03:49,000 --> 00:03:53,980
+You don't need to mention it in your playbook as this connection tries to time.
+
+60
+00:03:54,730 --> 00:03:56,830
+We need that for some of our execution.
+
+61
+00:03:58,010 --> 00:04:04,730
+Okay, so by now you should have two variables file DB server, host IP two templates, application
+
+62
+00:04:04,940 --> 00:04:10,640
+G, two engine x, Vpro or G two and simple configuration file and inventory file.
+

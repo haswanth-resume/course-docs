@@ -1,0 +1,152 @@
+1
+00:00:02,009 --> 00:00:03,610
+The next playbook is set.
+
+2
+00:00:03,630 --> 00:00:06,150
+Host IP map dot html.
+
+3
+00:00:06,390 --> 00:00:08,100
+So let's create a file.
+
+4
+00:00:13,450 --> 00:00:14,830
+This playbook is very simple.
+
+5
+00:00:14,830 --> 00:00:18,550
+It's just going to include the variable group was host IP.
+
+6
+00:00:22,530 --> 00:00:26,100
+So all these variables will be available in the playbook.
+
+7
+00:00:26,640 --> 00:00:28,860
+It's going to use block in file module.
+
+8
+00:00:29,100 --> 00:00:32,229
+It is the host file of all the hosts.
+
+9
+00:00:32,380 --> 00:00:35,310
+It's it's going to get executed on all the hosts, including.
+
+10
+00:00:36,390 --> 00:00:40,050
+Web app rabbit MQ mem cache db everything.
+
+11
+00:00:40,680 --> 00:00:46,620
+If you wish, we can also update the control machine over here, so let's check in our inventory file.
+
+12
+00:00:48,810 --> 00:00:53,400
+That all the hosts, including the control machine, the local host controller machine.
+
+13
+00:00:53,400 --> 00:00:55,560
+So in this machine also it will get updated.
+
+14
+00:00:55,560 --> 00:00:56,790
+So you don't need to do anything.
+
+15
+00:00:58,920 --> 00:01:01,620
+So let's see if this comet.
+
+16
+00:01:13,880 --> 00:01:14,000
+Yeah.
+
+17
+00:01:14,190 --> 00:01:14,850
+Let's go back.
+
+18
+00:01:14,850 --> 00:01:19,170
+And by the time this playbook is also executed, let's see the output.
+
+19
+00:01:19,770 --> 00:01:21,540
+It should be in the files directory.
+
+20
+00:01:21,660 --> 00:01:24,690
+So we have route dot, var and the SQL file.
+
+21
+00:01:25,440 --> 00:01:26,400
+That's nice.
+
+22
+00:01:26,580 --> 00:01:28,620
+Now, let's pull our source code.
+
+23
+00:01:32,440 --> 00:01:34,300
+Now you should see the new playbook.
+
+24
+00:01:35,960 --> 00:01:37,010
+Let's execute it.
+
+25
+00:01:44,960 --> 00:01:45,650
+Now that's done.
+
+26
+00:01:45,650 --> 00:01:46,670
+That was very quick.
+
+27
+00:01:46,940 --> 00:01:48,130
+Let's check the host file.
+
+28
+00:01:48,140 --> 00:01:52,460
+This is you can log into every machine and check, but we can check it really on the local machine.
+
+29
+00:01:52,460 --> 00:01:53,510
+Also controller.
+
+30
+00:01:55,340 --> 00:02:02,090
+Right now, we can really do quickly access to that login and you can see open to.
+
+31
+00:02:03,340 --> 00:02:07,000
+At the rate we can say zero one, let's test it.
+
+32
+00:02:08,419 --> 00:02:09,789
+And seems working.
+
+33
+00:02:10,360 --> 00:02:10,930
+Yeah.
+
+34
+00:02:11,200 --> 00:02:11,980
+That's good.
+
+35
+00:02:12,010 --> 00:02:12,910
+Let's log out.
+
+36
+00:02:17,180 --> 00:02:21,430
+Now we'll write all our playbook and we'll execute them from Wireman.
+
+37
+00:02:22,520 --> 00:02:24,500
+Guess the site will.
+
+38
+00:02:25,560 --> 00:02:30,390
+You can close this, you can close this whole strip build and test.
+

@@ -1,0 +1,796 @@
+1
+00:00:01,990 --> 00:00:03,320
+I'll get next playbook.
+
+2
+00:00:04,510 --> 00:00:07,360
+He's the application server or main hero Tomcat.
+
+3
+00:00:09,150 --> 00:00:11,400
+So let's hope not at this level.
+
+4
+00:00:13,030 --> 00:00:15,370
+Provision stack file.
+
+5
+00:00:18,070 --> 00:00:19,190
+Okay, There is a mistake.
+
+6
+00:00:19,210 --> 00:00:22,450
+I have created A.I.M. and rabbit MKT via email.
+
+7
+00:00:22,780 --> 00:00:26,440
+Not in provision stack directory, so let me move it.
+
+8
+00:00:30,020 --> 00:00:31,210
+Also rapid MQ.
+
+9
+00:00:35,580 --> 00:00:40,080
+Okay, so let's get started writing with apps or playbook.
+
+10
+00:00:40,840 --> 00:00:41,030
+Okay.
+
+11
+00:00:41,070 --> 00:00:48,420
+This is a rather a very long playbook, but it is same or the similar playbook that we used in a project.
+
+12
+00:00:48,450 --> 00:00:50,940
+Continuous delivery with Jenkins and Ansible.
+
+13
+00:00:51,270 --> 00:00:56,100
+In that project we used an Ansible playbook which will set up the Tomcat service.
+
+14
+00:00:56,100 --> 00:01:02,910
+So it's the same playbook as that, except this is only for Ubuntu 18 or 20.
+
+15
+00:01:05,349 --> 00:01:07,720
+Now also, you can use it for 1 to 16 as well.
+
+16
+00:01:08,200 --> 00:01:13,390
+But the playbook, which was in continuous delivery project, that was for multi operating system,
+
+17
+00:01:13,390 --> 00:01:20,560
+even enterprise Linux 67012 1415 1618 20 except 20.
+
+18
+00:01:21,260 --> 00:01:23,140
+Okay, so we have two variables over here.
+
+19
+00:01:23,170 --> 00:01:29,770
+Timestamp This variable is used to take the backup of a file, so we're going to use this variable.
+
+20
+00:01:30,430 --> 00:01:33,700
+We can assign it in the runtime from the fact variable.
+
+21
+00:01:34,270 --> 00:01:36,040
+So it will have the current timestamp.
+
+22
+00:01:37,720 --> 00:01:42,790
+Tomcat URL variable, which is the URL from where it's going to download the tomcat tarball.
+
+23
+00:01:43,810 --> 00:01:51,550
+So install JDK with apt module, then a download the tarball with get your URL module at this location.
+
+24
+00:01:52,560 --> 00:01:59,760
+Ad user tomcat sorry ad a group tomcat then ad user tomcat at this home directory.
+
+25
+00:01:59,760 --> 00:02:03,120
+So this will be the home directory of this user and also the Tomcat user.
+
+26
+00:02:03,120 --> 00:02:04,440
+Local Tomcat eight.
+
+27
+00:02:06,000 --> 00:02:09,120
+Then we create a temporary directory with file module.
+
+28
+00:02:09,539 --> 00:02:12,810
+Slash temp slash tomcat eight state directory.
+
+29
+00:02:13,470 --> 00:02:15,180
+Then we'll archive.
+
+30
+00:02:15,960 --> 00:02:21,990
+Our Tomcat eight that we have downloaded in temp directory under this directory tomcat temp slash Tomcat
+
+31
+00:02:21,990 --> 00:02:27,840
+eight This is for temporary purpose, so you can archive it with the archive module and we stored the
+
+32
+00:02:27,840 --> 00:02:29,790
+output into the variable.
+
+33
+00:02:30,060 --> 00:02:32,640
+So it's going to list all the files you have in list files.
+
+34
+00:02:32,640 --> 00:02:33,120
+Yes.
+
+35
+00:02:33,120 --> 00:02:37,620
+So it's going to return all the output when it extracts that will be stored into this variable.
+
+36
+00:02:37,680 --> 00:02:45,270
+From that output, we will extract the Tomcat Tomcat directory name by using this style.
+
+37
+00:02:45,270 --> 00:02:50,940
+So we're going to basically slice it in that JSON value.
+
+38
+00:02:50,940 --> 00:02:52,530
+You have a key called files.
+
+39
+00:02:53,240 --> 00:02:54,380
+It is a list.
+
+40
+00:02:54,380 --> 00:02:57,950
+So first element in the list and that will be.
+
+41
+00:02:58,710 --> 00:03:00,450
+The path of the Tomcat.
+
+42
+00:03:00,450 --> 00:03:02,400
+But I don't want we don't want the path.
+
+43
+00:03:02,400 --> 00:03:03,840
+You're going to split that.
+
+44
+00:03:04,860 --> 00:03:09,540
+Where there is a forward slash and we get the first name in the pot.
+
+45
+00:03:09,540 --> 00:03:14,610
+So we get the directory name of Tomcat where it gets extracted.
+
+46
+00:03:15,570 --> 00:03:17,250
+So here we are just printing it.
+
+47
+00:03:18,060 --> 00:03:23,550
+But here with synchronize module, we're going to sync that directory which is extracted with us, our
+
+48
+00:03:23,550 --> 00:03:24,330
+local tomcat.
+
+49
+00:03:24,810 --> 00:03:28,590
+So all the content from this directory will be copied to us, our local tomcat.
+
+50
+00:03:28,590 --> 00:03:29,100
+Eight.
+
+51
+00:03:29,430 --> 00:03:32,790
+And synchronize module is going to work for source locally.
+
+52
+00:03:32,790 --> 00:03:36,090
+So we have to say delegate to inventory underscore host name.
+
+53
+00:03:36,090 --> 00:03:41,580
+So wherever this is getting executed, it will assume that the source is at that location, the remote
+
+54
+00:03:41,580 --> 00:03:42,330
+location.
+
+55
+00:03:42,660 --> 00:03:44,850
+Otherwise it will think sources local.
+
+56
+00:03:45,890 --> 00:03:49,340
+Then we change the ownership of user local tomcat directory.
+
+57
+00:03:49,340 --> 00:03:54,080
+With file module we give the ownership Tomcat tomcat and we extracted the content in this directory.
+
+58
+00:03:54,080 --> 00:03:57,440
+Now we'll make the tomcat user and the group as the owner of this file.
+
+59
+00:03:58,810 --> 00:04:03,580
+And then we are going to push a template that we have to create now.
+
+60
+00:04:04,710 --> 00:04:05,580
+At this location.
+
+61
+00:04:05,580 --> 00:04:11,460
+This is going to be the system D file so we can manage Tomcat with system CTL Command or the service
+
+62
+00:04:11,460 --> 00:04:12,150
+module.
+
+63
+00:04:12,510 --> 00:04:14,430
+So we have to create one more template.
+
+64
+00:04:14,700 --> 00:04:16,980
+So I'm going to copy that name.
+
+65
+00:04:18,910 --> 00:04:20,230
+Is it templates?
+
+66
+00:04:27,790 --> 00:04:29,700
+Okay, so that's the system D file.
+
+67
+00:04:29,710 --> 00:04:35,070
+When we say system C, it'll start Tomcat, then it will execute the script.
+
+68
+00:04:35,080 --> 00:04:38,410
+When we say systems, it'll stop Tomcat, It will execute that script.
+
+69
+00:04:39,630 --> 00:04:40,620
+Let's see if this.
+
+70
+00:04:40,860 --> 00:04:43,230
+So this template will be pushed at this location.
+
+71
+00:04:43,230 --> 00:04:45,150
+So service name will be Tomcat eight.
+
+72
+00:04:47,410 --> 00:04:50,590
+And then we a system D system D demand reload.
+
+73
+00:04:50,590 --> 00:04:52,570
+So it's going to reload this configuration.
+
+74
+00:04:53,110 --> 00:04:56,690
+And now we can start managing Tomcat with Service Command.
+
+75
+00:04:56,710 --> 00:04:59,050
+So service Tomcat eight started.
+
+76
+00:04:59,080 --> 00:05:01,300
+So it's going to start the Tomcat service.
+
+77
+00:05:01,780 --> 00:05:08,170
+So all those steps we took till here from the beginning is so we can manage Tomcat with service module.
+
+78
+00:05:08,610 --> 00:05:08,860
+Okay.
+
+79
+00:05:08,860 --> 00:05:13,780
+Next you're going to collect information about the existing artifact if it exist.
+
+80
+00:05:14,170 --> 00:05:16,030
+So we'll store with start module.
+
+81
+00:05:16,030 --> 00:05:19,150
+We're going to collect the information and we'll store it into this variable.
+
+82
+00:05:19,690 --> 00:05:24,790
+This will be useful to take the backup so if this file does not exist, will not take the backup like
+
+83
+00:05:24,790 --> 00:05:25,030
+that.
+
+84
+00:05:25,030 --> 00:05:28,930
+So for the for the first installation, first provisioning, this may not exist.
+
+85
+00:05:28,930 --> 00:05:31,600
+Or if you delete it, then your backup task will fail.
+
+86
+00:05:31,600 --> 00:05:35,020
+So we're going to use that variable to compare that.
+
+87
+00:05:36,510 --> 00:05:42,420
+So then we start stop the Tomcat service and now comes where we're going to deploy our artifact.
+
+88
+00:05:42,900 --> 00:05:49,320
+So we have to we first stop the Tomcat service and then we have block and rescue.
+
+89
+00:05:49,750 --> 00:05:53,040
+And so the main block is this.
+
+90
+00:05:54,020 --> 00:05:59,930
+So I need to ask Phil in this blog, The rescue will come and it will start the Tomcat service, because
+
+91
+00:05:59,930 --> 00:06:05,210
+if any task fails, the Playbook execution will stop and the Tomcat service will be stay straight,
+
+92
+00:06:05,210 --> 00:06:05,750
+stop.
+
+93
+00:06:05,750 --> 00:06:06,290
+Right.
+
+94
+00:06:06,290 --> 00:06:09,620
+Because you're stopping the Tomcat service over here, right?
+
+95
+00:06:09,740 --> 00:06:10,670
+I'm the execution field.
+
+96
+00:06:10,670 --> 00:06:12,350
+The Tomcat service will be stopped.
+
+97
+00:06:13,670 --> 00:06:13,940
+All right.
+
+98
+00:06:13,940 --> 00:06:19,670
+The final step outside of this block is to start the Tomcat service, but it will not come here if any
+
+99
+00:06:19,670 --> 00:06:20,930
+of that task fails.
+
+100
+00:06:20,930 --> 00:06:22,790
+So that's why we have a rescue.
+
+101
+00:06:23,620 --> 00:06:27,730
+So it's if this task fails, any of this task fails, then.
+
+102
+00:06:28,500 --> 00:06:30,060
+Execute this like that.
+
+103
+00:06:31,110 --> 00:06:34,010
+So our main block, we actually have nested block.
+
+104
+00:06:34,020 --> 00:06:35,040
+We have the main block.
+
+105
+00:06:35,040 --> 00:06:36,300
+This is our main block.
+
+106
+00:06:37,340 --> 00:06:38,230
+Still here.
+
+107
+00:06:38,380 --> 00:06:40,780
+And we have a nested block in this.
+
+108
+00:06:41,260 --> 00:06:42,340
+We'll come to this.
+
+109
+00:06:42,670 --> 00:06:45,130
+So let's start with the first task in our block.
+
+110
+00:06:45,340 --> 00:06:47,860
+First task is archiving the artifact.
+
+111
+00:06:48,430 --> 00:06:51,770
+So this is the path existing application.
+
+112
+00:06:51,790 --> 00:06:59,110
+We're going to take it's backup with archive module at this location by using the timestamp variable
+
+113
+00:06:59,110 --> 00:07:00,220
+that we have.
+
+114
+00:07:01,480 --> 00:07:02,440
+Already created.
+
+115
+00:07:02,440 --> 00:07:07,120
+So in the runtime this when you execute the playbook, this will have the latest timestamp.
+
+116
+00:07:10,780 --> 00:07:16,840
+So it will take back up of this file with this name only then.
+
+117
+00:07:18,460 --> 00:07:25,510
+This returns to artifact underscore stat dot stat dot exist, its value will be true.
+
+118
+00:07:27,990 --> 00:07:29,610
+If this file exist.
+
+119
+00:07:29,610 --> 00:07:34,740
+And so the stat model, we are collecting the information of this file root directory and we store it
+
+120
+00:07:34,740 --> 00:07:39,160
+into this variable and that will have a key called us stat don't exist.
+
+121
+00:07:39,180 --> 00:07:43,620
+If this is true, then only it's going to take the backup or else it will skip it.
+
+122
+00:07:44,910 --> 00:07:50,130
+And when we take the backup, we store the output into a variable archive underscore info.
+
+123
+00:07:51,650 --> 00:07:52,310
+Next us.
+
+124
+00:07:52,340 --> 00:07:53,990
+This is our main backup.
+
+125
+00:07:54,170 --> 00:07:57,650
+We are also going to take an instant backup for instant rollback.
+
+126
+00:07:58,220 --> 00:08:01,010
+So we're going to seed into this tree.
+
+127
+00:08:01,310 --> 00:08:02,210
+Which shell model?
+
+128
+00:08:02,210 --> 00:08:03,320
+We're running a copy command.
+
+129
+00:08:03,320 --> 00:08:06,800
+We're going to copy the root directory with old underscore root name.
+
+130
+00:08:06,860 --> 00:08:09,560
+So existing application, we're taking an instant backup.
+
+131
+00:08:09,570 --> 00:08:12,050
+So in case of failure, we can do instant rollback.
+
+132
+00:08:13,230 --> 00:08:15,600
+So that backup taken, That backup taken.
+
+133
+00:08:15,600 --> 00:08:17,670
+And now we're going to delete our artifacts.
+
+134
+00:08:17,670 --> 00:08:21,000
+So we're going to run file module in the inner loop.
+
+135
+00:08:21,030 --> 00:08:24,840
+We present these two files, root and root dot var.
+
+136
+00:08:25,590 --> 00:08:31,200
+And it will say file this part state absent it will remove these two files.
+
+137
+00:08:31,440 --> 00:08:33,809
+Only if this is true.
+
+138
+00:08:34,780 --> 00:08:36,760
+Archive, underscoring for change.
+
+139
+00:08:37,780 --> 00:08:39,549
+So restoring the output over here.
+
+140
+00:08:40,970 --> 00:08:44,810
+That means if the backup completes successfully.
+
+141
+00:08:46,220 --> 00:08:51,110
+Key changed over here will be true, or else it will be false if this feels.
+
+142
+00:08:51,880 --> 00:08:52,480
+Cancel.
+
+143
+00:08:52,480 --> 00:08:56,810
+If the backup completes successfully, then only it will delete the artifact.
+
+144
+00:08:56,830 --> 00:08:58,810
+That's what this condition means.
+
+145
+00:08:59,620 --> 00:09:00,220
+Which makes sense.
+
+146
+00:09:00,220 --> 00:09:02,530
+If you have a backup, then we delete the artifact.
+
+147
+00:09:02,530 --> 00:09:04,180
+Otherwise we don't delete like that.
+
+148
+00:09:05,200 --> 00:09:07,360
+Okay, so till here, we have only backup.
+
+149
+00:09:07,930 --> 00:09:10,330
+Now there is a nested block and rescue.
+
+150
+00:09:11,170 --> 00:09:12,310
+It's very simple.
+
+151
+00:09:12,400 --> 00:09:14,040
+BLOCK copy module.
+
+152
+00:09:14,050 --> 00:09:19,090
+We're going to copy our artifact, which was created with the build file.
+
+153
+00:09:19,210 --> 00:09:20,800
+So the build playbook.
+
+154
+00:09:22,360 --> 00:09:22,690
+Right.
+
+155
+00:09:22,960 --> 00:09:23,590
+Open.
+
+156
+00:09:23,710 --> 00:09:25,330
+So that's the build playbook, right?
+
+157
+00:09:25,330 --> 00:09:28,690
+So we're building the artifact and we are keeping it at this location.
+
+158
+00:09:31,280 --> 00:09:33,110
+Now app seller Playbook.
+
+159
+00:09:33,140 --> 00:09:38,360
+We have a copy task which is going to copy that artifact which was built and deployed to the target
+
+160
+00:09:38,360 --> 00:09:39,680
+machine at this location.
+
+161
+00:09:41,350 --> 00:09:44,350
+Now there's a default Tomcat application path.
+
+162
+00:09:45,030 --> 00:09:46,440
+And store the output.
+
+163
+00:09:46,680 --> 00:09:50,490
+If in any case this fails, it's not able to deploy for some reason.
+
+164
+00:09:50,760 --> 00:09:53,610
+Then the rescue will come and it will rescue command.
+
+165
+00:09:53,640 --> 00:10:00,630
+We'll copy the old underscore root directory with the name root instant rollback by going into this
+
+166
+00:10:00,630 --> 00:10:01,380
+directory.
+
+167
+00:10:03,650 --> 00:10:04,130
+Kim.
+
+168
+00:10:06,080 --> 00:10:10,790
+Or else anything fails in the main block, the rescue will come and we'll start the Tomcat service.
+
+169
+00:10:10,790 --> 00:10:12,350
+But if everything goes well.
+
+170
+00:10:13,240 --> 00:10:16,960
+Then it's going to take the backup, delete the artifact.
+
+171
+00:10:18,700 --> 00:10:18,950
+Right.
+
+172
+00:10:18,990 --> 00:10:22,140
+And then copy our new artifact to this location.
+
+173
+00:10:23,180 --> 00:10:23,550
+All right.
+
+174
+00:10:23,570 --> 00:10:28,310
+And then finally, it will start the Tomcat service next to start the Tomcat service.
+
+175
+00:10:29,020 --> 00:10:32,410
+Then we wait for some time with wait for module.
+
+176
+00:10:32,440 --> 00:10:37,280
+When we start the Tomcat service, sometimes it takes a longer time to extract root.
+
+177
+00:10:37,310 --> 00:10:39,630
+Dot var with the name route.
+
+178
+00:10:39,660 --> 00:10:41,440
+But we archive takes time.
+
+179
+00:10:42,470 --> 00:10:48,440
+So we're going to wait for this part to be available, because if it's not available, we cannot push
+
+180
+00:10:48,440 --> 00:10:50,370
+our configuration file inside that.
+
+181
+00:10:50,390 --> 00:10:51,380
+So we wait.
+
+182
+00:10:51,380 --> 00:10:52,880
+As long as this is not available.
+
+183
+00:10:52,880 --> 00:10:56,030
+If it's if it's available, then we use template module.
+
+184
+00:10:56,810 --> 00:11:00,260
+We copy our template application to.
+
+185
+00:11:02,250 --> 00:11:04,350
+Write the application properties file.
+
+186
+00:11:08,660 --> 00:11:09,950
+At this location.
+
+187
+00:11:10,130 --> 00:11:16,430
+So when the artifact gets extracted, you have root directory right in that you have web enough classes
+
+188
+00:11:16,430 --> 00:11:18,980
+in that you have application properties file.
+
+189
+00:11:19,220 --> 00:11:22,640
+This file will have information about the back end services.
+
+190
+00:11:22,640 --> 00:11:22,850
+Right.
+
+191
+00:11:22,850 --> 00:11:27,620
+My SQL mem cache rabbit MQ, all the backend services detail it will have.
+
+192
+00:11:28,780 --> 00:11:30,570
+So that's our final touch.
+
+193
+00:11:30,580 --> 00:11:36,490
+Once we do that, once the configuration is copied, we say notify restart, Tomcat.
+
+194
+00:11:36,490 --> 00:11:38,110
+So a handler will be called.
+
+195
+00:11:39,690 --> 00:11:44,400
+Which is going to restart the Tomcat service and our deployment should complete.
+
+196
+00:11:45,290 --> 00:11:46,700
+Let me commit that.
+
+197
+00:11:47,640 --> 00:11:49,530
+See Tom KITT.
+
+198
+00:11:51,470 --> 00:11:52,280
+Playbook.
+
+199
+00:11:53,920 --> 00:11:54,550
+Commit.
+

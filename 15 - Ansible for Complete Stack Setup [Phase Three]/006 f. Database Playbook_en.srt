@@ -1,0 +1,300 @@
+1
+00:00:00,390 --> 00:00:02,700
+Next is db dot mil playbook.
+
+2
+00:00:03,870 --> 00:00:05,070
+Let's copy that name.
+
+3
+00:00:13,030 --> 00:00:16,730
+This playbook is also very simple server provisioning playbook.
+
+4
+00:00:16,750 --> 00:00:21,640
+It will provision my SQL servers so it works on DB server group.
+
+5
+00:00:22,240 --> 00:00:27,970
+First task is installing packages and we have a list of packages we are running package module in a
+
+6
+00:00:27,970 --> 00:00:28,600
+loop.
+
+7
+00:00:30,240 --> 00:00:36,300
+So my SQL Server, my SQL client, Python hyphen, my SQL DB, Python three hyphen, my SQL DB.
+
+8
+00:00:36,330 --> 00:00:39,390
+Now this is 4012012 18.
+
+9
+00:00:39,390 --> 00:00:42,240
+This is for open to 20 onwards.
+
+10
+00:00:42,390 --> 00:00:47,430
+And in if you're running this, click on open to 20, you will get an error.
+
+11
+00:00:47,460 --> 00:00:50,610
+You will not see Python, my hyphen, my SQL db.
+
+12
+00:00:50,640 --> 00:00:51,830
+And that is fine.
+
+13
+00:00:51,840 --> 00:00:53,220
+We are saying ignore errors.
+
+14
+00:00:53,220 --> 00:00:58,560
+If you don't put this ignore errors, then this task will fail if it does not find this or this.
+
+15
+00:00:59,250 --> 00:01:01,950
+So in one 220, you will get an error for this one.
+
+16
+00:01:03,080 --> 00:01:05,510
+And the error will be ignored.
+
+17
+00:01:05,510 --> 00:01:07,120
+So it will continue to the next task.
+
+18
+00:01:07,130 --> 00:01:08,990
+Next task is to start.
+
+19
+00:01:11,010 --> 00:01:17,790
+By using my SQL user module, we're going to create the user named that is coming from the variables
+
+20
+00:01:17,790 --> 00:01:18,330
+file.
+
+21
+00:01:21,910 --> 00:01:22,540
+There.
+
+22
+00:01:24,180 --> 00:01:25,260
+Also the deepening.
+
+23
+00:01:28,120 --> 00:01:29,980
+And will give it full privilege.
+
+24
+00:01:30,640 --> 00:01:34,510
+Host percent So we can log in it from a remote machine.
+
+25
+00:01:35,840 --> 00:01:38,690
+We're going to create database with my SQL DB module.
+
+26
+00:01:38,720 --> 00:01:40,650
+DB name variable again.
+
+27
+00:01:40,670 --> 00:01:43,100
+So accounts DB will get created.
+
+28
+00:01:47,150 --> 00:01:48,620
+With line file module.
+
+29
+00:01:48,620 --> 00:01:52,270
+We're going to search for search in this file.
+
+30
+00:01:52,280 --> 00:01:54,350
+We're going to search for bind address.
+
+31
+00:01:54,350 --> 00:01:59,540
+If it starts from the beginning of the line, if it's present, then we're going to replace it with
+
+32
+00:01:59,540 --> 00:02:00,200
+bind hyphen.
+
+33
+00:02:00,470 --> 00:02:05,840
+And also we would like to take the backup of that file and we'll notify to a handler.
+
+34
+00:02:06,570 --> 00:02:11,800
+And the handler will restart the MySQL service after making the configuration change.
+
+35
+00:02:11,820 --> 00:02:14,070
+We would really like to restart the service.
+
+36
+00:02:14,850 --> 00:02:16,520
+So that's DB ML.
+
+37
+00:02:17,280 --> 00:02:18,450
+Let's save it.
+
+38
+00:02:18,810 --> 00:02:19,680
+Committed.
+
+39
+00:02:27,390 --> 00:02:29,490
+And we'll push all at once.
+
+40
+00:02:29,610 --> 00:02:31,620
+So let's wait for the push for now.
+
+41
+00:02:32,960 --> 00:02:34,580
+Next playbook is dbx deploy.
+
+42
+00:02:34,610 --> 00:02:36,150
+This is also very simple playbook.
+
+43
+00:02:36,170 --> 00:02:38,180
+It's just going to deploy the SQL file.
+
+44
+00:02:44,730 --> 00:02:48,900
+Executing again on DB server group gathering fact No.
+
+45
+00:02:49,730 --> 00:02:51,740
+We're going to copy the SQL file.
+
+46
+00:02:52,420 --> 00:02:53,860
+From the files directory.
+
+47
+00:02:55,660 --> 00:03:01,870
+It's not here, but it is definitely in our controller machine where we did the execution.
+
+48
+00:03:18,070 --> 00:03:22,540
+It's there and I don't want to commit it into the version Control also, not the var file.
+
+49
+00:03:22,540 --> 00:03:25,570
+So we'll update our git ignore file over here.
+
+50
+00:03:28,220 --> 00:03:31,490
+And we'll say anything that ends with DOT SQL.
+
+51
+00:03:31,580 --> 00:03:35,690
+And also anything that ends with dot var.
+
+52
+00:03:37,280 --> 00:03:38,900
+Should be excluded.
+
+53
+00:03:48,520 --> 00:03:53,080
+Also, when you do this, make sure you run, get ad dot and get commit.
+
+54
+00:03:53,080 --> 00:03:58,090
+When you run get ad dot, it's going to give you a hint to run this command to exclude that from the
+
+55
+00:03:58,090 --> 00:04:00,100
+cache since it's already committed.
+
+56
+00:04:00,100 --> 00:04:05,980
+So it removes from the cache and then you run the command, it removes from the cache, and then you're
+
+57
+00:04:05,980 --> 00:04:09,040
+going to make a commit, get commit.
+
+58
+00:04:09,710 --> 00:04:10,910
+And then push it.
+
+59
+00:04:12,310 --> 00:04:13,300
+Get push.
+
+60
+00:04:14,360 --> 00:04:15,380
+Often you're done with that.
+
+61
+00:04:15,380 --> 00:04:19,339
+Make sure you fetch the latest changes in your ID.
+
+62
+00:04:19,730 --> 00:04:21,890
+So I don't want to push the date.
+
+63
+00:04:21,890 --> 00:04:27,440
+I don't want to put the data that is generated in the runtime like SQL file artifact.
+
+64
+00:04:27,680 --> 00:04:30,830
+So we're using the get ignored file to ignore those files.
+
+65
+00:04:34,240 --> 00:04:39,430
+Okay, so then this copy module is going to copy the SQL file to temp directory.
+
+66
+00:04:40,110 --> 00:04:46,770
+And then with my SQL DB module for the database named accounts, we can use variable also here.
+
+67
+00:04:47,140 --> 00:04:47,370
+Yeah.
+
+68
+00:04:47,370 --> 00:04:52,410
+So I'm using variable DB name login, user login, password, state import.
+
+69
+00:04:53,010 --> 00:04:54,620
+And then you give the target.
+
+70
+00:04:54,630 --> 00:04:58,290
+So is a SQL file that we have copied over here in the temp directory.
+
+71
+00:04:58,320 --> 00:05:00,810
+It will import it in the database.
+
+72
+00:05:01,800 --> 00:05:04,440
+And then there is a handler, which is really not required.
+
+73
+00:05:04,440 --> 00:05:09,840
+But if you want, you can use the handler for this to restart the MySQL service.
+
+74
+00:05:10,560 --> 00:05:13,350
+Let's see if this commit.
+
+75
+00:05:24,790 --> 00:05:25,960
+Okay, that's database deployed.
+

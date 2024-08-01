@@ -1,0 +1,192 @@
+1
+00:00:01,620 --> 00:00:08,760
+Next playbook is for Rabbit MQ, which is also similar, but it has few extra steps for the dependencies.
+
+2
+00:00:08,790 --> 00:00:10,320
+It has a lot of dependencies.
+
+3
+00:00:13,100 --> 00:00:14,570
+So I'll create the playbook.
+
+4
+00:00:17,750 --> 00:00:20,390
+So getting executed on our MQ server group.
+
+5
+00:00:21,640 --> 00:00:24,580
+First we have to install Erlang.
+
+6
+00:00:24,820 --> 00:00:31,960
+For that we need to add the repository detail By using APT module we say DEP and we say this is the
+
+7
+00:00:31,960 --> 00:00:33,010
+repository.
+
+8
+00:00:33,980 --> 00:00:34,760
+Link.
+
+9
+00:00:35,720 --> 00:00:38,540
+And with apt underscore key module, we add the key.
+
+10
+00:00:39,620 --> 00:00:41,540
+To authenticate that repository.
+
+11
+00:00:42,850 --> 00:00:45,840
+Then we say install Erlang with APT module, we install Erlang.
+
+12
+00:00:45,850 --> 00:00:50,530
+Now airline will get installed from this repository but we have to run apt update also.
+
+13
+00:00:50,530 --> 00:00:54,610
+So update caching module which will run apt update and then install Erlang.
+
+14
+00:00:55,930 --> 00:00:59,800
+Appropriate will be done in an interval of 86400 seconds.
+
+15
+00:00:59,800 --> 00:01:01,180
+That's 24 hours.
+
+16
+00:01:02,300 --> 00:01:04,620
+Okay, then one more module.
+
+17
+00:01:04,640 --> 00:01:06,370
+APT underscore repository.
+
+18
+00:01:06,380 --> 00:01:08,330
+We're going to add this repository.
+
+19
+00:01:08,870 --> 00:01:10,340
+This is for rabbit MQ.
+
+20
+00:01:11,350 --> 00:01:17,140
+Once we have this repository, we can use ABT module to install Rabbit MCU Server update cache.
+
+21
+00:01:17,170 --> 00:01:19,000
+Yes, it's going to run app update.
+
+22
+00:01:19,150 --> 00:01:23,710
+It's going to fetch the packages list from here and install rabbit MQ server.
+
+23
+00:01:24,830 --> 00:01:28,460
+And then once we have rabbit MQ, we'll start and enable the service.
+
+24
+00:01:32,310 --> 00:01:35,820
+Little configuration change with copy module.
+
+25
+00:01:36,000 --> 00:01:37,890
+We're going to copy this content.
+
+26
+00:01:39,250 --> 00:01:41,650
+Into this rabbit MQ configuration file.
+
+27
+00:01:42,190 --> 00:01:45,670
+Once we made the configuration, we're going to bounce the rabbit MQ service.
+
+28
+00:01:45,670 --> 00:01:47,680
+So it's say notify restart, rabbit MQ.
+
+29
+00:01:47,770 --> 00:01:51,490
+So at the end you have the handler which will get called.
+
+30
+00:01:55,400 --> 00:02:00,380
+Rabbit MQ underscore user module to add a rabbit MQ user.
+
+31
+00:02:00,890 --> 00:02:02,430
+Thankfully, we have such module.
+
+32
+00:02:02,450 --> 00:02:04,490
+Otherwise we have to use the command module.
+
+33
+00:02:05,030 --> 00:02:09,289
+So rabbit MQ user module, we're going to add user name test, password test.
+
+34
+00:02:10,120 --> 00:02:13,300
+And if you go back to a template application to.
+
+35
+00:02:14,820 --> 00:02:16,130
+Be using the same user.
+
+36
+00:02:16,140 --> 00:02:21,300
+So if you're making any changes over here, then you make sure you make the changes over here as well.
+
+37
+00:02:21,660 --> 00:02:25,980
+Or you can declare them as a variable and you can refer in both the places.
+
+38
+00:02:26,890 --> 00:02:33,190
+Get few options to give all the privileges tag administrator and call the handler.
+
+39
+00:02:33,520 --> 00:02:38,320
+So once the user is created, it can call the handler, but handler will be called at the end.
+
+40
+00:02:41,070 --> 00:02:46,020
+Next we have to install one plugin rabbit mq underscore plugin module is there to install rabbit mq
+
+41
+00:02:46,020 --> 00:02:49,320
+plug in rabbit view underscore management.
+
+42
+00:02:50,100 --> 00:02:55,080
+And so, again, calling the handler now, the handler will be called because this is the last task.
+
+43
+00:02:56,300 --> 00:03:03,200
+Handler will be called and Rabbit, you will get restarted a little longer playbook compared to DB and
+
+44
+00:03:03,200 --> 00:03:10,010
+Mem cache only because we have a lot of dependencies and we are also adding user of rabbit MQ and installing
+
+45
+00:03:10,010 --> 00:03:11,240
+a rabbit MQ plugin.
+
+46
+00:03:11,870 --> 00:03:17,150
+Apart from that, this playbook is as similar as DB or mem cache playbook.
+
+47
+00:03:17,180 --> 00:03:23,330
+Install packages, start an enable service, make some configuration change and restart the service.
+
+48
+00:03:25,290 --> 00:03:27,870
+So let's see if this commit this.
+

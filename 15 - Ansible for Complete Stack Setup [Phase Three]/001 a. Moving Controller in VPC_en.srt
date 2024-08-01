@@ -1,0 +1,388 @@
+1
+00:00:01,270 --> 00:00:02,070
+In third phase.
+
+2
+00:00:02,080 --> 00:00:04,420
+Now we have the stack ready.
+
+3
+00:00:04,450 --> 00:00:05,930
+VPC stack is there.
+
+4
+00:00:05,950 --> 00:00:07,750
+All the instances are up and running.
+
+5
+00:00:07,840 --> 00:00:09,190
+We have the controller.
+
+6
+00:00:10,090 --> 00:00:17,350
+Third phase is all about doing search to all these instances and doing the execution, installing packages
+
+7
+00:00:17,980 --> 00:00:20,110
+and running all the operating system commands.
+
+8
+00:00:20,140 --> 00:00:26,800
+It's not possible to controller to do a search to this instance because they are in a different VPC.
+
+9
+00:00:26,980 --> 00:00:28,020
+They are in the file.
+
+10
+00:00:28,030 --> 00:00:30,580
+VPC Air controller is in default VPC.
+
+11
+00:00:31,900 --> 00:00:33,560
+The controller is in default VPC.
+
+12
+00:00:33,590 --> 00:00:39,380
+All the instances are in the profile VPC and they're in private subnet, so you cannot access it from
+
+13
+00:00:39,380 --> 00:00:40,190
+the outside world.
+
+14
+00:00:40,190 --> 00:00:45,740
+One way is you can do VPC peering and that will be fine when you do the execution first time.
+
+15
+00:00:45,740 --> 00:00:51,560
+But if you want to do a regular execution, you need to have your controller in the Vpro file VPC.
+
+16
+00:00:52,040 --> 00:00:57,110
+What you can do is you can use the Bastion host as a controller, you can install Ansible there, you
+
+17
+00:00:57,110 --> 00:01:02,090
+can install BOTO and pull your clone your playbooks and execute it from there.
+
+18
+00:01:02,420 --> 00:01:03,500
+That's one way.
+
+19
+00:01:05,400 --> 00:01:06,940
+And that will be also convenient, right?
+
+20
+00:01:06,960 --> 00:01:09,270
+Just directly to access to Bastion host.
+
+21
+00:01:10,020 --> 00:01:15,330
+Run the Ansible setup, set up the IAM role and execute playbooks from there.
+
+22
+00:01:16,380 --> 00:01:16,980
+But.
+
+23
+00:01:17,790 --> 00:01:24,390
+If that is more confusing to you, The easiest solution is you can create an army of controller and
+
+24
+00:01:24,390 --> 00:01:28,980
+launch the instance from that army into V profile VPC.
+
+25
+00:01:29,430 --> 00:01:30,930
+That will be much easier.
+
+26
+00:01:31,410 --> 00:01:36,150
+So your controller will be just like a bastion host in the public subnet so you can access it.
+
+27
+00:01:36,150 --> 00:01:38,310
+And then from there you can execute your playbook.
+
+28
+00:01:39,290 --> 00:01:40,340
+So I'm going to do that.
+
+29
+00:01:40,340 --> 00:01:41,840
+I'm going to create an EMI.
+
+30
+00:01:44,030 --> 00:01:49,940
+Image Create image, image of controller and limitless controller.
+
+31
+00:01:51,190 --> 00:01:51,940
+EMI.
+
+32
+00:01:53,220 --> 00:01:54,900
+And see create image.
+
+33
+00:02:00,440 --> 00:02:01,730
+So am I is getting created.
+
+34
+00:02:01,730 --> 00:02:02,990
+It's going to take some time.
+
+35
+00:02:03,720 --> 00:02:09,120
+Now, very important point to note over here, If you're doing this in the project in a real time environment,
+
+36
+00:02:09,360 --> 00:02:12,690
+then remember when you are going to launch your controller.
+
+37
+00:02:13,980 --> 00:02:17,580
+In your secure VPC, then it will be just like the Bastion host.
+
+38
+00:02:17,610 --> 00:02:20,250
+So as I talked about the Bastion host.
+
+39
+00:02:21,350 --> 00:02:24,050
+It should be stable, safe and secure.
+
+40
+00:02:24,710 --> 00:02:31,970
+Same applies then to our controller machine also, and it will be much better if we use a hardened army
+
+41
+00:02:32,120 --> 00:02:33,890
+from Amazon marketplace.
+
+42
+00:02:34,070 --> 00:02:34,640
+Like from.
+
+43
+00:02:36,110 --> 00:02:38,480
+Center of internet security or any other army.
+
+44
+00:02:38,730 --> 00:02:40,710
+The hardened army that you prefer.
+
+45
+00:02:40,710 --> 00:02:42,890
+You better go with an hardened army.
+
+46
+00:02:43,280 --> 00:02:46,820
+So it becomes very difficult to exploit your controller machine.
+
+47
+00:02:47,330 --> 00:02:50,000
+If you want to try any hardened army, you can do that.
+
+48
+00:02:50,000 --> 00:02:52,460
+But let me tell you, it's not going to be free.
+
+49
+00:02:52,910 --> 00:02:54,900
+There are charges for the hardened armies.
+
+50
+00:02:54,920 --> 00:02:55,940
+We have seen that.
+
+51
+00:02:56,570 --> 00:03:00,770
+So for the project exercises that you're are doing, you can keep it as we are doing.
+
+52
+00:03:00,770 --> 00:03:04,520
+But in a project, make sure you take a hardened army.
+
+53
+00:03:06,120 --> 00:03:06,310
+Okay.
+
+54
+00:03:06,390 --> 00:03:09,090
+So am I still is available now I can launch it.
+
+55
+00:03:12,060 --> 00:03:18,810
+So I'll go with PT to Micro and I'm going to select a VPC that we created and we're going to select
+
+56
+00:03:18,810 --> 00:03:20,130
+a public subnet.
+
+57
+00:03:20,580 --> 00:03:22,590
+We can select public subnet two.
+
+58
+00:03:22,620 --> 00:03:25,230
+We already have Bastion host in public Subnet one.
+
+59
+00:03:26,560 --> 00:03:27,460
+And that should be it.
+
+60
+00:03:27,490 --> 00:03:27,880
+Let's go.
+
+61
+00:03:27,880 --> 00:03:28,480
+Next.
+
+62
+00:03:33,930 --> 00:03:37,860
+Will give a name as v profile hyphen controller.
+
+63
+00:03:40,650 --> 00:03:41,340
+Security group.
+
+64
+00:03:41,340 --> 00:03:45,030
+I'm going to put it in the same security group as the Bastion host security group.
+
+65
+00:03:45,940 --> 00:03:50,730
+So we can do a search to Bastion host so we can do a search to the controller.
+
+66
+00:03:50,740 --> 00:03:51,580
+Host also.
+
+67
+00:03:51,610 --> 00:03:52,540
+Also.
+
+68
+00:03:53,950 --> 00:03:59,920
+Our V Profile Stack Security group allows 22 access from Bastion hosts, so it makes sense to use Bastion
+
+69
+00:03:59,920 --> 00:04:00,850
+host security group.
+
+70
+00:04:02,250 --> 00:04:03,210
+Let's launch.
+
+71
+00:04:03,910 --> 00:04:05,530
+Will keep the same login key.
+
+72
+00:04:07,260 --> 00:04:11,850
+So once our v profile controller is up in the VPC.
+
+73
+00:04:12,630 --> 00:04:14,370
+And we profile VPC.
+
+74
+00:04:14,930 --> 00:04:16,290
+It got created.
+
+75
+00:04:16,769 --> 00:04:23,730
+Now we don't need this controller, the older one, so we can just delete that dominated action instance
+
+76
+00:04:23,730 --> 00:04:24,420
+state.
+
+77
+00:04:25,560 --> 00:04:26,370
+Dominate.
+
+78
+00:04:29,010 --> 00:04:31,590
+We get the IP of a new controller.
+
+79
+00:04:33,580 --> 00:04:35,290
+And let's make a login.
+
+80
+00:04:37,340 --> 00:04:37,500
+Yeah.
+
+81
+00:04:37,520 --> 00:04:38,400
+Let's log in.
+
+82
+00:04:38,420 --> 00:04:41,580
+Now, remember, this is the exact clone of our previous controller.
+
+83
+00:04:41,600 --> 00:04:48,110
+There is very less difference apart from its being it being in a different network in a V profile VPC.
+
+84
+00:04:54,100 --> 00:04:54,190
+Okay.
+
+85
+00:04:54,280 --> 00:04:55,480
+Everything is up to date.
+
+86
+00:04:57,860 --> 00:04:59,840
+You can make a login test from here.
+
+87
+00:04:59,840 --> 00:05:01,760
+We'll log into one of the instance.
+
+88
+00:05:02,460 --> 00:05:05,280
+From our V profile stack, we have the login key.
+
+89
+00:05:06,820 --> 00:05:13,030
+Can use that login key as a I find I log in key and we need to get the IP.
+
+90
+00:05:14,350 --> 00:05:15,490
+Private IP.
+
+91
+00:05:18,070 --> 00:05:18,790
+Username.
+
+92
+00:05:18,790 --> 00:05:20,270
+They are all ubuntu so you should.
+
+93
+00:05:20,290 --> 00:05:21,790
+Username should be ubuntu.
+
+94
+00:05:22,710 --> 00:05:23,520
+And.
+
+95
+00:05:25,270 --> 00:05:26,630
+Yes, we are able to log in.
+
+96
+00:05:26,650 --> 00:05:27,490
+That's awesome.
+
+97
+00:05:29,160 --> 00:05:30,130
+Log out.
+
