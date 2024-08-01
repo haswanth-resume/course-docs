@@ -1,0 +1,328 @@
+1
+00:00:00,330 --> 00:00:03,150
+This section is about back end.
+
+2
+00:00:03,870 --> 00:00:08,970
+So far we have seen in all our exercises that TerraForm maintains the state, but the state is really
+
+3
+00:00:08,970 --> 00:00:09,720
+local.
+
+4
+00:00:10,450 --> 00:00:13,300
+What I mean by that is it's in my machine.
+
+5
+00:00:13,450 --> 00:00:21,070
+If I'm working in a team and we're using the same code to maintain the state, then I may have a different
+
+6
+00:00:21,070 --> 00:00:22,570
+state of the infrastructure.
+
+7
+00:00:22,570 --> 00:00:26,500
+If someone makes a change, they'll have a different state of the infrastructure.
+
+8
+00:00:26,500 --> 00:00:28,690
+The state should be in sync.
+
+9
+00:00:28,960 --> 00:00:34,230
+So terraform of state file should be same across all the execution.
+
+10
+00:00:34,240 --> 00:00:38,840
+So for that we need to put the TerraForm State file into a remote location.
+
+11
+00:00:38,860 --> 00:00:45,730
+The best place to use is S3 bucket, or should I say the easiest place to use is the S3 bucket.
+
+12
+00:00:46,300 --> 00:00:47,560
+But there are a few other things.
+
+13
+00:00:47,560 --> 00:00:52,630
+It's going to be a very simple session, but also very, very important session if you're working in
+
+14
+00:00:52,630 --> 00:00:53,290
+a team.
+
+15
+00:00:54,240 --> 00:00:58,650
+Otherwise, there's no point in maintaining the state of your infrastructure.
+
+16
+00:01:01,220 --> 00:01:06,620
+So I just have the excise five, which is same as excise six, except we're going to maintain state.
+
+17
+00:01:10,030 --> 00:01:12,370
+So we're going to maintain the state in S3 bucket.
+
+18
+00:01:12,370 --> 00:01:14,280
+So we need to create S3 bucket.
+
+19
+00:01:14,290 --> 00:01:17,410
+Let's first put our state information.
+
+20
+00:01:19,350 --> 00:01:21,660
+Backend dot to file name.
+
+21
+00:01:24,970 --> 00:01:26,950
+I guess all you have to do is terraform.
+
+22
+00:01:27,940 --> 00:01:29,440
+And in that you have to give back.
+
+23
+00:01:29,440 --> 00:01:31,600
+In the name of the back end service you're going to use.
+
+24
+00:01:31,630 --> 00:01:34,090
+S3 In S3 we have attribute bucket.
+
+25
+00:01:34,090 --> 00:01:37,600
+We have to give the bucket name that we'll create key name.
+
+26
+00:01:38,710 --> 00:01:42,040
+The directory inside that bucket and the region.
+
+27
+00:01:43,490 --> 00:01:46,760
+If you want, you can fetch this information from variables as well.
+
+28
+00:01:47,650 --> 00:01:49,740
+But let's just first create a bucket.
+
+29
+00:01:49,750 --> 00:01:51,520
+Let's go to three.
+
+30
+00:01:54,900 --> 00:01:56,160
+Let's create bucket.
+
+31
+00:01:57,510 --> 00:01:59,340
+We name it as Terra.
+
+32
+00:02:00,220 --> 00:02:01,690
+Hyphen state.
+
+33
+00:02:02,500 --> 00:02:04,080
+Hyphen dove.
+
+34
+00:02:05,430 --> 00:02:05,780
+Okay.
+
+35
+00:02:05,790 --> 00:02:10,800
+If it says already exists, then try with adding some number.
+
+36
+00:02:11,930 --> 00:02:12,400
+Okay.
+
+37
+00:02:12,410 --> 00:02:13,700
+That was a unique name.
+
+38
+00:02:14,830 --> 00:02:23,500
+Okay, so tera hyphen state hyphen dove in this we will create a folder, you name it as terra form.
+
+39
+00:02:26,590 --> 00:02:28,510
+Okay, so let's copy this bucket name.
+
+40
+00:02:31,550 --> 00:02:32,570
+It's a bucket.
+
+41
+00:02:34,150 --> 00:02:35,290
+TerraForm.
+
+42
+00:02:37,540 --> 00:02:39,580
+Slash back end.
+
+43
+00:02:41,580 --> 00:02:45,720
+So in this file the states should be mentioned region.
+
+44
+00:02:45,900 --> 00:02:48,420
+So my bucket is in this region, US east too.
+
+45
+00:02:48,450 --> 00:02:49,830
+So I'll mention that name.
+
+46
+00:02:50,010 --> 00:02:51,270
+Let's save this file.
+
+47
+00:02:52,470 --> 00:02:54,480
+And let's now execute this.
+
+48
+00:02:56,210 --> 00:02:57,560
+Exercise five.
+
+49
+00:02:58,910 --> 00:03:00,890
+TerraForm in it.
+
+50
+00:03:02,730 --> 00:03:07,890
+So as soon as you give TerraForm in it, you see it's a successfully configured back end SX three.
+
+51
+00:03:09,300 --> 00:03:09,750
+All right.
+
+52
+00:03:10,650 --> 00:03:11,640
+Okay, let's set that up.
+
+53
+00:03:11,640 --> 00:03:13,170
+Form a validate.
+
+54
+00:03:15,830 --> 00:03:18,020
+Data form format.
+
+55
+00:03:19,600 --> 00:03:21,730
+The reform plan.
+
+56
+00:03:23,140 --> 00:03:23,460
+All right.
+
+57
+00:03:23,560 --> 00:03:25,750
+And finally, terraform apply.
+
+58
+00:03:30,050 --> 00:03:30,240
+Okay.
+
+59
+00:03:30,350 --> 00:03:32,120
+The resources are created.
+
+60
+00:03:34,080 --> 00:03:35,930
+And we have terraform of state file.
+
+61
+00:03:35,940 --> 00:03:38,340
+This is from the previous.
+
+62
+00:03:39,400 --> 00:03:40,000
+Exercise.
+
+63
+00:03:40,000 --> 00:03:41,980
+Even if you did, it doesn't matter.
+
+64
+00:03:42,370 --> 00:03:44,500
+Let's go to S3 now.
+
+65
+00:03:44,530 --> 00:03:45,430
+TerraForm.
+
+66
+00:03:45,880 --> 00:03:47,590
+You see the file back in there?
+
+67
+00:03:49,070 --> 00:03:52,390
+Let's click on it and let's see open or you can download it.
+
+68
+00:03:52,480 --> 00:03:54,550
+See the TerraForm State file.
+
+69
+00:03:57,110 --> 00:03:58,610
+So now the state is remote.
+
+70
+00:03:58,640 --> 00:04:01,730
+Now same repository used access file.
+
+71
+00:04:01,760 --> 00:04:05,810
+That's our repository is used by another member of my team.
+
+72
+00:04:06,170 --> 00:04:09,500
+We'll also have the same state he or she makes any changes.
+
+73
+00:04:09,500 --> 00:04:13,100
+The TerraForm State file gets updated in the pocket.
+
+74
+00:04:13,950 --> 00:04:14,220
+All right.
+
+75
+00:04:14,270 --> 00:04:19,370
+And same can be sent to the other individuals repository.
+
+76
+00:04:20,180 --> 00:04:23,540
+So now this will really complete your terraform.
+
+77
+00:04:24,380 --> 00:04:28,160
+State concept maintaining TerraForm maintains the state of the infrastructure.
+
+78
+00:04:28,160 --> 00:04:33,650
+Yes, but when you maintain it at a centralized location, that will actually give you the real benefit
+
+79
+00:04:34,100 --> 00:04:35,450
+of TerraForm State.
+
+80
+00:04:36,290 --> 00:04:37,370
+That's all in this section.
+
+81
+00:04:37,370 --> 00:04:39,860
+Let's delete our resource.
+
+82
+00:04:42,960 --> 00:04:44,760
+And I'll see you there in the next section.
+

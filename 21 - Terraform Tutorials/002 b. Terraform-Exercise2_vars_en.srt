@@ -1,0 +1,768 @@
+1
+00:00:00,570 --> 00:00:03,719
+In this section, we are going to talk about variables.
+
+2
+00:00:03,930 --> 00:00:07,200
+We'll see how to define variables, how to use it.
+
+3
+00:00:07,230 --> 00:00:11,250
+So you'll really see the TerraForm way of consuming variables.
+
+4
+00:00:12,320 --> 00:00:18,800
+So variables, as we know, helps us move critical or confidential data out of our script.
+
+5
+00:00:19,630 --> 00:00:24,700
+Also, if there are some values that changes based on your environment, on your project, you can define
+
+6
+00:00:24,700 --> 00:00:25,990
+them as variable.
+
+7
+00:00:26,200 --> 00:00:28,930
+So you don't need to make much change in your code.
+
+8
+00:00:28,960 --> 00:00:33,970
+You can just change the value of variables or if you're again reusing it.
+
+9
+00:00:35,380 --> 00:00:40,120
+You want to reuse your code for different, different environment, different, different project.
+
+10
+00:00:40,900 --> 00:00:48,880
+So you can define things like army tags keeper, these things as variables in our instance, Dr. File,
+
+11
+00:00:48,880 --> 00:00:49,990
+that we're going to write.
+
+12
+00:00:52,160 --> 00:00:53,690
+So we are here right now.
+
+13
+00:00:53,690 --> 00:00:55,790
+We have an instance of file, right?
+
+14
+00:00:56,660 --> 00:01:00,650
+We have provided information and we have the resource information.
+
+15
+00:01:02,260 --> 00:01:07,450
+So we have things like region that may change based on where we execute our TerraForm scripts.
+
+16
+00:01:07,900 --> 00:01:10,890
+There are things like RMI in this instance type.
+
+17
+00:01:10,900 --> 00:01:14,080
+These are the things that varies based on different situations.
+
+18
+00:01:14,080 --> 00:01:16,420
+So from here we'll go here.
+
+19
+00:01:16,930 --> 00:01:18,670
+So we'll take providers out.
+
+20
+00:01:18,670 --> 00:01:22,210
+We'll have a providers dot file where we'll define the provider.
+
+21
+00:01:22,990 --> 00:01:25,740
+Which is actually accessing region.
+
+22
+00:01:25,750 --> 00:01:30,340
+The value of region variable is going to be var dot region.
+
+23
+00:01:30,340 --> 00:01:33,490
+So it's a variable and variables we define in another file.
+
+24
+00:01:33,490 --> 00:01:37,750
+So they have let's say we have vase dot of file where we'll define variable.
+
+25
+00:01:37,750 --> 00:01:44,380
+That's how you define variable in TerraForm variable variable name in curly braces use a default and
+
+26
+00:01:44,380 --> 00:01:45,190
+the value.
+
+27
+00:01:45,220 --> 00:01:52,840
+So it means the default value of a underscore region is us hyphen west hyphen one and that you are referring
+
+28
+00:01:52,840 --> 00:01:55,900
+in the providers dot to file var dot region.
+
+29
+00:01:55,900 --> 00:01:57,280
+So that's dot file.
+
+30
+00:01:57,280 --> 00:02:02,380
+We have the variable region and its value is us hyphen west hyphen one.
+
+31
+00:02:03,010 --> 00:02:07,300
+If you're going to define the access key and secret key, you make sure you define it in different file
+
+32
+00:02:07,330 --> 00:02:13,390
+terraform dot vars file, but you can totally skip that because as I told you, do not put your access
+
+33
+00:02:13,420 --> 00:02:15,760
+key and secret key in your scripts, in your code.
+
+34
+00:02:16,640 --> 00:02:21,440
+And then we'll have instance Dr. File, where as of now we're not defining variable, but we'll change
+
+35
+00:02:21,440 --> 00:02:22,310
+that as well.
+
+36
+00:02:23,490 --> 00:02:25,080
+In a very different way like this.
+
+37
+00:02:25,080 --> 00:02:28,560
+So now was the ATF file have more variables.
+
+38
+00:02:28,800 --> 00:02:35,880
+Access key secret key region and also one more interesting variable variable AMIS.
+
+39
+00:02:36,330 --> 00:02:42,870
+This variable is of format is of type map, like a dictionary, like a hash.
+
+40
+00:02:43,020 --> 00:02:47,430
+So if you want to access this based on your region, what's the value of your region?
+
+41
+00:02:48,120 --> 00:02:49,710
+We can define the values.
+
+42
+00:02:49,830 --> 00:02:57,810
+So if you want to access this image, you're going to say amis dot us hyphen, west hyphen one, and
+
+43
+00:02:57,810 --> 00:03:00,960
+you will get that particular am-I.
+
+44
+00:03:01,910 --> 00:03:03,550
+This call is map variable.
+
+45
+00:03:03,560 --> 00:03:09,260
+So if you see in your instance dot file now for AMA, we have var dot amis.
+
+46
+00:03:09,500 --> 00:03:10,880
+So that's the variable.
+
+47
+00:03:11,810 --> 00:03:16,910
+And then in square bracket, we are giving our dot region inside that image.
+
+48
+00:03:16,910 --> 00:03:19,160
+It will look for a key name, this region.
+
+49
+00:03:20,040 --> 00:03:27,660
+So region value currently is US West one so US West one value is EMI and this particular ID, this will
+
+50
+00:03:27,660 --> 00:03:32,130
+be very helpful if you're executing your TerraForm scripts for different different regions or based
+
+51
+00:03:32,130 --> 00:03:34,740
+on the region, it will pick up the right amp ID.
+
+52
+00:03:36,250 --> 00:03:38,590
+So let's see what we're going to do in this exercise.
+
+53
+00:03:39,280 --> 00:03:46,650
+The Internet providers dot file vassarotti file where we'll mention all the variables, instance dot
+
+54
+00:03:46,720 --> 00:03:49,480
+of file, which is going to access all the variables.
+
+55
+00:03:50,110 --> 00:03:55,090
+We'll apply the changes, of course, before validating from the first we'll validate and then we'll
+
+56
+00:03:55,090 --> 00:03:56,170
+apply the changes.
+
+57
+00:03:56,820 --> 00:04:02,160
+And then we'll make some more changes to the instance to see it's state and then we'll reapply the changes.
+
+58
+00:04:02,490 --> 00:04:05,220
+So let's get started with the exercise.
+
+59
+00:04:06,250 --> 00:04:10,090
+Okay, so let's go with access to let's create a directory new folder.
+
+60
+00:04:10,770 --> 00:04:12,910
+Let me just exercise to.
+
+61
+00:04:20,820 --> 00:04:22,490
+First, we'll create our variables file.
+
+62
+00:04:22,500 --> 00:04:24,390
+So let's say new file.
+
+63
+00:04:24,690 --> 00:04:28,350
+See this with the name verse dot DF.
+
+64
+00:04:30,200 --> 00:04:32,650
+First variable will define is the region.
+
+65
+00:04:32,660 --> 00:04:37,130
+So we'll say gaps or if you want, you can use small also, but that looks good.
+
+66
+00:04:37,820 --> 00:04:42,020
+Region default equal to.
+
+67
+00:04:45,430 --> 00:04:49,180
+So I'm doing my exercise in this particular region or higher region.
+
+68
+00:04:49,570 --> 00:04:53,470
+Also, let's mention zone variable.
+
+69
+00:04:53,480 --> 00:04:55,270
+This is zone one.
+
+70
+00:04:58,740 --> 00:04:59,880
+Default to.
+
+71
+00:05:07,140 --> 00:05:09,560
+Okay, So that's simply the variable and its value.
+
+72
+00:05:09,570 --> 00:05:16,740
+Now we'll define one another kind of variable, which is of type map variable amis, and it's a value.
+
+73
+00:05:17,040 --> 00:05:18,870
+First of all, it's type.
+
+74
+00:05:20,030 --> 00:05:23,240
+ES Oh I forgot an equal to their.
+
+75
+00:05:26,080 --> 00:05:27,790
+Map like a dictionary.
+
+76
+00:05:29,050 --> 00:05:30,730
+And then we'll set default.
+
+77
+00:05:33,900 --> 00:05:38,160
+So I'll save my us east to region is there.
+
+78
+00:05:42,480 --> 00:05:48,820
+I would like to have its value as the my ID and take it from our first instance file.
+
+79
+00:05:50,040 --> 00:05:53,070
+Make sure your image is correct apt to your region.
+
+80
+00:05:54,590 --> 00:05:56,490
+Let me switch to some different region.
+
+81
+00:05:56,510 --> 00:05:58,100
+North Virginia.
+
+82
+00:06:03,050 --> 00:06:04,400
+I'll find some of my ID here.
+
+83
+00:06:04,400 --> 00:06:05,870
+I'll say launch instance.
+
+84
+00:06:07,920 --> 00:06:09,900
+Take this Amazon Linux, this side.
+
+85
+00:06:12,520 --> 00:06:14,860
+So not Virginia's US East one.
+
+86
+00:06:18,690 --> 00:06:19,170
+So we'll see.
+
+87
+00:06:19,200 --> 00:06:22,500
+US hyphen East hyphen one.
+
+88
+00:06:25,360 --> 00:06:29,380
+And you can like that give all the regions that you generally use equal to their.
+
+89
+00:06:30,970 --> 00:06:33,460
+Let's see how our instance file is going to refer to that.
+
+90
+00:06:33,460 --> 00:06:36,490
+But before that we'll also write provider's dot file.
+
+91
+00:06:43,720 --> 00:06:49,270
+And for this Dr. Phil will have just as much provider ADA plus region, var dot region.
+
+92
+00:06:49,450 --> 00:06:52,330
+And that should be the that should be a variable name.
+
+93
+00:06:53,250 --> 00:06:55,530
+Region its values us east to.
+
+94
+00:06:57,450 --> 00:06:58,770
+Let's see if this file.
+
+95
+00:07:01,390 --> 00:07:04,330
+All right, Now let's finally write our instance file.
+
+96
+00:07:07,580 --> 00:07:08,220
+I'm just cute.
+
+97
+00:07:08,220 --> 00:07:10,410
+The name is Instant Start def.
+
+98
+00:07:15,840 --> 00:07:19,650
+So as a resource instance name I'm going to give to my resource.
+
+99
+00:07:19,650 --> 00:07:21,990
+Is this an army?
+
+100
+00:07:23,890 --> 00:07:25,340
+Okay, so this is going to be like this.
+
+101
+00:07:25,360 --> 00:07:27,530
+Var dot amis.
+
+102
+00:07:27,550 --> 00:07:29,530
+The variable that you have there.
+
+103
+00:07:33,020 --> 00:07:33,980
+In square bracket.
+
+104
+00:07:33,980 --> 00:07:36,820
+You're going to say var dot region.
+
+105
+00:07:36,830 --> 00:07:42,530
+Now you can pass the region name directly like us is to one, but we're already using it as a variable.
+
+106
+00:07:43,960 --> 00:07:46,090
+So it's going to automatically pick up from there.
+
+107
+00:07:46,090 --> 00:07:48,400
+That this is going to be us is to.
+
+108
+00:07:49,390 --> 00:07:49,810
+Right.
+
+109
+00:07:50,020 --> 00:07:53,000
+And based on use history, too, it's going to pick up that Amy.
+
+110
+00:07:55,890 --> 00:07:57,330
+Let's give the other details.
+
+111
+00:07:57,990 --> 00:07:59,430
+Instance type two Micro.
+
+112
+00:07:59,460 --> 00:08:03,540
+If you want, you can define that as also variable availability zone.
+
+113
+00:08:03,550 --> 00:08:07,500
+We are doing var dot zone one.
+
+114
+00:08:08,580 --> 00:08:11,610
+Can zone one values us east to a.
+
+115
+00:08:14,700 --> 00:08:17,430
+Rest of the other things I'll copy just from the previous.
+
+116
+00:08:18,460 --> 00:08:19,360
+Resource.
+
+117
+00:08:24,660 --> 00:08:25,550
+This looks good.
+
+118
+00:08:25,800 --> 00:08:27,460
+Time to validate all these things.
+
+119
+00:08:27,480 --> 00:08:29,250
+So let's go to our Get Bash.
+
+120
+00:08:31,750 --> 00:08:33,549
+You go to the exercise to.
+
+121
+00:08:36,580 --> 00:08:41,740
+Forced to reform in it the new directory you will need to reform in it.
+
+122
+00:08:41,740 --> 00:08:43,299
+And we have an error.
+
+123
+00:08:44,280 --> 00:08:45,900
+Okay, so this is syntactically wrong.
+
+124
+00:08:45,900 --> 00:08:48,840
+So interphone will very clearly tell you where the error is.
+
+125
+00:08:48,930 --> 00:08:53,280
+Line number 11 in this file var start file default.
+
+126
+00:08:53,280 --> 00:08:56,010
+There should be actually an equal to and the value.
+
+127
+00:08:57,140 --> 00:08:58,460
+Let's fix that.
+
+128
+00:09:00,180 --> 00:09:01,230
+Default.
+
+129
+00:09:01,530 --> 00:09:04,680
+Equal to and let's see if this.
+
+130
+00:09:05,910 --> 00:09:07,320
+And let's test it once again.
+
+131
+00:09:11,350 --> 00:09:12,220
+Okay, that is done.
+
+132
+00:09:12,220 --> 00:09:14,350
+Let's do a TerraForm validate.
+
+133
+00:09:20,840 --> 00:09:22,240
+That is also a success.
+
+134
+00:09:22,250 --> 00:09:23,700
+TerraForm Fmt.
+
+135
+00:09:23,750 --> 00:09:25,550
+To format it properly.
+
+136
+00:09:25,910 --> 00:09:27,590
+So let's see what it do.
+
+137
+00:09:29,210 --> 00:09:30,620
+Carrot instances.
+
+138
+00:09:31,160 --> 00:09:32,420
+Yes, it looks good.
+
+139
+00:09:35,370 --> 00:09:36,720
+Time to check the plan.
+
+140
+00:09:36,720 --> 00:09:37,950
+TerraForm Plan.
+
+141
+00:09:39,200 --> 00:09:44,030
+So there are sometimes issues that will not get caught in the TerraForm value because it will just do
+
+142
+00:09:44,030 --> 00:09:45,080
+the syntax check.
+
+143
+00:09:45,260 --> 00:09:49,340
+Those things you can also catch in TerraForm Plan.
+
+144
+00:09:50,900 --> 00:09:52,160
+And sometimes it happens.
+
+145
+00:09:52,160 --> 00:09:53,750
+That doesn't catch in TerraForm Plan.
+
+146
+00:09:53,750 --> 00:09:59,510
+Also, when you apply that time, you get to know the problem, but those will be mostly logical errors.
+
+147
+00:10:00,440 --> 00:10:01,980
+So it's going to add one instance.
+
+148
+00:10:02,000 --> 00:10:02,990
+Same thing.
+
+149
+00:10:02,990 --> 00:10:07,880
+But this time we just using the variables terraform apply.
+
+150
+00:10:10,080 --> 00:10:11,170
+Ask a question.
+
+151
+00:10:11,190 --> 00:10:12,270
+Say yes.
+
+152
+00:10:16,020 --> 00:10:17,400
+Okay, That should be done.
+
+153
+00:10:23,860 --> 00:10:26,380
+And we have a new instance of instance.
+
+154
+00:10:27,180 --> 00:10:27,340
+Okay.
+
+155
+00:10:27,400 --> 00:10:28,810
+Now let's show you one thing.
+
+156
+00:10:29,050 --> 00:10:31,300
+We will create a new key pair.
+
+157
+00:10:36,220 --> 00:10:36,780
+Mm.
+
+158
+00:10:36,790 --> 00:10:38,470
+New hyphen, dove.
+
+159
+00:10:43,120 --> 00:10:46,300
+And now I'm going to mention that key.
+
+160
+00:10:48,510 --> 00:10:52,920
+Nike new hyphen dove.
+
+161
+00:10:53,640 --> 00:10:54,630
+Just ne hyphen dove.
+
+162
+00:10:54,640 --> 00:10:55,860
+We have not given the key.
+
+163
+00:10:57,030 --> 00:10:58,110
+Let me see if this.
+
+164
+00:10:59,000 --> 00:10:59,210
+Yeah.
+
+165
+00:10:59,300 --> 00:11:02,020
+Make sure you have given the right name, you new hyphen out.
+
+166
+00:11:02,030 --> 00:11:02,750
+That's good.
+
+167
+00:11:03,790 --> 00:11:04,300
+Okay.
+
+168
+00:11:04,390 --> 00:11:07,570
+Let's see what happens if we apply that.
+
+169
+00:11:07,570 --> 00:11:11,050
+But before that, we're going to plan it, we're not going to apply it, etc..
+
+170
+00:11:11,050 --> 00:11:12,190
+Form, plan.
+
+171
+00:11:12,850 --> 00:11:14,380
+Of course you can do validate.
+
+172
+00:11:16,640 --> 00:11:18,380
+So we're changing the key here.
+
+173
+00:11:18,620 --> 00:11:22,460
+Is it possible to change the public in this instance?
+
+174
+00:11:23,210 --> 00:11:24,320
+Like just like that?
+
+175
+00:11:25,200 --> 00:11:29,850
+Forget about TerraForm, but even manually through console or through clan, it's not possible.
+
+176
+00:11:29,850 --> 00:11:33,930
+The only way is you have to destroy that instance and create a new instance.
+
+177
+00:11:34,450 --> 00:11:34,850
+Right.
+
+178
+00:11:34,860 --> 00:11:39,980
+So changing things that are very simple in the TerraForm scripts file, but make sure you run a plan.
+
+179
+00:11:39,990 --> 00:11:44,550
+You see, it's going to destroy that instance, one to destroy and one to add.
+
+180
+00:11:45,060 --> 00:11:51,960
+If you scroll up, you will see the minus and you will see the plus or minus and plus both and CS must
+
+181
+00:11:51,960 --> 00:11:53,240
+be replaced.
+
+182
+00:11:53,250 --> 00:11:55,260
+This instance must be replaced.
+
+183
+00:11:56,220 --> 00:11:57,810
+So be careful on this part.
+
+184
+00:11:59,260 --> 00:12:01,330
+I am not going to apply that change.
+
+185
+00:12:01,330 --> 00:12:04,420
+I'm going to just now run, TerraForm, Destroy.
+
+186
+00:12:05,470 --> 00:12:08,170
+We are done in this part, in this section.
+
+187
+00:12:10,120 --> 00:12:12,880
+Yes, we are done in this section did destroy it.
+
+188
+00:12:13,330 --> 00:12:15,820
+So keep cleaning your resources.
+
+189
+00:12:16,650 --> 00:12:18,060
+In every exercise you do.
+
+190
+00:12:18,180 --> 00:12:20,430
+Otherwise, you'll have unnecessary things running.
+
+191
+00:12:21,450 --> 00:12:23,070
+Okay, so it's done here.
+
+192
+00:12:23,520 --> 00:12:25,740
+Let's move on to the next section.
+
