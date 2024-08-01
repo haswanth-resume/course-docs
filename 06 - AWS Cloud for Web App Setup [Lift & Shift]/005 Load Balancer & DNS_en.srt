@@ -1,0 +1,368 @@
+1
+00:00:00,300 --> 00:00:04,490
+Your application server is also up and running back and services are up and running.
+
+2
+00:00:04,500 --> 00:00:07,230
+Now it's time to set up a load balancer.
+
+3
+00:00:08,620 --> 00:00:11,170
+So let's go to S.E. to.
+
+4
+00:00:15,160 --> 00:00:16,900
+And we'll go to load balancers.
+
+5
+00:00:19,400 --> 00:00:21,750
+We are going to create application load balancer.
+
+6
+00:00:21,750 --> 00:00:23,850
+So first we need to create a target group.
+
+7
+00:00:24,880 --> 00:00:28,930
+So let's go to target groups and create a target group.
+
+8
+00:00:29,740 --> 00:00:35,830
+For instance, we're going to add, etc. instance, you name the target group V profile app hyphen,
+
+9
+00:00:35,830 --> 00:00:42,430
+the G Port 8080 Tomcat running on Port 88 and see VPC.
+
+10
+00:00:42,910 --> 00:00:45,280
+The health check will be slash log in.
+
+11
+00:00:47,310 --> 00:00:48,620
+Advanced health check.
+
+12
+00:00:48,630 --> 00:00:53,880
+So for health check, also, we have to override the port 8080.
+
+13
+00:00:55,340 --> 00:00:56,450
+Healthy threshold.
+
+14
+00:00:56,690 --> 00:00:59,900
+Let's reduce it to two or three.
+
+15
+00:01:05,489 --> 00:01:06,000
+Available.
+
+16
+00:01:06,000 --> 00:01:07,830
+Instance select.
+
+17
+00:01:09,540 --> 00:01:11,550
+Our application server Tomcat.
+
+18
+00:01:13,800 --> 00:01:15,900
+And say include a spending below.
+
+19
+00:01:18,080 --> 00:01:20,240
+And they create target group.
+
+20
+00:01:21,750 --> 00:01:22,920
+Target group is created.
+
+21
+00:01:22,950 --> 00:01:24,720
+Let's go to load balancers.
+
+22
+00:01:25,290 --> 00:01:27,570
+Let's click on Create Load Balancer.
+
+23
+00:01:28,370 --> 00:01:31,230
+And we will be selecting application load balancer.
+
+24
+00:01:31,250 --> 00:01:34,850
+That's what we need for HTTP and HTTPS traffic.
+
+25
+00:01:35,450 --> 00:01:36,770
+Let's say create.
+
+26
+00:01:38,530 --> 00:01:44,710
+Load balancer name v profile fraud ill be internet facing because we want to expose it on the internet.
+
+27
+00:01:47,840 --> 00:01:48,410
+Zones.
+
+28
+00:01:48,410 --> 00:01:51,140
+We have to select all the zones here.
+
+29
+00:01:52,260 --> 00:01:56,430
+Now this will make your load balancer also highly available.
+
+30
+00:02:04,940 --> 00:02:09,860
+So minimum two availability zones you have to select for high availability.
+
+31
+00:02:10,910 --> 00:02:15,200
+So if you're not going to select all the zones, you have to make sure you select at least two.
+
+32
+00:02:15,200 --> 00:02:21,080
+And out of that two, one should be the same availability zone where you have your Tomcat, AC, for
+
+33
+00:02:21,110 --> 00:02:21,920
+instance.
+
+34
+00:02:22,700 --> 00:02:24,650
+Or else just select all of them.
+
+35
+00:02:25,470 --> 00:02:26,370
+Security group.
+
+36
+00:02:26,370 --> 00:02:30,480
+We will be selecting the load balancer security group that we created earlier.
+
+37
+00:02:31,320 --> 00:02:35,310
+And it can allow traffic on 84 for three from anywhere.
+
+38
+00:02:37,270 --> 00:02:38,170
+Listener.
+
+39
+00:02:39,010 --> 00:02:42,720
+So our intention is to have a DPS listener.
+
+40
+00:02:42,730 --> 00:02:43,960
+We'll say add listener.
+
+41
+00:02:43,960 --> 00:02:45,850
+We will select here as DPS.
+
+42
+00:02:46,560 --> 00:02:51,510
+And we'll keep it for four three and we'll select the target group.
+
+43
+00:02:53,500 --> 00:02:56,470
+But also let's keep 84 now for validation.
+
+44
+00:02:56,470 --> 00:02:58,330
+Later we can remove this.
+
+45
+00:02:59,450 --> 00:03:03,950
+So eight and four for three, both forwarding the traffic to the same target group.
+
+46
+00:03:05,590 --> 00:03:09,750
+Now when you select here HTTPS, you have to mention the certificate.
+
+47
+00:03:09,760 --> 00:03:14,410
+So we already created certificate in the prerequisites ACM certificate.
+
+48
+00:03:14,440 --> 00:03:16,570
+You have to select that certificate here.
+
+49
+00:03:18,410 --> 00:03:24,410
+If your certificate does not appear over here, make sure you are in the right region and your certificate
+
+50
+00:03:24,440 --> 00:03:25,550
+is validated.
+
+51
+00:03:25,820 --> 00:03:28,850
+If you have any further doubts on certificates, check the prerequisites.
+
+52
+00:03:28,880 --> 00:03:31,730
+Video where we created the certificate.
+
+53
+00:03:34,620 --> 00:03:34,810
+Okay.
+
+54
+00:03:34,860 --> 00:03:35,860
+I think this is all.
+
+55
+00:03:35,880 --> 00:03:38,250
+Let's click on Create Load Balancer.
+
+56
+00:03:41,290 --> 00:03:42,910
+View load balancer.
+
+57
+00:03:44,340 --> 00:03:46,080
+So it's in provisioning state.
+
+58
+00:03:46,080 --> 00:03:47,730
+It will come up in some time.
+
+59
+00:03:48,700 --> 00:03:51,430
+By the time we will take its end point.
+
+60
+00:03:56,500 --> 00:03:57,870
+We copy it from here.
+
+61
+00:03:57,880 --> 00:03:58,480
+Description.
+
+62
+00:03:58,480 --> 00:03:59,470
+This is better.
+
+63
+00:03:59,710 --> 00:04:05,590
+It's copy the endpoint of this load balancer and we'll go to our domain provider.
+
+64
+00:04:05,590 --> 00:04:11,230
+I have GoDaddy domain groovy dot n and I will add a C name record here.
+
+65
+00:04:11,350 --> 00:04:14,860
+Select C name Record host.
+
+66
+00:04:14,860 --> 00:04:16,959
+We will give V profile.
+
+67
+00:04:19,720 --> 00:04:24,280
+App and we'll see it points to this endpoint.
+
+68
+00:04:27,090 --> 00:04:28,080
+So you see.
+
+69
+00:04:29,720 --> 00:04:35,810
+So we profile app dot goofy dot in will be our URL with https of course.
+
+70
+00:04:40,150 --> 00:04:42,160
+So it's still in the provisioning state.
+
+71
+00:04:43,740 --> 00:04:44,000
+Okay.
+
+72
+00:04:44,070 --> 00:04:46,200
+In a few minutes, it became active.
+
+73
+00:04:46,260 --> 00:04:54,570
+And now let's validate http s slash slash V profile app dot.
+
+74
+00:04:55,610 --> 00:04:57,950
+Graphy dot in.
+
+75
+00:05:01,230 --> 00:05:04,290
+And that is pointing to the end point.
+
+76
+00:05:06,660 --> 00:05:10,890
+Of the load balancer and load balancer has routed the request to Tomcat.
+
+77
+00:05:10,920 --> 00:05:12,810
+This page is coming from Tomcat.
+
+78
+00:05:12,840 --> 00:05:16,590
+Let's log in admin, underscore VPI password admin.
+
+79
+00:05:16,590 --> 00:05:17,850
+Underscore VPI.
+
+80
+00:05:21,930 --> 00:05:22,950
+Successful login.
+
+81
+00:05:22,950 --> 00:05:27,240
+That means my SQL Server connection is there.
+
+82
+00:05:27,930 --> 00:05:31,440
+Let's check rabbit and queue whilst generating queue.
+
+83
+00:05:31,470 --> 00:05:32,400
+Go back.
+
+84
+00:05:34,120 --> 00:05:35,120
+Let's check Mom cash.
+
+85
+00:05:35,140 --> 00:05:36,550
+Click on all users.
+
+86
+00:05:37,830 --> 00:05:39,330
+Let's select a user.
+
+87
+00:05:41,260 --> 00:05:43,850
+The data is inserted in cash.
+
+88
+00:05:43,870 --> 00:05:44,830
+Nice.
+
+89
+00:05:51,670 --> 00:05:52,060
+Yeah.
+
+90
+00:05:52,090 --> 00:05:54,000
+Now, the data is from cash.
+
+91
+00:05:55,340 --> 00:05:55,720
+Yeah.
+
+92
+00:05:57,730 --> 00:06:04,300
+And that was a successful set up of our application workload on cloud.
+

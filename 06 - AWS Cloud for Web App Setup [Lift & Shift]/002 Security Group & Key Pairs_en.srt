@@ -1,0 +1,428 @@
+1
+00:00:00,300 --> 00:00:01,859
+Let's dig in.
+
+2
+00:00:02,550 --> 00:00:04,830
+I am logged into my account.
+
+3
+00:00:04,980 --> 00:00:07,200
+I'm in North Virginia region.
+
+4
+00:00:09,370 --> 00:00:14,110
+And I also have a certificate which I'll be using.
+
+5
+00:00:15,160 --> 00:00:18,160
+For deep connection on load balancer.
+
+6
+00:00:19,480 --> 00:00:25,300
+I have mentioned the previous site video how to create this certificate and do its validation from your
+
+7
+00:00:25,300 --> 00:00:26,560
+domain provider.
+
+8
+00:00:27,630 --> 00:00:28,830
+I have a good idea.
+
+9
+00:00:28,860 --> 00:00:34,680
+Domain graphy dot n and I have seen some validation.
+
+10
+00:00:35,320 --> 00:00:36,880
+In this dense zones.
+
+11
+00:00:39,470 --> 00:00:41,660
+Okay, let's go back to loss console.
+
+12
+00:00:43,760 --> 00:00:45,560
+I'll go to easy to service.
+
+13
+00:00:45,830 --> 00:00:49,400
+First thing that we'll do is we'll create a security groups.
+
+14
+00:00:49,820 --> 00:00:53,090
+First, we'll create security group for our load balancer.
+
+15
+00:00:53,880 --> 00:00:55,800
+So let's go to security groups.
+
+16
+00:00:57,470 --> 00:00:58,940
+See create security group.
+
+17
+00:00:59,910 --> 00:01:01,110
+Let's give a name.
+
+18
+00:01:11,690 --> 00:01:13,070
+Let's give some description.
+
+19
+00:01:16,790 --> 00:01:19,010
+And let's add the rules.
+
+20
+00:01:20,290 --> 00:01:22,540
+And let's add inbound rules.
+
+21
+00:01:24,110 --> 00:01:26,510
+Inbound rules, not outbound rules.
+
+22
+00:01:26,510 --> 00:01:28,720
+You are not going to touch outbound rules.
+
+23
+00:01:28,730 --> 00:01:30,130
+It should be always like this.
+
+24
+00:01:30,140 --> 00:01:32,210
+All traffic should go anywhere.
+
+25
+00:01:33,720 --> 00:01:37,320
+This will be for all the security groups that we will be creating.
+
+26
+00:01:37,620 --> 00:01:39,390
+Outbound rules should be like this.
+
+27
+00:01:39,420 --> 00:01:41,880
+We will be editing always inbound rules.
+
+28
+00:01:42,660 --> 00:01:45,180
+So first rule we will add is.
+
+29
+00:01:46,510 --> 00:01:50,950
+HDP bought 80 allowed from any IPV four.
+
+30
+00:01:51,430 --> 00:01:55,240
+And then again, you can just go here for 80.
+
+31
+00:01:55,780 --> 00:01:57,640
+Any IPV six.
+
+32
+00:01:58,610 --> 00:02:02,090
+Now some Internet service providers are giving IPV six.
+
+33
+00:02:02,090 --> 00:02:09,169
+So you should also use this rule to allow anywhere from IPV six for it is for initial purpose.
+
+34
+00:02:09,169 --> 00:02:15,530
+But our main goal is to use HTTPS 443 port.
+
+35
+00:02:16,370 --> 00:02:19,130
+So we will be accessing our website securely.
+
+36
+00:02:19,180 --> 00:02:21,740
+HTTPS connection on Port 443.
+
+37
+00:02:22,190 --> 00:02:25,190
+Let's see any IPV four again.
+
+38
+00:02:29,910 --> 00:02:31,590
+Any IPV six.
+
+39
+00:02:32,600 --> 00:02:37,940
+Later, once we set up the secure connection, we can remove this port at both the rules.
+
+40
+00:02:37,940 --> 00:02:40,020
+But for now we'll just create it.
+
+41
+00:02:40,060 --> 00:02:41,750
+C Create a security group.
+
+42
+00:02:45,440 --> 00:02:49,340
+Next, we'll create security group for our Tomcat instance.
+
+43
+00:02:52,030 --> 00:02:54,850
+We profile hyphen app hyphen SG.
+
+44
+00:03:03,460 --> 00:03:04,840
+Let's add a rule.
+
+45
+00:03:06,020 --> 00:03:09,320
+So our Tomcat service will be running on Port 88.
+
+46
+00:03:09,350 --> 00:03:10,730
+So let's go to that port.
+
+47
+00:03:10,910 --> 00:03:14,280
+And we'll allow traffic only from our load balancer.
+
+48
+00:03:14,300 --> 00:03:17,870
+So here we'll select the security group of the load balancer.
+
+49
+00:03:18,740 --> 00:03:24,200
+We'll give some description about traffic from LP.
+
+50
+00:03:28,630 --> 00:03:30,610
+And let's see if this.
+
+51
+00:03:34,050 --> 00:03:35,460
+One more security group.
+
+52
+00:03:37,370 --> 00:03:40,250
+This security group will be for our backend services.
+
+53
+00:03:41,360 --> 00:03:43,640
+Robert McHugh, Mom Cash and my SQL.
+
+54
+00:03:44,570 --> 00:03:48,890
+So we limit we profile hyphen backend.
+
+55
+00:03:50,660 --> 00:03:51,150
+She.
+
+56
+00:04:04,720 --> 00:04:06,160
+And let's add rule.
+
+57
+00:04:07,150 --> 00:04:10,420
+So we'll be running a MySQL service over here.
+
+58
+00:04:11,880 --> 00:04:13,530
+So let's select.
+
+59
+00:04:14,540 --> 00:04:21,140
+My SQL 3306 port allowed only from our application Security group.
+
+60
+00:04:22,920 --> 00:04:24,120
+Let's give a description.
+
+61
+00:04:34,590 --> 00:04:37,740
+We have two other sources that will be running in the security group.
+
+62
+00:04:38,740 --> 00:04:40,480
+Mom, cash and rabbit MQ.
+
+63
+00:04:42,300 --> 00:04:46,310
+Metcash will be running on port one one, two, one, one, and grab it.
+
+64
+00:04:46,320 --> 00:04:48,870
+McHugh will be running on board five, six, seven two.
+
+65
+00:04:49,290 --> 00:04:51,120
+If you're not so sure about it.
+
+66
+00:04:52,110 --> 00:04:53,520
+Let's check the source code.
+
+67
+00:04:54,410 --> 00:04:59,240
+Our application properties or application configuration file will definitely have the port number of
+
+68
+00:04:59,240 --> 00:05:00,560
+our backend services.
+
+69
+00:05:03,950 --> 00:05:05,930
+Let's open our source code.
+
+70
+00:05:06,850 --> 00:05:09,840
+If you're going to use branch left in shift.
+
+71
+00:05:10,970 --> 00:05:11,460
+I saw.
+
+72
+00:05:11,520 --> 00:05:12,090
+See?
+
+73
+00:05:12,990 --> 00:05:13,800
+Mean.
+
+74
+00:05:14,620 --> 00:05:18,070
+Resources application dot properties file.
+
+75
+00:05:18,940 --> 00:05:22,360
+So my SQL on Port 3306.
+
+76
+00:05:27,390 --> 00:05:28,140
+Gash on port.
+
+77
+00:05:28,140 --> 00:05:31,290
+One one, 211 rabbit McCue on board.
+
+78
+00:05:31,290 --> 00:05:32,610
+Five, six, seven two.
+
+79
+00:05:32,880 --> 00:05:35,610
+So we'll add these two rules as well.
+
+80
+00:05:39,480 --> 00:05:39,870
+One.
+
+81
+00:05:39,870 --> 00:05:41,040
+One, two, one, one.
+
+82
+00:05:42,130 --> 00:05:45,130
+Allowed from our security group application Security group.
+
+83
+00:05:45,900 --> 00:05:52,350
+And put five, six, seven two again from application security group.
+
+84
+00:05:52,350 --> 00:05:55,560
+So Tomcat, which is an application security group, can connect.
+
+85
+00:05:56,260 --> 00:05:58,510
+To all banking services on these boats.
+
+86
+00:06:00,730 --> 00:06:02,410
+Let's also give some description.
+
+87
+00:06:22,380 --> 00:06:24,960
+And now let's see this.
+
+88
+00:06:28,620 --> 00:06:28,880
+Okay.
+
+89
+00:06:28,890 --> 00:06:33,280
+We need to make one more change in our security group, in our back end security group.
+
+90
+00:06:33,300 --> 00:06:34,980
+We have three services.
+
+91
+00:06:36,660 --> 00:06:39,840
+And these services will be also interacting with each other.
+
+92
+00:06:40,320 --> 00:06:44,640
+So we are going to give a rule over here all traffic.
+
+93
+00:06:45,280 --> 00:06:46,960
+From itself.
+
+94
+00:06:46,960 --> 00:06:49,000
+Its own security group ID.
+
+95
+00:07:01,850 --> 00:07:02,940
+That's the final rule.
+
+96
+00:07:02,960 --> 00:07:04,040
+Let's save it.
+
+97
+00:07:06,670 --> 00:07:12,460
+And in any case, if you make any mistake in adding the rule, we can come back and make the changes.
+
+98
+00:07:13,720 --> 00:07:16,330
+Now we will create a log key pair.
+
+99
+00:07:17,580 --> 00:07:20,250
+Which will use to log into our C two instances.
+
+100
+00:07:20,880 --> 00:07:22,380
+So go to key peers.
+
+101
+00:07:23,890 --> 00:07:25,030
+Create keeper.
+
+102
+00:07:29,150 --> 00:07:31,610
+Let's give a name V profile prod.
+
+103
+00:07:33,510 --> 00:07:34,140
+Key.
+
+104
+00:07:35,240 --> 00:07:39,650
+I'm going to use git bash for login, so I will use PEM format.
+
+105
+00:07:39,680 --> 00:07:42,710
+If you're going to use putty then use PKI format.
+
+106
+00:07:46,310 --> 00:07:49,850
+If you want to import your own key, you can do that.
+
+107
+00:07:50,990 --> 00:07:55,700
+But we'll see these kinds of security approach in other projects.
+

@@ -1,0 +1,336 @@
+1
+00:00:00,870 --> 00:00:05,250
+We have one more pending thing, we talked about auto scaling group.
+
+2
+00:00:06,670 --> 00:00:11,680
+And we will set up auto scaling group for our application server Tomcat ec2 instance.
+
+3
+00:00:12,980 --> 00:00:15,830
+So let's go back to ec2 instance console.
+
+4
+00:00:18,110 --> 00:00:24,020
+First thing we need to do is we need to create the AMI of this instance, so let's say action, instance
+
+5
+00:00:24,030 --> 00:00:28,010
+state, oh sorry, image and create image.
+
+6
+00:00:30,070 --> 00:00:35,650
+Give it a name, the vprofile-app-image.
+
+7
+00:00:38,690 --> 00:00:40,160
+And you can give some description.
+
+8
+00:00:42,010 --> 00:00:43,600
+And I will say create image.
+
+9
+00:00:45,680 --> 00:00:46,930
+This is going to take some time.
+
+10
+00:00:51,480 --> 00:00:57,580
+The AMI is getting created by the time we can create the launch configuration for the auto scaling group.
+
+11
+00:00:58,080 --> 00:00:59,880
+So let's go to launch configuration.
+
+12
+00:01:06,900 --> 00:01:08,400
+Create launch configuration.
+
+13
+00:01:10,390 --> 00:01:21,520
+Say vprofile-app-LC we will select our AMI, even if your AMI is not ready, you can just selecte it
+
+14
+00:01:21,520 --> 00:01:22,030
+from here.
+
+15
+00:01:24,010 --> 00:01:30,500
+But I recommend you wait till the AMI is available, instannce typ, based on a requirement.
+
+16
+00:01:30,640 --> 00:01:37,120
+So we want to keep it under free tier, so we will just use t2.micro
+
+17
+00:01:42,390 --> 00:01:43,210
+IAM role
+
+18
+00:01:43,410 --> 00:01:51,000
+We want our instance to have an IAM role that we have created so our instance can download artifacts
+
+19
+00:01:51,000 --> 00:01:51,510
+from their.
+
+20
+00:01:53,330 --> 00:01:57,320
+Enable ec2 instance detailed monitoring within cloud watch, yes.
+
+21
+00:01:59,830 --> 00:02:05,710
+We don't need any advance details, same EBS volume should be fine, security group, of course,
+
+22
+00:02:06,730 --> 00:02:09,610
+we have high vprofile app security group.
+
+23
+00:02:10,789 --> 00:02:11,660
+Log-in key.
+
+24
+00:02:13,940 --> 00:02:22,120
+We have the key over here, I acknowledge and create launch configuration, so launch configuration is created,
+
+25
+00:02:22,130 --> 00:02:23,930
+let's create auto scaling group.
+
+26
+00:02:28,020 --> 00:02:37,110
+So create auto scaling group name of the auto scaling group, vprofile-app-ASG.
+
+27
+00:02:37,170 --> 00:02:37,910
+.
+
+28
+00:02:39,860 --> 00:02:41,390
+Let's select the launch.
+
+29
+00:02:42,320 --> 00:02:47,750
+We switch to launch configuration using launch configuration, so let's select our launch configuration.
+
+30
+00:02:48,900 --> 00:02:54,360
+And go next, same VPC, we will select all the subnets.
+
+31
+00:02:57,890 --> 00:03:04,740
+So, our instance, can  be launched in any of the zones, go next, enable load balancing.
+
+32
+00:03:04,760 --> 00:03:09,440
+Of course we have an application load balancer and will select the target groups, so our instance, will
+
+33
+00:03:09,440 --> 00:03:11,770
+be automatically updated in this target group.
+
+34
+00:03:12,660 --> 00:03:15,210
+And we will do health check on the load balancer.
+
+35
+00:03:17,890 --> 00:03:24,490
+We, as in the application auto scaling group is going to do health check on load balancer, for instance,
+
+36
+00:03:24,490 --> 00:03:25,260
+is unhealthy.
+
+37
+00:03:25,270 --> 00:03:26,530
+It will launch a replacement.
+
+38
+00:03:28,700 --> 00:03:36,740
+And this should be good, let's go next, capacity you can decide 2 and maximum 8.
+
+39
+00:03:39,880 --> 00:03:43,990
+Based on our requirement, We we don't have that much requirement, we'll just keep two to one.
+
+40
+00:03:52,060 --> 00:03:58,030
+Scaling policies, so if you just want to maintain the number of instances, this should be fine.
+
+41
+00:03:58,030 --> 00:04:03,820
+But if you want to automatically scale out and scale in and you can use tracking, scaling policy.
+
+42
+00:04:04,240 --> 00:04:09,840
+So I will keep this I will say CPU utilization, target value 50 percent.
+
+43
+00:04:09,850 --> 00:04:15,400
+So if my CPU urilization crosses more than 50 percent, then it will add instances.
+
+44
+00:04:15,400 --> 00:04:22,060
+If it goes less than that, it will delete instances and it can go maximum 2 I have given if you want,
+
+45
+00:04:22,060 --> 00:04:23,440
+we can increase this capacity.
+
+46
+00:04:23,440 --> 00:04:25,690
+Let's say maximum.
+
+47
+00:04:26,850 --> 00:04:27,810
+Desired one.
+
+48
+00:04:29,720 --> 00:04:31,910
+Minimum one and maximum 4.
+
+49
+00:04:34,830 --> 00:04:39,840
+If you don't want our instance to be get terminated automatically, so we should put this checkmark
+
+50
+00:04:39,840 --> 00:04:40,110
+on.
+
+51
+00:04:40,480 --> 00:04:42,810
+For instance, will not get terminate automatically.
+
+52
+00:04:44,610 --> 00:04:49,200
+So in case if you're troubleshooting, you want to download the logs, you want to see what's the problem
+
+53
+00:04:49,200 --> 00:04:51,240
+with the instance, you should enable this.
+
+54
+00:04:51,570 --> 00:04:58,590
+But I recommend you stream the logs of your ec2 distance to cloud watch logs or any other service and
+
+55
+00:04:58,590 --> 00:05:01,890
+don't have any static data or any dynamic data.
+
+56
+00:05:01,890 --> 00:05:02,270
+Sorry.
+
+57
+00:05:02,640 --> 00:05:06,650
+On your Ec2 instance, I am not going put that checkmark on.
+
+58
+00:05:06,750 --> 00:05:07,560
+Let's go next.
+
+59
+00:05:08,820 --> 00:05:09,840
+Add notification.
+
+60
+00:05:10,710 --> 00:05:13,200
+So if you want, we can send notification.
+
+61
+00:05:14,640 --> 00:05:15,870
+to our SNS topic.
+
+62
+00:05:17,720 --> 00:05:23,720
+If instance is getting launched, terminated, fail to launch or fail to terminate all those events, notification
+
+63
+00:05:23,720 --> 00:05:25,940
+will receive email address.
+
+64
+00:05:28,810 --> 00:05:35,500
+Any tags, so we will see name the vprofile app, that's our tag.
+
+65
+00:05:36,500 --> 00:05:42,170
+And we can also give any other tag, if you want, like project vprofile.
+
+66
+00:05:46,550 --> 00:05:51,440
+Owner can give our name or team's name, go next.
+
+67
+00:05:54,350 --> 00:05:57,860
+Verify everything and finally say create scaling group.
+
+68
+00:06:03,350 --> 00:06:11,120
+So autoscaling group will create instance automatically, we already have an instance under our load balancer
+
+69
+00:06:11,120 --> 00:06:14,840
+load balancer in the target group, app01, the one that we created first.
+
+70
+00:06:15,410 --> 00:06:17,810
+But from this, we have created this one.
+
+71
+00:06:19,340 --> 00:06:24,600
+From this, we created the AMI, we don't need it now, so if you want, we can even terminate this.
+
+72
+00:06:24,600 --> 00:06:28,100
+So I'm going to say instance state, terminate.
+
+73
+00:06:31,680 --> 00:06:39,780
+So it's saying we cannot terminate, and that is because the termination protection is enabled, we
+
+74
+00:06:39,780 --> 00:06:41,250
+have to disable that first.
+
+75
+00:06:42,180 --> 00:06:45,210
+Instance setting, change termination protection. 
+
+76
+00:06:45,990 --> 00:06:48,450
+And I will say disable this.
+
+77
+00:06:49,740 --> 00:06:52,920
+So I can safely terminate this instance.
+
+78
+00:06:54,500 --> 00:06:56,180
+Make sure you selected the right instance.
+
+79
+00:06:57,590 --> 00:06:58,430
+And terminate.
+
+80
+00:07:04,480 --> 00:07:11,110
+So new instance that was created by the auto scaling group should be already in our target group automatically.
+
+81
+00:07:18,290 --> 00:07:20,430
+See, it's currently unhealthy.
+
+82
+00:07:23,540 --> 00:07:27,620
+So we wait for some time and it becomes healthy automatically.
+
+83
+00:07:28,950 --> 00:07:36,180
+It took time to bring up the application by Tomcat, so it was showing unhealthy for a few seconds and
+
+84
+00:07:36,180 --> 00:07:37,110
+now it's healthy.
+

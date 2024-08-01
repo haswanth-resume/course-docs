@@ -1,0 +1,1120 @@
+1
+00:00:03,090 --> 00:00:07,680
+Now we will launch easy two instances with user data.
+
+2
+00:00:07,710 --> 00:00:11,130
+We'll have some batch script to provision our services.
+
+3
+00:00:11,880 --> 00:00:14,850
+So let's go to EC2 instances.
+
+4
+00:00:15,300 --> 00:00:16,620
+Instance section.
+
+5
+00:00:18,160 --> 00:00:24,520
+Let's foresee the user user data script that we'll be using for provisioning our EC two instances.
+
+6
+00:00:25,470 --> 00:00:29,640
+User data script is in our source code, so you can clone the source code.
+
+7
+00:00:29,670 --> 00:00:32,220
+If you already have it, you can just do get pull.
+
+8
+00:00:44,130 --> 00:00:44,370
+Okay.
+
+9
+00:00:44,400 --> 00:00:58,620
+Let's get into a repository and we are going to shift to a branch named S hyphen lift and shift shift.
+
+10
+00:01:00,400 --> 00:01:02,100
+Okay, let's clear the screen.
+
+11
+00:01:06,940 --> 00:01:14,290
+You have a user data directory over here and you will see some bunch of shell scripts.
+
+12
+00:01:15,100 --> 00:01:20,530
+These are the same shell scripts that we used in our previous project when we provision our instances
+
+13
+00:01:20,530 --> 00:01:21,430
+with Vagrant.
+
+14
+00:01:22,210 --> 00:01:30,040
+So first we'll provision our backend services, rabbit, MQ, Mem cache and MySQL.
+
+15
+00:01:30,760 --> 00:01:34,120
+Let's see these scripts through our sublime text editor.
+
+16
+00:01:48,680 --> 00:01:50,540
+So force will provision my SQL.
+
+17
+00:01:50,540 --> 00:01:53,330
+So it's the same script that we used in previous project.
+
+18
+00:01:54,100 --> 00:01:59,320
+We are installing dependencies and my web server.
+
+19
+00:02:01,020 --> 00:02:03,840
+But my SQL will be running on CentOS seven instance.
+
+20
+00:02:03,840 --> 00:02:06,930
+So we're installing my my DB hyphen server package.
+
+21
+00:02:07,170 --> 00:02:13,440
+We start n enable it, we clone the source code and then we initialize our database.
+
+22
+00:02:15,460 --> 00:02:21,520
+We do some security changes and we create database named accounts.
+
+23
+00:02:22,030 --> 00:02:26,350
+We create a user admin with password admin.
+
+24
+00:02:26,350 --> 00:02:26,970
+One, two, three.
+
+25
+00:02:26,980 --> 00:02:31,810
+You can change the password if you want, but then make sure you make changes to application properties
+
+26
+00:02:31,810 --> 00:02:32,410
+file.
+
+27
+00:02:34,550 --> 00:02:38,180
+And we of course initialize our database with schemas.
+
+28
+00:02:39,840 --> 00:02:45,330
+And then finally we restart my service and we take care of our firewall rule.
+
+29
+00:02:45,510 --> 00:02:51,540
+So we'll have firewalls, a two level one, the security group, the second and the operating system.
+
+30
+00:02:52,650 --> 00:02:58,470
+So let's provision a MySQL easy to instance with this user data script first.
+
+31
+00:02:59,750 --> 00:03:03,380
+Okay, so let's go to instances launch instance.
+
+32
+00:03:05,200 --> 00:03:06,790
+We will give a name.
+
+33
+00:03:08,180 --> 00:03:09,380
+We profile.
+
+34
+00:03:11,220 --> 00:03:13,740
+Hyphen db zero one will add one more tag.
+
+35
+00:03:14,430 --> 00:03:15,930
+We'll say add tag.
+
+36
+00:03:17,200 --> 00:03:18,280
+Project.
+
+37
+00:03:20,780 --> 00:03:21,830
+The profile.
+
+38
+00:03:23,020 --> 00:03:24,010
+Let's come down.
+
+39
+00:03:24,670 --> 00:03:27,460
+Now we need Center seven instance for this.
+
+40
+00:03:27,610 --> 00:03:32,860
+So we need to click on Browse more Amis and go to a marketplace.
+
+41
+00:03:36,960 --> 00:03:38,400
+Make sure you click on it.
+
+42
+00:03:38,670 --> 00:03:41,880
+Marketplace and Type CentOS seven.
+
+43
+00:03:44,360 --> 00:03:46,100
+Find your Amy Center seven.
+
+44
+00:03:46,100 --> 00:03:46,880
+That one.
+
+45
+00:03:47,090 --> 00:03:48,320
+Let's select that.
+
+46
+00:03:50,670 --> 00:03:52,350
+Let's click on continue here.
+
+47
+00:03:54,870 --> 00:03:59,610
+Okay, so am I selected instance type tw to micro should be fine for this one.
+
+48
+00:04:00,510 --> 00:04:04,830
+Let's select the key pair v profile prod key that we created earlier.
+
+49
+00:04:05,220 --> 00:04:07,380
+This will be used to log into our instance.
+
+50
+00:04:08,090 --> 00:04:13,940
+In network settings, select existing security group, and we will select the security group that we
+
+51
+00:04:13,940 --> 00:04:14,990
+already created.
+
+52
+00:04:15,410 --> 00:04:20,149
+The profile backend SG database goes in the back end security group.
+
+53
+00:04:23,010 --> 00:04:24,300
+Advance details.
+
+54
+00:04:24,970 --> 00:04:30,220
+Scroll down and we need to add the user data script here.
+
+55
+00:04:30,820 --> 00:04:32,830
+So let's get our user data script.
+
+56
+00:04:33,940 --> 00:04:35,750
+So I'm going to copy all this.
+
+57
+00:04:35,770 --> 00:04:37,810
+Make sure you select everything.
+
+58
+00:04:37,840 --> 00:04:40,090
+Do not miss the beginning.
+
+59
+00:04:41,970 --> 00:04:44,160
+And let's face it here.
+
+60
+00:04:45,700 --> 00:04:48,190
+And let's click on launch instance.
+
+61
+00:04:52,970 --> 00:04:54,110
+It is successfully launched.
+
+62
+00:04:54,140 --> 00:04:56,000
+Instance, let's click on the instance ID.
+
+63
+00:04:57,010 --> 00:04:58,300
+And that's our instance.
+
+64
+00:04:58,300 --> 00:04:59,710
+It is in pending state.
+
+65
+00:05:00,310 --> 00:05:03,400
+And even if it's in a running state, it is going to take some time.
+
+66
+00:05:04,470 --> 00:05:10,440
+To come stable because it will be executing the user data script, which will kick in in a few seconds.
+
+67
+00:05:10,440 --> 00:05:13,740
+So after a few minutes I will try to log into this instance.
+
+68
+00:05:16,260 --> 00:05:18,120
+We need to go to the security group.
+
+69
+00:05:18,250 --> 00:05:20,490
+We're going to do SSH to this AC instance.
+
+70
+00:05:20,490 --> 00:05:21,810
+And we need to allow.
+
+71
+00:05:24,630 --> 00:05:26,190
+Port 22.
+
+72
+00:05:26,280 --> 00:05:28,140
+Or we can just select search from here.
+
+73
+00:05:28,140 --> 00:05:35,070
+Or we can just say for 22 from my IP so I can do a search to this instance, which is in the security
+
+74
+00:05:35,070 --> 00:05:35,610
+group.
+
+75
+00:05:39,380 --> 00:05:41,180
+So I'll take its public IP.
+
+76
+00:05:42,780 --> 00:05:44,580
+I will open my kid bash.
+
+77
+00:05:46,140 --> 00:05:50,130
+I have the key downloaded in the downloads directory.
+
+78
+00:05:55,200 --> 00:05:59,490
+And we have the user center's center seven instance.
+
+79
+00:06:00,120 --> 00:06:01,470
+Get the IP address.
+
+80
+00:06:02,760 --> 00:06:03,510
+Log in.
+
+81
+00:06:05,480 --> 00:06:08,720
+And we are in that's login is the root user.
+
+82
+00:06:09,380 --> 00:06:10,700
+Let's clear the screen.
+
+83
+00:06:12,390 --> 00:06:16,370
+If you want to see user data from here, you can do cool.
+
+84
+00:06:18,450 --> 00:06:20,580
+And you can use this URL.
+
+85
+00:06:25,840 --> 00:06:28,060
+So it will show you the user data script.
+
+86
+00:06:32,090 --> 00:06:34,910
+Let's check if it has provisioned.
+
+87
+00:06:35,750 --> 00:06:37,520
+Over my SQL Service system.
+
+88
+00:06:37,520 --> 00:06:42,830
+CTL Status Manager DB.
+
+89
+00:06:48,550 --> 00:06:50,860
+The service is still not up and running.
+
+90
+00:06:51,490 --> 00:06:55,330
+It could be because it's already provisioning the services.
+
+91
+00:06:55,330 --> 00:06:57,220
+It's already executing our commands.
+
+92
+00:06:58,740 --> 00:07:00,330
+Let's check the process.
+
+93
+00:07:02,530 --> 00:07:06,940
+And if you see the process, which is installing my server now.
+
+94
+00:07:06,940 --> 00:07:08,350
+So it's going to take a minute.
+
+95
+00:07:08,350 --> 00:07:10,870
+Let's pause the video for some time.
+
+96
+00:07:12,060 --> 00:07:14,700
+Okay, So after waiting five, 10 minutes more.
+
+97
+00:07:15,720 --> 00:07:17,400
+Let's check.
+
+98
+00:07:18,120 --> 00:07:20,070
+Let's log in now.
+
+99
+00:07:20,070 --> 00:07:21,900
+Let's check the service, first of all.
+
+100
+00:07:23,360 --> 00:07:25,490
+System serial status.
+
+101
+00:07:25,490 --> 00:07:29,330
+Maria DB And the service is active.
+
+102
+00:07:29,360 --> 00:07:34,910
+Let's log into the DB, my SQL hyphen, u root and the password.
+
+103
+00:07:38,940 --> 00:07:39,420
+Okay.
+
+104
+00:07:40,050 --> 00:07:42,180
+Let's check the databases.
+
+105
+00:07:42,180 --> 00:07:43,770
+The database is created.
+
+106
+00:07:44,550 --> 00:07:46,530
+This accounts database we have.
+
+107
+00:07:47,640 --> 00:07:49,050
+Let's use it.
+
+108
+00:07:49,850 --> 00:07:50,430
+Sort.
+
+109
+00:07:50,460 --> 00:07:51,380
+Use it.
+
+110
+00:07:51,930 --> 00:07:53,310
+Use accounts.
+
+111
+00:07:54,510 --> 00:07:56,040
+Show tables.
+
+112
+00:07:57,330 --> 00:07:58,470
+All right, This is good.
+
+113
+00:07:58,680 --> 00:08:00,090
+Let's exit from here.
+
+114
+00:08:02,260 --> 00:08:07,000
+So we have successfully provisioned our MySQL easy to instance with user data.
+
+115
+00:08:07,570 --> 00:08:11,290
+Now it's time to provision our other backend services.
+
+116
+00:08:12,990 --> 00:08:14,910
+Next will provision mem cache.
+
+117
+00:08:16,550 --> 00:08:17,180
+Jim, Come on.
+
+118
+00:08:17,210 --> 00:08:19,940
+So we'll be using Center seven easy instance.
+
+119
+00:08:21,530 --> 00:08:23,510
+So let's launch an instance.
+
+120
+00:08:25,870 --> 00:08:29,620
+Name tag v Profile hyphen MK zero one.
+
+121
+00:08:30,860 --> 00:08:31,850
+Additional tag.
+
+122
+00:08:31,880 --> 00:08:34,970
+Same project we profile.
+
+123
+00:08:35,929 --> 00:08:39,200
+Let's go to Marketplace.
+
+124
+00:08:41,130 --> 00:08:43,919
+And find CentOS seven.
+
+125
+00:08:48,730 --> 00:08:50,230
+Center seven select.
+
+126
+00:08:51,490 --> 00:08:52,270
+Continue.
+
+127
+00:08:54,610 --> 00:08:59,200
+Instance type again to micro is fine using the login key.
+
+128
+00:09:00,490 --> 00:09:01,930
+We profile Iraqi.
+
+129
+00:09:02,980 --> 00:09:06,370
+Network settings Select existing Security group.
+
+130
+00:09:09,100 --> 00:09:13,600
+We profile backend security group member cash also goes in back and security group.
+
+131
+00:09:15,180 --> 00:09:16,410
+Advance details.
+
+132
+00:09:16,980 --> 00:09:18,030
+Scroll down.
+
+133
+00:09:18,600 --> 00:09:19,680
+User Data.
+
+134
+00:09:21,170 --> 00:09:23,660
+Let's take our user data script.
+
+135
+00:09:25,020 --> 00:09:26,640
+And be stood here.
+
+136
+00:09:27,580 --> 00:09:29,770
+And launch instance.
+
+137
+00:09:32,910 --> 00:09:34,380
+Click on the instance ID.
+
+138
+00:09:35,650 --> 00:09:36,690
+It's in pending state.
+
+139
+00:09:36,700 --> 00:09:38,380
+It's going to come up in some time.
+
+140
+00:09:38,950 --> 00:09:39,190
+Okay.
+
+141
+00:09:39,190 --> 00:09:45,010
+Now, instead of waiting for this instance to be provisioned completely, we will also provision Robert.
+
+142
+00:09:45,160 --> 00:09:47,860
+Q And then we'll verify both.
+
+143
+00:09:48,730 --> 00:09:52,300
+So let's check the user data for Rabbit MQ.
+
+144
+00:09:56,760 --> 00:09:59,700
+Which is again installing dependency.
+
+145
+00:10:00,300 --> 00:10:08,240
+Downloading rabbit MQ rpm, downloading its key, installing rabbit MQ rpm start and enable rabbit MQ
+
+146
+00:10:08,250 --> 00:10:09,000
+service.
+
+147
+00:10:09,880 --> 00:10:11,880
+Make some configuration change.
+
+148
+00:10:11,890 --> 00:10:19,930
+Add rabbit MQ user called test with passport test and set it administrator tag and then finally restart
+
+149
+00:10:19,930 --> 00:10:21,310
+rapid MQ service.
+
+150
+00:10:23,270 --> 00:10:25,430
+Okay, so let's go to console.
+
+151
+00:10:26,550 --> 00:10:28,020
+Launch instances.
+
+152
+00:10:30,840 --> 00:10:37,140
+See, we think tag we profile hyphen or q01 additional tag project.
+
+153
+00:10:38,320 --> 00:10:39,400
+We profile.
+
+154
+00:10:40,520 --> 00:10:42,040
+Let's find the center seven.
+
+155
+00:10:42,050 --> 00:10:42,770
+EMI.
+
+156
+00:10:44,650 --> 00:10:45,700
+Marketplace.
+
+157
+00:10:49,280 --> 00:10:50,450
+Center seven.
+
+158
+00:10:53,100 --> 00:10:53,910
+Select.
+
+159
+00:10:55,490 --> 00:10:56,360
+Continue.
+
+160
+00:10:59,210 --> 00:11:02,810
+Instance type once again t to micro key pair.
+
+161
+00:11:02,810 --> 00:11:05,150
+Same key V profile prod key.
+
+162
+00:11:06,230 --> 00:11:11,780
+Select existing security group and rabbit MQ also goes in the back end security group.
+
+163
+00:11:15,770 --> 00:11:17,180
+Advance details.
+
+164
+00:11:17,690 --> 00:11:18,860
+Scroll down.
+
+165
+00:11:19,890 --> 00:11:22,050
+And let's get our rabbit Q script.
+
+166
+00:11:26,810 --> 00:11:28,430
+And pasted there.
+
+167
+00:11:30,140 --> 00:11:31,250
+Launch instance.
+
+168
+00:11:34,880 --> 00:11:37,130
+Let's click on View All instances.
+
+169
+00:11:38,130 --> 00:11:40,620
+You need to sometime refresh this page.
+
+170
+00:11:41,100 --> 00:11:42,570
+Click on this refresh button.
+
+171
+00:11:43,500 --> 00:11:48,360
+Now, we'll wait for some time and I'm going to pause my screen and come back when the provisioning
+
+172
+00:11:48,360 --> 00:11:49,440
+is completed.
+
+173
+00:11:51,180 --> 00:11:56,820
+I am back from my coffee break and now I will validate these two instances.
+
+174
+00:11:58,280 --> 00:12:00,410
+So let's access Metcash first.
+
+175
+00:12:22,640 --> 00:12:23,510
+We are in.
+
+176
+00:12:24,170 --> 00:12:25,580
+Let's become the route user.
+
+177
+00:12:27,330 --> 00:12:29,250
+Let's validate the user data.
+
+178
+00:12:32,970 --> 00:12:35,720
+So cash service should be up and running.
+
+179
+00:12:35,730 --> 00:12:38,760
+Let's validate that cash to.
+
+180
+00:12:40,140 --> 00:12:41,310
+And it's running.
+
+181
+00:12:50,920 --> 00:12:53,320
+It's also check if it's running on right board.
+
+182
+00:13:02,750 --> 00:13:03,770
+This is good.
+
+183
+00:13:04,220 --> 00:13:06,350
+Let's exit from here.
+
+184
+00:13:15,740 --> 00:13:17,660
+Let's also check rabbit MQ.
+
+185
+00:13:39,580 --> 00:13:40,260
+We are in.
+
+186
+00:13:40,270 --> 00:13:42,580
+Let's check the user data script.
+
+187
+00:13:48,620 --> 00:13:51,020
+Let's see the status of rabbit MQ server.
+
+188
+00:13:52,270 --> 00:13:53,740
+And it's up and running.
+
+189
+00:13:54,720 --> 00:13:58,200
+So our back and stack is up and running.
+
+190
+00:13:58,950 --> 00:14:01,470
+Rabbit MQ mem cache and database.
+
+191
+00:14:02,280 --> 00:14:10,170
+The next thing is we will update private IP of these three instances in Route 53 private DNS zones.
+
+192
+00:14:11,150 --> 00:14:13,490
+Let's narrow down their IP addresses.
+
+193
+00:14:13,520 --> 00:14:15,830
+Let's copy DB zero one private IP.
+
+194
+00:14:27,630 --> 00:14:28,560
+Mukesh Cash.
+
+195
+00:14:37,000 --> 00:14:38,020
+Robert MQ.
+
+196
+00:14:45,750 --> 00:14:46,120
+Okay.
+
+197
+00:14:46,140 --> 00:14:52,110
+Now let's go to Route 53, service, Route 53.
+
+198
+00:14:57,880 --> 00:15:00,580
+And here we create a hosted zone.
+
+199
+00:15:05,170 --> 00:15:06,670
+This will be private.
+
+200
+00:15:07,580 --> 00:15:09,500
+So we can give any domain name.
+
+201
+00:15:09,770 --> 00:15:12,770
+Let's give a V profile dot in.
+
+202
+00:15:14,910 --> 00:15:16,380
+Let's give some description.
+
+203
+00:15:35,070 --> 00:15:36,660
+Let's select the region.
+
+204
+00:15:39,930 --> 00:15:41,460
+North Virginia.
+
+205
+00:15:46,040 --> 00:15:48,590
+Their US East one.
+
+206
+00:15:50,720 --> 00:15:52,910
+Select the default VPC.
+
+207
+00:15:54,050 --> 00:15:55,970
+And see create holstered zone.
+
+208
+00:15:58,040 --> 00:16:00,290
+So Hostess zone is created.
+
+209
+00:16:00,320 --> 00:16:02,390
+Let's create records now.
+
+210
+00:16:03,630 --> 00:16:04,710
+Create record.
+
+211
+00:16:05,690 --> 00:16:06,890
+Simple routing.
+
+212
+00:16:08,830 --> 00:16:09,610
+Next.
+
+213
+00:16:11,030 --> 00:16:12,650
+Define simple record.
+
+214
+00:16:14,780 --> 00:16:15,770
+So forced.
+
+215
+00:16:17,050 --> 00:16:18,430
+DB zero one.
+
+216
+00:16:19,640 --> 00:16:20,270
+Point.
+
+217
+00:16:21,060 --> 00:16:22,380
+An IP address.
+
+218
+00:16:23,400 --> 00:16:25,410
+And let's give the IP address.
+
+219
+00:16:33,620 --> 00:16:34,550
+Define.
+
+220
+00:16:35,850 --> 00:16:36,870
+One more.
+
+221
+00:16:40,570 --> 00:16:42,670
+Endpoint will be an IP address again.
+
+222
+00:16:52,560 --> 00:16:54,180
+Define simple record.
+
+223
+00:16:57,750 --> 00:16:58,740
+Robert McHugh.
+
+224
+00:17:14,500 --> 00:17:17,740
+So we defined the record, let's say create records now.
+
+225
+00:17:20,970 --> 00:17:24,420
+So it's a simple area code name to IP mapping.
+
+226
+00:17:25,960 --> 00:17:28,180
+Which will be used by our Tomcat.
+
+227
+00:17:28,210 --> 00:17:34,660
+AC For instance, in our application properties file, we will mention these names rather than mentioning
+
+228
+00:17:34,660 --> 00:17:35,920
+IP addresses.
+
+229
+00:17:37,110 --> 00:17:41,940
+So even if we replace the backend servers and we we give the same name.
+
+230
+00:17:43,770 --> 00:17:47,220
+Then we really don't need to make any change in our application server.
+
+231
+00:17:49,010 --> 00:17:50,690
+Okay, let's launch.
+
+232
+00:17:52,390 --> 00:17:52,570
+What?
+
+233
+00:17:52,570 --> 00:17:54,280
+Don't get easy to instance now.
+
+234
+00:18:00,590 --> 00:18:02,990
+So user data script we have.
+
+235
+00:18:03,900 --> 00:18:06,270
+This one which is for centaurus.
+
+236
+00:18:06,270 --> 00:18:13,950
+And we also have tomcat underscore ubuntu dot search, which is very very simple because in open repository
+
+237
+00:18:13,950 --> 00:18:18,480
+we can directly install tomcat eight by using apt installed tomcat eight.
+
+238
+00:18:20,060 --> 00:18:25,850
+And anyways, we are building the source code locally in our laptop and then we're going to push the
+
+239
+00:18:25,850 --> 00:18:29,780
+artifact to the Tomcat instance through S3 bucket.
+
+240
+00:18:30,350 --> 00:18:35,240
+So this is a much simpler approach and we will use 1 to 18 I for that.
+
+241
+00:18:37,770 --> 00:18:38,430
+Let's see.
+
+242
+00:18:38,580 --> 00:18:39,690
+Launch instance.
+
+243
+00:18:41,340 --> 00:18:44,890
+Dag we profile hyphen app.
+
+244
+00:18:44,910 --> 00:18:45,900
+Zero one.
+
+245
+00:18:46,710 --> 00:18:47,790
+Additional tag.
+
+246
+00:18:49,740 --> 00:18:55,110
+Project we profile and we will need ubuntu 18 for this one.
+
+247
+00:18:55,110 --> 00:18:56,830
+Ubuntu 18 I say.
+
+248
+00:18:56,850 --> 00:18:58,560
+So let's click on ubuntu here.
+
+249
+00:18:59,270 --> 00:19:02,120
+And we'll go for open to.
+
+250
+00:19:04,030 --> 00:19:04,600
+18.
+
+251
+00:19:05,790 --> 00:19:09,870
+Now, as per a user data script, we are using Tomcat eight.
+
+252
+00:19:11,250 --> 00:19:19,930
+If you go for open to 18, open to 20 or higher, then you need to install Tomcat nine so you can switch
+
+253
+00:19:19,930 --> 00:19:22,140
+it to Tomcat nine or better.
+
+254
+00:19:22,140 --> 00:19:26,070
+Just keep open to 18 and use the same user data script.
+
+255
+00:19:26,670 --> 00:19:29,340
+So once again, Tomcat 801 to 18.
+
+256
+00:19:30,390 --> 00:19:30,770
+Okay.
+
+257
+00:19:31,350 --> 00:19:32,460
+One moment.
+
+258
+00:19:34,470 --> 00:19:35,920
+I selected the wrong army.
+
+259
+00:19:35,940 --> 00:19:37,010
+I have to go with this one.
+
+260
+00:19:37,020 --> 00:19:38,460
+Open to server 18.
+
+261
+00:19:38,460 --> 00:19:43,830
+Not the deep learning open to server 18 SSD volume type.
+
+262
+00:19:44,490 --> 00:19:48,630
+Let's come down to to micro will keep it login key same.
+
+263
+00:19:50,890 --> 00:19:52,120
+Security group.
+
+264
+00:19:52,150 --> 00:19:55,660
+Now, this is not going to go in back end.
+
+265
+00:19:55,660 --> 00:19:58,810
+This will be in V Profile App Security Group.
+
+266
+00:19:59,820 --> 00:20:03,510
+And this allows port 88 from the load balancer.
+
+267
+00:20:03,990 --> 00:20:06,540
+So this will be connected to the load balancer.
+
+268
+00:20:07,630 --> 00:20:08,980
+Advance details.
+
+269
+00:20:10,520 --> 00:20:11,530
+Let's come down.
+
+270
+00:20:12,070 --> 00:20:13,270
+Let's get our script.
+
+271
+00:20:16,410 --> 00:20:19,470
+We stood there and say, Launch instance.
+
+272
+00:20:22,420 --> 00:20:25,120
+Click on View all instances.
+
+273
+00:20:25,880 --> 00:20:27,470
+And refresh this.
+
+274
+00:20:29,780 --> 00:20:30,980
+So this is in pending state.
+
+275
+00:20:30,980 --> 00:20:35,570
+It will come in running state and then it will provisional script.
+
+276
+00:20:36,110 --> 00:20:37,700
+So that is all in this video.
+
+277
+00:20:37,700 --> 00:20:45,200
+In the next video, we will see how to build the artifact on our laptop and deploy it to the Tomcat
+
+278
+00:20:45,200 --> 00:20:45,750
+server.
+
+279
+00:20:45,770 --> 00:20:46,820
+We have zero one.
+
+280
+00:20:48,120 --> 00:20:52,310
+So launch all these instances, wait for a few minutes and join me in the next lecture.
+

@@ -1,0 +1,116 @@
+1
+00:00:00,500 --> 00:00:02,330
+Let's again do the validation.
+
+2
+00:00:04,560 --> 00:00:05,730
+https://vprofileapp.groophy.in
+
+3
+00:00:07,620 --> 00:00:14,640
+https://vprofileapp.groophy.in
+
+4
+00:00:18,580 --> 00:00:25,570
+And that's working. If you have come this far, then really good job, so you now as a user.
+
+5
+00:00:27,850 --> 00:00:34,450
+Access your app through a URL that points to the load balancer endpoint with https connection,
+
+6
+00:00:34,600 --> 00:00:41,410
+you access your application load balancer endpoint the certificate is in ACM, Amazon certificate manager
+
+7
+00:00:41,650 --> 00:00:47,650
+application load balancer is in a security group that allows only 443 https traffic
+
+8
+00:00:48,630 --> 00:00:55,110
+Which then forwards the request to Tomcat ec2 instance on port 8080, which is in another Security Group.
+
+9
+00:00:56,250 --> 00:01:00,330
+For the backends servers that had access with name.
+
+10
+00:01:01,850 --> 00:01:08,210
+It's private IP mapping is given in the private dns zone, our backend servers are in one security
+
+11
+00:01:08,210 --> 00:01:11,780
+group, Memcache, Rabbitt MQ and MySQL.
+
+12
+00:01:15,740 --> 00:01:22,070
+And now, whenever we want, we can upload a new artifact to S3 bucket and download it to our target
+
+13
+00:01:22,430 --> 00:01:23,180
+instances.
+
+14
+00:01:24,230 --> 00:01:30,090
+Now, that's not such an efficient way of deploying artifact, the right way of deploying artifact.
+
+15
+00:01:30,200 --> 00:01:37,390
+We going to learn in CICD projects, which will be completely automated. If you wish to create auto
+
+16
+00:01:37,430 --> 00:01:38,950
+scaling group for memcache.
+
+17
+00:01:38,960 --> 00:01:40,370
+Robert MQ, database.
+
+18
+00:01:41,430 --> 00:01:43,770
+You can do that, it's very easy to do.
+
+19
+00:01:45,380 --> 00:01:49,400
+You can just select your instance action, instance setting.
+
+20
+00:01:50,310 --> 00:01:52,290
+Attached to auto scaling group.
+
+21
+00:01:53,330 --> 00:02:00,290
+And you can give a new auto scaling group name over here, but there are really better ways to do these
+
+22
+00:02:00,290 --> 00:02:06,500
+things in AWS. Instead of using auto scaling group and ec2o instances, we can use some PASS &
+
+23
+00:02:06,500 --> 00:02:10,039
+SAAS services, which we are going to see in the next project.
+
+24
+00:02:10,460 --> 00:02:17,300
+We are going to refactor our application stack so from ec2o instances from virtual machines will
+
+25
+00:02:17,300 --> 00:02:20,960
+start migrating to AWS managed services.
+
+26
+00:02:22,290 --> 00:02:25,170
+And that is all in this project.
+
+27
+00:02:25,770 --> 00:02:26,890
+Thank you for watching.
+
+28
+00:02:26,940 --> 00:02:28,670
+I will see you in the next project.
+
+29
+00:02:29,460 --> 00:02:30,600
+Keep practicing.
+
