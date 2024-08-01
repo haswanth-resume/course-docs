@@ -1,0 +1,212 @@
+1
+00:00:01,410 --> 00:00:06,030
+Now we'll launch an easy to instance, install Ansible in that and fetch this code and execute.
+
+2
+00:00:07,520 --> 00:00:09,710
+So let's launch instance again.
+
+3
+00:00:09,710 --> 00:00:11,120
+I'm in Ohio region.
+
+4
+00:00:12,460 --> 00:00:15,190
+And I'll go with Open to 20.
+
+5
+00:00:17,090 --> 00:00:18,650
+D2 Micro should be fine.
+
+6
+00:00:19,990 --> 00:00:21,880
+And let's provision it with Ansible.
+
+7
+00:00:35,290 --> 00:00:38,350
+But also where to install will install it after it comes up.
+
+8
+00:00:43,870 --> 00:00:44,530
+Mm.
+
+9
+00:00:44,530 --> 00:00:45,400
+Controller.
+
+10
+00:00:48,020 --> 00:00:50,030
+I'm going to select the same security group.
+
+11
+00:00:51,200 --> 00:00:51,440
+Now.
+
+12
+00:00:51,450 --> 00:00:52,430
+I already have.
+
+13
+00:00:54,880 --> 00:00:56,350
+And the same login key.
+
+14
+00:01:03,590 --> 00:01:05,269
+Instance, is running.
+
+15
+00:01:05,600 --> 00:01:07,340
+I will update the security group.
+
+16
+00:01:08,670 --> 00:01:12,330
+To allow connection from my IP if it changed.
+
+17
+00:01:12,450 --> 00:01:13,470
+Yes, it changed.
+
+18
+00:01:17,280 --> 00:01:19,320
+And let's log into this instance.
+
+19
+00:01:41,540 --> 00:01:42,620
+Instance is up.
+
+20
+00:01:44,260 --> 00:01:45,010
+We logged in.
+
+21
+00:01:45,010 --> 00:01:46,930
+Let's check the Ansible version.
+
+22
+00:01:51,290 --> 00:01:51,860
+To be good.
+
+23
+00:01:52,760 --> 00:01:59,900
+Now, other two things we're going to install bottle and we're going to also attach item policy so this
+
+24
+00:01:59,900 --> 00:02:02,300
+instance can access ADA services.
+
+25
+00:02:03,440 --> 00:02:08,750
+So we'll install python three, hyphen bottle, three python three hyphen bottle code, which anyways
+
+26
+00:02:08,750 --> 00:02:12,380
+gets installed as a dependency, then python three hyphen bottle.
+
+27
+00:02:13,070 --> 00:02:13,880
+Let's install.
+
+28
+00:02:17,860 --> 00:02:18,820
+Okay, that's done.
+
+29
+00:02:19,390 --> 00:02:21,310
+Let's attach an item roll.
+
+30
+00:02:22,400 --> 00:02:26,270
+If you don't have it all, if you delete it, then recreate the IM role.
+
+31
+00:02:28,840 --> 00:02:30,730
+Which has full access.
+
+32
+00:02:31,900 --> 00:02:33,970
+To all the services.
+
+33
+00:02:34,270 --> 00:02:35,020
+Let's attach that.
+
+34
+00:02:35,020 --> 00:02:37,000
+I am role to our instance.
+
+35
+00:02:41,380 --> 00:02:43,630
+Now let's fetch our source code.
+
+36
+00:02:46,210 --> 00:02:50,290
+Get clone and let's get the repository URL.
+
+37
+00:02:53,600 --> 00:02:56,660
+So you should have also the repository that you created.
+
+38
+00:02:56,810 --> 00:03:01,970
+In previous projects you can use that or either you can use our project repository there.
+
+39
+00:03:01,970 --> 00:03:03,530
+Also, we have all this.
+
+40
+00:03:03,560 --> 00:03:08,810
+If you have not created a repository, then whatever code that you have written in the previous project,
+
+41
+00:03:08,810 --> 00:03:11,150
+you can just copy to the control machine.
+
+42
+00:03:11,150 --> 00:03:12,230
+You can use CB.
+
+43
+00:03:16,220 --> 00:03:18,620
+Let's get into the repository.
+
+44
+00:03:21,730 --> 00:03:23,890
+And we'll see the branch.
+
+45
+00:03:25,610 --> 00:03:28,390
+So we just created a branch that we will check out to that branch.
+
+46
+00:03:28,400 --> 00:03:32,510
+Kid, Check out the profile stack.
+
+47
+00:03:36,800 --> 00:03:36,870
+Right.
+
+48
+00:03:36,930 --> 00:03:43,050
+So we have Sitewide playbook that is going to in turn call VPC, set up Playbook and Bastion instance,
+
+49
+00:03:43,050 --> 00:03:43,980
+set up playbook.
+
+50
+00:03:44,010 --> 00:03:46,590
+It will need variables from the vast directory.
+
+51
+00:03:47,280 --> 00:03:52,310
+So we have the variables and this output vars.
+
+52
+00:03:52,520 --> 00:03:54,210
+If you want we can delete.
+
+53
+00:03:55,200 --> 00:04:01,320
+It will be no new file now to generate a new file anyways, if the file exists, can override that file.
+

@@ -1,0 +1,296 @@
+1
+00:00:00,850 --> 00:00:01,359
+Next thing.
+
+2
+00:00:01,359 --> 00:00:03,160
+What I'm going to do is.
+
+3
+00:00:03,890 --> 00:00:04,880
+The IP addresses.
+
+4
+00:00:04,880 --> 00:00:10,190
+Of all the instances that we created, the private IP, we are going to store it into a file.
+
+5
+00:00:11,210 --> 00:00:16,910
+So this task blocking file model we are using, we are going to create a file.
+
+6
+00:00:17,730 --> 00:00:19,470
+This will be our next execution.
+
+7
+00:00:19,470 --> 00:00:24,960
+For that, we are preparing variables already and we're going to create a directory provision at HYPHEN
+
+8
+00:00:24,960 --> 00:00:32,460
+Stack Group underscore virus inside data file host IP where we'll have IP address of all the instances.
+
+9
+00:00:32,460 --> 00:00:37,830
+The private IP is also we need to create these directories, so let's do that.
+
+10
+00:00:45,920 --> 00:00:50,240
+So we created provision hyphens tag inside that group underscore vars.
+
+11
+00:00:50,510 --> 00:00:56,780
+Next task we are going to copy our key that we created for our instances to this directory.
+
+12
+00:00:58,710 --> 00:01:00,810
+Provision Stack will copy it over there.
+
+13
+00:01:01,170 --> 00:01:06,390
+In this victory, you're going to write all the playbook to provision our services engine X, Tomcat,
+
+14
+00:01:06,390 --> 00:01:09,570
+rabbit, MQ, mem, cache, MySQL, all the services we're going to provision.
+
+15
+00:01:09,570 --> 00:01:12,090
+And for that we're going to write Playbook in this directory.
+
+16
+00:01:12,600 --> 00:01:15,300
+Next task is to prepare our inventory file.
+
+17
+00:01:16,530 --> 00:01:18,650
+So we're going to use block in file module.
+
+18
+00:01:18,660 --> 00:01:23,400
+We're going to prepare inventory file again, provision hyphen stack directory with the name inventory
+
+19
+00:01:23,430 --> 00:01:24,420
+hyphen vibro.
+
+20
+00:01:25,430 --> 00:01:28,040
+The BLOCK will be the name of the host.
+
+21
+00:01:28,040 --> 00:01:35,420
+Web 0101 RFC 0101 DB zero and Control Machine, which is really the local IP.
+
+22
+00:01:36,140 --> 00:01:40,520
+So ansible underscored host equal to the private IP.
+
+23
+00:01:40,760 --> 00:01:47,510
+So like that we prepare the host entry and then we're preparing also groups web server group app server
+
+24
+00:01:47,510 --> 00:01:48,020
+group.
+
+25
+00:01:50,710 --> 00:01:54,220
+DB server group, all these groups and also for the control machine.
+
+26
+00:01:54,820 --> 00:02:00,160
+Also, we are preparing a patent group and all these groups will be the child group.
+
+27
+00:02:01,210 --> 00:02:02,920
+Of course the username and password.
+
+28
+00:02:02,920 --> 00:02:09,280
+So stack underscore instance the parent group colon vars and we give the ansible underscore user one
+
+29
+00:02:09,280 --> 00:02:11,710
+two and the private login key.
+
+30
+00:02:12,130 --> 00:02:17,500
+And that's how we can automatically prepare our inventory file as we provision the instance.
+
+31
+00:02:17,830 --> 00:02:22,870
+So we get the IP address also automatically from this variables.
+
+32
+00:02:23,660 --> 00:02:27,920
+So we don't have to create inventory file manually for our next phase.
+
+33
+00:02:29,110 --> 00:02:35,020
+I'm going to save this file now and I'm going to update one more thing in VPC set up playbook.
+
+34
+00:02:36,930 --> 00:02:39,270
+Where we create these variables files automatically.
+
+35
+00:02:39,270 --> 00:02:41,520
+I also want to put the region over there.
+
+36
+00:02:44,070 --> 00:02:49,350
+So this variable file will also have the region variable automatically when you execute this VPC setup
+
+37
+00:02:49,350 --> 00:02:50,040
+playbook.
+
+38
+00:02:50,460 --> 00:02:55,170
+So we then don't have to manually mention our variables.
+
+39
+00:02:55,980 --> 00:03:01,920
+Mention the region into this file because this file gets updated every time you execute the VPC setup
+
+40
+00:03:01,920 --> 00:03:02,510
+playbook.
+
+41
+00:03:02,520 --> 00:03:06,150
+So it will overwrite if you don't have the region if you manually mentioned it.
+
+42
+00:03:06,600 --> 00:03:11,580
+All right, then it's time to do the rest of the things and finish our second phase.
+
+43
+00:03:12,060 --> 00:03:13,260
+So let's commit.
+
+44
+00:03:23,930 --> 00:03:24,820
+The changes are pushed.
+
+45
+00:03:24,830 --> 00:03:26,720
+Let's fetch our file.
+
+46
+00:03:26,720 --> 00:03:27,410
+Let's log in.
+
+47
+00:03:27,410 --> 00:03:28,550
+We got logged out.
+
+48
+00:03:39,020 --> 00:03:40,100
+Okay, It's done.
+
+49
+00:03:40,790 --> 00:03:42,320
+Now let's do the execution.
+
+50
+00:03:49,180 --> 00:03:49,540
+CS.
+
+51
+00:03:49,540 --> 00:03:51,110
+This file does not exist.
+
+52
+00:03:51,130 --> 00:03:55,210
+We have created the directory but it is not going to keep track of the directory.
+
+53
+00:03:55,360 --> 00:03:58,120
+So we have to create some empty file in this.
+
+54
+00:04:06,050 --> 00:04:07,760
+And let's again commit it.
+
+55
+00:04:22,830 --> 00:04:23,160
+All right.
+
+56
+00:04:23,160 --> 00:04:27,810
+So the execution completed successfully, and we should have new files now.
+
+57
+00:04:28,530 --> 00:04:30,120
+We should see that file.
+
+58
+00:04:31,740 --> 00:04:32,820
+Host IP.
+
+59
+00:04:37,540 --> 00:04:38,380
+So there we go.
+
+60
+00:04:38,410 --> 00:04:41,980
+We have the private IP of all the instances in a variable format.
+
+61
+00:04:43,040 --> 00:04:45,980
+We should also have the login key copied.
+
+62
+00:04:47,090 --> 00:04:48,440
+Provision stack directory.
+
+63
+00:04:50,210 --> 00:04:54,980
+And also the inventory file, which is very, very important.
+
+64
+00:04:56,550 --> 00:05:01,170
+So the next playbook that we're going to write, we're going to use this groups, these hosts.
+
+65
+00:05:01,260 --> 00:05:07,710
+And we created the inventory file automatically by using a register to store the output and then use
+
+66
+00:05:07,710 --> 00:05:12,780
+the keys from that and get the IP address and also getting the ID.
+
+67
+00:05:16,260 --> 00:05:16,590
+All right.
+
+68
+00:05:16,590 --> 00:05:19,350
+So a second phase execution completed.
+
+69
+00:05:20,070 --> 00:05:21,750
+We'll verify everything once again.
+
+70
+00:05:21,750 --> 00:05:23,400
+We have all the instances.
+
+71
+00:05:25,790 --> 00:05:27,800
+We should also have a load balancer.
+
+72
+00:05:32,430 --> 00:05:34,080
+There's this instance, Web zero one.
+
+73
+00:05:34,470 --> 00:05:38,620
+It will be out of service because the Internet service is not yet running over there.
+
+74
+00:05:38,640 --> 00:05:40,740
+We're going to do that in the third phase.
+

@@ -1,0 +1,116 @@
+1
+00:00:01,190 --> 00:00:02,150
+After this.
+
+2
+00:00:02,150 --> 00:00:08,050
+Before we move to the third phase, we will copy all this valuable information to our repository.
+
+3
+00:00:08,060 --> 00:00:12,050
+So let's get ad dot, get commit.
+
+4
+00:00:14,460 --> 00:00:15,240
+If your name.
+
+5
+00:00:21,040 --> 00:00:22,210
+And we'll push it.
+
+6
+00:00:24,330 --> 00:00:26,100
+Don't forget to fetch it in your ID.
+
+7
+00:00:26,130 --> 00:00:27,270
+All the changes.
+
+8
+00:00:31,930 --> 00:00:37,960
+Okay, So you'll see the host types, the groupers, you have the host types, then you have inventory
+
+9
+00:00:37,960 --> 00:00:38,620
+file.
+
+10
+00:00:39,650 --> 00:00:44,840
+Again, keeping all this in a private repository, it will be much better and safe.
+
+11
+00:00:45,790 --> 00:00:51,370
+Now, before we go to the third phase, if you would like to delete your stack, you can go ahead.
+
+12
+00:00:51,370 --> 00:00:56,800
+You can delete all the instances if you want, and we can provision it later by using the same playbooks.
+
+13
+00:00:57,580 --> 00:01:02,320
+So you can delete all the instances, you can keep controller for a while and you can shut it down.
+
+14
+00:01:02,320 --> 00:01:04,510
+You can delete all the instances, terminate them.
+
+15
+00:01:04,540 --> 00:01:07,000
+Once that is done, you can go to VPC.
+
+16
+00:01:09,540 --> 00:01:12,970
+And you can delete your VPC will be very easy to delete your VPC.
+
+17
+00:01:12,990 --> 00:01:15,080
+But first you have to delete the Nat Gateway Force.
+
+18
+00:01:15,090 --> 00:01:16,140
+Delete the Nat Gateway.
+
+19
+00:01:16,170 --> 00:01:19,380
+Wait for some time once the status is deleted.
+
+20
+00:01:19,620 --> 00:01:21,240
+Release the elastic IP.
+
+21
+00:01:22,550 --> 00:01:23,960
+Can release the elastic IP.
+
+22
+00:01:23,990 --> 00:01:26,480
+Once that is done, you can just go to your VPC.
+
+23
+00:01:27,120 --> 00:01:30,960
+You select your VPC and you can say Delete VPC.
+
+24
+00:01:31,260 --> 00:01:36,420
+When you delete VPC, it will delete subnet, root table and everything that is associated with it,
+
+25
+00:01:36,450 --> 00:01:37,910
+not the NAT gateway.
+
+26
+00:01:37,920 --> 00:01:39,930
+So you have to delete the Nat Gateway first.
+
+27
+00:01:40,530 --> 00:01:47,340
+If you wish, you can clean all this and then you can continue in the third phase where you can run
+
+28
+00:01:47,340 --> 00:01:52,050
+the playbook, set up the stack once again and continue with the third face execution.
+
+29
+00:01:54,100 --> 00:01:56,560
+Okay, If you're done here, join me in the third phase.
+

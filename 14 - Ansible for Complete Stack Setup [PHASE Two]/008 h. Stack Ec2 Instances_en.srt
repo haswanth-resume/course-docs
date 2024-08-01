@@ -1,0 +1,636 @@
+1
+00:00:01,090 --> 00:00:02,560
+Okay, now, next thing.
+
+2
+00:00:03,730 --> 00:00:05,980
+Now we have security group, we have keeper.
+
+3
+00:00:06,010 --> 00:00:11,740
+Now it's time to launch a reset instance and also create load balancer for engine X instance.
+
+4
+00:00:13,500 --> 00:00:20,050
+Okay, so we'll create one engine X, one application, Tomcat, one mem cache one rabbit can one my
+
+5
+00:00:20,050 --> 00:00:20,710
+SQL.
+
+6
+00:00:21,100 --> 00:00:27,670
+If you want multiples, you can mention it multiple times and you can mention the other private subnet.
+
+7
+00:00:28,360 --> 00:00:32,200
+But to keep it low cost, we'll just launch one one single, single instance.
+
+8
+00:00:32,470 --> 00:00:34,440
+So again, same as the Bastion host.
+
+9
+00:00:34,450 --> 00:00:35,560
+Easy module.
+
+10
+00:00:35,590 --> 00:00:41,610
+The key that we have created region instance type data to micro image engine X underscore amika.
+
+11
+00:00:41,650 --> 00:00:43,120
+That is coming from our.
+
+12
+00:00:44,030 --> 00:00:46,310
+It's variables file, right.
+
+13
+00:00:46,400 --> 00:00:47,690
+And we are not so sure.
+
+14
+00:00:47,690 --> 00:00:49,940
+We may even need to update this image file.
+
+15
+00:00:51,170 --> 00:00:53,630
+We'll see that at the time of execution where it is.
+
+16
+00:00:53,630 --> 00:00:54,530
+Yes.
+
+17
+00:00:54,530 --> 00:00:54,890
+Wait.
+
+18
+00:00:54,890 --> 00:00:56,180
+Time of 300 seconds.
+
+19
+00:00:56,180 --> 00:00:57,470
+Instance tags.
+
+20
+00:00:57,650 --> 00:00:59,810
+So as many tags I give out here.
+
+21
+00:00:59,810 --> 00:01:00,310
+Exactly.
+
+22
+00:01:00,320 --> 00:01:04,040
+Same tag I'm going to give in count tags, exact count to one.
+
+23
+00:01:04,040 --> 00:01:07,490
+So it will not launch the instance again and again.
+
+24
+00:01:08,310 --> 00:01:13,010
+As I explained this in the previous project, when you execute the playbook, it will count whether
+
+25
+00:01:13,010 --> 00:01:14,540
+this tag exists or not.
+
+26
+00:01:14,840 --> 00:01:18,080
+One time, if it exist, it will not launch the instance.
+
+27
+00:01:18,080 --> 00:01:20,780
+If it does not exist, then only it will launch the instance.
+
+28
+00:01:21,050 --> 00:01:23,810
+That will make our task important.
+
+29
+00:01:24,770 --> 00:01:28,250
+Group ID We are going to put in the security group that we created.
+
+30
+00:01:31,300 --> 00:01:33,730
+Right there that we mentioning over here.
+
+31
+00:01:35,040 --> 00:01:38,310
+If they're restoring the output, we create the security group for V profile stack.
+
+32
+00:01:38,310 --> 00:01:43,620
+We store the output and then we're using it over here, VPC, subnet ID.
+
+33
+00:01:43,620 --> 00:01:47,130
+Now we're going to place it in our VPC private subnet.
+
+34
+00:01:47,790 --> 00:01:55,170
+So we mentioned the variable private sub one ID, and that is in our output file.
+
+35
+00:01:57,350 --> 00:02:02,810
+Yeah, we'll put all our instances in this subnet if you're launching multiple engine X or multiple
+
+36
+00:02:02,840 --> 00:02:03,470
+Tomcat.
+
+37
+00:02:03,500 --> 00:02:05,630
+Then you mention the other subnet ID.
+
+38
+00:02:07,410 --> 00:02:12,690
+So the high available architecture and we stored the output into this variable.
+
+39
+00:02:14,670 --> 00:02:17,790
+So it's good if you write all this code by yourself.
+
+40
+00:02:18,090 --> 00:02:25,800
+But even if you don't want to write, we have all this in our source code repository on GitHub in the
+
+41
+00:02:25,800 --> 00:02:26,550
+Ansible branch.
+
+42
+00:02:26,730 --> 00:02:31,050
+You can check that and you can use those playbooks also if you want, but I still recommend you write
+
+43
+00:02:31,050 --> 00:02:32,010
+all this task.
+
+44
+00:02:32,040 --> 00:02:35,190
+So you'll get issues, you'll get indentation error, you'll fix it.
+
+45
+00:02:36,260 --> 00:02:38,660
+So that's Engine X, Web zero one.
+
+46
+00:02:39,930 --> 00:02:44,940
+We're giving Tiger also as Web zero one similar way we'll launch other instances.
+
+47
+00:02:46,420 --> 00:02:47,320
+Tomcat.
+
+48
+00:02:49,380 --> 00:02:52,590
+Trading Tomcat app zero one Similar thing.
+
+49
+00:02:54,090 --> 00:02:55,950
+What changes is the tag name?
+
+50
+00:02:57,360 --> 00:02:59,460
+And subnet is also same.
+
+51
+00:03:00,340 --> 00:03:06,250
+So the only thing that changes is the tag name and the output where we're are registering this.
+
+52
+00:03:07,870 --> 00:03:08,360
+Can't, ma'am.
+
+53
+00:03:08,530 --> 00:03:09,250
+Cash.
+
+54
+00:03:12,230 --> 00:03:12,490
+Again.
+
+55
+00:03:12,590 --> 00:03:13,250
+Same thing.
+
+56
+00:03:13,250 --> 00:03:14,810
+Only the tag changes.
+
+57
+00:03:16,490 --> 00:03:20,540
+Of course, the Army variable is also changing, but you know, the value is same.
+
+58
+00:03:22,820 --> 00:03:23,930
+Store the output.
+
+59
+00:03:25,850 --> 00:03:27,950
+Ten rabbit MQ.
+
+60
+00:03:31,920 --> 00:03:35,970
+EMI dag and the output variable different.
+
+61
+00:03:42,400 --> 00:03:44,320
+Final instance, my SQL.
+
+62
+00:03:45,260 --> 00:03:46,850
+DAC db zero one.
+
+63
+00:03:47,390 --> 00:03:48,020
+My SQL.
+
+64
+00:03:48,140 --> 00:03:50,120
+My The output variable.
+
+65
+00:03:54,710 --> 00:03:59,810
+So we are storing the output of every execution, every task.
+
+66
+00:04:00,290 --> 00:04:02,420
+Let's print one of them.
+
+67
+00:04:02,420 --> 00:04:04,760
+So because we're going to use them later.
+
+68
+00:04:04,970 --> 00:04:07,130
+So let's use a debug module.
+
+69
+00:04:09,070 --> 00:04:10,060
+Receive our.
+
+70
+00:04:10,700 --> 00:04:17,779
+So let's print this DB zero one and we'll see what is the output that comes because we need to get the
+
+71
+00:04:17,779 --> 00:04:19,820
+ID and private IPS from that.
+
+72
+00:04:20,029 --> 00:04:23,900
+So we'll print it and we'll see what is the output so we can get the right key.
+
+73
+00:04:25,760 --> 00:04:27,590
+See this and let's commit it.
+
+74
+00:04:37,310 --> 00:04:42,530
+Look, we can expect some failure because of the wrong Ahmed, but we'll find that out.
+
+75
+00:04:48,870 --> 00:04:50,400
+So let's execute our playbook.
+
+76
+00:04:55,820 --> 00:05:01,980
+I would like to stop in the middle and talk about a bug that we've been witnessing with security group.
+
+77
+00:05:02,000 --> 00:05:05,630
+If you are getting this error while you're creating the security group.
+
+78
+00:05:06,350 --> 00:05:10,280
+So this was a bug that made security group not important.
+
+79
+00:05:10,850 --> 00:05:14,900
+The fix is we can upgrade it to 2.9. ten.
+
+80
+00:05:16,030 --> 00:05:20,020
+Or even that warning that we were getting while we're creating security group.
+
+81
+00:05:20,050 --> 00:05:23,290
+That is because of a bug and it was really widespread.
+
+82
+00:05:23,290 --> 00:05:25,840
+So how can we upgrade to Ansible?
+
+83
+00:05:25,870 --> 00:05:33,220
+2.9. ten because if you say apt install ansible on ubuntu, it's going to download 2.9.9.
+
+84
+00:05:33,820 --> 00:05:34,960
+That's the latest version.
+
+85
+00:05:34,960 --> 00:05:38,740
+Currently at this time October 2020.
+
+86
+00:05:39,280 --> 00:05:43,690
+You may be lucky when you execute this and you may get 2.9. ten, which is good.
+
+87
+00:05:43,690 --> 00:05:50,890
+You will not have this problem, but if you have older than 2.9. ten, then you need to uninstall your
+
+88
+00:05:50,890 --> 00:05:55,510
+ansible and install latest ansible with PIP and I'll show you how you can do that.
+
+89
+00:05:55,780 --> 00:06:00,010
+So first simply install ansible, the existing ansible.
+
+90
+00:06:00,010 --> 00:06:02,470
+You have to say apt remove.
+
+91
+00:06:04,320 --> 00:06:05,230
+And civil.
+
+92
+00:06:08,020 --> 00:06:10,720
+I have already uninstalled it so I don't have it.
+
+93
+00:06:10,990 --> 00:06:16,540
+Then you can install Ansible with PIP that will give you the latest version, but you need to have PIP
+
+94
+00:06:16,540 --> 00:06:18,030
+so you can have the first install.
+
+95
+00:06:18,040 --> 00:06:18,390
+Pip.
+
+96
+00:06:18,400 --> 00:06:21,400
+You have to say sudo apt.
+
+97
+00:06:23,500 --> 00:06:27,250
+Install python three hyphen pip.
+
+98
+00:06:30,110 --> 00:06:31,220
+And just install it.
+
+99
+00:06:32,940 --> 00:06:35,520
+Once you have PIP installed, you can then use it.
+
+100
+00:06:35,520 --> 00:06:36,390
+You can say sudo.
+
+101
+00:06:36,720 --> 00:06:37,350
+Three.
+
+102
+00:06:38,580 --> 00:06:40,350
+Install ansible.
+
+103
+00:06:40,650 --> 00:06:43,170
+That should give you the latest version of ansible.
+
+104
+00:06:46,310 --> 00:06:48,710
+So you see there two dot 10.1.
+
+105
+00:06:50,200 --> 00:06:55,720
+Now, once this is done, if you still you're running the Ansible command and using command not found,
+
+106
+00:06:55,720 --> 00:06:57,640
+then a logout and login.
+
+107
+00:06:57,820 --> 00:07:00,980
+If you're not given sudo it means to call it in your home directory.
+
+108
+00:07:01,000 --> 00:07:02,740
+So you need to log out and log in.
+
+109
+00:07:04,270 --> 00:07:04,690
+Yeah.
+
+110
+00:07:05,020 --> 00:07:06,400
+Then you can check the version.
+
+111
+00:07:06,400 --> 00:07:10,150
+Ansible hyphen, hyphen version.
+
+112
+00:07:12,640 --> 00:07:14,200
+2.1.2.
+
+113
+00:07:15,540 --> 00:07:15,690
+Okay.
+
+114
+00:07:15,780 --> 00:07:17,190
+So that's the update.
+
+115
+00:07:17,220 --> 00:07:19,350
+Now, you can continue watching the video.
+
+116
+00:07:19,770 --> 00:07:19,960
+Okay.
+
+117
+00:07:19,980 --> 00:07:26,700
+So as we are already discussing about the Army ID, but you don't get a specific error about that.
+
+118
+00:07:26,910 --> 00:07:33,540
+If you mention a wrong ID or the instance type, you select a T to micro and that is not supported by
+
+119
+00:07:33,540 --> 00:07:34,680
+the image that you're using.
+
+120
+00:07:34,680 --> 00:07:35,430
+There is a conflict.
+
+121
+00:07:35,430 --> 00:07:36,690
+You'll get error like this.
+
+122
+00:07:37,290 --> 00:07:39,080
+So let's change the Ahmed.
+
+123
+00:07:39,090 --> 00:07:41,910
+Let's change it to latest one.
+
+124
+00:07:43,860 --> 00:07:44,330
+Let's see.
+
+125
+00:07:44,340 --> 00:07:45,660
+What is the latest, Amy?
+
+126
+00:07:45,690 --> 00:07:46,380
+ID?
+
+127
+00:07:47,580 --> 00:07:53,130
+So again, you can find the Omid from the site, but if you really need the latest instance, you can
+
+128
+00:07:53,130 --> 00:07:54,470
+just say launch instance.
+
+129
+00:07:54,480 --> 00:07:57,930
+In the quick start, you can find the Omid.
+
+130
+00:07:59,070 --> 00:07:59,970
+Okay there.
+
+131
+00:08:00,540 --> 00:08:01,770
+So let's copy that.
+
+132
+00:08:04,780 --> 00:08:06,190
+Let's go to our ID.
+
+133
+00:08:07,270 --> 00:08:08,540
+Well, let's update it.
+
+134
+00:08:11,810 --> 00:08:20,030
+Now EMI ID conflicts are a very common problem when you're using Ansible and it may give you different
+
+135
+00:08:20,030 --> 00:08:22,640
+different errors which may be more confusing.
+
+136
+00:08:22,670 --> 00:08:25,280
+So check if your ID is correct.
+
+137
+00:08:40,860 --> 00:08:42,390
+Okay, now let's test it.
+
+138
+00:08:44,800 --> 00:08:47,080
+So will this latest changes.
+
+139
+00:08:48,280 --> 00:08:49,930
+And let's do the execution.
+
+140
+00:08:53,750 --> 00:08:57,620
+Trading seems like it's now creating or launching these two incidents.
+
+141
+00:08:59,270 --> 00:09:02,120
+Let's go to a management console and check.
+
+142
+00:09:07,600 --> 00:09:09,190
+Okay, There's one instance coming up.
+
+143
+00:09:12,210 --> 00:09:13,350
+Web zero one.
+
+144
+00:09:14,470 --> 00:09:17,260
+So you saw that there were that was an image problem.
+
+145
+00:09:17,260 --> 00:09:21,970
+The T two micro instance was not supporting that image, but we're getting very different error.
+
+146
+00:09:25,100 --> 00:09:29,390
+Okay, So we'll wait for a few minutes until all the instances are up and running.
+
+147
+00:09:30,230 --> 00:09:30,680
+All right.
+
+148
+00:09:30,680 --> 00:09:33,650
+All the instances are created if you see over here.
+
+149
+00:09:34,390 --> 00:09:37,210
+And they should be all in the same security group.
+
+150
+00:09:37,980 --> 00:09:41,080
+The pro stack security group with the login key.
+
+151
+00:09:41,110 --> 00:09:42,010
+We key.
+
+152
+00:09:43,120 --> 00:09:49,590
+How if we see the output, we have printed the output of DB zero one out the variable that we store.
+
+153
+00:09:49,600 --> 00:09:56,830
+And from this, if you want to get the instance ID, we can go to tag instance tags tagged instances
+
+154
+00:09:57,280 --> 00:10:00,010
+under that you have Now this is the list.
+
+155
+00:10:00,370 --> 00:10:03,520
+So the first element in the list you can have the ID.
+
+156
+00:10:04,460 --> 00:10:05,270
+It's a list.
+
+157
+00:10:05,270 --> 00:10:12,060
+So zero dot ID or you want to get the private IP or we don't have public DNS.
+
+158
+00:10:12,200 --> 00:10:16,910
+This is a private instance, so we do not have a public IP or you want to get the region or you want
+
+159
+00:10:16,910 --> 00:10:18,170
+to get the tags.
+

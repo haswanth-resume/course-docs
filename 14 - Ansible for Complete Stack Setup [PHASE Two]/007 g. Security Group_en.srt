@@ -1,0 +1,748 @@
+1
+00:00:00,390 --> 00:00:04,080
+So next thing you know is creating load balancer security group.
+
+2
+00:00:05,840 --> 00:00:11,260
+No, because the model is to underscore group name of the load balancer security group sum description
+
+3
+00:00:11,590 --> 00:00:18,460
+region variable coming from our variable file vpc ID also coming from our variable file.
+
+4
+00:00:20,500 --> 00:00:20,790
+Yeah.
+
+5
+00:00:20,800 --> 00:00:21,370
+There.
+
+6
+00:00:22,810 --> 00:00:24,580
+Region and the VP side.
+
+7
+00:00:27,060 --> 00:00:28,680
+Okay, let's mention the rules.
+
+8
+00:00:31,260 --> 00:00:35,010
+So load balancer security group, you're going to allow Port 80 from anywhere.
+
+9
+00:00:37,030 --> 00:00:39,120
+Okay, so list of rules.
+
+10
+00:00:39,130 --> 00:00:45,020
+First item protocol TCP from Port 82.8 and allowed from anywhere.
+
+11
+00:00:45,040 --> 00:00:49,090
+And of course, if you store the output into a variable.
+
+12
+00:00:50,050 --> 00:00:52,620
+Let's see if it's in the same line as the model.
+
+13
+00:00:52,630 --> 00:00:53,200
+Yes.
+
+14
+00:00:55,480 --> 00:00:59,710
+Okay, One more security group for V profile is two instances.
+
+15
+00:01:00,790 --> 00:01:06,340
+Again, same model, easy to group name Description Region VPC ID.
+
+16
+00:01:07,540 --> 00:01:09,490
+I'm going to give one option over here.
+
+17
+00:01:11,300 --> 00:01:14,060
+Birch underscore rules.
+
+18
+00:01:16,990 --> 00:01:17,680
+No.
+
+19
+00:01:18,190 --> 00:01:22,870
+The reason I'm giving this option is when you execute this playbook, it will create security.
+
+20
+00:01:23,170 --> 00:01:27,040
+When you execute this playbook, once again, it will once again update the rules.
+
+21
+00:01:27,490 --> 00:01:28,870
+Even if the rules are the same.
+
+22
+00:01:28,870 --> 00:01:30,870
+So by default, it's not important.
+
+23
+00:01:30,880 --> 00:01:33,970
+So this rule, this option purge, underscore rules.
+
+24
+00:01:33,970 --> 00:01:35,350
+No will make it potent.
+
+25
+00:01:35,350 --> 00:01:42,400
+So if the port numbers, if all the rules are same, then it is not going to do it once again, it's
+
+26
+00:01:42,400 --> 00:01:44,440
+not going to delete the rules and recreate them.
+
+27
+00:01:45,820 --> 00:01:47,140
+So let's give the rules.
+
+28
+00:01:48,350 --> 00:01:54,050
+Okay, So 88.80 allowed from Load Balancer Security Group.
+
+29
+00:01:54,290 --> 00:01:56,160
+So we're creating load balancer security group.
+
+30
+00:01:56,180 --> 00:01:57,230
+We store.
+
+31
+00:01:58,400 --> 00:02:00,100
+The variable over there, the output.
+
+32
+00:02:00,110 --> 00:02:02,420
+And in that we have the key group ID.
+
+33
+00:02:02,780 --> 00:02:06,080
+So I'm going to say allow Port 80 from the load Balancer security group.
+
+34
+00:02:06,440 --> 00:02:06,770
+Okay.
+
+35
+00:02:06,800 --> 00:02:11,180
+There we have CIDR IP because you have to mention IP address here.
+
+36
+00:02:11,210 --> 00:02:12,570
+Here we have to mention group ID.
+
+37
+00:02:12,590 --> 00:02:16,670
+So option is group ID and the group ID from where you want to allow.
+
+38
+00:02:17,730 --> 00:02:23,850
+And under rule 22 allowed from Bastion Security group ID while Bastion security Group ID is nowhere.
+
+39
+00:02:23,850 --> 00:02:28,320
+I've just given that variable, but we have to either define that variable or we have to automatically
+
+40
+00:02:28,320 --> 00:02:32,100
+store it when we execute the Bastion playbook.
+
+41
+00:02:35,000 --> 00:02:37,250
+So if we can put this into this file.
+
+42
+00:02:39,910 --> 00:02:41,690
+We need to give the idea of this.
+
+43
+00:02:41,710 --> 00:02:42,820
+How do we get this idea?
+
+44
+00:02:42,820 --> 00:02:43,450
+It's very simple.
+
+45
+00:02:43,450 --> 00:02:45,310
+You can execute the playbook once again.
+
+46
+00:02:45,460 --> 00:02:50,050
+You can check it also from a console if you want.
+
+47
+00:02:50,320 --> 00:02:51,910
+But I will execute.
+
+48
+00:02:54,260 --> 00:02:57,170
+Bastion instance will.
+
+49
+00:03:01,100 --> 00:03:01,360
+Okay.
+
+50
+00:03:01,400 --> 00:03:02,420
+Does not print anything.
+
+51
+00:03:02,420 --> 00:03:04,850
+Let's update this.
+
+52
+00:03:08,700 --> 00:03:11,400
+Now, again, I'm not going to make any updates from here.
+
+53
+00:03:12,330 --> 00:03:13,770
+We'll do it from ID.
+
+54
+00:03:15,400 --> 00:03:18,400
+And so far, whatever is done, you can just save it and committed.
+
+55
+00:03:35,260 --> 00:03:37,300
+And let's pull all the changes first.
+
+56
+00:03:40,410 --> 00:03:42,300
+Okay, let's go back to our ID again.
+
+57
+00:03:43,620 --> 00:03:46,240
+Not my bastion instance y yaml file.
+
+58
+00:03:46,260 --> 00:03:47,250
+I'm going to.
+
+59
+00:03:47,280 --> 00:03:54,730
+I'm storing the output of everything k, but I'm not storing it into any variable that.
+
+60
+00:03:55,260 --> 00:04:00,030
+So if you want to store it into the same file, I don't want to create one more variables file for this
+
+61
+00:04:00,030 --> 00:04:00,600
+all the output.
+
+62
+00:04:00,600 --> 00:04:04,290
+I want to keep it into the same file vpc output vars file.
+
+63
+00:04:04,920 --> 00:04:06,120
+So we'll use here.
+
+64
+00:04:06,120 --> 00:04:08,820
+Not copy module, but another module block in file.
+
+65
+00:04:11,330 --> 00:04:17,570
+So we are going to update this file its variables file with this module block in file.
+
+66
+00:04:17,870 --> 00:04:19,760
+You mentioned the path of the file.
+
+67
+00:04:20,860 --> 00:04:21,440
+Back up.
+
+68
+00:04:21,459 --> 00:04:21,740
+Yes.
+
+69
+00:04:21,760 --> 00:04:23,620
+If you want to take the backup, you can say backup.
+
+70
+00:04:23,620 --> 00:04:24,160
+Yes.
+
+71
+00:04:24,190 --> 00:04:31,060
+BLOCK And so it's going to add a block or update a block, Insert a block, and the block is just block
+
+72
+00:04:31,060 --> 00:04:32,850
+of text, right?
+
+73
+00:04:32,860 --> 00:04:34,480
+So this is the text.
+
+74
+00:04:35,350 --> 00:04:37,720
+And security group ID.
+
+75
+00:04:38,910 --> 00:04:40,230
+Gerri, is your story here?
+
+76
+00:04:43,920 --> 00:04:45,660
+Also there.
+
+77
+00:04:47,590 --> 00:04:48,700
+Indentation.
+
+78
+00:04:51,000 --> 00:04:53,790
+That's the biggest problem in Ansible.
+
+79
+00:04:53,820 --> 00:04:55,290
+How should I say yaml?
+
+80
+00:04:57,200 --> 00:04:59,060
+Okay, because it's very easy to miss these things.
+
+81
+00:04:59,540 --> 00:05:00,710
+So let's commit.
+
+82
+00:05:03,610 --> 00:05:05,070
+Let's push the change.
+
+83
+00:05:07,700 --> 00:05:09,730
+Okay, Let's fetch the change.
+
+84
+00:05:13,120 --> 00:05:15,040
+And let's do the execution now.
+
+85
+00:05:21,790 --> 00:05:22,050
+Okay.
+
+86
+00:05:22,120 --> 00:05:23,110
+That made some change.
+
+87
+00:05:23,110 --> 00:05:24,160
+Let's check that.
+
+88
+00:05:24,400 --> 00:05:25,270
+Check out variables.
+
+89
+00:05:25,270 --> 00:05:25,810
+Fine.
+
+90
+00:05:26,320 --> 00:05:28,450
+So you'll see in the output file.
+
+91
+00:05:30,360 --> 00:05:32,490
+Bastion security group ID.
+
+92
+00:05:33,690 --> 00:05:34,230
+Yet again.
+
+93
+00:05:34,230 --> 00:05:36,660
+This change is in the control machine.
+
+94
+00:05:36,690 --> 00:05:40,110
+We are going to push it back to GitHub.
+
+95
+00:05:55,500 --> 00:05:56,700
+Nancy Bush.
+
+96
+00:05:58,270 --> 00:05:59,250
+Okay, that's done.
+
+97
+00:06:00,000 --> 00:06:03,540
+So make sure you pull the changes here so we don't have conflict.
+
+98
+00:06:06,270 --> 00:06:10,080
+Okay, we're getting an error, and that's because of the backup file name.
+
+99
+00:06:14,680 --> 00:06:17,910
+So it takes backup if given that option, takes the backup of that file.
+
+100
+00:06:17,910 --> 00:06:18,210
+Yes.
+
+101
+00:06:18,210 --> 00:06:21,810
+And there is this at the rate time and.
+
+102
+00:06:23,100 --> 00:06:23,290
+This.
+
+103
+00:06:23,340 --> 00:06:25,380
+Tilda Okay, so this is creating the problem.
+
+104
+00:06:25,380 --> 00:06:27,810
+It is saying the wrong invalid part.
+
+105
+00:06:28,080 --> 00:06:30,980
+So let's let's remove that file.
+
+106
+00:06:30,990 --> 00:06:32,400
+We don't need it anyways.
+
+107
+00:06:34,100 --> 00:06:36,960
+We can change its name, but let's remove it.
+
+108
+00:06:36,980 --> 00:06:37,550
+We don't need it.
+
+109
+00:06:37,550 --> 00:06:38,090
+Really.
+
+110
+00:06:42,110 --> 00:06:43,460
+I guess we're going to say guitar, right?
+
+111
+00:06:43,460 --> 00:06:47,210
+So it also removes from the index that's committed.
+
+112
+00:06:59,130 --> 00:07:04,760
+I guess every time I do get pushed, I have to enter the username and password to save that time.
+
+113
+00:07:04,770 --> 00:07:07,350
+You can do search login with GitHub.
+
+114
+00:07:08,720 --> 00:07:10,100
+But for now, I'll skip it.
+
+115
+00:07:11,440 --> 00:07:12,600
+Okay, let's go to ID.
+
+116
+00:07:12,630 --> 00:07:14,160
+Let's fetch all the changes.
+
+117
+00:07:20,380 --> 00:07:21,310
+Seems like it's done.
+
+118
+00:07:21,310 --> 00:07:22,120
+Let's check.
+
+119
+00:07:22,860 --> 00:07:23,650
+No, not here.
+
+120
+00:07:23,650 --> 00:07:24,190
+There.
+
+121
+00:07:24,370 --> 00:07:24,940
+Yeah.
+
+122
+00:07:25,480 --> 00:07:25,930
+Good.
+
+123
+00:07:26,200 --> 00:07:29,080
+And then we can refer that variable.
+
+124
+00:07:33,160 --> 00:07:33,490
+All right.
+
+125
+00:07:33,490 --> 00:07:40,000
+So we profile stack instances can be only accessed from the bastion host.
+
+126
+00:07:40,910 --> 00:07:43,060
+So we have to log into the Bastion host from there.
+
+127
+00:07:43,070 --> 00:07:46,700
+We have to log into instances which are in private subnet.
+
+128
+00:07:47,990 --> 00:07:52,310
+And for that reason, we have given that Rule 22 allowed from Bastion Security Group ID.
+
+129
+00:07:53,340 --> 00:07:53,550
+Okay.
+
+130
+00:07:53,640 --> 00:07:59,910
+Now we have to update one more rule in the same security group ID, the same security group.
+
+131
+00:08:01,470 --> 00:08:06,060
+All our instances will be in one same security group and they will be interacting with each other,
+
+132
+00:08:06,060 --> 00:08:10,670
+Tomcat, accessing my SQL and accessing my SQL.
+
+133
+00:08:10,680 --> 00:08:12,660
+So we need to give a rule all traffic.
+
+134
+00:08:12,660 --> 00:08:16,980
+It is all traffic is allowed internally in the security group, same security group.
+
+135
+00:08:17,400 --> 00:08:19,950
+And for that we have to update the security group rule.
+
+136
+00:08:20,550 --> 00:08:25,860
+Okay, so we are add another task, easy to group, same security group as we are creating here.
+
+137
+00:08:27,390 --> 00:08:32,610
+Same secret group, similar description You can give region VPC ID rules.
+
+138
+00:08:32,610 --> 00:08:33,240
+No.
+
+139
+00:08:34,039 --> 00:08:35,960
+Now this ad's very much important.
+
+140
+00:08:36,200 --> 00:08:43,220
+No meaning over here, because we are now going to add rules, protocol, all group ID, its own group
+
+141
+00:08:43,220 --> 00:08:47,240
+ID, which is we create a security group, store the output.
+
+142
+00:08:48,110 --> 00:08:52,910
+So basically we're updating same security group and we're saying all traffic is allowed from itself.
+
+143
+00:08:53,790 --> 00:08:59,550
+If you have not given this option, then it will remove all the previous rules and add this rule so
+
+144
+00:08:59,550 --> 00:09:01,200
+it will remove these rules also.
+
+145
+00:09:01,710 --> 00:09:03,890
+So make sure that option is there for rules.
+
+146
+00:09:03,900 --> 00:09:04,380
+No.
+
+147
+00:09:04,710 --> 00:09:08,070
+So it will keep existing rule as it is and add the new rule.
+
+148
+00:09:13,030 --> 00:09:14,410
+Time to test this.
+
+149
+00:09:15,310 --> 00:09:17,560
+So let's save Comet.
+
+150
+00:09:26,420 --> 00:09:29,240
+Okay, Let's just check once again.
+
+151
+00:09:30,510 --> 00:09:31,680
+Indentation.
+
+152
+00:09:33,470 --> 00:09:35,000
+Seems good.
+
+153
+00:09:35,300 --> 00:09:37,250
+As of now, let's find out.
+
+154
+00:09:43,930 --> 00:09:44,820
+Get pull.
+
+155
+00:09:46,760 --> 00:09:50,910
+Okay, now, this time we'll execute the Playbook approach.
+
+156
+00:09:51,110 --> 00:09:55,190
+See two Previously, when we executed this, it created the key pair.
+
+157
+00:09:55,220 --> 00:09:59,270
+Now it's going to keep the key pair as it is and create the security groups.
+
+158
+00:10:02,950 --> 00:10:06,190
+Unsupported parameters for module rule.
+
+159
+00:10:07,100 --> 00:10:07,610
+Okay.
+
+160
+00:10:07,910 --> 00:10:11,390
+So I have given an option called us rule.
+
+161
+00:10:11,390 --> 00:10:12,860
+It's actually rules.
+
+162
+00:10:13,610 --> 00:10:14,660
+So there's a mistake.
+
+163
+00:10:14,990 --> 00:10:16,290
+So I'll fix it.
+
+164
+00:10:16,310 --> 00:10:17,240
+It's here.
+
+165
+00:10:21,740 --> 00:10:23,000
+Typographical error.
+
+166
+00:10:23,030 --> 00:10:24,410
+Very common things.
+
+167
+00:10:27,750 --> 00:10:30,090
+She read the error and you will find out.
+
+168
+00:10:31,260 --> 00:10:32,550
+Well, the mistake is.
+
+169
+00:10:36,300 --> 00:10:36,640
+Okay.
+
+170
+00:10:36,660 --> 00:10:40,230
+Now let's get bold and try once again.
+
+171
+00:10:47,440 --> 00:10:54,640
+Okay, so it's done, but with some weird output, it's giving warning ran out of time for the security
+
+172
+00:10:54,640 --> 00:10:55,120
+group.
+
+173
+00:10:55,540 --> 00:10:57,190
+Let's validate that.
+
+174
+00:10:57,670 --> 00:10:58,330
+The security group.
+
+175
+00:10:58,420 --> 00:10:58,780
+Action.
+
+176
+00:10:58,810 --> 00:11:00,160
+Let's check our security group.
+
+177
+00:11:05,240 --> 00:11:08,780
+The LP security group should allow a team from anywhere.
+
+178
+00:11:09,110 --> 00:11:10,740
+We profile Stack's security group.
+
+179
+00:11:10,760 --> 00:11:13,520
+They should allow aid from the load balancer.
+
+180
+00:11:13,550 --> 00:11:15,980
+All traffic from Stack is G.
+
+181
+00:11:16,190 --> 00:11:18,800
+That is correct by itself.
+
+182
+00:11:18,980 --> 00:11:22,140
+And allowing 22 from Bastion hosts G.
+
+183
+00:11:22,160 --> 00:11:23,090
+This looks good.
+
+184
+00:11:23,630 --> 00:11:23,770
+Okay.
+
+185
+00:11:23,810 --> 00:11:26,120
+So as of now, we're good and we are covered.
+
+186
+00:11:26,450 --> 00:11:30,860
+And it's just a warning, not an error, but may cause some problem later.
+
+187
+00:11:30,860 --> 00:11:32,480
+So we'll see that later.
+

@@ -1,0 +1,724 @@
+1
+00:00:10,600 --> 00:00:12,380
+Welcome to the next project.
+
+2
+00:00:12,400 --> 00:00:16,600
+The name of this project is complete Provisioning with Ansible.
+
+3
+00:00:17,770 --> 00:00:24,060
+This project is a continuation of the previous project, the project where we did Ansible for eight
+
+4
+00:00:24,250 --> 00:00:24,600
+years.
+
+5
+00:00:24,670 --> 00:00:26,680
+It's continuation of that project.
+
+6
+00:00:27,350 --> 00:00:29,480
+So in that project A was.
+
+7
+00:00:30,430 --> 00:00:32,890
+VPC setup we have done by using Ansible.
+
+8
+00:00:34,080 --> 00:00:39,210
+In this project On that VPC, we are going to set up our V profile application stack.
+
+9
+00:00:39,480 --> 00:00:42,960
+So our project is lift and shift.
+
+10
+00:00:43,560 --> 00:00:44,310
+In that project.
+
+11
+00:00:44,310 --> 00:00:50,010
+We have set up some bunch of EC two instances and on that we have provisioned V profile stack and all
+
+12
+00:00:50,010 --> 00:00:56,700
+the services, my SQL mem cache, rabbit, MQ, Tomcat, all those things we are going to automatically
+
+13
+00:00:56,700 --> 00:00:58,530
+set up by using Ansible.
+
+14
+00:00:58,740 --> 00:01:04,890
+So you can say this project is a combination of two other projects, but this will be completely automated.
+
+15
+00:01:05,760 --> 00:01:08,380
+So let's see when, where, how.
+
+16
+00:01:08,470 --> 00:01:11,070
+Okay, let's see the scenario and what are the problems?
+
+17
+00:01:15,200 --> 00:01:15,770
+Okay, let's see.
+
+18
+00:01:15,770 --> 00:01:22,130
+You have an operations team, and this team will do the regular deployment and set up commonly.
+
+19
+00:01:22,130 --> 00:01:27,260
+You can also call this team as sys admin team or systems engineer team, so they'll be in charge of
+
+20
+00:01:27,260 --> 00:01:33,860
+managing all the operating systems in your infrastructure, cloud setup, virtual machine setup and
+
+21
+00:01:33,860 --> 00:01:40,310
+all the changes and they will get regular request of provisioning or making changes to the infrastructure.
+
+22
+00:01:46,390 --> 00:01:49,060
+Today we're living in a time of agile.
+
+23
+00:01:49,300 --> 00:01:51,400
+Everything needs to be agile quick.
+
+24
+00:01:51,640 --> 00:01:58,030
+And also we have a lot of disposable environment pre prod environments which are really disposable and
+
+25
+00:01:58,030 --> 00:01:59,950
+such kind of request comes very regularly.
+
+26
+00:01:59,950 --> 00:02:04,210
+So the team will get request to set up the complete infrastructure.
+
+27
+00:02:04,910 --> 00:02:06,080
+Which is complex.
+
+28
+00:02:06,080 --> 00:02:07,690
+There are so many moving parts.
+
+29
+00:02:07,700 --> 00:02:13,470
+You'll have different services, you will have network, you'll have security, you'll have high availability.
+
+30
+00:02:13,490 --> 00:02:18,920
+So setting up that entire stack is really complex, time consuming work.
+
+31
+00:02:19,190 --> 00:02:22,280
+Moreover, if you want to do it again and again, it's not repeatable.
+
+32
+00:02:23,190 --> 00:02:23,440
+Right.
+
+33
+00:02:23,470 --> 00:02:25,150
+I'm talking about, you know, humanly speaking.
+
+34
+00:02:25,150 --> 00:02:25,420
+Right.
+
+35
+00:02:25,420 --> 00:02:27,370
+Doing the same thing again and again.
+
+36
+00:02:28,310 --> 00:02:31,310
+And also making regular changes, making regular changes.
+
+37
+00:02:31,310 --> 00:02:36,950
+It's difficult to track if the changes are happening manually or like through a human, of course.
+
+38
+00:02:37,160 --> 00:02:39,170
+So those things are really difficult to track.
+
+39
+00:02:39,410 --> 00:02:45,820
+And when there's human intervention, there is always chance of making mistakes which can lead to no
+
+40
+00:02:45,860 --> 00:02:46,910
+highly time.
+
+41
+00:02:49,070 --> 00:02:52,850
+Also managing all those things is a time consuming work.
+
+42
+00:02:53,630 --> 00:02:58,820
+You need people, a lot of people, a lot of operations engineer to manage all those things your cloud
+
+43
+00:02:58,820 --> 00:03:02,570
+infrastructure, your services, your operating system, and making regular changes to them.
+
+44
+00:03:02,600 --> 00:03:06,530
+Again, keep in mind, in today's time, we need to be more agile.
+
+45
+00:03:13,350 --> 00:03:17,700
+So instead of human doing it again and again.
+
+46
+00:03:18,390 --> 00:03:22,500
+We need to have a configuration management system of our entire infrastructure.
+
+47
+00:03:22,740 --> 00:03:28,980
+So an automation framework, a tool that can manage all the configuration of our infrastructure automatically.
+
+48
+00:03:29,790 --> 00:03:31,530
+So we're talking about automatic setup.
+
+49
+00:03:31,530 --> 00:03:35,820
+If you have a new provisioning or any changes, you're going to do it automatically.
+
+50
+00:03:36,030 --> 00:03:39,090
+So no or really less chance of making human errors.
+
+51
+00:03:39,990 --> 00:03:45,120
+Also, everything will be centralized, so any changes that happens will be centralized.
+
+52
+00:03:46,400 --> 00:03:52,400
+And if you have that as a code so you can version control it, so you have infrastructure as a code.
+
+53
+00:03:52,610 --> 00:03:56,600
+And when you have a code to manage your infrastructure, it's repeatable.
+
+54
+00:03:56,600 --> 00:03:59,300
+We can execute it as many as time we want.
+
+55
+00:03:59,900 --> 00:04:01,580
+Also, it's reusable.
+
+56
+00:04:01,610 --> 00:04:07,100
+So you can reuse this infrastructure as a code across your projects.
+
+57
+00:04:10,390 --> 00:04:13,630
+We already talked about the statistics of cloud automation.
+
+58
+00:04:18,060 --> 00:04:20,880
+Now, automation is not just cool thing to do.
+
+59
+00:04:20,910 --> 00:04:22,770
+It really adds business value.
+
+60
+00:04:23,380 --> 00:04:28,380
+And more than 70% of IT companies are telling that they are having 10% more revenue growth.
+
+61
+00:04:28,410 --> 00:04:30,420
+84% of them are telling.
+
+62
+00:04:30,450 --> 00:04:33,060
+They have really lowered the operations cost.
+
+63
+00:04:33,090 --> 00:04:36,690
+81% are telling that they have become more innovative.
+
+64
+00:04:36,960 --> 00:04:37,950
+Now, that's very important.
+
+65
+00:04:38,190 --> 00:04:42,340
+When you hand over your work to a tool to a machine.
+
+66
+00:04:42,360 --> 00:04:46,350
+Then you have more time to find more innovative solutions to your problem.
+
+67
+00:04:46,950 --> 00:04:48,050
+You become more agile.
+
+68
+00:04:48,060 --> 00:04:55,290
+So 84% of the I.T organization are saying that they have become more agile, which is need of the hour.
+
+69
+00:05:00,630 --> 00:05:05,460
+So in this project, we're going to use Ansible for configuration management.
+
+70
+00:05:06,400 --> 00:05:09,970
+And our entire stack will be set up on a cloud platform.
+
+71
+00:05:10,540 --> 00:05:18,320
+We're here talking about complete provisioning, VPC security group instances when the stack is ready.
+
+72
+00:05:18,340 --> 00:05:21,820
+We are going to set up services on two instances.
+
+73
+00:05:22,060 --> 00:05:27,940
+My SQL mem cache, Rabbit, MQ, Tomcat Engine X, all those services for V profile project.
+
+74
+00:05:27,970 --> 00:05:29,590
+Also with the load balancer.
+
+75
+00:05:36,010 --> 00:05:38,260
+So the entire execution is threefold.
+
+76
+00:05:38,290 --> 00:05:43,150
+First, we're going to set up a VPC, which we already did in our previous project.
+
+77
+00:05:43,750 --> 00:05:50,500
+So we have the code from the previous project and Sybil for us in that project.
+
+78
+00:05:50,680 --> 00:05:55,390
+So we're going to pull that code from our repository execute, which is going to set up the entire VPC
+
+79
+00:05:55,390 --> 00:05:56,050
+stack.
+
+80
+00:05:56,170 --> 00:05:59,260
+That's one next.
+
+81
+00:06:00,110 --> 00:06:03,980
+We're going to provision easy two instances load balancer and security group.
+
+82
+00:06:05,170 --> 00:06:11,770
+Easy two instances for our V profile stack or all the V profiles project services, my SQL mem cache
+
+83
+00:06:11,770 --> 00:06:14,920
+rabbit Q don't get an engine so just easy.
+
+84
+00:06:14,920 --> 00:06:15,820
+Two instances.
+
+85
+00:06:16,330 --> 00:06:20,920
+Next, we are going to see how we will provision the entire V profile stack.
+
+86
+00:06:20,920 --> 00:06:23,140
+So the easy two instances that got created on them.
+
+87
+00:06:23,140 --> 00:06:27,100
+We're going to install services, configure and, and do the entire setup.
+
+88
+00:06:27,100 --> 00:06:32,890
+Really, we're going to build artifact, set up my SQL mem cache, rabbit, MQ, Tomcat and engine X.
+
+89
+00:06:38,000 --> 00:06:40,040
+Now we'll see the architectural design.
+
+90
+00:06:40,040 --> 00:06:44,780
+We have three architectural design in this project, one for VPC that you have already seen.
+
+91
+00:06:44,810 --> 00:06:49,410
+Second for two instances, third for provisioning V profile stack.
+
+92
+00:06:49,430 --> 00:06:50,870
+So let's see it.
+
+93
+00:06:52,230 --> 00:06:59,550
+Okay, This designer is for our VPC set up, so we have playbook for setting up VPC from our previous
+
+94
+00:06:59,550 --> 00:07:00,240
+project.
+
+95
+00:07:01,330 --> 00:07:07,540
+Which will have variables, configuration and list of modules which is going to use Python both to make
+
+96
+00:07:07,540 --> 00:07:09,580
+a connection to a cloud account.
+
+97
+00:07:09,880 --> 00:07:15,700
+Create VPC in that VPC will have subnets distributed in multiple zones.
+
+98
+00:07:15,700 --> 00:07:17,500
+We'll have public subnets.
+
+99
+00:07:18,220 --> 00:07:19,990
+With an Internet gateway connection.
+
+100
+00:07:20,530 --> 00:07:22,210
+We'll have private subnets.
+
+101
+00:07:25,080 --> 00:07:29,010
+Connecting with the round table that's going to forward the request to the NAD Gateway.
+
+102
+00:07:30,020 --> 00:07:33,740
+And also the Bastion host, which is inside a security group.
+
+103
+00:07:36,020 --> 00:07:38,450
+So this is the same design from the previous project.
+
+104
+00:07:38,450 --> 00:07:42,770
+We're going to pull the code, execute the playbook, and we'll set up this stack.
+
+105
+00:07:43,040 --> 00:07:49,310
+So that's first execution, second execution, the second execution playbook, which is going to access
+
+106
+00:07:49,310 --> 00:07:50,660
+our easy to service.
+
+107
+00:07:54,250 --> 00:07:59,500
+Which will have variables that got created in the previous project and also a lot of modules.
+
+108
+00:07:59,740 --> 00:08:06,700
+Again, it's going to use Python to make an API connection to our account and the VPC that we created
+
+109
+00:08:06,700 --> 00:08:08,830
+in the previous execution.
+
+110
+00:08:09,610 --> 00:08:11,430
+We will have a public subnet in that.
+
+111
+00:08:11,430 --> 00:08:13,200
+We'll have an application load balancer.
+
+112
+00:08:13,200 --> 00:08:16,350
+So we'll create an application load balancer in public subnet.
+
+113
+00:08:17,230 --> 00:08:18,220
+In private subnet.
+
+114
+00:08:18,220 --> 00:08:25,900
+We're going to have c two instances for our V profile services, the Tomcat, Rabbit, MQ, MySQL,
+
+115
+00:08:25,900 --> 00:08:26,620
+all of that.
+
+116
+00:08:27,410 --> 00:08:30,140
+And it will be distributed in two private zones.
+
+117
+00:08:30,140 --> 00:08:33,260
+And it is easy to instance, will also have security groups.
+
+118
+00:08:33,260 --> 00:08:35,330
+So security group will also get created.
+
+119
+00:08:36,520 --> 00:08:40,809
+And our instances will be divided into or distributed into two private subnets.
+
+120
+00:08:41,140 --> 00:08:44,290
+Also, there is a bastion host from the previous setup.
+
+121
+00:08:45,610 --> 00:08:48,760
+Also, not to mention there will be key payers also that we are going to create.
+
+122
+00:08:50,920 --> 00:08:52,660
+So this is the second execution.
+
+123
+00:08:52,660 --> 00:08:55,570
+Now, once we have our infrastructure ready.
+
+124
+00:08:56,200 --> 00:08:57,820
+We can provision our services.
+
+125
+00:08:57,820 --> 00:09:03,130
+So a third execution now in the third execution will have playbooks, which is going to set up our V
+
+126
+00:09:03,610 --> 00:09:05,350
+stack provision of services.
+
+127
+00:09:05,620 --> 00:09:07,660
+So we'll have the inventory file.
+
+128
+00:09:07,690 --> 00:09:12,870
+This will get created automatically in the second execution where we launch these two instances.
+
+129
+00:09:12,880 --> 00:09:16,150
+So it's going to use those inventory file and all the modules.
+
+130
+00:09:17,950 --> 00:09:20,210
+So this is no API execution.
+
+131
+00:09:20,230 --> 00:09:26,710
+Python is going to use such connection as a switch to the easy two instances that we created in the
+
+132
+00:09:26,710 --> 00:09:28,060
+previous execution.
+
+133
+00:09:29,690 --> 00:09:31,040
+My SQL setup.
+
+134
+00:09:31,990 --> 00:09:37,570
+So again, my SQL ec2 instance will be in a private subnet of the VPC.
+
+135
+00:09:38,900 --> 00:09:45,110
+So we provision my SQL service, then mem cache service, then rabbit MQ service and Tomcat service
+
+136
+00:09:45,110 --> 00:09:46,580
+and finally engine service.
+
+137
+00:09:46,610 --> 00:09:51,350
+We're also going to create a load balancer in the second execution.
+
+138
+00:09:51,860 --> 00:09:53,510
+So instances will be already mapped.
+
+139
+00:09:53,510 --> 00:09:57,440
+As soon as your engine service comes up, the instance will become healthy and you can access it from
+
+140
+00:09:57,440 --> 00:09:58,460
+the load balancer.
+
+141
+00:10:03,120 --> 00:10:05,560
+So again forced VPC stack setup.
+
+142
+00:10:05,580 --> 00:10:08,340
+Second instances and load balancer setup.
+
+143
+00:10:08,340 --> 00:10:11,550
+Third fee profile stack provisioning.
+
+144
+00:10:12,860 --> 00:10:13,070
+All right.
+
+145
+00:10:13,150 --> 00:10:14,620
+So we have a lot of things to do.
+
+146
+00:10:14,650 --> 00:10:15,970
+Let's get started.
+
+147
+00:10:16,960 --> 00:10:18,220
+So this is what you're going to do.
+
+148
+00:10:18,220 --> 00:10:23,140
+And in this order, we get into a plus account, we're going to create an easy to instance to run our
+
+149
+00:10:23,140 --> 00:10:24,160
+Ansible playbook.
+
+150
+00:10:24,550 --> 00:10:26,830
+Will install Ansible and bot on that.
+
+151
+00:10:27,220 --> 00:10:29,290
+We'll set up an easy to role for Ansible.
+
+152
+00:10:29,320 --> 00:10:35,740
+We should already have this role from our previous project, Ansible for us so we can use the same thing.
+
+153
+00:10:36,220 --> 00:10:41,500
+If you have not deleted the ansible control machine so you can use the same, you don't need to launch
+
+154
+00:10:41,500 --> 00:10:42,910
+another issue for instance.
+
+155
+00:10:43,600 --> 00:10:46,570
+In any case, we fetch the source code from our project.
+
+156
+00:10:46,570 --> 00:10:55,090
+Previous project Ansible for us, which has the source code to set up VPC, we'll execute that VPC playbook
+
+157
+00:10:55,450 --> 00:10:57,250
+which will set up the VPC stack.
+
+158
+00:10:57,910 --> 00:11:03,730
+Then we'll write the playbooks to launch an easy to instance load balancer, security group and few
+
+159
+00:11:03,730 --> 00:11:04,150
+other things.
+
+160
+00:11:04,150 --> 00:11:08,050
+We have like key pairs for our V profile stack.
+
+161
+00:11:10,770 --> 00:11:11,610
+We'll get into.
+
+162
+00:11:11,610 --> 00:11:20,460
+We profile VPC after this third execution where we want to access the private instances in private subnet
+
+163
+00:11:20,610 --> 00:11:28,500
+is not possible from our ansible control machine because ansible control machine will be in a default
+
+164
+00:11:28,500 --> 00:11:32,730
+VPC or we profile VPC at two different network.
+
+165
+00:11:32,820 --> 00:11:36,900
+So we will not be able to connect to private instances in our private subnets.
+
+166
+00:11:37,260 --> 00:11:39,000
+So we need to get into the VPC.
+
+167
+00:11:39,000 --> 00:11:45,570
+We profile VPC and there are a few ways either you can use Bastion Host or you can launch the controller
+
+168
+00:11:45,600 --> 00:11:49,140
+in the in the V profile VPC in the public subnet.
+
+169
+00:11:49,140 --> 00:11:49,830
+We can do that.
+
+170
+00:11:49,830 --> 00:11:56,910
+So the few ways we'll see both ways launching the controller in the we profile VPC and also we can use
+
+171
+00:11:56,910 --> 00:11:58,110
+the Bastion host also.
+
+172
+00:11:58,110 --> 00:11:59,550
+Then it's going to be your choice.
+
+173
+00:11:59,700 --> 00:12:05,670
+Once we are in the VPC, our easy for instance is in the VPC controller is in the VPC.
+
+174
+00:12:06,450 --> 00:12:11,190
+Then we'll write playbooks to set up our V profile stack here to remember.
+
+175
+00:12:11,190 --> 00:12:17,760
+Ansible is going to do SSH too easy, for instance to install those services to access the operating
+
+176
+00:12:17,760 --> 00:12:23,880
+system so it's not possible from the default VPC to log in to the V Pro to get into we profile VPC.
+
+177
+00:12:23,910 --> 00:12:25,920
+We can do VPC peering though.
+
+178
+00:12:25,950 --> 00:12:26,310
+Okay.
+
+179
+00:12:26,310 --> 00:12:28,470
+But that's again too much for now.
+
+180
+00:12:28,860 --> 00:12:31,050
+So we'll see simpler approach in this area.
+
+181
+00:12:32,100 --> 00:12:33,240
+Let's get started now.
+

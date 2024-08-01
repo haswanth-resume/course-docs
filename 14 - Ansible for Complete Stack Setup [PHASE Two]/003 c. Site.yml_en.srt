@@ -1,0 +1,76 @@
+1
+00:00:00,090 --> 00:00:00,780
+So let's see.
+
+2
+00:00:00,790 --> 00:00:01,680
+New file.
+
+3
+00:00:04,320 --> 00:00:06,810
+Named as a site dot wireman.
+
+4
+00:00:13,210 --> 00:00:15,670
+So the module is import Playbook.
+
+5
+00:00:21,470 --> 00:00:27,070
+And the playbook name VPC hyphen set up dot y mill.
+
+6
+00:00:27,680 --> 00:00:32,600
+And so because we're expecting that this playbook is in the same directory, which it is.
+
+7
+00:00:36,610 --> 00:00:37,450
+One more.
+
+8
+00:00:44,430 --> 00:00:47,610
+Okay, let's see this and let's now commit all the changes.
+
+9
+00:00:52,840 --> 00:00:59,500
+So I don't Rimal and Vance update just committed.
+
+10
+00:01:00,800 --> 00:01:02,210
+And we'll push it to.
+
+11
+00:01:04,040 --> 00:01:04,730
+GitHub.
+
+12
+00:01:06,200 --> 00:01:07,250
+On the branch.
+
+13
+00:01:07,250 --> 00:01:10,490
+We profile hyphens Tag branch, not the master branch.
+
+14
+00:01:10,740 --> 00:01:11,450
+Let's push.
+
+15
+00:01:13,250 --> 00:01:14,910
+Because it changes pushed to our branch.
+
+16
+00:01:14,940 --> 00:01:16,020
+Let's check that.
+
+17
+00:01:17,230 --> 00:01:18,400
+Let's refresh this.
+
+18
+00:01:20,620 --> 00:01:22,960
+Okay, so we have a code variable file.
+
+19
+00:01:27,760 --> 00:01:28,540
+This is good.
+

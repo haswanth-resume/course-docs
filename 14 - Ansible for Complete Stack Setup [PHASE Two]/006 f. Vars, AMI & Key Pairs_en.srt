@@ -1,0 +1,864 @@
+1
+00:00:00,090 --> 00:00:02,040
+So let's get to our intelligent.
+
+2
+00:00:03,460 --> 00:00:05,080
+So we'll create a new playbook now.
+
+3
+00:00:05,740 --> 00:00:16,210
+New file limit as we pro hyphen easy to hyphen stack.
+
+4
+00:00:17,300 --> 00:00:19,280
+Dr. Wymer, This should be good.
+
+5
+00:00:22,140 --> 00:00:26,970
+Okay, so all the Google settings set up, we profile stack name of the play, getting executed on local
+
+6
+00:00:26,970 --> 00:00:30,460
+host connection, local gather facts know or you can give false.
+
+7
+00:00:30,480 --> 00:00:34,050
+Now list of task First we'll include our variables file.
+
+8
+00:00:35,380 --> 00:00:40,390
+So we include our VPC output, underscore VARs and the existing file that we have.
+
+9
+00:00:40,390 --> 00:00:44,050
+And the file that we have over here has changed now.
+
+10
+00:00:44,470 --> 00:00:49,900
+So we should also come at it from here, push it to GitHub and fetch it in our intelligent.
+
+11
+00:00:51,530 --> 00:00:54,560
+Or if that's too much, let's let's just copy all that.
+
+12
+00:00:56,110 --> 00:00:58,090
+And just open, intelligent.
+
+13
+00:01:00,440 --> 00:01:02,960
+I'll put words and just overwrite it.
+
+14
+00:01:05,410 --> 00:01:06,540
+Also the public IP.
+
+15
+00:01:06,550 --> 00:01:07,720
+Also, we have changed.
+
+16
+00:01:10,120 --> 00:01:13,020
+Write my IP so we can override these settings as well.
+
+17
+00:01:21,840 --> 00:01:22,650
+Save.
+
+18
+00:01:23,280 --> 00:01:24,480
+Let's commit.
+
+19
+00:01:27,790 --> 00:01:28,720
+Let's push it.
+
+20
+00:01:32,690 --> 00:01:36,800
+So you have to make sure both the repositories are saying if you want to ignore some file over here,
+
+21
+00:01:36,800 --> 00:01:37,850
+you can ignore it.
+
+22
+00:01:37,880 --> 00:01:39,200
+You can use git ignored.
+
+23
+00:01:39,920 --> 00:01:43,220
+And we'll do that in a moment because we are going to create key pair.
+
+24
+00:01:43,220 --> 00:01:46,250
+And I don't want that key pair to be uploading to GitHub.
+
+25
+00:01:46,640 --> 00:01:47,780
+We have a conflict.
+
+26
+00:01:48,790 --> 00:01:53,320
+It's saying this file will be overridden by the setting that you have made, and we are fine with that.
+
+27
+00:01:53,560 --> 00:01:54,790
+So no problem.
+
+28
+00:01:54,790 --> 00:01:56,260
+Let's just commit that.
+
+29
+00:01:59,060 --> 00:02:00,200
+We just committed.
+
+30
+00:02:11,400 --> 00:02:16,500
+You have said the gate conflict global username and email.
+
+31
+00:02:16,790 --> 00:02:17,520
+Let's it.
+
+32
+00:02:19,500 --> 00:02:19,980
+Okay.
+
+33
+00:02:20,580 --> 00:02:22,110
+And then I'm going to pull it.
+
+34
+00:02:23,940 --> 00:02:24,150
+And.
+
+35
+00:02:24,150 --> 00:02:25,280
+Yes, Majid.
+
+36
+00:02:26,030 --> 00:02:27,690
+I'm fine with that message.
+
+37
+00:02:30,190 --> 00:02:31,990
+Now all the changes are in sync.
+
+38
+00:02:33,050 --> 00:02:34,610
+Let's continue our work.
+
+39
+00:02:35,500 --> 00:02:38,500
+So including variables.
+
+40
+00:02:38,890 --> 00:02:39,300
+Right.
+
+41
+00:02:39,310 --> 00:02:45,550
+So we'll also we're also going to launch a lot of two instances for my SQL rabbit MQ Tomcat.
+
+42
+00:02:45,550 --> 00:02:51,730
+All the instances and those instances needs my ID, We will provide that again through a variable file.
+
+43
+00:02:51,730 --> 00:02:53,680
+So we'll create one more variable file.
+
+44
+00:02:55,250 --> 00:02:56,540
+We'll see in New.
+
+45
+00:02:57,300 --> 00:02:58,140
+File.
+
+46
+00:02:59,680 --> 00:03:04,270
+The limit is the pro stack setup.
+
+47
+00:03:04,930 --> 00:03:05,830
+That should be fine.
+
+48
+00:03:06,730 --> 00:03:07,930
+It's a text file.
+
+49
+00:03:09,760 --> 00:03:12,700
+To find the ID, we can go to this site.
+
+50
+00:03:15,640 --> 00:03:17,890
+One to to find we're going to use Ubuntu.
+
+51
+00:03:17,890 --> 00:03:23,470
+So to find Ubuntu army we can go to the site cloud images, ubuntu dot com locator and we're looking
+
+52
+00:03:23,470 --> 00:03:29,160
+for ubuntu 18 so we can give the 1 to 18 or we can give the code name of this bionic 1 to 18 is called
+
+53
+00:03:29,170 --> 00:03:29,860
+bionic.
+
+54
+00:03:31,150 --> 00:03:35,260
+We are doing it in the region us east to.
+
+55
+00:03:37,340 --> 00:03:39,050
+So let's find that.
+
+56
+00:03:39,050 --> 00:03:43,790
+Yes us ist to vm ebs sd based OC.
+
+57
+00:03:43,820 --> 00:03:45,110
+This should be good.
+
+58
+00:03:49,280 --> 00:03:52,760
+There's also a chance that our playbook doesn't find that.
+
+59
+00:03:52,760 --> 00:03:53,350
+Amy.
+
+60
+00:03:53,660 --> 00:03:55,790
+Maybe we're given a wrong Ahmed.
+
+61
+00:03:55,820 --> 00:03:58,010
+Or maybe this is an old Ahmed.
+
+62
+00:03:58,220 --> 00:04:02,870
+So if we get into that situation, we'll come back, we'll find any other Amy, and we'll use them.
+
+63
+00:04:03,710 --> 00:04:06,590
+So let's create a set of variables for them now.
+
+64
+00:04:07,220 --> 00:04:11,780
+So for all the instances, we'll use the same Amy Engine x Amy.
+
+65
+00:04:15,550 --> 00:04:20,350
+So yes, we're using save my ID for all the instances, okay.
+
+66
+00:04:20,350 --> 00:04:22,210
+Where there's name change.
+
+67
+00:04:23,200 --> 00:04:24,880
+But then you have it in variables file.
+
+68
+00:04:24,880 --> 00:04:27,100
+If you wish to change, you can change the image.
+
+69
+00:04:27,400 --> 00:04:29,420
+But a stack is focusing on ubuntu.
+
+70
+00:04:29,440 --> 00:04:30,880
+So make sure it's open to.
+
+71
+00:04:31,960 --> 00:04:33,280
+Let's see if this file.
+
+72
+00:04:34,290 --> 00:04:37,800
+Now we import or include these variables file in our playbook.
+
+73
+00:04:44,910 --> 00:04:51,390
+So hereafter, if we need any variables for our V profile instance setup, we'll use this variables
+
+74
+00:04:51,390 --> 00:04:51,930
+file.
+
+75
+00:04:54,350 --> 00:04:56,390
+We'll also need a key to log into our instances.
+
+76
+00:04:56,390 --> 00:04:57,770
+So let's create a key pair.
+
+77
+00:04:59,130 --> 00:04:59,860
+Easy to underscore.
+
+78
+00:04:59,880 --> 00:05:05,370
+Key module we are creating in the region that we specified in the variables file and we're going to
+
+79
+00:05:05,370 --> 00:05:06,340
+store the output.
+
+80
+00:05:06,360 --> 00:05:13,830
+Then we'll store the output of the output that it returns into a text file, the PEM file we're going
+
+81
+00:05:13,830 --> 00:05:14,490
+to create.
+
+82
+00:05:16,620 --> 00:05:16,810
+Yeah.
+
+83
+00:05:16,860 --> 00:05:21,540
+So register that output and variable dot key private key.
+
+84
+00:05:21,540 --> 00:05:23,220
+We're storing it into this file.
+
+85
+00:05:24,600 --> 00:05:25,560
+Only when.
+
+86
+00:05:26,970 --> 00:05:27,900
+Its values change.
+
+87
+00:05:27,900 --> 00:05:32,580
+So when the key is created, then only it's going to save it into the file.
+
+88
+00:05:32,970 --> 00:05:36,440
+And that will save only when this condition is true.
+
+89
+00:05:36,450 --> 00:05:40,860
+When the pro key underscore out dot changed, right?
+
+90
+00:05:41,010 --> 00:05:47,100
+So if this returns true, if this creates a key, then only this is going to save the key.
+
+91
+00:05:48,060 --> 00:05:49,860
+There are few changes we need to do again.
+
+92
+00:05:50,400 --> 00:05:54,420
+So variables file vpc, hyphen output underscore vars.
+
+93
+00:05:55,170 --> 00:05:56,730
+Let's copy that.
+
+94
+00:05:58,200 --> 00:05:59,130
+And our variables.
+
+95
+00:05:59,130 --> 00:06:01,140
+Volume is different, output underscore versus.
+
+96
+00:06:01,410 --> 00:06:03,480
+So either you can change this or you can change that.
+
+97
+00:06:03,480 --> 00:06:05,970
+So I'm going to change the name of this file.
+
+98
+00:06:06,760 --> 00:06:08,230
+Rename it with this name.
+
+99
+00:06:08,650 --> 00:06:09,550
+The Factor.
+
+100
+00:06:10,630 --> 00:06:11,770
+Do re factor.
+
+101
+00:06:13,970 --> 00:06:15,650
+Okay, let's get into that.
+
+102
+00:06:19,030 --> 00:06:19,840
+This seems good.
+
+103
+00:06:21,560 --> 00:06:25,400
+Unavailable file it is importing is the plus tax setup, which is this one.
+
+104
+00:06:26,300 --> 00:06:29,440
+We are referring to a variable called US region.
+
+105
+00:06:29,950 --> 00:06:34,300
+And let's check that where the region is defined there or not, It's not defined.
+
+106
+00:06:35,340 --> 00:06:36,770
+So we can define it over here.
+
+107
+00:06:36,780 --> 00:06:39,870
+Or if you want, we can also import VPC set up playbook.
+
+108
+00:06:41,020 --> 00:06:46,450
+So in VPC set up, not playbooks or in VPC set up variables file, we have the region defined.
+
+109
+00:06:47,140 --> 00:06:49,630
+So let's include this variable file as well.
+
+110
+00:06:50,170 --> 00:06:53,950
+Now, if you're thinking why so many variables file, why not put everything in one file?
+
+111
+00:06:54,070 --> 00:06:58,510
+Well, you know, it will be easy for us to access the variables if they are distributed in different
+
+112
+00:06:58,510 --> 00:06:58,840
+files.
+
+113
+00:06:58,840 --> 00:07:04,900
+So VPC setup variables are in this file stack set up variables in other file output is in other file.
+
+114
+00:07:05,650 --> 00:07:10,270
+Now any of these, we don't need these all these variables to be imported in our playbook.
+
+115
+00:07:10,480 --> 00:07:14,590
+So we just need this region variable and we can just put it into.
+
+116
+00:07:17,520 --> 00:07:18,210
+Oh, here.
+
+117
+00:07:19,450 --> 00:07:19,740
+Yeah.
+
+118
+00:07:19,750 --> 00:07:20,090
+Let's see.
+
+119
+00:07:20,140 --> 00:07:25,150
+Region Is this US East too?
+
+120
+00:07:26,380 --> 00:07:28,030
+Okay, let's save all this.
+
+121
+00:07:28,930 --> 00:07:30,460
+Let's also save this file.
+
+122
+00:07:31,650 --> 00:07:32,620
+Close this.
+
+123
+00:07:32,640 --> 00:07:33,930
+We need this now.
+
+124
+00:07:38,900 --> 00:07:41,690
+So a playbook that is importing two variables file.
+
+125
+00:07:42,020 --> 00:07:42,950
+We have them.
+
+126
+00:07:43,520 --> 00:07:44,540
+We need variables.
+
+127
+00:07:44,540 --> 00:07:46,880
+Those variables are present on those in those files.
+
+128
+00:07:47,420 --> 00:07:48,020
+So we.
+
+129
+00:07:48,020 --> 00:07:48,290
+Good?
+
+130
+00:07:48,290 --> 00:07:49,460
+Let's commit it.
+
+131
+00:07:54,160 --> 00:07:55,030
+Let's push it.
+
+132
+00:08:00,990 --> 00:08:02,100
+Okay, it's pushed.
+
+133
+00:08:02,490 --> 00:08:07,830
+Now, if you have different codes that you may end up into a lot of conflict, don't you need to waste
+
+134
+00:08:07,830 --> 00:08:10,020
+your time in solving those conflict?
+
+135
+00:08:10,230 --> 00:08:13,680
+Let's delete the repository and clone it once again.
+
+136
+00:08:17,020 --> 00:08:19,210
+If you get into conflicts.
+
+137
+00:08:27,890 --> 00:08:30,350
+Yet, Branch.
+
+138
+00:08:34,730 --> 00:08:36,980
+So we'll check out to this branch.
+
+139
+00:08:40,059 --> 00:08:41,320
+We profile stack.
+
+140
+00:08:47,340 --> 00:08:48,120
+Just to be sure.
+
+141
+00:08:48,120 --> 00:08:52,050
+If you want, you can execute the sidecar playbook once again.
+
+142
+00:08:53,230 --> 00:08:54,670
+Check your VPC.
+
+143
+00:08:54,940 --> 00:08:56,380
+Check your bastion host.
+
+144
+00:08:56,410 --> 00:08:58,690
+If everything is good, we can move ahead.
+
+145
+00:08:59,170 --> 00:09:00,770
+Now, I created some new data.
+
+146
+00:09:00,790 --> 00:09:03,180
+We updated the VPC output file.
+
+147
+00:09:03,190 --> 00:09:05,710
+We created key for the Bastion host.
+
+148
+00:09:06,510 --> 00:09:07,590
+Which got saved.
+
+149
+00:09:07,590 --> 00:09:10,020
+So our repository did change.
+
+150
+00:09:10,820 --> 00:09:11,960
+It got drifted.
+
+151
+00:09:12,140 --> 00:09:15,380
+So we can push our code from here to GitHub.
+
+152
+00:09:15,680 --> 00:09:24,290
+Except we are not going to push the key the to Bastion, key, dot, PEM or any file for that matter.
+
+153
+00:09:24,290 --> 00:09:26,180
+So we'll create a get ignored file.
+
+154
+00:09:29,150 --> 00:09:32,900
+Since the repository you create a container file don't get ignored.
+
+155
+00:09:32,930 --> 00:09:33,860
+It should be hidden.
+
+156
+00:09:37,490 --> 00:09:41,960
+And you mentioned the files that you don't want to commit, especially PEM files.
+
+157
+00:09:41,970 --> 00:09:43,970
+So we're going to say start Pem.
+
+158
+00:09:48,320 --> 00:09:50,150
+And a IT ad dot.
+
+159
+00:09:51,480 --> 00:09:52,020
+Get.
+
+160
+00:09:53,510 --> 00:09:54,710
+Comet hyphen m.
+
+161
+00:10:02,940 --> 00:10:04,200
+And let's push it.
+
+162
+00:10:08,360 --> 00:10:08,690
+Okay.
+
+163
+00:10:08,720 --> 00:10:10,650
+It's synced with our remote repository.
+
+164
+00:10:10,700 --> 00:10:13,670
+Let's also fetch the changes from here.
+
+165
+00:10:18,000 --> 00:10:21,030
+To say it is to file updated so we have get ignored file.
+
+166
+00:10:22,660 --> 00:10:23,740
+And this file.
+
+167
+00:10:24,680 --> 00:10:27,110
+The output output file then got updated.
+
+168
+00:10:27,230 --> 00:10:30,370
+And if you see we don't have the key here, right.
+
+169
+00:10:30,470 --> 00:10:31,630
+The login key didn't come.
+
+170
+00:10:31,670 --> 00:10:33,590
+Let's check from GitHub also.
+
+171
+00:10:36,310 --> 00:10:38,170
+So there's no penfill see that.
+
+172
+00:10:38,710 --> 00:10:44,110
+So such kind of important things like login key or even if you want to know the output of a file output
+
+173
+00:10:44,260 --> 00:10:49,150
+of your playbooks or any confidential information you should really ignore.
+
+174
+00:10:49,150 --> 00:10:55,420
+Because when you set up a stack, it will generate a lot of valuable information that can prove very
+
+175
+00:10:55,420 --> 00:10:58,360
+valuable to people who want to exploit it.
+
+176
+00:10:58,540 --> 00:11:00,970
+So keep that in mind when you're working in projects.
+
+177
+00:11:03,010 --> 00:11:09,580
+Also, we'll test our playbook, which is going to create key pair for a V profile stack.
+
+178
+00:11:12,230 --> 00:11:12,440
+Okay.
+
+179
+00:11:12,560 --> 00:11:16,670
+I think we made a made a mistake VPC hyphen VPC output words.
+
+180
+00:11:17,180 --> 00:11:17,910
+That's not good.
+
+181
+00:11:17,930 --> 00:11:19,370
+Let's go to Intel AG.
+
+182
+00:11:19,400 --> 00:11:19,940
+Yeah.
+
+183
+00:11:20,510 --> 00:11:24,530
+The name of the file is VPC hyphen output underscore vars.
+
+184
+00:11:25,400 --> 00:11:26,040
+Save it.
+
+185
+00:11:26,060 --> 00:11:27,020
+Let's come at it.
+
+186
+00:11:47,890 --> 00:11:48,970
+Let's try once again.
+
+187
+00:11:52,090 --> 00:11:54,460
+No, I think region is also not defined.
+
+188
+00:11:57,900 --> 00:12:00,150
+Probably that happened when we're committing things.
+
+189
+00:12:32,170 --> 00:12:32,440
+Okay.
+
+190
+00:12:32,470 --> 00:12:33,160
+Finally.
+
+191
+00:12:33,640 --> 00:12:34,300
+So it's good.
+
+192
+00:12:34,300 --> 00:12:38,980
+We caught the error in the very beginning before we when we launched the stack, before you put too
+
+193
+00:12:38,980 --> 00:12:41,140
+many things in our playbook, too many tasks.
+
+194
+00:12:41,470 --> 00:12:46,990
+It's better you put some task execute so it will validate your variables, file variables, name and
+
+195
+00:12:46,990 --> 00:12:47,650
+everything.
+
+196
+00:12:47,980 --> 00:12:53,050
+And I recommend it may be looking a little painful, but I recommend you do it through version control,
+
+197
+00:12:53,050 --> 00:12:55,840
+because when you're working in a project, you'll be working in a team.
+
+198
+00:12:56,590 --> 00:13:03,640
+So making code changes on the machine, either on your local machine or on, or only on the control
+
+199
+00:13:03,640 --> 00:13:04,270
+machine.
+
+200
+00:13:04,540 --> 00:13:06,730
+This data will be on that particular machine.
+
+201
+00:13:06,730 --> 00:13:10,870
+It will not be sync with individuals who are working in your team.
+
+202
+00:13:11,750 --> 00:13:13,390
+So do it through version control.
+
+203
+00:13:13,400 --> 00:13:15,220
+Push the change to the version, control.
+
+204
+00:13:15,230 --> 00:13:16,850
+Then fetch it and then execute.
+
+205
+00:13:18,080 --> 00:13:24,800
+Also know if you use ID, it becomes easier for you to see the YAML syntax and for that matter any syntax,
+
+206
+00:13:24,800 --> 00:13:27,230
+JSON or any bash scripts or python script.
+
+207
+00:13:28,330 --> 00:13:28,610
+Okay.
+
+208
+00:13:28,630 --> 00:13:32,170
+After this, the flow of the playbook will be like this.
+
+209
+00:13:33,190 --> 00:13:38,170
+The objective of this playbook is to create our easy two instances for we profile stack.
+
+210
+00:13:38,470 --> 00:13:40,240
+But the flow will be like this.
+
+211
+00:13:40,270 --> 00:13:44,170
+First, we'll create security group for load balancer.
+
+212
+00:13:44,200 --> 00:13:46,870
+Then we'll create security group for E two instances.
+
+213
+00:13:47,260 --> 00:13:48,930
+Then we'll launch easy to instance.
+
+214
+00:13:48,940 --> 00:13:50,770
+Then we'll launch load balancer.
+
+215
+00:13:51,480 --> 00:13:58,200
+And also we'll add our engineers, for instance, under the load balancer, and also we'll store all
+
+216
+00:13:58,200 --> 00:14:03,780
+the private IPS, for instance, into another variable file which can be reused later.
+

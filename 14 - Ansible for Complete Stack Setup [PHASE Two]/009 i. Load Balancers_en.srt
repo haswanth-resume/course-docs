@@ -1,0 +1,164 @@
+1
+00:00:00,090 --> 00:00:03,160
+Next step is we're going to create elastic load balancer.
+
+2
+00:00:03,180 --> 00:00:05,550
+We'll add engine X instance under that.
+
+3
+00:00:06,270 --> 00:00:12,000
+It will be not in service because we don't have any service running on Engine X instance, but we'll
+
+4
+00:00:12,000 --> 00:00:13,830
+add it for our third phase.
+
+5
+00:00:14,340 --> 00:00:16,770
+And while we do that, we'll also do a few more things.
+
+6
+00:00:16,800 --> 00:00:20,940
+We're going to take the private IP of all the instances and create a host file.
+
+7
+00:00:21,580 --> 00:00:25,110
+Okay, so let's go to our ID.
+
+8
+00:00:28,820 --> 00:00:30,650
+I guess, after creating the instances.
+
+9
+00:00:31,530 --> 00:00:38,340
+I want to really now also print the instance ID I want to show because in the next tasks I'm going to
+
+10
+00:00:38,340 --> 00:00:41,340
+add the IDs, the IP address into a file.
+
+11
+00:00:41,730 --> 00:00:46,590
+So DB zero one underscore out right Under that you have tagged instances.
+
+12
+00:00:47,340 --> 00:00:49,710
+Tagged instances and it's a list.
+
+13
+00:00:51,390 --> 00:00:54,180
+And we just need the first element in the list dot.
+
+14
+00:00:55,470 --> 00:00:57,000
+The instance.
+
+15
+00:00:58,580 --> 00:01:00,290
+Now just have ID.
+
+16
+00:01:03,680 --> 00:01:08,030
+Okay, This is just for printing purpose, just to show, you know, such kind of information.
+
+17
+00:01:08,030 --> 00:01:09,740
+We're going to store in a file.
+
+18
+00:01:10,130 --> 00:01:11,780
+So this is how we're creating load balancer.
+
+19
+00:01:11,780 --> 00:01:16,580
+We have a module called Local Action, and we can local action means it's going to get executed locally
+
+20
+00:01:16,580 --> 00:01:17,720
+and we can give a module name.
+
+21
+00:01:17,720 --> 00:01:18,320
+Module.
+
+22
+00:01:18,350 --> 00:01:22,070
+That's the module name of our load balancer.
+
+23
+00:01:22,970 --> 00:01:29,900
+Region, state, present instance IDs so you can add the instance IDs.
+
+24
+00:01:30,290 --> 00:01:36,010
+It's in a list format, so you can add a number of instance IDs if you want to add our engine X instance.
+
+25
+00:01:36,010 --> 00:01:38,000
+So web zero one underscore out.
+
+26
+00:01:39,550 --> 00:01:41,440
+Variable that we are storing.
+
+27
+00:01:43,170 --> 00:01:45,210
+Here Web zero one underscore out.
+
+28
+00:01:47,470 --> 00:01:54,730
+That's for engineers dot tagged underscore instance zero in square racket dot ID as we are doing it
+
+29
+00:01:54,730 --> 00:01:55,390
+over here.
+
+30
+00:01:56,650 --> 00:01:58,200
+Suppose instance it is.
+
+31
+00:01:58,210 --> 00:02:03,220
+If we say true, then it will remove the instances that we have not defined in this list.
+
+32
+00:02:03,790 --> 00:02:08,169
+So under this load balancer, if you have existing instances, those instances will be removed and only
+
+33
+00:02:08,169 --> 00:02:11,440
+the instances that we're mentioning over here will be added.
+
+34
+00:02:12,310 --> 00:02:13,120
+Security group.
+
+35
+00:02:13,120 --> 00:02:15,700
+The security group we created for the load balancer.
+
+36
+00:02:15,940 --> 00:02:18,700
+That's the variable subnets.
+
+37
+00:02:19,030 --> 00:02:24,340
+So this load balancer will get created in public subnet and we're giving the ID of the three public
+
+38
+00:02:24,340 --> 00:02:27,760
+subnet and which is coming from our output file.
+
+39
+00:02:32,200 --> 00:02:34,060
+And listeners, you can give a list of listeners.
+
+40
+00:02:34,060 --> 00:02:36,100
+We just have one listener we're going to listen on.
+
+41
+00:02:36,130 --> 00:02:39,040
+Port 80 HTTP Protocol.
+

@@ -1,0 +1,180 @@
+1
+00:00:01,720 --> 00:00:03,280
+Okay, so let's do the execution.
+
+2
+00:00:03,280 --> 00:00:08,160
+Ansible hyphen playbook ci dot AML.
+
+3
+00:00:15,470 --> 00:00:16,630
+So it's creating everything.
+
+4
+00:00:16,640 --> 00:00:18,680
+VPC all our subnets.
+
+5
+00:00:18,680 --> 00:00:22,250
+Internet Gateway Route table for Internet Gateway.
+
+6
+00:00:24,050 --> 00:00:26,840
+Now it's creating the net gateway, which will take some time.
+
+7
+00:00:26,840 --> 00:00:30,260
+So I'm going to pause my screen and come back when this is completed.
+
+8
+00:00:31,280 --> 00:00:35,450
+So VPC set up, but when we're creating Bastion host, it failed.
+
+9
+00:00:35,930 --> 00:00:41,570
+That's because we have removed the Bastion host variables file but we did not make the change in the
+
+10
+00:00:41,570 --> 00:00:44,340
+Bastion instance yaml.
+
+11
+00:00:46,830 --> 00:00:47,130
+There.
+
+12
+00:00:47,130 --> 00:00:47,870
+It's important.
+
+13
+00:00:47,880 --> 00:00:50,790
+It's trying to include that variables file which does not exist.
+
+14
+00:00:52,020 --> 00:00:56,820
+Instead of that, we have the VPC variable file that we have to import.
+
+15
+00:00:57,180 --> 00:01:00,030
+So let's do it again from our ID.
+
+16
+00:01:01,720 --> 00:01:02,560
+That's an instance.
+
+17
+00:01:05,019 --> 00:01:08,450
+Not that we need VPC.
+
+18
+00:01:08,470 --> 00:01:09,450
+Underscore Setup.
+
+19
+00:01:09,460 --> 00:01:10,510
+VPC.
+
+20
+00:01:11,600 --> 00:01:12,500
+Underscore.
+
+21
+00:01:12,530 --> 00:01:13,400
+Set up.
+
+22
+00:01:14,570 --> 00:01:15,440
+Let's save it.
+
+23
+00:01:16,400 --> 00:01:17,210
+Committed.
+
+24
+00:01:19,640 --> 00:01:24,100
+Completed vars file in Bastion.
+
+25
+00:01:29,630 --> 00:01:31,190
+And let's push the change.
+
+26
+00:01:38,250 --> 00:01:39,840
+Okay, let's fetch it.
+
+27
+00:01:45,130 --> 00:01:46,930
+Okay, let's try the execution once again.
+
+28
+00:01:48,190 --> 00:01:50,260
+So we already set up all subnets.
+
+29
+00:01:50,260 --> 00:01:51,040
+Everything is good.
+
+30
+00:01:51,040 --> 00:01:52,600
+So it's just going to say, okay.
+
+31
+00:01:54,490 --> 00:01:55,450
+And this looks good.
+
+32
+00:01:55,450 --> 00:01:56,560
+Now it's importing.
+
+33
+00:01:56,560 --> 00:01:58,270
+It has imported the variables file.
+
+34
+00:01:59,110 --> 00:02:03,760
+Created security group, for Bastion instance, and it has stopped launching the Bastion host.
+
+35
+00:02:05,350 --> 00:02:06,930
+Yeah, worse.
+
+36
+00:02:07,890 --> 00:02:10,090
+We pick out set up variable.
+
+37
+00:02:11,260 --> 00:02:17,170
+If you have not updated your my IP over here, make sure you change that and you can reapply the change
+
+38
+00:02:17,170 --> 00:02:17,920
+if you want.
+
+39
+00:02:31,810 --> 00:02:37,990
+Okay, we should have output vars file and we have all the information, all the IDs of VPC, subnet,
+
+40
+00:02:37,990 --> 00:02:39,460
+internet gateway, everything.
+
+41
+00:02:39,760 --> 00:02:42,580
+We should be a very vital information for our next execution.
+
+42
+00:02:42,580 --> 00:02:46,600
+So our first execution completed, we should have VPC with all the details.
+
+43
+00:02:47,260 --> 00:02:48,730
+Second execution.
+
+44
+00:02:48,730 --> 00:02:52,990
+We are going to write a playbook to set up our easy two instances load balancer and security group for
+
+45
+00:02:52,990 --> 00:02:54,430
+our V profile stack.
+
