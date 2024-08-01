@@ -1,0 +1,1532 @@
+1
+00:00:02,070 --> 00:00:03,969
+Encrypting your data on cloud.
+
+2
+00:00:04,440 --> 00:00:09,390
+This is about protecting your data at rest, encryption at rest.
+
+3
+00:00:10,680 --> 00:00:16,980
+That really means the data which is residing in your cloud computing resources like S3 Dinamo, DB Ebb's
+
+4
+00:00:16,980 --> 00:00:17,700
+ideas.
+
+5
+00:00:18,950 --> 00:00:21,920
+This data is encrypted in the storage.
+
+6
+00:00:22,990 --> 00:00:28,210
+We'll be also talking about encrypting data in transit when the data is flowing, but this session is
+
+7
+00:00:28,210 --> 00:00:29,840
+about encryption at rest.
+
+8
+00:00:30,910 --> 00:00:32,250
+So how can we keep the data?
+
+9
+00:00:32,310 --> 00:00:38,910
+Well, there are so many services in the U.S. that by default provides the encryption like S3 that could
+
+10
+00:00:38,920 --> 00:00:39,150
+come.
+
+11
+00:00:39,330 --> 00:00:43,570
+It could there are options where you can just encrypt the data.
+
+12
+00:00:43,570 --> 00:00:46,050
+In some places they're even mandatory to encrypt the data.
+
+13
+00:00:46,990 --> 00:00:51,390
+But there the encryption keys are managed by eatables.
+
+14
+00:00:52,690 --> 00:00:57,730
+So if you already have done some encryption without Kamus, that means you have used eatables, managed
+
+15
+00:00:57,730 --> 00:00:59,650
+keys to encrypt the data.
+
+16
+00:01:00,910 --> 00:01:07,450
+In this session, we are going to talk about specifically CM's gimmies service, where you can create
+
+17
+00:01:07,460 --> 00:01:12,700
+encryption keys or just the keys, which it is used for, encrypt and decrypt both.
+
+18
+00:01:12,940 --> 00:01:16,440
+You can create symmetric or asymmetric keys in Kamus.
+
+19
+00:01:18,050 --> 00:01:25,730
+And if you want, you can also upload your own keys and store it in Camisoles Soki created by Cames
+
+20
+00:01:25,730 --> 00:01:28,460
+or we applaud the key, we are storing it in games.
+
+21
+00:01:28,460 --> 00:01:35,000
+But where is A.W. storing its keys in the keys that we are uploading or are we creating two games now?
+
+22
+00:01:35,000 --> 00:01:40,790
+There could be compliance that I don't want to keep my keys in the same hardware as the other customer.
+
+23
+00:01:41,440 --> 00:01:43,520
+That means I have any new account.
+
+24
+00:01:43,520 --> 00:01:44,440
+I have keys.
+
+25
+00:01:44,570 --> 00:01:46,090
+You also have a new account.
+
+26
+00:01:46,400 --> 00:01:47,840
+You'd also create the keys.
+
+27
+00:01:48,200 --> 00:01:50,150
+Are these keys stored in the same place?
+
+28
+00:01:50,900 --> 00:01:54,730
+That's virtually practically impossible for the other account to access your keys.
+
+29
+00:01:55,250 --> 00:02:02,240
+But even though there are compliance and further compliance, you can use Cloud HSM to the cloud based
+
+30
+00:02:02,240 --> 00:02:10,669
+hardware security module so you can create an upload your keys and stored in Cloud HSM, which is a
+
+31
+00:02:10,669 --> 00:02:11,600
+separate hardware.
+
+32
+00:02:11,600 --> 00:02:15,160
+And of course you'll be charged extra, much more extra than Kym's.
+
+33
+00:02:16,650 --> 00:02:22,910
+So Kamus is, you know, follows all the compliance of FIPS 140 to level three, validated as Yasim.
+
+34
+00:02:23,660 --> 00:02:30,560
+So all the popular standards that we have is going to use those and store your keys into a separate
+
+35
+00:02:30,560 --> 00:02:31,880
+hardware, which will be.
+
+36
+00:02:33,080 --> 00:02:35,480
+Protected and you can follow the compliance.
+
+37
+00:02:36,480 --> 00:02:40,860
+They're still not aware about what really deserted and you can just Google, you can find the images,
+
+38
+00:02:40,860 --> 00:02:41,970
+Claridges, some device.
+
+39
+00:02:42,310 --> 00:02:46,950
+Now, obviously, it's not the same if men may or may not be same device, what AWB is using.
+
+40
+00:02:46,950 --> 00:02:48,120
+But you can get an idea.
+
+41
+00:02:48,120 --> 00:02:49,280
+It's going to be a separate story.
+
+42
+00:02:49,280 --> 00:02:54,360
+It's going to be tamperproof and all those amazing securities will be there.
+
+43
+00:02:54,870 --> 00:03:01,350
+If someone is forcibly trying to access it from the AWB center, it will destroy the keys, stuff like
+
+44
+00:03:01,350 --> 00:03:01,650
+that.
+
+45
+00:03:01,650 --> 00:03:03,000
+So there are so many compliances.
+
+46
+00:03:03,720 --> 00:03:05,970
+Turns out to be very expensive to store it over here.
+
+47
+00:03:05,970 --> 00:03:07,980
+And we are not going to do that, obviously.
+
+48
+00:03:08,490 --> 00:03:14,280
+So if you ask me, these keys are more secure compared to we put it on normal CM's.
+
+49
+00:03:16,200 --> 00:03:21,450
+Well, not really any of the chemists will be starring in such kind of hardware, but it's just about
+
+50
+00:03:21,990 --> 00:03:22,730
+the compliance.
+
+51
+00:03:22,740 --> 00:03:25,980
+I don't want to store my keys at the same hardware where other keys are stored.
+
+52
+00:03:26,040 --> 00:03:27,330
+It's that, actually.
+
+53
+00:03:28,110 --> 00:03:32,490
+And so those are keys and are being installed on games directly or HSM.
+
+54
+00:03:33,060 --> 00:03:34,860
+What do we encrypt with that?
+
+55
+00:03:35,460 --> 00:03:41,040
+These are the things that we think we should encrypt as three data ebb's volumes.
+
+56
+00:03:41,040 --> 00:03:47,940
+You can encrypt with these keys, ideas, data, glacial data, Dinamo Debe EMR and there are a few
+
+57
+00:03:47,940 --> 00:03:48,150
+other.
+
+58
+00:03:48,150 --> 00:03:51,030
+But these are the most popular thing you should consider encrypting.
+
+59
+00:03:51,750 --> 00:03:56,970
+In fact, based on the statistics to most of the data, breach happens because of unencrypted data.
+
+60
+00:03:58,060 --> 00:04:03,010
+So let's do an exercise, will create keys on CDMs and then we'll use it to encrypt our data.
+
+61
+00:04:03,040 --> 00:04:04,110
+Let's see how that works.
+
+62
+00:04:05,490 --> 00:04:08,670
+So it was management council, let's just search for CM's.
+
+63
+00:04:11,010 --> 00:04:16,440
+Before we get into this, let me remind you, there is no free for CMS, so if you create a key, it
+
+64
+00:04:16,440 --> 00:04:17,370
+will be charged.
+
+65
+00:04:17,610 --> 00:04:21,490
+And if you're keeping it for a long, long time, the charges could be huge.
+
+66
+00:04:21,519 --> 00:04:24,650
+OK, it's not that cheap service, really.
+
+67
+00:04:24,660 --> 00:04:29,520
+OK, but I still recommend you create the muskies and delete it as I'm doing.
+
+68
+00:04:29,520 --> 00:04:33,900
+You do the same thing so you not be charged very minimum from a fraction of dollars maybe.
+
+69
+00:04:36,580 --> 00:04:42,100
+Really, before creating the skis, I will create some users and groups and I will really show you how
+
+70
+00:04:42,100 --> 00:04:47,560
+this works hand in hand with the erm users who will have the privilege to access the skis, who can
+
+71
+00:04:47,560 --> 00:04:48,720
+encrypt and decrypt.
+
+72
+00:04:49,030 --> 00:04:50,320
+Let's understand that as well.
+
+73
+00:04:50,350 --> 00:04:51,560
+That's the most important part.
+
+74
+00:04:52,360 --> 00:04:54,510
+So we go to a managed his.
+
+75
+00:04:54,520 --> 00:04:57,580
+You will see the keys that I have used in this region.
+
+76
+00:04:58,900 --> 00:05:01,290
+This is not keys that I have created.
+
+77
+00:05:01,720 --> 00:05:05,470
+This is the keys which AWB has provided us.
+
+78
+00:05:05,470 --> 00:05:12,510
+So we can include EBAs or for commercial forestry and corruption or ACM customer managed.
+
+79
+00:05:12,670 --> 00:05:19,480
+These are the key that we will recreate and these are the ones that are charged to this customer store
+
+80
+00:05:20,200 --> 00:05:26,860
+where you can store your own keys and let's go to erm service and let's create some user.
+
+81
+00:05:29,690 --> 00:05:32,360
+So I will really create three users.
+
+82
+00:05:33,700 --> 00:05:36,220
+So I named them as simple alpha.
+
+83
+00:05:38,480 --> 00:05:42,920
+Beta and Gamma Jass to make it simple.
+
+84
+00:05:43,110 --> 00:05:48,440
+Look, of course, there will be some real person name Houthi rebels, management control access or
+
+85
+00:05:48,440 --> 00:05:50,180
+200 Pastorale Keep and.
+
+86
+00:05:51,890 --> 00:05:58,010
+No password reset required, go next side, not give them any policy whatsoever, will do that to the
+
+87
+00:05:58,010 --> 00:05:58,310
+group.
+
+88
+00:06:01,820 --> 00:06:06,920
+OK, so I recommend you just, you know, just check this password's auto generated, so you should
+
+89
+00:06:07,250 --> 00:06:10,640
+go and I recommend you just put it into a knot somewhere.
+
+90
+00:06:11,130 --> 00:06:12,800
+I will use my sticky note.
+
+91
+00:06:14,600 --> 00:06:20,810
+All right, I see it on my sticky notes for now, I'm going to close just now and we will create Group
+
+92
+00:06:21,710 --> 00:06:22,400
+two groups.
+
+93
+00:06:23,900 --> 00:06:25,850
+One for the admin.
+
+94
+00:06:29,240 --> 00:06:37,250
+And I will give administrator access for this group, REDgroup, next user, next group I will create
+
+95
+00:06:37,910 --> 00:06:39,980
+and I will see you maybe the protesters.
+
+96
+00:06:41,380 --> 00:06:42,730
+And next step.
+
+97
+00:06:44,730 --> 00:06:48,240
+I will give this user three full access.
+
+98
+00:06:49,740 --> 00:06:54,990
+And I think you also give me only access so they can access all the services.
+
+99
+00:06:57,810 --> 00:06:59,820
+OK, here to scroll down a lot.
+
+100
+00:07:00,880 --> 00:07:01,690
+There is that.
+
+101
+00:07:03,770 --> 00:07:04,640
+It's call.
+
+102
+00:07:06,200 --> 00:07:07,460
+Scrimps, corkscrewing.
+
+103
+00:07:08,990 --> 00:07:12,980
+OK, OK, Wide-screen, back again and again, that's so weird.
+
+104
+00:07:18,920 --> 00:07:23,080
+If you don't access this route, only access will be uncharitably account.
+
+105
+00:07:24,420 --> 00:07:29,610
+So to policy for the second group, D'Astier Group is three full access and only access admin has full
+
+106
+00:07:29,610 --> 00:07:31,080
+access, let's add.
+
+107
+00:07:32,280 --> 00:07:37,260
+In the admin will add to the user alpha, so alpha user admin.
+
+108
+00:07:38,940 --> 00:07:44,730
+You know, like in a wolf pack, I'll fondly write like that in animals like that, our second group.
+
+109
+00:07:45,860 --> 00:07:47,840
+We will add Feodor to users.
+
+110
+00:07:48,860 --> 00:07:51,020
+We'll see Beta and Gamma.
+
+111
+00:07:54,410 --> 00:08:01,280
+OK, so two groups really are one group alpha testers, Group B down gamma admin, as the name says,
+
+112
+00:08:01,280 --> 00:08:07,690
+administrator full access testers group has three full access and read-only access.
+
+113
+00:08:08,420 --> 00:08:14,730
+I am currently logged in with my RWD account and now I will create keys with my hood account.
+
+114
+00:08:15,440 --> 00:08:17,090
+So let's go back to our CM's.
+
+115
+00:08:20,120 --> 00:08:26,030
+How does it create a key, the two options, symmetric asymmetric asymmetric is one single key which
+
+116
+00:08:26,030 --> 00:08:30,680
+is used for encryption decryption, but ultimately will have a public private key, just like, you
+
+117
+00:08:30,680 --> 00:08:32,450
+know, you have SSL key players like that.
+
+118
+00:08:33,390 --> 00:08:36,409
+So I'll keep symmetrically and advance auction.
+
+119
+00:08:36,419 --> 00:08:38,210
+So key material.
+
+120
+00:08:38,570 --> 00:08:44,850
+Do you want to create the key material or would you like to upload your own material external.
+
+121
+00:08:45,710 --> 00:08:48,010
+OK, but then you have to be very careful.
+
+122
+00:08:48,020 --> 00:08:53,150
+You have to keep those materials, see if you take some backup offered, because if it's gone, then
+
+123
+00:08:53,150 --> 00:08:53,600
+you're gone.
+
+124
+00:08:53,990 --> 00:08:59,730
+One big problem from a security point of view, it's not a problem here.
+
+125
+00:08:59,780 --> 00:09:00,050
+It is.
+
+126
+00:09:00,050 --> 00:09:06,860
+If you have deleted the key and you have already used that key to encrypt some data, you cannot recover
+
+127
+00:09:06,860 --> 00:09:07,510
+it ever.
+
+128
+00:09:09,080 --> 00:09:13,850
+So there's also not a new option to delete the keys over here directly, Kamus keys you cannot delete
+
+129
+00:09:13,850 --> 00:09:15,980
+directly, they will be forced.
+
+130
+00:09:16,020 --> 00:09:23,640
+You have to, you know, enable the delete scheduler delete, which minimum is seven days maximum.
+
+131
+00:09:23,640 --> 00:09:24,590
+So many more days.
+
+132
+00:09:25,010 --> 00:09:26,870
+Minimum is seven days or seven days.
+
+133
+00:09:26,870 --> 00:09:31,160
+You cannot delete a key even if you created it, even if you have full access.
+
+134
+00:09:31,170 --> 00:09:33,800
+So that's just a safety valve.
+
+135
+00:09:33,800 --> 00:09:39,050
+So in case by accidentally someone disable the key or schedule for deletion, then you can only have
+
+136
+00:09:39,050 --> 00:09:44,900
+seven days to no redo that and not delete it again.
+
+137
+00:09:44,910 --> 00:09:49,790
+Let me remind you, if you delete your keys, you will not be able to recover your data ever.
+
+138
+00:09:50,070 --> 00:09:54,310
+It will be encrypted and it does not hold the keys with them.
+
+139
+00:09:54,770 --> 00:09:58,340
+So there's no chance you will be able to ever recover the data.
+
+140
+00:09:59,650 --> 00:10:02,950
+So we will not use the external material, we'll just use the Kamus model, you.
+
+141
+00:10:03,190 --> 00:10:06,430
+You have the other option called HSM that is very expensive.
+
+142
+00:10:06,440 --> 00:10:09,760
+Just keep over here on the Kamus go next.
+
+143
+00:10:11,590 --> 00:10:19,240
+Let's give a name I will give them as a V profile hyphen ke.
+
+144
+00:10:21,650 --> 00:10:24,740
+In C or something like that, like encryption key.
+
+145
+00:10:26,460 --> 00:10:28,080
+All right, and I'll just see you next.
+
+146
+00:10:30,020 --> 00:10:34,760
+Now, permission who will be the administrator of the permission when I say it will be the person who
+
+147
+00:10:34,760 --> 00:10:38,960
+can control the key, the deletion, the disable, enable all those things.
+
+148
+00:10:39,890 --> 00:10:41,750
+So I would like to give that to Alpha.
+
+149
+00:10:43,820 --> 00:10:46,440
+I know Alpha is anyway's the admin.
+
+150
+00:10:46,900 --> 00:10:50,180
+I will give it to Beta, which is part of ESTOS group.
+
+151
+00:10:51,330 --> 00:10:56,460
+And Tester's group has three full access and only access, so I will make admin WITHA.
+
+152
+00:10:57,640 --> 00:11:03,100
+The second user, al-Malki administrator Julie Diski, how you keep that check mark on.
+
+153
+00:11:05,310 --> 00:11:09,900
+Now, you see, that was what I mean, but you can use this key for encryption and decryption, that's
+
+154
+00:11:09,900 --> 00:11:11,570
+where the magic happens.
+
+155
+00:11:12,300 --> 00:11:16,440
+I give it to be the only beta user can use this key to encrypt or decrypt.
+
+156
+00:11:16,860 --> 00:11:20,220
+No other user can use this to encrypt decrypt.
+
+157
+00:11:20,520 --> 00:11:21,780
+OK, and that's the safety.
+
+158
+00:11:24,050 --> 00:11:28,670
+All right, and you will see that Gameau user also belongs to the same group, but will not be able
+
+159
+00:11:28,670 --> 00:11:29,660
+to use that key.
+
+160
+00:11:30,640 --> 00:11:31,830
+So let's go next.
+
+161
+00:11:33,390 --> 00:11:36,060
+So this is really the policy that it creates.
+
+162
+00:11:38,690 --> 00:11:45,440
+And Jason Formato, what are the policies in action create describing right in the camps and who can
+
+163
+00:11:45,440 --> 00:11:45,770
+do it?
+
+164
+00:11:45,930 --> 00:11:49,730
+Principal by the user.
+
+165
+00:11:50,660 --> 00:11:53,510
+All right, so let's finish.
+
+166
+00:11:56,200 --> 00:12:01,750
+Not the very visible example that we can do with this is with history, but you can use this encryption
+
+167
+00:12:01,750 --> 00:12:04,140
+key to encrypt anything and we'll keep doing that.
+
+168
+00:12:04,540 --> 00:12:05,920
+But let's go to history first.
+
+169
+00:12:10,210 --> 00:12:17,050
+And I will create a bucket here with the name of science, some directly related to science.
+
+170
+00:12:18,140 --> 00:12:23,360
+And I'm going to be keeping it in the same region, I have the key also in the same region.
+
+171
+00:12:24,410 --> 00:12:31,340
+OK, now if you scroll down, you can see here is default encryption method, which is disable, we
+
+172
+00:12:31,340 --> 00:12:33,950
+can enable the encryption of the three Buchard.
+
+173
+00:12:34,580 --> 00:12:38,540
+When I say Nable, I can use Amazon as tricky.
+
+174
+00:12:40,020 --> 00:12:46,320
+Now, this is managed by A.W. or I can use the key Miski for the encryption not remember, we have the
+
+175
+00:12:46,320 --> 00:12:47,570
+full control on that key, OK?
+
+176
+00:12:47,580 --> 00:12:51,090
+We can decide that this deletion disable enable.
+
+177
+00:12:51,630 --> 00:12:53,280
+We can set up life-cycle on that.
+
+178
+00:12:54,740 --> 00:12:58,680
+You can use the sky who cannot use the sky, we can decide all that through policies.
+
+179
+00:12:59,510 --> 00:13:02,120
+So this comes for a three.
+
+180
+00:13:02,120 --> 00:13:06,110
+Also, there are choose from your master key.
+
+181
+00:13:06,170 --> 00:13:09,110
+This is the one that we created selected.
+
+182
+00:13:09,320 --> 00:13:13,670
+You can see or you can see the name we profile and corruption key in that.
+
+183
+00:13:14,630 --> 00:13:16,400
+And I want to see create Buchard.
+
+184
+00:13:17,970 --> 00:13:24,140
+Oh, of course, that will be a common name, people would have used to put some numbers over there,
+
+185
+00:13:24,870 --> 00:13:28,110
+seven, four, three is something random.
+
+186
+00:13:29,990 --> 00:13:31,730
+And I will create Buchard.
+
+187
+00:13:35,520 --> 00:13:38,370
+So I'll go to my bucket and.
+
+188
+00:13:39,670 --> 00:13:46,210
+To show you the really the visible change first world will make this bucket public, not the bucket,
+
+189
+00:13:46,210 --> 00:13:49,030
+probably actually a an object and let it make public.
+
+190
+00:13:49,030 --> 00:13:52,600
+So first, let's applaud an object, a file or text file.
+
+191
+00:13:52,600 --> 00:13:53,640
+Let's upload a text file.
+
+192
+00:13:55,370 --> 00:14:01,340
+So I'm a blue, I'm uploading a file into text file employee contacts, so let's assume that their contact
+
+193
+00:14:01,340 --> 00:14:07,160
+details of the employees in this file and I would like to upload it now.
+
+194
+00:14:07,940 --> 00:14:13,520
+OK, so use default encryption, Buchard setting or you know, you when you upload an object, you can
+
+195
+00:14:13,520 --> 00:14:19,370
+delete, decide more or other encryption method, but will keep Kamus, which we are using for the entire
+
+196
+00:14:19,380 --> 00:14:21,140
+weekend and also for this object.
+
+197
+00:14:21,680 --> 00:14:23,390
+And I will seek upload.
+
+198
+00:14:25,610 --> 00:14:31,210
+I acknowledge that I don't have visioning this is a new thing, I have to acknowledge that I don't have
+
+199
+00:14:31,560 --> 00:14:33,360
+any enabled and that's fine for now.
+
+200
+00:14:36,630 --> 00:14:44,850
+OK, that's done now who can access this data, think about it, but we created the IBM user, we have
+
+201
+00:14:44,850 --> 00:14:48,480
+a testers group, Gamma Beta, they have a street full access.
+
+202
+00:14:49,080 --> 00:14:49,370
+Right.
+
+203
+00:14:50,100 --> 00:14:57,630
+But the data is encrypted by the Kamus key, which is only accessible by the beta user.
+
+204
+00:14:58,520 --> 00:15:06,230
+So, yes, people in this use in this group can access the history, but they cannot decrypted if they
+
+205
+00:15:06,230 --> 00:15:08,570
+don't have the privilege to, the key to the game is key.
+
+206
+00:15:08,690 --> 00:15:14,600
+Only BITA user has the privilege to use that key for encryption and decryption and of course, the admin
+
+207
+00:15:14,660 --> 00:15:15,020
+user.
+
+208
+00:15:15,800 --> 00:15:19,250
+So now let's login with the beta user and let's see how that works.
+
+209
+00:15:20,450 --> 00:15:23,390
+Oh, before that, we have to make this.
+
+210
+00:15:27,320 --> 00:15:33,020
+Public, I know, try to make this public and just to show you how it really works, you know, you
+
+211
+00:15:33,020 --> 00:15:38,060
+in making it public, people will not be able to see this reason outside your permission, so.
+
+212
+00:15:39,280 --> 00:15:39,820
+I did.
+
+213
+00:15:40,890 --> 00:15:46,410
+Local public access, I'll remove that check mark, see if the changes as can form.
+
+214
+00:15:50,590 --> 00:15:53,050
+Yeah, and I will make my object public.
+
+215
+00:15:54,230 --> 00:15:58,410
+So the object action and make public.
+
+216
+00:15:59,680 --> 00:16:00,460
+Make public.
+
+217
+00:16:02,400 --> 00:16:02,970
+So.
+
+218
+00:16:08,970 --> 00:16:10,410
+OK, let's click on the object.
+
+219
+00:16:12,480 --> 00:16:17,700
+You should have the end point now if I click on Open, I'm opening it with my logged in user, which
+
+220
+00:16:17,700 --> 00:16:19,830
+is the route user, I click on it.
+
+221
+00:16:21,870 --> 00:16:24,990
+And I can open it, no problem with the of user.
+
+222
+00:16:26,360 --> 00:16:28,190
+I click with this end point.
+
+223
+00:16:30,700 --> 00:16:32,470
+Even though this is.
+
+224
+00:16:33,450 --> 00:16:40,710
+A public object, you see, if it's accessed over the Internet, it is invalid argument authorization
+
+225
+00:16:40,710 --> 00:16:41,820
+and you'll see some kimmons.
+
+226
+00:16:41,820 --> 00:16:45,300
+Yeah, there it to skim S.A.G. require signature.
+
+227
+00:16:46,020 --> 00:16:50,780
+So see, this data is public, but still people can't see it because it's encrypted.
+
+228
+00:16:51,270 --> 00:16:52,440
+That's the part of encryption.
+
+229
+00:16:53,790 --> 00:17:01,680
+Now, let's login with the user so I will see better user and the password that is in my sticky note
+
+230
+00:17:01,680 --> 00:17:05,430
+and I promise I'm going to delete that those users.
+
+231
+00:17:08,560 --> 00:17:09,250
+Signing.
+
+232
+00:17:12,390 --> 00:17:20,220
+OK, I can go to three and reduce it has a three full access beta user has the power to access the key
+
+233
+00:17:20,220 --> 00:17:20,680
+also.
+
+234
+00:17:21,670 --> 00:17:23,940
+OK, access Buckett.
+
+235
+00:17:26,250 --> 00:17:27,089
+He's an object.
+
+236
+00:17:27,980 --> 00:17:28,640
+Click on it.
+
+237
+00:17:30,650 --> 00:17:34,930
+And when this user clicks open, it's opening night.
+
+238
+00:17:35,920 --> 00:17:36,490
+A lot of.
+
+239
+00:17:38,680 --> 00:17:44,930
+It is opening with better user privilege, better use, and also has access for the game is key.
+
+240
+00:17:45,070 --> 00:17:48,220
+So it decrypted entering Mutata, but then.
+
+241
+00:17:49,370 --> 00:17:55,130
+This year, all it's an anonymous access from the Internet, you'll get the same error because this
+
+242
+00:17:55,130 --> 00:17:58,550
+is not the URL for the beta user to access it.
+
+243
+00:17:58,560 --> 00:18:00,380
+There's no authentication authorization here.
+
+244
+00:18:00,890 --> 00:18:01,610
+It's public.
+
+245
+00:18:02,390 --> 00:18:04,060
+But the key is not Boddicker.
+
+246
+00:18:04,190 --> 00:18:04,550
+So.
+
+247
+00:18:05,540 --> 00:18:06,750
+And that's not possible to see.
+
+248
+00:18:07,040 --> 00:18:11,250
+Now let's log out and log in with gamma yuzu, OK?
+
+249
+00:18:11,270 --> 00:18:12,410
+That's where you would see the fun.
+
+250
+00:18:16,780 --> 00:18:19,360
+OK, so gamma user does have.
+
+251
+00:18:20,470 --> 00:18:25,960
+The three full access, like the admin user and like the user.
+
+252
+00:18:27,710 --> 00:18:32,570
+But this user does not have the privilege to access the Kamus key.
+
+253
+00:18:33,860 --> 00:18:37,160
+OK, which is used to encrypt our data.
+
+254
+00:18:39,420 --> 00:18:45,570
+So let's go as keep in mind, I'm Gomaa user, I have full access on these three buckets.
+
+255
+00:18:46,190 --> 00:18:46,330
+Right.
+
+256
+00:18:46,390 --> 00:18:48,780
+Let's click on that object.
+
+257
+00:18:49,770 --> 00:18:53,460
+Right now, when I click on Open, I am opening with Gammer user privilege.
+
+258
+00:18:55,720 --> 00:18:59,020
+And you see that access denied, even though it's public, right?
+
+259
+00:18:59,410 --> 00:19:04,180
+But anyway, here, when I'm clicking it, that's click opening and with the Gama'a user.
+
+260
+00:19:04,180 --> 00:19:06,250
+So there's no concept of public I'm sorry here.
+
+261
+00:19:06,820 --> 00:19:09,220
+But access denied access and for what?
+
+262
+00:19:10,220 --> 00:19:15,410
+Access for the key galleries that cannot access it, even though has full access to the asri bucket
+
+263
+00:19:15,900 --> 00:19:18,110
+and of course, the end point, any this.
+
+264
+00:19:19,190 --> 00:19:20,150
+Cannot be accessed.
+
+265
+00:19:22,000 --> 00:19:28,240
+So you see, even the data is public and all we're not talking about any public data much, but even
+
+266
+00:19:28,240 --> 00:19:29,220
+the data is public.
+
+267
+00:19:29,500 --> 00:19:30,550
+It cannot be accessed.
+
+268
+00:19:30,550 --> 00:19:33,230
+If it's encrypted, that same will work.
+
+269
+00:19:33,230 --> 00:19:36,850
+You know, you have given privilege to this bucket for certain users.
+
+270
+00:19:38,080 --> 00:19:44,200
+So only those users, if those users have the Kimo's access, also Kamus key access, then only they
+
+271
+00:19:44,200 --> 00:19:44,750
+can use it.
+
+272
+00:19:44,770 --> 00:19:49,460
+OK, so what about this user goes to the games, right.
+
+273
+00:19:49,630 --> 00:19:55,700
+And can change things so they're not how about it can elevate its own privilege.
+
+274
+00:19:55,720 --> 00:19:56,620
+Can you do that.
+
+275
+00:19:57,840 --> 00:19:59,910
+All right, so that's the key, right, click on that.
+
+276
+00:20:02,000 --> 00:20:03,110
+Art collection.
+
+277
+00:20:05,600 --> 00:20:12,980
+So the administrator so let's see, Gama'a user want to make itself the administrator of this key select
+
+278
+00:20:12,980 --> 00:20:18,710
+and remember, Gammer user has access to a three full and read-only access.
+
+279
+00:20:18,740 --> 00:20:19,110
+OK.
+
+280
+00:20:19,380 --> 00:20:19,820
+All right.
+
+281
+00:20:19,820 --> 00:20:20,300
+Access.
+
+282
+00:20:22,140 --> 00:20:23,820
+You see, that cannot do that.
+
+283
+00:20:25,470 --> 00:20:28,500
+Key users want to use the key can can you do that?
+
+284
+00:20:33,680 --> 00:20:38,010
+OK, do you have to scroll down again, is the error that you're getting OK?
+
+285
+00:20:40,590 --> 00:20:43,360
+So that's the power of interaction with Kamus.
+
+286
+00:20:43,950 --> 00:20:48,600
+Now, if this bucket happens to be encrypted with a three keys.
+
+287
+00:20:50,510 --> 00:20:52,160
+So I'll go back as the admin user.
+
+288
+00:20:55,110 --> 00:20:58,470
+OK, there I am logged in with the root user, I see Buckett.
+
+289
+00:20:59,770 --> 00:21:04,000
+And now what I will do is I will change the encryption mechanism itself.
+
+290
+00:21:04,370 --> 00:21:04,680
+OK.
+
+291
+00:21:06,680 --> 00:21:09,920
+So let me go to properties.
+
+292
+00:21:11,210 --> 00:21:14,840
+And default encryption, we're using Kym's, so I'm going to change that.
+
+293
+00:21:15,850 --> 00:21:21,560
+And let me keep the encryption, but I use Amazon is tricky for encryption.
+
+294
+00:21:21,580 --> 00:21:23,230
+OK, you can see the difference now.
+
+295
+00:21:24,130 --> 00:21:27,400
+Not Kamus is three encryption keys.
+
+296
+00:21:28,700 --> 00:21:35,120
+OK, OK, I'm going to Firefox, where I'm logged in as the Gammer user, and let's see now what happens.
+
+297
+00:21:38,690 --> 00:21:44,420
+Now, this book is encrypted with three encryption key, not CDMs, and I click on that object.
+
+298
+00:21:46,130 --> 00:21:47,420
+And I see open.
+
+299
+00:21:51,020 --> 00:21:53,960
+I think it's still not reflected in that city flusters.
+
+300
+00:21:56,270 --> 00:21:58,300
+Well, I think it's something different.
+
+301
+00:22:00,960 --> 00:22:07,890
+Yeah, so the object is still encrypted with key hamis the bucket, which is the next object we applaud,
+
+302
+00:22:07,890 --> 00:22:12,890
+will be with that encryption is encryption with the this object, it's still with Kimmo.
+
+303
+00:22:12,900 --> 00:22:15,210
+So let's change that also.
+
+304
+00:22:16,140 --> 00:22:18,540
+So log in again with the root user.
+
+305
+00:22:20,100 --> 00:22:27,240
+And on the object, we have properties here and go through encryption, I will see, you know, use
+
+306
+00:22:27,240 --> 00:22:29,820
+the S3 encryption, see if it.
+
+307
+00:22:31,490 --> 00:22:37,450
+This got to do with the road user, not go back to the user and let's now try let's refresh this.
+
+308
+00:22:37,460 --> 00:22:41,690
+Let's see the encryption changed from games to a three.
+
+309
+00:22:42,410 --> 00:22:42,890
+Yes.
+
+310
+00:22:43,280 --> 00:22:45,890
+Setting aside encryption using extra key.
+
+311
+00:22:46,160 --> 00:22:47,330
+Let's click on Open now.
+
+312
+00:22:48,620 --> 00:22:54,860
+And you see that works, so this is the problem with S3 encryption key and Kim's encryption key came
+
+313
+00:22:54,860 --> 00:22:55,750
+as encryption key.
+
+314
+00:22:56,210 --> 00:23:00,140
+You can give privileged who can access the keys, who can use these keys.
+
+315
+00:23:00,830 --> 00:23:04,250
+But three keys, you know, it's encrypted good.
+
+316
+00:23:05,210 --> 00:23:06,320
+Like from the public.
+
+317
+00:23:06,330 --> 00:23:07,640
+You're you see the end point.
+
+318
+00:23:09,700 --> 00:23:11,020
+This is also happening, right?
+
+319
+00:23:11,590 --> 00:23:15,570
+So, yes, it includes the at rest, but when you make it public, it's for everyone.
+
+320
+00:23:15,580 --> 00:23:19,960
+The key can be used to encrypt, can campaign used, ridiculed by anybody is.
+
+321
+00:23:21,160 --> 00:23:29,140
+OK, now that that was about Ezri, OK, let's let's see S02, let's see what we can do with Ebb's volume.
+
+322
+00:23:29,140 --> 00:23:30,450
+Ebix volume is also data.
+
+323
+00:23:30,460 --> 00:23:31,350
+We can encrypt that.
+
+324
+00:23:31,870 --> 00:23:32,320
+So.
+
+325
+00:23:33,780 --> 00:23:37,470
+Why launching an instance again, like in a launch instance?
+
+326
+00:23:39,280 --> 00:23:46,720
+Just like any time I just take everything, default you to my crew, come on, go next single instance
+
+327
+00:23:46,720 --> 00:23:49,650
+and storage, OK, they're the root of all.
+
+328
+00:23:49,740 --> 00:23:53,080
+You can encrypt the root volume with your key.
+
+329
+00:23:53,270 --> 00:23:56,230
+There's an ebb key also managed by the blue.
+
+330
+00:23:56,320 --> 00:23:57,370
+But this is the key.
+
+331
+00:23:57,370 --> 00:24:02,230
+And you know, only the user who has access to the keys can encrypt and decrypt data.
+
+332
+00:24:03,690 --> 00:24:07,240
+So you can and the route volume also previously it was not possible.
+
+333
+00:24:07,260 --> 00:24:08,850
+Now we have option for that.
+
+334
+00:24:09,360 --> 00:24:14,700
+And obviously, any other Ebb's volume that you attach, you can encrypt that.
+
+335
+00:24:15,450 --> 00:24:20,940
+Now, whenever there is an encryption option as previous ideas I don't want to be, you will see the
+
+336
+00:24:20,940 --> 00:24:27,630
+key over there will all the keys of your Kamus and you can select that key for encrypt and you can then
+
+337
+00:24:27,630 --> 00:24:28,620
+decrypt your data.
+
+338
+00:24:30,020 --> 00:24:32,860
+It's that simple, but, you know, it's all about strategy.
+
+339
+00:24:33,940 --> 00:24:38,320
+So I again recommend you watch a eatables reinvent video.
+
+340
+00:24:39,200 --> 00:24:42,850
+On YouTube for Kamus, I share the link with you.
+
+341
+00:24:43,710 --> 00:24:45,980
+OK, that's 20, 19.
+
+342
+00:24:48,220 --> 00:24:54,850
+Just last year, using egoless games for data protection, access control and audit, so much in detail.
+
+343
+00:24:56,850 --> 00:25:02,960
+And there's also one more video I want you to see or really watch how encryption works.
+
+344
+00:25:02,960 --> 00:25:05,460
+This again from Eatables last year, Greenwalt.
+
+345
+00:25:06,150 --> 00:25:12,690
+So if you have no clarity or clarity or you want to know understand about encryption, decryption,
+
+346
+00:25:12,690 --> 00:25:14,310
+how it works, what are the keys?
+
+347
+00:25:14,310 --> 00:25:15,440
+Symmetric asymmetric.
+
+348
+00:25:15,600 --> 00:25:19,470
+You can watch this video nicely explained how encryption really works.
+
+349
+00:25:19,710 --> 00:25:21,230
+And I think it's in two parts.
+
+350
+00:25:21,240 --> 00:25:22,710
+There's also one more over here.
+
+351
+00:25:23,760 --> 00:25:24,840
+So go ahead.
+
+352
+00:25:24,930 --> 00:25:25,590
+Watch this.
+
+353
+00:25:26,130 --> 00:25:27,120
+Take your own notes.
+
+354
+00:25:27,120 --> 00:25:28,230
+Do the exercises.
+
+355
+00:25:29,010 --> 00:25:34,410
+And corruption is a very, very serious topic when it comes to data on abuse.
+
+356
+00:25:34,830 --> 00:25:40,230
+You have to delete as a evolves, as an admin, as a tester, as a developer.
+
+357
+00:25:40,680 --> 00:25:44,910
+So make sure you understand how encryption works and how you can do that on eatables.
+
+358
+00:25:45,690 --> 00:25:48,120
+And before I close this video.
+
+359
+00:25:49,080 --> 00:25:55,410
+Let's talk about deleting the key again, logged in as the root user, you can do anything as a user,
+
+360
+00:25:55,410 --> 00:26:01,650
+you can make yourself also as admin or you can give any user admin privilege or not privilege.
+
+361
+00:26:02,430 --> 00:26:06,720
+But deleting is really not possible directly if you see.
+
+362
+00:26:07,980 --> 00:26:11,530
+Those disable option, the schedule key deletion option, there is no delete option.
+
+363
+00:26:11,550 --> 00:26:13,460
+OK, so schedule deletion.
+
+364
+00:26:15,470 --> 00:26:18,830
+And you have a waiting period of 30 days.
+
+365
+00:26:18,860 --> 00:26:20,630
+You know, I recommend you make it seven days.
+
+366
+00:26:20,630 --> 00:26:21,440
+That's minimum.
+
+367
+00:26:21,440 --> 00:26:22,590
+You can go less than that.
+
+368
+00:26:22,590 --> 00:26:24,350
+If after the goal is, then that's going to alert.
+
+369
+00:26:24,350 --> 00:26:26,000
+You will not let you.
+
+370
+00:26:27,630 --> 00:26:30,720
+So once you're done with this exercise, delete the key.
+
+371
+00:26:32,070 --> 00:26:34,380
+Confirm that you want to delete the keys in seven days.
+
+372
+00:26:34,410 --> 00:26:37,230
+Yes, I confirm that serial deletion.
+
+373
+00:26:38,550 --> 00:26:44,130
+Novitzky deletion, that doesn't mean that you can't cancel that now, you can any time, you know.
+
+374
+00:26:45,360 --> 00:26:51,810
+They canceled mutilation and you have seven days of time, remember, you will not be able to decrypt
+
+375
+00:26:51,810 --> 00:26:52,450
+your data.
+
+376
+00:26:52,470 --> 00:26:56,520
+If this keeps going, you need a blue scan to do that for you.
+
+377
+00:26:56,540 --> 00:26:58,440
+OK, support will not be able to help you.
+
+378
+00:26:59,220 --> 00:27:03,550
+So I recommend you don't just right away go and delete your key force to watch these videos.
+
+379
+00:27:03,570 --> 00:27:07,980
+There are some exercises and now you can use that anyways for seven days.
+
+380
+00:27:07,990 --> 00:27:09,120
+It's not going to go anywhere.
+
+381
+00:27:09,120 --> 00:27:14,870
+OK, so you have seven days of time practice on campus and that is all in this video.
+
+382
+00:27:14,880 --> 00:27:15,870
+I'll see you in the next one.
+
+383
+00:27:16,080 --> 00:27:18,030
+We'll talk about encryption in-transit.
+

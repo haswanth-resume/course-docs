@@ -1,0 +1,1264 @@
+1
+00:00:01,420 --> 00:00:07,930
+OK, in this video, I'm going to remind you of so many things that I already told you in projects in
+
+2
+00:00:07,930 --> 00:00:13,100
+previous security videos, also make sure you follow these things religiously.
+
+3
+00:00:13,120 --> 00:00:15,370
+It's just a reminder I told you these things.
+
+4
+00:00:15,730 --> 00:00:22,240
+You have to disable hood, Epic's keys and security again through a police organization.
+
+5
+00:00:22,240 --> 00:00:24,660
+You can force that route.
+
+6
+00:00:24,670 --> 00:00:29,980
+Logging is disable that also you can do, but primarily make sure Rutba access keys and secured keys
+
+7
+00:00:29,980 --> 00:00:31,660
+are disabled or deleted.
+
+8
+00:00:33,760 --> 00:00:40,170
+Again, I cannot keep this stressing more, but security groups should allow only limited IPD immediate
+
+9
+00:00:40,170 --> 00:00:46,980
+protocols and doesn't matter how many times I tell them there are people, not you specifically, but,
+
+10
+00:00:46,980 --> 00:00:53,790
+you know, in the project, the developers, the testers, the non ops guys mostly tend to enable rules,
+
+11
+00:00:54,090 --> 00:00:55,060
+allow everything.
+
+12
+00:00:55,080 --> 00:01:02,280
+So, again, you can force them by using IAM policies or organizations, ACP mostly through I am policy
+
+13
+00:01:02,280 --> 00:01:05,519
+that, you know, you don't have access to disable the access.
+
+14
+00:01:05,519 --> 00:01:08,350
+So they cannot, you know, edit the security rules.
+
+15
+00:01:08,490 --> 00:01:09,540
+That will be a vital thing.
+
+16
+00:01:11,040 --> 00:01:17,670
+Password, protect your login keys, keep us from where we create, put it into some password protected
+
+17
+00:01:17,670 --> 00:01:19,460
+folder or tool somewhere.
+
+18
+00:01:21,480 --> 00:01:28,290
+Whenever a person leaves an organization, it's an ideal practice to change your keys, you know, you
+
+19
+00:01:28,290 --> 00:01:34,230
+can go to the authorized keys, you can remove the existing public key, and you can generate new keepers
+
+20
+00:01:34,590 --> 00:01:40,290
+and store it annuities you to or you can launch a placement of EU instruments with new keys.
+
+21
+00:01:40,770 --> 00:01:46,470
+That's a standard practice of compliance, mostly only implemented in most of the organization.
+
+22
+00:01:47,960 --> 00:01:54,250
+Rotate your credentials, the access key secret if you're using if if you don't need a place using A.W.
+
+23
+00:01:54,260 --> 00:01:55,990
+services, then the rules are fine.
+
+24
+00:01:56,480 --> 00:01:58,100
+No, it's better to avoid keys.
+
+25
+00:01:58,430 --> 00:02:05,240
+But if you have keys used by from someone's laptop, some data center somewhere, so make sure you rotate
+
+26
+00:02:05,240 --> 00:02:06,190
+those credentials.
+
+27
+00:02:06,200 --> 00:02:11,630
+You should have some compliance in an organization like that to disable this Olcay then, you know,
+
+28
+00:02:11,780 --> 00:02:15,790
+create a new key DBE credentials, what credentials that you are maintaining.
+
+29
+00:02:15,800 --> 00:02:22,700
+You can also use a secret manager service, eatables, secret managers service to store your credential
+
+30
+00:02:22,700 --> 00:02:24,320
+and rotate the credentials.
+
+31
+00:02:24,790 --> 00:02:26,390
+It comes to be another thing.
+
+32
+00:02:26,600 --> 00:02:29,140
+But now take note on that.
+
+33
+00:02:29,150 --> 00:02:30,830
+It's expensive service.
+
+34
+00:02:30,830 --> 00:02:32,050
+Also, again, I know you.
+
+35
+00:02:32,570 --> 00:02:37,970
+It takes a lot of money for encrypting your variables, but it does so many amazing things.
+
+36
+00:02:37,970 --> 00:02:44,270
+Auditing credentials and ah, so you can use that eatables secret manager service, but do check the
+
+37
+00:02:44,270 --> 00:02:46,580
+charges before you use that service.
+
+38
+00:02:48,750 --> 00:02:52,830
+In Ayam, you have the access advisor service user to check.
+
+39
+00:02:54,280 --> 00:02:58,960
+The lease privileges, are you following that lease privileged to the users?
+
+40
+00:02:59,890 --> 00:03:02,590
+When the images are last changed.
+
+41
+00:03:03,510 --> 00:03:05,070
+If you go to I am user.
+
+42
+00:03:05,990 --> 00:03:09,200
+Axis adviser, you can see all this information.
+
+43
+00:03:10,900 --> 00:03:18,460
+And using Bastiaan Horse to enforce control, like only one point of entry into your VPC, we did this
+
+44
+00:03:18,460 --> 00:03:24,280
+in Terraformed Project Announceable Project and in the upcoming videos, I'm going to again talk about
+
+45
+00:03:24,280 --> 00:03:30,610
+Bastian Horse and how much more you can secure that and enforce control from that.
+
+46
+00:03:35,090 --> 00:03:42,350
+So this is really a secure design, you have an application VPC over there and you have public subnet,
+
+47
+00:03:42,350 --> 00:03:45,890
+private subnets, these and other WPK management VPC.
+
+48
+00:03:46,340 --> 00:03:50,060
+So we can put our Bastian host in a separate VPC together.
+
+49
+00:03:50,720 --> 00:03:54,590
+And we do work from management VPC to application VPC.
+
+50
+00:03:54,590 --> 00:03:59,030
+This is where you don't know your observer application server database server will be living off your
+
+51
+00:03:59,030 --> 00:03:59,480
+project.
+
+52
+00:03:59,960 --> 00:04:00,860
+To manage those.
+
+53
+00:04:00,860 --> 00:04:02,510
+We can create a separate VPC.
+
+54
+00:04:02,510 --> 00:04:04,040
+We can put our Bastiano there.
+
+55
+00:04:04,280 --> 00:04:06,500
+You can put even your developes tools over there.
+
+56
+00:04:07,580 --> 00:04:12,650
+But Bastiaan Horse is going to be in a public subnet because you need to exit from the public network
+
+57
+00:04:12,650 --> 00:04:16,820
+to jump into your vehicles, onto your private subnet in the BBC.
+
+58
+00:04:17,260 --> 00:04:17,470
+Right.
+
+59
+00:04:18,260 --> 00:04:24,620
+So accessing it from the accessing Bastian, Horst, from the Internet, you can see here one more thing.
+
+60
+00:04:24,620 --> 00:04:26,150
+You can have VPN connection.
+
+61
+00:04:26,930 --> 00:04:30,350
+So that goes privately encrypted connection.
+
+62
+00:04:30,350 --> 00:04:33,230
+And from there you can log in to your application VPC.
+
+63
+00:04:34,100 --> 00:04:36,170
+So this is really multiple layers.
+
+64
+00:04:37,220 --> 00:04:42,410
+To get into your infrastructure, if you are an authorized person, you should not have any problem,
+
+65
+00:04:42,410 --> 00:04:49,370
+but if you are unauthorized cyber criminals, someone then, you know, has to break so many levels
+
+66
+00:04:49,370 --> 00:04:49,990
+to get in.
+
+67
+00:04:50,510 --> 00:04:53,810
+So we are just becoming a tough target or tougher, tougher target.
+
+68
+00:04:54,110 --> 00:04:58,370
+And we are using all the amazing EWR security services to do that.
+
+69
+00:05:00,210 --> 00:05:06,030
+Now, when you're creating, as you do insurance, you you'll fetch an EMI from a marketplace, obviously.
+
+70
+00:05:07,650 --> 00:05:14,600
+So you have the option of open Oracle, S.O.S, Windows Server, so many options, but are they really
+
+71
+00:05:14,600 --> 00:05:15,070
+safe?
+
+72
+00:05:16,260 --> 00:05:23,700
+I mean, yeah, they applauded by Devinder and we can see want to officially Amies Centaurus, officially
+
+73
+00:05:23,860 --> 00:05:27,290
+Amemiya from RedHat and Amazon Linux itself.
+
+74
+00:05:28,020 --> 00:05:34,320
+But these images operating system, we have operating system that, of course, the operating system
+
+75
+00:05:34,320 --> 00:05:38,580
+has vulnerabilities and they keep growing and growing and growing.
+
+76
+00:05:38,910 --> 00:05:42,730
+So we need to find the vulnerabilities in the operating system and we are to fix it.
+
+77
+00:05:42,780 --> 00:05:44,520
+It's a lot of work, really.
+
+78
+00:05:44,520 --> 00:05:45,900
+Trust me, it's a lot of work.
+
+79
+00:05:46,270 --> 00:05:49,810
+If you ever done that scanning to find vulnerabilities.
+
+80
+00:05:49,850 --> 00:05:53,370
+You know, there's a huge list and it's also description how to fix those.
+
+81
+00:05:53,700 --> 00:05:54,640
+There's a lot of work.
+
+82
+00:05:55,200 --> 00:05:56,040
+So what can we do?
+
+83
+00:05:56,550 --> 00:06:00,180
+Well, you can use security hadan EMI from Eatables Marketplace.
+
+84
+00:06:00,180 --> 00:06:09,250
+You know, these are not free images for you provided from a center of Internet security or Eisel or
+
+85
+00:06:09,270 --> 00:06:11,400
+from Sance or from Nyst.
+
+86
+00:06:12,550 --> 00:06:16,040
+And there are a few other providers, but these are the famous ones.
+
+87
+00:06:16,630 --> 00:06:23,110
+So what these organizations will do, they will take an army of one, two or sentosa any operating system
+
+88
+00:06:23,110 --> 00:06:24,550
+like that, they will harden.
+
+89
+00:06:24,640 --> 00:06:27,040
+They'll find out all the vulnerabilities and they'll fix it.
+
+90
+00:06:27,040 --> 00:06:33,040
+And then you can keep updating them to make sure that you're using secure and hardened EMI.
+
+91
+00:06:33,040 --> 00:06:38,770
+So your operating system does not have a vulnerability or less vulnerabilities.
+
+92
+00:06:39,610 --> 00:06:40,820
+Big example of such.
+
+93
+00:06:40,840 --> 00:06:42,250
+We are saying it's encrypted connection.
+
+94
+00:06:42,250 --> 00:06:42,520
+Yes.
+
+95
+00:06:42,520 --> 00:06:43,680
+You're logging in with GIS.
+
+96
+00:06:43,690 --> 00:06:50,110
+Yes, these are serious, but the city itself has vulnerabilities which can be exploited by the cyber
+
+97
+00:06:50,110 --> 00:06:50,640
+criminals.
+
+98
+00:06:51,370 --> 00:06:57,370
+So these secure, hardened armies will remove those vulnerabilities to patch patriot or you can run
+
+99
+00:06:57,370 --> 00:06:59,110
+your own scanning and patch them.
+
+100
+00:06:59,340 --> 00:07:00,420
+And that is also fine.
+
+101
+00:07:00,700 --> 00:07:01,780
+So we'll see both ways.
+
+102
+00:07:01,780 --> 00:07:03,730
+We'll see the security in Miami.
+
+103
+00:07:03,730 --> 00:07:06,880
+We'll see scanning and patching, scanning mostly.
+
+104
+00:07:09,440 --> 00:07:15,650
+Well, here specifically, I'm talking about batching for vulnerabilities, but there are batching available
+
+105
+00:07:15,650 --> 00:07:17,120
+from the vendor itself.
+
+106
+00:07:18,090 --> 00:07:22,190
+Like from Ubuntu, from RedHat, from Windows, you know, really Ziggler Patches.
+
+107
+00:07:22,210 --> 00:07:27,380
+So make sure whenever you launch an instance, you do some bootstrapping and he can use the easy to
+
+108
+00:07:27,390 --> 00:07:28,080
+use areata.
+
+109
+00:07:28,080 --> 00:07:34,660
+And you can add on your app update, upgrade command, update windows, update all those commands.
+
+110
+00:07:34,660 --> 00:07:39,690
+So you for bootstrapping, you can use normal Basche or Bache or partial commands or you can use it.
+
+111
+00:07:39,690 --> 00:07:41,000
+Ansible pampered chef.
+
+112
+00:07:41,310 --> 00:07:45,050
+You need to regularly keep patching your operating system.
+
+113
+00:07:45,780 --> 00:07:50,550
+So if there is a unwanted abilities Apache's provided it gets applied.
+
+114
+00:07:51,710 --> 00:07:54,950
+All if you're using cloud formation, you can use cloud formations, see if it.
+
+115
+00:07:56,110 --> 00:08:00,880
+Now, a new patches may even break the system, so you better yesterday, of course, you'll be tested
+
+116
+00:08:00,880 --> 00:08:05,650
+in some test environment and then you do full production environment, but one that really should be
+
+117
+00:08:05,650 --> 00:08:06,880
+patched immediately.
+
+118
+00:08:07,950 --> 00:08:13,290
+So there is a database of vulnerabilities, if it is published that there is a vulnerability, it will
+
+119
+00:08:13,290 --> 00:08:18,180
+be known by everyone, you know, if you have not patched your exposed.
+
+120
+00:08:20,150 --> 00:08:25,550
+And one is like that, keep on coming and organizations.
+
+121
+00:08:26,730 --> 00:08:28,860
+And the vendors keep creating patches for that.
+
+122
+00:08:28,890 --> 00:08:30,780
+So this is going to be a regular thing, OK?
+
+123
+00:08:30,840 --> 00:08:32,240
+It's not like a one time walk.
+
+124
+00:08:32,250 --> 00:08:34,020
+It's going to be a maintenance kind of work.
+
+125
+00:08:34,440 --> 00:08:35,669
+And there's so many batching.
+
+126
+00:08:35,669 --> 00:08:40,470
+I'm specifically talking about security, patching, security patches, vulnerability assessment and
+
+127
+00:08:40,470 --> 00:08:41,190
+then patching it.
+
+128
+00:08:42,429 --> 00:08:42,850
+So.
+
+129
+00:08:44,140 --> 00:08:48,940
+AWB does provide a vulnerability assessment service, AWB inspector.
+
+130
+00:08:50,360 --> 00:08:57,410
+This can scan vulnerability in your network and in your operating system to scan it for your network.
+
+131
+00:08:58,070 --> 00:09:00,250
+There is no special settings you need to do.
+
+132
+00:09:00,270 --> 00:09:02,600
+Just go to inspect a service and scan your network.
+
+133
+00:09:02,840 --> 00:09:03,410
+That's fine.
+
+134
+00:09:03,690 --> 00:09:09,520
+But for scanning operating system, you need to install an agent based on your operating system.
+
+135
+00:09:09,530 --> 00:09:10,160
+It's a Linux.
+
+136
+00:09:10,160 --> 00:09:13,190
+You install Linux agent, Windows, Windows, Windows agent.
+
+137
+00:09:14,330 --> 00:09:20,000
+So you install an inspector agent and then you can use Eatables Inspector service to scan your network
+
+138
+00:09:20,000 --> 00:09:21,380
+and also the operating system.
+
+139
+00:09:21,380 --> 00:09:26,780
+It will generate a very detailed report of the vulnerability in your operating systems.
+
+140
+00:09:27,620 --> 00:09:36,050
+Or you can just use your top 10 vulnerability assessment tools like Comodo Open was necessary.
+
+141
+00:09:36,080 --> 00:09:40,930
+There are so many when there would be assessment tools, you can use them, generate report.
+
+142
+00:09:40,940 --> 00:09:47,480
+But keep in mind, you are generating the report badged so you can fix those vulnerabilities, not just
+
+143
+00:09:47,480 --> 00:09:49,890
+about scanning, it's also about patching after that.
+
+144
+00:09:51,050 --> 00:09:54,430
+So next, we'll be seeing a police inspector service.
+
+145
+00:09:54,590 --> 00:09:56,330
+So join me on Eatables console.
+
+146
+00:10:00,660 --> 00:10:03,630
+I'm opening the inspectors service.
+
+147
+00:10:05,280 --> 00:10:12,300
+OK, so it says, I have to install in Eatables agent on my instant's run assessment and then I can
+
+148
+00:10:12,300 --> 00:10:12,960
+review it.
+
+149
+00:10:14,590 --> 00:10:19,030
+If you're going to scan the operating system with Inspector, then you definitely need to install the
+
+150
+00:10:19,030 --> 00:10:19,360
+agent.
+
+151
+00:10:19,360 --> 00:10:22,660
+But if you just want to scan the network, you don't need to install any agent.
+
+152
+00:10:23,320 --> 00:10:24,220
+So we'll do both.
+
+153
+00:10:24,400 --> 00:10:26,440
+So I'm going to go to the easy to service.
+
+154
+00:10:26,440 --> 00:10:28,450
+I already have insurance agents over here.
+
+155
+00:10:29,480 --> 00:10:30,080
+Running.
+
+156
+00:10:32,210 --> 00:10:39,200
+And its name is Cops, and there's a log in Geekcorps Keisel, let me log in to the D.C. Dunstan's first.
+
+157
+00:10:44,580 --> 00:10:46,080
+It's an Ubuntu machine.
+
+158
+00:10:51,330 --> 00:10:55,470
+I guess I'll be the road user I have to install inspector agent.
+
+159
+00:10:57,180 --> 00:11:00,630
+From the documentation installing Amazon inspector agent.
+
+160
+00:11:01,720 --> 00:11:07,300
+So if it's Amazo Linux, it's really simple to install inspector agent, you can install Inspector Adrian
+
+161
+00:11:07,310 --> 00:11:08,560
+through systems manager.
+
+162
+00:11:09,880 --> 00:11:17,170
+Will install it directly logged into the U.S. Dunstone so I'm going to download this Shell script so
+
+163
+00:11:17,650 --> 00:11:23,410
+you can use Gathercole to download the script, install Scorpions Bastard.
+
+164
+00:11:25,460 --> 00:11:29,960
+And they should be in Shell script install, I'm just going to see Bash install.
+
+165
+00:11:33,790 --> 00:11:40,270
+OK, it's installed, let's see, it's status, it will create an Inuit script you see in it, don't
+
+166
+00:11:40,690 --> 00:11:47,410
+be eatables agent see status and it says it's active and running.
+
+167
+00:11:48,380 --> 00:11:52,490
+It's not registered to anything, so you can see these errors, but once we register it.
+
+168
+00:11:53,440 --> 00:11:57,790
+And we done the scanning, you should not see this error, so that's running as of now.
+
+169
+00:11:58,900 --> 00:12:01,300
+Also, we need to do one more thing before we scan.
+
+170
+00:12:01,300 --> 00:12:03,880
+We have to give a special tag, some tag.
+
+171
+00:12:05,610 --> 00:12:09,210
+So I just have the name tag for inspector to.
+
+172
+00:12:10,430 --> 00:12:15,510
+Scattergories, you tombstone's, we have to give the tag details which Dagg instance you want to scan.
+
+173
+00:12:15,530 --> 00:12:17,510
+So I want to see project.
+
+174
+00:12:19,680 --> 00:12:20,820
+If the profile.
+
+175
+00:12:25,620 --> 00:12:25,820
+If.
+
+176
+00:12:27,640 --> 00:12:29,470
+Now let's go to inspector service.
+
+177
+00:12:30,980 --> 00:12:32,800
+And we can see get started.
+
+178
+00:12:34,420 --> 00:12:40,210
+So network assessment and host assessment for network, you do need agent for host assessment.
+
+179
+00:12:40,660 --> 00:12:42,340
+You see, inspector agent is required.
+
+180
+00:12:43,920 --> 00:12:49,890
+And there are also charges mentioned over here, for example, an instance assessment weekly, sixty
+
+181
+00:12:49,890 --> 00:12:51,930
+one dollars per month, that's weekly.
+
+182
+00:12:53,150 --> 00:12:54,650
+So you can automate this process.
+
+183
+00:12:54,680 --> 00:12:55,550
+It runs weekly.
+
+184
+00:12:57,290 --> 00:13:03,470
+And generate reports for you, OK, this advance set up over here, you can just click on Ron Weekly
+
+185
+00:13:03,470 --> 00:13:06,750
+and it will automatically skirted around it weekly or you can run it once.
+
+186
+00:13:07,250 --> 00:13:10,710
+This will just scan everything in your current network, all these.
+
+187
+00:13:11,340 --> 00:13:12,770
+But let's be specific.
+
+188
+00:13:13,100 --> 00:13:14,060
+It was set up.
+
+189
+00:13:17,290 --> 00:13:23,620
+So assessment target we are going to create now for Target that we want to scan, so I will see the
+
+190
+00:13:23,620 --> 00:13:31,830
+profile in from something like that include all these other instances in this account and region.
+
+191
+00:13:31,840 --> 00:13:39,850
+No, I want to be specific so I can select the tag project, the profile so every in any instance that
+
+192
+00:13:39,850 --> 00:13:40,870
+has this tag.
+
+193
+00:13:41,810 --> 00:13:47,120
+And it has the agent installed and running, it will do the scanning install agent, do you want to
+
+194
+00:13:47,120 --> 00:13:52,940
+install agent will install, his agent is already installed, so we don't need to install it again and
+
+195
+00:13:52,940 --> 00:14:00,650
+check that if you wish to install it like this, then you have to make sure you create an IM role with
+
+196
+00:14:00,650 --> 00:14:07,940
+a system agent privilege so it will login to your insurance access, for instance, and install the
+
+197
+00:14:07,940 --> 00:14:09,920
+agent for you don't need to do it manually.
+
+198
+00:14:10,190 --> 00:14:11,330
+That also can be done.
+
+199
+00:14:12,200 --> 00:14:13,070
+So next.
+
+200
+00:14:15,780 --> 00:14:23,070
+Now we go to the target, we are going to see what we need to scan, so I'll just cancel all this forced.
+
+201
+00:14:25,610 --> 00:14:27,800
+I'll give some names can.
+
+202
+00:14:29,330 --> 00:14:29,930
+All.
+
+203
+00:14:31,400 --> 00:14:33,860
+Well, notably some, namely Canada like that.
+
+204
+00:14:37,980 --> 00:14:42,330
+So you have four options, security, best practices, it will scan, I want to do that.
+
+205
+00:14:42,360 --> 00:14:42,750
+Yes.
+
+206
+00:14:43,170 --> 00:14:45,030
+Common vulnerabilities and exposure.
+
+207
+00:14:45,180 --> 00:14:47,760
+Yes, I want that network reliability.
+
+208
+00:14:47,970 --> 00:14:49,260
+Yes, I want to scan that.
+
+209
+00:14:49,560 --> 00:14:50,920
+Six benchmarks.
+
+210
+00:14:50,940 --> 00:14:51,200
+Yes.
+
+211
+00:14:51,360 --> 00:14:52,670
+So these are very popular things.
+
+212
+00:14:52,680 --> 00:14:57,090
+OK, you can read about this, the lots and lots of checks that is done.
+
+213
+00:14:58,390 --> 00:14:59,740
+Against our operating system.
+
+214
+00:15:01,010 --> 00:15:07,240
+Duration one hour is recommended, it will take a very long time to generate all those reports, too
+
+215
+00:15:07,250 --> 00:15:08,360
+much of scanning happens.
+
+216
+00:15:09,380 --> 00:15:14,320
+You can set up a recurrence every seven days or aspell your preference.
+
+217
+00:15:14,330 --> 00:15:16,850
+I'm just going to do it for one side and check that.
+
+218
+00:15:17,750 --> 00:15:18,410
+Go next.
+
+219
+00:15:20,820 --> 00:15:22,950
+We will have everything is good and to create.
+
+220
+00:15:26,460 --> 00:15:28,380
+I guess it's his assessment started.
+
+221
+00:15:29,500 --> 00:15:37,240
+You can see I know I can see here collecting data, scan all one liberty, that's our template assessment
+
+222
+00:15:37,240 --> 00:15:37,720
+target.
+
+223
+00:15:37,740 --> 00:15:38,620
+Let's go to assessment.
+
+224
+00:15:38,980 --> 00:15:40,470
+So we profile intra.
+
+225
+00:15:42,410 --> 00:15:48,320
+Review target, so that's our target audience is unhealthy, it's not yet registered.
+
+226
+00:15:50,070 --> 00:15:57,420
+OK, what do you see in a moment at issuing Healthy Again Refresher, this releases that the agent is
+
+227
+00:15:57,420 --> 00:16:00,030
+running and it's able to talk to the inspector service.
+
+228
+00:16:00,450 --> 00:16:05,670
+If you keep seeing this unhealthy, then you better check your insurance agents health.
+
+229
+00:16:07,650 --> 00:16:09,870
+OK, ours is running and it's showing.
+
+230
+00:16:10,760 --> 00:16:17,990
+Healthy, these problems occur when you installing agent from system, so probably the rule you have
+
+231
+00:16:17,990 --> 00:16:19,790
+not given correct to these you Dunstan's.
+
+232
+00:16:20,740 --> 00:16:26,200
+And because of some reason, your system is not able to access your students to install the agent,
+
+233
+00:16:26,500 --> 00:16:29,440
+so it will keep showing you unhealthy, so you have to fix that forced.
+
+234
+00:16:30,390 --> 00:16:34,020
+OK, so that's healthy and that's our template.
+
+235
+00:16:35,120 --> 00:16:39,030
+She created we can change the rules whenever we want.
+
+236
+00:16:40,490 --> 00:16:46,100
+And assessment is going on and it's going to take very, very long time, but I do have a sample data.
+
+237
+00:16:47,630 --> 00:16:49,400
+Which is in Oregon region.
+
+238
+00:16:49,700 --> 00:16:56,090
+I did this yesterday, for Aniceto instance, and you can see your status.
+
+239
+00:16:57,270 --> 00:17:03,900
+Inspector received 857 deliberately message in total from one agent, so the scanning is executed by
+
+240
+00:17:03,900 --> 00:17:08,220
+the agent and then returns the data and you can see that in the findings section.
+
+241
+00:17:09,910 --> 00:17:13,599
+So you can filter it in a high priority, low priority, you know.
+
+242
+00:17:14,970 --> 00:17:18,640
+And you will go crazy if you've seen this first time vulnerability.
+
+243
+00:17:19,200 --> 00:17:23,190
+Now you'll go crazy looking at these many warnings, these many alerts.
+
+244
+00:17:24,990 --> 00:17:28,329
+It's crazy for a reason, I'm telling you, because you have to fix all this.
+
+245
+00:17:28,590 --> 00:17:30,120
+Imagine that, OK?
+
+246
+00:17:30,780 --> 00:17:36,300
+Of course, there will be details of how to fix their description, recommendation, what you have to
+
+247
+00:17:36,300 --> 00:17:36,540
+do.
+
+248
+00:17:36,900 --> 00:17:38,040
+Some are very simple.
+
+249
+00:17:38,040 --> 00:17:38,880
+Some takes time.
+
+250
+00:17:38,880 --> 00:17:43,350
+But imagine the amount of time that goes in fixing this with these many vulnerabilities.
+
+251
+00:17:43,380 --> 00:17:46,620
+OK, we have information on vulnerability.
+
+252
+00:17:47,570 --> 00:17:52,430
+Which is just one or it's going on a low.
+
+253
+00:17:55,590 --> 00:18:00,870
+So you target on high vulnerability first, right, and then medium and then low like that, it can
+
+254
+00:18:00,870 --> 00:18:01,110
+go.
+
+255
+00:18:02,360 --> 00:18:08,120
+If you want, you can download all this report and Taraborrelli, you can be selective and you can click
+
+256
+00:18:08,120 --> 00:18:14,230
+on this button over here, so you download export all columns or export visible columns.
+
+257
+00:18:14,240 --> 00:18:15,650
+I want to see all columns.
+
+258
+00:18:17,020 --> 00:18:18,460
+So since CSU format.
+
+259
+00:18:20,310 --> 00:18:21,240
+You can see those.
+
+260
+00:18:22,430 --> 00:18:24,590
+But they're not all, actually.
+
+261
+00:18:26,060 --> 00:18:30,770
+So this is for you know, you're looking for specific vulnerability, you find it and you want to export
+
+262
+00:18:30,770 --> 00:18:36,770
+it, but if you want to download this entire report, go to dashboard and you should see here all the
+
+263
+00:18:36,770 --> 00:18:41,960
+scanning results and you can click on that which you find and you can download the report.
+
+264
+00:18:43,310 --> 00:18:49,090
+So in PDF for the information which you wish to, you want to get a finding reports on your full report
+
+265
+00:18:49,970 --> 00:18:52,460
+and the full report and to generate a report.
+
+266
+00:18:54,060 --> 00:18:55,510
+The pop up is blog.
+
+267
+00:18:55,550 --> 00:18:57,300
+I will see Ladak.
+
+268
+00:19:01,680 --> 00:19:02,220
+Once again.
+
+269
+00:19:03,480 --> 00:19:04,340
+Generator power.
+
+270
+00:19:08,970 --> 00:19:10,810
+And that opens in a different browser.
+
+271
+00:19:10,830 --> 00:19:12,450
+Yes, of course, you can download it then.
+
+272
+00:19:13,930 --> 00:19:14,620
+Sievert.
+
+273
+00:19:16,000 --> 00:19:17,730
+You know, we downloaded let's open it.
+
+274
+00:19:19,100 --> 00:19:20,690
+On open file.
+
+275
+00:19:22,640 --> 00:19:29,810
+OK, be it was just opening it in the browser itself, I opened it from the add up reader, so you see
+
+276
+00:19:29,810 --> 00:19:33,230
+it's 212 pages of report.
+
+277
+00:19:34,470 --> 00:19:34,770
+OK.
+
+278
+00:19:34,890 --> 00:19:41,430
+Of course, it's everything, not just the finding, but, you know, take your time, take your time,
+
+279
+00:19:41,700 --> 00:19:43,020
+read these reports.
+
+280
+00:19:44,170 --> 00:19:48,430
+Not in the end, but, you know, go through them, at least the initial stages, you go through them,
+
+281
+00:19:48,850 --> 00:19:54,820
+see few of them randomly pick up anything and see if you can fix those things by the recommendation
+
+282
+00:19:54,820 --> 00:19:57,020
+that they're giving a description recommendation.
+
+283
+00:19:57,050 --> 00:20:01,880
+So I think I did this file and put this parameter in.
+
+284
+00:20:01,900 --> 00:20:04,260
+Once you do that, of course, you're to bounce the service.
+
+285
+00:20:04,720 --> 00:20:06,330
+So there are 100 businesses.
+
+286
+00:20:06,700 --> 00:20:07,240
+Yes.
+
+287
+00:20:07,400 --> 00:20:09,130
+So you have to first fix that.
+
+288
+00:20:10,670 --> 00:20:17,720
+I know if you think that's too much of a joke, man, so then you can invest a little more money and
+
+289
+00:20:17,720 --> 00:20:21,140
+you can go to D.C. to service.
+
+290
+00:20:23,110 --> 00:20:24,220
+And instead of.
+
+291
+00:20:25,660 --> 00:20:31,750
+Now fetching up an EU, Azarian, EMI, from the vendor directly, you can source from the tablas marketplace.
+
+292
+00:20:33,260 --> 00:20:37,850
+You can go for security product group or, you know, you can just search your favorite.
+
+293
+00:20:39,970 --> 00:20:46,490
+Provider like, for example, the center of Internet Security, a search for that, so Red Hat Enterprise
+
+294
+00:20:46,490 --> 00:20:52,040
+Linux, CISO want to now I'm not saying there would be no clarity on this, but there'll be very less,
+
+295
+00:20:52,040 --> 00:20:53,540
+which can be fixed very quickly.
+
+296
+00:20:53,540 --> 00:20:57,410
+And you get updates also and there are charges they are not free.
+
+297
+00:20:57,430 --> 00:21:01,070
+So zero point zero two dollars per hour, you can of course, try them.
+
+298
+00:21:01,290 --> 00:21:02,150
+It's not a big charge.
+
+299
+00:21:02,150 --> 00:21:08,480
+But if you want to go for nearly 130 dollars a year, really not a big thing for organization, even
+
+300
+00:21:08,480 --> 00:21:09,230
+if it's a startup.
+
+301
+00:21:11,690 --> 00:21:14,480
+So to begin with, you can again really try with.
+
+302
+00:21:15,610 --> 00:21:22,750
+The had am I run the assessment and you can find out the report and you can compare it with Ovando image
+
+303
+00:21:22,750 --> 00:21:23,410
+from Devinder.
+
+304
+00:21:24,360 --> 00:21:29,370
+And you can find a lot of differences, but nevertheless, this is going to be a continuous process.
+
+305
+00:21:29,370 --> 00:21:33,330
+You have to keep scanning things to keep fixing things so you can automate.
+
+306
+00:21:33,330 --> 00:21:40,230
+This process is also being a divorce, not fixing, but definitely running patches, running, scanning
+
+307
+00:21:40,230 --> 00:21:41,970
+regularly through Inspecteur.
+
+308
+00:21:41,970 --> 00:21:45,550
+Or if you using some third party tool, then you can automate that as well.
+
+309
+00:21:46,260 --> 00:21:51,810
+There could be a separate security team mostly, which can do and work on fixing.
+
+310
+00:21:52,790 --> 00:21:55,310
+All you did, Ozick environment, and you need to do that.
+
+311
+00:21:56,840 --> 00:22:01,400
+All right, so in this section, we talked about the police inspector service specifically, we talked
+
+312
+00:22:01,400 --> 00:22:06,470
+about what we need best practices also that you have to follow, keeping, patching and updating regularly,
+
+313
+00:22:07,040 --> 00:22:11,180
+securing your keys, your passwords and other things.
+
+314
+00:22:11,190 --> 00:22:18,110
+And the next video, we will be talking specifically on network security, VPC, security group Mackle,
+
+315
+00:22:18,320 --> 00:22:19,190
+those kind of things.
+
+316
+00:22:19,850 --> 00:22:22,010
+So that's all in the studio with you in the next one.
+

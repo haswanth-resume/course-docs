@@ -1,0 +1,940 @@
+1
+00:00:01,710 --> 00:00:07,530
+In this video, we'll be talking about encryption in-transit, the data that flows from point A to point
+
+2
+00:00:07,530 --> 00:00:07,770
+B.
+
+3
+00:00:08,770 --> 00:00:12,970
+As I said earlier, appeals mechanism can be used to encrypt the data in transit.
+
+4
+00:00:13,960 --> 00:00:20,170
+What we're really talking about over here is a user accessing your website through a load balancer,
+
+5
+00:00:20,800 --> 00:00:25,180
+you are giving access with a deep protocol which is unencrypted.
+
+6
+00:00:25,190 --> 00:00:31,030
+So if you use it as sending any data like user names, passwords, contact details, card details,
+
+7
+00:00:31,030 --> 00:00:32,430
+you will go on and cryptid.
+
+8
+00:00:32,439 --> 00:00:38,380
+Anybody can spoof, you know, in the middle and tap in the middle and get their data and clear text.
+
+9
+00:00:38,380 --> 00:00:40,960
+So it has the connection should be encrypted in this case.
+
+10
+00:00:40,960 --> 00:00:44,650
+So we can use DBS connection on your load balancer.
+
+11
+00:00:44,650 --> 00:00:47,840
+You can dominate the encryption at the load balancer.
+
+12
+00:00:48,400 --> 00:00:51,070
+We have done that already so many times in our projects.
+
+13
+00:00:51,070 --> 00:00:56,800
+We had a certificate provided by Amazon certificate manager.
+
+14
+00:00:56,800 --> 00:01:00,760
+We use that to encrypt our data in-transit just coming to our load balancer.
+
+15
+00:01:01,910 --> 00:01:06,500
+Then were there other kinds of loot as well, like S3 Buckett, the data that goes?
+
+16
+00:01:07,950 --> 00:01:13,010
+And if you want to force encryption like your data can be accessed from the supercut unencrypted also,
+
+17
+00:01:13,290 --> 00:01:19,800
+but you can force that with policy, with a three bucket policy that hate my data can be only access
+
+18
+00:01:19,800 --> 00:01:26,900
+with a secure connection to GPS and not with normal unencrypted data.
+
+19
+00:01:28,290 --> 00:01:33,090
+You can use for load balancing the certificate from ACM, which you already created in political science
+
+20
+00:01:33,090 --> 00:01:34,790
+video, and we have already done that.
+
+21
+00:01:35,160 --> 00:01:36,810
+So I'm just going to go through it.
+
+22
+00:01:36,930 --> 00:01:40,040
+Just do once again show you again explain the concept.
+
+23
+00:01:40,680 --> 00:01:45,900
+But a new thing that you're going to see is the bucket policy, which we're going to enforce for S3
+
+24
+00:01:45,900 --> 00:01:46,980
+encrypted connection.
+
+25
+00:01:49,090 --> 00:01:55,450
+The other connections to talk about is having a VPN access from your data center, from your environment
+
+26
+00:01:55,450 --> 00:02:02,710
+to eatables accounts, accessing your Dunston's through research or IDP or extra points or Dinham would
+
+27
+00:02:02,780 --> 00:02:08,169
+be whatever data you're accessing from your resources, it should be accessed through the secure connection.
+
+28
+00:02:08,560 --> 00:02:10,570
+So data would be Bengal's encrypted.
+
+29
+00:02:11,560 --> 00:02:16,750
+So services like, you know, as 3G access or the Internet are the data we can access.
+
+30
+00:02:16,750 --> 00:02:19,680
+If you make it public, you can encrypt that also in transit.
+
+31
+00:02:20,410 --> 00:02:27,730
+And again, this is about transit data not addressed in transit download Dinamo DB2 access to the end
+
+32
+00:02:27,730 --> 00:02:29,800
+points or Yamal data.
+
+33
+00:02:30,700 --> 00:02:32,860
+In these cases, you really don't need to do much.
+
+34
+00:02:33,790 --> 00:02:37,170
+You just need to enforce other kinds of data.
+
+35
+00:02:37,210 --> 00:02:39,850
+Of course, there are so many sources that goes with the study.
+
+36
+00:02:40,030 --> 00:02:46,960
+Connection could come a repository, for example, become overcommitting the code we can use to WRAL.
+
+37
+00:02:46,960 --> 00:02:48,300
+We can use such Yooralla.
+
+38
+00:02:48,310 --> 00:02:53,920
+In any case, both go send the data encrypted only connection.
+
+39
+00:02:53,920 --> 00:03:00,360
+The data again goes through encrypted Secich goes encrypted DB server traffic you can enforce and it
+
+40
+00:03:00,370 --> 00:03:01,240
+goes encrypted.
+
+41
+00:03:01,780 --> 00:03:07,280
+So you see most of the connection of protocol that we are using since the data encrypted using SSL Attila's.
+
+42
+00:03:08,050 --> 00:03:13,990
+But some places you have to really enforce like a load balancer, use only trippiest noise to traffic
+
+43
+00:03:14,320 --> 00:03:17,860
+or street use only is to be based on a secure connection.
+
+44
+00:03:17,860 --> 00:03:21,040
+Encrypted connection is nothing to do with the already been tested.
+
+45
+00:03:21,040 --> 00:03:22,450
+It's already encrypted connection.
+
+46
+00:03:22,450 --> 00:03:26,830
+So will take example of the load balancer and will take example of the EU budget.
+
+47
+00:03:27,190 --> 00:03:28,270
+So let's dive in.
+
+48
+00:03:30,900 --> 00:03:36,760
+OK, so I have an easy to it's running a service Jenkins service on board AT&T.
+
+49
+00:03:38,400 --> 00:03:40,350
+Which is unencrypted connection.
+
+50
+00:03:41,380 --> 00:03:47,080
+It's using the protocol, it should be so we can just access this oral.
+
+51
+00:03:48,440 --> 00:03:49,210
+Aditi.
+
+52
+00:03:52,750 --> 00:03:58,330
+OK, so that connection is not security, but clearly your browser will clearly tell you that it's not
+
+53
+00:03:58,330 --> 00:03:59,210
+a secure connection.
+
+54
+00:03:59,740 --> 00:04:02,380
+Now you say it's just jenkins', but think about it.
+
+55
+00:04:02,380 --> 00:04:05,380
+You're entering username and password here that's going on encrypted.
+
+56
+00:04:05,590 --> 00:04:11,740
+You're storing credentials in Jenkins, the copy paste work you're doing that's going over the connection.
+
+57
+00:04:11,980 --> 00:04:18,720
+There's so many things that we put in jenkins' like source code of so many, so many things, really.
+
+58
+00:04:19,630 --> 00:04:21,279
+Everything is going on encrypted.
+
+59
+00:04:21,790 --> 00:04:29,020
+So from point A to point B, let's assume Pierpoint E Jenkins is point B if there is some man in middle
+
+60
+00:04:29,890 --> 00:04:33,430
+reading your communication man in middle attack.
+
+61
+00:04:33,910 --> 00:04:34,260
+All right.
+
+62
+00:04:34,810 --> 00:04:39,640
+So if they're capturing your network traffic, they can see the data and clear text.
+
+63
+00:04:40,540 --> 00:04:42,190
+So there are two ways to do this.
+
+64
+00:04:42,190 --> 00:04:46,990
+One, in the server itself, you can store the certificate and you can enable the deepest connection,
+
+65
+00:04:47,890 --> 00:04:53,980
+but then that will put law on the system because then then the system will be doing encryption and decryption.
+
+66
+00:04:54,610 --> 00:04:56,500
+For Jenkins, it's at least it's fine.
+
+67
+00:04:56,500 --> 00:05:01,870
+But if it's on a website for the public, you know, to so many users coming in, the encryption decryption
+
+68
+00:05:01,870 --> 00:05:09,160
+is done by the website or the application server, it will impact on the law so we can take a load balancer,
+
+69
+00:05:09,160 --> 00:05:14,140
+put it in front of it, will encrypt the connection from us to the load balancer, from load balancer
+
+70
+00:05:14,140 --> 00:05:16,240
+to Jenkins or to any Web server.
+
+71
+00:05:16,510 --> 00:05:19,930
+The data can be unencrypted if as long as it's in a private network.
+
+72
+00:05:19,930 --> 00:05:25,450
+So if I put my jenckes in a private subnet load, balancing in a public subnet, which will see in the
+
+73
+00:05:25,450 --> 00:05:30,870
+VBC section after this and are dominated by a previous connection on load balancer, I'm totally safe.
+
+74
+00:05:31,240 --> 00:05:34,810
+So let's go to easy to let's create a load balancer.
+
+75
+00:05:36,770 --> 00:05:42,440
+One thing let me remind you, we're here, I have to switch to North Virginia region because I have.
+
+76
+00:05:43,900 --> 00:05:50,200
+My certificate in is included in North Virginia region, and I hope you would have also done the same
+
+77
+00:05:50,200 --> 00:05:51,690
+thing from the previous video.
+
+78
+00:05:52,300 --> 00:05:54,610
+So you're going to use a certificate.
+
+79
+00:05:58,930 --> 00:06:04,180
+That certificate of victory in the political sights, so the certificate is in North Virginia region,
+
+80
+00:06:04,200 --> 00:06:10,630
+so make sure your workload in this instance is in Norfolk, Virginia, and we have to carry the load
+
+81
+00:06:10,630 --> 00:06:12,070
+balancer also in that region.
+
+82
+00:06:13,510 --> 00:06:18,010
+So only in my North Virginia, I have the jenkins' server again, similar thing.
+
+83
+00:06:18,490 --> 00:06:20,560
+And I'm going to create a load balancer.
+
+84
+00:06:24,910 --> 00:06:28,120
+So I say create load balancer and go with classic for now.
+
+85
+00:06:30,410 --> 00:06:38,750
+And I am going to make this to be a secure connection and let me give a name and say Jenkins hyphen
+
+86
+00:06:38,750 --> 00:06:39,470
+Elby.
+
+87
+00:06:41,540 --> 00:06:46,520
+Insta sport, which will be jenkins', is running so soon.
+
+88
+00:06:47,270 --> 00:06:52,550
+So it's going to receive the request, dominate your previous connection at load balancer and from load
+
+89
+00:06:52,550 --> 00:06:57,050
+balancer, it will go to the instance on duty assigned security groups.
+
+90
+00:06:57,080 --> 00:06:58,730
+I'm going to create a new security group here.
+
+91
+00:06:59,890 --> 00:07:02,800
+I can see Jenkins hyphen Elby.
+
+92
+00:07:05,210 --> 00:07:10,700
+And this what if this is really for public, then you can give it anywhere, but if it's not, then
+
+93
+00:07:10,870 --> 00:07:11,660
+it might be.
+
+94
+00:07:12,700 --> 00:07:16,210
+Right to call dibs, go next.
+
+95
+00:07:17,020 --> 00:07:21,370
+All right, now here you will get an option to upload your certificate or you can choose a certificate
+
+96
+00:07:21,370 --> 00:07:23,020
+from Ekom, which you already have.
+
+97
+00:07:24,510 --> 00:07:28,710
+It's the same thing for the application load balancer, also configured health check.
+
+98
+00:07:29,810 --> 00:07:35,570
+Katie noindex A.M. Just four should be fine health check.
+
+99
+00:07:35,800 --> 00:07:39,110
+I would give just two for now so it can come off very quickly.
+
+100
+00:07:39,470 --> 00:07:41,860
+At instance, I will add my drinking, for instance.
+
+101
+00:07:41,870 --> 00:07:45,410
+Now, if this instance is in a private subnet, this is much more better.
+
+102
+00:07:48,990 --> 00:07:51,720
+Can do some tag, let's say create.
+
+103
+00:07:53,960 --> 00:08:00,350
+So load balancer is created, but it will not be able to perform the health check because my Ecija instance
+
+104
+00:08:00,350 --> 00:08:05,930
+security group will not allow to be accessed from anywhere other than my IP.
+
+105
+00:08:05,930 --> 00:08:08,870
+So I'm going to need the security group of my student students.
+
+106
+00:08:08,880 --> 00:08:10,010
+I will say I did rule.
+
+107
+00:08:11,010 --> 00:08:14,130
+And I will say AT&T is allowed from.
+
+108
+00:08:16,170 --> 00:08:17,540
+Portree, Haiti.
+
+109
+00:08:19,620 --> 00:08:27,120
+From the load balancer security group, so there's my Jenkins Elby security group, you want to be just
+
+110
+00:08:27,120 --> 00:08:28,890
+safe, just delete this rule.
+
+111
+00:08:31,090 --> 00:08:33,250
+And let's see, see, Ron.
+
+112
+00:08:36,159 --> 00:08:41,830
+So A.J. Jenkins instant security group allows connection from the Lord Balancer Security Group on board
+
+113
+00:08:42,400 --> 00:08:47,590
+so that we, the health check, will be able to perform and the traffic can be altered, altered or
+
+114
+00:08:47,590 --> 00:08:48,040
+allowed.
+
+115
+00:08:48,760 --> 00:08:50,350
+Let's go to the load balancer.
+
+116
+00:08:51,280 --> 00:08:56,620
+And it's going to take some time to make it healthy, declared healthy is currently out of service,
+
+117
+00:08:56,850 --> 00:08:57,850
+still in progress.
+
+118
+00:08:58,690 --> 00:09:02,680
+While it was out of service for a long time, the health check were failing.
+
+119
+00:09:02,680 --> 00:09:06,280
+Then I had to make a little change in the health check.
+
+120
+00:09:06,280 --> 00:09:09,820
+I said Slash Log-in and Cevdet.
+
+121
+00:09:12,170 --> 00:09:13,670
+And then it became healthy.
+
+122
+00:09:15,340 --> 00:09:19,600
+So if you're also using Jenkins's health check and then to be fined.
+
+123
+00:09:21,050 --> 00:09:27,440
+And to test that, I also had to enable the security group rule of the Jenkins' I said aloud from my
+
+124
+00:09:27,440 --> 00:09:33,180
+IP, but if I do that, I will be accessing it directly on duty from my IP.
+
+125
+00:09:33,500 --> 00:09:35,090
+That would be not secure connection.
+
+126
+00:09:35,100 --> 00:09:36,650
+So remove that rule.
+
+127
+00:09:37,250 --> 00:09:39,910
+Allow only access from the load balancer.
+
+128
+00:09:40,610 --> 00:09:41,090
+Save.
+
+129
+00:09:42,970 --> 00:09:45,580
+OK, now let's use the load balancer and point.
+
+130
+00:09:54,060 --> 00:10:00,060
+So each night, GDP is colon slash slash.
+
+131
+00:10:02,890 --> 00:10:10,030
+So that it alerts you that it is not a known certificate because a certificate is for gruffy dot in
+
+132
+00:10:10,270 --> 00:10:14,460
+domain, not for Amazon, Netflix, dot com, that's the problem.
+
+133
+00:10:14,800 --> 00:10:16,840
+But if you at the entry in the DNS.
+
+134
+00:10:18,050 --> 00:10:23,390
+Like, I'm using GoDaddy, so if I had the entry of this early, if I access it through that you all,
+
+135
+00:10:23,900 --> 00:10:25,690
+then I will not see this problem.
+
+136
+00:10:26,970 --> 00:10:29,310
+And let me do that, I'll go to GoDaddy account.
+
+137
+00:10:31,020 --> 00:10:34,020
+But you don't need to do that, you know, you can skip that part.
+
+138
+00:10:34,170 --> 00:10:38,460
+Nevertheless, it's going to go it's going to be an encrypted connection, but it's just that the browser
+
+139
+00:10:38,460 --> 00:10:42,410
+does not recognize cannot match your certificate with this end point.
+
+140
+00:10:42,840 --> 00:10:45,710
+So for that reason, you don't get that error message.
+
+141
+00:10:45,720 --> 00:10:54,090
+We can add a in record and we will see jenkins' or whatever hostname you want to prefer and give your
+
+142
+00:10:54,090 --> 00:10:54,660
+end point.
+
+143
+00:10:57,910 --> 00:11:00,010
+Of your load balancer Sievert.
+
+144
+00:11:01,010 --> 00:11:11,270
+And then we can access it like this jenkins', dot, gruffy dot in, and of course I would Jenkins'
+
+145
+00:11:11,840 --> 00:11:15,080
+and I have to say yes, colon slash, slash.
+
+146
+00:11:18,150 --> 00:11:23,730
+So that message you will get, because we just updated the entry and it's going to take time to publish
+
+147
+00:11:23,730 --> 00:11:26,850
+and come to our nearest DNS server or Internet service provider.
+
+148
+00:11:28,740 --> 00:11:33,450
+So after waiting for almost 15, 20 minutes, I am able to resolve that.
+
+149
+00:11:34,590 --> 00:11:39,900
+Minder's, those border DNS cache is audiences a little slower to fetch that right?
+
+150
+00:11:41,400 --> 00:11:46,720
+But maybe if you're in U.S. region, European region, and it will be resolved very quickly.
+
+151
+00:11:47,910 --> 00:11:53,490
+So, as I said, you can do this or you can skip this part, but I just wanted to show you the certificate
+
+152
+00:11:53,760 --> 00:11:54,990
+of connection is secure.
+
+153
+00:11:55,630 --> 00:11:57,540
+It's a as a certificate is valid.
+
+154
+00:11:58,150 --> 00:12:03,090
+You see that certificate valid and you can see the certificate it's issued for gruffy dot in.
+
+155
+00:12:04,260 --> 00:12:12,090
+By any star dot, gruffy dot in so any horse we can cure their cancer, gruffy dot and it works fine,
+
+156
+00:12:12,090 --> 00:12:14,310
+it is issued by Amazon right now.
+
+157
+00:12:14,340 --> 00:12:16,650
+It can actually see, can I give username and password?
+
+158
+00:12:16,650 --> 00:12:20,220
+I login, I store any information.
+
+159
+00:12:20,220 --> 00:12:24,330
+The data is going to go encrypted encryption in-transit.
+
+160
+00:12:25,400 --> 00:12:30,290
+I know we did this exercise previously also in our projects for the observers.
+
+161
+00:12:31,920 --> 00:12:35,540
+But now we focus, we're focusing more on encryption here, on security.
+
+162
+00:12:35,840 --> 00:12:37,730
+So you need to understand these points.
+
+163
+00:12:38,520 --> 00:12:41,700
+Let's see one more encryption in-transit, which is for S3.
+
+164
+00:12:43,110 --> 00:12:47,700
+Now, also, you can just delete the load balancer if your work is done, you can delete your instance,
+
+165
+00:12:48,090 --> 00:12:50,850
+I will go now to the free service.
+
+166
+00:12:54,440 --> 00:13:01,780
+I guess I'll pick up some random bucket, I have some data in the buckets, that one.
+
+167
+00:13:04,470 --> 00:13:06,570
+You can create a bucket, upload some data, so.
+
+168
+00:13:07,550 --> 00:13:11,620
+Let's see classis application, the Acropolis file.
+
+169
+00:13:11,840 --> 00:13:14,060
+This is a file on this.
+
+170
+00:13:16,140 --> 00:13:19,230
+Well, there's no next extension, so to be a problem, let's.
+
+171
+00:13:21,390 --> 00:13:24,840
+Find our science direct budget that we created previously.
+
+172
+00:13:28,720 --> 00:13:30,550
+And let me tell you this.
+
+173
+00:13:31,700 --> 00:13:34,360
+Object and we applaud this a bit.
+
+174
+00:13:38,070 --> 00:13:42,960
+If you have encryption enabled and if you want to disable it for this exercise, you can do that.
+
+175
+00:13:45,920 --> 00:13:51,350
+But if you're accessing with the admin user route user or the user who has the ownership of the key,
+
+176
+00:13:51,350 --> 00:13:52,490
+then this will work fine.
+
+177
+00:13:52,490 --> 00:13:53,120
+No problem.
+
+178
+00:13:56,910 --> 00:14:00,780
+So I applaud and contact text again.
+
+179
+00:14:04,160 --> 00:14:06,380
+So any bucket in utero is fine for now.
+
+180
+00:14:08,070 --> 00:14:11,960
+And just to follow the excise, just make sure it's a tax data.
+
+181
+00:14:13,970 --> 00:14:14,580
+The object.
+
+182
+00:14:17,690 --> 00:14:19,040
+And I click on Open.
+
+183
+00:14:21,830 --> 00:14:28,220
+All right, so you see beautiful, isn't it, strip's connection, but if we want and switch to a strategy
+
+184
+00:14:28,230 --> 00:14:28,730
+B.
+
+185
+00:14:30,280 --> 00:14:34,080
+That is also fine, you see, I'm seeing all this data unencrypted.
+
+186
+00:14:35,150 --> 00:14:40,610
+So no one is forcing me to sit in encrypted right now, this, if there is a man in middle can see this
+
+187
+00:14:40,610 --> 00:14:45,890
+data so we can only apply force on the EU budget through policies.
+
+188
+00:14:47,580 --> 00:14:48,690
+In your permission.
+
+189
+00:14:50,050 --> 00:14:52,060
+Budget policy added.
+
+190
+00:14:53,580 --> 00:14:58,470
+And I'm going to put a policy over here that will force for encryption, I assure you, that policy.
+
+191
+00:14:59,490 --> 00:15:03,610
+So your documentation is three Buckett SSL request only occasionally SSL.
+
+192
+00:15:04,500 --> 00:15:05,820
+So this is a policy.
+
+193
+00:15:05,940 --> 00:15:07,380
+I'm just going to copy that.
+
+194
+00:15:08,860 --> 00:15:10,900
+Here, there's a copy, but button copy that.
+
+195
+00:15:12,380 --> 00:15:19,970
+I go to my three bucket bastard and I just change the Iren, so Coppelia, it's right there off your
+
+196
+00:15:19,970 --> 00:15:21,620
+bucket, so I just replace it.
+
+197
+00:15:21,630 --> 00:15:23,840
+And this took place there.
+
+198
+00:15:23,840 --> 00:15:29,030
+Make sure that there is, you know, that and star there and also here.
+
+199
+00:15:31,600 --> 00:15:33,310
+OK, let's see what it is really releasing.
+
+200
+00:15:36,300 --> 00:15:42,340
+There's also an account number, Auriel, allow principal who OK, so I'm going to remove that and say
+
+201
+00:15:42,370 --> 00:15:43,950
+double courts staff.
+
+202
+00:15:45,210 --> 00:15:55,860
+So as three get for anyone, anyone is allowed to read it, but denies this basically makes the market
+
+203
+00:15:55,860 --> 00:16:05,700
+public OK, this ruling makes it public and here deny to everyone every action on this bucket if this
+
+204
+00:16:05,700 --> 00:16:10,160
+is a condition, OK, if it helps secure transport, false.
+
+205
+00:16:11,520 --> 00:16:13,320
+This is this is for us.
+
+206
+00:16:13,320 --> 00:16:14,770
+This is for everyone, OK?
+
+207
+00:16:14,770 --> 00:16:16,310
+It's a public access over here.
+
+208
+00:16:16,950 --> 00:16:18,530
+But anyways, it's going to be encrypted.
+
+209
+00:16:19,680 --> 00:16:25,590
+You should be having principle there like an accountant or your username user to make sure it's for
+
+210
+00:16:25,590 --> 00:16:26,580
+a specific person.
+
+211
+00:16:26,580 --> 00:16:30,300
+OK, but just for exercise, I will just show you changes.
+
+212
+00:16:33,220 --> 00:16:34,960
+And let's go to the object.
+
+213
+00:16:38,770 --> 00:16:40,600
+And let's click on that.
+
+214
+00:16:41,760 --> 00:16:42,180
+Open.
+
+215
+00:16:43,160 --> 00:16:50,810
+OK, if I change that from a strips to actually be it, enter.
+
+216
+00:16:52,040 --> 00:16:59,240
+If you're not allowed that, you see that now I can be really specific and give it to a user or any
+
+217
+00:16:59,240 --> 00:17:01,850
+tablas account, because this is public display.
+
+218
+00:17:02,000 --> 00:17:03,110
+Anybody can see it.
+
+219
+00:17:04,510 --> 00:17:06,670
+But the point here is the encryption in-transit.
+
+220
+00:17:07,790 --> 00:17:09,380
+Let's give the public until.
+
+221
+00:17:10,490 --> 00:17:14,619
+The trips, but not with a strip.
+
+222
+00:17:17,990 --> 00:17:19,490
+So here I am forcing.
+
+223
+00:17:20,410 --> 00:17:25,560
+In a different mechanism, I'm forcing here with policy that should be only encrypted, it's trippiest
+
+224
+00:17:25,569 --> 00:17:28,480
+connection for load balancer, how can be forceful?
+
+225
+00:17:28,480 --> 00:17:35,140
+Don't give direct access to to Dunstan's a business connection allowed only for a load balancer and
+
+226
+00:17:35,140 --> 00:17:37,720
+Noisebridge connection so you can force in that be.
+
+227
+00:17:38,770 --> 00:17:44,830
+OK, if you are done with the exercise, you can just terminate the load balancers and delete your instances.
+
+228
+00:17:47,220 --> 00:17:52,500
+So coming back to this policy, right, it should be a specific you know, you don't make it public
+
+229
+00:17:52,500 --> 00:17:54,210
+if you don't need to make it public.
+
+230
+00:17:54,760 --> 00:18:00,870
+And again, you can use eatables organization and force people to not make the buckets public, even
+
+231
+00:18:00,870 --> 00:18:01,530
+accidentally.
+
+232
+00:18:02,970 --> 00:18:08,490
+So that's all in this video, we have seen encryption in-transit for a lot of observers and forestry
+
+233
+00:18:08,490 --> 00:18:15,170
+bucket Secich RTP, we really need to make any changes, but there are so few things we need to really
+
+234
+00:18:15,180 --> 00:18:17,810
+take care of that we'll be seeing that in next videos.
+
+235
+00:18:18,330 --> 00:18:19,560
+That is all for now.
+

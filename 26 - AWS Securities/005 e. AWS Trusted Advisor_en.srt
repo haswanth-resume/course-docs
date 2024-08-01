@@ -1,0 +1,352 @@
+1
+00:00:01,569 --> 00:00:07,460
+A.W. is a trusted adviser, as the name says, it's an adviser here.
+
+2
+00:00:07,480 --> 00:00:08,800
+You really don't need to do much.
+
+3
+00:00:09,580 --> 00:00:11,830
+You just need to use the service.
+
+4
+00:00:12,280 --> 00:00:15,480
+It will give you advice on cost optimization.
+
+5
+00:00:15,490 --> 00:00:21,310
+You know, maybe you have some easy does just that is not used for a very, very long time or you have
+
+6
+00:00:21,310 --> 00:00:23,040
+some dubious volume that are unused.
+
+7
+00:00:23,380 --> 00:00:27,160
+So it will alert you, hey, you have resources, you're not using it now.
+
+8
+00:00:27,190 --> 00:00:29,670
+You can delete it and save some money performance.
+
+9
+00:00:29,680 --> 00:00:29,880
+Right.
+
+10
+00:00:29,920 --> 00:00:33,690
+You have too many users coming in and accessing a particular service.
+
+11
+00:00:33,720 --> 00:00:34,020
+Right.
+
+12
+00:00:34,540 --> 00:00:35,920
+But it's not optimum.
+
+13
+00:00:36,380 --> 00:00:38,970
+And the most requests are slowing down, failing.
+
+14
+00:00:39,220 --> 00:00:45,130
+So it will give recommendation or no tweet, tweet this or tuneless find you on this security.
+
+15
+00:00:45,130 --> 00:00:46,510
+That's where our attention is.
+
+16
+00:00:47,380 --> 00:00:49,630
+OK, I really like the service.
+
+17
+00:00:50,210 --> 00:00:53,470
+I don't need anybody else to tell me what to do or what not to do.
+
+18
+00:00:54,040 --> 00:00:58,510
+I the source will tell me, hey, you know, there is support.
+
+19
+00:00:58,510 --> 00:01:04,420
+This is crazily open and you should better take a look at that or your access keys are exposed to the
+
+20
+00:01:04,420 --> 00:01:05,080
+public.
+
+21
+00:01:05,080 --> 00:01:07,060
+It's in the GitHub public repository.
+
+22
+00:01:07,480 --> 00:01:08,500
+So it will tell you that.
+
+23
+00:01:08,590 --> 00:01:09,040
+Really.
+
+24
+00:01:09,280 --> 00:01:14,350
+Yeah, it will scan for the public repositories also and find if there is any access keys and, you
+
+25
+00:01:14,350 --> 00:01:14,980
+know, hello, alert you.
+
+26
+00:01:14,980 --> 00:01:16,300
+Hey, your access is exposed.
+
+27
+00:01:16,960 --> 00:01:17,530
+Amazing.
+
+28
+00:01:17,530 --> 00:01:17,890
+Right now.
+
+29
+00:01:17,900 --> 00:01:21,730
+So many recommendations that it gives for fault tolerance for service limits.
+
+30
+00:01:22,240 --> 00:01:23,800
+We are more interested in security.
+
+31
+00:01:24,460 --> 00:01:25,780
+Let's check this source.
+
+32
+00:01:27,430 --> 00:01:31,420
+So let's just search for trusted adviser, let's click on it.
+
+33
+00:01:34,560 --> 00:01:38,400
+And it is cost optimization, performance security.
+
+34
+00:01:39,270 --> 00:01:44,370
+And so if there is any Élodie to show you, I don't have any such problems.
+
+35
+00:01:44,370 --> 00:01:48,360
+So it's not alerting me security says Amazon.
+
+36
+00:01:48,360 --> 00:01:50,520
+eBay's public snapshot you don't have.
+
+37
+00:01:50,520 --> 00:01:51,240
+It's a green check.
+
+38
+00:01:51,240 --> 00:01:52,070
+So you know you're good.
+
+39
+00:01:52,740 --> 00:01:55,720
+Don't have a public snapshot that can be seen by everyone.
+
+40
+00:01:55,760 --> 00:01:57,120
+OK, I'm as an artist public.
+
+41
+00:01:57,390 --> 00:01:58,050
+Sure that's not.
+
+42
+00:01:58,050 --> 00:02:01,990
+There are other things is a question mark that Amazon has bucket permission.
+
+43
+00:02:02,010 --> 00:02:02,820
+It's not checking.
+
+44
+00:02:03,330 --> 00:02:08,220
+Let's see that question mark you can read when it will alert you on why it will work and why it's not
+
+45
+00:02:08,220 --> 00:02:08,820
+alerting you.
+
+46
+00:02:09,639 --> 00:02:11,890
+Amuse MFA en route account.
+
+47
+00:02:11,910 --> 00:02:12,240
+Right.
+
+48
+00:02:12,270 --> 00:02:13,080
+There's a question mark.
+
+49
+00:02:13,080 --> 00:02:14,850
+So we need to take care of these things.
+
+50
+00:02:14,890 --> 00:02:15,170
+Right.
+
+51
+00:02:16,170 --> 00:02:18,570
+Security group specific board is unrestricted.
+
+52
+00:02:18,580 --> 00:02:21,780
+You have some security port that is unrestricted.
+
+53
+00:02:21,960 --> 00:02:23,640
+OK, you better work it out.
+
+54
+00:02:24,780 --> 00:02:28,920
+But if you go down, these things are great out, OK, which are very, very important.
+
+55
+00:02:29,340 --> 00:02:32,280
+Checks exposed axis keys.
+
+56
+00:02:32,280 --> 00:02:38,400
+I really recommend you turn this feature on how well you to upgrade for a plan, you know, upgrade
+
+57
+00:02:38,400 --> 00:02:39,720
+and you have to start paying for it.
+
+58
+00:02:40,170 --> 00:02:41,490
+And there are different plans.
+
+59
+00:02:42,950 --> 00:02:44,460
+It's basically the support plan.
+
+60
+00:02:44,490 --> 00:02:50,680
+OK, so you have basic developer level, business level and enterprise level for big enterprise.
+
+61
+00:02:50,690 --> 00:02:56,200
+It's not a big problem is not big money for them are starting from fifteen thousand dollars per month.
+
+62
+00:02:56,210 --> 00:03:00,600
+This is for enterprise, but it gives a lot of recommendation for Enterprise.
+
+63
+00:03:00,620 --> 00:03:01,100
+It's fine.
+
+64
+00:03:01,100 --> 00:03:04,780
+You know, you can even enable business level, OK.
+
+65
+00:03:04,970 --> 00:03:06,110
+Hundred dollars per month.
+
+66
+00:03:06,740 --> 00:03:15,740
+Really no big deal for, you know, small organization developer and startups, you know, don't want
+
+67
+00:03:15,740 --> 00:03:16,160
+to invest.
+
+68
+00:03:16,490 --> 00:03:18,290
+But I really recommend in on business plan.
+
+69
+00:03:21,110 --> 00:03:27,230
+Because there's really so many things in this that we use, we consume the services, Vito says it's
+
+70
+00:03:27,230 --> 00:03:29,660
+not always possible to follow all the best practices.
+
+71
+00:03:29,660 --> 00:03:32,690
+So trusted adviser can keep alerting us.
+
+72
+00:03:34,350 --> 00:03:39,150
+And it's not only just about those recommendations, you know, that you get the customer service documentation,
+
+73
+00:03:39,150 --> 00:03:39,870
+white paper.
+
+74
+00:03:41,180 --> 00:03:47,180
+24 by seven, access to cloud support engineers via email, chat, phone, it will be definitely much
+
+75
+00:03:47,180 --> 00:03:51,010
+better in enterprise jindall guidance 24 hours.
+
+76
+00:03:51,030 --> 00:03:53,930
+And so it's also good for startups.
+
+77
+00:03:55,050 --> 00:04:00,630
+Maybe you're using an account that already has a business plan or enterprise plan, a check that, you
+
+78
+00:04:00,660 --> 00:04:05,010
+know, imagine that you already have these many recommendations, maybe you're not even using it.
+
+79
+00:04:05,500 --> 00:04:13,830
+OK, again, checking the preference section, you can give the email addresses so you get weekly mail
+
+80
+00:04:13,830 --> 00:04:19,279
+notification that trade preferences for this week, you know, you should do this, this, this, this,
+
+81
+00:04:19,279 --> 00:04:19,529
+this.
+
+82
+00:04:19,529 --> 00:04:21,089
+And, you know, you can follow the listings.
+
+83
+00:04:22,120 --> 00:04:27,460
+So really nothing much to do over here, just need to go for the business plan, what plan you prefer
+
+84
+00:04:27,670 --> 00:04:34,510
+enablers, give them a notification, you can keep watching it, you can give your notifications, check
+
+85
+00:04:34,510 --> 00:04:40,180
+trusted adviser documentation for more details, what all it can do, how you can what will be the best
+
+86
+00:04:40,180 --> 00:04:41,090
+support plan for you?
+
+87
+00:04:41,090 --> 00:04:44,820
+You can contact the support and discuss with them and get the right plan for you.
+
+88
+00:04:45,950 --> 00:04:49,160
+So that is all in this one I see in the next video.
+

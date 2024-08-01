@@ -1,0 +1,716 @@
+1
+00:00:01,340 --> 00:00:07,420
+Aimless organization, this particular service is used to group multiple eatables accounts.
+
+2
+00:00:08,170 --> 00:00:13,600
+If you're wondering why multiple eatables accounts as well as Political Alert, it's a good practice
+
+3
+00:00:13,600 --> 00:00:19,050
+or a best practice to have different eatables account for your different environment, like developers,
+
+4
+00:00:19,060 --> 00:00:24,270
+different production, different testers and that kind of things to finance different.
+
+5
+00:00:24,850 --> 00:00:30,730
+So when you have multiple accounts, if you're following eatables best practices, then you lose the
+
+6
+00:00:30,730 --> 00:00:34,860
+control, they'll be different billings, they'll be different controls.
+
+7
+00:00:35,350 --> 00:00:38,980
+So the good areas have a master account.
+
+8
+00:00:39,670 --> 00:00:45,280
+And under that you add all your eatables accounts, which you use in your organization, and you can
+
+9
+00:00:45,280 --> 00:00:46,270
+then control it.
+
+10
+00:00:47,530 --> 00:00:49,960
+What you can control the billing is centralized.
+
+11
+00:00:49,960 --> 00:00:56,200
+So you just be the billing from, you know, you see the centralized billing in the master account and
+
+12
+00:00:57,070 --> 00:00:59,230
+all the accounts you can then group into.
+
+13
+00:00:59,380 --> 00:01:05,500
+Or you we call it organizational unit, like a finance organization, you can have multiple eatables
+
+14
+00:01:05,500 --> 00:01:08,380
+accounts and for production you can have a few other accounts.
+
+15
+00:01:08,800 --> 00:01:14,200
+Now you have enough then Abels accounts of all accounts are used for different, different purposes.
+
+16
+00:01:14,200 --> 00:01:16,900
+You can group them together, you can create subgroups also.
+
+17
+00:01:18,550 --> 00:01:19,750
+So it's easier to manage.
+
+18
+00:01:19,750 --> 00:01:26,110
+Plus, from a security point of view, you can apply policies on the account or on the group or on the
+
+19
+00:01:26,120 --> 00:01:26,530
+EU.
+
+20
+00:01:26,530 --> 00:01:28,330
+We call it organizational unit.
+
+21
+00:01:29,790 --> 00:01:30,930
+What are these policies?
+
+22
+00:01:31,410 --> 00:01:37,620
+Well, you have seen in policies now which controls the authorization, these policies will be mostly
+
+23
+00:01:37,620 --> 00:01:40,320
+deny policy, deny a specific thing.
+
+24
+00:01:40,530 --> 00:01:45,960
+Like, for example, I don't want anybody to create access key in a developer's account.
+
+25
+00:01:46,850 --> 00:01:50,960
+I can do that, I can implement that through these policies, I can apply to the developer, will you
+
+26
+00:01:51,230 --> 00:01:57,230
+and every account in that or you can not create access keys will do that exercise.
+
+27
+00:01:57,230 --> 00:02:00,140
+Also, we can disable route logins.
+
+28
+00:02:00,140 --> 00:02:07,260
+We can see do not no one can make a street bucket public as so many policies that we can apply.
+
+29
+00:02:07,550 --> 00:02:14,900
+So once it's applied from the master account with the EU, it cannot be overridden by from the EU to
+
+30
+00:02:14,900 --> 00:02:15,800
+the master account.
+
+31
+00:02:16,990 --> 00:02:22,300
+OK, it's actually pretty simple to do you could loose organization, agreeableness organizing shows
+
+32
+00:02:22,300 --> 00:02:23,220
+in your Mostert account.
+
+33
+00:02:23,680 --> 00:02:29,230
+You say, I want to create account or add account Yaraka and then you can have multiple accounts.
+
+34
+00:02:29,230 --> 00:02:35,590
+You can group them together into a new organization units, and then you can apply policies on that.
+
+35
+00:02:37,520 --> 00:02:43,910
+This is more for governing and management of your multiple accounts, but with security policies.
+
+36
+00:02:45,000 --> 00:02:48,510
+You can really tightly controlled things at a very higher level.
+
+37
+00:02:49,990 --> 00:02:54,250
+OK, so it will look something like this and you have a Mostert account, then you can create or you
+
+38
+00:02:54,970 --> 00:03:00,580
+can under or you can add accounts like a logging account, developers account.
+
+39
+00:03:01,180 --> 00:03:04,720
+Under that you can create more or use and more account.
+
+40
+00:03:04,720 --> 00:03:07,360
+So you can have hierarchy like that and you can create it.
+
+41
+00:03:07,510 --> 00:03:08,320
+Control policy.
+
+42
+00:03:08,650 --> 00:03:14,350
+Now let's say I want to deny everyone to create an extra bucket or make bucket public and I can apply
+
+43
+00:03:14,350 --> 00:03:20,080
+on an unemployed applied in or you it will be then implemented on all these sub or use and the account
+
+44
+00:03:20,080 --> 00:03:20,800
+inside that.
+
+45
+00:03:21,950 --> 00:03:24,070
+So it's going to be coming from top to bottom.
+
+46
+00:03:24,070 --> 00:03:27,790
+It cannot go from bottom to up like I cannot over ride like a devil.
+
+47
+00:03:27,790 --> 00:03:28,300
+Can't, cannot.
+
+48
+00:03:28,380 --> 00:03:28,800
+All right.
+
+49
+00:03:28,810 --> 00:03:31,810
+Those settings, it has to be on this coming from the top.
+
+50
+00:03:33,750 --> 00:03:36,490
+Like, we have courts and Supreme Court, High Court like that.
+
+51
+00:03:37,760 --> 00:03:39,130
+In India, that's how it is.
+
+52
+00:03:40,200 --> 00:03:42,000
+OK, let's see how this works, OK?
+
+53
+00:03:42,030 --> 00:03:47,400
+So I have to establish account for this exercise, you can create more revenues account and try more
+
+54
+00:03:47,400 --> 00:03:49,860
+things, but I would just have to give this account.
+
+55
+00:03:51,320 --> 00:03:59,150
+So this may account will be our master account and I'm going to go to organization, eatables organization.
+
+56
+00:04:02,930 --> 00:04:03,890
+I see you see there.
+
+57
+00:04:04,290 --> 00:04:09,020
+It's pretty simple, it's his account, organized account of life policies that's in place that you
+
+58
+00:04:09,020 --> 00:04:13,000
+can go to the user guide and you can read more about it.
+
+59
+00:04:13,040 --> 00:04:16,040
+Its features, its use cases is really amazing.
+
+60
+00:04:16,279 --> 00:04:19,670
+It is really amazing control on your multiple account.
+
+61
+00:04:19,700 --> 00:04:20,810
+I really love the service.
+
+62
+00:04:21,230 --> 00:04:26,790
+You know, like if I said noise free bucket public, then no, nobody can do it right.
+
+63
+00:04:27,140 --> 00:04:30,980
+It's kind of like that security very tightly controlled or implemented.
+
+64
+00:04:32,120 --> 00:04:33,890
+So secret organization.
+
+65
+00:04:35,010 --> 00:04:36,090
+Trade organization.
+
+66
+00:04:40,610 --> 00:04:45,500
+So I've created organization and my organization, I have just one account, which is it's just this
+
+67
+00:04:45,570 --> 00:04:46,400
+account itself.
+
+68
+00:04:46,420 --> 00:04:48,880
+OK, I want to add other accounts.
+
+69
+00:04:48,920 --> 00:04:54,280
+I see an account so I can either create a new account from here or I can invite in existing accounts.
+
+70
+00:04:54,290 --> 00:04:56,150
+I'll invite I already have an account.
+
+71
+00:04:57,940 --> 00:05:03,870
+So it is telling me to verify your own email account in which I go to my email address under.
+
+72
+00:05:04,850 --> 00:05:07,910
+So I got a meal like this, I a very fine email address.
+
+73
+00:05:11,940 --> 00:05:13,530
+So it seems my email address is very.
+
+74
+00:05:16,040 --> 00:05:17,600
+So let's refresh this.
+
+75
+00:05:19,530 --> 00:05:25,300
+OK, now I can send an invitation, I will either I can give the email address or I can give the account.
+
+76
+00:05:27,990 --> 00:05:31,680
+So I give the account idea, I'll keep the NMT, I'll just to invite.
+
+77
+00:05:34,370 --> 00:05:39,230
+And now I mean that other account, OK, and I'll go to the organization.
+
+78
+00:05:41,170 --> 00:05:44,600
+It what, our nation.
+
+79
+00:05:44,630 --> 00:05:45,250
+Yes.
+
+80
+00:05:46,800 --> 00:05:49,890
+I go to invitation and I can see an invitation.
+
+81
+00:05:52,400 --> 00:05:54,120
+There so I can see the intimidation.
+
+82
+00:05:54,140 --> 00:05:54,480
+Now.
+
+83
+00:05:54,890 --> 00:05:57,250
+Be careful with this, see who is inviting you.
+
+84
+00:05:58,670 --> 00:06:05,540
+All right, and I know this email address, I know this account name and I'm just going to see except.
+
+85
+00:06:06,430 --> 00:06:07,120
+Confirm.
+
+86
+00:06:11,030 --> 00:06:12,240
+OK, what do you see?
+
+87
+00:06:12,260 --> 00:06:14,450
+There is one problem here, you know, this account can leave.
+
+88
+00:06:14,450 --> 00:06:20,570
+The organization also logged into account, can leave organization, but you can control that also to
+
+89
+00:06:20,660 --> 00:06:21,290
+policies.
+
+90
+00:06:21,290 --> 00:06:24,890
+You can see no one should be able to leave organization.
+
+91
+00:06:27,010 --> 00:06:29,170
+OK, now let's go to our monster account.
+
+92
+00:06:33,550 --> 00:06:39,130
+OK, now you will see the other account, which the account name is Mutualistic, so I can keep adding
+
+93
+00:06:39,130 --> 00:06:42,480
+accounts like that and then I can really group them together.
+
+94
+00:06:42,970 --> 00:06:47,490
+So you should see it drearier and organize a county route is nothing.
+
+95
+00:06:47,500 --> 00:06:51,870
+Now I'll see great organizational unit, so I will see.
+
+96
+00:06:51,880 --> 00:06:56,410
+This is as my Cuvee account for my testers.
+
+97
+00:06:56,410 --> 00:06:57,940
+Great organizational unit.
+
+98
+00:06:59,940 --> 00:07:01,680
+And then I'm going to add.
+
+99
+00:07:03,260 --> 00:07:09,710
+I'm going to put a checkmark on this, we should move and I want to move it here.
+
+100
+00:07:10,660 --> 00:07:11,860
+And the U.S..
+
+101
+00:07:14,490 --> 00:07:19,070
+So you see that, and I can tell you and I can hardly and I can add multiple accounts in that, you
+
+102
+00:07:19,080 --> 00:07:27,090
+know, in this organization we have this particular account like that, again, criminal organization,
+
+103
+00:07:27,090 --> 00:07:31,800
+accounting and subglacial accounting that in that you can collect more you can add more account.
+
+104
+00:07:31,800 --> 00:07:32,400
+You can do that.
+
+105
+00:07:33,440 --> 00:07:38,360
+Now will do the obvious thing, will go to policy, will create policy and apply.
+
+106
+00:07:38,390 --> 00:07:43,850
+This is called service control policy will apply service control policy to or you.
+
+107
+00:07:44,910 --> 00:07:49,430
+So it is disabled, forced, I am going to see enable service control policy.
+
+108
+00:07:53,910 --> 00:07:59,220
+And here you can create policy that already one policy, U.S. fully develops access policy that allows
+
+109
+00:07:59,220 --> 00:08:00,210
+every operation.
+
+110
+00:08:00,930 --> 00:08:02,190
+I'm going to create a policy.
+
+111
+00:08:03,760 --> 00:08:09,550
+Can't you see as soon as they click on created, that shows me Denyer doesn't show me a because that's
+
+112
+00:08:09,550 --> 00:08:12,040
+why it's used mostly to deny some particular thing.
+
+113
+00:08:13,880 --> 00:08:17,250
+So let's take our first example that we discussed.
+
+114
+00:08:17,270 --> 00:08:22,010
+I am so I don't want any user in that account to create keys access here.
+
+115
+00:08:22,040 --> 00:08:27,860
+So I will search for I am as I am and I will find create Huskey.
+
+116
+00:08:29,220 --> 00:08:37,380
+OK, so deny I am critics is key, and that's just one thing I see at Resource, I will say this to
+
+117
+00:08:37,409 --> 00:08:42,120
+I am resource, all resource and resource.
+
+118
+00:08:43,280 --> 00:08:47,000
+And I don't want to put any condition, if you want, we can put conditions, this is going to be similar
+
+119
+00:08:47,000 --> 00:08:49,380
+to the I am policy that recruiting.
+
+120
+00:08:51,450 --> 00:08:52,450
+That's a great policy.
+
+121
+00:08:52,570 --> 00:08:56,590
+I have to give the name to the policy I see Denyer.
+
+122
+00:08:58,480 --> 00:08:59,650
+Exos case.
+
+123
+00:09:01,580 --> 00:09:03,500
+OK, let's create policy.
+
+124
+00:09:05,630 --> 00:09:06,700
+So I created a policy.
+
+125
+00:09:06,720 --> 00:09:10,470
+Now let's go to all you.
+
+126
+00:09:12,580 --> 00:09:21,140
+Go to my Oryu and then I will go to service control policy and then you can find your policy over here.
+
+127
+00:09:21,830 --> 00:09:22,950
+This is from the rebels.
+
+128
+00:09:22,960 --> 00:09:24,920
+SCHRUDER Rebels full access.
+
+129
+00:09:25,070 --> 00:09:26,660
+It's all it should be applied.
+
+130
+00:09:27,080 --> 00:09:28,850
+And I want to apply this one also.
+
+131
+00:09:29,980 --> 00:09:35,470
+OK, now let's go to this account and let's see if we can really create access, scheiße.
+
+132
+00:09:38,580 --> 00:09:39,780
+Come back to this account.
+
+133
+00:09:43,390 --> 00:09:49,330
+This is the account that is in our Kuai or you, and there is a policy applied to it, let's go to Al.
+
+134
+00:09:50,710 --> 00:09:58,710
+Go to Yuzu, let's try create a user given name, just keep it just keep it simple.
+
+135
+00:09:58,970 --> 00:10:00,070
+Service control policy.
+
+136
+00:10:00,070 --> 00:10:05,040
+I'm testing Coppelia and I'm going to see programatic axis OK, which will create me axis key and secret.
+
+137
+00:10:05,590 --> 00:10:05,980
+Let's see.
+
+138
+00:10:05,980 --> 00:10:06,710
+Can we do that.
+
+139
+00:10:07,280 --> 00:10:07,670
+OK.
+
+140
+00:10:07,890 --> 00:10:09,970
+As of now, I'm not giving you policy on anything.
+
+141
+00:10:09,970 --> 00:10:10,740
+Just go next.
+
+142
+00:10:11,350 --> 00:10:13,720
+And now when I click on Create User.
+
+143
+00:10:16,630 --> 00:10:21,850
+Users created but with errors successfully created the following user, but there are some problems,
+
+144
+00:10:21,850 --> 00:10:24,910
+you see I don't see any credentials over here.
+
+145
+00:10:26,490 --> 00:10:32,830
+So you can clearly use it all here, but that user cannot give cannot be given an excuse.
+
+146
+00:10:32,850 --> 00:10:34,470
+OK, maybe we denied it totally.
+
+147
+00:10:35,250 --> 00:10:37,790
+We just using rules, so no excuse.
+
+148
+00:10:38,830 --> 00:10:43,560
+So there are so many best practices running through documentation and shoyu popular things that should
+
+149
+00:10:43,560 --> 00:10:44,550
+be denied or allowed.
+
+150
+00:10:46,270 --> 00:10:50,720
+For example, service control policy, if you Google it, you can find this link.
+
+151
+00:10:53,290 --> 00:10:55,900
+So General Example's let's go to General Example's.
+
+152
+00:11:00,620 --> 00:11:08,670
+Denying access to the evidence based on requestor region, you can disable Regents' from the top Lolek
+
+153
+00:11:08,720 --> 00:11:12,650
+do not use this region and their example for OK.
+
+154
+00:11:13,750 --> 00:11:20,490
+Deny and not action, what action you cannot take is a condition strings not equal to this.
+
+155
+00:11:20,680 --> 00:11:21,670
+Can't you start then?
+
+156
+00:11:21,670 --> 00:11:25,600
+OK, prevent and use set Senate rules from making certain changes.
+
+157
+00:11:26,470 --> 00:11:28,630
+What changes a candidate so like that?
+
+158
+00:11:28,930 --> 00:11:30,460
+These are popular examples.
+
+159
+00:11:32,310 --> 00:11:38,610
+For cloud, watch my general examples, then you have conflict, this this is very important.
+
+160
+00:11:38,620 --> 00:11:39,640
+This is Austin.
+
+161
+00:11:39,640 --> 00:11:44,730
+The exam questions also eatables conflict, which, if you are eatables config, enable your recording
+
+162
+00:11:44,730 --> 00:11:45,600
+all the configuration.
+
+163
+00:11:45,600 --> 00:11:51,660
+You don't want anyone to disable the eatables configuration because if you disable, it will not record
+
+164
+00:11:51,660 --> 00:11:58,410
+the configuration and changes or even you don't want anyone to disable the guard duty service or don't
+
+165
+00:11:58,410 --> 00:12:00,430
+make any changes in the VPC, OK.
+
+166
+00:12:00,750 --> 00:12:02,400
+Or the tagging you can implement.
+
+167
+00:12:02,400 --> 00:12:04,860
+Hey, we should always have these kinds of tagging.
+
+168
+00:12:04,870 --> 00:12:08,820
+If you try to do something else, it will not allow you to tag those things.
+
+169
+00:12:09,330 --> 00:12:11,490
+OK, that will be very specific and tags.
+
+170
+00:12:12,660 --> 00:12:17,520
+And again, I recommend you learn more into this and the video.
+
+171
+00:12:21,710 --> 00:12:28,620
+It is 46 minutes of video, it's all worth and you have more videos falling to that so you can just
+
+172
+00:12:28,620 --> 00:12:29,740
+search on YouTube.
+
+173
+00:12:29,770 --> 00:12:36,000
+I also brought these links managing multiple dribblers account, using eatables organization.
+
+174
+00:12:37,590 --> 00:12:43,290
+Again, really, really recommending you to watch these videos, it will help you a lot to understand
+
+175
+00:12:43,290 --> 00:12:47,060
+things from a right perspective, from an EWR perspective.
+
+176
+00:12:48,040 --> 00:12:50,930
+Not from me, not from anybody else, directly from anybody else.
+
+177
+00:12:51,020 --> 00:12:52,990
+OK, so go through those videos.
+
+178
+00:12:54,930 --> 00:12:57,140
+So that should be all for your organization.
+
+179
+00:12:57,660 --> 00:13:00,030
+Join me in the next video for a trusted advisor.
+

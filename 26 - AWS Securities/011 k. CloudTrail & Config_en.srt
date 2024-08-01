@@ -1,0 +1,944 @@
+1
+00:00:01,270 --> 00:00:08,500
+Well, topic of this video is managing security, monitoring, alerting, auditing, and what do you
+
+2
+00:00:08,500 --> 00:00:10,270
+do when an incident happens?
+
+3
+00:00:10,810 --> 00:00:16,720
+If in general you also talk about any incident, any accident happens, you would like to know how it
+
+4
+00:00:16,720 --> 00:00:23,110
+happened so you can prevent it later on while something is happening, like, for example, someone
+
+5
+00:00:23,320 --> 00:00:29,020
+breaks security, there should be some alarm that triggers and you get alerted.
+
+6
+00:00:29,470 --> 00:00:30,700
+So innovativeness also.
+
+7
+00:00:30,700 --> 00:00:37,360
+And any security for that matter, you have tools and services that can monitor for events.
+
+8
+00:00:37,360 --> 00:00:41,910
+You can track back and see what happened this time and you can even respond to that.
+
+9
+00:00:42,400 --> 00:00:50,200
+We know clergies and monitoring service or a monitoring service from a W.S. so we can have logs, you
+
+10
+00:00:50,200 --> 00:00:53,500
+can stream logs to cloud watch and we can read their log.
+
+11
+00:00:53,500 --> 00:00:59,170
+Mattrick, you know, if you happen to find some IP addresses or something that you don't want in your
+
+12
+00:00:59,170 --> 00:01:02,350
+infrastructure and it can send an alarm to you.
+
+13
+00:01:03,460 --> 00:01:11,210
+Our response to respond to any events or some cloud really is one source which will record all the entries,
+
+14
+00:01:11,210 --> 00:01:14,390
+all the EPA calls that is made to your eatables account.
+
+15
+00:01:15,570 --> 00:01:21,270
+So anything that you do in your account, either through console, through command line, programmatically,
+
+16
+00:01:21,600 --> 00:01:27,060
+all this makes Epper calls to any place and all these calls can be recorded.
+
+17
+00:01:27,070 --> 00:01:32,790
+You can record it in a service called Cloud Drill and then you can save it on an extra bucket encrypted.
+
+18
+00:01:33,300 --> 00:01:37,080
+I already explained to you about encryption how you can use Schamus for encryption.
+
+19
+00:01:38,170 --> 00:01:43,330
+So the story is that your story in history books should be encrypted, so not everyone has access to
+
+20
+00:01:43,330 --> 00:01:48,280
+it because the really important information, very critical information in that people should not be
+
+21
+00:01:48,280 --> 00:01:48,970
+able to see it.
+
+22
+00:01:50,020 --> 00:01:55,870
+And also, in case the cyber criminal wants to remove their footprints, they will not be able to do
+
+23
+00:01:55,870 --> 00:02:01,390
+that if they are not able to find the content industry, but it's encrypted, then the cyber criminals
+
+24
+00:02:01,390 --> 00:02:03,490
+will not be able to remove their entries also.
+
+25
+00:02:03,490 --> 00:02:06,760
+So the footprints will be regarded as an lamda.
+
+26
+00:02:06,760 --> 00:02:10,750
+Services have different EPA calls and their incident.
+
+27
+00:02:10,930 --> 00:02:12,370
+So they're epicycles.
+
+28
+00:02:12,370 --> 00:02:14,110
+Their trails can be recorded separately.
+
+29
+00:02:15,750 --> 00:02:20,760
+One more services are going to see in this video the config which will create configuration of your
+
+30
+00:02:20,760 --> 00:02:27,060
+entire eatables infrastructure and will save it, and you can watch the configuration in a time line.
+
+31
+00:02:27,070 --> 00:02:28,470
+What is changed to when?
+
+32
+00:02:28,770 --> 00:02:30,570
+And you can even have rules.
+
+33
+00:02:31,570 --> 00:02:36,670
+We checks for a particular configuration, like, for example, 22 open from anywhere, if you have
+
+34
+00:02:36,670 --> 00:02:42,970
+such kind of security group where you have put to open from anywhere, then it can even alert you or
+
+35
+00:02:42,970 --> 00:02:45,690
+even can fix such problems.
+
+36
+00:02:46,760 --> 00:02:52,010
+But don't really play too much with this eatables conflict service because it is still very expensive
+
+37
+00:02:52,430 --> 00:02:55,330
+and you will be charged based on the number of rules.
+
+38
+00:02:55,610 --> 00:02:57,740
+So more rules, more charges.
+
+39
+00:02:57,740 --> 00:02:59,970
+So you can do create one rule.
+
+40
+00:02:59,990 --> 00:03:02,090
+See how it works and then you can just delete that.
+
+41
+00:03:03,080 --> 00:03:07,160
+OK, so let's go to trial first and see how we can record epicycles.
+
+42
+00:03:08,470 --> 00:03:12,160
+So much for the service cloud trail or even just such trail.
+
+43
+00:03:14,850 --> 00:03:19,950
+And here in the U.S., in the SOS, there are some recent events, it will not show you all the events.
+
+44
+00:03:20,220 --> 00:03:27,480
+If you want to have all the events, then you can create a trail so you can click on create real.
+
+45
+00:03:28,790 --> 00:03:38,240
+Can Utrillo name I see all API calls, something like that, you can do it for all the regions or you
+
+46
+00:03:38,240 --> 00:03:41,200
+can be honest on the specific region, not Virginia.
+
+47
+00:03:41,210 --> 00:03:42,380
+I am so I can be know.
+
+48
+00:03:42,560 --> 00:03:48,050
+Recording only API calls in North Virginia, but recommended, as you recall, obviously all the calls
+
+49
+00:03:48,650 --> 00:03:50,750
+you can apply at an organization level.
+
+50
+00:03:50,750 --> 00:03:52,940
+So it gets recorded for multiple accounts.
+
+51
+00:03:52,940 --> 00:03:54,110
+You have all use in that.
+
+52
+00:03:54,650 --> 00:03:56,690
+We have seen Eatables organization.
+
+53
+00:03:57,890 --> 00:04:03,110
+So I'm not going to do it for the organization, just for this account, what kind of events you want
+
+54
+00:04:03,110 --> 00:04:06,290
+to record, you want to record all or only read-only or only.
+
+55
+00:04:06,290 --> 00:04:08,000
+Right, or you don't want to record anything.
+
+56
+00:04:08,030 --> 00:04:09,470
+Obviously, we want to record something.
+
+57
+00:04:09,470 --> 00:04:11,000
+So and we keep all.
+
+58
+00:04:12,830 --> 00:04:18,019
+Also, do you want to record Eatables Schamus events and also, yes, of course, I want to record that
+
+59
+00:04:18,019 --> 00:04:21,950
+maybe someone tries to disable the key so those things can be recorded.
+
+60
+00:04:21,950 --> 00:04:22,170
+Right?
+
+61
+00:04:23,570 --> 00:04:29,210
+Some log inside also it can record, but that's going to be very expensive, so we can skip that for
+
+62
+00:04:29,210 --> 00:04:32,150
+now, Astraea and Lambrakis all will not be recorded.
+
+63
+00:04:32,150 --> 00:04:35,710
+But if you want to do that, then you can just do it all here itself.
+
+64
+00:04:36,040 --> 00:04:41,330
+You now select only three bucket and record all the API calls and also for Lambretta, you can do it
+
+65
+00:04:41,330 --> 00:04:43,160
+for all or you can select your function.
+
+66
+00:04:43,550 --> 00:04:44,750
+So we'll skip that.
+
+67
+00:04:46,340 --> 00:04:50,850
+Because this can turn out to be very expensive, also stepstool stolen of a lot of data.
+
+68
+00:04:51,260 --> 00:04:56,320
+So if you're hosting something publicly, there'll be too many calls coming to your city, Buckcherry
+
+69
+00:04:56,360 --> 00:05:00,780
+vehicles and you know, your Cloudera logs will just shut up and you'll have a lot of.
+
+70
+00:05:01,040 --> 00:05:03,920
+So it really depends whether you want to record this or not.
+
+71
+00:05:03,950 --> 00:05:04,850
+So it is an option.
+
+72
+00:05:05,970 --> 00:05:10,530
+Storage, where you want to store all this so you can create a new bucket that will create an extra
+
+73
+00:05:10,530 --> 00:05:13,580
+bucket for you, but very important points over here.
+
+74
+00:05:14,460 --> 00:05:20,240
+If a cyber criminal makes an attempt to get in, they will also want to remove their footprints.
+
+75
+00:05:21,120 --> 00:05:26,520
+So you're recording everything through cloud trail, but they can remove your or their logs, their
+
+76
+00:05:26,520 --> 00:05:28,300
+entries, and you will not find anything.
+
+77
+00:05:28,710 --> 00:05:30,990
+And so first thing is, we encrypted the.
+
+78
+00:05:31,370 --> 00:05:35,850
+So they cannot find I already have a key Miski, so I can select that.
+
+79
+00:05:37,040 --> 00:05:44,600
+And other one is in log file validation, even some makes some makes changes to remove what you can
+
+80
+00:05:44,600 --> 00:05:50,180
+run some like commands and you can really check whether the logs are tampered or not.
+
+81
+00:05:50,360 --> 00:05:53,360
+If it's tampered, it will throw you messages at DDD files.
+
+82
+00:05:53,390 --> 00:05:54,740
+There's some tampering happen.
+
+83
+00:05:55,640 --> 00:05:57,590
+If not, your log files are good.
+
+84
+00:05:58,330 --> 00:06:00,710
+You would also like to send email notification.
+
+85
+00:06:06,150 --> 00:06:07,100
+Still out.
+
+86
+00:06:07,170 --> 00:06:11,310
+Oh, I see, Buchard, I have to give name honestly, Buchard, I will see.
+
+87
+00:06:12,770 --> 00:06:17,750
+She'll logs and do some random number.
+
+88
+00:06:20,540 --> 00:06:21,110
+Create.
+
+89
+00:06:23,710 --> 00:06:29,740
+OK, it seems I don't have I don't have sufficient privilege to access this key Miski, so I'll go to
+
+90
+00:06:29,740 --> 00:06:30,460
+CMS.
+
+91
+00:06:30,460 --> 00:06:31,510
+I find my key.
+
+92
+00:06:34,510 --> 00:06:38,360
+And let's see that it's pending deletion, of course.
+
+93
+00:06:39,460 --> 00:06:43,660
+So instead of canceling that, I will create a new Kamiski.
+
+94
+00:06:45,490 --> 00:06:48,070
+Is a cloud drill.
+
+95
+00:06:49,400 --> 00:06:50,240
+IFN.
+
+96
+00:06:51,430 --> 00:06:53,740
+Cames, I think he.
+
+97
+00:07:01,720 --> 00:07:05,800
+OK, house and e-mail notification to my house and this topic.
+
+98
+00:07:07,380 --> 00:07:08,690
+OK, let's create it now.
+
+99
+00:07:11,350 --> 00:07:12,710
+All right, so that is great.
+
+100
+00:07:12,760 --> 00:07:15,190
+You should have also created one more whiskey for us.
+
+101
+00:07:17,610 --> 00:07:23,310
+And there it is, so make sure you delete it once this exercise is done or schedule to delete, it will
+
+102
+00:07:23,610 --> 00:07:26,090
+be deleted in seven days if you schedule for seven days.
+
+103
+00:07:28,540 --> 00:07:34,600
+So Trelease enable now any any changes to do anything, any baycol we do, it will be record and it
+
+104
+00:07:34,600 --> 00:07:36,130
+will be sent to the three bucket.
+
+105
+00:07:37,150 --> 00:07:39,340
+So we'll find the AC Buchard.
+
+106
+00:07:42,190 --> 00:07:42,580
+Three.
+
+107
+00:07:45,880 --> 00:07:52,870
+So the FCC budget, we should have a direct Ramblas logs inside that we have the account idea and you
+
+108
+00:07:52,870 --> 00:07:59,170
+have Cloudera Lakshya anyhow digest here when you want to check the validation that time you can use
+
+109
+00:07:59,170 --> 00:08:03,130
+their digest logs will be here so you will see a different region.
+
+110
+00:08:03,130 --> 00:08:05,170
+I have now enabled for all the regions.
+
+111
+00:08:05,170 --> 00:08:06,340
+I should see all the region.
+
+112
+00:08:06,340 --> 00:08:08,830
+If you selected one region, you should see only one region.
+
+113
+00:08:09,750 --> 00:08:11,340
+So 20, 20.
+
+114
+00:08:13,080 --> 00:08:13,830
+One month.
+
+115
+00:08:19,710 --> 00:08:22,920
+OK, there we have a zip file.
+
+116
+00:08:25,100 --> 00:08:26,300
+Let's download that.
+
+117
+00:08:29,900 --> 00:08:35,390
+So in the file, you should see some kind of adjacent values, it will be very long is just one line
+
+118
+00:08:35,390 --> 00:08:35,929
+over here.
+
+119
+00:08:36,350 --> 00:08:40,250
+If you wait for some time, you will see in every region you'll have a lot of files and you'll have
+
+120
+00:08:40,250 --> 00:08:40,970
+a lot of logs.
+
+121
+00:08:40,970 --> 00:08:46,190
+So if you see here from this account, I read this with this X's, this is the username.
+
+122
+00:08:46,190 --> 00:08:49,130
+Some calls were made and you can really understand that.
+
+123
+00:08:49,670 --> 00:08:53,090
+Who made the call from where the call was made, what service was used to?
+
+124
+00:08:53,090 --> 00:08:54,710
+All the details will be recorded.
+
+125
+00:08:56,180 --> 00:08:58,580
+A clouting does not support few services, though.
+
+126
+00:08:58,610 --> 00:09:03,470
+Of course, the latest services, a deep learning eatables artifact.
+
+127
+00:09:03,470 --> 00:09:09,740
+We use that in our project that is not supported snowmobile Samarian, but most of the major services
+
+128
+00:09:09,740 --> 00:09:10,520
+will be supported.
+
+129
+00:09:14,120 --> 00:09:15,710
+You can see all the services.
+
+130
+00:09:16,670 --> 00:09:22,010
+I go over here, all the services, EPA calls will be recorded and you'll see this, most of them.
+
+131
+00:09:23,660 --> 00:09:29,420
+If you want to validate whether you're Cloudera log are right or not going to check its integrity if
+
+132
+00:09:29,420 --> 00:09:33,200
+anyone tampered or not, so you can use a Calacanis documented.
+
+133
+00:09:35,000 --> 00:09:41,360
+It's an example of lost clout, trail, validate logs start time and time you give you give the trail
+
+134
+00:09:41,570 --> 00:09:45,460
+name and it will print whether it's valid or not.
+
+135
+00:09:46,940 --> 00:09:51,500
+OK, so the output you should get something like that's going to compare with the Digest and it will
+
+136
+00:09:51,500 --> 00:09:56,870
+tell you whether these low points are valid or not, if there is any improvement happen, you will find
+
+137
+00:09:56,870 --> 00:09:57,150
+that.
+
+138
+00:09:57,920 --> 00:09:59,120
+So that was what clout will.
+
+139
+00:09:59,120 --> 00:10:04,340
+Now, if you see all the violence and if you tried all those things, you can delete your Tryal.
+
+140
+00:10:06,970 --> 00:10:08,230
+You can stop logging.
+
+141
+00:10:10,020 --> 00:10:11,880
+You can even delete the trace.
+
+142
+00:10:14,460 --> 00:10:21,520
+Make sure you delete the Kamus key or schedule the deletion so you don't get charged for it Skidelsky
+
+143
+00:10:21,660 --> 00:10:22,230
+deletion.
+
+144
+00:10:28,050 --> 00:10:29,880
+To 70 conform schedule.
+
+145
+00:10:36,070 --> 00:10:38,470
+We'll check out Naxos, which is the config service.
+
+146
+00:10:39,920 --> 00:10:41,360
+Just search for config.
+
+147
+00:10:45,130 --> 00:10:48,790
+Config is really simple service to use, but it's also very expensive.
+
+148
+00:10:48,820 --> 00:10:54,400
+So if you would like to skip this exercise, you can skip, but, you know, you can try at least one
+
+149
+00:10:54,400 --> 00:10:56,650
+rule and then you can delete that.
+
+150
+00:10:56,860 --> 00:10:59,620
+So let's get started with this.
+
+151
+00:11:01,640 --> 00:11:07,970
+So McLoud trial records, all the EPA calls, config records, all the configuration, the current state
+
+152
+00:11:07,970 --> 00:11:13,250
+of your Indianapolis account, it will record you can also include global resources like AM.
+
+153
+00:11:14,790 --> 00:11:17,640
+You can mention a bucket name that's going to receive the configuration.
+
+154
+00:11:19,790 --> 00:11:25,010
+And we need a rule, so it will create a rule if you put this checkmark on and let's go next.
+
+155
+00:11:26,240 --> 00:11:31,580
+So that first was about creating the configuration of your own on the second step is about rule.
+
+156
+00:11:31,580 --> 00:11:36,560
+Do you want to set some rule like one of the most famous rule is Secich, right?
+
+157
+00:11:36,570 --> 00:11:40,150
+You want to check whether any port is such is open anywhere?
+
+158
+00:11:40,910 --> 00:11:43,940
+I like that there are so many other rules in the documentation.
+
+159
+00:11:43,940 --> 00:11:45,940
+If you go and check, you can write your own rules.
+
+160
+00:11:45,950 --> 00:11:54,380
+Also, you can check whether Valve is enabled, enabled or not in application load balancer or if your
+
+161
+00:11:54,380 --> 00:11:56,270
+account is part of the organization or not.
+
+162
+00:11:56,270 --> 00:11:58,070
+Someone tries to leave the organization.
+
+163
+00:11:58,070 --> 00:12:01,500
+So, you know, you get a notification, right?
+
+164
+00:12:01,640 --> 00:12:02,150
+So like that.
+
+165
+00:12:02,150 --> 00:12:08,510
+There are so many amazing rules that go with a very simple one, which we understand mostly restricted
+
+166
+00:12:08,510 --> 00:12:09,350
+Secich.
+
+167
+00:12:10,750 --> 00:12:16,480
+So it will check with a security group that are using are allowing this is not for everyone.
+
+168
+00:12:17,450 --> 00:12:18,350
+And you can from.
+
+169
+00:12:20,920 --> 00:12:25,610
+Right now, we don't see anything rules if we go, we can see the rules, it's evaluating, it's checking
+
+170
+00:12:25,850 --> 00:12:29,660
+whether it's in compliance or not, your configuration is in compliance or not.
+
+171
+00:12:30,450 --> 00:12:31,700
+It come back to dashboard.
+
+172
+00:12:31,700 --> 00:12:33,470
+You can see things like Ecija security.
+
+173
+00:12:33,480 --> 00:12:38,330
+Gruder 15 is 12, easy to subnet and how we network interface you roundtable.
+
+174
+00:12:38,390 --> 00:12:40,370
+How many have network initially?
+
+175
+00:12:40,370 --> 00:12:43,030
+How hard it's going to record all that.
+
+176
+00:12:43,040 --> 00:12:45,700
+OK, which is pretty awesome if you ask me.
+
+177
+00:12:46,310 --> 00:12:53,240
+Looking at your entire configuration, just one place and you see rules, it says one is non-compliant.
+
+178
+00:12:53,240 --> 00:12:57,970
+We had to set one rule, if you remember, is a search and is somewhere it is non-compliant.
+
+179
+00:12:57,980 --> 00:12:58,400
+Let's see.
+
+180
+00:13:00,810 --> 00:13:02,490
+So something is noncompliant.
+
+181
+00:13:04,640 --> 00:13:05,940
+And that's the security group.
+
+182
+00:13:05,960 --> 00:13:07,510
+Let's see, what is that security group?
+
+183
+00:13:10,200 --> 00:13:11,640
+OK, that's the security group, the.
+
+184
+00:13:15,550 --> 00:13:25,240
+So if we go to a rescue, let's go to YouTube and find that security group and let's fix it, this was
+
+185
+00:13:25,240 --> 00:13:26,760
+created by the Bienstock.
+
+186
+00:13:26,870 --> 00:13:30,620
+OK, you know, the security group of Bienstock 22 open from anywhere, right.
+
+187
+00:13:31,240 --> 00:13:32,730
+So that should be the problem.
+
+188
+00:13:33,770 --> 00:13:34,290
+Which is good.
+
+189
+00:13:34,310 --> 00:13:35,320
+We got to know it now.
+
+190
+00:13:35,750 --> 00:13:37,000
+Let's call the security group.
+
+191
+00:13:39,740 --> 00:13:41,120
+Let's go to security group.
+
+192
+00:13:46,290 --> 00:13:52,680
+Right, that one inbound rule, so you should see 22 open from anywhere, right.
+
+193
+00:13:52,710 --> 00:13:56,040
+And see how quickly, how easily it found that.
+
+194
+00:13:56,040 --> 00:13:58,820
+And we can see that you can send notifications also for that.
+
+195
+00:13:59,130 --> 00:13:59,760
+Let's fix it.
+
+196
+00:13:59,760 --> 00:14:02,790
+I'll say 20 dolefully from my IPSC rule.
+
+197
+00:14:04,450 --> 00:14:08,710
+OK, now let's go back in some time, it will see that everything is in compliance.
+
+198
+00:14:12,130 --> 00:14:14,980
+So it's still not showing it's in compliance.
+
+199
+00:14:15,160 --> 00:14:16,180
+Let's check out Raoul.
+
+200
+00:14:20,820 --> 00:14:27,890
+OK, it is compliant after some time, what you can do is you can also make some changes.
+
+201
+00:14:28,770 --> 00:14:29,340
+Go back.
+
+202
+00:14:32,730 --> 00:14:35,250
+You can see edit action.
+
+203
+00:14:36,420 --> 00:14:36,810
+Ed.
+
+204
+00:14:38,820 --> 00:14:45,270
+And you can select one dish should really do the evaluation for all the changes only for resources or
+
+205
+00:14:45,270 --> 00:14:46,550
+for a specific Dagg.
+
+206
+00:14:47,460 --> 00:14:49,830
+You can do that and no more does an evaluation.
+
+207
+00:14:49,830 --> 00:14:51,000
+Mobiling will be there.
+
+208
+00:14:51,780 --> 00:14:53,880
+OK, so things are not in compliance.
+
+209
+00:14:53,880 --> 00:14:57,330
+But I made one more issue, actually, one more another security group.
+
+210
+00:14:57,330 --> 00:15:00,890
+I put twenty two and I'll wait for it to find that out.
+
+211
+00:15:01,800 --> 00:15:03,150
+One compliant rule.
+
+212
+00:15:04,760 --> 00:15:06,980
+OK, let's go to security group.
+
+213
+00:15:10,000 --> 00:15:15,850
+That security group, let's click on that, so those changes happen in the security group, you can
+
+214
+00:15:16,300 --> 00:15:19,660
+see resource timeline, this really awesome thing.
+
+215
+00:15:20,110 --> 00:15:23,980
+It will show you the timeline when your configuration was changed.
+
+216
+00:15:25,540 --> 00:15:32,020
+See that with November 20, 28, this time evaluated and the next change happened at this particular
+
+217
+00:15:32,020 --> 00:15:33,820
+time, you can see the changes also.
+
+218
+00:15:38,740 --> 00:15:43,840
+All right, there is a compliance timeline where it will show you when it was it became compliant at
+
+219
+00:15:43,840 --> 00:15:44,620
+this particular time.
+
+220
+00:15:44,620 --> 00:15:48,610
+So you can see all the changes like that that's happening on your resources.
+
+221
+00:15:49,590 --> 00:15:54,630
+So al-sarraf lot of not many more things, you can create your own rule, you can put more rules, but
+
+222
+00:15:54,630 --> 00:15:59,900
+I really don't recommend you play in your free direction with config because it can be very expensive.
+
+223
+00:16:00,780 --> 00:16:06,200
+So once you're done with this exercise, you can go to settings and you can see edit and you can see,
+
+224
+00:16:06,200 --> 00:16:07,290
+you know, uncheck this.
+
+225
+00:16:07,290 --> 00:16:08,910
+So it stops regarding.
+
+226
+00:16:09,950 --> 00:16:10,730
+And Jesse.
+
+227
+00:16:13,290 --> 00:16:14,490
+I can go to rules.
+
+228
+00:16:15,790 --> 00:16:17,350
+And remove your rule.
+
+229
+00:16:21,140 --> 00:16:28,700
+So keep this for your interview focus or, you know, if you get some task like this, Gafoor, those
+
+230
+00:16:28,700 --> 00:16:34,850
+kinds of things, you keep that information or else, you know, if you try to play more than be huge
+
+231
+00:16:34,850 --> 00:16:35,300
+bull's.
+
+232
+00:16:36,300 --> 00:16:37,020
+The dashboard.
+
+233
+00:16:38,930 --> 00:16:42,240
+So wait for some time, it will disabled regarding the rule, Williger deleted.
+
+234
+00:16:42,260 --> 00:16:43,160
+Keep watching that.
+
+235
+00:16:44,070 --> 00:16:49,290
+Clean all this, once you're done, you can check the next video that should be all in the studio.
+
+236
+00:16:49,320 --> 00:16:50,250
+I'll see you in the next one.
+

@@ -1,0 +1,452 @@
+1
+00:00:01,530 --> 00:00:04,410
+So I have logged into my eatables management console.
+
+2
+00:00:06,740 --> 00:00:11,180
+And let's check your security, identity and compliance services.
+
+3
+00:00:12,480 --> 00:00:18,720
+So you see, there are quite many services, I am cognito, secrets, manager, guard, duty inspector,
+
+4
+00:00:18,750 --> 00:00:19,890
+Amazon Masih.
+
+5
+00:00:21,170 --> 00:00:24,530
+Van, she'll established firewall manager, detective.
+
+6
+00:00:24,820 --> 00:00:27,130
+These are some new so there are some new services also.
+
+7
+00:00:28,320 --> 00:00:33,960
+But you will not see few sources that we discussed in the introduction, like eatables organization
+
+8
+00:00:34,260 --> 00:00:41,970
+or config or clout through the intersection of management and governance, also VPC, if you talk about
+
+9
+00:00:42,810 --> 00:00:44,880
+it in network and content delivery.
+
+10
+00:00:45,820 --> 00:00:52,870
+So this a separate section for security services, because they are very specific for the security purpose,
+
+11
+00:00:53,260 --> 00:00:55,540
+but the other services like organization.
+
+12
+00:00:56,600 --> 00:01:00,890
+This is a service to group multiple eatables account, and there so many things you can do, plus you
+
+13
+00:01:00,890 --> 00:01:03,170
+can implement security policies also there.
+
+14
+00:01:04,160 --> 00:01:09,200
+I also config, which creates which has the entire configuration of variables account, you can keep
+
+15
+00:01:09,200 --> 00:01:15,920
+track of every configurations, plus you can set rules also which can find out like if Porton data,
+
+16
+00:01:15,920 --> 00:01:20,660
+for example, is open, it will alert you, oh, can you fix that automatically?
+
+17
+00:01:21,260 --> 00:01:26,750
+So services that are purely for security purposes, you will see that in the security section, but
+
+18
+00:01:26,750 --> 00:01:31,910
+services that are used for other purposes also you will see them in a different section.
+
+19
+00:01:33,010 --> 00:01:37,720
+So let's go through all the services of one by one that we discussed in introduction.
+
+20
+00:01:38,790 --> 00:01:39,460
+Understand?
+
+21
+00:01:39,480 --> 00:01:46,160
+Understand what they provide and how to use it to secure our account and our infrastructure.
+
+22
+00:01:47,650 --> 00:01:54,220
+Oedema, security, best practices, that's where our focus is going to be the best practices covering
+
+23
+00:01:54,220 --> 00:01:57,070
+all the security services out of the scope of this.
+
+24
+00:01:58,070 --> 00:02:03,200
+But nonetheless, we're going to cover so many homeless services for security and we'll see what are
+
+25
+00:02:03,200 --> 00:02:09,020
+the best practices, how we can leverage it to secure our infrastructure, our pipeline, what are we
+
+26
+00:02:09,020 --> 00:02:09,410
+using?
+
+27
+00:02:09,410 --> 00:02:09,979
+Developes.
+
+28
+00:02:13,140 --> 00:02:20,220
+There could be a misconception, you may be also having it, that if I put something on eatables cloud,
+
+29
+00:02:20,220 --> 00:02:23,010
+the security is really a tablas responsibility.
+
+30
+00:02:23,220 --> 00:02:24,330
+I don't need to do anything.
+
+31
+00:02:25,400 --> 00:02:26,770
+And that's very wrong.
+
+32
+00:02:27,910 --> 00:02:34,120
+This is a shared responsibility model, so definitely the blues has their own responsibility of securing
+
+33
+00:02:34,120 --> 00:02:37,180
+the data center, securing your infrastructure physically.
+
+34
+00:02:38,320 --> 00:02:45,030
+Which is at the region level, availability zone locations are easy to instant in the computer.
+
+35
+00:02:45,550 --> 00:02:48,590
+We talk about we launch easy to instance, it's in my account.
+
+36
+00:02:48,850 --> 00:02:50,650
+Can someone access that from their account?
+
+37
+00:02:50,680 --> 00:02:51,680
+No, it cannot be done.
+
+38
+00:02:51,700 --> 00:02:53,380
+That's eatables responsibility.
+
+39
+00:02:53,830 --> 00:02:54,640
+For an example.
+
+40
+00:02:55,250 --> 00:03:00,190
+I would even already has databases or the private subnets that you create in the VPC.
+
+41
+00:03:00,190 --> 00:03:02,340
+So it's eatables responsibility to preserve it.
+
+42
+00:03:02,800 --> 00:03:05,920
+But we also have a lot of responsibility in our head.
+
+43
+00:03:06,430 --> 00:03:08,350
+Eatables is going to give you all that security.
+
+44
+00:03:08,350 --> 00:03:13,840
+But for example, if you launch an easy to instance and if you see all traffic in security group is
+
+45
+00:03:13,840 --> 00:03:17,830
+allowed from anywhere, anybody can access any part of your receipt, for instance.
+
+46
+00:03:19,080 --> 00:03:24,200
+Now, that falls in your hand like that, there are so many things that falls in the customer's hand
+
+47
+00:03:25,260 --> 00:03:29,400
+and this is a same diagram which is in eatables documentation.
+
+48
+00:03:30,600 --> 00:03:31,620
+I have not made that.
+
+49
+00:03:31,620 --> 00:03:34,740
+This is Eatables shared responsibility model.
+
+50
+00:03:35,870 --> 00:03:40,160
+So if you see what are the responsibility in our customer data, the data that we put, let's see,
+
+51
+00:03:40,160 --> 00:03:45,680
+we put some data in every bucket encrypting that data or making sure it's not available for everyone
+
+52
+00:03:45,680 --> 00:03:46,440
+to be accessed.
+
+53
+00:03:46,460 --> 00:03:47,630
+That's our responsibility.
+
+54
+00:03:48,320 --> 00:03:52,400
+Platform, Application, Identity and Access Management IAM.
+
+55
+00:03:53,090 --> 00:03:54,800
+We have to create the Amusa.
+
+56
+00:03:54,810 --> 00:03:56,720
+We have to decide what permission it has.
+
+57
+00:03:57,320 --> 00:04:00,890
+The password offered these us that we are hosting.
+
+58
+00:04:02,280 --> 00:04:08,580
+Security securing it at no secured with security group or VBC National and even the operating system
+
+59
+00:04:08,580 --> 00:04:09,400
+Lewis firewall.
+
+60
+00:04:09,420 --> 00:04:10,470
+It's our responsibility.
+
+61
+00:04:11,670 --> 00:04:13,890
+So operating system, network and firewall.
+
+62
+00:04:15,060 --> 00:04:18,160
+Side data encryption and data integrity.
+
+63
+00:04:19,440 --> 00:04:24,240
+So when you are pushing the data and the data is going from, you know, let's say your data center
+
+64
+00:04:24,240 --> 00:04:30,260
+to a robust cloud data center, so the data which is going in transit should be encrypted.
+
+65
+00:04:30,570 --> 00:04:33,780
+You have to encrypt it and send it or Sarasate encryption.
+
+66
+00:04:35,150 --> 00:04:40,370
+Sajida in-transit should be encrypted data, which is stored on A.W. should be encrypted.
+
+67
+00:04:41,650 --> 00:04:44,970
+And we decide on those factors, which matters a lot.
+
+68
+00:04:52,050 --> 00:04:57,130
+So these are the areas will be working in security is really multiple layers.
+
+69
+00:04:57,150 --> 00:05:00,750
+It's not like one thing that you secure and you're safe and sound.
+
+70
+00:05:01,590 --> 00:05:03,470
+Security is created multiple layers.
+
+71
+00:05:03,490 --> 00:05:07,080
+Not think about a big house, right?
+
+72
+00:05:07,080 --> 00:05:09,320
+With the big house, with a main gate.
+
+73
+00:05:09,930 --> 00:05:13,710
+Then you have the door and then you have rooms in the doors.
+
+74
+00:05:14,010 --> 00:05:21,330
+In the rooms you have safe lockers, which is password protected or biometric inside that you have your
+
+75
+00:05:21,330 --> 00:05:22,000
+valuables.
+
+76
+00:05:22,360 --> 00:05:28,980
+There are so many levels that a thief has to break to get your valuable data, which is stored in a
+
+77
+00:05:28,980 --> 00:05:36,300
+safe, which is in a room protected by a door lock with that and then a main door and then the gate.
+
+78
+00:05:36,750 --> 00:05:42,750
+So you can protect at some level you could be having security guards, watchmen, CCTV cameras.
+
+79
+00:05:43,870 --> 00:05:52,450
+Biometric locks with which opens with your keys, similar with security, is multiple layers.
+
+80
+00:05:53,430 --> 00:05:58,440
+So if we take example, everything is secure, you have a secure VPC, you have everything control,
+
+81
+00:05:58,440 --> 00:06:00,990
+everything is you know, the security groups are in control.
+
+82
+00:06:00,990 --> 00:06:02,250
+You have the key to log in.
+
+83
+00:06:02,250 --> 00:06:03,270
+Everything is in your hand.
+
+84
+00:06:03,600 --> 00:06:09,030
+But if your identity access management, you create a user and it's access keys exposed.
+
+85
+00:06:10,140 --> 00:06:15,870
+So the cyber criminals can use that access quiggin the control in your account and they can make all
+
+86
+00:06:15,870 --> 00:06:16,530
+the changes.
+
+87
+00:06:17,580 --> 00:06:24,120
+They can get whatever they want if they get access to your entire console or you can think of the other
+
+88
+00:06:24,120 --> 00:06:26,960
+way, that is secure, but your network is not secure.
+
+89
+00:06:26,970 --> 00:06:29,640
+So you have to secure things at multiple layers.
+
+90
+00:06:30,270 --> 00:06:33,150
+So we can just start with identity access management.
+
+91
+00:06:33,790 --> 00:06:39,390
+We already did some part of it in political sites, video like multifactor authentication, securing
+
+92
+00:06:39,390 --> 00:06:40,230
+our route user.
+
+93
+00:06:40,710 --> 00:06:42,180
+And so we are going to go more than that.
+
+94
+00:06:42,180 --> 00:06:45,360
+We are going to get into policies detective controls.
+
+95
+00:06:46,350 --> 00:06:53,180
+Like using cloud watch for alerts, eatables trusted adviser sources with those infrastructure protection,
+
+96
+00:06:53,790 --> 00:07:00,270
+protecting your network through private subnets in the VBC National Security Group or Vav or SHIELD
+
+97
+00:07:00,270 --> 00:07:08,250
+or Guard duty data protection, you know, encrypting your data in transit and addressed incident response.
+
+98
+00:07:08,250 --> 00:07:09,540
+And you did everything.
+
+99
+00:07:09,540 --> 00:07:11,020
+But, you know, the incident happens.
+
+100
+00:07:11,460 --> 00:07:14,770
+So how do you get alerted about that and what actions you are going to take?
+
+101
+00:07:14,790 --> 00:07:18,240
+What are the sources that we can use to respond to an incident?
+
+102
+00:07:18,960 --> 00:07:21,180
+And also we're going to talk about application protection.
+
+103
+00:07:21,480 --> 00:07:27,510
+So all the sources that we are going to see will be falling in this four and five areas.
+
+104
+00:07:29,340 --> 00:07:36,390
+So along with whatever you're doing in this session, I'm going to also share some reinvent videos and
+
+105
+00:07:36,390 --> 00:07:42,630
+documentation with you on these services, which can really make you really master of these services,
+
+106
+00:07:42,630 --> 00:07:48,750
+for example, and different policies of how erm how to get really advanced in that, you know, expertise
+
+107
+00:07:48,750 --> 00:07:58,250
+in that or Adidas production by using she got due to different services and encryption using CMS.
+
+108
+00:07:58,260 --> 00:08:01,670
+So I will a lot of reinvent videos with you.
+
+109
+00:08:01,680 --> 00:08:07,230
+I really, really recommend you go through those videos and practice those things so you get very good
+
+110
+00:08:07,230 --> 00:08:08,990
+hands on these services.
+
+111
+00:08:09,540 --> 00:08:13,530
+Plus also throughout the session I'll be sharing documentation with you.
+
+112
+00:08:13,530 --> 00:08:17,310
+You can bookmark those and then you can use them whenever you want.
+
+113
+00:08:17,820 --> 00:08:21,310
+So let's get started with our Fausto's, which is an.
+

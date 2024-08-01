@@ -1,0 +1,808 @@
+1
+00:00:01,000 --> 00:00:06,740
+Ah, let's see a few more cool sources of us about monitoring our accounts for threats.
+
+2
+00:00:06,790 --> 00:00:10,790
+One is guard duty when we really talk about monitoring threats.
+
+3
+00:00:10,810 --> 00:00:12,970
+Think about our own operating system.
+
+4
+00:00:12,970 --> 00:00:19,030
+How do we monitor or prevent the threats on our own computer or on on our own laptop?
+
+5
+00:00:19,540 --> 00:00:26,680
+We use some antivirus or Internet security tools on guard duty is almost similar to that for your e-mail
+
+6
+00:00:26,980 --> 00:00:27,460
+account.
+
+7
+00:00:28,470 --> 00:00:33,990
+And you really don't need to do much over here to just enable the guard duty so that it will start monitoring
+
+8
+00:00:34,530 --> 00:00:39,780
+your account for potential threats, so you just see enable guard duty and we'll check coutry logs,
+
+9
+00:00:39,780 --> 00:00:41,940
+which we have enabled the peak flow log.
+
+10
+00:00:41,940 --> 00:00:49,290
+If you enable the VPC flow log and even DNS log, so it will analyze your network and see if there is
+
+11
+00:00:49,290 --> 00:00:50,490
+any potential threat.
+
+12
+00:00:50,490 --> 00:00:56,310
+If there is some Bitcoin mining happening in your account and you get alerted on that, you can even
+
+13
+00:00:56,350 --> 00:01:00,070
+have connected with Lambretta functions, which can take some action on that.
+
+14
+00:01:00,570 --> 00:01:02,100
+So let's see how the service looks.
+
+15
+00:01:08,220 --> 00:01:12,540
+So you really don't need to worry on building for at least one month, one month, you have fruitier
+
+16
+00:01:12,540 --> 00:01:14,730
+30 days, so you can just start.
+
+17
+00:01:16,570 --> 00:01:22,630
+Guard duty, you just have to click on this, you see you have 30 days free guard duty, so enable guard
+
+18
+00:01:22,630 --> 00:01:24,780
+duty and you have to wait.
+
+19
+00:01:24,910 --> 00:01:26,440
+We don't have really any finding yet.
+
+20
+00:01:26,440 --> 00:01:30,910
+It's going to take some time and it is based on machine learning automatically.
+
+21
+00:01:31,280 --> 00:01:35,710
+It will be scanning for long and will develop an intelligence in seven to 14 days.
+
+22
+00:01:35,710 --> 00:01:41,440
+And then it will and understand what kind of infrastructure traffic comes in and goes out.
+
+23
+00:01:41,440 --> 00:01:47,710
+It will have a study and if it finds something unusual than your usual traffic, it will alert you.
+
+24
+00:01:49,110 --> 00:01:50,220
+Let's go to settings.
+
+25
+00:01:51,990 --> 00:01:58,530
+His cool down a bit, you see, you have an export option, you can export the finding for every six
+
+26
+00:01:58,530 --> 00:02:04,770
+hours or one hour or 15 minutes, any common weaknesses it will find and export it.
+
+27
+00:02:05,130 --> 00:02:08,370
+And you can configure an extra bucket where you want to store that output.
+
+28
+00:02:09,090 --> 00:02:12,320
+So, as I told you, it's going to take a lot of time for it.
+
+29
+00:02:12,330 --> 00:02:16,700
+So many days, seven days, 14 days to really generate all the right findings.
+
+30
+00:02:16,710 --> 00:02:18,510
+But we have some sample data.
+
+31
+00:02:18,510 --> 00:02:20,040
+We can check the sample data.
+
+32
+00:02:21,830 --> 00:02:23,150
+Let's go to findings now.
+
+33
+00:02:27,000 --> 00:02:33,600
+And these are some sample data like unauthorized access to your three bucket penetration testing is
+
+34
+00:02:33,600 --> 00:02:34,620
+happening of interest.
+
+35
+00:02:34,620 --> 00:02:35,220
+Interesting tools.
+
+36
+00:02:35,220 --> 00:02:41,700
+Are there the Trojan unauthorized access to easy to back door entries?
+
+37
+00:02:42,640 --> 00:02:48,370
+We'll see cryptocurrency, if any, bitcoin mining is happening, so you can see such kind of unauthorized
+
+38
+00:02:48,730 --> 00:02:53,230
+and malicious activity in your account and then you can take action on that.
+
+39
+00:02:55,380 --> 00:03:02,430
+In the settings you have this list, you can also mention the IP address that you trust, you give the
+
+40
+00:03:02,430 --> 00:03:07,710
+list of IP address over here and then it will not generate any finding for those IP addresses.
+
+41
+00:03:08,190 --> 00:03:12,590
+Or you want to say that malicious IP IP addresses are there.
+
+42
+00:03:12,600 --> 00:03:14,660
+You can add the threat threat list.
+
+43
+00:03:14,670 --> 00:03:18,120
+So guard duty will keep finding those IP addresses.
+
+44
+00:03:19,180 --> 00:03:25,840
+Let's check some documentation on this, really, there is nothing much in terms of administration in
+
+45
+00:03:25,840 --> 00:03:26,080
+this.
+
+46
+00:03:26,080 --> 00:03:27,210
+Everything is done by God.
+
+47
+00:03:27,430 --> 00:03:28,630
+It uses machine learning.
+
+48
+00:03:28,630 --> 00:03:36,670
+But if you want to know what are the IP addresses that you are the trusted IPS or the threat IBBS and
+
+49
+00:03:36,670 --> 00:03:37,630
+what are the findings?
+
+50
+00:03:37,630 --> 00:03:38,860
+How to understand the findings.
+
+51
+00:03:38,860 --> 00:03:42,570
+And you can check the documentation you have the concepts and terminologies.
+
+52
+00:03:43,900 --> 00:03:48,730
+What are the findings, suppression rules, understanding the finding, finding details.
+
+53
+00:03:51,060 --> 00:03:56,100
+The finding somebody will have things like finding I.D. severity, which region account ID.
+
+54
+00:03:59,550 --> 00:04:02,220
+Access key details as three details.
+
+55
+00:04:04,720 --> 00:04:05,810
+Unusual protocol.
+
+56
+00:04:05,830 --> 00:04:06,660
+What does that mean?
+
+57
+00:04:08,110 --> 00:04:09,760
+What is anomalous behavior?
+
+58
+00:04:10,820 --> 00:04:12,540
+So really not much in documentation.
+
+59
+00:04:12,560 --> 00:04:18,589
+Also, if you go through the step by step and spend some time with guard duty, you should be able to
+
+60
+00:04:18,589 --> 00:04:22,070
+understand most of the threats and then you can understand how to deal with them.
+
+61
+00:04:23,490 --> 00:04:31,260
+You can keep the findings on, but if you are already close to 30 days, you want to disable it, then
+
+62
+00:04:31,260 --> 00:04:35,630
+you can disable the findings, you can suspend the guard duty.
+
+63
+00:04:35,640 --> 00:04:38,520
+Suspend means it will just stop the monitoring.
+
+64
+00:04:38,520 --> 00:04:40,700
+It will not generate a new findings.
+
+65
+00:04:40,710 --> 00:04:41,940
+But if you disable.
+
+66
+00:04:43,360 --> 00:04:48,550
+You will also lose any existing findings and any configuration Saltville Disabler.
+
+67
+00:04:50,500 --> 00:04:54,180
+So we can come back later and enable it and play more with guard duty.
+
+68
+00:04:56,260 --> 00:04:58,990
+Next, we are seeing Volf Web application firewall.
+
+69
+00:04:59,650 --> 00:05:03,880
+We already have seen some firewalls, we have seen security group, we have seen NCCL.
+
+70
+00:05:03,880 --> 00:05:07,390
+We also talked about some third party firewall.
+
+71
+00:05:07,390 --> 00:05:12,570
+You can purchase them from Marketplace and use it as a threat protection layer.
+
+72
+00:05:13,000 --> 00:05:14,950
+This firewall is very different.
+
+73
+00:05:14,960 --> 00:05:17,230
+This is about your applications.
+
+74
+00:05:17,860 --> 00:05:23,350
+You can put this firewall on in front of cloud front or application load balancer, or even if you're
+
+75
+00:05:23,350 --> 00:05:25,950
+using API Gateway, Amazon API Gateway, you can use that.
+
+76
+00:05:25,960 --> 00:05:30,760
+Also, there are some very common rules you can set up or you can set up your own rule that you don't
+
+77
+00:05:30,760 --> 00:05:36,520
+want any communication coming from in the world from some IP address or a secure injection.
+
+78
+00:05:36,520 --> 00:05:41,380
+You want to prevent or any such malicious code coming into you all.
+
+79
+00:05:41,380 --> 00:05:43,480
+You want to prevent that blocking filter it.
+
+80
+00:05:43,690 --> 00:05:45,670
+You can use that for that.
+
+81
+00:05:46,770 --> 00:05:52,500
+There are always top 10 security risk and they're already managed rule in for that, you can use it
+
+82
+00:05:52,500 --> 00:05:58,350
+and you can prevent those top 10 security risk like ESKIL injection cross site scripting, or you can
+
+83
+00:05:58,350 --> 00:05:59,620
+even create your own rules.
+
+84
+00:06:00,000 --> 00:06:00,960
+So let's go and check.
+
+85
+00:06:00,960 --> 00:06:02,050
+How does that work?
+
+86
+00:06:03,520 --> 00:06:09,190
+So you can search for wife and that's to solve this together, actually, Wolf, and she'll.
+
+87
+00:06:11,390 --> 00:06:18,140
+So if you use this together, you can have a firewall on your application and you can also be safe from
+
+88
+00:06:18,140 --> 00:06:21,940
+the DOS attacks, basic shield will be any reasonable.
+
+89
+00:06:21,950 --> 00:06:27,440
+But if you want to go with Advanced Shield, there are charges for it and we'll talk about that after
+
+90
+00:06:27,440 --> 00:06:28,950
+we are done with this stuff.
+
+91
+00:06:29,240 --> 00:06:30,310
+So let's go to Ralph.
+
+92
+00:06:33,790 --> 00:06:39,580
+So, again, involved there is no here, are there the rules are charged, so if you want to skip this
+
+93
+00:06:39,580 --> 00:06:41,040
+exercise, you can skip it also.
+
+94
+00:06:41,740 --> 00:06:43,480
+But I'm going to set a very simple rules.
+
+95
+00:06:43,780 --> 00:06:45,970
+So let's create web, atheel.
+
+96
+00:06:47,350 --> 00:06:50,710
+And let's give some name, I will see we profile.
+
+97
+00:06:52,780 --> 00:06:53,320
+That's.
+
+98
+00:06:56,280 --> 00:07:01,170
+You can select here which resource you want to use it for cloud front or you want to use it for load
+
+99
+00:07:01,170 --> 00:07:05,420
+balancer, EPA Gateway or replace absence, you can select the region where you want to create it.
+
+100
+00:07:07,230 --> 00:07:11,450
+And then you can add the resource here itself if you want, or you can add them later.
+
+101
+00:07:11,460 --> 00:07:16,870
+Also, as of now, I don't have any application load balancer or anything, but we can create that later.
+
+102
+00:07:16,910 --> 00:07:20,760
+Also, let's click on Next now about the rules over here.
+
+103
+00:07:21,760 --> 00:07:26,200
+So you have managed rules, you can create your own rules, but let's see this managed rules.
+
+104
+00:07:27,890 --> 00:07:34,880
+So mismanaged rules, you know, that A.W. release provides you to use like admin protection, you can
+
+105
+00:07:34,880 --> 00:07:38,370
+read about this anonymous IP list.
+
+106
+00:07:38,510 --> 00:07:41,300
+So there are some IPIS that you should prevent access from.
+
+107
+00:07:42,650 --> 00:07:49,640
+And Linux operating system ESKIL databases to provide to prevent ESKIL injections.
+
+108
+00:07:49,910 --> 00:07:51,260
+You can select those rules.
+
+109
+00:07:51,720 --> 00:07:56,360
+What you feel comfortable if you want more advanced rule.
+
+110
+00:07:56,360 --> 00:07:59,030
+The rules are also sold through a marketplace.
+
+111
+00:08:00,840 --> 00:08:07,560
+So cyber security cloud managed rules, so you can subscribe that in the marketplace, you can purchase
+
+112
+00:08:07,560 --> 00:08:09,840
+that a five.
+
+113
+00:08:11,490 --> 00:08:16,680
+And there's so many rules like that that you can purchase unsubscribe from the marketplace, and we'll
+
+114
+00:08:16,680 --> 00:08:18,000
+just keep these few rules.
+
+115
+00:08:22,220 --> 00:08:28,640
+So we selected these three rules, we just select all the three, we want these rules and I'm going
+
+116
+00:08:28,640 --> 00:08:29,270
+to say next.
+
+117
+00:08:30,870 --> 00:08:37,280
+You can decide the priority which you want to evaluate first or later, I'll keep that as it is.
+
+118
+00:08:37,289 --> 00:08:37,890
+Go next.
+
+119
+00:08:39,659 --> 00:08:42,690
+So cloud watch Metrick will be created for these things.
+
+120
+00:08:43,020 --> 00:08:43,710
+Let's go next.
+
+121
+00:08:46,550 --> 00:08:49,210
+Review all this and you can see create Web Essien.
+
+122
+00:08:51,360 --> 00:08:57,510
+We have of afros created over here, and if you want to, can attach to load balancer, so let's go
+
+123
+00:08:57,510 --> 00:09:00,180
+to Ecuador to launch an application load balancer.
+
+124
+00:09:02,780 --> 00:09:05,290
+You go to target group first al Qaeda target group.
+
+125
+00:09:06,220 --> 00:09:07,180
+Instances.
+
+126
+00:09:08,320 --> 00:09:10,390
+I just see my target group.
+
+127
+00:09:11,550 --> 00:09:15,810
+And just for the sake of creating it so I can show you how you can attach these rules.
+
+128
+00:09:17,910 --> 00:09:24,240
+I was create an empty target group, go to load balancer, load balancer, application load balancer.
+
+129
+00:09:25,440 --> 00:09:27,420
+To fill in the detail, go next.
+
+130
+00:09:30,880 --> 00:09:33,300
+That's a complete security group.
+
+131
+00:09:33,310 --> 00:09:33,970
+Go next.
+
+132
+00:09:35,580 --> 00:09:38,510
+Configure routing sender to this target group.
+
+133
+00:09:47,170 --> 00:09:52,600
+So we have an application load balancer created how we can go to work, and it is only for application
+
+134
+00:09:52,600 --> 00:09:54,070
+load balancer, not for classic.
+
+135
+00:09:55,560 --> 00:09:57,540
+So you can go to your rule.
+
+136
+00:10:00,450 --> 00:10:02,620
+Associated eatables resources.
+
+137
+00:10:02,640 --> 00:10:08,610
+And you can see adorableness resource, you can find your application load balancer and you can see
+
+138
+00:10:08,610 --> 00:10:14,030
+add now these rules will be applied to our application load balancer.
+
+139
+00:10:14,880 --> 00:10:17,490
+So, for example, like we have put a skin injection.
+
+140
+00:10:17,490 --> 00:10:23,190
+So it's going to prevent any activity through coming through the wall, which is trying to do a skill
+
+141
+00:10:23,190 --> 00:10:23,790
+injection.
+
+142
+00:10:25,200 --> 00:10:28,790
+To create these rules, you really need to be an expert in the application security.
+
+143
+00:10:29,610 --> 00:10:35,370
+If you want to include your own rules or you can buy some popular rules or subscribe for popular rules
+
+144
+00:10:35,370 --> 00:10:36,690
+from the marketplace.
+
+145
+00:10:38,490 --> 00:10:43,620
+OK, so once you're done with that deleteriously related application load balancer, the next service
+
+146
+00:10:43,620 --> 00:10:46,920
+will be seeing here in the same dashboard is Eatables Shield.
+
+147
+00:10:47,840 --> 00:10:56,690
+Eatables Shield protects you from do those attacks, so there is a basic shield or any ways enable in
+
+148
+00:10:56,690 --> 00:11:03,080
+your account, but you also have an option to subscribe for an advanced shield, which is three thousand
+
+149
+00:11:03,080 --> 00:11:04,180
+dollars per month.
+
+150
+00:11:04,910 --> 00:11:12,680
+So don't try to enable that for big enterprises, big companies, it's no big deal because this regular
+
+151
+00:11:12,840 --> 00:11:14,480
+those attacks on big enterprises.
+
+152
+00:11:14,510 --> 00:11:17,750
+So I think that's all worth doing it.
+
+153
+00:11:19,060 --> 00:11:25,180
+It also gives you a dashboard and the plus point of going for advice is not just about the protection
+
+154
+00:11:25,180 --> 00:11:31,990
+from the reader's attack in even if you already have an advanced shield in the details, attack happens
+
+155
+00:11:31,990 --> 00:11:35,170
+and you have too many resources that gets created.
+
+156
+00:11:35,620 --> 00:11:41,200
+The eatables will not charge you for all those resources if you have shield advanced enabled.
+
+157
+00:11:42,100 --> 00:11:47,920
+It will also show you the dashboard, also the global dashboard last two weeks, what happened, you
+
+158
+00:11:47,920 --> 00:11:55,870
+can see 157 and BP is largest packett attack for ninety nine GB, pIace largest Bitterroots.
+
+159
+00:11:55,870 --> 00:12:01,030
+So it will show you the common attacks that are happening and how you can prevent yourself very easily
+
+160
+00:12:01,030 --> 00:12:03,380
+by just enabling the advance shield.
+
+161
+00:12:04,090 --> 00:12:05,820
+So it's just about enabling, that's all.
+
+162
+00:12:07,600 --> 00:12:13,150
+Which is very simple to do, but don't do it if you have a free trade account, but if it's an enterprise,
+
+163
+00:12:13,150 --> 00:12:19,690
+I really recommend you turn this feature on so you can be protected from very, very common and regularly
+
+164
+00:12:19,690 --> 00:12:21,070
+happening Budos attacks.
+
+165
+00:12:22,530 --> 00:12:30,030
+So coming back to a sleights, well, we talked about Vav, and if you enable eatables wife rules,
+
+166
+00:12:30,030 --> 00:12:36,690
+then you would be protected from the top down oos vulnerability's injection broker authentication and
+
+167
+00:12:36,690 --> 00:12:39,300
+all the top 10 attacks.
+
+168
+00:12:39,300 --> 00:12:43,060
+You'll be safe from those attack if you're using Vav Web application firewall.
+
+169
+00:12:43,710 --> 00:12:46,380
+These are very common attacks that keep happening regularly.
+
+170
+00:12:47,040 --> 00:12:51,750
+And you can also go and subscribe for better rules from established marketplace.
+
+171
+00:12:51,750 --> 00:12:54,780
+Or you can write your own rules also for details protection.
+
+172
+00:12:54,780 --> 00:12:56,370
+You have established Shiel.
+
+173
+00:12:57,970 --> 00:13:04,450
+So the standard one is to enable the advanced, as I told you, it's three thousand dollars a month.
+
+174
+00:13:05,410 --> 00:13:08,770
+And if you're a big enterprise organization, then you can really go for it.
+
+175
+00:13:09,220 --> 00:13:13,600
+One more thing you can do for the lost production is go for Syrian OUTFRONT.
+
+176
+00:13:14,960 --> 00:13:21,230
+Which we discussed, which we have done the project Eatables Refactoring, that we use the content delivery
+
+177
+00:13:21,230 --> 00:13:29,920
+network CDN, if you use in the request, will be coming to your CDN or A.W. Education and Illuminists
+
+178
+00:13:29,930 --> 00:13:34,700
+will have all the kinds of security to prevent doors to its education.
+
+179
+00:13:34,700 --> 00:13:39,560
+So you can use that CDN and you can get benefited with A.W. security.
+
+180
+00:13:40,750 --> 00:13:46,990
+Also, if you put off, you can put the rules on CDN so everything gets filtered out at your content
+
+181
+00:13:46,990 --> 00:13:52,150
+delivery network, a student education, and you don't get any threat or you get very, very little
+
+182
+00:13:52,150 --> 00:13:57,190
+threat to your infrastructure directly to a load balancer, to your student students or in your VPC.
+
+183
+00:13:57,730 --> 00:14:01,570
+So imagine the threats would be filtered at so many level students.
+
+184
+00:14:02,020 --> 00:14:05,320
+There is a Vafamehr there that comes to your load balancer there.
+
+185
+00:14:05,320 --> 00:14:12,100
+You can have life and security groups and subnets and any NCCL then security group for the instances,
+
+186
+00:14:12,250 --> 00:14:15,640
+NCCL for the private instance or for the private subnets.
+
+187
+00:14:15,970 --> 00:14:17,470
+And then you have firewalls.
+
+188
+00:14:18,410 --> 00:14:23,080
+Still have an amazing track prediction layer, if you use all these sources that we discussed throughout
+
+189
+00:14:23,080 --> 00:14:24,970
+this eatables security session.
+
+190
+00:14:26,530 --> 00:14:31,300
+So we you do those attacks happening, Raffi's there, the have advanced will enable cloud front, it
+
+191
+00:14:31,300 --> 00:14:36,790
+will be neutralized and then the traffic comes to your load balancer and at the load balancer also you
+
+192
+00:14:36,790 --> 00:14:38,080
+can have the virus.
+
+193
+00:14:38,350 --> 00:14:39,700
+Things get filtered over there.
+
+194
+00:14:39,710 --> 00:14:44,440
+It's in the public subnet will have any and then the traffic is out to your private subnets where you
+
+195
+00:14:44,440 --> 00:14:50,080
+will have your databases, which will be again protected by any special security groups.
+
+196
+00:14:50,480 --> 00:14:53,200
+And also you make sure your data is encrypted.
+
+197
+00:14:53,980 --> 00:14:58,780
+So details protection plus all the kinds of security that you get if you use all these sources in a
+
+198
+00:14:58,780 --> 00:15:00,840
+sequence in the proper order.
+
+199
+00:15:02,600 --> 00:15:04,390
+All right, so that's all in this video.
+
+200
+00:15:04,400 --> 00:15:07,650
+Water resources you created, please clean those resources.
+
+201
+00:15:08,450 --> 00:15:10,500
+Thank you very much for watching these videos.
+
+202
+00:15:10,580 --> 00:15:11,630
+I'll see you in the next one.
+

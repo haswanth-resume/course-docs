@@ -1,0 +1,1756 @@
+1
+00:00:01,580 --> 00:00:08,390
+In this video, we will be talking about securing our network infrastructure, especially by using VPC.
+
+2
+00:00:11,170 --> 00:00:18,890
+Before we go ahead and create our entire stack, we're using various sources like AC2 ideas or elastic
+
+3
+00:00:18,890 --> 00:00:24,340
+gache water sources we're using, we need to first create a network layout for that.
+
+4
+00:00:24,340 --> 00:00:31,630
+And when we create this network layout, we have to be sure that we created safely and securely the
+
+5
+00:00:31,630 --> 00:00:33,730
+infrastructure layout should be like that.
+
+6
+00:00:34,590 --> 00:00:39,930
+The public data should be available in the public subnet and private data should be available in private
+
+7
+00:00:39,930 --> 00:00:40,530
+subnets.
+
+8
+00:00:42,970 --> 00:00:50,230
+We already did this in TerraForm Ansible, we created VPC public and private subnets with Bastiaan Horst
+
+9
+00:00:50,230 --> 00:00:54,730
+in the public subnet, but this time we'll be focusing completely on security.
+
+10
+00:00:54,740 --> 00:01:00,580
+So we also talking about a few other things, including the private subnets like Bastian Holst.
+
+11
+00:01:00,880 --> 00:01:07,930
+We can use hardened army instead of using Ubuntu or Oracle or a Windows machine.
+
+12
+00:01:07,930 --> 00:01:12,640
+We can use we can go with the same operating system, but we will go with an Hardan EMI.
+
+13
+00:01:13,670 --> 00:01:16,340
+From provider CIA Center of Internal Security.
+
+14
+00:01:18,160 --> 00:01:24,880
+Also, what other thing you can do is you can use a VPN over the Internet so your data goes privately
+
+15
+00:01:24,880 --> 00:01:29,570
+encrypted and if you can invest more, you can go with Eatables, Direct, connect.
+
+16
+00:01:29,590 --> 00:01:36,190
+Also, now we have with or without IP, without episodes better, it allows you to direct connect with
+
+17
+00:01:36,190 --> 00:01:36,680
+VPN.
+
+18
+00:01:37,600 --> 00:01:40,990
+The other thing is that we can do when we have the VPC.
+
+19
+00:01:42,020 --> 00:01:47,360
+We can take care of security group rules, which we've been talking from a long, long time in our projects,
+
+20
+00:01:47,810 --> 00:01:53,870
+but also there's also one more thing National Network Access Control List, which is a firewall on the
+
+21
+00:01:53,870 --> 00:01:56,900
+subnet, like we have security group, for instance.
+
+22
+00:01:56,930 --> 00:01:59,720
+Similarly, we have NaCl for this subnet.
+
+23
+00:02:00,320 --> 00:02:05,870
+And then we also have host based firewalls like in RedHat operating system.
+
+24
+00:02:05,880 --> 00:02:13,220
+We have five Waldy or IP DBAs in Ubuntu we have you have W in windows, you have Windows firewall and
+
+25
+00:02:13,220 --> 00:02:16,030
+then we can go for more third party firewall.
+
+26
+00:02:16,400 --> 00:02:24,350
+So we have multiple lines of defenses, as we discussed about an example where initially a main gate
+
+27
+00:02:24,350 --> 00:02:32,690
+after that door, after that we get in, there are rooms, doors on the rooms with lock matching keys
+
+28
+00:02:32,690 --> 00:02:39,950
+or biometric that inside that see if on multiple levels so we can have NaCl third party firewall security
+
+29
+00:02:39,950 --> 00:02:43,700
+group based firewalls on multiple layers of firewalls.
+
+30
+00:02:44,390 --> 00:02:45,920
+Sounds very interesting.
+
+31
+00:02:45,920 --> 00:02:50,450
+And doing it is also very easy in a W.S. third party firewall.
+
+32
+00:02:50,450 --> 00:02:52,130
+You can fetch from the images.
+
+33
+00:02:52,130 --> 00:02:54,780
+You can certainly replace marketplace.
+
+34
+00:02:54,800 --> 00:02:55,700
+There are so many.
+
+35
+00:02:57,250 --> 00:03:04,050
+EMI, we just thought we can use them as a firewall and we can proxy our connection from their infrastructure.
+
+36
+00:03:05,200 --> 00:03:11,380
+So VPC design that we have seen in the previous projects, multiple public subnet and multiple private
+
+37
+00:03:11,380 --> 00:03:18,580
+subnets and Bastion host in the public subnet, and you can connect to this Bastiaan host over IP.
+
+38
+00:03:20,180 --> 00:03:24,800
+To have a much more secure connection and bastion horseshit, we are going to use and harden EMI from
+
+39
+00:03:24,800 --> 00:03:31,760
+CIAs, which is not free, but will use it, for instance, and then will unsubscribe for it, not for
+
+40
+00:03:31,760 --> 00:03:32,420
+learning purposes.
+
+41
+00:03:32,420 --> 00:03:38,570
+And all our most of our infrastructure will be living in private subnet, like our MySQL databases or
+
+42
+00:03:38,570 --> 00:03:43,970
+any kind of database or caching nodes, skewing nodes, web server applications that everything in the
+
+43
+00:03:43,970 --> 00:03:46,430
+private nor Asadi in the private subnet.
+
+44
+00:03:46,730 --> 00:03:52,880
+In the public subnet, we have Bastion host and load balancer, which is to take traffic from public,
+
+45
+00:03:52,880 --> 00:03:53,660
+from the Internet.
+
+46
+00:03:54,720 --> 00:04:01,730
+And so once we have this, we can create more layers and this this is called protection layer.
+
+47
+00:04:03,960 --> 00:04:11,040
+So in your work in the public subnet, we have load balancer that sends the request not directly to
+
+48
+00:04:11,040 --> 00:04:17,420
+our application server, but through an easy to instance, which will act as a proxy.
+
+49
+00:04:18,060 --> 00:04:22,170
+And if you're using right tools, you can filter a lot of things over here itself.
+
+50
+00:04:22,980 --> 00:04:24,780
+Is Application B security also?
+
+51
+00:04:24,790 --> 00:04:25,960
+You can apply on that.
+
+52
+00:04:26,610 --> 00:04:28,440
+So that's your threat protection layer.
+
+53
+00:04:28,440 --> 00:04:33,660
+And then the traffic will be diverted to your application server, which will be in private subnet.
+
+54
+00:04:34,170 --> 00:04:36,710
+Then our databases will be in the private subnet.
+
+55
+00:04:36,720 --> 00:04:43,560
+So it's multiple layers of security for you as a search connection for your Bastiaan host or your instance,
+
+56
+00:04:43,560 --> 00:04:46,320
+you can have a VPN connection.
+
+57
+00:04:47,410 --> 00:04:54,190
+That's a once you build this rock solid track protection layer, then you can bring in your application
+
+58
+00:04:54,190 --> 00:04:56,470
+security or your penetration testers.
+
+59
+00:04:57,380 --> 00:05:03,440
+And test the security, if you don't have a security team, you can get a security consultant, which
+
+60
+00:05:03,740 --> 00:05:07,820
+they can scan, they can do the vulnerability assessment, they can do penetration testing.
+
+61
+00:05:09,760 --> 00:05:17,230
+Grey or white box testing, so this if you still have room for vulnerability, these things will be
+
+62
+00:05:17,260 --> 00:05:22,210
+again cleared by these kinds of people, security professional, and then you can fix those things as
+
+63
+00:05:22,210 --> 00:05:22,460
+well.
+
+64
+00:05:22,960 --> 00:05:29,230
+But one important note over here, you need to take permission from eatables before you run penetration
+
+65
+00:05:29,230 --> 00:05:32,320
+testing at a few places you don't need to take.
+
+66
+00:05:33,290 --> 00:05:39,590
+So check with Eatables support team before you run any kind of parental bomb penetration testing against
+
+67
+00:05:39,590 --> 00:05:40,700
+eatables infrastructure.
+
+68
+00:05:42,310 --> 00:05:49,240
+Now will go to ridiculous console and create a VPC, you can use your ansible playbook or terraformed
+
+69
+00:05:49,240 --> 00:05:52,000
+code, which we used in previous project to set up the VBC.
+
+70
+00:05:52,000 --> 00:05:53,810
+Plus, we'll do a few more changes with that.
+
+71
+00:05:54,940 --> 00:05:57,250
+So join me on the management console.
+
+72
+00:05:59,440 --> 00:06:05,470
+Well, before I go to the council, I would like to create my VBC to terraform, you can use the same
+
+73
+00:06:05,470 --> 00:06:06,490
+code from our.
+
+74
+00:06:07,880 --> 00:06:10,660
+So called GitHub repository.
+
+75
+00:06:11,640 --> 00:06:13,870
+Now, you should be in the terraformed branch again.
+
+76
+00:06:15,420 --> 00:06:19,560
+If you have gone through the terraformed project, you know what I am doing, but if you have not gone
+
+77
+00:06:19,560 --> 00:06:24,270
+through it, I recommend you go through the terraformed project first so you understand what we are
+
+78
+00:06:24,270 --> 00:06:29,790
+doing really here we are creating VPC, as we have seen in the architectural design, automatically
+
+79
+00:06:29,790 --> 00:06:30,780
+by using terraform.
+
+80
+00:06:31,500 --> 00:06:34,350
+We already have the code, but we are going to make some changes.
+
+81
+00:06:34,650 --> 00:06:40,230
+Like, for example, for Bastin, Horst will be using not Kubuntu instance, but we are going to use
+
+82
+00:06:40,680 --> 00:06:47,490
+CIAs of one two instance hardily Amoy so Amygdale, we have mentioned in the variables file.
+
+83
+00:06:48,210 --> 00:06:51,960
+So for our region, US is unwilling to use us to region.
+
+84
+00:06:52,850 --> 00:06:56,960
+Or I'm going to use you as a reason you can use anything else if you want.
+
+85
+00:07:00,850 --> 00:07:06,820
+And assuming you have omitted from your previous example, we need to change that, we are going to
+
+86
+00:07:06,820 --> 00:07:12,460
+use a hardened Oben to EMI from Sears, so let's see how we can find that.
+
+87
+00:07:13,630 --> 00:07:16,630
+So all you have to do is go to the U.S. to service.
+
+88
+00:07:21,010 --> 00:07:22,480
+Let's say launch instance.
+
+89
+00:07:25,920 --> 00:07:32,190
+You can go to a marketplace and we are going with a senior center of Internet security, so I just search
+
+90
+00:07:32,190 --> 00:07:35,340
+for that CIAs and we can find here.
+
+91
+00:07:36,840 --> 00:07:42,900
+The images, but we don't really see it's Heidi over here, that's because we have to subscribe for
+
+92
+00:07:42,900 --> 00:07:43,020
+it.
+
+93
+00:07:43,020 --> 00:07:49,020
+We get you know, we subscribe for this EMI and they are not free if you see where there's very little
+
+94
+00:07:49,030 --> 00:07:51,260
+charge for, you know, if you run it for a few hours.
+
+95
+00:07:52,080 --> 00:07:54,560
+And so we don't find the ideal here.
+
+96
+00:07:54,810 --> 00:07:58,470
+If we are doing it manually, then we can just select that and we can do next.
+
+97
+00:07:58,470 --> 00:08:03,660
+But we are doing through TerraForm, so we need EMI ID and for that purpose I'm going to search for
+
+98
+00:08:03,660 --> 00:08:05,010
+marketplace subscription.
+
+99
+00:08:08,150 --> 00:08:15,050
+If you see, I already have subscribed for center of Internet security, Ubuntu Linux, which I will
+
+100
+00:08:15,050 --> 00:08:15,650
+be using.
+
+101
+00:08:19,040 --> 00:08:21,140
+But I'll show you how you can find your own.
+
+102
+00:08:22,450 --> 00:08:27,880
+So you can come to market place, you can simply Google this or, you know, you can use that URL and
+
+103
+00:08:27,880 --> 00:08:29,530
+you can search for your EMI.
+
+104
+00:08:30,660 --> 00:08:35,820
+I thought you can just review all product and, you know, you can sort by the categories, also security
+
+105
+00:08:35,820 --> 00:08:41,190
+stuff, I would like to see this just as her enter.
+
+106
+00:08:41,610 --> 00:08:46,290
+And, you know, from CEOs, we have Red Hat Enterprise, Linux, open to Linux.
+
+107
+00:08:46,560 --> 00:08:49,650
+OK, so let's say you want to subscribe for an Ubuntu Linux.
+
+108
+00:08:50,700 --> 00:08:52,020
+So that's go click on that.
+
+109
+00:08:54,370 --> 00:08:56,450
+And you can say continue to subscribe.
+
+110
+00:08:56,500 --> 00:09:00,760
+Once you click on this, it will take some time, it will load a few things.
+
+111
+00:09:00,760 --> 00:09:05,710
+You will get an e-mail notification saying that, hey, you have subscribed for this e-mail.
+
+112
+00:09:05,710 --> 00:09:11,170
+You can confirm that once you do that, then you should get to continue to configuration button over
+
+113
+00:09:11,170 --> 00:09:11,520
+here.
+
+114
+00:09:11,800 --> 00:09:14,200
+Once you click on that, it will open something like this.
+
+115
+00:09:16,080 --> 00:09:22,380
+OK, so here you can select the region, which your region you want, and you should get the Amedee
+
+116
+00:09:23,080 --> 00:09:27,630
+casso that a remedy because I'm using not Virginia.
+
+117
+00:09:27,900 --> 00:09:30,450
+So select your right region now from here.
+
+118
+00:09:30,450 --> 00:09:33,330
+Also, you can directly launch, but we are doing it through terraformed.
+
+119
+00:09:33,330 --> 00:09:39,480
+So we just need Amedee also a few other things like the login user, how do we find out?
+
+120
+00:09:39,490 --> 00:09:45,450
+So now in the marketplace itself, we can see usage, how to use it, you usage instruction.
+
+121
+00:09:46,230 --> 00:09:50,670
+Once the instance is running, you know, use it saying Ubuntu as the username.
+
+122
+00:09:51,600 --> 00:09:56,980
+Mostly, it will be same for one, two, one, two, four, RedHat, it had for Amazon, Linux, you
+
+123
+00:09:57,060 --> 00:09:59,460
+do have one user, but do check it.
+
+124
+00:09:59,460 --> 00:10:02,840
+If they wish to change those users, you know, you should know them.
+
+125
+00:10:03,510 --> 00:10:06,180
+So once we get the Amedee, we are going to use it.
+
+126
+00:10:07,860 --> 00:10:12,990
+And let me remind you again, this is not a free Aimi, but once I am done with this.
+
+127
+00:10:14,160 --> 00:10:21,390
+We can get rid of the building also, so US East one and, you know, I can just update the other regional
+
+128
+00:10:21,390 --> 00:10:23,910
+so I can get the idea of all the regions.
+
+129
+00:10:24,390 --> 00:10:27,420
+But anyways, I'm just using one region, so I'll keep that much.
+
+130
+00:10:29,530 --> 00:10:34,660
+Now, about this hardened army has one problem with TerraForm.
+
+131
+00:10:36,340 --> 00:10:40,900
+So with the terraformed, we have the space station host.
+
+132
+00:10:43,700 --> 00:10:49,100
+Resources, which is going to launch, for instance, from the idea it is going to push this template
+
+133
+00:10:49,100 --> 00:10:54,770
+at dump location and with remote execution, going to execute a script in the temp location.
+
+134
+00:10:55,220 --> 00:11:00,950
+Now, one big problem with how they might could be a problem for us, but it's a security measure.
+
+135
+00:11:01,580 --> 00:11:03,780
+What a script you put in temperature.
+
+136
+00:11:03,800 --> 00:11:05,330
+It will not execute that.
+
+137
+00:11:05,960 --> 00:11:07,280
+You will get permission denied.
+
+138
+00:11:08,000 --> 00:11:15,650
+Plus, when you are doing remote exec and you're giving commands over here, it's going to create a
+
+139
+00:11:15,650 --> 00:11:16,700
+shell script.
+
+140
+00:11:17,810 --> 00:11:24,650
+In the Tampa directly and in that time directed, we put these commands and execute that, so basically
+
+141
+00:11:24,650 --> 00:11:27,860
+in our case we have to shell scripting them directly.
+
+142
+00:11:27,860 --> 00:11:32,960
+One will have this content and one we are pushing as the template.
+
+143
+00:11:33,560 --> 00:11:37,580
+So to shell script really both in terms direct, you will get permission denied.
+
+144
+00:11:37,580 --> 00:11:38,810
+It will not executed.
+
+145
+00:11:39,240 --> 00:11:40,280
+That's a security.
+
+146
+00:11:41,560 --> 00:11:48,910
+So what we'll do in our case, for now, we have to execute the script, which executes the initial
+
+147
+00:11:48,910 --> 00:11:49,640
+decision.
+
+148
+00:11:49,690 --> 00:11:51,400
+We have seen that in the TerraForm Project.
+
+149
+00:11:52,700 --> 00:11:57,700
+We have to remove this remote toxic option, there's no other way because it's a template.
+
+150
+00:11:58,090 --> 00:11:59,840
+OK, we need to push the template.
+
+151
+00:11:59,840 --> 00:12:01,270
+The variable will be extracted.
+
+152
+00:12:01,550 --> 00:12:06,950
+We can give a different part for this script, but it's not going to make sense.
+
+153
+00:12:08,010 --> 00:12:13,520
+I can give home Ubuntu and put it in home Ubuntu and then executed from home Ubuntu.
+
+154
+00:12:13,790 --> 00:12:14,630
+That is fine.
+
+155
+00:12:15,050 --> 00:12:15,950
+But the point is.
+
+156
+00:12:18,740 --> 00:12:24,530
+I couldn't give it over here, let me make you understand this point, otherwise you'll be keep struggling
+
+157
+00:12:24,530 --> 00:12:25,100
+with this.
+
+158
+00:12:29,510 --> 00:12:33,280
+So I can I can give that and I'll put this into home open today.
+
+159
+00:12:33,410 --> 00:12:41,090
+Not directly, but to execute these commands Terraformed will create a shell script in the temp directory
+
+160
+00:12:41,870 --> 00:12:43,180
+when put this content.
+
+161
+00:12:44,210 --> 00:12:45,410
+We can't do anything for that.
+
+162
+00:12:46,470 --> 00:12:51,620
+If you're using in line content, that is the issue you can do, you just have to remove that.
+
+163
+00:12:52,320 --> 00:12:59,180
+So after infrastructure is created, we login and we can execute that manually or instead of running
+
+164
+00:12:59,190 --> 00:13:03,390
+it in a Bastion host, I can launch another instance without her name.
+
+165
+00:13:03,390 --> 00:13:06,600
+I execute the script and terminate that instance that can be done.
+
+166
+00:13:07,200 --> 00:13:09,840
+OK, so let's keep this will execute it manually.
+
+167
+00:13:09,840 --> 00:13:13,290
+I'm going to remove this remote exec option completely from here.
+
+168
+00:13:16,660 --> 00:13:21,390
+And just to show you the problem, I'll keep it in the temp directorate's selfie last year to push the
+
+169
+00:13:21,640 --> 00:13:26,230
+directly and I will go there and try to execute it manually and you'll see the problem.
+
+170
+00:13:28,470 --> 00:13:30,590
+OK, anything else we need to do?
+
+171
+00:13:32,450 --> 00:13:38,090
+So no problem for this, it can push push the files anywhere where an execution is the problem.
+
+172
+00:13:39,020 --> 00:13:40,050
+So you can execute.
+
+173
+00:13:40,940 --> 00:13:44,390
+So is it terraform appli?
+
+174
+00:13:47,450 --> 00:13:49,430
+OK, have proven all my resources.
+
+175
+00:13:49,940 --> 00:13:51,680
+Let's go to Management Council.
+
+176
+00:13:56,510 --> 00:13:56,880
+This.
+
+177
+00:13:58,120 --> 00:14:04,000
+So we have high profile Bastiaan host, that's the IP address and let's look into it.
+
+178
+00:14:06,350 --> 00:14:09,610
+And we have the key here itself, right?
+
+179
+00:14:09,640 --> 00:14:10,580
+We profile key.
+
+180
+00:14:11,710 --> 00:14:15,790
+All right, 012, the address.
+
+181
+00:14:17,080 --> 00:14:17,710
+Yes.
+
+182
+00:14:20,920 --> 00:14:24,520
+OK, Verein, let's be the route user, I'll go to the ATM directly.
+
+183
+00:14:26,440 --> 00:14:29,370
+And you should see that Shell script over here.
+
+184
+00:14:30,950 --> 00:14:31,520
+And.
+
+185
+00:14:33,950 --> 00:14:37,580
+It does not have permission, but let's say we execute permission.
+
+186
+00:14:41,010 --> 00:14:49,390
+Back to all the U.S., right, and let's try and execute that, let's try absolute pot slash slash ridiculous
+
+187
+00:14:49,650 --> 00:14:49,990
+script.
+
+188
+00:14:50,470 --> 00:14:52,080
+You see that permission denied.
+
+189
+00:14:53,340 --> 00:14:54,570
+It's very simple things in that.
+
+190
+00:14:54,570 --> 00:14:59,160
+So we have given executable permission are the route user, but still it's going to throw permission
+
+191
+00:14:59,160 --> 00:14:59,550
+denied.
+
+192
+00:15:00,870 --> 00:15:05,460
+All right, all script is very simple, we install my sequel client, we clone our source code, and
+
+193
+00:15:05,460 --> 00:15:07,300
+we do the initialization.
+
+194
+00:15:07,920 --> 00:15:10,900
+Now we have the end point of the ideas over there.
+
+195
+00:15:10,920 --> 00:15:12,930
+So we have to create the template.
+
+196
+00:15:14,000 --> 00:15:18,710
+But if it's just a normal shell script, then you can do one another method over here.
+
+197
+00:15:20,320 --> 00:15:26,080
+So with remote access like we have in line, so we can't do anything, but we can do our part.
+
+198
+00:15:27,380 --> 00:15:33,410
+So it copies our script so we can we can copy it and do no home directly or anywhere else like that,
+
+199
+00:15:33,410 --> 00:15:39,680
+not in time, and then we can use part to execute our script, but that we can do for our template.
+
+200
+00:15:42,500 --> 00:15:49,400
+So for now, we'll just move this script to, let's say, wrote directly the users.
+
+201
+00:15:49,430 --> 00:15:50,650
+That's the route directly.
+
+202
+00:15:51,350 --> 00:15:53,960
+And if you see now, I can execute it.
+
+203
+00:15:57,260 --> 00:15:58,310
+See, that works.
+
+204
+00:16:02,760 --> 00:16:08,840
+He should have moved it to the home territory of open to use, let's move it.
+
+205
+00:16:13,410 --> 00:16:17,910
+Slash home slash of one to school to slash slash Ubuntu.
+
+206
+00:16:20,100 --> 00:16:25,710
+And there will execute those corpses, do it from the open to home directly.
+
+207
+00:16:27,830 --> 00:16:31,310
+That's just a minor glitch, we can fix that also.
+
+208
+00:16:32,000 --> 00:16:35,960
+So these are some problems that you can get while you're using hardily in my.
+
+209
+00:16:37,140 --> 00:16:39,230
+But here you are getting all the security with it.
+
+210
+00:16:40,220 --> 00:16:42,710
+OK, now let's go to AWB management console.
+
+211
+00:16:43,010 --> 00:16:47,740
+Let's go to VPC, Sebastian Horst is in the public subnet.
+
+212
+00:16:48,320 --> 00:16:50,810
+All the other resources are in the private subnet.
+
+213
+00:16:51,410 --> 00:16:56,330
+So radius is in private, Elastica is in private, Robert Mockus in private subnet.
+
+214
+00:16:56,990 --> 00:17:00,290
+And we have already seen that in the terraformed project.
+
+215
+00:17:01,640 --> 00:17:03,280
+Right, so we have a VPC.
+
+216
+00:17:06,190 --> 00:17:09,220
+We profiled VPC, which has six subnets.
+
+217
+00:17:17,550 --> 00:17:24,240
+Three public, three private private subnet are the subnets where we have almost all of our infrastructure
+
+218
+00:17:24,690 --> 00:17:29,400
+being is also in instances in private subnet, but are inaudible sort of been static, is in public
+
+219
+00:17:29,400 --> 00:17:29,820
+subnet.
+
+220
+00:17:30,360 --> 00:17:32,010
+So let's go to Bienstock.
+
+221
+00:17:37,770 --> 00:17:38,600
+The broad.
+
+222
+00:17:42,180 --> 00:17:46,860
+So the end point, and that's not a secure connection, right?
+
+223
+00:17:47,610 --> 00:17:53,100
+Very not Virginia region, we have a certificate over here so we can change the configuration of the
+
+224
+00:17:53,100 --> 00:17:55,350
+load balancer, which we should do.
+
+225
+00:17:56,690 --> 00:18:04,190
+Load balancer configuration, we will go for a previous connection, so we will see ad listener.
+
+226
+00:18:06,880 --> 00:18:07,600
+DPS.
+
+227
+00:18:08,980 --> 00:18:10,090
+Choose the certificate.
+
+228
+00:18:11,440 --> 00:18:17,590
+And the add of the port, no, of course, four for three that default and.
+
+229
+00:18:19,850 --> 00:18:21,770
+What we stand for for three.
+
+230
+00:18:23,300 --> 00:18:24,710
+Yeah, and.
+
+231
+00:18:25,800 --> 00:18:30,390
+OK, yeah, and I don't want to this, so we can just remove that.
+
+232
+00:18:33,260 --> 00:18:34,370
+There's no optional here.
+
+233
+00:18:34,610 --> 00:18:35,840
+We can disable it.
+
+234
+00:18:37,280 --> 00:18:42,670
+OK, if you're planning to upload your artifact, then you do the health check changes, also slash
+
+235
+00:18:42,710 --> 00:18:48,350
+login, but I'll keep it as it is because I'm not going with deploying the artifact for now.
+
+236
+00:18:49,250 --> 00:18:53,890
+We just checking it the security perspective for no other thing.
+
+237
+00:18:53,900 --> 00:18:57,160
+What you can do is you can also encrypt your Ebb's volume.
+
+238
+00:18:57,170 --> 00:18:59,210
+We have not given that Inotera phone code.
+
+239
+00:18:59,480 --> 00:19:02,210
+We can mention our game is key for encryption.
+
+240
+00:19:03,070 --> 00:19:05,560
+If you have not already encrypted, then we can.
+
+241
+00:19:06,960 --> 00:19:12,330
+So we're skipping this part over here because we've already done encryption and we will go back to PC
+
+242
+00:19:13,500 --> 00:19:16,710
+so we can see our security grows from here.
+
+243
+00:19:18,630 --> 00:19:22,530
+And one big problem I show you with the Bienstock Security Group.
+
+244
+00:19:23,810 --> 00:19:30,590
+See that inbound role of the security group, 22 allowed from anywhere, which is so bad, which we
+
+245
+00:19:30,590 --> 00:19:32,100
+can change it to wipe.
+
+246
+00:19:33,120 --> 00:19:33,770
+Seper.
+
+247
+00:19:35,830 --> 00:19:44,610
+So in all our previous projects where we have moved our application stack on eatables by doing real
+
+248
+00:19:44,620 --> 00:19:49,360
+architectural lift and shift, we have taken care of the security group are to keep similar thing in
+
+249
+00:19:49,360 --> 00:19:51,180
+mind about the security group.
+
+250
+00:19:51,670 --> 00:19:54,310
+But we have also Network ECL.
+
+251
+00:19:56,320 --> 00:20:00,620
+That is one more fired wall, but this is for your subnet.
+
+252
+00:20:01,430 --> 00:20:07,240
+For instance, are in private subnet and via public subnet also so we can create a network for public
+
+253
+00:20:07,240 --> 00:20:11,260
+and private subnet and we can attach our subnet inside that.
+
+254
+00:20:12,070 --> 00:20:15,340
+So it's always recommend that you create ECL for your public subnet.
+
+255
+00:20:16,330 --> 00:20:21,640
+Because that's where the main danger is coming in from the public network, so I will get an initial
+
+256
+00:20:21,640 --> 00:20:23,260
+network access control list.
+
+257
+00:20:23,380 --> 00:20:33,310
+Let's give a name and a SEAL, high profile hyphen, public selector VPC.
+
+258
+00:20:35,190 --> 00:20:35,910
+They create.
+
+259
+00:20:37,500 --> 00:20:42,660
+Let me first give rules and then I will attach it to the subnet, you can just go to subnet association
+
+260
+00:20:42,660 --> 00:20:45,120
+and attach the subnet, but let's give the rule.
+
+261
+00:20:45,960 --> 00:20:49,140
+So as security group, you have inbound and outbound rules both.
+
+262
+00:20:50,250 --> 00:20:53,490
+But there are a few differences like security group.
+
+263
+00:20:53,490 --> 00:20:55,070
+You have only allowed rule here.
+
+264
+00:20:55,080 --> 00:20:56,630
+You have allow and deny both.
+
+265
+00:20:56,850 --> 00:21:02,610
+So you can explicitly deny traffic over here that I don't want any traffic to be coming from this subnet.
+
+266
+00:21:02,910 --> 00:21:03,690
+You can do that.
+
+267
+00:21:03,690 --> 00:21:07,320
+Or this particular IP outbound rule will correct.
+
+268
+00:21:07,320 --> 00:21:09,030
+One will change one thing by default.
+
+269
+00:21:09,030 --> 00:21:09,930
+Everything will be denied.
+
+270
+00:21:09,940 --> 00:21:13,440
+So I'm going to say and rule and you have to do rule number.
+
+271
+00:21:13,440 --> 00:21:16,190
+The rule will be evaluated based on its order.
+
+272
+00:21:16,380 --> 00:21:22,890
+So all the numbers I'm going to see 100 and the best practices you give, 100, 200, 300, so you can
+
+273
+00:21:22,890 --> 00:21:26,970
+add a rule in the middle or do you want to add some rule in the middle of it in between hundred.
+
+274
+00:21:26,970 --> 00:21:28,320
+Two hundred against a 150.
+
+275
+00:21:29,340 --> 00:21:32,540
+Otherwise you have to change the entire all the rules, OK, for your many, many.
+
+276
+00:21:32,540 --> 00:21:36,660
+And also outboards like you want to see rule number 100.
+
+277
+00:21:38,830 --> 00:21:39,730
+All traffic.
+
+278
+00:21:41,700 --> 00:21:48,210
+Destination can go anywhere, so from my subnet, any traffic can go out, OK, I'm giving it allowed
+
+279
+00:21:48,210 --> 00:21:49,420
+will see this.
+
+280
+00:21:50,130 --> 00:21:56,700
+And if you want to control the traffic going out also, you can just be we can be very specific and
+
+281
+00:21:56,700 --> 00:22:00,060
+you can decide that only 80 or 443.
+
+282
+00:22:00,240 --> 00:22:07,110
+Or is the response going back, if you have any inbound as is allowed to introduce allowed in outbound
+
+283
+00:22:07,110 --> 00:22:10,350
+rule, everything is denied, then it does not work out.
+
+284
+00:22:10,620 --> 00:22:16,230
+So what is allowed in inbound has to be allowed in the outbound also, so that then only the traffic
+
+285
+00:22:16,230 --> 00:22:19,140
+will go in the subnet and come out of the subnet.
+
+286
+00:22:19,980 --> 00:22:24,360
+So outbound I'm giving all allow just to keep it simple for now.
+
+287
+00:22:25,350 --> 00:22:26,190
+Inbound rule.
+
+288
+00:22:27,600 --> 00:22:29,110
+So this is for public subnetwork.
+
+289
+00:22:29,130 --> 00:22:31,530
+So I'm going to say first rule here as.
+
+290
+00:22:32,660 --> 00:22:34,070
+The rule number 100.
+
+291
+00:22:37,040 --> 00:22:37,940
+I will see.
+
+292
+00:22:39,520 --> 00:22:40,930
+Airstrip's.
+
+293
+00:22:43,230 --> 00:22:50,030
+Four for three is allowed from anywhere because that would be that should be for my load balancer.
+
+294
+00:22:50,550 --> 00:22:56,660
+And then if you are giving HTP, which is not recommended, then you give the next rule.
+
+295
+00:22:56,670 --> 00:22:58,820
+But I don't recommend giving those rules.
+
+296
+00:22:59,100 --> 00:23:01,350
+Make sure you have any connection.
+
+297
+00:23:02,040 --> 00:23:03,900
+The other we are going to do Secich.
+
+298
+00:23:04,860 --> 00:23:06,120
+So I'm going to see.
+
+299
+00:23:08,200 --> 00:23:14,770
+As such, so this is for our Bastiaan host, and here you can give the specific IP if you want your
+
+300
+00:23:14,770 --> 00:23:20,230
+own public IP, but if it's dynamic, then you have to keep changing it so I can give my IP and I can
+
+301
+00:23:20,740 --> 00:23:23,100
+try to allow.
+
+302
+00:23:23,470 --> 00:23:25,780
+And the next rule I will see is.
+
+303
+00:23:28,650 --> 00:23:37,470
+All the other traffic is denied traffic coming from any other source, all the protocol Allport is denied,
+
+304
+00:23:37,480 --> 00:23:39,380
+so only to traffic can come in.
+
+305
+00:23:39,600 --> 00:23:43,460
+One is four for three for my website from anywhere.
+
+306
+00:23:43,470 --> 00:23:44,730
+And the other 22.
+
+307
+00:23:45,900 --> 00:23:52,260
+Only from Miyabe, so this is one more layer of security before your security group.
+
+308
+00:23:52,300 --> 00:23:57,030
+OK, so you had this so, you know, cyber criminal has to penetrate this and then security group.
+
+309
+00:24:00,130 --> 00:24:04,090
+And then I associated with the subnet, the public subnets.
+
+310
+00:24:13,610 --> 00:24:21,920
+OK, let's go to Bienstock, so Environment Health looks serious, and I think this is because it's
+
+311
+00:24:21,920 --> 00:24:25,940
+forwarding the request to instant's also on Potful for three.
+
+312
+00:24:26,840 --> 00:24:31,670
+And let's go to, for instance, now, load balancer, OK?
+
+313
+00:24:34,670 --> 00:24:38,150
+So we have disabled Port Eddie four for three.
+
+314
+00:24:39,150 --> 00:24:41,460
+Easily support that's added that.
+
+315
+00:24:43,550 --> 00:24:51,920
+Instance Port, also Gwynfor, given for three instance, transport, will see HTP.
+
+316
+00:24:53,220 --> 00:24:54,300
+Board 80.
+
+317
+00:24:56,290 --> 00:25:01,450
+Because our instance is running the souls on board, once you deploy your artifact, it should be added
+
+318
+00:25:01,450 --> 00:25:06,010
+and the health checks should be slashed long enough that you can change if your if you're planning to
+
+319
+00:25:06,010 --> 00:25:07,020
+upload the artifact.
+
+320
+00:25:07,840 --> 00:25:12,640
+But they should be fine for listner is for fortressed previous connection, for instance, bought it
+
+321
+00:25:12,910 --> 00:25:14,830
+is to review protocol cert.
+
+322
+00:25:15,160 --> 00:25:15,940
+See if this.
+
+323
+00:25:18,400 --> 00:25:22,750
+And planning to upload the artifact, remember, logging should be the health check.
+
+324
+00:25:24,510 --> 00:25:25,410
+Let's apply this.
+
+325
+00:25:27,560 --> 00:25:29,270
+So wait for few moments.
+
+326
+00:25:30,420 --> 00:25:37,800
+So the health check of Bienstock is severe, and this is because of the health check, let's check every
+
+327
+00:25:37,830 --> 00:25:38,530
+single instance.
+
+328
+00:25:38,550 --> 00:25:41,970
+So that's our instance, which is part of our Bienstock.
+
+329
+00:25:41,970 --> 00:25:48,690
+This is where our services install it to service and we have a load balancer on top of it.
+
+330
+00:25:50,800 --> 00:25:56,950
+And if you see the instance health is out of service, the status is out of service, the health check
+
+331
+00:25:56,950 --> 00:26:00,250
+is failing, there is a health check configured, but it is failing.
+
+332
+00:26:00,250 --> 00:26:02,110
+It is out of service, and that's why.
+
+333
+00:26:03,280 --> 00:26:06,910
+We see this as severe and you try to access the end point.
+
+334
+00:26:08,750 --> 00:26:12,620
+Any strip is blocked, so we're going to say DPS colon's.
+
+335
+00:26:15,350 --> 00:26:20,300
+You see you and that's not working because instance is out of service, the health check is failing,
+
+336
+00:26:20,300 --> 00:26:24,400
+it's because the health check is failing instances out of service.
+
+337
+00:26:25,160 --> 00:26:28,880
+And this all happened after we created the initial rule.
+
+338
+00:26:29,930 --> 00:26:37,550
+Our instance is in this NCCL, so there's an excuse for our private subnet, you name it, as private
+
+339
+00:26:37,580 --> 00:26:41,060
+hyphen in a civil high profile.
+
+340
+00:26:46,230 --> 00:26:51,990
+I am coming to the solution it, but we have to understand this new cycle is not like security group
+
+341
+00:26:52,680 --> 00:26:53,560
+in security group.
+
+342
+00:26:54,020 --> 00:26:59,040
+Inbound will allow and then automatic and outbound will be also created for it.
+
+343
+00:26:59,580 --> 00:27:00,870
+Now, here thing is.
+
+344
+00:27:02,460 --> 00:27:09,180
+Our load balancer, which is in a public subnet, we have this New Zealand, we have the inbounded here,
+
+345
+00:27:09,180 --> 00:27:13,230
+which is actually goes out Guzzardi coming in.
+
+346
+00:27:14,270 --> 00:27:15,540
+That is allowed from here.
+
+347
+00:27:15,560 --> 00:27:21,140
+The connection is made to the private NCCL and here all traffic is allowed.
+
+348
+00:27:21,150 --> 00:27:21,860
+No problem.
+
+349
+00:27:21,860 --> 00:27:27,100
+Outbound is all traffic is can go out, so halachic will respond back.
+
+350
+00:27:27,290 --> 00:27:31,390
+And this rule will allow the health check to go back on board.
+
+351
+00:27:31,820 --> 00:27:37,910
+Now, the request is going back on Port Etty to public NCCL it comes.
+
+352
+00:27:38,330 --> 00:27:43,310
+And here there is no port allowed from the instance subnet.
+
+353
+00:27:43,520 --> 00:27:45,500
+So we have to give one rule over here.
+
+354
+00:27:47,240 --> 00:27:52,370
+Now, rules are evaluated in numerical order, so we have we are going to give one rule over here,
+
+355
+00:27:52,640 --> 00:27:58,570
+rule number 99, and we'll see all traffic, all we can be specific.
+
+356
+00:27:58,570 --> 00:28:01,820
+You can see it also allowed from our VPC.
+
+357
+00:28:02,930 --> 00:28:07,400
+172 21 zero zero 16 and will receive.
+
+358
+00:28:08,330 --> 00:28:14,420
+So when the request comes back from the instance to the load balancer, this rule will say that traffic
+
+359
+00:28:14,420 --> 00:28:19,820
+is allowed, all traffic is allowed from the from this network, which is the VBC.
+
+360
+00:28:25,180 --> 00:28:30,730
+Yeah, that's our VPC network range, so from here, any traffic can come.
+
+361
+00:28:34,020 --> 00:28:38,790
+And pass the public subnet because all traffic is allowed from the BBC and the health checks should
+
+362
+00:28:38,790 --> 00:28:39,690
+pass after this.
+
+363
+00:28:40,230 --> 00:28:41,610
+Let's check now.
+
+364
+00:28:45,370 --> 00:28:47,950
+You see now it's instances now in service.
+
+365
+00:28:48,760 --> 00:28:49,930
+Let's refresh.
+
+366
+00:28:53,950 --> 00:28:59,030
+And it will be as if it's not secure because we don't have gruffy in sanitoria.
+
+367
+00:28:59,050 --> 00:29:01,930
+This is a sorry, goofy dot in domain.
+
+368
+00:29:01,930 --> 00:29:02,490
+He's not here.
+
+369
+00:29:02,500 --> 00:29:05,590
+We have elastic Bienstock domain, so that's why it's not secured.
+
+370
+00:29:05,590 --> 00:29:08,410
+But cert is for any of is gruffy dot in.
+
+371
+00:29:10,450 --> 00:29:17,410
+So goofy, that's why once we are in a cemetery in Gherardi and we access it with right subnet satellite
+
+372
+00:29:17,410 --> 00:29:20,110
+domain, then we should not have any problem.
+
+373
+00:29:21,570 --> 00:29:28,410
+So I have created a diagram for your understanding of what just happened, so we know our whole infrastructure
+
+374
+00:29:28,410 --> 00:29:31,740
+is in one VPC, we have public subnet and private subnet.
+
+375
+00:29:32,160 --> 00:29:34,890
+In public subnet, we have the classic load balancer.
+
+376
+00:29:35,310 --> 00:29:40,650
+And on the public subnet, we have inbound rules and outbound rules for any inbound rules.
+
+377
+00:29:40,660 --> 00:29:44,490
+Is four for three allowed from anywhere from the Internet.
+
+378
+00:29:44,490 --> 00:29:45,660
+It can accept the request.
+
+379
+00:29:45,960 --> 00:29:47,540
+And then we also have outbound rule.
+
+380
+00:29:47,580 --> 00:29:49,880
+What traffic can go out from the subnet?
+
+381
+00:29:50,220 --> 00:29:55,710
+So when the load balancer is performing a health check, the traffic goes out outbound.
+
+382
+00:29:55,710 --> 00:30:02,170
+We will check it all out from anywhere and we have that rule, so it will let it go out.
+
+383
+00:30:02,310 --> 00:30:07,410
+So health check is performed for the instance, which is in private subnet.
+
+384
+00:30:07,410 --> 00:30:11,790
+And we have NCCL on the private subnet also here in Boundaryless.
+
+385
+00:30:12,690 --> 00:30:13,950
+So we have not given any rule.
+
+386
+00:30:13,960 --> 00:30:18,140
+We have said allow everything and traffic, any traffic can go out.
+
+387
+00:30:18,150 --> 00:30:24,060
+So once the health check is performed, the instance will reply back with the status and it's going
+
+388
+00:30:24,060 --> 00:30:25,200
+to respond back on.
+
+389
+00:30:25,200 --> 00:30:28,160
+A random port is also called ephemeral port.
+
+390
+00:30:28,710 --> 00:30:34,440
+So when it sends the request back, replying to classic load balancer that, hey, this is my health
+
+391
+00:30:34,440 --> 00:30:35,640
+report, I'm good.
+
+392
+00:30:36,060 --> 00:30:41,490
+But there is an inbound rule on the public subnet, which is only four for three allowed from Internet
+
+393
+00:30:41,910 --> 00:30:44,880
+and not anything else, but also Wiggins's.
+
+394
+00:30:44,880 --> 00:30:48,720
+It's only association, four for three can get in is no other response.
+
+395
+00:30:49,020 --> 00:30:55,290
+It's going to accept the instances responding back on a random board which will be denied, and then
+
+396
+00:30:55,290 --> 00:30:58,860
+it shows the instances out of service because it's not getting the response back.
+
+397
+00:30:58,860 --> 00:31:03,690
+Classic load balancer does not get a response back and it thinks that instances out of service.
+
+398
+00:31:04,660 --> 00:31:05,830
+When we had the rule.
+
+399
+00:31:09,490 --> 00:31:16,240
+So public in Seattle, we have updated a rule, all traffic is allowed from the VP code, so instances
+
+400
+00:31:16,240 --> 00:31:21,110
+in this network, so it accepts the request and the health check is OK.
+
+401
+00:31:21,610 --> 00:31:27,700
+Otherwise, we had just 443 allowed from anywhere and 22 allowed from on IP and everything else is denied.
+
+402
+00:31:28,890 --> 00:31:32,970
+So that Helfrich response that was coming back on random board, that was denied.
+
+403
+00:31:33,880 --> 00:31:41,050
+And rules are evaluated in NCCL in numeric order, so ninety nine rule matches, it will not go and
+
+404
+00:31:41,050 --> 00:31:41,890
+check the other rules.
+
+405
+00:31:41,920 --> 00:31:44,540
+It will not go and deny it if it matches the first rule.
+
+406
+00:31:44,560 --> 00:31:45,180
+It is fine.
+
+407
+00:31:45,940 --> 00:31:49,180
+So that's the whole circus of initial, the inbound and outbound.
+
+408
+00:31:49,180 --> 00:31:50,560
+Both you have to take here.
+
+409
+00:31:51,130 --> 00:31:54,400
+We can put more tighter control on the private NCCL.
+
+410
+00:31:54,400 --> 00:31:57,340
+We can see in bounds rule allowed only from.
+
+411
+00:31:58,390 --> 00:31:59,230
+The VPC.
+
+412
+00:32:00,420 --> 00:32:05,430
+So anything that is in the private subnet will accept the NSA will only accept the connection if it
+
+413
+00:32:05,430 --> 00:32:07,120
+belongs to this IP address.
+
+414
+00:32:07,560 --> 00:32:08,970
+Anything else will be denied.
+
+415
+00:32:12,620 --> 00:32:18,730
+So any seal, any seal really gives very tight control, but you have to understand this, there's a
+
+416
+00:32:18,740 --> 00:32:24,660
+request that is going out is also going to come back in and on what boat?
+
+417
+00:32:24,680 --> 00:32:25,780
+No, it comes back.
+
+418
+00:32:25,790 --> 00:32:26,890
+It could be random boat.
+
+419
+00:32:26,900 --> 00:32:30,410
+So you have to take care of the inbound and outbound route port.
+
+420
+00:32:32,110 --> 00:32:37,930
+Now, next, you can go ahead and upload the artifact on the Bienstock do check to change the health
+
+421
+00:32:37,930 --> 00:32:41,080
+check to slash log-in, upload the artifact.
+
+422
+00:32:41,080 --> 00:32:44,050
+And, you know, everything is in the private subnet we have.
+
+423
+00:32:46,880 --> 00:32:52,760
+The memcache the elastic cash, which is in the private subnet, we have Amazon MQ that is also in private
+
+424
+00:32:52,760 --> 00:32:53,240
+subnet.
+
+425
+00:32:54,850 --> 00:33:00,490
+So I recommend you play more in this VPC, keep some time, play more, change the initial rules, see
+
+426
+00:33:00,490 --> 00:33:06,100
+how it affects inbound and outbound, both due to the distance which is in the Bienstock.
+
+427
+00:33:06,340 --> 00:33:12,400
+Just all those things play around with the initial and then once you're done, you can do the cleanup.
+
+428
+00:33:12,400 --> 00:33:17,070
+If you have used terraformed, then you can just say terraformed, destroy and everything will be deleted.
+
+429
+00:33:18,080 --> 00:33:25,120
+There are two amazing videos of eatables reinvent on VPC, VPC Fundamentals and connectivity option.
+
+430
+00:33:25,120 --> 00:33:26,320
+I recommend you watch.
+
+431
+00:33:26,320 --> 00:33:31,270
+This is also a repeat of 2009 and you can check that as well.
+
+432
+00:33:31,870 --> 00:33:36,640
+Another one, advanced VBC design and new capabilities for Amazon.
+
+433
+00:33:37,800 --> 00:33:40,680
+And again, there is a repeat of that and two thousand nineteen.
+
+434
+00:33:41,890 --> 00:33:47,800
+So you can watch this video also, it will give you a really deep understanding and VBC concepts and
+
+435
+00:33:47,800 --> 00:33:50,450
+how to design your work better and more secure.
+
+436
+00:33:51,070 --> 00:33:54,920
+And of course, it adds added advantage or extra lead on your resume.
+
+437
+00:33:55,180 --> 00:33:59,730
+You know, we believe in security in the VPC, so all the best for that.
+
+438
+00:34:00,280 --> 00:34:01,600
+That would be all in this area.
+
+439
+00:34:01,640 --> 00:34:02,950
+I will see you in the next one.
+

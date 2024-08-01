@@ -1,0 +1,1188 @@
+1
+00:00:00,540 --> 00:00:03,330
+So can you talk about, erm, user group and rules?
+
+2
+00:00:04,880 --> 00:00:09,800
+And this is, I think, the primary thing that you should really take care of, if this is compromise,
+
+3
+00:00:09,800 --> 00:00:14,510
+you know, doesn't matter how much security you implemented, everything goes out of the window.
+
+4
+00:00:14,970 --> 00:00:18,680
+OK, so no shared user identity.
+
+5
+00:00:18,680 --> 00:00:25,820
+Every individual who is using your eatables account should have their own user, their own erm user.
+
+6
+00:00:26,030 --> 00:00:27,410
+And then you can control on that.
+
+7
+00:00:27,410 --> 00:00:29,890
+You can keep track of who is doing what and when.
+
+8
+00:00:30,410 --> 00:00:38,380
+OK, so individual user access only no sharing of credential and control them by using erm policies.
+
+9
+00:00:39,430 --> 00:00:44,710
+So if there is a developer, the developer should have only access to services that he or she needs,
+
+10
+00:00:44,980 --> 00:00:50,020
+like S3 or S.A.S. or MQ or whatever, and you can control all those things.
+
+11
+00:00:50,020 --> 00:00:52,020
+You're going to see that in policies on hands, on lab.
+
+12
+00:00:54,040 --> 00:00:56,440
+And you should group things together.
+
+13
+00:00:56,730 --> 00:01:03,490
+There could be many, many users having different different policies or similar policies or similar
+
+14
+00:01:03,490 --> 00:01:09,280
+policy different from user like developers, group or testers, group or developers groups or admins
+
+15
+00:01:09,280 --> 00:01:09,540
+group.
+
+16
+00:01:10,150 --> 00:01:14,680
+You can manage all all these things better by creating a group and giving permission at the group level,
+
+17
+00:01:15,490 --> 00:01:17,560
+which makes it easier to manage also.
+
+18
+00:01:20,230 --> 00:01:26,710
+In prerequisites video I have explained about username and password with multifactor authentication,
+
+19
+00:01:26,710 --> 00:01:31,700
+if it's a password based login to the console, there should be definitely multifactor authentication.
+
+20
+00:01:32,380 --> 00:01:34,840
+Be very careful with access keys.
+
+21
+00:01:35,650 --> 00:01:41,020
+You know, some organization have so much tight control that they will not allow users to create access
+
+22
+00:01:41,020 --> 00:01:41,440
+keys.
+
+23
+00:01:42,550 --> 00:01:49,120
+And we'll see how we can implement that law organization, you can have multifactor authentication on
+
+24
+00:01:49,130 --> 00:01:56,140
+APCLS as well, since access keys are so dangerous, it's always recommended to use embroils, which
+
+25
+00:01:56,140 --> 00:02:00,320
+will generate temporary credentials or the credentials that really rotates automatically.
+
+26
+00:02:00,790 --> 00:02:06,370
+So if you're purely on your WCA, using Kleinsorge uneatable servers also need a blast and you can use
+
+27
+00:02:06,380 --> 00:02:07,180
+IAM rules.
+
+28
+00:02:07,180 --> 00:02:09,070
+Do not use access keys.
+
+29
+00:02:09,880 --> 00:02:14,770
+This access keys are very dangerous rules uses the keys internally.
+
+30
+00:02:14,770 --> 00:02:16,330
+They get rotated automatically.
+
+31
+00:02:16,330 --> 00:02:18,040
+There is no chance of exposing it.
+
+32
+00:02:18,940 --> 00:02:21,430
+So that's the safest method if you're already on W.S..
+
+33
+00:02:22,390 --> 00:02:27,160
+So let's get into A.I.M. so we can see some action with policies.
+
+34
+00:02:29,030 --> 00:02:30,440
+So let's go to I am service.
+
+35
+00:02:32,180 --> 00:02:36,770
+So currently, I don't have any users in my account, no groups.
+
+36
+00:02:36,800 --> 00:02:38,450
+There are so many rules.
+
+37
+00:02:39,960 --> 00:02:45,330
+Customer managed policy, 65 customer managed policies now, by the way, is the same account that I
+
+38
+00:02:45,330 --> 00:02:48,770
+have used throughout the course in different different projects.
+
+39
+00:02:49,680 --> 00:02:55,230
+So as I mentioned the previous night's video, you have to enable multifactor authentication and water
+
+40
+00:02:55,230 --> 00:02:56,130
+security alerts.
+
+41
+00:02:56,130 --> 00:02:57,580
+You see over here, you have to fix it.
+
+42
+00:02:57,580 --> 00:03:01,290
+So it sees the root user for this account does not have a MFAT enabled.
+
+43
+00:03:02,910 --> 00:03:08,730
+So we should enable multifactor authentication for road user are much better when we see the next service
+
+44
+00:03:08,730 --> 00:03:13,920
+organization will disable the login itself, will not let anyone use the route user.
+
+45
+00:03:15,000 --> 00:03:17,020
+So no chance of making that mistake itself.
+
+46
+00:03:18,430 --> 00:03:22,930
+So I'm not doing that, I mean, those security things waterboarded in political video, if you're not
+
+47
+00:03:22,930 --> 00:03:28,870
+seeing it followed once again, do all the prerequisites for the I am for your loss account and then
+
+48
+00:03:28,870 --> 00:03:30,010
+you can continue from here.
+
+49
+00:03:30,730 --> 00:03:35,410
+And I will do one thing on this alias and give a new account name.
+
+50
+00:03:36,550 --> 00:03:38,790
+I will call it a secure.
+
+51
+00:03:40,020 --> 00:03:41,010
+The profile.
+
+52
+00:03:42,980 --> 00:03:46,190
+Alias or whatever, you feel like this has to be unique, OK?
+
+53
+00:03:47,620 --> 00:03:54,730
+So I'm jumping directly into policies now and policies we can attach it to user to group and to rules,
+
+54
+00:03:54,770 --> 00:04:01,470
+these policies gives the authorization for a user or a group or a role to do X, Y, Z things.
+
+55
+00:04:02,440 --> 00:04:04,630
+So you have two kinds of policies over here.
+
+56
+00:04:04,750 --> 00:04:06,820
+The one where you see that symbol.
+
+57
+00:04:07,450 --> 00:04:12,770
+These are eatables managed policies created by W.S. and managed by W.S..
+
+58
+00:04:12,820 --> 00:04:19,029
+You can directly selected and attach it, but they are more open or more closed, like a complete read-only
+
+59
+00:04:19,029 --> 00:04:21,070
+access or full access, something like that.
+
+60
+00:04:22,350 --> 00:04:28,770
+But when you want to be very specific, like if you remember, we did this in continuous integration
+
+61
+00:04:28,770 --> 00:04:35,780
+project on the of side where you used code commit, we specifically created our own policy.
+
+62
+00:04:35,790 --> 00:04:39,270
+We said this user can only access this repository.
+
+63
+00:04:40,230 --> 00:04:42,370
+These are called customer managed policies.
+
+64
+00:04:42,420 --> 00:04:46,500
+If you click on filter policies, you can see customer managed policies.
+
+65
+00:04:47,070 --> 00:04:48,030
+If you click on that.
+
+66
+00:04:49,430 --> 00:04:56,510
+These are the policies that I have created in my account, and they don't have that symbol of this scroll
+
+67
+00:04:56,510 --> 00:04:59,610
+down there, I see VPP proof code.
+
+68
+00:05:00,260 --> 00:05:01,130
+This is a policy.
+
+69
+00:05:02,580 --> 00:05:07,260
+Now, the policies are inducing format, but you really don't need to write it in, Jason, you can
+
+70
+00:05:07,260 --> 00:05:09,150
+create it will take some example.
+
+71
+00:05:09,150 --> 00:05:15,060
+We already did that, like we created this policy in the project in Continuous Integration Project on
+
+72
+00:05:15,060 --> 00:05:18,840
+EWR, which created this policy, which I use, which has.
+
+73
+00:05:20,450 --> 00:05:26,960
+The statement effect allow so this policy is about allowing this action is about allowing these are
+
+74
+00:05:26,960 --> 00:05:27,830
+the actions.
+
+75
+00:05:29,440 --> 00:05:34,400
+I could commit a service list repository now update approval.
+
+76
+00:05:34,800 --> 00:05:38,190
+These are the list of actions which are allowed.
+
+77
+00:05:39,320 --> 00:05:47,000
+On all the resources and then you have one more over here, which is allow cold comfort and you have
+
+78
+00:05:47,000 --> 00:05:51,920
+the irony of the repository, the repositories of being very specific.
+
+79
+00:05:52,330 --> 00:05:57,710
+Only actions are only for this repository, not all the repositories.
+
+80
+00:06:00,230 --> 00:06:07,130
+On this repository and then here it's similar, but there is a fourth star that meets on this repository
+
+81
+00:06:07,130 --> 00:06:15,290
+and also contained in the repository, and so policies will be like this effect, allow or deny action.
+
+82
+00:06:15,950 --> 00:06:18,560
+What actions can be taken and resource on what?
+
+83
+00:06:18,560 --> 00:06:19,220
+For what?
+
+84
+00:06:20,480 --> 00:06:24,920
+And this policy will be Atash can be attached to a user, can be attached to a group or can be attached
+
+85
+00:06:24,920 --> 00:06:31,580
+to a role, and we'll take an example of creating our own policy and we'll create a policy that can
+
+86
+00:06:31,580 --> 00:06:35,900
+start and stop one particular instance, that's all.
+
+87
+00:06:36,410 --> 00:06:41,030
+And we will assign it to a user and we'll see whether that user is able to do anything else apart from
+
+88
+00:06:41,030 --> 00:06:44,780
+that also will put some extra read-only access to that user.
+
+89
+00:06:45,290 --> 00:06:47,920
+So let's first launch Aniceto instance.
+
+90
+00:06:48,620 --> 00:06:50,270
+So I have an easy to answer here.
+
+91
+00:06:50,480 --> 00:06:53,570
+It's a jenkins' incidents and there's the instance ID.
+
+92
+00:06:55,130 --> 00:07:01,790
+It's in running state, so maybe there is a developer who is using this Jenkins' instance and this developer,
+
+93
+00:07:01,790 --> 00:07:06,680
+I want to give only this much access that he can start and stop this easy to insurgents and don't cannot
+
+94
+00:07:06,680 --> 00:07:07,150
+do anything.
+
+95
+00:07:07,280 --> 00:07:13,610
+So I don't want to you to us to be always up and running, but I don't want every damn developer asking
+
+96
+00:07:13,610 --> 00:07:13,940
+me that.
+
+97
+00:07:13,940 --> 00:07:14,970
+Can you start the instant?
+
+98
+00:07:14,970 --> 00:07:15,800
+How can you stop this?
+
+99
+00:07:15,800 --> 00:07:21,500
+Just I want to give this to a developer that you log to console and you can start and stop instantly,
+
+100
+00:07:21,500 --> 00:07:22,670
+but only this one.
+
+101
+00:07:23,440 --> 00:07:24,510
+OK, so let's do that.
+
+102
+00:07:25,430 --> 00:07:26,960
+So we need to first create a policy.
+
+103
+00:07:26,960 --> 00:07:33,500
+So let's click on Create Policy so you can be like really hardcore and create all the Jason yourself.
+
+104
+00:07:34,590 --> 00:07:39,020
+And this documentation, I'll run you through the documentation, but let's create it through the editor,
+
+105
+00:07:39,450 --> 00:07:43,080
+so choose a service, I will choose the service to.
+
+106
+00:07:44,870 --> 00:07:49,050
+If you do service action, what action do you want?
+
+107
+00:07:49,910 --> 00:07:53,870
+So by default, what an action you select, it's going to be for the allow action.
+
+108
+00:07:53,870 --> 00:08:00,260
+But if you want to have dinner, you can say switch to deny permission or you can go back to deny or
+
+109
+00:08:00,260 --> 00:08:00,530
+allow.
+
+110
+00:08:00,860 --> 00:08:01,820
+Remember one thing.
+
+111
+00:08:01,820 --> 00:08:03,470
+Deny, supersedes, allow.
+
+112
+00:08:03,500 --> 00:08:10,580
+So if you have given deny noisey to access and then you have given allowing you to access so deny will
+
+113
+00:08:10,580 --> 00:08:11,270
+supersede.
+
+114
+00:08:12,680 --> 00:08:13,550
+Keep that in mind.
+
+115
+00:08:14,780 --> 00:08:17,790
+If you have conflicting permission, Dinni will supersede.
+
+116
+00:08:19,460 --> 00:08:24,020
+So there's a list read the difference between a list on your list.
+
+117
+00:08:24,020 --> 00:08:28,370
+As you know, you can just list those things reads, you know, you can do some grid operations on that
+
+118
+00:08:29,120 --> 00:08:34,039
+tagging and write book, which is making changes, you know, you can delete also.
+
+119
+00:08:34,880 --> 00:08:39,640
+So you can click on that and you can see all the actions which are you prefer.
+
+120
+00:08:39,650 --> 00:08:40,490
+You can select that.
+
+121
+00:08:41,510 --> 00:08:43,590
+You can just search it from here itself.
+
+122
+00:08:43,590 --> 00:08:45,380
+So I would like to start.
+
+123
+00:08:47,020 --> 00:08:52,870
+And stopping since they started shooting so carelessly like that and so full stop.
+
+124
+00:08:54,030 --> 00:08:55,330
+Stop instance.
+
+125
+00:08:56,220 --> 00:08:59,610
+OK, so two actions are selected for you to start and stop.
+
+126
+00:09:00,870 --> 00:09:06,230
+Resources on what now here, it's time to be specific only for that particular issue, for instance.
+
+127
+00:09:06,240 --> 00:09:07,740
+So I'm going to see Ariadna.
+
+128
+00:09:09,610 --> 00:09:11,470
+Now, I can give the region name first.
+
+129
+00:09:12,490 --> 00:09:18,970
+All star means all the regions, so I'll be specific only for that particular region, so which is my
+
+130
+00:09:18,970 --> 00:09:21,630
+instances in the US West to region.
+
+131
+00:09:22,720 --> 00:09:24,520
+Account only and the instant.
+
+132
+00:09:24,820 --> 00:09:30,310
+So let's go to the instance that's, for instance, I'd put it out there.
+
+133
+00:09:31,460 --> 00:09:37,790
+And let's see, you know, you can just say any which would be for all these incidents that also I can
+
+134
+00:09:37,790 --> 00:09:40,040
+do, I just add.
+
+135
+00:09:42,310 --> 00:09:42,970
+Wait a second.
+
+136
+00:09:43,000 --> 00:09:43,870
+This is Denyer.
+
+137
+00:09:44,900 --> 00:09:48,170
+I made a mistake, so let's remove it once.
+
+138
+00:09:49,930 --> 00:09:51,620
+Cancel, whoops.
+
+139
+00:09:51,700 --> 00:09:55,870
+OK, let's created once again create policy, choose a service.
+
+140
+00:09:57,240 --> 00:09:58,050
+You see two.
+
+141
+00:10:01,050 --> 00:10:04,050
+Action, just start and stop.
+
+142
+00:10:05,060 --> 00:10:05,570
+Start.
+
+143
+00:10:07,480 --> 00:10:07,800
+Job.
+
+144
+00:10:11,220 --> 00:10:13,320
+Specifically, source, Aaron.
+
+145
+00:10:14,460 --> 00:10:18,000
+The region and the U.S. do instant add.
+
+146
+00:10:24,380 --> 00:10:29,900
+He's also request condition, you can put conditions also on that you can see probably if it's only
+
+147
+00:10:29,900 --> 00:10:34,910
+from this particular app, can you repeat your multifactor authentication is required or you can give
+
+148
+00:10:34,910 --> 00:10:42,320
+your own condition if something equals to something like the instance has or the user has this particular
+
+149
+00:10:42,320 --> 00:10:43,080
+tag, OK?
+
+150
+00:10:43,460 --> 00:10:45,350
+Like, for example, if you select your.
+
+151
+00:10:46,860 --> 00:10:53,130
+Like, for example, a resource tag, the tag resource tag means a tag on our resources, specifically
+
+152
+00:10:53,220 --> 00:10:56,790
+you to instance tag like you can give the tag.
+
+153
+00:10:57,750 --> 00:11:04,590
+And we can see if it's equal to a particular value, if this matches, then only it will allow that
+
+154
+00:11:04,590 --> 00:11:06,590
+action so you can give conditions like that again.
+
+155
+00:11:06,600 --> 00:11:09,030
+Think of many conditions based on your requirement.
+
+156
+00:11:09,600 --> 00:11:13,260
+We are not doing this because we are going to directly attach it to the user.
+
+157
+00:11:13,260 --> 00:11:14,990
+So we don't need this condition for now.
+
+158
+00:11:15,780 --> 00:11:17,070
+Let's review policy.
+
+159
+00:11:18,310 --> 00:11:25,210
+Let's give a name to this policy will start stop Jenkins'.
+
+160
+00:11:26,880 --> 00:11:28,140
+OK, create policy.
+
+161
+00:11:32,160 --> 00:11:37,920
+So this is a customer managed policy and start stop to think it's OK, that's a policy.
+
+162
+00:11:37,920 --> 00:11:41,820
+No, let's create a user and user, let's name it as.
+
+163
+00:11:44,440 --> 00:11:45,250
+Developer.
+
+164
+00:11:47,410 --> 00:11:52,300
+And we'll just give management console access and see custom password.
+
+165
+00:11:53,300 --> 00:11:58,970
+And give some password and remove request password reset.
+
+166
+00:12:00,900 --> 00:12:02,560
+Foster does not match.
+
+167
+00:12:02,760 --> 00:12:05,590
+Oh, yeah, so I have policies now.
+
+168
+00:12:09,610 --> 00:12:11,730
+It does not match my previous password.
+
+169
+00:12:13,780 --> 00:12:16,270
+OK, now here I am going to give permission.
+
+170
+00:12:17,250 --> 00:12:25,650
+Through my door policy to my policy that I created start and stop, OK, so this user will only have
+
+171
+00:12:25,650 --> 00:12:28,500
+this policy and create producer.
+
+172
+00:12:32,260 --> 00:12:36,760
+All right, and you are also I'm going to copy that you are an open a different browser.
+
+173
+00:12:39,540 --> 00:12:45,170
+I give the user name, which is a wrong spelling when I created it, says.
+
+174
+00:12:47,390 --> 00:12:47,960
+Signing.
+
+175
+00:12:49,120 --> 00:12:53,180
+Now we know this user, why is it asking to reset the password?
+
+176
+00:12:53,200 --> 00:12:58,120
+I thought to ensure that I can use let's reset the password, which is a good thing.
+
+177
+00:13:12,370 --> 00:13:13,210
+OK, we're in.
+
+178
+00:13:13,240 --> 00:13:14,860
+Let's go to the sea to service.
+
+179
+00:13:18,550 --> 00:13:21,790
+Oops, you see that we had appeared at EPA, at EPA.
+
+180
+00:13:23,010 --> 00:13:28,980
+And you will think, hey, I wanted to start stop instance, even that is not possible now, not because
+
+181
+00:13:28,980 --> 00:13:32,580
+we are in a different region, Ohio, Vihar instance in Oregon.
+
+182
+00:13:33,650 --> 00:13:33,880
+Right.
+
+183
+00:13:34,570 --> 00:13:35,580
+So let's do that.
+
+184
+00:13:36,460 --> 00:13:37,710
+Let's switch to that region.
+
+185
+00:13:39,410 --> 00:13:40,490
+Let's go to the instance.
+
+186
+00:13:42,170 --> 00:13:48,170
+OK, not a list of the instance we have given policy to start and out of the instance, but we have
+
+187
+00:13:48,170 --> 00:13:51,710
+not given permission to list to describe the instances.
+
+188
+00:13:52,910 --> 00:13:55,740
+You see that it is very, very specific.
+
+189
+00:13:56,540 --> 00:13:59,330
+Point is, if you can't see the instance, how can we start and stop?
+
+190
+00:13:59,570 --> 00:14:05,460
+So we have to change the policies or we can edit the existing policy or we can add more policy related
+
+191
+00:14:05,460 --> 00:14:06,530
+to existing policy.
+
+192
+00:14:07,840 --> 00:14:10,990
+So going back to our policies.
+
+193
+00:14:13,060 --> 00:14:14,500
+Let's find out our policy.
+
+194
+00:14:16,700 --> 00:14:19,790
+Start, stop, jenkins'.
+
+195
+00:14:22,020 --> 00:14:22,920
+And your policy.
+
+196
+00:14:24,640 --> 00:14:28,870
+Now we can use again the visual edited and edited, but this time let's do Jason.
+
+197
+00:14:30,610 --> 00:14:31,330
+John, what are you doing?
+
+198
+00:14:31,360 --> 00:14:32,700
+Again, you don't need to remember things.
+
+199
+00:14:32,700 --> 00:14:37,660
+So here I learned through the recommendation after this, and I'll show you some popular policies and
+
+200
+00:14:37,660 --> 00:14:39,190
+a lot of example policies also.
+
+201
+00:14:40,270 --> 00:14:45,970
+So this is one statement over here which will all start and stop the instance, I want to give one more.
+
+202
+00:14:46,040 --> 00:14:47,200
+I'm going to say comma there.
+
+203
+00:14:48,850 --> 00:14:50,680
+And I'm going to see clipless.
+
+204
+00:14:54,010 --> 00:14:54,790
+Effect.
+
+205
+00:14:58,220 --> 00:15:01,270
+Allow so I want to allow you to describe instances.
+
+206
+00:15:01,280 --> 00:15:02,390
+So action.
+
+207
+00:15:06,880 --> 00:15:16,390
+To action, honesty, to the action specific, to describe instance instances now I already know that,
+
+208
+00:15:16,390 --> 00:15:19,220
+so I can very easily write it, but how will you find out?
+
+209
+00:15:19,240 --> 00:15:21,310
+We'll find out from the documentation.
+
+210
+00:15:21,310 --> 00:15:24,190
+I get the karma resources.
+
+211
+00:15:27,210 --> 00:15:33,320
+Outside just the resource, and I'm going to see all so it should be able to describe all instances,
+
+212
+00:15:33,390 --> 00:15:42,090
+it can list this policy, can list all the instances, but can only start and stop this instance, the
+
+213
+00:15:42,090 --> 00:15:43,440
+specific Aaron.
+
+214
+00:15:45,200 --> 00:15:51,020
+So this policy has to permission both are allow one allow start and stop to a specific instance.
+
+215
+00:15:51,440 --> 00:15:55,130
+The other is allow describe instances for all the resources.
+
+216
+00:15:55,130 --> 00:15:57,110
+There's no specific order, everything.
+
+217
+00:15:58,430 --> 00:15:59,630
+Let's review this policy.
+
+218
+00:16:01,610 --> 00:16:03,500
+And let's see if the changes.
+
+219
+00:16:05,130 --> 00:16:09,450
+Now, let's go back to your Firefox logged in and I'm going to refresh.
+
+220
+00:16:12,650 --> 00:16:19,090
+The user only had this quality and you can see the instance, right, OK, in this user, stop the instance.
+
+221
+00:16:21,340 --> 00:16:23,260
+Yeah, there's so many issues going on there.
+
+222
+00:16:23,530 --> 00:16:27,340
+No problem, I can stop the instances, stop, stop.
+
+223
+00:16:27,340 --> 00:16:33,160
+Because you see that successfully stopped the instance at this year getting because not able to describe
+
+224
+00:16:33,160 --> 00:16:34,000
+so many things.
+
+225
+00:16:35,080 --> 00:16:38,560
+OK, and that's kind of really annoying, I know.
+
+226
+00:16:39,220 --> 00:16:44,980
+But then you can do to go online, OK, and stop this just can't start this with this end user launch
+
+227
+00:16:44,980 --> 00:16:45,610
+an instant.
+
+228
+00:16:47,490 --> 00:16:52,360
+All right, let's find that out and select already started issues coming up.
+
+229
+00:16:52,380 --> 00:16:53,940
+You can see the images.
+
+230
+00:16:53,940 --> 00:16:54,750
+You can do this.
+
+231
+00:16:54,750 --> 00:16:55,650
+You can do that.
+
+232
+00:16:57,180 --> 00:17:03,880
+All right, so if you started coming in Canada, do other things also going on Amway's or volumes,
+
+233
+00:17:03,900 --> 00:17:05,369
+OK, and keep getting letters.
+
+234
+00:17:06,300 --> 00:17:13,589
+All right, so being very specific, I'll do one more thing, I will find out one more policy.
+
+235
+00:17:13,589 --> 00:17:16,770
+Eatables managed policy and to the same instant, same user.
+
+236
+00:17:16,859 --> 00:17:17,270
+Sorry.
+
+237
+00:17:18,030 --> 00:17:18,869
+So let's go back.
+
+238
+00:17:19,859 --> 00:17:22,800
+And let's go to our user.
+
+239
+00:17:28,180 --> 00:17:31,690
+Now you see that one policy, which I have not been able to do that.
+
+240
+00:17:32,780 --> 00:17:36,910
+This user can change its own password, that's fine, had permission.
+
+241
+00:17:38,170 --> 00:17:42,630
+Adapt existing policy, and I would like to give his three.
+
+242
+00:17:44,280 --> 00:17:51,390
+Now, I want to give eatables Spanish policy is three read-only exis live, you don't have permission.
+
+243
+00:17:52,470 --> 00:17:59,760
+OK, a user having to policy, one created by us, which is customer managed policy and one eatables
+
+244
+00:17:59,760 --> 00:18:02,550
+managed policy, this one more, but that will be an their.
+
+245
+00:18:03,750 --> 00:18:07,920
+Now, let's go back to Firefox and let's go to S3.
+
+246
+00:18:12,360 --> 00:18:18,030
+So Read-Only access, of course, can do everything in list of all those things and click on that.
+
+247
+00:18:19,190 --> 00:18:27,280
+Advocate, for example, and we profiled artifact and files that can access and even download these
+
+248
+00:18:27,280 --> 00:18:27,850
+files.
+
+249
+00:18:28,950 --> 00:18:29,700
+Action.
+
+250
+00:18:30,590 --> 00:18:31,310
+Download.
+
+251
+00:18:33,760 --> 00:18:40,720
+All right, see you fine soldier level access can down, of course, download the files, but can this
+
+252
+00:18:40,720 --> 00:18:42,850
+user do some great operation?
+
+253
+00:18:43,640 --> 00:18:45,580
+So files downloaded already?
+
+254
+00:18:46,420 --> 00:18:47,410
+That's critical.
+
+255
+00:18:47,560 --> 00:18:53,110
+Can we create a folder and see just security with the wrong spelling?
+
+256
+00:18:53,110 --> 00:18:53,890
+But that's fine.
+
+257
+00:18:54,590 --> 00:19:00,580
+Let's create see, that doesn't have the permission and the really many, many, many things to different,
+
+258
+00:19:00,580 --> 00:19:01,130
+different ways.
+
+259
+00:19:01,150 --> 00:19:02,590
+It's all based on your requirement.
+
+260
+00:19:02,600 --> 00:19:05,380
+You can select any kind of permission and allotted to the user.
+
+261
+00:19:05,920 --> 00:19:08,130
+But be specific, OK?
+
+262
+00:19:08,650 --> 00:19:10,540
+To be safe here, you have to be specific.
+
+263
+00:19:12,000 --> 00:19:20,840
+It is a very nice reinvent eatables, reinvent video, which talks about more into these policies as
+
+264
+00:19:20,850 --> 00:19:24,120
+that's the one I am policy master in 60 Minutes.
+
+265
+00:19:24,130 --> 00:19:30,990
+So this is 2008, a video and this 2019 video of this Norwegian 2020.
+
+266
+00:19:32,270 --> 00:19:34,970
+And that's fine, this really not many changes.
+
+267
+00:19:35,420 --> 00:19:37,670
+You can check this 2019 video also.
+
+268
+00:19:39,890 --> 00:19:47,260
+So I really, really recommend you watch these video, understand practice, this will be, you know,
+
+269
+00:19:47,270 --> 00:19:52,760
+with the workshop kind of so you can do something, what they are doing over there or they're showing
+
+270
+00:19:53,540 --> 00:19:55,880
+like that for many, many services that we are going to see.
+
+271
+00:19:55,880 --> 00:19:57,650
+I show you the relevant videos.
+
+272
+00:19:57,650 --> 00:20:04,340
+I have used these videos to loan for my eatables certification exam, security exam.
+
+273
+00:20:04,790 --> 00:20:11,090
+And these videos helped me a lot in that I am policy is one thing you should really master, OK, when
+
+274
+00:20:11,090 --> 00:20:12,140
+it comes to mastering.
+
+275
+00:20:12,180 --> 00:20:14,500
+Well, we have to go through the documentation, right.
+
+276
+00:20:14,690 --> 00:20:16,130
+So let's go to the documentation.
+
+277
+00:20:18,750 --> 00:20:25,950
+So you can go to the AM documentation and it's really in the user guide, access management policies
+
+278
+00:20:25,950 --> 00:20:31,740
+and permissions example policies, OK, the best way I think, you know, instead of going through everything
+
+279
+00:20:31,740 --> 00:20:37,050
+is go with example's policy and you can learn a lot from them and you're going to use them, for example,
+
+280
+00:20:37,050 --> 00:20:43,110
+policies as so many data for the pipeline for Dinamo Debe, for Amazon, easy to, you know, like Amazon,
+
+281
+00:20:43,110 --> 00:20:46,800
+easy instanced to attach or detach volume to this policy.
+
+282
+00:20:49,560 --> 00:20:53,340
+OK, so it's going to be interesting format, of course, so.
+
+283
+00:20:54,320 --> 00:21:01,400
+Almost similar to what we did, right, but with the condition that I attach and detach the instances.
+
+284
+00:21:01,430 --> 00:21:08,760
+So here you see two star and star to all these instances, not only volumes and instant's condition,
+
+285
+00:21:08,760 --> 00:21:13,490
+the distance, Aaron, if this is these two incidents, then only that action like that.
+
+286
+00:21:14,730 --> 00:21:19,050
+So there are so many example policies, astar style policies is also there.
+
+287
+00:21:21,030 --> 00:21:26,070
+Policy for the erm itself, Lambretta for ideas for a three.
+
+288
+00:21:27,900 --> 00:21:33,830
+So you can see some example, politics are and again, simply Google, right, and you see so many examples
+
+289
+00:21:33,840 --> 00:21:39,190
+of documentation's night falling back to console management console.
+
+290
+00:21:39,190 --> 00:21:42,840
+So the user group things, we already covered this in political science.
+
+291
+00:21:42,840 --> 00:21:47,700
+And our focus should be more on policies, how to create policies, your own policy, being specific.
+
+292
+00:21:48,000 --> 00:21:53,520
+And then based on that, you attach to a role or to a user or to a group is always a good idea.
+
+293
+00:21:54,330 --> 00:21:56,190
+Our best practice to group users.
+
+294
+00:21:57,350 --> 00:22:03,320
+OK, so that's all in this video, in the next video, we will be seeing organizations and there is
+
+295
+00:22:03,320 --> 00:22:05,360
+also a few other policies, legacy policy.
+
+296
+00:22:05,360 --> 00:22:07,870
+Those will see for the other videos.
+
+297
+00:22:08,600 --> 00:22:11,390
+So let's go to the aid organizations now.
+

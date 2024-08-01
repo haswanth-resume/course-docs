@@ -1,0 +1,724 @@
+1
+00:00:11,660 --> 00:00:14,290
+Welcome to the AWB Securities Project.
+
+2
+00:00:14,300 --> 00:00:18,950
+In this project, we are going to practice and implement AWB securities.
+
+3
+00:00:19,630 --> 00:00:20,890
+What does it really mean?
+
+4
+00:00:20,900 --> 00:00:22,890
+We'll understand that in a moments.
+
+5
+00:00:24,560 --> 00:00:32,030
+But as of now, I can tell you this, having securities concepts on your resume will really boost your
+
+6
+00:00:32,030 --> 00:00:32,810
+confidence.
+
+7
+00:00:34,290 --> 00:00:36,170
+And the power of your resume itself.
+
+8
+00:00:38,110 --> 00:00:40,720
+So let's understand a few things about this project.
+
+9
+00:00:41,590 --> 00:00:48,880
+So this project is for awareness, encouragement, and I want to equip you with the right knowledge.
+
+10
+00:00:49,390 --> 00:00:55,030
+Yeah, this is more about implementing security in all the other projects you have done previously,
+
+11
+00:00:55,450 --> 00:00:58,460
+which used A.W. as services.
+
+12
+00:00:59,380 --> 00:01:07,000
+So this is not like a wholesome project, but it's more like cherry on the cake for you and for your
+
+13
+00:01:07,000 --> 00:01:12,490
+resume, of course, which will, of course, benefit the organization which is hiring you.
+
+14
+00:01:13,150 --> 00:01:19,990
+So when I say awareness, that's because the biggest problem I see in the security is people are not
+
+15
+00:01:19,990 --> 00:01:24,040
+aware they make mistakes, which could be very expensive.
+
+16
+00:01:24,820 --> 00:01:30,550
+So this session is going to kind of enlighten you that, hey, there are these kinds of attacks and
+
+17
+00:01:30,550 --> 00:01:36,190
+you have so many tools with you that you can use and prevent those attacks.
+
+18
+00:01:36,820 --> 00:01:43,390
+Also, I want to encourage you to learn more in the security as more and more we shift towards cloud
+
+19
+00:01:43,390 --> 00:01:47,000
+computing, the more we are getting exposed.
+
+20
+00:01:47,980 --> 00:01:50,260
+So let's see different kinds of attacks.
+
+21
+00:01:52,440 --> 00:01:58,410
+Well, various kinds of attacks that you see nowadays here, there are just few of them distributed
+
+22
+00:01:58,410 --> 00:02:06,890
+denial of service where someone attacks you or your organization infrastructure to bring it down.
+
+23
+00:02:07,810 --> 00:02:11,990
+Or slow it down, so here the user will be affected, really.
+
+24
+00:02:12,010 --> 00:02:19,120
+And in turn, your business gets affected man in the middle attack, which is more like that between
+
+25
+00:02:19,300 --> 00:02:24,340
+the two phone lines, like we see we see in the movies that the phone gets tapped.
+
+26
+00:02:24,850 --> 00:02:31,180
+Similar to that, in sending data from point A to point B and there is a tap in the middle C, which
+
+27
+00:02:31,540 --> 00:02:36,600
+listens all the communication or has all the communication phishing, which you are aware about it.
+
+28
+00:02:37,060 --> 00:02:39,820
+We hear so many stories nowadays about phishing.
+
+29
+00:02:41,520 --> 00:02:49,740
+Drive by attack, which is mostly used to spread malware where a cyber criminal will inject some malicious
+
+30
+00:02:49,740 --> 00:02:55,110
+script into insecure websites like you have hosted a website that's really insecure.
+
+31
+00:02:55,770 --> 00:03:00,930
+So cyber criminals can use this website to plan attack on the user of the site.
+
+32
+00:03:01,710 --> 00:03:07,350
+So if you if your user uses, you know, accessing your website, the malware gets installed in the
+
+33
+00:03:07,350 --> 00:03:09,390
+computer or on their smartphone.
+
+34
+00:03:11,020 --> 00:03:16,720
+Basswood attack, as the name itself said, attack to get your password, and then there are various
+
+35
+00:03:16,720 --> 00:03:21,720
+methods in that really going in depth on this is really out of the scope of the session.
+
+36
+00:03:22,210 --> 00:03:27,280
+This for your awareness that there are attacks, lots of lots of attacks like that, and there are few
+
+37
+00:03:27,280 --> 00:03:27,730
+more.
+
+38
+00:03:30,530 --> 00:03:37,070
+As fuel injection attack or cross site scripting, eavesdropping attack or malware attack, SQL injection,
+
+39
+00:03:37,070 --> 00:03:42,440
+where a cyber criminal will use malicious Ezekial code.
+
+40
+00:03:43,220 --> 00:03:50,240
+So like through a website sending ESKIL injections, which gets inserted into the database, the database
+
+41
+00:03:50,240 --> 00:03:55,370
+runs those queries and which may reveal a lot of information about the database or even destroy the
+
+42
+00:03:55,370 --> 00:03:56,270
+database itself.
+
+43
+00:03:56,990 --> 00:04:02,090
+Cross site scripting, where the attacker aims to execute malicious scripts in a Web browser of the
+
+44
+00:04:02,090 --> 00:04:02,910
+victim itself.
+
+45
+00:04:03,830 --> 00:04:10,070
+These attacks occurs when victim visits the websites or the application that executes such kind of code
+
+46
+00:04:10,940 --> 00:04:15,170
+eavesdropping attack, which is really a theft of information.
+
+47
+00:04:15,530 --> 00:04:17,640
+It's also sniffing or snooping.
+
+48
+00:04:18,709 --> 00:04:22,340
+So here the attackers take the advantage of unsecure networks.
+
+49
+00:04:24,100 --> 00:04:29,500
+And malware attack, of course, where the cyber criminals, the attackers will inject some malware
+
+50
+00:04:29,740 --> 00:04:33,980
+like Trojan Horse and like that, there really many, many more attacks.
+
+51
+00:04:34,000 --> 00:04:41,680
+This is just an awareness that they that there is bad, bad, bad world out there which is waiting for
+
+52
+00:04:41,680 --> 00:04:42,880
+you to make a mistake.
+
+53
+00:04:45,320 --> 00:04:48,160
+So you'll ask me, what do we do really about it?
+
+54
+00:04:49,740 --> 00:04:50,160
+Well.
+
+55
+00:04:51,870 --> 00:04:52,720
+Stay alert.
+
+56
+00:04:52,860 --> 00:04:59,190
+You should keep security always in your mind, if you remember throughout the projects that he used
+
+57
+00:04:59,790 --> 00:05:07,970
+or where he used a cloud computing platform, we never exposed our security group or we kept our key
+
+58
+00:05:07,980 --> 00:05:08,690
+secret.
+
+59
+00:05:08,730 --> 00:05:15,840
+I did not wanted you to expose your access, your secret to so many places where we keep security.
+
+60
+00:05:15,840 --> 00:05:18,420
+We kept security in mind, but there are so many more things.
+
+61
+00:05:18,660 --> 00:05:23,370
+And really doing security on airplanes is very, very easy as compared to any other place.
+
+62
+00:05:24,630 --> 00:05:28,540
+So being a Davos, what do we really do about it being a diva?
+
+63
+00:05:28,560 --> 00:05:33,810
+So you have to work hand in hand with the security professionals.
+
+64
+00:05:36,760 --> 00:05:41,410
+I'm not saying that you go out there and you take all the responsibility in your hand, but everyone
+
+65
+00:05:41,410 --> 00:05:45,680
+plays their role in security, so as developes plays a role in the security.
+
+66
+00:05:45,700 --> 00:05:46,120
+Also.
+
+67
+00:05:47,830 --> 00:05:53,770
+And if you're interested more, you can gain more knowledge and security by learning penetration testing,
+
+68
+00:05:53,770 --> 00:05:56,910
+ethical hacking, cyber security.
+
+69
+00:05:57,910 --> 00:06:05,020
+So if you're wondering, are we really talking about def sec ops here, you can say in a sense, yes,
+
+70
+00:06:06,070 --> 00:06:09,670
+I know that's not such a confident statement and there is reason behind it.
+
+71
+00:06:10,540 --> 00:06:12,030
+Dempsey is a quantum.
+
+72
+00:06:13,180 --> 00:06:14,000
+We don't know where.
+
+73
+00:06:14,030 --> 00:06:19,220
+I really don't know where it got invented the stone, and there's so many people who don't agree with
+
+74
+00:06:19,220 --> 00:06:22,030
+this terminology and some people agree with this terminology.
+
+75
+00:06:22,340 --> 00:06:29,930
+I stand on the side of not agreeing with this terminology, because when you create these kinds of terms
+
+76
+00:06:30,260 --> 00:06:37,100
+in divorce, divorce is already a philosophy of unifying development and operations together.
+
+77
+00:06:37,370 --> 00:06:43,490
+But then we're creating more teams in that we are seeing dev ops, cloud ops, no ops.
+
+78
+00:06:44,440 --> 00:06:51,160
+Well, this really confuses the audience more, and the audience could be you and me, the customer
+
+79
+00:06:51,160 --> 00:06:52,990
+declined the idea organization.
+
+80
+00:06:53,680 --> 00:06:55,030
+So do I go with the devil?
+
+81
+00:06:55,150 --> 00:06:55,880
+Can you do.
+
+82
+00:06:55,900 --> 00:06:57,820
+Should I go with the deficit office candidate?
+
+83
+00:06:59,340 --> 00:07:04,890
+So just sample this, I'll show you some information from RedHat and EWR and you compare the difference
+
+84
+00:07:04,890 --> 00:07:05,390
+yourself.
+
+85
+00:07:07,140 --> 00:07:14,730
+So this is from RedHat, what is cops, I don't want to read all of it, but I wanted you to read a
+
+86
+00:07:14,730 --> 00:07:15,570
+few things.
+
+87
+00:07:16,870 --> 00:07:24,010
+Whether you call it a dev ops or dev ops, it has always been ideal to include security as an integral
+
+88
+00:07:24,010 --> 00:07:26,350
+part of entire app lifecycle.
+
+89
+00:07:28,470 --> 00:07:34,050
+So not such a confident statement right there, they are saying, is about implementing security in
+
+90
+00:07:34,050 --> 00:07:38,280
+the divorce pipeline and that's what you can understand for now.
+
+91
+00:07:38,280 --> 00:07:39,150
+A few more things.
+
+92
+00:07:40,170 --> 00:07:45,560
+Deficit jobs means thinking about application and infrastructure security from the start.
+
+93
+00:07:46,820 --> 00:07:49,650
+Now, if you're on cloud computing, you're talking about infrastructure.
+
+94
+00:07:49,670 --> 00:07:51,440
+You can see cloud security also then.
+
+95
+00:07:52,540 --> 00:07:57,830
+If you're talking about application security, then there is application security already in place.
+
+96
+00:07:58,720 --> 00:08:03,130
+To me, it's really about integrating security in Davos.
+
+97
+00:08:04,000 --> 00:08:05,950
+That is all that was about.
+
+98
+00:08:05,950 --> 00:08:08,040
+RedHat, let's see, about eight of us.
+
+99
+00:08:08,530 --> 00:08:10,150
+So on this site.
+
+100
+00:08:12,110 --> 00:08:17,350
+So Smith, Schmidt, I don't even know how to pronounce it, Julia, I'm so sorry about it.
+
+101
+00:08:18,530 --> 00:08:18,950
+He's a.
+
+102
+00:08:20,790 --> 00:08:26,370
+I can call him Stefán, that's his first name, so Stefán is a chief information security officer in
+
+103
+00:08:26,520 --> 00:08:30,090
+W.S. and he does not agree with this terminology.
+
+104
+00:08:30,090 --> 00:08:31,810
+Even I don't agree with this terminology.
+
+105
+00:08:32,460 --> 00:08:37,020
+This is what I really object is this notion that some people have.
+
+106
+00:08:38,630 --> 00:08:42,350
+That there is security development and operations and they are separate.
+
+107
+00:08:43,679 --> 00:08:44,530
+So it's not separate.
+
+108
+00:08:44,550 --> 00:08:48,320
+We really don't need to use a new terminology over there.
+
+109
+00:08:48,750 --> 00:08:50,670
+There used to be a word water rug to divorce.
+
+110
+00:08:50,670 --> 00:08:53,490
+If you just Google it rucked dev ops.
+
+111
+00:08:54,090 --> 00:08:59,310
+That's what we used to call it initially when it started integrating security with divorce.
+
+112
+00:08:59,310 --> 00:09:00,720
+But then desktops work.
+
+113
+00:09:01,950 --> 00:09:03,180
+So, no, not really.
+
+114
+00:09:03,180 --> 00:09:05,130
+I really don't want to confuse you more.
+
+115
+00:09:05,940 --> 00:09:11,190
+You can be on the side of agreeing with the terminology or not agreeing with any you have to keep in
+
+116
+00:09:11,190 --> 00:09:11,640
+mind.
+
+117
+00:09:14,750 --> 00:09:16,610
+So there was devlopment, right?
+
+118
+00:09:18,420 --> 00:09:19,560
+Then there was operations.
+
+119
+00:09:20,740 --> 00:09:23,680
+And we streamlined together, it became divorce.
+
+120
+00:09:25,260 --> 00:09:30,960
+Our developers, our operations team, working together hand in hand, gives you the philosophy of unifying
+
+121
+00:09:30,960 --> 00:09:32,220
+development and operations team.
+
+122
+00:09:32,490 --> 00:09:37,800
+We discuss that several times throughout our projects and have created a nice video in our portal,
+
+123
+00:09:38,130 --> 00:09:41,870
+in our YouTube channel, an animated video of what is developed.
+
+124
+00:09:41,880 --> 00:09:44,690
+If you still have confusion, you can go through that video.
+
+125
+00:09:45,870 --> 00:09:49,350
+You we get confused because people confuse us more, right?
+
+126
+00:09:50,100 --> 00:09:53,360
+So there is no security in Middleford so Dev set off.
+
+127
+00:09:53,470 --> 00:09:55,710
+That's how you get the terminology dev ops.
+
+128
+00:09:56,040 --> 00:09:56,460
+So.
+
+129
+00:09:57,400 --> 00:10:02,620
+Being a divorce, now, working hand in hand with security, you can take that as an objective.
+
+130
+00:10:03,490 --> 00:10:08,350
+And if you're if you're doing that, if you're implementing security in your divorce pipelines, in
+
+131
+00:10:08,350 --> 00:10:13,870
+your infrastructure, then you if someone asks you, are you doing sick hours, then you can say, yes,
+
+132
+00:10:13,870 --> 00:10:14,380
+I am.
+
+133
+00:10:16,560 --> 00:10:22,630
+But for now, to be very, very specific, what we are doing over here is doing security on eatables
+
+134
+00:10:22,680 --> 00:10:22,980
+cloud.
+
+135
+00:10:22,980 --> 00:10:24,630
+We are learning security concepts.
+
+136
+00:10:26,000 --> 00:10:32,570
+From EWR, the eatables sources we are using to implement the security so we can be safe from those
+
+137
+00:10:32,570 --> 00:10:33,980
+attacks that we are discussing.
+
+138
+00:10:35,890 --> 00:10:38,560
+So let's see what are the sources that we are going to use?
+
+139
+00:10:39,590 --> 00:10:48,980
+In EWR, starting with I am eatables organization, eatables trusted adviser, CM's in easy to keep
+
+140
+00:10:49,370 --> 00:10:52,070
+elastic load balancer with a secure connection.
+
+141
+00:10:52,790 --> 00:10:54,650
+So I am you already aware about it.
+
+142
+00:10:54,650 --> 00:10:59,950
+But we are going to talk about a few more good practices in that established organization, which is
+
+143
+00:10:59,960 --> 00:11:05,900
+grouping of multiple accounts and how we can implement security over their trusted advisor, which is
+
+144
+00:11:05,900 --> 00:11:10,820
+isn't completely replacement service, which will give you information security information or other
+
+145
+00:11:10,820 --> 00:11:11,360
+information.
+
+146
+00:11:11,360 --> 00:11:13,010
+Also about your account.
+
+147
+00:11:13,010 --> 00:11:16,070
+Eatables Account Kemmis is for encryption.
+
+148
+00:11:16,490 --> 00:11:21,760
+We you create keys and store it in CM's, which should be used to encrypt our data.
+
+149
+00:11:22,670 --> 00:11:27,200
+We are going to get into detail on all these services one by one and implement them.
+
+150
+00:11:28,230 --> 00:11:33,300
+In our eatables account and so as the same thing you will be doing in your projects also.
+
+151
+00:11:35,410 --> 00:11:44,140
+More services from eatables, again, eatables inspector, which is a service to scan vulnerability
+
+152
+00:11:44,140 --> 00:11:47,230
+in your network and in your operating systems.
+
+153
+00:11:47,860 --> 00:11:50,440
+VPC We already did that.
+
+154
+00:11:50,440 --> 00:11:51,910
+We did projects on VPC.
+
+155
+00:11:52,870 --> 00:11:59,650
+So you talk specifically about security group NaCl and VPC flew logs Clowe Trail, which is going to
+
+156
+00:11:59,650 --> 00:12:06,130
+store all the information, all the EPA calls, any changes happen or any EPA calls that goes through
+
+157
+00:12:06,130 --> 00:12:11,980
+your account will get recorded in Cottrill eatables config, which is really expensive service.
+
+158
+00:12:12,640 --> 00:12:15,070
+But what an amazing service, really.
+
+159
+00:12:15,070 --> 00:12:20,830
+You know, it can distort the configuration of your entire eatables account into one place and can also
+
+160
+00:12:20,830 --> 00:12:23,860
+show you how things are changing.
+
+161
+00:12:27,660 --> 00:12:33,810
+All right, other services, guard duty, eatables, wife, eatables, shield, eatables, can't think
+
+162
+00:12:34,530 --> 00:12:44,790
+guard duty is more like you can think of a security guard or a patrol police like an antivirus of your
+
+163
+00:12:45,240 --> 00:12:45,550
+account?
+
+164
+00:12:45,570 --> 00:12:47,100
+Not exactly, but for understanding.
+
+165
+00:12:47,100 --> 00:12:55,410
+As of now in a the office of the application firewall firewall for your application, not network firewall
+
+166
+00:12:55,410 --> 00:12:57,630
+lets the security group is a network firewall.
+
+167
+00:12:57,900 --> 00:13:01,890
+Nakulan PVCs network firewall is on your application.
+
+168
+00:13:02,730 --> 00:13:03,810
+We'll see how that works.
+
+169
+00:13:03,990 --> 00:13:07,890
+Eatables Shield, which is to prevent the DOS attack.
+
+170
+00:13:08,900 --> 00:13:17,930
+And if you go for the big vision, the Advanced Shield, it's very expensive, but it can prevent many,
+
+171
+00:13:17,930 --> 00:13:20,510
+many, many, many needless attacks for you and also.
+
+172
+00:13:21,540 --> 00:13:26,880
+If you happen to be a victim of Rudolph's attack and you have Eatables Shield advanced enabled, you
+
+173
+00:13:26,880 --> 00:13:31,210
+don't need to pay for that resources, it is going to refund that to you.
+
+174
+00:13:31,230 --> 00:13:31,620
+OK.
+
+175
+00:13:32,900 --> 00:13:34,170
+I need a misconfiguration.
+
+176
+00:13:34,190 --> 00:13:35,470
+We're going to talk once again.
+
+177
+00:13:36,740 --> 00:13:42,560
+Along with that, I'm going to take you through the a few of the data security services like Macie and
+
+178
+00:13:42,570 --> 00:13:44,570
+few the myriad of security services.
+
+179
+00:13:46,940 --> 00:13:52,910
+So all the best, good luck, I'm going to now go through all these security sources one by one and
+
+180
+00:13:52,910 --> 00:13:54,830
+implemented in our eatables account.
+
+181
+00:13:55,780 --> 00:13:57,940
+So join me on the Wisconsin.
+
