@@ -1,0 +1,900 @@
+1
+00:00:02,180 --> 00:00:05,450
+In this lecture we will be doing multiple things on Jenkins.
+
+2
+00:00:05,689 --> 00:00:08,600
+First install necessary plugins.
+
+3
+00:00:08,780 --> 00:00:12,650
+Second store enables credentials on it.
+
+4
+00:00:12,680 --> 00:00:16,010
+Third installing Docker engine in Jenkins.
+
+5
+00:00:16,370 --> 00:00:21,410
+So it's pretty simple things just go to Jenkins.
+
+6
+00:00:22,610 --> 00:00:23,970
+IP 80.
+
+7
+00:00:25,800 --> 00:00:26,970
+That's log in.
+
+8
+00:00:30,880 --> 00:00:31,350
+Okay.
+
+9
+00:00:31,360 --> 00:00:36,640
+We need to make sure this pipeline works because we will be extending this pipeline from continuous
+
+10
+00:00:36,640 --> 00:00:38,690
+integration to continuous delivery.
+
+11
+00:00:38,710 --> 00:00:41,980
+We'll come to this job, but first we have to install some plug ins.
+
+12
+00:00:43,220 --> 00:00:45,230
+So let's go to manage plugins.
+
+13
+00:00:46,230 --> 00:00:47,160
+Available.
+
+14
+00:00:48,620 --> 00:00:48,870
+Okay.
+
+15
+00:00:48,890 --> 00:00:51,320
+One by one, starting with.
+
+16
+00:00:52,050 --> 00:00:54,390
+Docker pipeline.
+
+17
+00:00:56,370 --> 00:00:57,540
+Put a checkmark.
+
+18
+00:00:59,360 --> 00:01:06,950
+Then darker build and publish cloud based Docker build and publish that one.
+
+19
+00:01:10,120 --> 00:01:12,430
+And we have ACR.
+
+20
+00:01:15,020 --> 00:01:18,230
+PCR, Amazon, ACR, this one.
+
+21
+00:01:20,290 --> 00:01:23,080
+And Pipeline.
+
+22
+00:01:24,640 --> 00:01:28,420
+Calling it steps that one.
+
+23
+00:01:28,990 --> 00:01:29,210
+Yeah.
+
+24
+00:01:29,230 --> 00:01:30,910
+You need to search it like that.
+
+25
+00:01:31,090 --> 00:01:32,890
+Pipeline, colon steps.
+
+26
+00:01:32,890 --> 00:01:36,130
+These are the four plugins we will use.
+
+27
+00:01:36,160 --> 00:01:42,340
+There's also one more plug in a plus credentials that gets installed as a dependency for this Amazon
+
+28
+00:01:42,370 --> 00:01:44,710
+Echo and the pipeline UW Steps plugin.
+
+29
+00:01:45,360 --> 00:01:46,630
+Okay, let's install this.
+
+30
+00:01:48,990 --> 00:01:49,690
+Okay.
+
+31
+00:01:50,670 --> 00:01:56,010
+Well, I don't see the credentials plugin getting installed as cloud V0 plus credential.
+
+32
+00:01:57,700 --> 00:01:59,980
+Let's wait for it to complete and then we'll check.
+
+33
+00:02:01,870 --> 00:02:02,170
+Okay.
+
+34
+00:02:02,200 --> 00:02:02,920
+This is install.
+
+35
+00:02:02,920 --> 00:02:04,990
+Let's go back to the top page.
+
+36
+00:02:05,770 --> 00:02:08,009
+Manage Jenkins, manage plugins.
+
+37
+00:02:08,020 --> 00:02:09,639
+Lets come again to manage plugins.
+
+38
+00:02:09,639 --> 00:02:14,800
+I want to see whether it has credentials plugin again.
+
+39
+00:02:14,860 --> 00:02:15,880
+Not able to search.
+
+40
+00:02:15,880 --> 00:02:17,200
+That means it's already installed.
+
+41
+00:02:17,200 --> 00:02:18,820
+We can check it in the install.
+
+42
+00:02:21,600 --> 00:02:21,730
+E.
+
+43
+00:02:22,080 --> 00:02:24,180
+S credentials.
+
+44
+00:02:26,330 --> 00:02:28,190
+A.W. Sdhc.
+
+45
+00:02:30,980 --> 00:02:34,490
+This is good and available SDK.
+
+46
+00:02:36,550 --> 00:02:36,800
+Okay.
+
+47
+00:02:36,870 --> 00:02:38,130
+I think it's already installed.
+
+48
+00:02:38,140 --> 00:02:42,600
+If it's not installed, we will not be able to find one option that will see now.
+
+49
+00:02:42,610 --> 00:02:43,900
+So go to manage.
+
+50
+00:02:43,920 --> 00:02:49,330
+Jenkins will store the access key and secret key in Jenkins.
+
+51
+00:02:49,330 --> 00:02:51,520
+So go to manage credentials.
+
+52
+00:02:51,940 --> 00:02:53,620
+This will be used by our pipeline.
+
+53
+00:02:55,370 --> 00:03:00,860
+Jenkins global credentials and see add credentials.
+
+54
+00:03:01,610 --> 00:03:06,890
+In the kind you should see credentials so that plug in card installed.
+
+55
+00:03:07,190 --> 00:03:09,860
+Select that and let's give a name.
+
+56
+00:03:09,860 --> 00:03:12,380
+I will say it is creds.
+
+57
+00:03:13,920 --> 00:03:20,030
+ID and in the description also I'm giving same and I'll give the access key and secret key.
+
+58
+00:03:20,040 --> 00:03:24,750
+I have not closed this window so far, so copy the access key.
+
+59
+00:03:25,790 --> 00:03:26,900
+Be stood there.
+
+60
+00:03:27,410 --> 00:03:28,810
+And then the secret key.
+
+61
+00:03:28,820 --> 00:03:31,460
+Now you're going to see my secret key, which is very, very bad.
+
+62
+00:03:31,460 --> 00:03:37,940
+But anyways, I am going to delete this user once this recording is completed, so I don't mind you
+
+63
+00:03:37,940 --> 00:03:38,780
+seeing it.
+
+64
+00:03:43,070 --> 00:03:43,580
+Okay.
+
+65
+00:03:44,150 --> 00:03:44,750
+There.
+
+66
+00:03:45,540 --> 00:03:45,700
+Okay.
+
+67
+00:03:45,920 --> 00:03:48,470
+Please specify the secret access key.
+
+68
+00:03:48,500 --> 00:03:49,670
+That's what I did.
+
+69
+00:03:51,090 --> 00:03:51,680
+Okay.
+
+70
+00:03:51,900 --> 00:03:52,950
+What's going on here?
+
+71
+00:03:58,710 --> 00:03:59,430
+I see.
+
+72
+00:04:03,170 --> 00:04:04,400
+Yes, that's correct.
+
+73
+00:04:07,970 --> 00:04:08,510
+Mm hmm.
+
+74
+00:04:08,870 --> 00:04:09,920
+Okay, let's create it.
+
+75
+00:04:09,920 --> 00:04:10,490
+Let's see.
+
+76
+00:04:12,160 --> 00:04:13,660
+You're not saving it.
+
+77
+00:04:14,890 --> 00:04:15,940
+E.W. Scripps.
+
+78
+00:04:15,940 --> 00:04:17,800
+That's the credential name.
+
+79
+00:04:18,399 --> 00:04:20,410
+We will be using it in our pipeline code.
+
+80
+00:04:21,399 --> 00:04:25,870
+The next thing, the third thing is going through the command line and installing Docker engine.
+
+81
+00:04:25,870 --> 00:04:29,410
+So let's do an search to the Jenkins server.
+
+82
+00:04:33,440 --> 00:04:35,750
+As a search hyphen, I downloads.
+
+83
+00:04:36,550 --> 00:04:37,520
+We profile high.
+
+84
+00:04:38,000 --> 00:04:42,850
+Pam That's my logging key one to at the rate IP address.
+
+85
+00:04:44,080 --> 00:04:45,040
+Yes.
+
+86
+00:04:48,560 --> 00:04:48,980
+Okay.
+
+87
+00:04:50,800 --> 00:04:51,550
+We're in.
+
+88
+00:04:51,760 --> 00:04:53,230
+Just be the root user.
+
+89
+00:04:53,530 --> 00:04:54,400
+So the hyphen.
+
+90
+00:04:54,400 --> 00:04:55,960
+I become the root user.
+
+91
+00:04:56,380 --> 00:05:00,070
+Run apt update person in person.
+
+92
+00:05:00,070 --> 00:05:04,480
+APT install a US client.
+
+93
+00:05:04,480 --> 00:05:06,190
+So that's what we'll install first.
+
+94
+00:05:06,190 --> 00:05:09,370
+And after this completes, we will install docker engine.
+
+95
+00:05:12,820 --> 00:05:13,040
+Okay.
+
+96
+00:05:13,060 --> 00:05:14,230
+By the time it is installing.
+
+97
+00:05:14,230 --> 00:05:17,320
+Let's go to Google.
+
+98
+00:05:18,370 --> 00:05:26,230
+And search for docker installation step on ubuntu docker install ubuntu go to the documentation docs
+
+99
+00:05:26,230 --> 00:05:27,470
+dot dot dot com.
+
+100
+00:05:27,490 --> 00:05:28,660
+Do not go anywhere.
+
+101
+00:05:28,660 --> 00:05:33,340
+These commands installation steps are changing a lot, many, many times.
+
+102
+00:05:33,340 --> 00:05:35,980
+That's why I have stopped putting them into the resource section.
+
+103
+00:05:35,980 --> 00:05:39,520
+So go to the documentation, find the steps and install it.
+
+104
+00:05:40,180 --> 00:05:40,330
+Okay.
+
+105
+00:05:40,510 --> 00:05:41,740
+So first is apt update.
+
+106
+00:05:41,740 --> 00:05:42,580
+We already did that.
+
+107
+00:05:42,580 --> 00:05:44,920
+So we're going to install these dependencies first.
+
+108
+00:05:45,810 --> 00:05:45,970
+Okay.
+
+109
+00:05:46,050 --> 00:05:47,340
+Make sure this is right.
+
+110
+00:05:47,430 --> 00:05:48,780
+1 to 20.
+
+111
+00:05:49,230 --> 00:05:50,160
+1 to 20.
+
+112
+00:05:50,730 --> 00:05:51,150
+Okay.
+
+113
+00:05:54,940 --> 00:05:55,410
+Okay.
+
+114
+00:05:55,600 --> 00:05:55,690
+Me.
+
+115
+00:05:55,750 --> 00:05:57,160
+Clear the screen and shift.
+
+116
+00:05:57,160 --> 00:05:58,600
+Insert paste it.
+
+117
+00:06:00,170 --> 00:06:01,820
+Install these dependencies.
+
+118
+00:06:02,030 --> 00:06:03,020
+They're already installed.
+
+119
+00:06:03,050 --> 00:06:03,710
+Nice.
+
+120
+00:06:05,410 --> 00:06:07,420
+Okay to run these two commands.
+
+121
+00:06:07,420 --> 00:06:09,220
+One is creating this directory.
+
+122
+00:06:13,950 --> 00:06:19,590
+And next is downloading this GPG key for docker repository.
+
+123
+00:06:22,880 --> 00:06:23,540
+Okay.
+
+124
+00:06:23,930 --> 00:06:30,230
+Next is this big echo command, which is going to create the repository file.
+
+125
+00:06:33,850 --> 00:06:34,450
+Mm hmm.
+
+126
+00:06:35,660 --> 00:06:36,290
+Okay.
+
+127
+00:06:36,800 --> 00:06:37,340
+All right.
+
+128
+00:06:37,610 --> 00:06:38,240
+That's it.
+
+129
+00:06:38,270 --> 00:06:40,700
+APT update and install docker engine.
+
+130
+00:06:43,850 --> 00:06:44,150
+Yeah.
+
+131
+00:06:44,150 --> 00:06:44,960
+So I'm not telling you.
+
+132
+00:06:44,960 --> 00:06:45,670
+This is the command.
+
+133
+00:06:45,680 --> 00:06:51,110
+This is the command and this is the command because I don't know, it may change maybe in the next month.
+
+134
+00:06:51,110 --> 00:06:51,730
+Who knows?
+
+135
+00:06:51,740 --> 00:06:52,460
+So.
+
+136
+00:06:53,410 --> 00:06:57,580
+Make sure you go to the documentation, find the commands and install Docker engine.
+
+137
+00:07:04,380 --> 00:07:04,800
+Okay.
+
+138
+00:07:04,830 --> 00:07:05,790
+While this is installing.
+
+139
+00:07:05,790 --> 00:07:06,270
+So.
+
+140
+00:07:06,270 --> 00:07:12,180
+Jenkins, we are going to write the code in the Jenkins to build the Docker image.
+
+141
+00:07:12,300 --> 00:07:19,260
+Docker image is built by Docker commands, so you need to have Docker engine installed in Jenkins so
+
+142
+00:07:19,260 --> 00:07:23,160
+Jenkins can run the Docker commands and build your Docker images.
+
+143
+00:07:24,090 --> 00:07:26,640
+And there is one problem though.
+
+144
+00:07:26,970 --> 00:07:33,690
+Docker commands can be run only by the Docker, by the root user and the user who are in the Docker
+
+145
+00:07:33,690 --> 00:07:34,200
+group.
+
+146
+00:07:34,740 --> 00:07:35,820
+I'll show you what I mean.
+
+147
+00:07:35,820 --> 00:07:39,000
+I'm going to switch to Jenkins user from here.
+
+148
+00:07:40,300 --> 00:07:40,470
+Yeah.
+
+149
+00:07:40,670 --> 00:07:46,760
+So I'm currently Jenkins user and I'm going to run the command docker images and you see I get this
+
+150
+00:07:46,760 --> 00:07:48,440
+error got permission denied.
+
+151
+00:07:49,500 --> 00:07:49,790
+Okay.
+
+152
+00:07:50,310 --> 00:07:52,590
+Exit from the route user.
+
+153
+00:07:52,590 --> 00:07:53,940
+You can obviously run the cow.
+
+154
+00:07:53,940 --> 00:07:54,450
+Any Docker.
+
+155
+00:07:54,450 --> 00:07:54,890
+Come on.
+
+156
+00:07:54,900 --> 00:07:55,380
+Right.
+
+157
+00:07:56,100 --> 00:08:01,410
+So what you have to do is you have to add user mode.
+
+158
+00:08:01,410 --> 00:08:03,810
+Hyphen A, capital G, you have to add.
+
+159
+00:08:05,040 --> 00:08:06,930
+Jenkins user in the Docker group.
+
+160
+00:08:06,930 --> 00:08:08,070
+So I say Docker.
+
+161
+00:08:08,100 --> 00:08:14,790
+Jenkins So Jenkins user will be added into the Docker group with this command and you can see it.
+
+162
+00:08:14,820 --> 00:08:15,780
+Jenkins.
+
+163
+00:08:17,050 --> 00:08:19,300
+See that it's in the docket group now.
+
+164
+00:08:19,540 --> 00:08:20,820
+Now, that is not it.
+
+165
+00:08:20,830 --> 00:08:26,260
+Either you restart the Jenkins service system, CTL restart.
+
+166
+00:08:26,380 --> 00:08:27,370
+Jenkins.
+
+167
+00:08:28,360 --> 00:08:28,660
+Ah.
+
+168
+00:08:28,660 --> 00:08:30,430
+You reboot Jenkins.
+
+169
+00:08:30,730 --> 00:08:32,169
+So I will say system.
+
+170
+00:08:32,230 --> 00:08:32,919
+It'll restart.
+
+171
+00:08:32,950 --> 00:08:36,130
+Jenkins But while running the build job.
+
+172
+00:08:36,700 --> 00:08:42,340
+Docker Build job if you are getting the same error in the Jenkins, then check whether this Jenkins
+
+173
+00:08:42,340 --> 00:08:46,570
+user is in the Docker group and if you see it's still there.
+
+174
+00:08:46,600 --> 00:08:52,960
+Then the next step I would suggest is just reboot Jenkins server because maybe the restart did not work,
+
+175
+00:08:52,960 --> 00:08:54,700
+so you might need to reboot it.
+
+176
+00:08:55,340 --> 00:09:00,880
+Okay, now final thing, it's time to test our continuous integration pipeline from the previous project.
+
+177
+00:09:00,880 --> 00:09:03,970
+It should be working because we are going to continue from here.
+
+178
+00:09:04,960 --> 00:09:06,790
+Yeah, I got logged out.
+
+179
+00:09:08,650 --> 00:09:09,170
+Uh huh.
+
+180
+00:09:09,340 --> 00:09:11,720
+I think it's still not ready, so it takes some time.
+
+181
+00:09:11,740 --> 00:09:13,300
+After restarting Jenkins.
+
+182
+00:09:14,320 --> 00:09:14,560
+Okay.
+
+183
+00:09:14,650 --> 00:09:16,960
+I have purposefully failed the pipeline.
+
+184
+00:09:16,960 --> 00:09:21,670
+If you remember from continuous integration project, I made a mistake so I get a notification, right?
+
+185
+00:09:21,880 --> 00:09:27,130
+So I'm going to go back to my repository here in the GitHub itself.
+
+186
+00:09:28,210 --> 00:09:28,500
+Yeah.
+
+187
+00:09:28,600 --> 00:09:29,380
+Not one.
+
+188
+00:09:30,840 --> 00:09:32,380
+And we are.
+
+189
+00:09:32,400 --> 00:09:33,560
+We have used this branch.
+
+190
+00:09:33,570 --> 00:09:35,100
+See, hyphen Jenkins.
+
+191
+00:09:36,660 --> 00:09:36,930
+Mary.
+
+192
+00:09:37,070 --> 00:09:38,460
+We check the Jenkins file.
+
+193
+00:09:41,490 --> 00:09:41,760
+Yeah.
+
+194
+00:09:41,760 --> 00:09:44,370
+So I made this change, right?
+
+195
+00:09:44,370 --> 00:09:45,640
+So the pipeline fails.
+
+196
+00:09:45,660 --> 00:09:46,500
+I'm going to fix that.
+
+197
+00:09:46,500 --> 00:09:47,610
+I'm going to say edit.
+
+198
+00:09:49,900 --> 00:09:56,410
+And I will just remove that and replace it with the actual command and even and.
+
+199
+00:09:57,820 --> 00:09:58,560
+Let's.
+
+200
+00:09:59,910 --> 00:10:01,830
+Committed, fixed.
+
+201
+00:10:03,100 --> 00:10:03,900
+Maven.
+
+202
+00:10:04,050 --> 00:10:04,980
+Come on.
+
+203
+00:10:06,460 --> 00:10:06,620
+Com.
+
+204
+00:10:06,780 --> 00:10:07,710
+It changes.
+
+205
+00:10:09,120 --> 00:10:09,710
+Okay.
+
+206
+00:10:09,720 --> 00:10:11,400
+Now let's go back.
+
+207
+00:10:13,050 --> 00:10:18,450
+To our pipeline and it should automatically trigger it because there is a webhook.
+
+208
+00:10:18,680 --> 00:10:22,980
+Now we have also updated the webhook IP Jenkins IP.
+
+209
+00:10:22,980 --> 00:10:23,220
+Right.
+
+210
+00:10:23,220 --> 00:10:25,080
+So it should automatically trigger the pipeline.
+
+211
+00:10:25,080 --> 00:10:26,280
+It should complete it.
+
+212
+00:10:26,370 --> 00:10:29,310
+If this is failing, make sure you fix the problems.
+
+213
+00:10:29,310 --> 00:10:31,740
+Make sure your next steps and so on are cube.
+
+214
+00:10:31,740 --> 00:10:33,180
+All are up and running.
+
+215
+00:10:34,200 --> 00:10:34,470
+Right.
+
+216
+00:10:34,590 --> 00:10:35,490
+Test the pipeline.
+
+217
+00:10:35,490 --> 00:10:36,930
+It should be a working pipeline.
+
+218
+00:10:36,930 --> 00:10:40,950
+So then only we can continue with the next lecture, we can continue with the project.
+
+219
+00:10:41,430 --> 00:10:44,070
+So I'm going to pause the video and wait until this completes.
+
+220
+00:10:45,370 --> 00:10:45,790
+All right.
+
+221
+00:10:45,790 --> 00:10:47,560
+My pipeline completed successfully.
+
+222
+00:10:47,560 --> 00:10:49,640
+I made all the necessary changes.
+
+223
+00:10:49,660 --> 00:10:50,560
+Let's see.
+
+224
+00:10:50,560 --> 00:10:57,630
+In the next lecture, if we are able to build the Docker image and upload it to Amazon easier.
+
+225
+00:10:58,090 --> 00:11:00,460
+So wrap this up and join me in the next lecture.
+

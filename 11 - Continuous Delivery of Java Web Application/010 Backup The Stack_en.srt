@@ -1,0 +1,1768 @@
+1
+00:00:00,550 --> 00:00:07,570
+We're going to talk about now how to take data backup of CD Stack Jenkins Nexus and Sonar Cube.
+
+2
+00:00:07,960 --> 00:00:15,160
+So if you have the backup of all the data that we have created, then we can safely delete our instances
+
+3
+00:00:15,550 --> 00:00:16,990
+and recover our data.
+
+4
+00:00:16,990 --> 00:00:22,330
+Whenever you want, whenever you want, we can recreate these instances and restore all the data that
+
+5
+00:00:22,330 --> 00:00:23,890
+we have taken the backup of.
+
+6
+00:00:24,280 --> 00:00:27,510
+Now, that is one reason of taking data backup of CD stack.
+
+7
+00:00:27,550 --> 00:00:32,680
+The other reason is we are going to use this backup in our cloud formation project, in cloud formation
+
+8
+00:00:32,680 --> 00:00:33,400
+project.
+
+9
+00:00:33,790 --> 00:00:40,120
+We will automatically set up the entire CD stack and restore all our data.
+
+10
+00:00:40,480 --> 00:00:45,010
+I will also show you how you can then restore your entire CD stack.
+
+11
+00:00:45,570 --> 00:00:50,770
+Okay, let's see the steps that we are going to take to do this entire backup.
+
+12
+00:00:51,730 --> 00:00:55,180
+So we need an S3 bucket, so we're going to create an S3 bucket.
+
+13
+00:00:56,450 --> 00:00:57,090
+You're to create.
+
+14
+00:00:57,090 --> 00:01:03,360
+I am role with SE three access and we're going to attach this role to all our instances.
+
+15
+00:01:03,600 --> 00:01:06,210
+Jenkins Nexus Ownership Server.
+
+16
+00:01:06,210 --> 00:01:11,610
+And if you are in continuous delivery projects and you have a Tomcat setter on an easy two instance,
+
+17
+00:01:11,970 --> 00:01:17,790
+then you have to attach this role to Tomcat Server also because you're also going to copy two configuration
+
+18
+00:01:17,790 --> 00:01:19,140
+files to S3 bucket.
+
+19
+00:01:21,340 --> 00:01:23,320
+Then we log into Jenkins instance.
+
+20
+00:01:23,350 --> 00:01:25,750
+We're going to shut down the Jenkins service.
+
+21
+00:01:26,730 --> 00:01:28,880
+We're going to clean up all unnecessary data.
+
+22
+00:01:28,890 --> 00:01:35,250
+Jenkins Home Directory will be huge in size and there'll be some unnecessary data like workspace, which
+
+23
+00:01:35,250 --> 00:01:38,930
+you really don't need to take backup, which can be generated any time you run the job.
+
+24
+00:01:38,940 --> 00:01:40,860
+So we'll clean such data.
+
+25
+00:01:41,160 --> 00:01:44,010
+Then we'll archive our Lib Jenkins directory.
+
+26
+00:01:44,040 --> 00:01:46,530
+We're going to use Star Command, so we'll create a tarball.
+
+27
+00:01:47,310 --> 00:01:49,560
+Will install a clean Jenkins.
+
+28
+00:01:50,410 --> 00:01:55,060
+And we'll copy the Jenkins archive to the S3 bucket that we created in the first step.
+
+29
+00:01:55,990 --> 00:01:58,300
+Similar way we log into the Nexus server.
+
+30
+00:01:58,330 --> 00:02:04,960
+We shut down the Nexus service, will archive OPPT Nexus Directory and this directory we have installed
+
+31
+00:02:04,960 --> 00:02:06,580
+Nexus in our project.
+
+32
+00:02:10,389 --> 00:02:13,540
+We're going to install a blue sky in Nexis.
+
+33
+00:02:15,040 --> 00:02:17,560
+Will copy Nexis archive to the same S3 bucket.
+
+34
+00:02:17,560 --> 00:02:19,990
+So the same S3 bucket will copy all the data.
+
+35
+00:02:21,240 --> 00:02:23,250
+Then we log into Sonar Cube Server.
+
+36
+00:02:23,340 --> 00:02:26,400
+And here we have actually two things to take back up.
+
+37
+00:02:26,430 --> 00:02:32,340
+So we'll first shut down this owner service will archive's OPPT Sonar Cube Directory where we have installed
+
+38
+00:02:32,400 --> 00:02:33,450
+on our cube server.
+
+39
+00:02:35,060 --> 00:02:38,300
+We are also going to archive our PostgreSQL directory.
+
+40
+00:02:39,710 --> 00:02:45,170
+We're going to install a blue sky and we'll copy sonar cube and Postgres Kill Archive to the same S3
+
+41
+00:02:45,170 --> 00:02:45,800
+bucket.
+
+42
+00:02:47,130 --> 00:02:55,350
+So then keep note of the S3 bucket that you have created and also the archive file names, because we
+
+43
+00:02:55,350 --> 00:02:58,410
+are going to use them into our cloud formation project.
+
+44
+00:02:58,800 --> 00:03:05,700
+And in any case, you want to recover, restore your stack, you can use this archive to restore your
+
+45
+00:03:05,700 --> 00:03:06,300
+data.
+
+46
+00:03:06,780 --> 00:03:10,920
+I'm in my management console and I have these many instances.
+
+47
+00:03:10,920 --> 00:03:12,300
+I have a Nexus server.
+
+48
+00:03:12,300 --> 00:03:17,610
+So in the server, Jenkins instance, if you're in continuous integration project, then you'll only
+
+49
+00:03:17,610 --> 00:03:18,630
+have these three instances.
+
+50
+00:03:18,630 --> 00:03:24,720
+If you're in continuous delivery project, you should be having database Windows Server and application
+
+51
+00:03:24,720 --> 00:03:25,800
+server Tomcat.
+
+52
+00:03:25,830 --> 00:03:27,750
+We're going to take backup of Nexus.
+
+53
+00:03:27,750 --> 00:03:33,000
+So Owner Server Jenkins and also a few configuration file from our Tomcat server.
+
+54
+00:03:33,210 --> 00:03:37,110
+We're not going to take any backup of DB and Windows Test Server.
+
+55
+00:03:38,010 --> 00:03:40,050
+So let's see the Jenkins first.
+
+56
+00:03:50,470 --> 00:03:55,450
+Also keep in mind the password that you have set, because when we restore, we'll be having the same
+
+57
+00:03:55,450 --> 00:03:55,780
+set up.
+
+58
+00:03:55,780 --> 00:03:56,380
+Exactly.
+
+59
+00:03:56,380 --> 00:03:59,530
+So you need to log in with your same username and password.
+
+60
+00:03:59,710 --> 00:04:01,150
+So currently I'm in this state.
+
+61
+00:04:01,150 --> 00:04:05,290
+I have few jobs and I have a lot of plug ins installed.
+
+62
+00:04:05,320 --> 00:04:10,580
+If I happen to delete this Jenkins instance, I have to recreate it, which is easy to do.
+
+63
+00:04:10,600 --> 00:04:15,070
+Setting up Jenkins service is no big deal, but then we have to set up all these jobs and install all
+
+64
+00:04:15,070 --> 00:04:17,320
+the plug ins to come to this level.
+
+65
+00:04:17,740 --> 00:04:22,540
+If you're thinking taking off AMA, you can do that, you know AMA of this instance and storing it.
+
+66
+00:04:22,540 --> 00:04:29,590
+But then we have multiple instances and you may end up paying some money for the EBS volume if you're
+
+67
+00:04:29,590 --> 00:04:30,910
+keeping it for a long time.
+
+68
+00:04:31,990 --> 00:04:32,260
+Okay.
+
+69
+00:04:32,260 --> 00:04:34,600
+First thing first, let's create an S3 bucket.
+
+70
+00:04:41,400 --> 00:04:44,370
+I don't try to create the bucket with the same name as three.
+
+71
+00:04:44,370 --> 00:04:47,790
+Bucket names are unique, so you have to find your own names.
+
+72
+00:04:48,090 --> 00:04:48,960
+I Mm.
+
+73
+00:04:48,990 --> 00:04:50,340
+V Profile.
+
+74
+00:04:50,460 --> 00:04:54,030
+Hyphen cic hyphen stack.
+
+75
+00:04:54,030 --> 00:04:55,800
+Hyphen backup.
+
+76
+00:04:56,900 --> 00:05:01,760
+I'm creating an Ohio region, so choose a region that you usually use.
+
+77
+00:05:01,760 --> 00:05:09,050
+So the data copy and data backup restore will be faster, but it really doesn't matter where they are.
+
+78
+00:05:09,050 --> 00:05:12,560
+We can still backup and restore from bucket in any region.
+
+79
+00:05:13,310 --> 00:05:16,100
+I hope that's my unique name and I have not used that name.
+
+80
+00:05:16,130 --> 00:05:17,810
+Let's try create bucket.
+
+81
+00:05:21,230 --> 00:05:23,120
+So I created a bucket with this name.
+
+82
+00:05:24,030 --> 00:05:25,860
+Now I'm going to create an I am role.
+
+83
+00:05:31,020 --> 00:05:31,980
+Go to rules.
+
+84
+00:05:33,380 --> 00:05:36,380
+Create role for easy to instance.
+
+85
+00:05:37,480 --> 00:05:38,170
+Next.
+
+86
+00:05:40,100 --> 00:05:43,340
+Policy so you can create policy.
+
+87
+00:05:45,090 --> 00:05:48,000
+To give access only to that S3 bucket.
+
+88
+00:05:48,910 --> 00:05:50,740
+Are much easier.
+
+89
+00:05:50,740 --> 00:05:55,870
+You can just say three full access policy, but then that will give access to all the S3 bucket.
+
+90
+00:05:56,600 --> 00:06:00,880
+If you are the only user of this account, then that is fine.
+
+91
+00:06:00,890 --> 00:06:03,980
+But if you are sharing with someone, then that could be a problem.
+
+92
+00:06:06,890 --> 00:06:08,330
+You have given some name to it.
+
+93
+00:06:09,000 --> 00:06:09,800
+Let's create role.
+
+94
+00:06:09,830 --> 00:06:12,230
+We profile CDs three full access.
+
+95
+00:06:13,310 --> 00:06:13,490
+Okay.
+
+96
+00:06:13,640 --> 00:06:16,370
+I will attach this role to all the instances.
+
+97
+00:06:17,700 --> 00:06:19,320
+Starting with sonar.
+
+98
+00:06:19,530 --> 00:06:20,700
+Sorry, Nexus.
+
+99
+00:06:21,900 --> 00:06:22,980
+Instance setting.
+
+100
+00:06:24,760 --> 00:06:26,080
+Modify em roll.
+
+101
+00:06:30,800 --> 00:06:33,980
+We profile CCD as three full access.
+
+102
+00:06:35,060 --> 00:06:35,820
+See.
+
+103
+00:06:37,010 --> 00:06:38,750
+Like that do for all the instances.
+
+104
+00:06:38,780 --> 00:06:41,690
+Give the stream roll to every instance.
+
+105
+00:07:19,700 --> 00:07:24,590
+Also, if you're in continuous delivery project, you'll have the application server give.
+
+106
+00:07:25,280 --> 00:07:28,160
+I am role access to this instance as well.
+
+107
+00:07:28,310 --> 00:07:32,600
+If you are in continuous integration project now, then this much is fine.
+
+108
+00:07:44,140 --> 00:07:44,380
+Okay.
+
+109
+00:07:44,380 --> 00:07:46,180
+So I log into Foss Jenkins instance.
+
+110
+00:07:46,180 --> 00:07:49,570
+Let's take backup of Jenkins first copy address.
+
+111
+00:07:53,150 --> 00:07:55,400
+So login to your Jenkins instance.
+
+112
+00:08:01,910 --> 00:08:04,580
+Switch to route user reset.
+
+113
+00:08:04,850 --> 00:08:05,660
+Stop.
+
+114
+00:08:05,660 --> 00:08:07,430
+Stop drinking service.
+
+115
+00:08:10,660 --> 00:08:10,790
+Yeah.
+
+116
+00:08:11,050 --> 00:08:13,330
+Let's go to var lib.
+
+117
+00:08:18,900 --> 00:08:19,140
+Okay.
+
+118
+00:08:19,140 --> 00:08:21,000
+You should see the Jenkins directory.
+
+119
+00:08:21,330 --> 00:08:21,720
+Let's see.
+
+120
+00:08:21,720 --> 00:08:22,680
+It's size.
+
+121
+00:08:25,710 --> 00:08:32,640
+Currently it's 428 and by year could be bigger because I have already cleaned some data.
+
+122
+00:08:36,350 --> 00:08:38,299
+But I'll show you how to clean the data.
+
+123
+00:08:39,470 --> 00:08:39,770
+Okay.
+
+124
+00:08:39,770 --> 00:08:46,070
+Let's do the cleanup of unnecessary files that we anyways get generated when you run the jobs first.
+
+125
+00:08:46,400 --> 00:08:47,480
+The repository.
+
+126
+00:08:53,980 --> 00:08:54,180
+Okay.
+
+127
+00:08:54,280 --> 00:08:56,800
+Dot m2 directory in lib jenkins dot m2.
+
+128
+00:08:56,830 --> 00:08:58,900
+You will see a directory called repository.
+
+129
+00:08:58,990 --> 00:09:02,950
+You can just delete that directory or you can just delete data from here.
+
+130
+00:09:03,860 --> 00:09:07,700
+Okay, because whenever we run the build job, it's going to increase, download the dependency and
+
+131
+00:09:07,700 --> 00:09:08,750
+keep it locally.
+
+132
+00:09:09,110 --> 00:09:12,410
+So we don't need this when we restore.
+
+133
+00:09:16,920 --> 00:09:17,060
+Okay.
+
+134
+00:09:17,270 --> 00:09:20,120
+Other data is workspace.
+
+135
+00:09:22,820 --> 00:09:23,590
+Workspace.
+
+136
+00:09:23,600 --> 00:09:26,870
+You will see the job in the directory name with the job names.
+
+137
+00:09:26,870 --> 00:09:30,620
+You can delete all this directory or you can get into this directory and delete the data.
+
+138
+00:09:39,140 --> 00:09:40,910
+Be careful what you're deleting.
+
+139
+00:09:40,910 --> 00:09:45,560
+RMF an RF star is a dangerous command, so be careful with that.
+
+140
+00:09:45,620 --> 00:09:50,840
+My recommendation you get into the directories and delete the data instead of deleting whole thing.
+
+141
+00:09:52,520 --> 00:09:54,800
+That's going to take a little while, but it's just one time backup.
+
+142
+00:09:54,800 --> 00:09:57,230
+Once you have the backup, then any time you can restore.
+
+143
+00:09:58,790 --> 00:10:04,130
+So we deleted dot MX to repository, we deleted the workspace.
+
+144
+00:10:04,160 --> 00:10:07,970
+Now one more thing is there if you are archiving your artifact.
+
+145
+00:10:09,410 --> 00:10:18,230
+Then you should have in jobs, you should have like for example, in build project job in the bills.
+
+146
+00:10:19,280 --> 00:10:22,490
+I should have this you should have this number one, two, three, four, five, six, seven, eight,
+
+147
+00:10:22,490 --> 00:10:22,660
+nine.
+
+148
+00:10:23,030 --> 00:10:27,410
+A number of times you ran the job whenever you said archive artifact.
+
+149
+00:10:27,410 --> 00:10:32,660
+You will create an archive over here like in this directory number name ten.
+
+150
+00:10:32,660 --> 00:10:34,010
+You have the archive.
+
+151
+00:10:35,000 --> 00:10:39,290
+So you see that there is an artifact over there, right?
+
+152
+00:10:39,590 --> 00:10:42,320
+What you can do is you can just delete these numbers.
+
+153
+00:10:43,550 --> 00:10:49,520
+The directory with the numbers, you can just delete them one, ten and nine and a half.
+
+154
+00:10:50,000 --> 00:10:51,290
+You may have different, different numbers.
+
+155
+00:10:52,100 --> 00:10:53,660
+So just delete those directories.
+
+156
+00:10:55,220 --> 00:11:00,080
+If you have if you're doing archive in other jobs, also, you should have these number directories
+
+157
+00:11:00,080 --> 00:11:03,470
+in other workspaces also in this jobs directory.
+
+158
+00:11:03,650 --> 00:11:04,610
+So what you can do?
+
+159
+00:11:04,640 --> 00:11:06,410
+You can run the hyphen search.
+
+160
+00:11:06,650 --> 00:11:08,560
+You can see the size of your current directory.
+
+161
+00:11:08,600 --> 00:11:10,820
+You can say Do hyphen search star.
+
+162
+00:11:11,300 --> 00:11:14,060
+And I will show you the size of all the directory.
+
+163
+00:11:14,810 --> 00:11:18,710
+It's in CVS and me b so doesn't matter if you have like larger mobs.
+
+164
+00:11:18,950 --> 00:11:24,170
+Get into that and biz or GBS, get into that directory, find the number of directories and just delete
+
+165
+00:11:24,170 --> 00:11:27,290
+them because they will get generated anyways.
+
+166
+00:11:29,360 --> 00:11:29,590
+Okay.
+
+167
+00:11:29,600 --> 00:11:31,190
+So we deleted three things.
+
+168
+00:11:31,840 --> 00:11:37,390
+Dart aim to repository workspaces and in the jobs directory.
+
+169
+00:11:39,730 --> 00:11:44,890
+We have again workspace directories and this we have deleted directories with build number.
+
+170
+00:11:46,090 --> 00:11:49,330
+Now your Ratliff Jenkins size should be smaller if you run.
+
+171
+00:11:49,340 --> 00:11:51,490
+Do you have an asset in Radley Jenkins?
+
+172
+00:11:51,580 --> 00:11:58,090
+You will see something around 500 and be if you're seeing more, find out unnecessary things and delete
+
+173
+00:11:58,090 --> 00:11:58,270
+them.
+
+174
+00:11:58,270 --> 00:11:59,710
+Do not delete plugins.
+
+175
+00:12:00,880 --> 00:12:02,200
+We need those plugins.
+
+176
+00:12:02,980 --> 00:12:03,220
+Okay.
+
+177
+00:12:03,220 --> 00:12:04,890
+Now it's time to archive this.
+
+178
+00:12:04,900 --> 00:12:12,400
+We're going to say cha hyphen C, Z, V, F, and I'm going to name this as Jenkins.
+
+179
+00:12:13,670 --> 00:12:14,300
+Underscore.
+
+180
+00:12:14,330 --> 00:12:21,440
+CI cd jobs dot dot dot gz.
+
+181
+00:12:21,680 --> 00:12:23,180
+You can keep the same name.
+
+182
+00:12:23,180 --> 00:12:28,910
+It will be helpful in the cloud formation project, but if you have given different name, it's jobs.
+
+183
+00:12:28,940 --> 00:12:34,550
+S But if you're given a different name, no problem in cloud formation project will change the name.
+
+184
+00:12:35,690 --> 00:12:37,720
+You can change the name of the archives.
+
+185
+00:12:37,730 --> 00:12:40,310
+That should be fine, but note down the names.
+
+186
+00:12:40,790 --> 00:12:44,240
+So let's archive this.
+
+187
+00:12:46,810 --> 00:12:47,310
+Okay.
+
+188
+00:12:47,800 --> 00:12:50,110
+Now you have some dots on our cashier directory.
+
+189
+00:12:50,110 --> 00:12:52,540
+We could have cleaned that also, but that is fine.
+
+190
+00:12:52,840 --> 00:12:54,460
+This much size is fine.
+
+191
+00:12:56,340 --> 00:12:57,540
+We should have now.
+
+192
+00:13:01,310 --> 00:13:01,940
+The ball.
+
+193
+00:13:01,940 --> 00:13:03,390
+Let's check its size to you.
+
+194
+00:13:03,410 --> 00:13:04,400
+High as such.
+
+195
+00:13:08,450 --> 00:13:08,810
+Okay.
+
+196
+00:13:08,840 --> 00:13:09,890
+That's reduced.
+
+197
+00:13:09,980 --> 00:13:11,450
+If even if it's big size.
+
+198
+00:13:11,450 --> 00:13:12,230
+Okay, don't worry.
+
+199
+00:13:12,230 --> 00:13:13,580
+We're going to put it on S3 bucket.
+
+200
+00:13:13,580 --> 00:13:15,590
+It will be copied very quickly over there.
+
+201
+00:13:16,420 --> 00:13:19,480
+If you want, you can download it and keeping your local machine also.
+
+202
+00:13:20,330 --> 00:13:25,500
+Okay, now let's run a SE three step or if we have to install it publicly.
+
+203
+00:13:25,840 --> 00:13:32,540
+I already have it installed but still I'll show you apt install a c.
+
+204
+00:13:36,590 --> 00:13:36,920
+Okay.
+
+205
+00:13:36,920 --> 00:13:38,060
+We have a IWC ally.
+
+206
+00:13:38,090 --> 00:13:39,560
+Now it's time to copy your data.
+
+207
+00:13:39,590 --> 00:13:41,510
+ewss3cp.
+
+208
+00:13:41,510 --> 00:13:50,210
+We're going to copy or jenkins if the tab does not work over here, i have to copy the file name.
+
+209
+00:13:51,720 --> 00:13:52,010
+Okay.
+
+210
+00:13:52,490 --> 00:13:53,390
+E w s.
+
+211
+00:13:53,390 --> 00:13:54,830
+s3cp.
+
+212
+00:13:58,610 --> 00:14:00,890
+And the bucket name is three colons slash slash.
+
+213
+00:14:00,890 --> 00:14:02,900
+So let me get the bucket name.
+
+214
+00:14:06,850 --> 00:14:08,050
+That's my bucket name.
+
+215
+00:14:10,510 --> 00:14:11,500
+They copy the name.
+
+216
+00:14:16,820 --> 00:14:20,300
+Don't create any subdirectories just in the bucket itself.
+
+217
+00:14:24,410 --> 00:14:25,880
+So they started copying.
+
+218
+00:14:26,240 --> 00:14:31,720
+You see, it's 348 and B and yeah, I didn't even complete my sentence and it has copied.
+
+219
+00:14:31,730 --> 00:14:37,250
+So as I told you, don't worry about the size even if you're not able to clean, clear or clean the
+
+220
+00:14:37,250 --> 00:14:38,810
+directories, that is also fine.
+
+221
+00:14:39,880 --> 00:14:41,270
+Okay, so one backup taken.
+
+222
+00:14:41,270 --> 00:14:41,990
+Let's see.
+
+223
+00:14:44,910 --> 00:14:45,720
+Good job.
+
+224
+00:14:47,500 --> 00:14:47,650
+Okay.
+
+225
+00:14:47,770 --> 00:14:50,140
+Let's do the same for the other other instances.
+
+226
+00:14:50,140 --> 00:14:51,310
+Now let's go to.
+
+227
+00:14:52,070 --> 00:14:53,360
+No nexus.
+
+228
+00:14:56,540 --> 00:14:59,410
+If you understood what you had to do, you can, you know, keep doing it.
+
+229
+00:14:59,410 --> 00:15:01,960
+Or if you still want to see, you can keep watching the video.
+
+230
+00:15:08,540 --> 00:15:10,310
+That is sent to a user.
+
+231
+00:15:13,130 --> 00:15:13,490
+It.
+
+232
+00:15:26,340 --> 00:15:28,060
+You should see an Excel directory in OPPT.
+
+233
+00:15:28,080 --> 00:15:30,600
+First, let's stop the Nexis service.
+
+234
+00:15:39,960 --> 00:15:40,170
+Okay.
+
+235
+00:15:40,200 --> 00:15:43,680
+Let's take it's archive cha hyphen c z vf.
+
+236
+00:15:47,200 --> 00:15:51,340
+Next is hyphen hyphen v pro hyphen pro dot GZ.
+
+237
+00:15:51,370 --> 00:15:52,780
+That's the name I have given.
+
+238
+00:15:53,410 --> 00:15:56,050
+Again, you can use the same name or you can use different name.
+
+239
+00:16:01,160 --> 00:16:05,390
+OC Archive taken a B+ 3cp.
+
+240
+00:16:08,570 --> 00:16:10,600
+I Strickland slash slash.
+
+241
+00:16:11,820 --> 00:16:13,380
+Same bucket name.
+
+242
+00:16:17,810 --> 00:16:18,460
+Done.
+
+243
+00:16:19,460 --> 00:16:20,480
+That was Foster.
+
+244
+00:16:22,190 --> 00:16:22,470
+Okay.
+
+245
+00:16:22,490 --> 00:16:24,020
+Let's log out from here.
+
+246
+00:16:24,620 --> 00:16:29,000
+If you want to continue and you know, with your stack, you can just start the Nexis and Jenkins service.
+
+247
+00:16:29,270 --> 00:16:31,280
+If you're done, you know, let it be.
+
+248
+00:16:31,280 --> 00:16:31,930
+Stop it.
+
+249
+00:16:31,940 --> 00:16:34,760
+Anyways, taking the backup, we can recover later.
+
+250
+00:16:39,570 --> 00:16:40,680
+So on the server.
+
+251
+00:16:58,090 --> 00:16:58,290
+Okay.
+
+252
+00:16:58,360 --> 00:16:59,800
+Here we have two things to back up.
+
+253
+00:16:59,800 --> 00:17:03,730
+One is Sona Ncube directory and then it's PostgreSQL.
+
+254
+00:17:04,690 --> 00:17:06,760
+Let's stop the sonar service first.
+
+255
+00:17:10,140 --> 00:17:10,619
+Oh, sorry.
+
+256
+00:17:10,619 --> 00:17:12,420
+Its name is Soner Kub.
+
+257
+00:17:17,880 --> 00:17:18,050
+You.
+
+258
+00:17:18,150 --> 00:17:19,319
+Let's go to OPPT.
+
+259
+00:17:20,900 --> 00:17:21,109
+Okay.
+
+260
+00:17:21,109 --> 00:17:22,400
+Let's take it back up.
+
+261
+00:17:25,170 --> 00:17:32,070
+So in the cube hyphen V pro hyphen pro hyphen data z as the name I have given.
+
+262
+00:17:37,130 --> 00:17:38,270
+Back up, Deacon.
+
+263
+00:17:38,960 --> 00:17:39,760
+Let's copy it.
+
+264
+00:17:40,190 --> 00:17:41,570
+SE three cp.
+
+265
+00:17:54,910 --> 00:17:57,670
+P tarball and oc done also.
+
+266
+00:18:00,050 --> 00:18:02,240
+If you wish, you can start the ownership service.
+
+267
+00:18:02,240 --> 00:18:03,740
+But if you're done, just log out.
+
+268
+00:18:09,190 --> 00:18:09,580
+All right.
+
+269
+00:18:09,580 --> 00:18:12,120
+If you're in continuous integration project, this is done.
+
+270
+00:18:12,130 --> 00:18:14,380
+If you're in continuous delivery project, then.
+
+271
+00:18:16,760 --> 00:18:18,580
+We only have one more server.
+
+272
+00:18:18,590 --> 00:18:21,830
+We're not going to take the data backup, but configuration file backup.
+
+273
+00:18:23,240 --> 00:18:25,940
+Which will be again using a cloud formation project.
+
+274
+00:18:34,290 --> 00:18:36,310
+If logging into the Tomcat server.
+
+275
+00:18:47,750 --> 00:18:49,810
+Get into your Tomcat home directory.
+
+276
+00:18:49,820 --> 00:18:50,120
+Yes.
+
+277
+00:18:50,330 --> 00:18:52,720
+Local Tomcat eight, I suppose.
+
+278
+00:18:52,730 --> 00:18:53,240
+Yeah.
+
+279
+00:18:54,980 --> 00:19:00,260
+In the contradictory, you should have tomcat hyphen users dot xml that file.
+
+280
+00:19:00,260 --> 00:19:02,270
+We are going to copy it to our S3 bucket.
+
+281
+00:19:06,200 --> 00:19:06,890
+Same name.
+
+282
+00:19:06,900 --> 00:19:08,090
+We don't need to change it.
+
+283
+00:19:12,200 --> 00:19:12,510
+Okay.
+
+284
+00:19:12,560 --> 00:19:13,250
+That's done.
+
+285
+00:19:15,440 --> 00:19:15,660
+Okay.
+
+286
+00:19:15,680 --> 00:19:21,590
+Now in web apps, you should have a manager directory in that you have to have an INF.
+
+287
+00:19:23,000 --> 00:19:23,210
+Okay.
+
+288
+00:19:23,210 --> 00:19:28,550
+There you should see context xml e plus 3cp copy this file.
+
+289
+00:19:35,490 --> 00:19:36,990
+Copied to the S3 bucket.
+
+290
+00:19:43,940 --> 00:19:45,020
+All right.
+
+291
+00:19:51,220 --> 00:19:51,490
+Okay.
+
+292
+00:19:51,490 --> 00:19:53,830
+Let's check our S3 bucket.
+
+293
+00:19:54,250 --> 00:19:56,560
+aws3 ls.
+
+294
+00:20:01,800 --> 00:20:07,890
+All right, once you're done, you should have Jenkins CD Jumpstart GZ Nexus Hyphen CD Hyphen V Pro
+
+295
+00:20:07,920 --> 00:20:16,680
+Hyphen Pro dot z so in Q hyphen V Pro hyphen pro dot pro hyphen data mktg z, tomcat users dot xml and
+
+296
+00:20:16,680 --> 00:20:17,730
+context xml.
+
+297
+00:20:17,730 --> 00:20:19,860
+You should have this in your S3 bucket.
+
+298
+00:20:19,890 --> 00:20:21,030
+No down the name.
+
+299
+00:20:21,030 --> 00:20:22,730
+No down the name of the S3 bucket.
+
+300
+00:20:22,740 --> 00:20:25,560
+We'll be using this in cloud formation project.
+
+301
+00:20:26,280 --> 00:20:30,150
+Okay, one quick way, a sample to how to restore manually this data.
+
+302
+00:20:30,180 --> 00:20:32,310
+Let's take example of Jenkins.
+
+303
+00:20:34,110 --> 00:20:34,210
+Okay.
+
+304
+00:20:34,290 --> 00:20:36,450
+So I'm going to launch an issue to instance.
+
+305
+00:20:37,890 --> 00:20:42,480
+I'd say first, let me just shut down all this instant state.
+
+306
+00:20:42,960 --> 00:20:43,660
+Stop.
+
+307
+00:20:43,680 --> 00:20:46,380
+I don't need it now, so I'm going to shut them down.
+
+308
+00:20:49,810 --> 00:20:50,020
+Okay.
+
+309
+00:20:50,020 --> 00:20:54,040
+I'm going to set up a Jenkins server now, so.
+
+310
+00:20:55,180 --> 00:20:57,160
+One two server 20 should be fine.
+
+311
+00:20:57,960 --> 00:20:59,010
+Due to micro.
+
+312
+00:21:01,300 --> 00:21:01,420
+Okay.
+
+313
+00:21:01,480 --> 00:21:04,870
+I'm going to set up the Jenkins service from user data.
+
+314
+00:21:05,140 --> 00:21:08,830
+So I have to say sudo apt update.
+
+315
+00:21:13,960 --> 00:21:16,120
+To make sure to give the best part.
+
+316
+00:21:18,170 --> 00:21:27,310
+Sudo apt install open JDK hyphen eight hyphen JDK f and y solo.
+
+317
+00:21:27,470 --> 00:21:35,060
+APT install maven and whatever you need and just put it out there.
+
+318
+00:21:36,490 --> 00:21:37,450
+It should be fine.
+
+319
+00:21:38,740 --> 00:21:40,870
+And then Jenkins installation steps.
+
+320
+00:21:41,950 --> 00:21:44,920
+So the Jenkins installation documentation.
+
+321
+00:21:45,160 --> 00:21:46,780
+From there, I'm just copying this thing.
+
+322
+00:21:46,780 --> 00:21:47,560
+Commands.
+
+323
+00:21:53,770 --> 00:21:54,140
+Okay.
+
+324
+00:21:54,160 --> 00:21:55,360
+This will not work out.
+
+325
+00:21:55,570 --> 00:21:58,240
+We have to echo and put this into the file.
+
+326
+00:22:01,840 --> 00:22:02,140
+Okay.
+
+327
+00:22:02,140 --> 00:22:05,050
+So I'm saying sudo hyphen c ico.
+
+328
+00:22:06,110 --> 00:22:07,940
+And redirected to this file.
+
+329
+00:22:09,830 --> 00:22:18,740
+And finally sudo apt update and then sudo apt install jenkins.
+
+330
+00:22:19,730 --> 00:22:21,320
+Right now we know this is a fresh instances.
+
+331
+00:22:21,320 --> 00:22:23,000
+You'll be fresh jenkins up.
+
+332
+00:22:23,030 --> 00:22:25,280
+No jobs, no plugins, nothing.
+
+333
+00:22:25,280 --> 00:22:25,760
+Right.
+
+334
+00:22:26,720 --> 00:22:30,830
+This is fine now, but we'll see how we can restore from our data.
+
+335
+00:22:33,520 --> 00:22:34,630
+Restore.
+
+336
+00:22:34,840 --> 00:22:37,720
+Just give some name, restore, hyphen Jenkins.
+
+337
+00:22:40,330 --> 00:22:41,620
+Configure Security group.
+
+338
+00:22:41,620 --> 00:22:44,950
+I'm going to use some existing security group, genuine security group.
+
+339
+00:22:46,920 --> 00:22:51,180
+Launch, and I'll use a key that I already have.
+
+340
+00:22:54,770 --> 00:22:55,040
+Okay.
+
+341
+00:22:55,550 --> 00:22:56,870
+We wait for a few minutes.
+
+342
+00:22:56,870 --> 00:23:02,180
+We'll wait until this is entirely set up, and then we'll log in and we'll restore the data.
+
+343
+00:23:05,780 --> 00:23:06,830
+Now it's few minutes.
+
+344
+00:23:06,830 --> 00:23:11,360
+Now I will check whether the Jenkins service is up or not.
+
+345
+00:23:14,270 --> 00:23:14,400
+Okay.
+
+346
+00:23:14,520 --> 00:23:15,840
+Seems it's responding.
+
+347
+00:23:16,470 --> 00:23:17,020
+Okay.
+
+348
+00:23:17,190 --> 00:23:20,330
+Jenkins is up and we have to do the post installation step.
+
+349
+00:23:20,340 --> 00:23:27,360
+It's a fresh set up and then you can have to set up all the jobs and install all the plug ins and stuff.
+
+350
+00:23:27,960 --> 00:23:31,020
+We already have the backups, so we're going to restore from that backup.
+
+351
+00:23:31,020 --> 00:23:33,240
+So we'll log into this Jenkins instance.
+
+352
+00:23:34,820 --> 00:23:36,130
+It's copy type.
+
+353
+00:23:49,760 --> 00:23:50,090
+Okay.
+
+354
+00:23:50,120 --> 00:23:51,410
+So be the root user.
+
+355
+00:23:52,670 --> 00:23:58,430
+First thing you're going to do is you're going to stop the Jenkins service here so it doesn't interfere
+
+356
+00:23:58,430 --> 00:24:00,320
+with our restore process.
+
+357
+00:24:00,830 --> 00:24:03,290
+Let's go to wire lib.
+
+358
+00:24:05,490 --> 00:24:05,860
+Okay.
+
+359
+00:24:05,890 --> 00:24:08,070
+Ellis hyphen ld.
+
+360
+00:24:09,600 --> 00:24:11,310
+You should have the Jenkins directory.
+
+361
+00:24:12,210 --> 00:24:12,450
+Okay.
+
+362
+00:24:12,450 --> 00:24:14,220
+Also note down the ownership of this.
+
+363
+00:24:14,220 --> 00:24:15,690
+This is Jenkins user.
+
+364
+00:24:16,320 --> 00:24:18,520
+Once we restore this, ownership may change.
+
+365
+00:24:18,540 --> 00:24:22,110
+So you have to make sure you give this ownership back to this directory.
+
+366
+00:24:22,590 --> 00:24:26,910
+Okay, now we have a backup on the S3 bucket and we want to download it to our instance.
+
+367
+00:24:26,920 --> 00:24:29,880
+So I'm going to attach a role so it can authenticate.
+
+368
+00:24:30,660 --> 00:24:35,160
+I'm going to use the same role v profile.
+
+369
+00:24:36,600 --> 00:24:37,650
+The time of restoration.
+
+370
+00:24:37,650 --> 00:24:39,630
+If you're not seeing this at all, create another rule.
+
+371
+00:24:39,630 --> 00:24:40,230
+Simple.
+
+372
+00:24:43,860 --> 00:24:44,100
+Okay.
+
+373
+00:24:44,100 --> 00:24:45,960
+So that's the S3 bucket.
+
+374
+00:24:47,370 --> 00:24:47,480
+Yeah.
+
+375
+00:24:47,620 --> 00:24:49,000
+That's copy its name.
+
+376
+00:24:50,730 --> 00:24:52,440
+Let's go back to our Jenkins.
+
+377
+00:24:53,270 --> 00:25:01,760
+So I'm going to say a s se three cb se three colon slash slash the bucket name.
+
+378
+00:25:01,790 --> 00:25:02,390
+Oops.
+
+379
+00:25:03,770 --> 00:25:05,690
+Bucket name slash.
+
+380
+00:25:06,370 --> 00:25:07,600
+And the final name.
+
+381
+00:25:10,400 --> 00:25:11,180
+That one.
+
+382
+00:25:14,800 --> 00:25:14,950
+Yeah.
+
+383
+00:25:15,060 --> 00:25:16,410
+I can copy it from there.
+
+384
+00:25:16,740 --> 00:25:17,520
+Copy.
+
+385
+00:25:23,830 --> 00:25:24,130
+Okay.
+
+386
+00:25:24,550 --> 00:25:28,510
+And I'm going to say dot, so download it in this VAT lib directory.
+
+387
+00:25:31,560 --> 00:25:35,520
+Now I have to install a silly app.
+
+388
+00:25:36,150 --> 00:25:38,190
+Install a silly.
+
+389
+00:25:44,360 --> 00:25:44,550
+Okay.
+
+390
+00:25:44,820 --> 00:25:45,270
+Localize.
+
+391
+00:25:45,320 --> 00:25:45,700
+Install.
+
+392
+00:25:45,710 --> 00:25:47,360
+Now I can run the command plus three.
+
+393
+00:25:47,430 --> 00:25:49,910
+Copy here.
+
+394
+00:25:54,940 --> 00:25:55,540
+Done.
+
+395
+00:25:57,770 --> 00:25:58,010
+Okay.
+
+396
+00:25:58,010 --> 00:26:03,080
+Now simply I'm going to say da x z v f extracted.
+
+397
+00:26:09,490 --> 00:26:10,130
+That's it.
+
+398
+00:26:10,880 --> 00:26:14,540
+It's going to override the files that you already have in Jenkins.
+
+399
+00:26:14,720 --> 00:26:17,480
+You did a Jenkins installation so that already Jenkins files.
+
+400
+00:26:17,480 --> 00:26:17,790
+It's gone.
+
+401
+00:26:17,810 --> 00:26:18,230
+All right.
+
+402
+00:26:18,240 --> 00:26:19,220
+A lot of files.
+
+403
+00:26:25,290 --> 00:26:26,190
+Check the permission.
+
+404
+00:26:26,190 --> 00:26:28,890
+If it's not good, just give Jenkins.
+
+405
+00:26:29,090 --> 00:26:29,700
+Jenkins.
+
+406
+00:26:29,700 --> 00:26:31,740
+But if you take a backup.
+
+407
+00:26:33,680 --> 00:26:35,720
+Well, you know, tarball you're doing right.
+
+408
+00:26:35,720 --> 00:26:38,390
+We are archiving so it's going to preserve the permissions and all.
+
+409
+00:26:38,690 --> 00:26:40,280
+But it's a good idea anyways.
+
+410
+00:26:40,430 --> 00:26:41,510
+Recursively.
+
+411
+00:26:42,870 --> 00:26:44,370
+So all the files are Jenkins permission.
+
+412
+00:26:44,370 --> 00:26:45,690
+Now, let's start.
+
+413
+00:26:46,780 --> 00:26:49,270
+Jenkins service system say it'll start.
+
+414
+00:26:49,300 --> 00:26:51,730
+JENKINS That's going to load.
+
+415
+00:26:51,760 --> 00:26:57,190
+JENKINS With the data in the Jenkins directory and this is the data from previous.
+
+416
+00:26:57,790 --> 00:26:58,820
+Jenkins setup.
+
+417
+00:26:59,560 --> 00:26:59,860
+Right.
+
+418
+00:26:59,920 --> 00:27:01,100
+Let's see that.
+
+419
+00:27:01,120 --> 00:27:02,710
+It's going to take a moment to come up.
+
+420
+00:27:09,800 --> 00:27:10,620
+Said Enter.
+
+421
+00:27:14,980 --> 00:27:15,280
+Okay.
+
+422
+00:27:15,310 --> 00:27:16,210
+Now login page.
+
+423
+00:27:16,210 --> 00:27:16,510
+Right.
+
+424
+00:27:16,510 --> 00:27:19,810
+So I remember the username and password that I have given.
+
+425
+00:27:21,480 --> 00:27:22,140
+Again.
+
+426
+00:27:26,110 --> 00:27:27,130
+And voila.
+
+427
+00:27:27,670 --> 00:27:29,470
+Back from where we started.
+
+428
+00:27:29,570 --> 00:27:32,710
+Right now, I know you can take a backup.
+
+429
+00:27:32,710 --> 00:27:37,000
+You can take my of the instance, but then you have to pay for the storage cost.
+
+430
+00:27:37,630 --> 00:27:45,790
+But in any case, do this backup process because we need this in cloud formation project.
+
+431
+00:27:48,690 --> 00:27:48,930
+Okay.
+
+432
+00:27:48,930 --> 00:27:54,000
+Now there will be in the jobs, there'll be all types of Nexus sonar, all tokens.
+
+433
+00:27:54,000 --> 00:28:00,120
+So you have to change all those things change the old IP right now, give the new IP in the jobs in
+
+434
+00:28:00,120 --> 00:28:04,610
+the next job and so on or cube job tokens.
+
+435
+00:28:04,620 --> 00:28:04,830
+Right.
+
+436
+00:28:04,860 --> 00:28:06,480
+All those things you have to change.
+
+437
+00:28:06,480 --> 00:28:06,840
+Right?
+
+438
+00:28:06,840 --> 00:28:08,520
+Then you can run the pipeline.
+
+439
+00:28:09,330 --> 00:28:09,660
+All right.
+
+440
+00:28:09,660 --> 00:28:12,150
+That's that's all in this video.
+
+441
+00:28:12,570 --> 00:28:13,770
+Thank you very much for watching.
+
+442
+00:28:13,770 --> 00:28:15,840
+Now you can continue with other videos.
+

@@ -1,0 +1,1068 @@
+1
+00:00:00,550 --> 00:00:00,780
+Okay.
+
+2
+00:00:00,850 --> 00:00:06,610
+So we have built our image and stored it on SDR Elastic Container Registry.
+
+3
+00:00:06,610 --> 00:00:11,620
+So our image is ready to be deployed, but where are we going to deploy it now?
+
+4
+00:00:11,620 --> 00:00:16,930
+If you already know Docker, then you must know there are varieties of solutions available out there
+
+5
+00:00:16,930 --> 00:00:19,420
+where we can run our Docker container.
+
+6
+00:00:19,630 --> 00:00:21,970
+First of all, just the Docker engine.
+
+7
+00:00:21,970 --> 00:00:28,690
+We can just install a Docker engine anywhere on a VM, easy to instance, or a physical machine, and
+
+8
+00:00:28,690 --> 00:00:34,150
+we can deploy our Docker container to this Docker engine so it could be any server.
+
+9
+00:00:35,260 --> 00:00:35,830
+The other.
+
+10
+00:00:35,830 --> 00:00:39,520
+The most popular option today is Kubernetes.
+
+11
+00:00:40,270 --> 00:00:42,670
+And mostly used for production purpose.
+
+12
+00:00:43,830 --> 00:00:48,090
+We will be seeing about Kubernetes deployment in later projects.
+
+13
+00:00:48,090 --> 00:00:50,190
+But Kubernetes is itself.
+
+14
+00:00:50,970 --> 00:00:54,790
+He's an ecosystem and it is supported by many platforms.
+
+15
+00:00:54,810 --> 00:00:57,240
+You can run Kubernetes standalone.
+
+16
+00:00:57,420 --> 00:01:03,510
+That means you can create your own VMs or or physical machine and set up a Kubernetes cluster on that,
+
+17
+00:01:03,510 --> 00:01:05,069
+your own Kubernetes.
+
+18
+00:01:05,160 --> 00:01:14,490
+Or you can use cloud solutions like X, x elastic Kubernetes service or Azure Kubernetes service or
+
+19
+00:01:14,490 --> 00:01:17,040
+Google Kubernetes engine OpenShift.
+
+20
+00:01:17,430 --> 00:01:18,380
+There are actually many.
+
+21
+00:01:18,390 --> 00:01:19,920
+I'm just showing you a few over here.
+
+22
+00:01:19,920 --> 00:01:23,130
+The most popular one, but initially for testing purpose.
+
+23
+00:01:23,130 --> 00:01:29,650
+Before we move to the production environment, we can use this amazing container service.
+
+24
+00:01:29,710 --> 00:01:31,290
+It was X.
+
+25
+00:01:31,650 --> 00:01:32,430
+It's pretty simple.
+
+26
+00:01:32,430 --> 00:01:37,740
+You create the easiest cluster and you create the information of your container and it just runs for
+
+27
+00:01:37,740 --> 00:01:37,950
+you.
+
+28
+00:01:37,950 --> 00:01:39,870
+It provides you load balancer also.
+
+29
+00:01:40,140 --> 00:01:42,510
+Now it is used for production purpose also.
+
+30
+00:01:42,510 --> 00:01:46,800
+But since Kubernetes has superseded everything in container, well, today.
+
+31
+00:01:46,800 --> 00:01:49,080
+So most of the people use Kubernetes.
+
+32
+00:01:49,350 --> 00:01:52,770
+As I said, we'll be talking about Kubernetes deployment later in this project.
+
+33
+00:01:52,770 --> 00:02:01,890
+We will be using X and now we will take our container image, which is an ACR and deploy it on x cluster.
+
+34
+00:02:01,890 --> 00:02:05,070
+So first we need to create the easiest cluster.
+
+35
+00:02:05,220 --> 00:02:08,490
+Okay, so this is what we will be achieving in few lectures.
+
+36
+00:02:09,580 --> 00:02:13,360
+So developer makes a code change in GitHub.
+
+37
+00:02:14,540 --> 00:02:16,350
+Which will be fetched by Jenkins.
+
+38
+00:02:16,350 --> 00:02:18,860
+So we have a pipeline which gets triggered.
+
+39
+00:02:19,100 --> 00:02:23,720
+So it's going to fetch the code and run the unit test run check steel analysis.
+
+40
+00:02:23,720 --> 00:02:26,150
+Do code analysis with sonar cube server.
+
+41
+00:02:26,890 --> 00:02:30,840
+Sorry with sonar cube scanner and upload the result to the cube server.
+
+42
+00:02:30,850 --> 00:02:32,890
+Check for the quality gate.
+
+43
+00:02:34,040 --> 00:02:40,560
+Then build the Docker image with our artifact in that and upload it to Amazon ACR.
+
+44
+00:02:40,580 --> 00:02:41,960
+We have done till here.
+
+45
+00:02:42,230 --> 00:02:51,400
+Next we will be using X Deploy plugin in our pipeline and deploy our Docker image to Amazon x.
+
+46
+00:02:51,410 --> 00:02:56,000
+Amazon x will fetch the Docker image from Amazon ACR.
+
+47
+00:02:56,270 --> 00:03:02,990
+And once this pipeline completes successfully, we'll also see how how do we promote it for the production
+
+48
+00:03:02,990 --> 00:03:04,130
+environment as well.
+
+49
+00:03:04,870 --> 00:03:09,370
+So now the next step will be to set up Amazon X cluster.
+
+50
+00:03:09,370 --> 00:03:10,780
+So let's get into that.
+
+51
+00:03:11,770 --> 00:03:12,010
+Okay.
+
+52
+00:03:12,010 --> 00:03:19,360
+So I'm in my console, not California region, which I'm using my Jenkins Nexus Sonar Cube, all are
+
+53
+00:03:19,360 --> 00:03:20,890
+in North California region.
+
+54
+00:03:20,890 --> 00:03:25,240
+So make sure you are in the same region where your Jenkins is.
+
+55
+00:03:25,920 --> 00:03:28,080
+So search for X.
+
+56
+00:03:29,480 --> 00:03:30,680
+Elastic Continuous Service.
+
+57
+00:03:30,680 --> 00:03:31,820
+Let's click on that.
+
+58
+00:03:33,380 --> 00:03:35,600
+So if you have never used e-cigs, don't worry.
+
+59
+00:03:35,600 --> 00:03:36,710
+It's pretty simple.
+
+60
+00:03:36,950 --> 00:03:44,630
+But I still recommend you to watch this video and read this to just get a better understanding of what
+
+61
+00:03:44,630 --> 00:03:45,350
+is X.
+
+62
+00:03:45,350 --> 00:03:48,410
+But if you just follow me also, that is also fine.
+
+63
+00:03:48,830 --> 00:03:51,700
+Basically X is to run our docker container.
+
+64
+00:03:51,710 --> 00:03:52,820
+Simple as that.
+
+65
+00:03:53,660 --> 00:03:55,730
+So let's click on Get Started.
+
+66
+00:03:56,270 --> 00:04:02,780
+First thing is we need to create X cluster, so we will be having staging and production environment.
+
+67
+00:04:02,780 --> 00:04:06,230
+We create the cluster first for staging environment.
+
+68
+00:04:06,230 --> 00:04:07,820
+So they create cluster.
+
+69
+00:04:09,020 --> 00:04:10,580
+Let's give Cluster a name.
+
+70
+00:04:11,480 --> 00:04:13,520
+I've given the staging.
+
+71
+00:04:14,500 --> 00:04:17,050
+And choose this all the subnets.
+
+72
+00:04:17,910 --> 00:04:24,180
+Now this gives you a serverless environment with far gate, so you really don't need to create any two
+
+73
+00:04:24,270 --> 00:04:25,110
+instances.
+
+74
+00:04:25,260 --> 00:04:26,190
+If you want.
+
+75
+00:04:26,190 --> 00:04:28,800
+You can use easy two instances as well.
+
+76
+00:04:28,800 --> 00:04:35,280
+So Amazon X will create a cluster of easy two instance for you, which will be powered by the auto scaling
+
+77
+00:04:35,280 --> 00:04:35,760
+group.
+
+78
+00:04:36,420 --> 00:04:39,030
+But I do not recommend it for now.
+
+79
+00:04:39,390 --> 00:04:40,800
+Forget is simple.
+
+80
+00:04:40,800 --> 00:04:41,880
+It's cheaper.
+
+81
+00:04:42,720 --> 00:04:45,290
+It follows the serverless models.
+
+82
+00:04:45,290 --> 00:04:47,340
+So you don't need to manage any servers, any easy.
+
+83
+00:04:47,340 --> 00:04:48,550
+Two instances, nothing.
+
+84
+00:04:48,570 --> 00:04:50,580
+Everything is managed by us.
+
+85
+00:04:51,000 --> 00:04:53,820
+So let's keep that forget.
+
+86
+00:04:55,240 --> 00:04:58,450
+In the monitoring, we'll say use container insight.
+
+87
+00:04:58,450 --> 00:05:04,720
+So when you deploy your Docker container, what are the logs is coming out of that container?
+
+88
+00:05:04,720 --> 00:05:05,950
+We can see that.
+
+89
+00:05:05,950 --> 00:05:09,640
+And this is again powered by cloud watch tags.
+
+90
+00:05:10,740 --> 00:05:12,210
+So let's give a tag.
+
+91
+00:05:12,990 --> 00:05:13,860
+Name tag.
+
+92
+00:05:14,530 --> 00:05:18,120
+I will give same pro staging.
+
+93
+00:05:21,130 --> 00:05:22,180
+Let's create this.
+
+94
+00:05:23,070 --> 00:05:25,980
+So this will take time to provision your cluster.
+
+95
+00:05:25,980 --> 00:05:29,040
+So let it complete and then proceed.
+
+96
+00:05:29,550 --> 00:05:33,180
+I will pause my screen and resume when the cluster creation completes.
+
+97
+00:05:35,110 --> 00:05:36,550
+My cluster is created.
+
+98
+00:05:37,540 --> 00:05:38,500
+Let's click on it.
+
+99
+00:05:40,020 --> 00:05:40,260
+All right.
+
+100
+00:05:40,260 --> 00:05:41,910
+So here you will see a few section.
+
+101
+00:05:41,910 --> 00:05:48,870
+You have services which is used to expose your container to the outside world or for inter communication
+
+102
+00:05:48,870 --> 00:05:49,170
+also.
+
+103
+00:05:49,170 --> 00:05:50,910
+And it also provides a load balancer.
+
+104
+00:05:50,910 --> 00:05:53,100
+It also manages your containers.
+
+105
+00:05:53,250 --> 00:05:54,240
+So it's like.
+
+106
+00:05:55,230 --> 00:05:58,740
+Auto scaling group for the container that we used.
+
+107
+00:05:58,740 --> 00:06:05,670
+We see our auto scaling group similar thing, but for containers for easiest container task will be
+
+108
+00:06:05,670 --> 00:06:10,470
+the containers that will be running like we have easy two instances where we run our services here.
+
+109
+00:06:10,470 --> 00:06:16,770
+We will be having tasks so we can run tasks directly, but we will be creating task definitions.
+
+110
+00:06:17,040 --> 00:06:21,630
+So click over here and go to task definitions.
+
+111
+00:06:22,990 --> 00:06:24,610
+So we'll not directly run our containers.
+
+112
+00:06:24,610 --> 00:06:30,670
+We will create task definition and service will use this task definition to create the container or
+
+113
+00:06:30,670 --> 00:06:31,780
+manage the container.
+
+114
+00:06:31,900 --> 00:06:34,720
+So let's click on create new task definition.
+
+115
+00:06:35,200 --> 00:06:40,780
+So I will say V Pro App Stage task.
+
+116
+00:06:41,260 --> 00:06:47,740
+I know the names are getting longer, but if you name it properly, it will be easy for you to identify
+
+117
+00:06:47,740 --> 00:06:50,580
+your resource and troubleshoot if you get into any problems.
+
+118
+00:06:50,580 --> 00:06:53,500
+So give proper names container name.
+
+119
+00:06:53,500 --> 00:06:54,880
+So we'll give container name as well.
+
+120
+00:06:54,880 --> 00:07:01,180
+Pro App Keep the same as I'm keeping the pro app and here the URL of the registry from where it will
+
+121
+00:07:01,180 --> 00:07:01,570
+fetch.
+
+122
+00:07:01,570 --> 00:07:05,080
+So let's go to our ACR registry where we have uploaded.
+
+123
+00:07:06,510 --> 00:07:07,590
+E.C. are.
+
+124
+00:07:08,760 --> 00:07:09,150
+Yeah.
+
+125
+00:07:09,270 --> 00:07:09,530
+Yeah.
+
+126
+00:07:10,240 --> 00:07:14,020
+So on this ECI, we uploaded our docker image.
+
+127
+00:07:14,020 --> 00:07:16,060
+We'll mention that same URL here.
+
+128
+00:07:17,760 --> 00:07:20,280
+Copy that, you or I, and just paste it here.
+
+129
+00:07:21,530 --> 00:07:29,250
+Container port now withdrew app container or Docker container built on Tomcat runs on port 88.
+
+130
+00:07:29,420 --> 00:07:31,700
+So specify that Port 88.
+
+131
+00:07:33,440 --> 00:07:34,460
+Night is all here.
+
+132
+00:07:34,610 --> 00:07:36,920
+Come down and just go to next.
+
+133
+00:07:38,440 --> 00:07:42,940
+So app environment will be using a target will keep it as it is.
+
+134
+00:07:43,690 --> 00:07:46,140
+And one CPU and memory.
+
+135
+00:07:46,150 --> 00:07:47,260
+Let's see if we can go down.
+
+136
+00:07:47,260 --> 00:07:49,330
+We can go to GP.
+
+137
+00:07:49,870 --> 00:07:50,260
+Yeah.
+
+138
+00:07:50,260 --> 00:07:51,070
+That is the minimum.
+
+139
+00:07:51,070 --> 00:07:53,380
+We can go here container size.
+
+140
+00:07:53,380 --> 00:07:58,750
+We'll skip that one, not mention any container size storage will keep optional.
+
+141
+00:07:59,170 --> 00:08:01,780
+And let's go to tag.
+
+142
+00:08:02,890 --> 00:08:04,930
+And let's keep this tag as it is.
+
+143
+00:08:04,960 --> 00:08:06,070
+Let's go to next.
+
+144
+00:08:06,860 --> 00:08:14,330
+So review whatever you selected for AT&T your you or I you everything memory size.
+
+145
+00:08:14,600 --> 00:08:16,640
+If you're good just click on create.
+
+146
+00:08:18,570 --> 00:08:19,710
+This will also take some time.
+
+147
+00:08:19,710 --> 00:08:24,330
+So I'm going to pause my screen and screen and return when it is completed.
+
+148
+00:08:25,120 --> 00:08:25,420
+Okay.
+
+149
+00:08:25,420 --> 00:08:27,040
+So task definition is created.
+
+150
+00:08:27,040 --> 00:08:31,270
+We have the cluster now, we will be creating the surface.
+
+151
+00:08:31,270 --> 00:08:32,740
+So let's go to the cluster.
+
+152
+00:08:33,370 --> 00:08:34,809
+Let's click on a cluster.
+
+153
+00:08:36,049 --> 00:08:39,230
+So we have task definition and we just created it.
+
+154
+00:08:39,620 --> 00:08:46,370
+Now we'll create a service which will use that task definition and create tasks or containers for us.
+
+155
+00:08:46,760 --> 00:08:48,710
+So let's click on deploy here.
+
+156
+00:08:50,060 --> 00:08:51,980
+In the services, click on deploy.
+
+157
+00:08:52,580 --> 00:08:55,010
+Let me close this to notification here.
+
+158
+00:08:55,820 --> 00:08:57,350
+So let's see one by one.
+
+159
+00:08:58,200 --> 00:09:03,200
+So cap capacity provider strategy will go with launch type.
+
+160
+00:09:03,210 --> 00:09:05,070
+So we don't want to mention any strategy.
+
+161
+00:09:05,070 --> 00:09:06,000
+We'll keep it simple.
+
+162
+00:09:06,000 --> 00:09:07,440
+Just we're saying just forget.
+
+163
+00:09:07,440 --> 00:09:08,580
+Do what you want.
+
+164
+00:09:08,580 --> 00:09:10,260
+I'm just giving you my container.
+
+165
+00:09:10,260 --> 00:09:11,370
+Just run it for me.
+
+166
+00:09:11,370 --> 00:09:12,240
+It's like that.
+
+167
+00:09:13,180 --> 00:09:17,950
+So deployment configuration, we are creating a service, so let's stick to that service.
+
+168
+00:09:17,950 --> 00:09:19,260
+We can directly create task.
+
+169
+00:09:19,270 --> 00:09:22,990
+Also, you don't if you don't want to use service, you can directly run your containers.
+
+170
+00:09:22,990 --> 00:09:26,980
+But we will be using service which creates a load balancer also for us.
+
+171
+00:09:27,670 --> 00:09:30,190
+So let's keep service and let's select the family here.
+
+172
+00:09:30,190 --> 00:09:32,230
+You will see your task definition.
+
+173
+00:09:32,230 --> 00:09:33,100
+Select that.
+
+174
+00:09:34,300 --> 00:09:36,070
+And so with name.
+
+175
+00:09:36,070 --> 00:09:39,850
+So we'll say repro app stage SVC.
+
+176
+00:09:41,240 --> 00:09:47,390
+And decide task will keep it one to just run one container and let's come to networking.
+
+177
+00:09:49,280 --> 00:09:57,440
+Now here we will see create our own security group and we'll give name as super app stage SG.
+
+178
+00:09:58,410 --> 00:10:00,780
+And a seam in the description.
+
+179
+00:10:00,780 --> 00:10:02,310
+Make sure you give the description.
+
+180
+00:10:03,630 --> 00:10:05,040
+Add in bound rule.
+
+181
+00:10:05,940 --> 00:10:07,800
+Now there's only two options.
+
+182
+00:10:07,800 --> 00:10:08,790
+The protocol is HTTP.
+
+183
+00:10:08,790 --> 00:10:13,380
+HTTPS will be selecting A and it automatically selects the port number 80.
+
+184
+00:10:13,410 --> 00:10:15,210
+We want port 88.
+
+185
+00:10:15,240 --> 00:10:18,090
+Actually, this is the security group for our task.
+
+186
+00:10:18,090 --> 00:10:24,180
+So load balancer will route the request to the task and the task or container runs on port 88.
+
+187
+00:10:24,210 --> 00:10:30,060
+We will be changing this after this is completed, but for now we'll say 80 from anywhere.
+
+188
+00:10:31,750 --> 00:10:32,980
+Now let's come down.
+
+189
+00:10:33,220 --> 00:10:34,690
+Load balancing option.
+
+190
+00:10:36,160 --> 00:10:37,690
+So we need a load balancer.
+
+191
+00:10:37,690 --> 00:10:40,450
+So we'll say select application load balancer.
+
+192
+00:10:40,810 --> 00:10:42,060
+Create a new load balancer.
+
+193
+00:10:42,070 --> 00:10:46,090
+Load balancer name will say be.
+
+194
+00:10:46,880 --> 00:10:51,050
+The Pro app stage you'll be.
+
+195
+00:10:51,990 --> 00:10:52,120
+Okay.
+
+196
+00:10:52,260 --> 00:10:54,810
+Choose container to load balancer.
+
+197
+00:10:55,320 --> 00:10:57,580
+So Port 88 keep it as it is.
+
+198
+00:10:57,600 --> 00:11:00,870
+Listener Port 80 This is the port number of the load balancer.
+
+199
+00:11:00,870 --> 00:11:07,230
+So Load Balancer will listen on port 80 and root the request to the container on Port 8080.
+
+200
+00:11:08,920 --> 00:11:09,940
+Target group.
+
+201
+00:11:13,440 --> 00:11:14,170
+DG.
+
+202
+00:11:14,950 --> 00:11:20,440
+So again, make sure keep the naming convention because we will be creating a production cluster also.
+
+203
+00:11:20,440 --> 00:11:23,290
+So we should be able to differentiate between the two names.
+
+204
+00:11:23,980 --> 00:11:25,720
+Protocol HTTP.
+
+205
+00:11:26,350 --> 00:11:28,570
+So target group will be basically group of containers.
+
+206
+00:11:28,570 --> 00:11:29,800
+Group of task.
+
+207
+00:11:30,430 --> 00:11:36,640
+Health check will be slash login for us our v profile application as we have seen previously also when
+
+208
+00:11:36,640 --> 00:11:38,860
+we deployed IT response on slash login.
+
+209
+00:11:38,860 --> 00:11:41,650
+So it is going to do the health check at slash login.
+
+210
+00:11:42,990 --> 00:11:43,590
+Health check.
+
+211
+00:11:43,620 --> 00:11:44,430
+Grace period.
+
+212
+00:11:44,430 --> 00:11:45,640
+Late 30 seconds.
+
+213
+00:11:45,660 --> 00:11:48,120
+Check the health every 30 seconds.
+
+214
+00:11:48,240 --> 00:11:50,460
+So Target group will check a container.
+
+215
+00:11:50,760 --> 00:11:56,850
+It will check on the URL slash login and it is going to check every 30 seconds.
+
+216
+00:11:57,120 --> 00:11:59,580
+If everything is good, the container stays.
+
+217
+00:11:59,580 --> 00:12:02,120
+But if it is unhealthy, then it will.
+
+218
+00:12:02,130 --> 00:12:05,880
+The service will delete our container and create a new container.
+
+219
+00:12:06,600 --> 00:12:07,980
+A port number here.
+
+220
+00:12:08,020 --> 00:12:09,150
+Make sure it's 80.
+
+221
+00:12:10,230 --> 00:12:10,680
+Okay.
+
+222
+00:12:11,040 --> 00:12:12,420
+Now let's deploy.
+
+223
+00:12:15,090 --> 00:12:16,410
+This will take some time.
+
+224
+00:12:17,370 --> 00:12:23,650
+And by the time we will do a few changes, Target Group is going to do health check on Port eight.
+
+225
+00:12:23,670 --> 00:12:30,020
+We have to change it to Port 8080 and we have to also update the security group to listen on Port 88.
+
+226
+00:12:30,540 --> 00:12:32,550
+So let's go to S.E. to.
+
+227
+00:12:34,380 --> 00:12:36,170
+Goss target group, security group.
+
+228
+00:12:36,180 --> 00:12:37,780
+All of these are in D.C., too.
+
+229
+00:12:37,800 --> 00:12:40,680
+So let's go to S.E. to come down.
+
+230
+00:12:40,680 --> 00:12:42,270
+Let's go to target groups.
+
+231
+00:12:46,070 --> 00:12:46,390
+Okay.
+
+232
+00:12:46,400 --> 00:12:48,230
+So that is our target group you see there.
+
+233
+00:12:48,710 --> 00:12:49,670
+Click on that.
+
+234
+00:12:50,670 --> 00:12:52,380
+And let's go to health checks.
+
+235
+00:12:53,680 --> 00:12:54,290
+There.
+
+236
+00:12:54,760 --> 00:12:55,810
+Click on edit.
+
+237
+00:12:57,380 --> 00:12:58,700
+Advanced Health Check.
+
+238
+00:13:00,180 --> 00:13:01,090
+All right.
+
+239
+00:13:01,500 --> 00:13:02,710
+Put 80, 80.
+
+240
+00:13:02,760 --> 00:13:07,140
+Now, this is specific to our profile application, the container license on Port 88.
+
+241
+00:13:07,200 --> 00:13:11,980
+So we have to make sure the target group also do the health check on Port 88.
+
+242
+00:13:12,000 --> 00:13:15,650
+So make that change and say, see?
+
+243
+00:13:17,890 --> 00:13:20,020
+Also we go to the security group.
+
+244
+00:13:23,150 --> 00:13:24,940
+And we should find a security group here.
+
+245
+00:13:24,950 --> 00:13:25,520
+There.
+
+246
+00:13:26,470 --> 00:13:27,760
+That's our security group.
+
+247
+00:13:28,030 --> 00:13:29,410
+You see that naming?
+
+248
+00:13:30,620 --> 00:13:33,740
+I've named it properly, so I'm able to easily identify it.
+
+249
+00:13:34,130 --> 00:13:35,180
+Inbound related.
+
+250
+00:13:35,180 --> 00:13:36,020
+Inbound Rule.
+
+251
+00:13:36,960 --> 00:13:41,130
+And we'll add here rule report 8080.
+
+252
+00:13:43,400 --> 00:13:47,720
+Lessons on any IPv4 and.
+
+253
+00:13:49,060 --> 00:13:50,140
+E.T., E.T..
+
+254
+00:13:51,110 --> 00:13:53,180
+Listens on any IPV six.
+
+255
+00:13:53,180 --> 00:13:57,010
+Again, this is specific to our V profile application, right?
+
+256
+00:13:57,200 --> 00:13:58,720
+It listens on port 88.
+
+257
+00:13:58,730 --> 00:14:02,330
+So that's why we need to make these changes save all.
+
+258
+00:14:03,480 --> 00:14:03,800
+Okay.
+
+259
+00:14:03,840 --> 00:14:05,610
+Let's go back to X.
+
+260
+00:14:09,280 --> 00:14:11,620
+So this will also take some time to create.
+
+261
+00:14:11,620 --> 00:14:13,660
+Let's wait for some time and come back.
+
+262
+00:14:13,660 --> 00:14:16,840
+Once this is done, I will pause my screen and resume later.
+
+263
+00:14:19,080 --> 00:14:21,540
+It is, it has been deployed successfully.
+
+264
+00:14:21,540 --> 00:14:23,610
+So that is all in this lecture.
+
+265
+00:14:23,640 --> 00:14:30,240
+Join me in the next lecture where we will verify this and then make sure we deploy our container from
+
+266
+00:14:30,240 --> 00:14:32,850
+Jenkins automatically to our pipeline.
+
+267
+00:14:33,210 --> 00:14:35,550
+So wrap this up and join me in the next one.
+

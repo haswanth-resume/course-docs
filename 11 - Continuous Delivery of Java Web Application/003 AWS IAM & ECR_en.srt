@@ -1,0 +1,284 @@
+1
+00:00:01,040 --> 00:00:08,900
+In this lecture, we will be creating an IAM user that Jenkins will use to access a s services like
+
+2
+00:00:08,900 --> 00:00:11,060
+ACR and X.
+
+3
+00:00:12,240 --> 00:00:18,210
+Forced will create iam user second will create easier repository elastic container repository.
+
+4
+00:00:18,600 --> 00:00:21,090
+So let's go to iam service.
+
+5
+00:00:24,060 --> 00:00:25,700
+I click on users.
+
+6
+00:00:26,720 --> 00:00:28,340
+And see add users.
+
+7
+00:00:30,830 --> 00:00:34,160
+I will limit, as Sy said, Jenkins.
+
+8
+00:00:35,200 --> 00:00:36,190
+Access key.
+
+9
+00:00:36,220 --> 00:00:38,610
+You can give whatever name you want for this user.
+
+10
+00:00:38,620 --> 00:00:40,990
+Just make sure you put a checkmark and access key.
+
+11
+00:00:41,350 --> 00:00:45,250
+Next, attach existing policies directly.
+
+12
+00:00:45,250 --> 00:00:47,680
+So we need to add here a few policy.
+
+13
+00:00:47,680 --> 00:00:52,720
+One is the EC two container registry.
+
+14
+00:00:52,720 --> 00:00:54,160
+Full access, that one.
+
+15
+00:00:55,240 --> 00:00:58,870
+So this user can access the ACR repository.
+
+16
+00:00:59,230 --> 00:01:02,080
+The second one is going to be ex.
+
+17
+00:01:03,740 --> 00:01:06,110
+This is the service which will run our container.
+
+18
+00:01:06,380 --> 00:01:08,670
+And Jenkins from Jenkins.
+
+19
+00:01:08,690 --> 00:01:09,590
+It will be happening.
+
+20
+00:01:09,590 --> 00:01:10,370
+So Jenkins will run.
+
+21
+00:01:10,490 --> 00:01:16,340
+It will be running a sea fly to deploy the container to easiest service.
+
+22
+00:01:16,340 --> 00:01:18,890
+So we need to give full access here.
+
+23
+00:01:20,060 --> 00:01:20,780
+Next.
+
+24
+00:01:21,470 --> 00:01:22,250
+Next.
+
+25
+00:01:22,670 --> 00:01:27,740
+Get once again, make sure these two policies are selected while creating this user.
+
+26
+00:01:28,820 --> 00:01:29,780
+Create user.
+
+27
+00:01:30,430 --> 00:01:35,680
+And I'm going to say download CSV file which will store which will have the credentials access key and
+
+28
+00:01:35,680 --> 00:01:36,280
+secret key.
+
+29
+00:01:36,280 --> 00:01:38,500
+We will need this in the next lecture.
+
+30
+00:01:39,910 --> 00:01:43,360
+I will keep this tab as it is so I can just copy it from here.
+
+31
+00:01:43,360 --> 00:01:47,950
+Also make sure you do not share this credentials with anybody.
+
+32
+00:01:48,040 --> 00:01:51,040
+Do not post these credentials in Q&A.
+
+33
+00:01:51,040 --> 00:01:54,070
+I have seen some people posting their credentials on Q&A.
+
+34
+00:01:54,100 --> 00:02:00,310
+They will be instantly hacked by hackers or grabbed by the hackers and they'll misuse it.
+
+35
+00:02:00,310 --> 00:02:08,320
+So make sure you do not post your credentials on the Q&A or anywhere for that matter.
+
+36
+00:02:09,009 --> 00:02:09,389
+Okay.
+
+37
+00:02:09,639 --> 00:02:11,200
+Let's go to the next service.
+
+38
+00:02:11,800 --> 00:02:12,400
+Are.
+
+39
+00:02:14,430 --> 00:02:16,610
+Plastic Container Registry.
+
+40
+00:02:17,540 --> 00:02:21,170
+So elastic container registry service is pretty simple.
+
+41
+00:02:21,560 --> 00:02:24,920
+It just stores your Docker images so you can store here.
+
+42
+00:02:24,920 --> 00:02:27,560
+You can make it public, you can make it private.
+
+43
+00:02:28,480 --> 00:02:31,540
+And just take a look, go through it, read it.
+
+44
+00:02:31,540 --> 00:02:34,570
+If you have never used ACR, it's pretty simple, but take a look.
+
+45
+00:02:34,570 --> 00:02:37,090
+Read this, understand what is ACR?
+
+46
+00:02:37,910 --> 00:02:38,390
+Like that.
+
+47
+00:02:38,390 --> 00:02:39,440
+There are many.
+
+48
+00:02:40,160 --> 00:02:42,260
+Not many, but quite few.
+
+49
+00:02:42,560 --> 00:02:45,490
+Repositories services available from Azure.
+
+50
+00:02:45,500 --> 00:02:49,190
+You have from Google, you have you have Docker Hub on Nexus.
+
+51
+00:02:49,190 --> 00:02:55,010
+Also, you can create a repository, Docker repository, your own local Docker repository, but will
+
+52
+00:02:55,010 --> 00:02:56,030
+be using ACR.
+
+53
+00:02:56,300 --> 00:03:00,110
+So let's say get started and we'll keep it private.
+
+54
+00:03:00,110 --> 00:03:05,030
+We don't want publicly accessible repository and repository name.
+
+55
+00:03:05,030 --> 00:03:06,170
+Let's give it a name.
+
+56
+00:03:06,950 --> 00:03:08,210
+Yeah, that is fine.
+
+57
+00:03:08,210 --> 00:03:10,070
+We profile app IMG.
+
+58
+00:03:10,070 --> 00:03:11,540
+That's the name I have given.
+
+59
+00:03:12,570 --> 00:03:16,920
+You can keep the same name, but make sure what you give.
+
+60
+00:03:16,920 --> 00:03:20,460
+You remember it because you're going to come here and copy this one.
+
+61
+00:03:20,970 --> 00:03:21,660
+Scroll down.
+
+62
+00:03:21,660 --> 00:03:22,680
+We're not going to do anything.
+
+63
+00:03:22,680 --> 00:03:23,160
+That's it.
+
+64
+00:03:23,160 --> 00:03:25,200
+Just give the name, create a repository.
+
+65
+00:03:25,200 --> 00:03:26,280
+It's that simple.
+
+66
+00:03:26,490 --> 00:03:27,960
+And this is the UI.
+
+67
+00:03:29,840 --> 00:03:30,320
+Okay.
+
+68
+00:03:30,650 --> 00:03:31,880
+I will come to this.
+
+69
+00:03:32,530 --> 00:03:35,550
+When we write our code, we need this URL.
+
+70
+00:03:35,560 --> 00:03:37,670
+So that is all in this lecture.
+
+71
+00:03:37,690 --> 00:03:42,760
+Join me in the next one where we set up Jenkins to run our Docker pipeline code.
+

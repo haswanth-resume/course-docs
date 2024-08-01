@@ -1,0 +1,672 @@
+1
+00:00:01,110 --> 00:00:01,290
+Okay.
+
+2
+00:00:01,410 --> 00:00:03,040
+So my cluster is good.
+
+3
+00:00:03,060 --> 00:00:06,390
+My service has created some task.
+
+4
+00:00:06,510 --> 00:00:07,890
+See, this is the service.
+
+5
+00:00:08,250 --> 00:00:09,300
+Let's click on that.
+
+6
+00:00:13,740 --> 00:00:17,700
+You will see it has the load balancer information here in networking.
+
+7
+00:00:17,700 --> 00:00:22,410
+We'll have the load balancer information load balancer.
+
+8
+00:00:22,410 --> 00:00:24,990
+And this is this is the URL of the load balancer.
+
+9
+00:00:25,170 --> 00:00:28,590
+Let's click on this button and you should see.
+
+10
+00:00:29,510 --> 00:00:32,360
+That our container is running on x cluster.
+
+11
+00:00:32,659 --> 00:00:41,570
+So it has fetched the image from Amazon ACR and has executed the task which runs out of container.
+
+12
+00:00:41,580 --> 00:00:42,800
+So let's go back.
+
+13
+00:00:43,310 --> 00:00:48,980
+So go back to the pro staging cluster in the tasks you should see.
+
+14
+00:00:49,430 --> 00:00:51,080
+That's our container.
+
+15
+00:00:51,800 --> 00:00:53,540
+So that task is actually a container.
+
+16
+00:00:53,630 --> 00:00:54,500
+Click on that.
+
+17
+00:00:57,550 --> 00:00:57,670
+Okay.
+
+18
+00:00:57,730 --> 00:00:59,650
+So there's all our container information here.
+
+19
+00:00:59,650 --> 00:01:04,890
+That's the container name runtime, the URI from where it is fetching the image.
+
+20
+00:01:04,900 --> 00:01:10,030
+If you click on the logs, you can see the logs of the container answer container log.
+
+21
+00:01:11,360 --> 00:01:12,070
+All that.
+
+22
+00:01:13,200 --> 00:01:16,860
+So this is good, but we don't need to do this manually.
+
+23
+00:01:17,190 --> 00:01:23,880
+We did the setup though manually, but the next deployment, whenever the next image is pushed to the
+
+24
+00:01:23,880 --> 00:01:29,580
+AECEA will make sure our pipeline deploys that new image to the easiest cluster.
+
+25
+00:01:30,390 --> 00:01:31,980
+So let's go to Jenkins.
+
+26
+00:01:35,490 --> 00:01:41,640
+So I shut down my Jenkins all these instances and have powered them on so that IP changed.
+
+27
+00:01:42,090 --> 00:01:46,890
+First, I will be changing the webhook in GitHub with the new IP.
+
+28
+00:01:47,310 --> 00:01:48,540
+So I'll go to GitHub.
+
+29
+00:01:50,790 --> 00:01:52,440
+And go to my repository.
+
+30
+00:01:54,470 --> 00:01:55,490
+Settings.
+
+31
+00:01:57,360 --> 00:01:59,940
+And we will go to WebEx.
+
+32
+00:02:01,600 --> 00:02:02,340
+That's a rare book.
+
+33
+00:02:02,350 --> 00:02:02,950
+Edit.
+
+34
+00:02:04,700 --> 00:02:04,860
+Okay.
+
+35
+00:02:04,970 --> 00:02:06,410
+I need to enter the password.
+
+36
+00:02:07,610 --> 00:02:10,490
+So I will update that with the new Jenkins IP.
+
+37
+00:02:10,669 --> 00:02:12,410
+Let me get Jenkins IP.
+
+38
+00:02:21,310 --> 00:02:21,870
+Okay.
+
+39
+00:02:22,570 --> 00:02:23,980
+What's the update, Webhook?
+
+40
+00:02:25,820 --> 00:02:28,130
+Let's go to recent delivery and make a test.
+
+41
+00:02:32,810 --> 00:02:33,850
+Can we deliver?
+
+42
+00:02:33,860 --> 00:02:35,600
+Well, that is already done, right?
+
+43
+00:02:35,600 --> 00:02:38,150
+It was like 0.19 seconds ago.
+
+44
+00:02:38,600 --> 00:02:42,020
+Anyways, let's deliver it once again and it is successful.
+
+45
+00:02:42,940 --> 00:02:43,420
+Okay.
+
+46
+00:02:45,480 --> 00:02:45,610
+Okay.
+
+47
+00:02:45,660 --> 00:02:48,940
+So before I move ahead, I will test this pipeline once again.
+
+48
+00:02:48,960 --> 00:02:56,100
+If this is successful, then we will add the steps in our pipeline to deploy our container to X.
+
+49
+00:02:56,100 --> 00:02:57,450
+So let's build now.
+
+50
+00:03:01,940 --> 00:03:02,240
+Okay.
+
+51
+00:03:02,270 --> 00:03:03,320
+This is all good.
+
+52
+00:03:03,830 --> 00:03:09,500
+Now, if you remember, we did two things while we were setting up our Jenkins, the post installation
+
+53
+00:03:09,500 --> 00:03:09,980
+and all.
+
+54
+00:03:10,010 --> 00:03:11,780
+We installed a few plug ins.
+
+55
+00:03:11,840 --> 00:03:14,600
+We have set up credentials.
+
+56
+00:03:16,040 --> 00:03:23,990
+Manage credentials that one E.W. Scripps we have set that which has the access secret key and it has
+
+57
+00:03:23,990 --> 00:03:29,300
+the policy to access the X cluster and we will need that.
+
+58
+00:03:29,960 --> 00:03:37,610
+Then also, if you remember, we installed a ClA, we will be using a CLI command in our pipeline to
+
+59
+00:03:37,610 --> 00:03:41,450
+update our x cluster so it will fetch the latest image.
+
+60
+00:03:41,750 --> 00:03:46,070
+So what I just did, I just ran the pipeline and I should have the latest image.
+
+61
+00:03:48,210 --> 00:03:49,860
+And that's a repository.
+
+62
+00:03:51,330 --> 00:03:54,990
+So it has the image ID with tag two and the latest.
+
+63
+00:03:55,200 --> 00:04:02,970
+This gets updated every time I run my pipeline, so we need to run an s cli command which will say hey
+
+64
+00:04:03,000 --> 00:04:06,990
+x, just update the latest image.
+
+65
+00:04:08,090 --> 00:04:13,800
+So the service is going to inform the task to fetch the latest image and it will redeploy.
+
+66
+00:04:13,820 --> 00:04:16,910
+So this old container will get deleted.
+
+67
+00:04:19,810 --> 00:04:24,370
+This container will get deleted in a new container will get created with the latest image.
+
+68
+00:04:24,520 --> 00:04:26,500
+So let's go to our VTS code.
+
+69
+00:04:28,560 --> 00:04:30,240
+That's our Jenkins file.
+
+70
+00:04:30,270 --> 00:04:32,340
+I hope this is the latest code.
+
+71
+00:04:32,460 --> 00:04:34,650
+In order to verify, I'll open the gate.
+
+72
+00:04:34,650 --> 00:04:35,430
+Bash.
+
+73
+00:04:36,360 --> 00:04:41,430
+I'll go to the repository and get pull CDF project get report.
+
+74
+00:04:44,000 --> 00:04:44,320
+Okay.
+
+75
+00:04:44,360 --> 00:04:45,200
+That one.
+
+76
+00:04:45,440 --> 00:04:45,830
+Let's do a.
+
+77
+00:04:46,250 --> 00:04:46,850
+Pull.
+
+78
+00:04:48,470 --> 00:04:50,660
+Is to make sure everything is.
+
+79
+00:04:51,490 --> 00:04:52,540
+It's correct.
+
+80
+00:04:53,710 --> 00:04:54,430
+This is good.
+
+81
+00:04:54,760 --> 00:05:00,730
+So everything is in sync so we can add the code and push it back to GitHub before we write the code.
+
+82
+00:05:00,730 --> 00:05:05,140
+We will add two variables over here which we'll use in our code.
+
+83
+00:05:05,320 --> 00:05:10,330
+The one I'm giving it as cluster equal to the name of the cluster.
+
+84
+00:05:11,100 --> 00:05:12,900
+So let's get the name of our cluster.
+
+85
+00:05:13,230 --> 00:05:14,400
+Okay, so pro staging.
+
+86
+00:05:14,400 --> 00:05:15,490
+That's the name of a cluster.
+
+87
+00:05:15,510 --> 00:05:16,560
+Let's copy that.
+
+88
+00:05:16,770 --> 00:05:18,300
+In double or single code.
+
+89
+00:05:18,340 --> 00:05:24,600
+Just put it cluster equal to that and we'll use one more variable called service and we'll give the
+
+90
+00:05:24,600 --> 00:05:25,770
+service name here.
+
+91
+00:05:26,610 --> 00:05:28,470
+So that is our service name.
+
+92
+00:05:29,940 --> 00:05:32,370
+You can make sure you copy the service name.
+
+93
+00:05:33,210 --> 00:05:34,540
+And pasted here.
+
+94
+00:05:35,010 --> 00:05:38,160
+So these are two variables, cluster and solvers that we'll be using.
+
+95
+00:05:38,160 --> 00:05:39,300
+Let's go down.
+
+96
+00:05:42,240 --> 00:05:42,660
+Okay.
+
+97
+00:05:42,690 --> 00:05:43,290
+Here.
+
+98
+00:05:44,300 --> 00:05:46,490
+This is the stage to upload the image.
+
+99
+00:05:46,490 --> 00:05:48,830
+And just after that, we'll create a stage.
+
+100
+00:05:54,250 --> 00:05:59,830
+Which you will see deploy to x staging.
+
+101
+00:06:03,460 --> 00:06:08,920
+And obviously open and close curly brace will have all steps.
+
+102
+00:06:08,950 --> 00:06:10,540
+Now, this will be a shell command.
+
+103
+00:06:10,540 --> 00:06:12,970
+So it's going to be pretty simple steps.
+
+104
+00:06:12,970 --> 00:06:16,810
+And but this shell command should execute with the credentials.
+
+105
+00:06:17,410 --> 00:06:18,850
+So we have to say this.
+
+106
+00:06:19,680 --> 00:06:23,830
+With his credentials, the credential name and the region.
+
+107
+00:06:23,850 --> 00:06:29,610
+Now mine is not California, which is US West one, so make sure you give the correct region over here
+
+108
+00:06:29,970 --> 00:06:36,600
+and open and close curly brace and then the shell command is such in the single code.
+
+109
+00:06:36,600 --> 00:06:41,220
+Give the click command, which is this.
+
+110
+00:06:43,260 --> 00:06:43,460
+Okay.
+
+111
+00:06:43,550 --> 00:06:50,480
+Now it's pretty simple eight plus X Updates so it is telling the service to update hyphen font cluster
+
+112
+00:06:50,480 --> 00:06:56,090
+the cluster variable that we have set hyphen F in service, the service variable, the service that
+
+113
+00:06:56,090 --> 00:07:02,570
+we have set and the first new deployments, it's going to forcefully delete the old container and deploy
+
+114
+00:07:02,570 --> 00:07:04,670
+the new container with the latest image.
+
+115
+00:07:05,030 --> 00:07:08,480
+It's kind of redeploy, just delete the old one and deploy the newer one.
+
+116
+00:07:08,840 --> 00:07:12,770
+So when it deploys the newer one, obviously it's going to fetch the latest image for that.
+
+117
+00:07:12,770 --> 00:07:14,690
+So that's how we are doing the deployment.
+
+118
+00:07:15,780 --> 00:07:17,970
+So let's test it.
+
+119
+00:07:18,240 --> 00:07:19,150
+Let's see.
+
+120
+00:07:20,910 --> 00:07:22,050
+Control less.
+
+121
+00:07:23,380 --> 00:07:24,400
+And let's see.
+
+122
+00:07:25,170 --> 00:07:26,340
+Commit and push.
+
+123
+00:07:27,910 --> 00:07:29,500
+Let's give the commit message.
+
+124
+00:07:30,500 --> 00:07:34,760
+Deploy to X control less.
+
+125
+00:07:35,880 --> 00:07:36,930
+That checkmark.
+
+126
+00:07:38,080 --> 00:07:39,160
+I'll get thinking.
+
+127
+00:07:41,220 --> 00:07:41,400
+Okay.
+
+128
+00:07:41,490 --> 00:07:41,910
+That's done.
+
+129
+00:07:41,910 --> 00:07:42,960
+Let's go to Jenkins.
+
+130
+00:07:43,500 --> 00:07:43,840
+Okay.
+
+131
+00:07:43,890 --> 00:07:46,460
+A new build has triggered already.
+
+132
+00:07:46,650 --> 00:07:47,640
+New pipeline.
+
+133
+00:07:48,910 --> 00:07:53,080
+So I'll pause my screen and resume when this is completed.
+
+134
+00:07:54,720 --> 00:07:54,980
+Okay.
+
+135
+00:07:54,990 --> 00:07:55,680
+One more stage.
+
+136
+00:07:55,680 --> 00:07:59,180
+They're deployed to X staging that is completed successfully.
+
+137
+00:07:59,190 --> 00:08:00,600
+Let's look at the logs.
+
+138
+00:08:03,240 --> 00:08:04,200
+It's come down.
+
+139
+00:08:05,470 --> 00:08:11,530
+The constructing a credential setting and you see that that is our a plus shell command.
+
+140
+00:08:11,620 --> 00:08:21,400
+It will see a command sorry and returns a whole lot of JSON information about your clusters, x servers,
+
+141
+00:08:21,400 --> 00:08:22,300
+task and everything.
+
+142
+00:08:22,300 --> 00:08:23,380
+All the information.
+
+143
+00:08:23,410 --> 00:08:24,820
+Let's go to x.
+
+144
+00:08:26,830 --> 00:08:29,080
+And let's see what has really happened.
+
+145
+00:08:29,710 --> 00:08:31,570
+So you see something here?
+
+146
+00:08:31,570 --> 00:08:32,740
+Two by one.
+
+147
+00:08:32,770 --> 00:08:34,030
+Let's go to tasks.
+
+148
+00:08:35,880 --> 00:08:36,390
+Okay.
+
+149
+00:08:36,480 --> 00:08:39,470
+So the old one is still there.
+
+150
+00:08:39,480 --> 00:08:42,840
+It's 21 minutes old and this one is 12 seconds old.
+
+151
+00:08:43,200 --> 00:08:48,270
+This is the latest one and the task is still in the pending state is not yet completed.
+
+152
+00:08:48,270 --> 00:08:49,740
+So it's going to take some time.
+
+153
+00:08:50,590 --> 00:08:54,040
+To do the complete setup, complete deployment.
+
+154
+00:08:54,610 --> 00:08:56,290
+So let's go to VS Code.
+
+155
+00:08:57,320 --> 00:08:57,500
+Okay.
+
+156
+00:08:57,620 --> 00:09:00,560
+So this is the source code right now.
+
+157
+00:09:00,560 --> 00:09:07,760
+Whenever a developer makes any change to their code, this entire pipeline you see gets triggered and
+
+158
+00:09:07,760 --> 00:09:08,750
+completes.
+
+159
+00:09:08,900 --> 00:09:12,070
+Once it is deployed, then the other test can be executed.
+
+160
+00:09:12,080 --> 00:09:15,290
+The software testers can test it if everything is good.
+
+161
+00:09:16,250 --> 00:09:19,850
+The Cuban approval, then we can deploy it to the production environment.
+
+162
+00:09:20,180 --> 00:09:23,360
+Now deploying to production environment will keep it similar.
+
+163
+00:09:24,280 --> 00:09:31,780
+It will be similar, but except we will talk about the real time way of doing the deployment, how staging
+
+164
+00:09:31,780 --> 00:09:38,380
+and production pipelines are separate and when the production gets triggered or how it should get triggered.
+
+165
+00:09:38,560 --> 00:09:40,150
+That will see in the next lecture.
+
+166
+00:09:40,150 --> 00:09:46,030
+By the time you run the build a few more times, test your pipeline, wrap this up and join me in the
+
+167
+00:09:46,030 --> 00:09:46,750
+next lecture.
+
+168
+00:09:46,750 --> 00:09:49,030
+We'll talk about production deployment there.
+

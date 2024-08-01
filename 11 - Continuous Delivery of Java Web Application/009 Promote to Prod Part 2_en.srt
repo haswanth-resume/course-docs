@@ -1,0 +1,428 @@
+1
+00:00:01,730 --> 00:00:03,980
+All right, so let's wrap this project now.
+
+2
+00:00:04,100 --> 00:00:07,880
+The only thing I need to show you the process from end to end.
+
+3
+00:00:08,210 --> 00:00:13,700
+So get check out secede hyphen Jenkins.
+
+4
+00:00:13,700 --> 00:00:20,960
+That's the branch so assume developers are making changes to the source code will not make change to
+
+5
+00:00:20,960 --> 00:00:26,450
+the actual java code will just open this read me file or we can do it from VTS code also.
+
+6
+00:00:28,630 --> 00:00:32,240
+So forced to switch to the cursed Jenkins branch.
+
+7
+00:00:32,259 --> 00:00:38,980
+Make sure you're switched and we'll just edit the MD file just to so you don't want to mess with the
+
+8
+00:00:38,980 --> 00:00:39,640
+Java code.
+
+9
+00:00:39,640 --> 00:00:44,620
+So just I'll just add here some hash control less.
+
+10
+00:00:46,840 --> 00:00:48,370
+All right, so, developer, we like that.
+
+11
+00:00:48,370 --> 00:00:49,600
+Make the code change.
+
+12
+00:00:50,890 --> 00:00:54,190
+And then they will publish their change to the GitHub.
+
+13
+00:00:54,490 --> 00:00:59,620
+Of course they'll be doing a test locally, but once they're done testing locally, they will push it
+
+14
+00:00:59,620 --> 00:01:01,270
+to the repository.
+
+15
+00:01:02,280 --> 00:01:04,500
+It's a test secede.
+
+16
+00:01:06,620 --> 00:01:13,970
+One some message, obviously, that they'll give more meaningful message and push it.
+
+17
+00:01:13,970 --> 00:01:21,710
+So once this changes are published on GitHub, our pipeline will get automatically triggered.
+
+18
+00:01:23,780 --> 00:01:24,050
+Right.
+
+19
+00:01:24,320 --> 00:01:28,460
+Staging pipeline that one night it will get automatically triggered.
+
+20
+00:01:29,190 --> 00:01:35,810
+It's it's it's running so it's going to build it do the code analysis do all the kinds of code testing,
+
+21
+00:01:35,840 --> 00:01:41,600
+upload the artifact, which is the Docker image to the repository if everything is good.
+
+22
+00:01:42,430 --> 00:01:50,140
+And then it will deploy to the staging environment after the staging environment deployment completes.
+
+23
+00:01:50,710 --> 00:01:53,860
+The people who are responsible, the quality assurance team.
+
+24
+00:01:54,070 --> 00:01:56,200
+Q Way or software testers.
+
+25
+00:01:56,940 --> 00:01:59,130
+Will test the application.
+
+26
+00:01:59,700 --> 00:02:04,920
+So there will be some kind of authority like that in the organization who will be in charge of.
+
+27
+00:02:05,680 --> 00:02:07,690
+Making sure all the changes are good.
+
+28
+00:02:07,720 --> 00:02:08,770
+They'll test it.
+
+29
+00:02:09,100 --> 00:02:14,680
+If this gives you the you the approval that everything is good, then you can promote it to the production
+
+30
+00:02:14,680 --> 00:02:15,520
+environment.
+
+31
+00:02:15,560 --> 00:02:18,750
+Now, how do we put up promote it to production environment?
+
+32
+00:02:18,760 --> 00:02:23,740
+We can just go and just click the pipeline, but it will be done like this.
+
+33
+00:02:23,740 --> 00:02:25,480
+The code, the production.
+
+34
+00:02:26,590 --> 00:02:27,300
+We come here?
+
+35
+00:02:27,310 --> 00:02:27,730
+Yeah.
+
+36
+00:02:28,060 --> 00:02:31,660
+So this is the staging code, right?
+
+37
+00:02:32,140 --> 00:02:34,150
+Get check out.
+
+38
+00:02:35,590 --> 00:02:36,310
+Prod.
+
+39
+00:02:38,530 --> 00:02:44,200
+So the staging code will be merged with the production code because all the code needs to be similar.
+
+40
+00:02:44,200 --> 00:02:44,400
+Right.
+
+41
+00:02:44,410 --> 00:02:45,460
+All the branches.
+
+42
+00:02:45,640 --> 00:02:47,530
+So get.
+
+43
+00:02:48,550 --> 00:02:52,750
+Merge CI cd hyphen Jenkins.
+
+44
+00:02:54,460 --> 00:03:00,260
+And this will be done after the approval or the authority will do it themselves, right?
+
+45
+00:03:00,260 --> 00:03:04,730
+They will do it once they verify all your code is good, they're going to merge it to the production
+
+46
+00:03:04,730 --> 00:03:05,480
+branch.
+
+47
+00:03:06,320 --> 00:03:13,220
+Once they merge into the production branch or you merge into production branch, our production pipeline
+
+48
+00:03:13,220 --> 00:03:14,420
+will also get triggered.
+
+49
+00:03:18,450 --> 00:03:19,740
+Oh, my bad.
+
+50
+00:03:20,070 --> 00:03:22,170
+I did not push it to get up, right?
+
+51
+00:03:22,170 --> 00:03:23,070
+Yeah, my bad.
+
+52
+00:03:23,190 --> 00:03:24,690
+So I just did it locally.
+
+53
+00:03:24,870 --> 00:03:26,910
+I also need to make sure I push it.
+
+54
+00:03:27,900 --> 00:03:33,570
+It's saying sync to changes or you can just run the git push command also or you can do it from voice
+
+55
+00:03:33,570 --> 00:03:33,810
+code.
+
+56
+00:03:33,810 --> 00:03:34,470
+Also.
+
+57
+00:03:35,130 --> 00:03:36,180
+Let me do it from.
+
+58
+00:03:37,190 --> 00:03:39,440
+The is from good Bashir so.
+
+59
+00:03:39,560 --> 00:03:40,760
+So changes are done.
+
+60
+00:03:40,760 --> 00:03:46,520
+So I get add sorry get push origin prod.
+
+61
+00:03:50,560 --> 00:03:51,520
+Okay there.
+
+62
+00:03:51,790 --> 00:03:56,860
+As soon as the changes goes to the production branch, our pipeline.
+
+63
+00:03:57,780 --> 00:04:00,900
+Production pipeline should get triggered there.
+
+64
+00:04:00,930 --> 00:04:03,450
+See that got triggered completes.
+
+65
+00:04:04,050 --> 00:04:05,520
+The deployment completes.
+
+66
+00:04:05,550 --> 00:04:07,110
+Maybe there are a few.
+
+67
+00:04:07,350 --> 00:04:09,930
+I'm sorry, there are a few more test smoke tests.
+
+68
+00:04:09,930 --> 00:04:10,680
+Sanity tests.
+
+69
+00:04:11,250 --> 00:04:16,800
+Sanity test will be conducted and then the user request can be diverted to production environment.
+
+70
+00:04:17,399 --> 00:04:20,880
+Now this process that I'm showing is a very general process.
+
+71
+00:04:21,180 --> 00:04:22,860
+There will be definitely some.
+
+72
+00:04:23,830 --> 00:04:28,340
+Differences when you merge will create a pull request on GitHub.
+
+73
+00:04:28,360 --> 00:04:30,480
+That pull request will be approved.
+
+74
+00:04:30,490 --> 00:04:33,460
+Then when it is approved, then the pipeline gets triggered.
+
+75
+00:04:34,260 --> 00:04:36,240
+All the software testers will be involved.
+
+76
+00:04:36,250 --> 00:04:41,190
+So these what I'm showing you is very general process.
+
+77
+00:04:41,190 --> 00:04:45,240
+There will be, of course, some changes, some differences, but overall it will be something like
+
+78
+00:04:45,240 --> 00:04:45,810
+this.
+
+79
+00:04:45,990 --> 00:04:49,020
+Different organization may follow different strategy.
+
+80
+00:04:49,050 --> 00:04:50,580
+They have different way of publishing.
+
+81
+00:04:50,580 --> 00:04:52,980
+They have different types of application.
+
+82
+00:04:52,980 --> 00:04:54,630
+Their business model is different.
+
+83
+00:04:54,630 --> 00:04:57,240
+So based on that, the strategy will change.
+
+84
+00:04:57,570 --> 00:05:00,690
+But more or less it will be like this deployed to staging environment.
+
+85
+00:05:00,690 --> 00:05:03,870
+Make a test, everything is good, then promote it to the production environment.
+
+86
+00:05:04,680 --> 00:05:08,010
+So you go ahead, do this process a few more times.
+
+87
+00:05:08,010 --> 00:05:09,870
+Make sure you grasp this concept.
+
+88
+00:05:09,870 --> 00:05:15,960
+Understanding the process is more important than writing the code because code is available everywhere
+
+89
+00:05:15,960 --> 00:05:21,870
+on Google, you can just find and just make the change and understand the process so you can talk about
+
+90
+00:05:21,870 --> 00:05:24,900
+it in front of the client in the interview.
+
+91
+00:05:25,840 --> 00:05:26,140
+All right.
+
+92
+00:05:26,140 --> 00:05:29,860
+So before you wrap, make sure you do some test, make some changes.
+
+93
+00:05:30,340 --> 00:05:34,510
+And once you are done, then make sure you shut down.
+
+94
+00:05:35,560 --> 00:05:38,950
+Boardof Jenkins owner Cuban Nexus do don't delete them.
+
+95
+00:05:38,950 --> 00:05:41,380
+We will need them in the next few other projects.
+
+96
+00:05:41,380 --> 00:05:42,760
+So just shut them down.
+
+97
+00:05:42,760 --> 00:05:43,540
+Stop it.
+
+98
+00:05:43,600 --> 00:05:44,710
+I'm going to stop them.
+
+99
+00:05:45,370 --> 00:05:45,940
+Stop.
+
+100
+00:05:48,500 --> 00:05:50,820
+You can delete the easiest cluster if you want.
+
+101
+00:05:50,840 --> 00:05:52,340
+You know how to create it whenever you want.
+
+102
+00:05:52,340 --> 00:05:53,360
+You can create it.
+
+103
+00:05:54,050 --> 00:05:57,560
+But to delete the cluster you need to force to delete the service.
+
+104
+00:05:58,800 --> 00:06:02,640
+Delete the servers, it will delete the task and then you can delete the cluster.
+
+105
+00:06:03,330 --> 00:06:04,140
+All right.
+
+106
+00:06:04,140 --> 00:06:06,370
+So that is all in this lecture.
+
+107
+00:06:06,390 --> 00:06:08,160
+I will see you in the next one.
+

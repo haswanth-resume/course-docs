@@ -1,0 +1,1072 @@
+1
+00:00:00,920 --> 00:00:05,370
+In this lecture, we will see how to promote this to production environment.
+
+2
+00:00:05,390 --> 00:00:10,990
+Now for production environment, we'll create a separate production X cluster.
+
+3
+00:00:11,000 --> 00:00:12,890
+So let's do that first.
+
+4
+00:00:13,260 --> 00:00:14,560
+We'll create a new cluster.
+
+5
+00:00:14,570 --> 00:00:18,650
+We will also create a new Jenkins pipeline for production environment.
+
+6
+00:00:18,650 --> 00:00:23,720
+And then we will see how staging and production pipelines are connected.
+
+7
+00:00:23,720 --> 00:00:25,430
+Or maybe they are not connected.
+
+8
+00:00:25,430 --> 00:00:26,690
+We'll find that out.
+
+9
+00:00:27,380 --> 00:00:27,530
+Okay.
+
+10
+00:00:27,740 --> 00:00:30,410
+So let's go to clusters.
+
+11
+00:00:31,480 --> 00:00:34,590
+And let's create a production cluster which will be similar to this.
+
+12
+00:00:36,910 --> 00:00:38,800
+I just name it as the real prod.
+
+13
+00:00:39,890 --> 00:00:40,850
+We'll keep.
+
+14
+00:00:41,860 --> 00:00:42,800
+Seems certain.
+
+15
+00:00:42,820 --> 00:00:46,780
+VPC Forget and we'll just say create.
+
+16
+00:00:52,190 --> 00:00:52,450
+Okay.
+
+17
+00:00:52,460 --> 00:00:53,840
+My cluster is created.
+
+18
+00:00:53,840 --> 00:00:57,500
+Let's click on that and I will create a new task definition.
+
+19
+00:00:59,090 --> 00:01:00,050
+For the production.
+
+20
+00:01:00,050 --> 00:01:01,760
+Create new task definition.
+
+21
+00:01:02,240 --> 00:01:03,560
+Similar information.
+
+22
+00:01:04,489 --> 00:01:07,520
+The prod task, I will say.
+
+23
+00:01:08,400 --> 00:01:10,170
+Container name Vpro app.
+
+24
+00:01:11,600 --> 00:01:14,270
+And the same UI which we used in staging.
+
+25
+00:01:15,150 --> 00:01:18,750
+Now we would like to promote the same image and not a different image.
+
+26
+00:01:18,750 --> 00:01:20,250
+So we'll give the same image.
+
+27
+00:01:20,250 --> 00:01:23,160
+You all container port 8080.
+
+28
+00:01:25,010 --> 00:01:27,240
+Just come down and let's go next.
+
+29
+00:01:29,620 --> 00:01:31,150
+Forget will keep it as it is.
+
+30
+00:01:31,150 --> 00:01:33,370
+Memory will reduce to two GB again.
+
+31
+00:01:34,410 --> 00:01:35,340
+It's come down.
+
+32
+00:01:36,220 --> 00:01:37,600
+And let's go next.
+
+33
+00:01:39,420 --> 00:01:41,670
+You everything and they create.
+
+34
+00:01:43,830 --> 00:01:51,480
+Your task definition created to close this notification, let's go to the cluster service clusters.
+
+35
+00:01:52,350 --> 00:01:53,130
+Prod.
+
+36
+00:01:54,580 --> 00:01:57,040
+And so this will say deploy.
+
+37
+00:01:59,560 --> 00:02:01,240
+Will they launch type?
+
+38
+00:02:02,510 --> 00:02:04,550
+He forget service.
+
+39
+00:02:04,910 --> 00:02:05,630
+Family.
+
+40
+00:02:05,630 --> 00:02:08,360
+Let's select our task definition.
+
+41
+00:02:09,160 --> 00:02:10,300
+So his name.
+
+42
+00:02:12,810 --> 00:02:15,150
+The Pro app prod cc.
+
+43
+00:02:16,350 --> 00:02:17,310
+Networking.
+
+44
+00:02:19,230 --> 00:02:21,270
+Will they create new security group?
+
+45
+00:02:22,580 --> 00:02:24,380
+We'll give security group a name.
+
+46
+00:02:30,760 --> 00:02:31,030
+Again.
+
+47
+00:02:31,030 --> 00:02:32,560
+Make sure you add the prod.
+
+48
+00:02:32,560 --> 00:02:34,330
+So we will be editing the security group.
+
+49
+00:02:34,330 --> 00:02:36,700
+So you should be able to identify with its name.
+
+50
+00:02:39,710 --> 00:02:41,210
+Load balancer option.
+
+51
+00:02:42,550 --> 00:02:43,360
+Load Balancer.
+
+52
+00:02:43,360 --> 00:02:45,280
+Type Application Load Balancer.
+
+53
+00:02:45,760 --> 00:02:47,290
+Create new load balancer.
+
+54
+00:02:49,370 --> 00:02:50,420
+It's come down.
+
+55
+00:02:51,710 --> 00:02:53,060
+Target group name.
+
+56
+00:02:54,550 --> 00:02:56,110
+Should a college GDP.
+
+57
+00:02:57,080 --> 00:02:59,030
+Health check pot slash login.
+
+58
+00:03:00,800 --> 00:03:01,790
+A grace period.
+
+59
+00:03:01,880 --> 00:03:03,020
+30 seconds.
+
+60
+00:03:04,320 --> 00:03:07,440
+This is just similar as we created for staging.
+
+61
+00:03:07,830 --> 00:03:09,390
+Except the name is different.
+
+62
+00:03:09,600 --> 00:03:10,620
+In real time.
+
+63
+00:03:10,620 --> 00:03:16,890
+Also this will be similar, except you will be having more GB to your container's multiple containers.
+
+64
+00:03:16,890 --> 00:03:23,070
+But we want to keep things under three tier or very minimum on billing so we're creating similar to
+
+65
+00:03:23,070 --> 00:03:23,850
+staging.
+
+66
+00:03:23,850 --> 00:03:30,060
+So in real time also it will be similar to staging, except it will be bigger in size.
+
+67
+00:03:30,960 --> 00:03:33,120
+All right, let's go deploy.
+
+68
+00:03:36,840 --> 00:03:37,110
+Yeah.
+
+69
+00:03:37,380 --> 00:03:38,880
+It's not working, obviously.
+
+70
+00:03:41,060 --> 00:03:41,720
+Security group.
+
+71
+00:03:41,720 --> 00:03:43,970
+I did not add any rule whatsoever.
+
+72
+00:03:43,970 --> 00:03:49,880
+So I need to see add rule to DPI and we'll see just from anywhere.
+
+73
+00:03:51,020 --> 00:03:52,940
+And then we'll click on deploy.
+
+74
+00:03:53,700 --> 00:03:54,030
+Yeah.
+
+75
+00:03:54,350 --> 00:03:55,370
+Now that works.
+
+76
+00:03:55,860 --> 00:03:56,030
+Okay.
+
+77
+00:03:56,060 --> 00:03:57,860
+That is going to take some time by the time.
+
+78
+00:03:57,860 --> 00:04:04,190
+Let's go to our voice code or our code and write a new pipeline for production.
+
+79
+00:04:05,770 --> 00:04:10,240
+First I'm in my git batch, I'm in the repository, I'll get repository.
+
+80
+00:04:10,240 --> 00:04:15,160
+That's where I have my repository and I'm going to create a new branch here.
+
+81
+00:04:15,190 --> 00:04:19,089
+Git checkout, hyphen b prod.
+
+82
+00:04:19,269 --> 00:04:21,310
+Now this will be a separate branch in real time.
+
+83
+00:04:21,310 --> 00:04:24,130
+Also, you'll have a separate branch for production.
+
+84
+00:04:24,130 --> 00:04:27,760
+Its name could be prod or main or master.
+
+85
+00:04:27,760 --> 00:04:28,600
+It could be anything.
+
+86
+00:04:28,600 --> 00:04:35,230
+The name that I'm giving is so you can understand and identify that this is for the production purpose.
+
+87
+00:04:35,230 --> 00:04:37,330
+But the name of the branch could be anything.
+
+88
+00:04:37,450 --> 00:04:40,330
+So I'm saying git checkout, hyphen b prod.
+
+89
+00:04:40,390 --> 00:04:44,740
+It's going to create a new branch from the CSA Jenkins branch.
+
+90
+00:04:46,860 --> 00:04:47,370
+All right.
+
+91
+00:04:47,970 --> 00:04:52,550
+And the Jenkins file we will be using will be from the pipeline directory.
+
+92
+00:04:52,560 --> 00:04:54,390
+So let's open the VTS code.
+
+93
+00:04:55,620 --> 00:04:58,590
+Margaret, you also need to push this new branch.
+
+94
+00:04:58,840 --> 00:05:00,630
+Now we can do it from VTS code also.
+
+95
+00:05:00,630 --> 00:05:02,250
+So if we go to.
+
+96
+00:05:03,110 --> 00:05:04,070
+So source control.
+
+97
+00:05:04,400 --> 00:05:07,260
+It's already saying, you know, this is the broad branch, right.
+
+98
+00:05:07,310 --> 00:05:10,190
+That is saying you should publish this branch, let's publish it.
+
+99
+00:05:10,340 --> 00:05:11,870
+So this goes to GitHub.
+
+100
+00:05:15,770 --> 00:05:15,950
+Okay.
+
+101
+00:05:16,040 --> 00:05:17,000
+You're going to GitHub.
+
+102
+00:05:17,000 --> 00:05:23,680
+Let's go to a repository and you see that it is broad that has a recent push there.
+
+103
+00:05:23,690 --> 00:05:26,210
+So we have the broad branch on GitHub also.
+
+104
+00:05:26,210 --> 00:05:28,790
+Now again going back to voice code.
+
+105
+00:05:30,780 --> 00:05:31,200
+All right.
+
+106
+00:05:31,200 --> 00:05:34,860
+So we are not going to use the stage pipeline Jenkins file.
+
+107
+00:05:34,860 --> 00:05:37,320
+We will be using the prod pipeline.
+
+108
+00:05:37,320 --> 00:05:38,400
+Jenkins file.
+
+109
+00:05:39,950 --> 00:05:43,730
+Now, this code, this pipeline code will be pretty simple.
+
+110
+00:05:43,730 --> 00:05:46,250
+We are not going to build and push our image.
+
+111
+00:05:46,250 --> 00:05:48,980
+We'll be just deploying it to production easiest cluster.
+
+112
+00:05:48,980 --> 00:05:57,980
+So we need to clean most of the things here and I will just replace it simply so you can clean that
+
+113
+00:05:58,220 --> 00:05:59,170
+extra stage.
+
+114
+00:05:59,180 --> 00:06:06,830
+So here this is the same slack function color map environment variable.
+
+115
+00:06:07,010 --> 00:06:09,140
+Actually we don't even need these one.
+
+116
+00:06:10,360 --> 00:06:12,240
+Not pushing an image from here.
+
+117
+00:06:14,650 --> 00:06:18,190
+If you're pulling in, you're pushing an image from here, then you can mention them.
+
+118
+00:06:18,460 --> 00:06:22,150
+Stage will be deployed to prod x.
+
+119
+00:06:24,860 --> 00:06:26,290
+And exactly same step.
+
+120
+00:06:26,300 --> 00:06:32,210
+So the cluster variable value you to make sure you give this cluster variable in value should be your
+
+121
+00:06:32,390 --> 00:06:33,650
+production cluster name.
+
+122
+00:06:33,650 --> 00:06:35,930
+Let me just verify that once again for you.
+
+123
+00:06:37,760 --> 00:06:38,680
+Yes.
+
+124
+00:06:39,170 --> 00:06:40,220
+Clusters.
+
+125
+00:06:40,970 --> 00:06:42,420
+The probe prod.
+
+126
+00:06:42,440 --> 00:06:44,660
+So, yeah, I need to change that.
+
+127
+00:06:46,160 --> 00:06:46,590
+Huh?
+
+128
+00:06:46,630 --> 00:06:47,170
+There.
+
+129
+00:06:48,010 --> 00:06:49,780
+And the service variable.
+
+130
+00:06:49,780 --> 00:06:51,100
+Let's check that also.
+
+131
+00:06:54,940 --> 00:06:56,350
+Let me just copy that.
+
+132
+00:06:56,890 --> 00:06:58,150
+I think it's the same.
+
+133
+00:07:00,070 --> 00:07:06,430
+Anyways, this boosted once again, okay, these two variables and then the same thing.
+
+134
+00:07:06,430 --> 00:07:12,040
+What we did for staging except here the cluster name is the production cluster name and the service
+
+135
+00:07:12,040 --> 00:07:16,390
+is the production service and then of course the slack notification.
+
+136
+00:07:16,390 --> 00:07:17,200
+That is it.
+
+137
+00:07:17,410 --> 00:07:17,950
+That's all.
+
+138
+00:07:17,950 --> 00:07:18,910
+Just save it.
+
+139
+00:07:20,470 --> 00:07:20,730
+All right.
+
+140
+00:07:20,740 --> 00:07:22,780
+And then let's push it.
+
+141
+00:07:24,030 --> 00:07:25,290
+Commit and push.
+
+142
+00:07:28,020 --> 00:07:31,770
+So there is no pipeline yet on Jenkins will create a pipeline also for this one.
+
+143
+00:07:31,920 --> 00:07:38,220
+Let's just push it first and see prod x pipeline.
+
+144
+00:07:39,010 --> 00:07:39,970
+Control less.
+
+145
+00:07:40,790 --> 00:07:41,870
+That Mark.
+
+146
+00:07:43,080 --> 00:07:44,580
+Thinking changes.
+
+147
+00:07:46,110 --> 00:07:46,440
+Okay.
+
+148
+00:07:46,470 --> 00:07:47,250
+That worked.
+
+149
+00:07:47,400 --> 00:07:50,940
+Now let's go to Jenkins and create a new pipeline.
+
+150
+00:07:51,700 --> 00:07:54,630
+For production, which will be similar to this one.
+
+151
+00:07:54,640 --> 00:07:56,410
+So it's a new item.
+
+152
+00:07:58,290 --> 00:07:58,790
+Wait.
+
+153
+00:08:00,760 --> 00:08:03,070
+Just copy the name from here first.
+
+154
+00:08:07,010 --> 00:08:15,680
+New item and I will see here Docker secede prod pipeline.
+
+155
+00:08:16,590 --> 00:08:20,040
+I would select here pipeline and I will say copy from.
+
+156
+00:08:22,760 --> 00:08:23,450
+Not one.
+
+157
+00:08:23,960 --> 00:08:26,900
+So simply replicate, right?
+
+158
+00:08:27,110 --> 00:08:30,380
+Clone the job and we'll change few things there.
+
+159
+00:08:31,280 --> 00:08:34,130
+So it's actually clone that is checked but.
+
+160
+00:08:34,909 --> 00:08:39,620
+And the branch was we need to change to prod.
+
+161
+00:08:42,720 --> 00:08:43,320
+John.
+
+162
+00:08:44,320 --> 00:08:48,520
+And that directory fraud pipeline directory we have in that.
+
+163
+00:08:49,660 --> 00:08:52,810
+Look just confirmed that you will name once again.
+
+164
+00:08:53,230 --> 00:08:54,400
+Proud pipeline.
+
+165
+00:08:54,400 --> 00:08:55,330
+P capital.
+
+166
+00:08:55,330 --> 00:08:56,080
+P capital.
+
+167
+00:08:56,890 --> 00:08:57,280
+Yeah.
+
+168
+00:08:57,550 --> 00:08:58,990
+In that we have the Jenkins file.
+
+169
+00:08:59,020 --> 00:08:59,710
+Save.
+
+170
+00:09:01,530 --> 00:09:02,830
+I think it's just a matter of testing.
+
+171
+00:09:02,830 --> 00:09:05,140
+Now, before that, let's go to X.
+
+172
+00:09:06,480 --> 00:09:08,830
+So let's try it.
+
+173
+00:09:08,850 --> 00:09:09,390
+One.
+
+174
+00:09:16,020 --> 00:09:16,180
+Okay.
+
+175
+00:09:16,330 --> 00:09:18,500
+Deployment current state to field.
+
+176
+00:09:18,520 --> 00:09:20,600
+Now we know what is happening here.
+
+177
+00:09:20,620 --> 00:09:26,080
+We did not make the target group health check change and we did not make the security group change for
+
+178
+00:09:26,080 --> 00:09:26,530
+production.
+
+179
+00:09:26,530 --> 00:09:27,430
+We did for staging.
+
+180
+00:09:27,430 --> 00:09:27,940
+Right.
+
+181
+00:09:28,150 --> 00:09:31,540
+So if we see, let's go back to your.
+
+182
+00:09:32,660 --> 00:09:33,630
+Great task.
+
+183
+00:09:33,650 --> 00:09:34,910
+See the task.
+
+184
+00:09:35,510 --> 00:09:40,520
+So what really is happening is it's trying to access that container, do the health check on the container
+
+185
+00:09:40,520 --> 00:09:43,150
+since the target group health check is wrong.
+
+186
+00:09:44,220 --> 00:09:48,490
+The container declares as unhealthy, and then it deletes that container.
+
+187
+00:09:48,510 --> 00:09:50,120
+Then it launches a new container.
+
+188
+00:09:50,130 --> 00:09:51,930
+Then that also goes unhealthy.
+
+189
+00:09:51,930 --> 00:09:53,670
+And this goes on and on.
+
+190
+00:09:54,180 --> 00:09:56,280
+So let's go to back to Target Group.
+
+191
+00:09:57,550 --> 00:10:00,250
+Well easy to target group you should find here.
+
+192
+00:10:00,280 --> 00:10:02,680
+Broad target group.
+
+193
+00:10:03,850 --> 00:10:05,170
+Go to the health check.
+
+194
+00:10:06,910 --> 00:10:07,540
+Edit.
+
+195
+00:10:11,280 --> 00:10:11,490
+Okay.
+
+196
+00:10:11,550 --> 00:10:11,990
+Traffic.
+
+197
+00:10:12,000 --> 00:10:12,420
+All right.
+
+198
+00:10:12,420 --> 00:10:14,640
+We need to change the port number here to 80.
+
+199
+00:10:14,670 --> 00:10:15,180
+80.
+
+200
+00:10:15,990 --> 00:10:16,200
+Yeah.
+
+201
+00:10:16,530 --> 00:10:17,490
+Not one thing.
+
+202
+00:10:17,830 --> 00:10:18,840
+So you change.
+
+203
+00:10:19,670 --> 00:10:21,380
+And then the security group.
+
+204
+00:10:26,510 --> 00:10:27,220
+Broad.
+
+205
+00:10:27,230 --> 00:10:30,980
+So security group inbound rule edit.
+
+206
+00:10:34,060 --> 00:10:36,340
+Look right there, idiot.
+
+207
+00:10:36,910 --> 00:10:40,330
+From any IPV four and.
+
+208
+00:10:41,770 --> 00:10:44,860
+88 from any IPV six.
+
+209
+00:10:46,560 --> 00:10:47,490
+Steve this.
+
+210
+00:10:48,580 --> 00:10:51,370
+Seem what we did for staging, but in staging we did it.
+
+211
+00:10:51,370 --> 00:10:55,420
+As soon as we created the cluster in production, we just let it run.
+
+212
+00:10:57,400 --> 00:11:02,670
+Now this will work and sometime this will get stable in some time.
+
+213
+00:11:02,680 --> 00:11:04,360
+All these tasks are stopped.
+
+214
+00:11:06,630 --> 00:11:12,480
+But this task that is running now, it will be healthy and it will keep that task or the container.
+
+215
+00:11:13,950 --> 00:11:14,410
+Okay.
+
+216
+00:11:14,760 --> 00:11:19,200
+So wait for a few minutes, make sure it is stable, then test your pipeline.
+
+217
+00:11:19,200 --> 00:11:22,350
+So I'm going to pause my screen and resume after 5 minutes.
+
+218
+00:11:22,810 --> 00:11:23,100
+Okay.
+
+219
+00:11:23,100 --> 00:11:25,530
+Now it's time to test this production pipeline.
+
+220
+00:11:25,530 --> 00:11:29,430
+So I'm going to click on Build and now on this broad pipeline.
+
+221
+00:11:31,050 --> 00:11:32,670
+And we'll see what happens.
+
+222
+00:11:35,430 --> 00:11:35,690
+Okay.
+
+223
+00:11:35,730 --> 00:11:36,720
+My pipeline failed.
+
+224
+00:11:36,730 --> 00:11:38,040
+Let's look at the log.
+
+225
+00:11:42,790 --> 00:11:45,550
+And edit awkward cluster not found.
+
+226
+00:11:45,940 --> 00:11:52,060
+Well, the cluster name is right, but the region I have mentioned is wrong.
+
+227
+00:11:52,960 --> 00:11:56,320
+So I will change the region to us.
+
+228
+00:11:56,320 --> 00:12:00,190
+West one where my cluster is just one.
+
+229
+00:12:00,340 --> 00:12:01,360
+Save it.
+
+230
+00:12:03,280 --> 00:12:04,540
+Comment and push.
+
+231
+00:12:07,320 --> 00:12:11,850
+Updated correct region code controllers for check mark.
+
+232
+00:12:13,080 --> 00:12:16,170
+That should trigger the pipeline automatically.
+
+233
+00:12:16,500 --> 00:12:16,800
+All right.
+
+234
+00:12:16,800 --> 00:12:17,880
+We have Web hooks.
+
+235
+00:12:18,240 --> 00:12:19,770
+So let's go back.
+
+236
+00:12:21,350 --> 00:12:22,310
+Let's see this.
+
+237
+00:12:23,240 --> 00:12:23,600
+Yeah.
+
+238
+00:12:24,680 --> 00:12:25,490
+It triggered.
+
+239
+00:12:26,300 --> 00:12:27,920
+Let's look at the logs.
+
+240
+00:12:28,650 --> 00:12:29,930
+Oh, it's already done.
+
+241
+00:12:32,460 --> 00:12:32,960
+Okay.
+
+242
+00:12:33,120 --> 00:12:34,020
+Nice.
+
+243
+00:12:35,670 --> 00:12:35,910
+Okay.
+
+244
+00:12:35,940 --> 00:12:37,920
+Let's let's check the X.
+
+245
+00:12:39,100 --> 00:12:40,120
+Prod.
+
+246
+00:12:41,350 --> 00:12:41,920
+Okay.
+
+247
+00:12:43,160 --> 00:12:43,590
+All right.
+
+248
+00:12:43,590 --> 00:12:44,160
+Tasks.
+
+249
+00:12:44,160 --> 00:12:45,540
+There's already two task.
+
+250
+00:12:47,030 --> 00:12:47,570
+The main task.
+
+251
+00:12:47,570 --> 00:12:48,740
+But two tasks are running.
+
+252
+00:12:48,740 --> 00:12:49,310
+So.
+
+253
+00:12:50,470 --> 00:12:51,820
+That one 4 minutes ago.
+
+254
+00:12:51,820 --> 00:12:54,940
+Now, this will go out of service in some time.
+
+255
+00:12:54,970 --> 00:13:00,760
+The newer one will be there if you see that the old task is taking time to go away.
+
+256
+00:13:00,790 --> 00:13:04,480
+It is probably you have opened the up load balancer.
+
+257
+00:13:04,480 --> 00:13:07,300
+You are there is a connection, so it's trying to drain the request.
+
+258
+00:13:07,300 --> 00:13:13,630
+If the request is completely drained, all the requests are coming to that container, then only it
+
+259
+00:13:13,630 --> 00:13:16,000
+will delete that container, that task.
+
+260
+00:13:16,390 --> 00:13:21,910
+So make sure you close all the tabs where you have opened the load balancer you are.
+
+261
+00:13:22,690 --> 00:13:24,550
+Okay, so this is it over here.
+
+262
+00:13:24,550 --> 00:13:33,130
+In the next lecture, we will see a proper process of how the pipeline runs, returns result, and then
+
+263
+00:13:33,130 --> 00:13:35,110
+how do we promote it to production?
+
+264
+00:13:35,810 --> 00:13:38,270
+The actual process I'm talking about.
+
+265
+00:13:38,630 --> 00:13:41,380
+Otherwise, your pipeline, both the pipelines are set.
+
+266
+00:13:41,390 --> 00:13:42,620
+They're working fine.
+
+267
+00:13:43,460 --> 00:13:47,180
+We'll just see how the real process is in the real time.
+
+268
+00:13:47,420 --> 00:13:50,240
+So wrap this up and join me in the next lecture.
+

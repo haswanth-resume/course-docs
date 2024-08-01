@@ -1,0 +1,1004 @@
+1
+00:00:00,390 --> 00:00:00,690
+All right.
+
+2
+00:00:00,690 --> 00:00:02,760
+So in this video, the actual fun will happen.
+
+3
+00:00:02,760 --> 00:00:09,150
+We are going to write the code to build the Docker image and upload it to Amazon ACR.
+
+4
+00:00:09,300 --> 00:00:11,070
+Let's go through the code first.
+
+5
+00:00:11,070 --> 00:00:13,680
+Let's look at the code for Docker file.
+
+6
+00:00:13,680 --> 00:00:18,000
+So let me log out from Jenkins here.
+
+7
+00:00:21,380 --> 00:00:23,540
+So I go to my repository.
+
+8
+00:00:23,540 --> 00:00:26,330
+To my repository, not be profile repository.
+
+9
+00:00:27,260 --> 00:00:28,460
+And I'm in the branch.
+
+10
+00:00:28,460 --> 00:00:30,270
+KD hyphen Jenkins.
+
+11
+00:00:30,290 --> 00:00:31,000
+Check.
+
+12
+00:00:31,010 --> 00:00:32,090
+Get status.
+
+13
+00:00:32,390 --> 00:00:33,380
+Everything is good.
+
+14
+00:00:33,410 --> 00:00:34,750
+Make sure you're in this branch.
+
+15
+00:00:34,770 --> 00:00:38,150
+KD hyphen Jenkins and zip code dot.
+
+16
+00:00:38,540 --> 00:00:40,190
+You should open your voice code.
+
+17
+00:00:42,510 --> 00:00:42,810
+Okay.
+
+18
+00:00:42,810 --> 00:00:44,700
+First, let's go through the Docker file.
+
+19
+00:00:44,700 --> 00:00:51,300
+So Docker files dropdown, this Docker file for app DB and web in app.
+
+20
+00:00:51,300 --> 00:00:55,020
+So we are going to build the Tomcat application image.
+
+21
+00:00:55,260 --> 00:00:57,660
+So there is a simple Docker file.
+
+22
+00:00:58,230 --> 00:01:04,800
+If you are building the artifact in the Jenkins itself, you can use this Docker file to copy the artifact
+
+23
+00:01:05,190 --> 00:01:14,040
+to the container, but we will go with multi stage Docker Files dropdown, multi stage Docker file and
+
+24
+00:01:14,040 --> 00:01:15,330
+that's our Docker file.
+
+25
+00:01:15,330 --> 00:01:16,380
+Let's go through it.
+
+26
+00:01:16,890 --> 00:01:20,910
+So first we are building it from an open JDK image.
+
+27
+00:01:20,910 --> 00:01:21,900
+This is the build image.
+
+28
+00:01:21,900 --> 00:01:23,010
+So we have two images here.
+
+29
+00:01:23,010 --> 00:01:28,980
+This is the build image which will build the artifact and this is where we are going to copy our artifact.
+
+30
+00:01:28,980 --> 00:01:30,120
+The second image.
+
+31
+00:01:30,570 --> 00:01:33,330
+So open JDK image version eight.
+
+32
+00:01:34,180 --> 00:01:39,520
+Installing Maven there and cloning the source code from Vpro file repository.
+
+33
+00:01:41,110 --> 00:01:44,520
+Now you can run this Docker file in the same source code.
+
+34
+00:01:44,530 --> 00:01:49,410
+You can copy the source code in this image and run the install command.
+
+35
+00:01:49,420 --> 00:01:55,960
+But just to keep things simple and clean for this project, I'm mentioning the step to clone it from
+
+36
+00:01:55,960 --> 00:02:01,420
+Vpro file repository in real time you may need to just copy.
+
+37
+00:02:02,110 --> 00:02:07,660
+Your source code this all the source code into the image and rename uninstall.
+
+38
+00:02:08,110 --> 00:02:10,000
+You can do it through a volume option.
+
+39
+00:02:10,000 --> 00:02:12,580
+You can use copy option or add option also.
+
+40
+00:02:13,210 --> 00:02:15,460
+But let's keep this like that.
+
+41
+00:02:15,700 --> 00:02:18,280
+Clone the source code from Vpro file repository.
+
+42
+00:02:18,280 --> 00:02:22,780
+Get into that directory and run an install which should generate the artifact.
+
+43
+00:02:22,990 --> 00:02:25,060
+Now the second image, Tomcat image.
+
+44
+00:02:25,060 --> 00:02:26,560
+This is what we will be publishing.
+
+45
+00:02:27,160 --> 00:02:28,780
+It's based on Tomcat image.
+
+46
+00:02:28,780 --> 00:02:36,610
+So we remove the default Tomcat application from this image and we copy from build image from this build
+
+47
+00:02:36,610 --> 00:02:36,960
+image.
+
+48
+00:02:36,970 --> 00:02:37,450
+Right.
+
+49
+00:02:37,480 --> 00:02:39,280
+We are copying the artifact.
+
+50
+00:02:40,300 --> 00:02:48,130
+Act one which will be in this part we profile v to dot var into us our local tomcat eight sorry tomcat
+
+51
+00:02:48,130 --> 00:02:51,280
+web apps route dot var with the name route dot var.
+
+52
+00:02:51,700 --> 00:02:53,680
+So that becomes the default application.
+
+53
+00:02:54,670 --> 00:02:58,510
+Expose it on port 88 command to search dot run.
+
+54
+00:02:58,510 --> 00:03:04,600
+So when we say Docker run, it's going to run this command and host our artifact and that is the only
+
+55
+00:03:04,600 --> 00:03:06,550
+image we will be building in this project.
+
+56
+00:03:07,000 --> 00:03:11,110
+So now we have to write the pipeline code.
+
+57
+00:03:11,110 --> 00:03:13,810
+So stage pipeline, go to stage pipeline.
+
+58
+00:03:14,080 --> 00:03:16,060
+Jenkins file we are to make sure.
+
+59
+00:03:17,620 --> 00:03:18,460
+From here.
+
+60
+00:03:18,460 --> 00:03:20,230
+We run the stage.
+
+61
+00:03:20,230 --> 00:03:24,850
+We have a stage where we build this Docker file and push it to ACR.
+
+62
+00:03:25,570 --> 00:03:25,830
+Okay.
+
+63
+00:03:25,840 --> 00:03:29,950
+First, we will be setting up three variables that will be using in our code.
+
+64
+00:03:33,060 --> 00:03:34,530
+Registry Credential.
+
+65
+00:03:34,950 --> 00:03:36,210
+App Registry.
+
+66
+00:03:36,240 --> 00:03:37,830
+V Profile Registry.
+
+67
+00:03:38,220 --> 00:03:39,180
+These are just variable.
+
+68
+00:03:39,180 --> 00:03:43,320
+You can give any name, but we will be using this variable in the code down.
+
+69
+00:03:43,500 --> 00:03:48,600
+So if you give a different variable, make sure you give the same in the code.
+
+70
+00:03:48,630 --> 00:03:50,850
+So let's fix this one.
+
+71
+00:03:52,060 --> 00:03:52,270
+Okay.
+
+72
+00:03:52,330 --> 00:03:54,910
+So I copied the default value from my file.
+
+73
+00:03:55,120 --> 00:03:56,890
+So registry credential variables.
+
+74
+00:03:56,890 --> 00:04:03,610
+So the credential scripts that we have added, so it should be in this format you have to say are.
+
+75
+00:04:05,310 --> 00:04:06,330
+Colon the region.
+
+76
+00:04:06,330 --> 00:04:09,180
+Name us hyphen east hyphen one.
+
+77
+00:04:09,870 --> 00:04:11,640
+Which let me check the region code.
+
+78
+00:04:12,640 --> 00:04:13,150
+Oh, sorry.
+
+79
+00:04:13,150 --> 00:04:13,780
+It's us.
+
+80
+00:04:13,780 --> 00:04:15,340
+Hyphen West, hyphen one.
+
+81
+00:04:15,340 --> 00:04:16,510
+Glad I checked it.
+
+82
+00:04:18,269 --> 00:04:21,120
+So make sure you give you a right region code.
+
+83
+00:04:21,149 --> 00:04:22,740
+US West one.
+
+84
+00:04:24,430 --> 00:04:26,080
+Colon eight scripts.
+
+85
+00:04:26,140 --> 00:04:31,870
+Now, this is the credential name that we did add in the Jenkins and Jenkins credential.
+
+86
+00:04:31,870 --> 00:04:35,020
+You see eight scripts, whatever name I did add there.
+
+87
+00:04:35,350 --> 00:04:37,120
+That will be the value of that.
+
+88
+00:04:38,380 --> 00:04:40,510
+E.W. Scripps OC, but not the CW.
+
+89
+00:04:40,810 --> 00:04:41,960
+You have to do it in this format.
+
+90
+00:04:41,990 --> 00:04:44,230
+ACR Colon Region Code.
+
+91
+00:04:44,260 --> 00:04:48,190
+Colon The Credential Name Next Variable App Registry.
+
+92
+00:04:49,060 --> 00:04:51,000
+This is the ACR registry.
+
+93
+00:04:51,010 --> 00:04:53,440
+Let's go to ACR.
+
+94
+00:04:54,230 --> 00:04:55,460
+And let's copy this.
+
+95
+00:04:56,550 --> 00:04:56,880
+Get this.
+
+96
+00:04:56,910 --> 00:04:57,540
+You are a.
+
+97
+00:04:58,780 --> 00:05:00,580
+And let's paste it here.
+
+98
+00:05:02,230 --> 00:05:02,430
+Okay.
+
+99
+00:05:02,530 --> 00:05:07,510
+So that's kind of like, you know, the name of your repository or Docker image.
+
+100
+00:05:07,900 --> 00:05:10,780
+So if it's not Docker Hub, right?
+
+101
+00:05:10,900 --> 00:05:19,030
+If it's not an official image, the image name will be always like this account name, slash the image
+
+102
+00:05:19,030 --> 00:05:19,510
+name.
+
+103
+00:05:19,630 --> 00:05:21,340
+And so you see it in that format, right?
+
+104
+00:05:21,340 --> 00:05:24,040
+That's your account slash image name.
+
+105
+00:05:24,520 --> 00:05:26,980
+Then we profile registry variable.
+
+106
+00:05:27,070 --> 00:05:34,720
+Here we are going to give the URL which is like this HTTP, colon, slash, slash and paste to the same
+
+107
+00:05:34,720 --> 00:05:35,620
+thing that you copy.
+
+108
+00:05:35,620 --> 00:05:36,820
+Just remove at the end.
+
+109
+00:05:39,220 --> 00:05:40,590
+Can't you see the difference?
+
+110
+00:05:40,600 --> 00:05:44,290
+That's the URL of your repository and that's your image name.
+
+111
+00:05:45,750 --> 00:05:46,230
+Okay.
+
+112
+00:05:46,860 --> 00:05:51,000
+Oh hey, the maven kept it same as from the previous one.
+
+113
+00:05:51,000 --> 00:05:55,290
+MV And Q Okay, now these three variables will be using in our codes.
+
+114
+00:05:55,310 --> 00:05:57,150
+You'll understand how this works.
+
+115
+00:05:57,720 --> 00:06:04,050
+So let's come down and create a stage to build the Docker Docker image with the Docker file.
+
+116
+00:06:05,220 --> 00:06:05,370
+Okay.
+
+117
+00:06:05,540 --> 00:06:07,170
+So I'm going to see stage.
+
+118
+00:06:11,100 --> 00:06:13,230
+I'll give you a name and test build.
+
+119
+00:06:15,030 --> 00:06:16,770
+AAP image.
+
+120
+00:06:17,600 --> 00:06:19,370
+Open and close curly brace.
+
+121
+00:06:21,820 --> 00:06:22,930
+Steps.
+
+122
+00:06:25,390 --> 00:06:26,740
+I guess this is how we'll be building it.
+
+123
+00:06:26,740 --> 00:06:30,220
+There are actually multiple ways we'll be using the script method script.
+
+124
+00:06:31,150 --> 00:06:32,830
+Open, close, curly brace.
+
+125
+00:06:33,940 --> 00:06:40,030
+Giving a variable here darker image is equal to and this is where we'll be giving the command.
+
+126
+00:06:40,360 --> 00:06:44,170
+Now this variable, you'll understand why I have given it in a moment.
+
+127
+00:06:44,170 --> 00:06:46,510
+This will be used when we push the image.
+
+128
+00:06:46,690 --> 00:06:50,410
+So we have installed a plugin, docker plugin, dot build.
+
+129
+00:06:50,410 --> 00:06:51,910
+It has the function build.
+
+130
+00:06:53,780 --> 00:06:56,480
+Parenthesis and we need to pass here arguments.
+
+131
+00:06:56,750 --> 00:07:03,530
+One is your image, name, colon image name, colon tag and then part of your Docker file.
+
+132
+00:07:03,530 --> 00:07:05,690
+So the image name.
+
+133
+00:07:07,230 --> 00:07:09,900
+You have given a variable here app registry in that one.
+
+134
+00:07:10,380 --> 00:07:11,310
+Let's copy that.
+
+135
+00:07:15,730 --> 00:07:20,200
+They're wasted and we need to give a build tag.
+
+136
+00:07:20,350 --> 00:07:21,760
+So I'm going to use the variable here.
+
+137
+00:07:21,760 --> 00:07:23,860
+I'm going to concatenate plus.
+
+138
+00:07:25,360 --> 00:07:26,650
+Double quotes.
+
+139
+00:07:28,790 --> 00:07:29,570
+Colon.
+
+140
+00:07:30,670 --> 00:07:32,800
+And let me give a space here and here.
+
+141
+00:07:33,420 --> 00:07:36,420
+And I'll use the variable build underscore it.
+
+142
+00:07:36,420 --> 00:07:39,150
+If you remember, we use this variable in continuous integration.
+
+143
+00:07:39,150 --> 00:07:41,580
+Also not wait, I'm going to use build.
+
+144
+00:07:42,440 --> 00:07:47,420
+Number two, this will give us the build number, right?
+
+145
+00:07:47,420 --> 00:07:50,480
+So it will tag the image with this build number whenever we run it.
+
+146
+00:07:50,480 --> 00:07:54,500
+And then the second argument, comma, is the part of your Docker file.
+
+147
+00:07:54,500 --> 00:07:56,540
+So our Docker file is here.
+
+148
+00:07:57,170 --> 00:07:58,340
+Docker.
+
+149
+00:07:59,710 --> 00:08:01,330
+Hyphen files.
+
+150
+00:08:01,630 --> 00:08:03,220
+Slash app.
+
+151
+00:08:03,850 --> 00:08:06,330
+Slash slash.
+
+152
+00:08:06,640 --> 00:08:08,410
+Multi stage.
+
+153
+00:08:09,970 --> 00:08:10,820
+Forward slash.
+
+154
+00:08:10,840 --> 00:08:12,940
+Oh, I need to put that into double quotes.
+
+155
+00:08:17,760 --> 00:08:18,040
+Okay.
+
+156
+00:08:18,060 --> 00:08:21,060
+So part of this Docker file I've mentioned over there.
+
+157
+00:08:22,110 --> 00:08:22,680
+Okay.
+
+158
+00:08:22,920 --> 00:08:24,270
+I can give space here.
+
+159
+00:08:25,580 --> 00:08:29,480
+I would just look for any, you know, syntax error and fix it if you have.
+
+160
+00:08:29,990 --> 00:08:35,840
+And let's do the next stage, which is going to upload this build image to ACR.
+
+161
+00:08:36,320 --> 00:08:36,590
+Okay.
+
+162
+00:08:36,590 --> 00:08:38,950
+I've just typed it, so it's pretty simple.
+
+163
+00:08:38,960 --> 00:08:44,150
+Upload image steps script, same as it docker dot width registry.
+
+164
+00:08:44,150 --> 00:08:47,630
+Like here we use docker build here Docker with registry.
+
+165
+00:08:47,930 --> 00:08:50,330
+You mentioned the registry information.
+
+166
+00:08:50,360 --> 00:08:51,650
+We profile registry.
+
+167
+00:08:51,650 --> 00:08:52,760
+That's the variable.
+
+168
+00:08:54,490 --> 00:08:54,870
+Right.
+
+169
+00:08:54,900 --> 00:08:55,650
+I did go.
+
+170
+00:08:56,850 --> 00:08:58,140
+We profile registry.
+
+171
+00:08:59,160 --> 00:09:01,290
+And that's one argument.
+
+172
+00:09:01,320 --> 00:09:03,510
+Second argument is registry credentials.
+
+173
+00:09:03,750 --> 00:09:06,120
+So we pass the credentials and we pass the URL.
+
+174
+00:09:06,120 --> 00:09:10,620
+So it will log into that registry and then docker image dot push.
+
+175
+00:09:10,620 --> 00:09:12,480
+This Docker image is this variable.
+
+176
+00:09:12,600 --> 00:09:14,670
+So it will store all the information over here.
+
+177
+00:09:14,670 --> 00:09:21,630
+From that you can access the push function, push method and push your Docker image, which was built
+
+178
+00:09:21,630 --> 00:09:22,290
+here.
+
+179
+00:09:22,770 --> 00:09:27,480
+And while you are doing that, we are going to give the build number as the tag.
+
+180
+00:09:27,480 --> 00:09:29,250
+And also tag is latest.
+
+181
+00:09:29,280 --> 00:09:35,310
+We'll be always deploying the latest tag, but we'll also have version of all the previous images that
+
+182
+00:09:35,310 --> 00:09:36,030
+was built.
+
+183
+00:09:36,360 --> 00:09:38,760
+So it's basically the same image with two different tags.
+
+184
+00:09:38,760 --> 00:09:41,250
+That's all latest and build number.
+
+185
+00:09:42,060 --> 00:09:44,190
+So validate if everything is good.
+
+186
+00:09:44,910 --> 00:09:46,440
+Let's just save it then.
+
+187
+00:09:48,260 --> 00:09:51,410
+And then we will go to this comet and push.
+
+188
+00:09:51,890 --> 00:09:53,000
+Comet and push.
+
+189
+00:09:54,300 --> 00:09:54,870
+Let's see.
+
+190
+00:09:54,870 --> 00:10:01,740
+Docker build and publish to ACR.
+
+191
+00:10:02,580 --> 00:10:05,490
+Control less check mark there.
+
+192
+00:10:08,030 --> 00:10:09,250
+It's a new branch.
+
+193
+00:10:09,280 --> 00:10:11,140
+Would you like to publish this new branch?
+
+194
+00:10:11,170 --> 00:10:12,040
+Yes.
+
+195
+00:10:13,380 --> 00:10:14,970
+So already this branch.
+
+196
+00:10:15,870 --> 00:10:18,780
+Let's go and go to Jenkins.
+
+197
+00:10:22,360 --> 00:10:22,730
+Okay.
+
+198
+00:10:22,750 --> 00:10:25,420
+Now we will create a new pipeline.
+
+199
+00:10:25,420 --> 00:10:26,710
+We will not use this one.
+
+200
+00:10:26,710 --> 00:10:28,960
+It has the CIA, Jenkins branch.
+
+201
+00:10:29,080 --> 00:10:31,180
+We will create a new pipeline.
+
+202
+00:10:31,180 --> 00:10:34,960
+We'll call it as we profile CCD Pipeline Docker.
+
+203
+00:10:34,960 --> 00:10:37,420
+So click on Pipeline.
+
+204
+00:10:38,310 --> 00:10:39,000
+Okay.
+
+205
+00:10:41,140 --> 00:10:41,500
+All right.
+
+206
+00:10:41,500 --> 00:10:43,900
+GitHub hooked trigger for Git ACM polling.
+
+207
+00:10:43,900 --> 00:10:51,520
+So next time we make a comment, it triggers the pipeline from ACM pipeline script from Sxm.
+
+208
+00:10:51,760 --> 00:10:52,990
+ACM is git.
+
+209
+00:10:54,690 --> 00:10:56,430
+And repository URL.
+
+210
+00:10:56,430 --> 00:10:57,840
+Let's get the URL.
+
+211
+00:11:03,850 --> 00:11:04,990
+This is Earl.
+
+212
+00:11:05,440 --> 00:11:08,320
+Now, we already have the credentials saved here.
+
+213
+00:11:09,250 --> 00:11:10,300
+In Jenkins.
+
+214
+00:11:10,930 --> 00:11:14,410
+So we can just select that GitHub login.
+
+215
+00:11:16,580 --> 00:11:18,180
+Kim Branch.
+
+216
+00:11:18,200 --> 00:11:20,780
+Make sure you switch the branch to secede.
+
+217
+00:11:20,810 --> 00:11:22,280
+Hyphen Jenkins.
+
+218
+00:11:23,030 --> 00:11:25,250
+And the Jenkins file path.
+
+219
+00:11:25,370 --> 00:11:26,920
+We have removed that path.
+
+220
+00:11:26,930 --> 00:11:32,210
+We have it in this part stage pipeline slash Jenkins file.
+
+221
+00:11:32,510 --> 00:11:33,080
+Right.
+
+222
+00:11:35,590 --> 00:11:37,480
+Secede branch.
+
+223
+00:11:39,880 --> 00:11:41,560
+Their stage pipeline.
+
+224
+00:11:42,070 --> 00:11:42,880
+Jenkins file.
+
+225
+00:11:42,880 --> 00:11:43,360
+Right.
+
+226
+00:11:43,360 --> 00:11:44,170
+2 minutes ago.
+
+227
+00:11:44,200 --> 00:11:45,520
+This is what we committed.
+
+228
+00:11:48,200 --> 00:11:48,590
+Okay.
+
+229
+00:11:48,620 --> 00:11:49,290
+That's it.
+
+230
+00:11:49,310 --> 00:11:50,120
+Save.
+
+231
+00:11:51,870 --> 00:11:53,580
+And Sybil now.
+
+232
+00:11:55,570 --> 00:11:59,590
+So I'll pause my screen and come back when this is completed.
+
+233
+00:12:01,770 --> 00:12:02,190
+All right.
+
+234
+00:12:02,190 --> 00:12:02,940
+That is complete.
+
+235
+00:12:03,040 --> 00:12:03,920
+It's a success.
+
+236
+00:12:03,930 --> 00:12:05,370
+You can read the logs.
+
+237
+00:12:05,370 --> 00:12:08,460
+You can see you see pushing the Docker image.
+
+238
+00:12:09,150 --> 00:12:11,340
+And let's go to C.R..
+
+239
+00:12:12,940 --> 00:12:14,320
+All right, refresh this.
+
+240
+00:12:15,300 --> 00:12:22,170
+Let's click on our image name and you should see there, right, the image tag one and latest one is
+
+241
+00:12:22,170 --> 00:12:23,430
+the build number.
+
+242
+00:12:24,380 --> 00:12:26,400
+Right here.
+
+243
+00:12:26,800 --> 00:12:26,940
+Right.
+
+244
+00:12:27,020 --> 00:12:28,100
+That build number.
+
+245
+00:12:29,540 --> 00:12:33,020
+So that it has given as a tag and also it has given us a latest tag.
+
+246
+00:12:33,020 --> 00:12:33,470
+Right?
+
+247
+00:12:33,470 --> 00:12:41,240
+So now the ops team can fetch this image and deploy to clusters, Kubernetes cluster or E-Series or
+
+248
+00:12:41,240 --> 00:12:43,010
+Beanstalk or wherever they want.
+
+249
+00:12:43,010 --> 00:12:47,960
+But that also next step, we will see how we are going to deploy it on X cluster.
+
+250
+00:12:49,040 --> 00:12:49,490
+All right.
+
+251
+00:12:49,490 --> 00:12:52,700
+So wrap this up and join me in the next lecture.
+
