@@ -1,0 +1,140 @@
+1
+00:00:00,600 --> 00:00:04,320
+Okay, so now you have a complete continuous integration pipeline.
+
+2
+00:00:04,470 --> 00:00:08,730
+The next task will be to deploy our artifact to some environment.
+
+3
+00:00:09,060 --> 00:00:14,580
+So as discussed in this project, we are going to use beans tag as the target where we're going to host
+
+4
+00:00:14,580 --> 00:00:15,320
+our application.
+
+5
+00:00:15,330 --> 00:00:17,160
+It's also disposable environment.
+
+6
+00:00:17,190 --> 00:00:19,620
+If you want, you can use it for production also.
+
+7
+00:00:19,890 --> 00:00:26,310
+And we're going to have an ideas database instance for database if you're interested in active MQ and
+
+8
+00:00:26,310 --> 00:00:27,100
+rabbit MQ.
+
+9
+00:00:27,120 --> 00:00:34,410
+So you can include these two services also and elastic cache service and active MQ service.
+
+10
+00:00:34,650 --> 00:00:38,190
+But even if you don't use, that's not going to stop you to do anything in this project.
+
+11
+00:00:38,400 --> 00:00:45,420
+So now let's go to Beanstalk service and create a beanstalk environment.
+
+12
+00:00:47,820 --> 00:00:49,140
+Just go to application.
+
+13
+00:00:53,070 --> 00:00:54,150
+Create application.
+
+14
+00:00:54,780 --> 00:00:59,400
+So we'll name it as a V profile hyphen app.
+
+15
+00:01:01,870 --> 00:01:02,770
+Scroll down.
+
+16
+00:01:02,800 --> 00:01:07,390
+Platform We will choose Platform Tomcat.
+
+17
+00:01:09,350 --> 00:01:13,340
+And first, we'll keep the sample code and then we'll make changes when we deploy.
+
+18
+00:01:13,340 --> 00:01:19,550
+Before we deploy the artifact, we're going to make some health checks changes also as we did in our
+
+19
+00:01:19,550 --> 00:01:20,810
+previous projects.
+
+20
+00:01:21,800 --> 00:01:26,090
+First capacity, we'll have load balanced instance.
+
+21
+00:01:29,730 --> 00:01:32,390
+So we have minimum two and maximum.
+
+22
+00:01:32,400 --> 00:01:34,710
+We are saying it can scale to four.
+
+23
+00:01:35,870 --> 00:01:38,150
+And you can give the number as per your requirement.
+
+24
+00:01:39,280 --> 00:01:41,560
+And we'll keep everything else default here.
+
+25
+00:01:44,730 --> 00:01:46,260
+Keep your log in, Keep it.
+
+26
+00:01:46,290 --> 00:01:52,920
+So in case if you have to log in, then you can create a key pair and attach it before you create the
+
+27
+00:01:52,920 --> 00:01:53,730
+environment.
+
+28
+00:01:54,000 --> 00:01:58,800
+I'm going to use the same key pair, which I used for the C process.
+
+29
+00:01:59,640 --> 00:02:00,480
+See it.
+
+30
+00:02:05,530 --> 00:02:08,870
+And these are the only two changes I'm making right now.
+
+31
+00:02:08,889 --> 00:02:09,910
+And tags.
+
+32
+00:02:09,910 --> 00:02:13,360
+Let's kill some tag project.
+
+33
+00:02:15,720 --> 00:02:16,800
+We profile.
+
+34
+00:02:22,520 --> 00:02:23,960
+Okay, let's create an app.
+
+35
+00:02:26,830 --> 00:02:32,260
+So this is going to take some time to create the stack by the time we'll go to the service.
+

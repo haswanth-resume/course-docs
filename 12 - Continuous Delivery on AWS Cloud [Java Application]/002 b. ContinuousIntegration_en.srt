@@ -1,0 +1,3904 @@
+1
+00:00:01,470 --> 00:00:07,890
+Okay, I'm in my management console and I'm going to first go to the service code commit.
+
+2
+00:00:11,960 --> 00:00:12,350
+Okay.
+
+3
+00:00:12,470 --> 00:00:16,970
+In the left side, you see all the services Anyways that we need are here.
+
+4
+00:00:16,970 --> 00:00:24,470
+Code commit code, artifact code, build code, deploy code pipeline so you can use an axis, all these
+
+5
+00:00:24,470 --> 00:00:26,810
+services from one single pane.
+
+6
+00:00:28,730 --> 00:00:29,030
+Okay.
+
+7
+00:00:29,300 --> 00:00:36,500
+If you go to some other region, like, for example, if you go to North California, not California
+
+8
+00:00:36,500 --> 00:00:39,890
+region does not have code, artifact service and few other.
+
+9
+00:00:40,670 --> 00:00:43,220
+So if you don't see code artifact, check your region.
+
+10
+00:00:43,220 --> 00:00:47,090
+Probably you're in a region that does not have code artifact service.
+
+11
+00:00:47,870 --> 00:00:49,310
+I'm in North Virginia.
+
+12
+00:00:50,670 --> 00:00:53,700
+For this project, you can use any region of your choice.
+
+13
+00:00:54,490 --> 00:00:57,580
+But just make sure there is a code artifact service over there.
+
+14
+00:00:57,910 --> 00:01:03,040
+Let's go to code commit repository and we'll say create repository here.
+
+15
+00:01:04,230 --> 00:01:14,820
+We'll give Repository a name, we will name it as V profile hyphen repo, or I'll say we profile hyphen
+
+16
+00:01:14,820 --> 00:01:16,680
+code hyphen repo.
+
+17
+00:01:17,960 --> 00:01:20,840
+You can give some description over there and few tags.
+
+18
+00:01:21,790 --> 00:01:29,650
+If you'd like to enable Amazon Code Guru for Java project, you can put a checkmark over there so it
+
+19
+00:01:29,650 --> 00:01:31,090
+will improve your code quality.
+
+20
+00:01:31,090 --> 00:01:36,310
+It will give you it will do code analysis and give you the result, which is a very convenient service.
+
+21
+00:01:36,310 --> 00:01:41,290
+So directly developers instead of building and then doing code analysis, they can test it automatically
+
+22
+00:01:41,290 --> 00:01:43,150
+with code guru service as well.
+
+23
+00:01:44,280 --> 00:01:46,410
+Okay, I'm going to create this repository.
+
+24
+00:01:47,870 --> 00:01:52,340
+And you can access this repository by using HTTPS connection and SSH connection.
+
+25
+00:01:53,190 --> 00:01:58,480
+SDP comes with username and password and there is always a risk of exposing your password.
+
+26
+00:01:58,720 --> 00:02:03,100
+So search is a preferred method and will use this method.
+
+27
+00:02:06,900 --> 00:02:09,300
+So there are steps how you can configure it.
+
+28
+00:02:10,509 --> 00:02:11,860
+We're going to follow this.
+
+29
+00:02:12,490 --> 00:02:15,850
+But in order to do that, we also need an I am user.
+
+30
+00:02:15,880 --> 00:02:18,610
+So I will go to IAM service.
+
+31
+00:02:20,750 --> 00:02:24,980
+So an IAM user that you are going to create will have access to a service.
+
+32
+00:02:24,980 --> 00:02:27,350
+So let's go to user add user.
+
+33
+00:02:28,120 --> 00:02:29,710
+And let's give a username.
+
+34
+00:02:31,250 --> 00:02:36,200
+Mm v profile hyphen Code hyphen admin.
+
+35
+00:02:37,200 --> 00:02:39,990
+So for the time being, we'll just see Programatic access.
+
+36
+00:02:39,990 --> 00:02:42,400
+But we are not going to use access keys anyways.
+
+37
+00:02:42,420 --> 00:02:44,280
+We're going to use SSH credentials.
+
+38
+00:02:45,410 --> 00:02:46,550
+Our policy.
+
+39
+00:02:48,470 --> 00:02:53,810
+So if you want, you can directly give code, commit full access, but that will give access to all
+
+40
+00:02:53,810 --> 00:02:55,070
+the code commit repository.
+
+41
+00:02:55,070 --> 00:02:59,150
+So we want specific, we only need for the repository that we created.
+
+42
+00:02:59,150 --> 00:03:00,650
+So we'll create policy.
+
+43
+00:03:02,650 --> 00:03:04,090
+Will choose the service.
+
+44
+00:03:07,820 --> 00:03:09,200
+Code commit.
+
+45
+00:03:13,080 --> 00:03:17,280
+You can fine tune all kinds of actions that this policy can take.
+
+46
+00:03:17,730 --> 00:03:18,540
+List.
+
+47
+00:03:19,450 --> 00:03:26,110
+Reid I'll just give all I can just select over here also, because I'm going to be very specific.
+
+48
+00:03:26,110 --> 00:03:31,060
+I'm talking about only my code repository that I created resources.
+
+49
+00:03:31,810 --> 00:03:34,690
+We'll talk about the specific resource add in.
+
+50
+00:03:36,080 --> 00:03:36,950
+Region.
+
+51
+00:03:37,190 --> 00:03:40,970
+So our repository is in US East one.
+
+52
+00:03:43,730 --> 00:03:45,500
+And the repository name.
+
+53
+00:03:45,950 --> 00:03:47,810
+So we'll get a repository name.
+
+54
+00:03:50,940 --> 00:03:53,280
+We profile hyphen code hyphen repo.
+
+55
+00:04:00,880 --> 00:04:02,170
+So I'm being very specific.
+
+56
+00:04:02,170 --> 00:04:05,560
+I'm saying this repository in this region.
+
+57
+00:04:07,510 --> 00:04:09,610
+If you want to put some conditions, you can do that.
+
+58
+00:04:09,610 --> 00:04:14,170
+But we are going to skip this one and we'll say review policy.
+
+59
+00:04:14,620 --> 00:04:16,360
+We'll give this policy a name.
+
+60
+00:04:18,130 --> 00:04:22,060
+So I'm going to say we profile code admin repository, full access.
+
+61
+00:04:22,060 --> 00:04:23,320
+That's quite a long name.
+
+62
+00:04:23,320 --> 00:04:25,900
+We can even give a better description.
+
+63
+00:04:26,920 --> 00:04:28,270
+And they create policy.
+
+64
+00:04:33,140 --> 00:04:34,830
+And it will scan for this.
+
+65
+00:04:34,850 --> 00:04:36,050
+We profile.
+
+66
+00:04:38,620 --> 00:04:41,440
+I have a code admin repository, full access.
+
+67
+00:04:41,650 --> 00:04:43,510
+So I'm going to select my policy.
+
+68
+00:04:45,010 --> 00:04:47,440
+And I can just check it once again if I want.
+
+69
+00:04:49,170 --> 00:04:50,550
+You can see all the actions.
+
+70
+00:04:50,760 --> 00:04:53,910
+I'm going to go back to this place where we are creating user.
+
+71
+00:04:53,910 --> 00:04:54,360
+From here.
+
+72
+00:04:54,360 --> 00:04:55,620
+We click on Create Policy.
+
+73
+00:04:55,620 --> 00:04:57,180
+We already have a policy now.
+
+74
+00:04:58,870 --> 00:05:03,280
+So refresh this once again and paste your policy name.
+
+75
+00:05:04,030 --> 00:05:06,250
+So you can see the policy selected.
+
+76
+00:05:06,280 --> 00:05:07,150
+Go next.
+
+77
+00:05:07,450 --> 00:05:09,220
+You can use some tag if you want.
+
+78
+00:05:10,000 --> 00:05:11,380
+And to create user.
+
+79
+00:05:14,150 --> 00:05:16,700
+Okay, so a user get created with the policy.
+
+80
+00:05:17,180 --> 00:05:19,500
+And I'm going to close this again.
+
+81
+00:05:19,550 --> 00:05:20,750
+Go to your user.
+
+82
+00:05:22,970 --> 00:05:24,350
+Security credentials.
+
+83
+00:05:24,560 --> 00:05:26,780
+So we really don't need access key and secret key.
+
+84
+00:05:26,780 --> 00:05:30,740
+So you can either make it inactive or better just delete these keys.
+
+85
+00:05:30,950 --> 00:05:31,790
+We don't need it.
+
+86
+00:05:31,820 --> 00:05:34,610
+We need keys for a code commit.
+
+87
+00:05:35,420 --> 00:05:38,060
+So we have to upload ssh public key.
+
+88
+00:05:39,300 --> 00:05:42,090
+So a gendered squeeze from our local machine.
+
+89
+00:05:42,420 --> 00:05:45,630
+So let's open gate bash to generate keys.
+
+90
+00:05:45,630 --> 00:05:48,540
+We're going to issue the command key gen.
+
+91
+00:05:50,800 --> 00:05:54,070
+And we'll keep it at that location, but with a different name.
+
+92
+00:06:00,380 --> 00:06:02,870
+Let me test for pro hyphen code.
+
+93
+00:06:05,410 --> 00:06:06,100
+Commit.
+
+94
+00:06:07,900 --> 00:06:10,810
+Underscore underscore rc.
+
+95
+00:06:11,140 --> 00:06:13,150
+I will keep created with this name.
+
+96
+00:06:15,740 --> 00:06:25,090
+Once the keys are created, let's go to our directory and you can see they're the private key.
+
+97
+00:06:25,100 --> 00:06:26,240
+They're the public key.
+
+98
+00:06:27,020 --> 00:06:28,970
+So let's catch the public key.
+
+99
+00:06:32,070 --> 00:06:33,180
+Let's copy it.
+
+100
+00:06:35,110 --> 00:06:36,880
+And let's store it.
+
+101
+00:06:39,190 --> 00:06:41,350
+Let's see, upload as a public key.
+
+102
+00:06:42,750 --> 00:06:47,310
+Be stood there, make sure there are no extra space or anything just to upload.
+
+103
+00:06:48,960 --> 00:06:51,690
+And you will get an such key ID over here.
+
+104
+00:06:53,370 --> 00:06:56,820
+Now we'll create a config file a this config file.
+
+105
+00:06:59,470 --> 00:07:00,760
+I see in place.
+
+106
+00:07:06,190 --> 00:07:09,220
+Let's create a config file which as such will use.
+
+107
+00:07:11,000 --> 00:07:16,280
+So when we use the code commit service at that time, it's going to use the in the config file that
+
+108
+00:07:16,280 --> 00:07:16,900
+will be mentioned.
+
+109
+00:07:16,910 --> 00:07:23,990
+If it's code commit is the host name, then use this access key, this username and this key to login.
+
+110
+00:07:26,020 --> 00:07:28,720
+So there you have.
+
+111
+00:07:29,930 --> 00:07:31,490
+So if the host is.
+
+112
+00:07:32,360 --> 00:07:33,650
+Did code commit.
+
+113
+00:07:34,340 --> 00:07:37,910
+Then the user name changed that to the user.
+
+114
+00:07:44,840 --> 00:07:47,660
+Let's copy this user as kid.
+
+115
+00:07:50,560 --> 00:07:55,090
+Mention it there and the file name that we created.
+
+116
+00:07:55,930 --> 00:07:58,450
+So let's verify the file name once again.
+
+117
+00:08:00,710 --> 00:08:01,960
+And that's the file name.
+
+118
+00:08:12,920 --> 00:08:14,540
+So for you, I will create.
+
+119
+00:08:14,570 --> 00:08:18,770
+You will create this config file in the repository.
+
+120
+00:08:18,800 --> 00:08:25,010
+You can check in a branch sai hyphen, a w s and you can find this config file which you can use.
+
+121
+00:08:25,880 --> 00:08:26,810
+See if this.
+
+122
+00:08:28,830 --> 00:08:35,039
+We also have to make sure that our config file permissions should be 600.
+
+123
+00:08:37,289 --> 00:08:39,360
+In Linux, this will be mandatory.
+
+124
+00:08:41,450 --> 00:08:41,730
+Okay.
+
+125
+00:08:41,750 --> 00:08:44,210
+Now, let's make a test with our credentials.
+
+126
+00:08:46,380 --> 00:08:48,780
+Run this command search space.
+
+127
+00:08:50,750 --> 00:08:52,700
+This URL hit enter.
+
+128
+00:08:56,670 --> 00:09:00,150
+And it says you have successfully authenticated our search.
+
+129
+00:09:00,150 --> 00:09:03,810
+So our authentication is really working for troubleshooting purpose.
+
+130
+00:09:03,810 --> 00:09:07,380
+If there's something not working, you can use an hyphen v option.
+
+131
+00:09:08,390 --> 00:09:15,230
+And you can see much in detail what key is being used, what user, all that you can see for troubleshooting
+
+132
+00:09:15,230 --> 00:09:15,920
+purposes.
+
+133
+00:09:17,060 --> 00:09:20,460
+Okay, now I can really clone my repository.
+
+134
+00:09:20,460 --> 00:09:21,480
+Also, let's test it.
+
+135
+00:09:21,480 --> 00:09:23,040
+I'll go to the temp directory.
+
+136
+00:09:27,560 --> 00:09:31,520
+So repository clone URL and we'll use zoo URL.
+
+137
+00:09:34,250 --> 00:09:35,300
+Is just a test.
+
+138
+00:09:35,510 --> 00:09:38,390
+We're going to do it a little different, but just run a test like this.
+
+139
+00:09:38,420 --> 00:09:39,230
+Get clone.
+
+140
+00:09:39,560 --> 00:09:44,150
+So this will also validate whether you your user has privilege on this repository or not.
+
+141
+00:09:45,930 --> 00:09:46,860
+Yes.
+
+142
+00:09:50,120 --> 00:09:53,720
+If you're able to successfully clone this, then that means.
+
+143
+00:09:54,580 --> 00:09:55,770
+User that you used.
+
+144
+00:09:55,770 --> 00:09:59,700
+I am user that also has privilege to access this repository.
+
+145
+00:10:00,210 --> 00:10:04,050
+Once you have cloned, then you can put the data and commit it back, but you're going to do little
+
+146
+00:10:04,050 --> 00:10:04,740
+different.
+
+147
+00:10:04,890 --> 00:10:09,580
+We already have a code repository from GitHub that we clone.
+
+148
+00:10:09,600 --> 00:10:15,510
+We're going to transition that code repository from GitHub to code commit.
+
+149
+00:10:16,650 --> 00:10:18,510
+So I will go to my f drive.
+
+150
+00:10:21,520 --> 00:10:24,580
+Well, if you don't have the source code, you can clone it.
+
+151
+00:10:26,040 --> 00:10:30,090
+If your done previous project, you should already have cloned it.
+
+152
+00:10:32,350 --> 00:10:32,540
+Okay.
+
+153
+00:10:32,620 --> 00:10:35,380
+Like I already have it, so I'm going to switch.
+
+154
+00:10:36,580 --> 00:10:37,930
+To my repository.
+
+155
+00:10:38,320 --> 00:10:40,990
+And this is a git repository.
+
+156
+00:10:40,990 --> 00:10:41,350
+Yes.
+
+157
+00:10:41,350 --> 00:10:44,110
+And but the remote repository over here is.
+
+158
+00:10:47,500 --> 00:10:48,580
+GitHub.
+
+159
+00:10:48,700 --> 00:10:51,190
+So what are data that we push?
+
+160
+00:10:51,220 --> 00:10:53,980
+It gets sync to GitHub remote repository.
+
+161
+00:10:54,520 --> 00:10:58,090
+Instead of this, we will be having our code commit repository.
+
+162
+00:10:58,990 --> 00:11:00,610
+So let's do the transition.
+
+163
+00:11:01,000 --> 00:11:07,660
+So first just run the command git branch hyphen a list all your branches and check out to the branch
+
+164
+00:11:07,660 --> 00:11:10,990
+that you want to use that you want to push to code commit.
+
+165
+00:11:12,040 --> 00:11:15,640
+First I'm going to check out the master branch.
+
+166
+00:11:17,110 --> 00:11:19,720
+Okay, then I'm going to run this command.
+
+167
+00:11:21,610 --> 00:11:23,140
+Which lists all the branches.
+
+168
+00:11:23,140 --> 00:11:27,550
+It does not get the branch that has head and the master name.
+
+169
+00:11:28,480 --> 00:11:32,860
+And we're going to use the cut command and field three, which will just give us.
+
+170
+00:11:33,850 --> 00:11:36,940
+The branch name so we can very easily.
+
+171
+00:11:39,710 --> 00:11:40,670
+Get the branch name.
+
+172
+00:11:40,670 --> 00:11:48,530
+I'm going to send all this output to a file temp slash if you wish to do it like this automatically.
+
+173
+00:11:48,530 --> 00:11:53,930
+Otherwise you can just run git, check out command as many branches you have that you can run or you
+
+174
+00:11:53,930 --> 00:11:56,060
+can do it like this quickly, automatically.
+
+175
+00:11:57,070 --> 00:11:58,870
+I just named his branches.
+
+176
+00:12:02,100 --> 00:12:08,160
+I guess I have all the branches in ten branches file and I'm now going to run it on a for loop.
+
+177
+00:12:09,920 --> 00:12:10,850
+For.
+
+178
+00:12:12,730 --> 00:12:14,140
+I in?
+
+179
+00:12:15,820 --> 00:12:18,010
+Back tactics Kit.
+
+180
+00:12:21,990 --> 00:12:29,280
+Do a CO dollar I and you can just first print it whether it's really printing the right branch name.
+
+181
+00:12:29,550 --> 00:12:30,390
+Yes.
+
+182
+00:12:31,920 --> 00:12:39,420
+Now, instead of doing an echo and printing it, we are going to do get check out dollar.
+
+183
+00:12:39,600 --> 00:12:42,720
+I really a quick way to check out all the branches.
+
+184
+00:12:42,720 --> 00:12:47,040
+If you have many branches then it will be stupid to run get check out that many times, you know, just
+
+185
+00:12:47,040 --> 00:12:49,200
+do some automation and get over with it.
+
+186
+00:12:51,850 --> 00:12:52,260
+Okay.
+
+187
+00:12:52,270 --> 00:12:54,940
+We did get check out to all the branches.
+
+188
+00:12:55,060 --> 00:12:56,020
+Let's run it.
+
+189
+00:12:56,150 --> 00:12:57,500
+Branch hyphen.
+
+190
+00:12:58,720 --> 00:13:03,360
+I see that these branches are all checked out or checked out.
+
+191
+00:13:06,610 --> 00:13:12,190
+Next, if you have some tags in your repository, you can say get fetch, hyphen, hyphen tags.
+
+192
+00:13:15,710 --> 00:13:23,630
+Once you are good with this, then we are going to remove the remote repository which is currently GitHub
+
+193
+00:13:24,140 --> 00:13:25,070
+origin.
+
+194
+00:13:25,100 --> 00:13:26,900
+Get remote item origin.
+
+195
+00:13:30,270 --> 00:13:39,100
+And we will add our code commit repository, git remote, add origin and the URL.
+
+196
+00:13:39,120 --> 00:13:41,970
+So let's get that search review URL.
+
+197
+00:13:46,840 --> 00:13:48,190
+Closeness is such.
+
+198
+00:13:55,770 --> 00:14:02,400
+And said, enter now you can check in your config file it config file.
+
+199
+00:14:03,630 --> 00:14:05,760
+Remote repository is now code comment.
+
+200
+00:14:05,820 --> 00:14:06,600
+That's nice.
+
+201
+00:14:06,600 --> 00:14:08,700
+Now let's push all our changes.
+
+202
+00:14:09,030 --> 00:14:10,570
+Get push.
+
+203
+00:14:11,260 --> 00:14:14,460
+Origin hyphen.
+
+204
+00:14:14,460 --> 00:14:14,850
+Hyphen.
+
+205
+00:14:14,850 --> 00:14:15,450
+All.
+
+206
+00:14:19,750 --> 00:14:24,520
+All these branches are now on code comet repository.
+
+207
+00:14:25,480 --> 00:14:28,690
+If you have any tag, you can push all your tags as well.
+
+208
+00:14:28,720 --> 00:14:33,460
+Get push hyphen hyphen tags.
+
+209
+00:14:33,460 --> 00:14:35,230
+You'll absolutely have some tags.
+
+210
+00:14:36,610 --> 00:14:39,970
+Okay, Once that is done, let's check.
+
+211
+00:14:41,220 --> 00:14:43,170
+Let's go to repository.
+
+212
+00:14:44,700 --> 00:14:46,410
+Must check our repository.
+
+213
+00:14:46,800 --> 00:14:49,070
+And come on.
+
+214
+00:14:49,080 --> 00:14:49,620
+Yeah.
+
+215
+00:14:50,320 --> 00:14:51,090
+Okay, great.
+
+216
+00:14:51,420 --> 00:14:53,700
+Brunch with the master.
+
+217
+00:14:53,700 --> 00:14:54,260
+Brunch?
+
+218
+00:14:54,270 --> 00:14:54,760
+Yeah.
+
+219
+00:14:54,870 --> 00:14:56,130
+Is the master brunch?
+
+220
+00:14:59,170 --> 00:15:00,030
+Yes.
+
+221
+00:15:00,040 --> 00:15:03,670
+And we should have our CI hyphen plus branch.
+
+222
+00:15:05,300 --> 00:15:05,960
+There.
+
+223
+00:15:09,800 --> 00:15:13,520
+Okay, So in this branch, you have some files and files.
+
+224
+00:15:13,850 --> 00:15:15,350
+You'll see more files over here.
+
+225
+00:15:15,350 --> 00:15:18,320
+One is a search config file and a few other files over here.
+
+226
+00:15:20,510 --> 00:15:20,690
+Okay.
+
+227
+00:15:20,720 --> 00:15:23,270
+So you can use this for the search config.
+
+228
+00:15:23,540 --> 00:15:26,090
+Other files we have will come to it in a moment.
+
+229
+00:15:26,540 --> 00:15:29,720
+Now let's switch your attention to code artifact.
+
+230
+00:15:30,910 --> 00:15:31,840
+Getting started.
+
+231
+00:15:31,930 --> 00:15:38,350
+So now we'll create a repository in code artefact, which will be used by our build job maven, build
+
+232
+00:15:38,350 --> 00:15:41,800
+job or MAVEN, build your download dependencies from here.
+
+233
+00:15:41,800 --> 00:15:44,200
+So we'll create repository.
+
+234
+00:15:46,860 --> 00:15:53,490
+Okay, let's give the name as v profile hyphen maven hyphen repo and give some description.
+
+235
+00:15:56,390 --> 00:15:58,490
+So public upstream repository.
+
+236
+00:15:58,490 --> 00:16:01,130
+I want to have Maven Central store.
+
+237
+00:16:02,330 --> 00:16:05,330
+So from here it's going to download the dependency and keep it.
+
+238
+00:16:06,300 --> 00:16:08,610
+And we profile Maven repo repository.
+
+239
+00:16:09,360 --> 00:16:10,260
+Let's go next.
+
+240
+00:16:10,830 --> 00:16:12,570
+Yes, we want to create it for this account.
+
+241
+00:16:12,600 --> 00:16:15,630
+You have to select a domain and it'll give a domain name.
+
+242
+00:16:15,780 --> 00:16:19,980
+So we'll give a domain name as I'm going to give it as visual path.
+
+243
+00:16:22,680 --> 00:16:23,780
+And this should be good.
+
+244
+00:16:23,790 --> 00:16:24,240
+Let's go.
+
+245
+00:16:24,240 --> 00:16:24,870
+Next.
+
+246
+00:16:27,090 --> 00:16:29,160
+So you see the external connection.
+
+247
+00:16:29,160 --> 00:16:29,970
+It is telling.
+
+248
+00:16:30,930 --> 00:16:31,290
+Domain.
+
+249
+00:16:31,290 --> 00:16:33,690
+It is going to use this visual path.
+
+250
+00:16:34,140 --> 00:16:36,720
+It will have a Maven central store repository.
+
+251
+00:16:37,780 --> 00:16:40,360
+Which is connected to this group repository.
+
+252
+00:16:41,200 --> 00:16:43,270
+So we really created our repository.
+
+253
+00:16:43,300 --> 00:16:44,020
+Oh, not yet.
+
+254
+00:16:44,020 --> 00:16:45,880
+Let's click on Create Repository.
+
+255
+00:16:52,500 --> 00:16:57,030
+Okay, let's go to click on Repository and you should see two repositories now.
+
+256
+00:16:57,480 --> 00:17:01,770
+This is what is going to store the dependencies.
+
+257
+00:17:02,820 --> 00:17:06,510
+So you can click on it and you can see how you can connect to it.
+
+258
+00:17:06,510 --> 00:17:08,310
+There is a view connection, instruction.
+
+259
+00:17:10,450 --> 00:17:12,160
+Select package manager MVPs.
+
+260
+00:17:12,160 --> 00:17:16,170
+And so if you're going to use package manager MVPs and if you're going to run like MVPs and install
+
+261
+00:17:16,180 --> 00:17:17,800
+right, we will need dependencies.
+
+262
+00:17:18,339 --> 00:17:22,410
+So what you need to do, you need to run this command which is going to give you a token.
+
+263
+00:17:22,420 --> 00:17:27,760
+We have to use an IAM user and we feed the information in settings dot XML file.
+
+264
+00:17:29,640 --> 00:17:31,380
+Made information.
+
+265
+00:17:33,700 --> 00:17:35,360
+So we'll do all this.
+
+266
+00:17:35,380 --> 00:17:38,140
+We already have settings dot xml file with the details.
+
+267
+00:17:38,140 --> 00:17:40,430
+We're going to just make the changes over there.
+
+268
+00:17:40,480 --> 00:17:49,190
+But before that, we need to export this variable, which actually is going to run a command, a base
+
+269
+00:17:49,240 --> 00:17:51,850
+code artifact, get authorization token.
+
+270
+00:17:52,510 --> 00:17:55,730
+And this command has to be done with a user privilege.
+
+271
+00:17:55,750 --> 00:17:59,410
+I am a user, so we're going to now create an I am user for this.
+
+272
+00:17:59,770 --> 00:18:03,460
+So let's go back to IM console user.
+
+273
+00:18:03,670 --> 00:18:12,160
+Say add user and we'll limit as we profile hyphen code artifact.
+
+274
+00:18:13,040 --> 00:18:14,810
+Hyphen admin been.
+
+275
+00:18:16,310 --> 00:18:18,950
+Programatic access we need for this one.
+
+276
+00:18:20,900 --> 00:18:21,740
+Policy.
+
+277
+00:18:23,240 --> 00:18:26,240
+So I'll just say code artefact.
+
+278
+00:18:28,280 --> 00:18:31,520
+So for this one, you can also create your own policy.
+
+279
+00:18:32,370 --> 00:18:36,900
+But to keep it simple for this one, I'm going to use code artifact admin access policy.
+
+280
+00:18:37,590 --> 00:18:41,580
+Or you can create your own policy and you can only target your own repository.
+
+281
+00:18:42,000 --> 00:18:45,960
+So Aaron should be your own code artifact repository.
+
+282
+00:18:46,380 --> 00:18:48,840
+But for now, I'll just keep it.
+
+283
+00:18:49,660 --> 00:18:51,280
+It managed policy.
+
+284
+00:18:51,460 --> 00:18:52,360
+Let's go next.
+
+285
+00:18:57,960 --> 00:18:59,610
+I'll download the credentials.
+
+286
+00:19:01,950 --> 00:19:08,850
+Now you need to have a CLI in your system because we are going to run that export command.
+
+287
+00:19:11,100 --> 00:19:14,220
+And we're going to run this command on our local machine.
+
+288
+00:19:14,220 --> 00:19:16,290
+So we need a blue collar for this.
+
+289
+00:19:16,530 --> 00:19:22,140
+So from previous project, if you have not installed a blue CLI, then I recommend you install them.
+
+290
+00:19:23,480 --> 00:19:25,220
+So you can do it through PowerShell.
+
+291
+00:19:32,340 --> 00:19:33,390
+PowerShell width.
+
+292
+00:19:33,390 --> 00:19:36,750
+We have to open with admin run as administrator.
+
+293
+00:19:38,850 --> 00:19:42,090
+And you can use Choko install command.
+
+294
+00:19:48,350 --> 00:19:50,870
+If you have not installed it, install it now.
+
+295
+00:19:50,870 --> 00:19:53,600
+I already have it installed so I'm not going to run it again.
+
+296
+00:19:55,780 --> 00:20:02,680
+So you can run a configure and set up the credentials that you have just downloaded.
+
+297
+00:20:05,880 --> 00:20:09,600
+So from my credentials file, I'm going to overwrite the existing credentials.
+
+298
+00:20:14,980 --> 00:20:20,020
+Well, anyways, I'm going to delete this user, so I don't mind showing it to you now, but it's quite
+
+299
+00:20:20,020 --> 00:20:22,510
+very dangerous if you expose this credentials.
+
+300
+00:20:22,990 --> 00:20:24,550
+So make sure you give you a right region.
+
+301
+00:20:24,560 --> 00:20:28,600
+US East one is right for me, so I'll keep it as it is output for my JSON.
+
+302
+00:20:29,910 --> 00:20:31,440
+Okay, once you have this setup.
+
+303
+00:20:32,820 --> 00:20:35,930
+Will copy this command and run it.
+
+304
+00:20:36,580 --> 00:20:39,220
+Which should give us a token and return.
+
+305
+00:20:42,830 --> 00:20:44,480
+A cool dollar.
+
+306
+00:20:44,510 --> 00:20:45,660
+Let me see.
+
+307
+00:20:45,680 --> 00:20:47,780
+Does it have value or not?
+
+308
+00:20:48,110 --> 00:20:49,340
+And there's a token.
+
+309
+00:20:49,790 --> 00:20:51,560
+So we're going to store this token.
+
+310
+00:20:51,620 --> 00:20:55,730
+Some parameter store from where our code job is going to get it.
+
+311
+00:20:56,690 --> 00:20:58,220
+But now it's time.
+
+312
+00:20:58,220 --> 00:20:59,060
+Before we do that.
+
+313
+00:20:59,060 --> 00:21:00,530
+Now it's time to change our settings.
+
+314
+00:21:00,530 --> 00:21:01,730
+Dot XML file.
+
+315
+00:21:01,910 --> 00:21:04,460
+So let's go to our repository.
+
+316
+00:21:12,010 --> 00:21:13,930
+And switch to.
+
+317
+00:21:15,160 --> 00:21:16,960
+Cy hyphenate s.
+
+318
+00:21:19,190 --> 00:21:21,620
+So you'll see a settings dot XML file over here.
+
+319
+00:21:24,640 --> 00:21:26,830
+So we have to make some changes over here.
+
+320
+00:21:28,210 --> 00:21:32,320
+So we'll keep username as it goes over there.
+
+321
+00:21:32,320 --> 00:21:35,920
+And there is a variable which we are going to define from some parameters to it.
+
+322
+00:21:35,950 --> 00:21:36,850
+As I told you.
+
+323
+00:21:37,840 --> 00:21:40,360
+To login and.
+
+324
+00:21:41,670 --> 00:21:44,250
+You are over here repository URL.
+
+325
+00:21:44,730 --> 00:21:47,040
+So we are going to change that.
+
+326
+00:22:03,430 --> 00:22:04,270
+Copy that.
+
+327
+00:22:08,060 --> 00:22:09,950
+And let's face it over there.
+
+328
+00:22:12,790 --> 00:22:13,840
+For Miller.
+
+329
+00:22:15,010 --> 00:22:18,730
+So the name domain name here changed the domain name.
+
+330
+00:22:20,800 --> 00:22:22,530
+To the domain name that you have used.
+
+331
+00:22:22,540 --> 00:22:24,640
+I have used domain name as visual path.
+
+332
+00:22:28,730 --> 00:22:36,950
+You can really get the details from here also, if you want and change this URL as well and make sure
+
+333
+00:22:36,950 --> 00:22:40,520
+to give that a forward slash after that URL.
+
+334
+00:22:47,020 --> 00:22:47,260
+Okay.
+
+335
+00:22:47,320 --> 00:22:48,600
+This should be good over here.
+
+336
+00:22:48,610 --> 00:22:50,230
+Let's save and quit this.
+
+337
+00:22:51,820 --> 00:22:56,080
+We will also update our XML file with the URL.
+
+338
+00:23:03,900 --> 00:23:05,610
+You can keep the idea name same.
+
+339
+00:23:05,610 --> 00:23:07,170
+It really does not matter here.
+
+340
+00:23:07,880 --> 00:23:09,500
+Let's just see if this.
+
+341
+00:23:12,340 --> 00:23:15,700
+And we are going to make the chief commit the changes.
+
+342
+00:23:15,700 --> 00:23:30,910
+Get at dot, get comet hyphen, m, c updated poem and settings with code artifact details.
+
+343
+00:23:35,290 --> 00:23:35,700
+Okay.
+
+344
+00:23:35,710 --> 00:23:36,930
+And then we'll push it.
+
+345
+00:23:36,940 --> 00:23:39,910
+This is going to go all the way to our repository.
+
+346
+00:23:40,120 --> 00:23:40,480
+Oh.
+
+347
+00:23:42,030 --> 00:23:42,970
+Get push.
+
+348
+00:23:42,990 --> 00:23:45,590
+Origin si hyphen.
+
+349
+00:23:45,600 --> 00:23:45,750
+E.
+
+350
+00:23:45,750 --> 00:23:46,020
+W.
+
+351
+00:23:46,050 --> 00:23:46,650
+S.
+
+352
+00:23:49,140 --> 00:23:52,200
+This should have been updated in our code repository.
+
+353
+00:23:52,920 --> 00:23:55,920
+I would also like to show one more setting over here to you.
+
+354
+00:23:57,240 --> 00:24:00,630
+So in that XML file, we have also given one more setting.
+
+355
+00:24:00,630 --> 00:24:01,680
+In this particular branch.
+
+356
+00:24:01,680 --> 00:24:02,700
+We have this setting.
+
+357
+00:24:03,090 --> 00:24:09,810
+We are setting up a variable timestamp so it will automatically get the timestamp in this format and
+
+358
+00:24:09,810 --> 00:24:12,600
+this will be used to version our artifact.
+
+359
+00:24:13,480 --> 00:24:13,630
+Okay.
+
+360
+00:24:13,780 --> 00:24:15,340
+So these two lines there.
+
+361
+00:24:18,650 --> 00:24:21,830
+Which will be useful in the build project.
+
+362
+00:24:24,760 --> 00:24:31,150
+Okay, So now we're going to set up a code analysis job, which is going to do some honor code analysis
+
+363
+00:24:31,690 --> 00:24:32,500
+in code build.
+
+364
+00:24:32,500 --> 00:24:35,230
+And for that, we need a sonar cloud account.
+
+365
+00:24:36,330 --> 00:24:42,390
+So you go to SoundCloud dot IO from your browser and you can log in with your gate credentials if you
+
+366
+00:24:42,390 --> 00:24:45,960
+want GitHub credential or Bitbucket with any of these four.
+
+367
+00:24:45,990 --> 00:24:47,490
+You can create an account.
+
+368
+00:24:47,490 --> 00:24:49,560
+I already have an account with GitHub.
+
+369
+00:24:52,600 --> 00:24:58,150
+So once you log in with your GitHub or any credentials, once you sign up with this, you will come
+
+370
+00:24:58,150 --> 00:24:59,010
+over here.
+
+371
+00:24:59,020 --> 00:25:05,770
+So it will look almost similar to so on the cube server that we have used in continuous integration.
+
+372
+00:25:05,770 --> 00:25:07,240
+Jenkins project.
+
+373
+00:25:07,960 --> 00:25:09,460
+But this is cloud based.
+
+374
+00:25:10,410 --> 00:25:13,800
+So first thing we'll do over here is we're going to generate a token.
+
+375
+00:25:15,360 --> 00:25:19,740
+So your user go to my account Security.
+
+376
+00:25:20,610 --> 00:25:27,090
+And give it token name v Profile hyphen Sonar hyphen Cloud.
+
+377
+00:25:28,410 --> 00:25:29,300
+To generate.
+
+378
+00:25:30,280 --> 00:25:31,480
+So you'll get a token.
+
+379
+00:25:32,620 --> 00:25:34,090
+Save it somewhere safe.
+
+380
+00:25:34,940 --> 00:25:38,870
+For the time being, I'm going to keep it in my sticky notes.
+
+381
+00:25:41,060 --> 00:25:41,320
+Okay.
+
+382
+00:25:41,360 --> 00:25:44,720
+Now from this plus symbol see analyze new project.
+
+383
+00:25:46,730 --> 00:25:51,860
+So when you sign up, you should already have an organization name that you have created over here and
+
+384
+00:25:51,860 --> 00:25:54,590
+you can see all the repository from your organization.
+
+385
+00:25:54,980 --> 00:25:57,740
+But we are just testing it.
+
+386
+00:25:57,770 --> 00:25:59,840
+We're not going to scan all these repositories.
+
+387
+00:25:59,870 --> 00:26:02,150
+I'll say create project manually.
+
+388
+00:26:06,080 --> 00:26:07,910
+Okay, so choose the organization.
+
+389
+00:26:10,050 --> 00:26:15,240
+And let's give a project key like we give sonar key sonar project key.
+
+390
+00:26:15,240 --> 00:26:22,020
+Similar to that, we'll give it over here, we'll name it as V profile hyphen repo.
+
+391
+00:26:22,620 --> 00:26:23,970
+That's all I'll keep the name.
+
+392
+00:26:23,970 --> 00:26:26,760
+I can only go with public because I have a free account.
+
+393
+00:26:27,120 --> 00:26:31,260
+If you have a paid account, you can go with private also set up.
+
+394
+00:26:34,180 --> 00:26:34,530
+Okay.
+
+395
+00:26:34,540 --> 00:26:36,490
+By now, we should have some details.
+
+396
+00:26:37,150 --> 00:26:38,660
+Let me put them into sticky note.
+
+397
+00:26:38,680 --> 00:26:39,880
+That's the token.
+
+398
+00:26:41,080 --> 00:26:45,010
+Project name we have is v profile hyphen repo.
+
+399
+00:26:46,770 --> 00:26:54,660
+The sooner cloud URL is https Colon slash slash sooner cloud dot io.
+
+400
+00:26:56,200 --> 00:26:59,880
+Organization I'm using is Dev Ops Actual D Club.
+
+401
+00:26:59,890 --> 00:27:03,580
+That's the name of my organization that I've used in the Sony cloud.
+
+402
+00:27:04,600 --> 00:27:07,180
+There you can see and we profile repo.
+
+403
+00:27:07,960 --> 00:27:16,100
+So we need this for details and we're going to store this information into a parameter store.
+
+404
+00:27:16,120 --> 00:27:18,250
+So let's go back to our console.
+
+405
+00:27:19,780 --> 00:27:21,400
+Nagin said, Done with this.
+
+406
+00:27:22,250 --> 00:27:25,100
+And we'll search for the service.
+
+407
+00:27:25,280 --> 00:27:28,760
+Some systems manager service.
+
+408
+00:27:30,700 --> 00:27:34,960
+A very easy way to set up or store variables over here.
+
+409
+00:27:35,290 --> 00:27:40,570
+This secret manager, which is quite expensive, so as you can try that also, but I'm going to go with
+
+410
+00:27:40,960 --> 00:27:43,030
+systems manager parameter store.
+
+411
+00:27:44,080 --> 00:27:44,560
+Here.
+
+412
+00:27:44,560 --> 00:27:46,510
+We'll store these variables.
+
+413
+00:27:47,630 --> 00:27:49,550
+Okay, so let's create parameter.
+
+414
+00:27:51,180 --> 00:27:54,060
+Forced will create this organization.
+
+415
+00:27:56,430 --> 00:27:59,280
+Name and value string.
+
+416
+00:28:00,500 --> 00:28:04,820
+Okay, string text and we'll just you the name of the organization.
+
+417
+00:28:06,890 --> 00:28:07,730
+Just that.
+
+418
+00:28:09,710 --> 00:28:11,330
+And let's create parameter.
+
+419
+00:28:14,240 --> 00:28:17,600
+Next parameter will give the host.
+
+420
+00:28:19,900 --> 00:28:21,580
+That will be our sonar cloud.
+
+421
+00:28:21,610 --> 00:28:22,450
+You are all.
+
+422
+00:28:28,720 --> 00:28:31,000
+Okay, So let's create that also.
+
+423
+00:28:32,400 --> 00:28:32,730
+Script.
+
+424
+00:28:32,730 --> 00:28:36,690
+Next parameter name of the project.
+
+425
+00:28:39,070 --> 00:28:42,370
+Which we have given us a v profile hyphen repo.
+
+426
+00:28:45,220 --> 00:28:46,000
+Create.
+
+427
+00:28:47,370 --> 00:28:48,750
+One more parameter.
+
+428
+00:28:50,470 --> 00:28:54,970
+This will be our sonar token, the token that we have generated.
+
+429
+00:28:57,250 --> 00:28:58,240
+And this value.
+
+430
+00:28:58,240 --> 00:29:00,400
+I don't want to be taxed.
+
+431
+00:29:01,220 --> 00:29:01,860
+Oh, sorry.
+
+432
+00:29:01,870 --> 00:29:04,390
+Not string value, just secure string.
+
+433
+00:29:04,930 --> 00:29:11,470
+So it will encrypt the value that I put over here because I don't want to show this value to everyone.
+
+434
+00:29:11,590 --> 00:29:14,650
+Maybe for that reason I will just encrypt it.
+
+435
+00:29:19,810 --> 00:29:22,120
+Make sure there is not any extra space or anything.
+
+436
+00:29:22,450 --> 00:29:24,160
+And you say create parameter.
+
+437
+00:29:26,000 --> 00:29:27,740
+So we have four parameters.
+
+438
+00:29:28,990 --> 00:29:31,240
+Will also create one more parameter.
+
+439
+00:29:34,000 --> 00:29:38,080
+And this parameter is for our code artifact token.
+
+440
+00:29:38,110 --> 00:29:45,650
+So we have executed cli cli command, which has given us this variable, exported this variable.
+
+441
+00:29:45,670 --> 00:29:47,470
+And we're going to copy this.
+
+442
+00:29:50,510 --> 00:29:56,270
+And we named the parameter as code artifact hyphen token.
+
+443
+00:29:57,580 --> 00:29:57,800
+Okay.
+
+444
+00:29:57,850 --> 00:30:03,010
+Again, this is a token, so I'm going to say secure string and paste the value there.
+
+445
+00:30:03,950 --> 00:30:05,510
+And to create parameter.
+
+446
+00:30:07,610 --> 00:30:08,030
+All right.
+
+447
+00:30:08,030 --> 00:30:10,400
+So currently I have these parameters.
+
+448
+00:30:11,450 --> 00:30:16,100
+Four for Sony Cloud integration and one is for Code Artefact.
+
+449
+00:30:17,030 --> 00:30:19,580
+Now is the time to create the Build project.
+
+450
+00:30:19,580 --> 00:30:20,330
+So.
+
+451
+00:30:21,470 --> 00:30:23,150
+Let's go to build project.
+
+452
+00:30:23,420 --> 00:30:24,530
+You can go from here.
+
+453
+00:30:24,530 --> 00:30:29,810
+You can just say build and you can say build project or you can just search for the service code.
+
+454
+00:30:29,810 --> 00:30:31,910
+Build from there.
+
+455
+00:30:32,750 --> 00:30:34,460
+Code build.
+
+456
+00:30:38,010 --> 00:30:38,200
+Okay.
+
+457
+00:30:38,270 --> 00:30:43,140
+Our first job, first billed job will be to do code analysis on our code analysis.
+
+458
+00:30:43,140 --> 00:30:45,870
+So let's create a project, create, build project.
+
+459
+00:30:49,110 --> 00:30:51,870
+Is like we're creating Jenkins job similar to that.
+
+460
+00:30:53,560 --> 00:30:57,730
+So we'll name this job as we profile hyphen build.
+
+461
+00:30:59,890 --> 00:31:02,920
+Source code comet, our repository.
+
+462
+00:31:03,280 --> 00:31:05,110
+You can see the repository over here.
+
+463
+00:31:06,780 --> 00:31:07,770
+Branch.
+
+464
+00:31:08,570 --> 00:31:09,720
+We are going to use A.
+
+465
+00:31:10,180 --> 00:31:12,590
+S hyphen plus branch.
+
+466
+00:31:14,430 --> 00:31:16,050
+And scroll down operating system.
+
+467
+00:31:16,050 --> 00:31:17,640
+We are going to run a MAVEN command.
+
+468
+00:31:17,640 --> 00:31:20,550
+So open two should be fine.
+
+469
+00:31:20,880 --> 00:31:25,200
+Runtime Environment Default Standard Image 3.0.
+
+470
+00:31:27,630 --> 00:31:28,980
+Okay, let's scroll down.
+
+471
+00:31:29,820 --> 00:31:32,040
+So this is going to create a service role.
+
+472
+00:31:32,970 --> 00:31:36,630
+And just to make it unique, I'll put some numbers over here, like 12.
+
+473
+00:31:38,960 --> 00:31:44,120
+And we later update this roll so it can access the parameter store that we have saved.
+
+474
+00:31:44,950 --> 00:31:46,900
+Okay, But first, let's create it.
+
+475
+00:31:48,840 --> 00:31:51,720
+Okay, so we have to use a build spec file.
+
+476
+00:31:52,990 --> 00:31:58,120
+So you can use a build spec file from version control, but we're going to say insert, build command
+
+477
+00:31:58,510 --> 00:32:00,100
+and switch to editor.
+
+478
+00:32:00,550 --> 00:32:04,570
+And this is where we're going to copy our build spec file content.
+
+479
+00:32:06,740 --> 00:32:10,040
+So build spec file is in our source code.
+
+480
+00:32:10,900 --> 00:32:16,870
+In sci hyphenate branch, you have a files directory in that you have sonar build spec file.
+
+481
+00:32:17,730 --> 00:32:20,550
+You can just get it and copy its content.
+
+482
+00:32:27,930 --> 00:32:30,270
+And let's select all based it.
+
+483
+00:32:32,330 --> 00:32:34,790
+We'll go through this build spec file in a moment.
+
+484
+00:32:35,510 --> 00:32:37,850
+So we'll just read it from here itself.
+
+485
+00:32:39,390 --> 00:32:43,830
+.0.2 environment variable from parameter store that we have saved.
+
+486
+00:32:43,830 --> 00:32:47,970
+So we are going to set up here five variables and its value.
+
+487
+00:32:48,000 --> 00:32:53,600
+We're going to give from the parameter store that we have set phases in install phase.
+
+488
+00:32:53,610 --> 00:32:57,390
+We are installing JDBC and we have a command.
+
+489
+00:32:57,390 --> 00:33:02,670
+We are going to copy our settings dot XML file to slash root, dot M to settings dot xml.
+
+490
+00:33:02,760 --> 00:33:05,490
+So setting dot xml anyways has to be in this place.
+
+491
+00:33:05,490 --> 00:33:08,080
+So we're using a copy command to copy that file.
+
+492
+00:33:08,100 --> 00:33:13,470
+Settings dot XML is already in our source code which will be moved to this place, which will have the
+
+493
+00:33:13,470 --> 00:33:16,680
+information about our code artifact repository.
+
+494
+00:33:17,160 --> 00:33:19,110
+Then we have pre build phase.
+
+495
+00:33:19,500 --> 00:33:22,260
+We are running commands, running apt update.
+
+496
+00:33:22,260 --> 00:33:26,880
+We're installing check style and GQ with W great command.
+
+497
+00:33:26,880 --> 00:33:28,530
+We're downloading maven here.
+
+498
+00:33:28,560 --> 00:33:29,970
+We extract maven.
+
+499
+00:33:30,730 --> 00:33:32,650
+We create a link for MAVEN.
+
+500
+00:33:33,100 --> 00:33:35,350
+Then we download sonar scanner.
+
+501
+00:33:36,370 --> 00:33:38,260
+We unzip the sonar scanner.
+
+502
+00:33:39,330 --> 00:33:42,090
+We explored the path for four sonar.
+
+503
+00:33:45,090 --> 00:33:46,290
+And then the build commands.
+
+504
+00:33:46,290 --> 00:33:50,910
+Of course, in the build phase commands, we have MAVEN test, we're going to run check style, MAVEN
+
+505
+00:33:50,910 --> 00:33:56,520
+check style and MAVEN sonar with all the parameters that we are passing.
+
+506
+00:33:56,850 --> 00:33:59,730
+So in our login data, log in.
+
+507
+00:34:00,500 --> 00:34:01,460
+That one.
+
+508
+00:34:01,820 --> 00:34:06,250
+So all the parameters that we are saving over here, all the variables that we are saving over here,
+
+509
+00:34:06,260 --> 00:34:07,280
+we're using it.
+
+510
+00:34:08,000 --> 00:34:14,090
+Then we wait for 5 seconds and there is a command which is going to store the result and result dot
+
+511
+00:34:14,120 --> 00:34:15,170
+JSON file.
+
+512
+00:34:15,440 --> 00:34:16,820
+We get this file.
+
+513
+00:34:17,760 --> 00:34:23,010
+And with an e condition, we check the status, the quality gate passes.
+
+514
+00:34:23,010 --> 00:34:28,320
+This job will be returning an exit code zero all or else it will return non zero.
+
+515
+00:34:28,739 --> 00:34:32,610
+So basically this is going to fail the job if your quality gates are not passing.
+
+516
+00:34:33,830 --> 00:34:41,389
+Okay, so we are good with this, so we need to make few changes though the parameters value from some
+
+517
+00:34:41,389 --> 00:34:42,469
+parameter store.
+
+518
+00:34:42,770 --> 00:34:45,440
+So host value we can just give directly.
+
+519
+00:34:45,440 --> 00:34:49,370
+Host It's already there for login.
+
+520
+00:34:49,760 --> 00:34:56,929
+That's really the sonar token, so let's give it its value as sonar token or whatever named of variable
+
+521
+00:34:56,929 --> 00:35:03,500
+that you have saved it with the owner token with organization name variable, we have given us organization
+
+522
+00:35:03,500 --> 00:35:06,650
+itself so we can keep it as it is project.
+
+523
+00:35:07,480 --> 00:35:09,520
+We have given variables project.
+
+524
+00:35:11,630 --> 00:35:13,670
+Code artefact or token.
+
+525
+00:35:14,660 --> 00:35:20,090
+We have saved it as code artifact hyphen token that variable.
+
+526
+00:35:22,690 --> 00:35:28,450
+So as you have used the variable name in the parameter store, so you have to give it with the same
+
+527
+00:35:28,450 --> 00:35:28,990
+name.
+
+528
+00:35:29,230 --> 00:35:33,280
+So it's going to access the parameter store and store all the variable these values.
+
+529
+00:35:34,090 --> 00:35:36,160
+And let's check again.
+
+530
+00:35:36,880 --> 00:35:37,800
+I think should be good.
+
+531
+00:35:37,810 --> 00:35:39,370
+We have not yet set any quality.
+
+532
+00:35:39,370 --> 00:35:41,170
+Gates will set it later.
+
+533
+00:35:43,370 --> 00:35:44,930
+Let's crawl down.
+
+534
+00:35:45,470 --> 00:35:48,290
+And I'm not going to store any artifacts from here.
+
+535
+00:35:48,320 --> 00:35:49,550
+Cloud watch logs.
+
+536
+00:35:49,550 --> 00:35:51,600
+I will put a checkmark on there.
+
+537
+00:35:51,620 --> 00:35:52,970
+I'll give a group name.
+
+538
+00:35:53,600 --> 00:35:57,770
+We profile Hyphen and Virginia.
+
+539
+00:35:57,800 --> 00:36:00,410
+I find sooner.
+
+540
+00:36:01,800 --> 00:36:03,090
+Or in Virginia.
+
+541
+00:36:03,220 --> 00:36:03,620
+Build.
+
+542
+00:36:03,870 --> 00:36:04,260
+See?
+
+543
+00:36:06,080 --> 00:36:06,830
+Build.
+
+544
+00:36:09,820 --> 00:36:15,970
+Logs stream name I'll say sooner build job.
+
+545
+00:36:17,250 --> 00:36:20,280
+So we can see the output streaming really from here.
+
+546
+00:36:20,820 --> 00:36:22,830
+That should be all in this job.
+
+547
+00:36:22,830 --> 00:36:24,600
+Let's say create, build project.
+
+548
+00:36:28,390 --> 00:36:31,360
+Before we run and test it, we have to update.
+
+549
+00:36:32,310 --> 00:36:38,370
+The role that we have used over here, and we have to give the privilege so it can access some parameters
+
+550
+00:36:38,370 --> 00:36:38,880
+to our.
+
+551
+00:36:40,700 --> 00:36:44,690
+Okay, so you can find the role name from Edit Environment Section.
+
+552
+00:36:46,700 --> 00:36:47,900
+You can find the road name there.
+
+553
+00:36:47,900 --> 00:36:48,830
+That's the road name.
+
+554
+00:36:48,830 --> 00:36:51,710
+Let's copy that and say cancel here.
+
+555
+00:36:52,250 --> 00:36:52,940
+Yes, of course.
+
+556
+00:36:52,940 --> 00:36:53,660
+Discard.
+
+557
+00:36:53,900 --> 00:36:55,610
+We'll go to I am service.
+
+558
+00:36:58,370 --> 00:36:59,660
+We'll go to role section.
+
+559
+00:36:59,660 --> 00:37:01,010
+We'll find that role.
+
+560
+00:37:03,580 --> 00:37:04,600
+There is that role.
+
+561
+00:37:04,740 --> 00:37:05,950
+Let's edit that role.
+
+562
+00:37:05,950 --> 00:37:07,240
+We have to give some policy.
+
+563
+00:37:07,240 --> 00:37:08,860
+We're going to say attach policy.
+
+564
+00:37:10,760 --> 00:37:12,920
+So we'll create our own policy.
+
+565
+00:37:16,260 --> 00:37:17,670
+I choose the service.
+
+566
+00:37:19,190 --> 00:37:20,190
+And some.
+
+567
+00:37:23,180 --> 00:37:27,500
+Actually, it should be with the name system manager.
+
+568
+00:37:27,800 --> 00:37:30,740
+So to manage the service action.
+
+569
+00:37:31,680 --> 00:37:38,440
+Okay, so in list we need describe parameters in a read.
+
+570
+00:37:38,450 --> 00:37:41,840
+We will need this describe document parameters.
+
+571
+00:37:43,510 --> 00:37:43,960
+Indeed.
+
+572
+00:37:43,960 --> 00:37:50,140
+Again, get parameters, get parameter history and get parameter get parameters.
+
+573
+00:37:50,140 --> 00:37:53,380
+Both get parameters by depth.
+
+574
+00:37:54,520 --> 00:37:58,600
+If you have created parameter store one inside another.
+
+575
+00:37:58,600 --> 00:37:59,860
+So you have to give this.
+
+576
+00:38:00,960 --> 00:38:02,070
+And that should be it.
+
+577
+00:38:02,100 --> 00:38:02,430
+No.
+
+578
+00:38:02,430 --> 00:38:02,730
+Right.
+
+579
+00:38:02,730 --> 00:38:03,660
+No tagging.
+
+580
+00:38:04,380 --> 00:38:10,650
+You can give Aaron if you want, but let's keep it that much for now and let's say review policy.
+
+581
+00:38:12,140 --> 00:38:14,780
+For resources, you can give a specific URL.
+
+582
+00:38:15,050 --> 00:38:19,670
+But I'm going to say any in this account and review policy.
+
+583
+00:38:21,160 --> 00:38:22,530
+Let's give this policy a name.
+
+584
+00:38:22,540 --> 00:38:24,190
+V profile hyphen.
+
+585
+00:38:26,140 --> 00:38:27,280
+Sooner.
+
+586
+00:38:28,760 --> 00:38:30,110
+Parameters.
+
+587
+00:38:33,080 --> 00:38:34,130
+Axis.
+
+588
+00:38:34,460 --> 00:38:35,810
+That's quite a long name.
+
+589
+00:38:36,770 --> 00:38:38,360
+I'll put Same in the description.
+
+590
+00:38:38,630 --> 00:38:39,680
+Create policy.
+
+591
+00:38:42,190 --> 00:38:43,930
+Okay, The policy is created.
+
+592
+00:38:43,930 --> 00:38:46,150
+I have to go back to rules, actually.
+
+593
+00:38:52,740 --> 00:38:54,000
+Get the name.
+
+594
+00:39:00,510 --> 00:39:03,540
+It's like the roll attach policies.
+
+595
+00:39:05,600 --> 00:39:07,910
+So honor some name I have given.
+
+596
+00:39:08,600 --> 00:39:13,310
+We profile sonar parameter access the checkmark attach policy.
+
+597
+00:39:14,760 --> 00:39:16,590
+Okay, so we updated that.
+
+598
+00:39:17,670 --> 00:39:22,370
+Now, this role will have the privilege to access some parameters to.
+
+599
+00:39:23,590 --> 00:39:25,690
+Which this villager will need.
+
+600
+00:39:25,870 --> 00:39:27,520
+Now, let's make a test.
+
+601
+00:39:27,640 --> 00:39:29,230
+Let's click on Start build.
+
+602
+00:39:33,200 --> 00:39:38,360
+And this is going to do the code scanning branch I'll keep same.
+
+603
+00:39:40,180 --> 00:39:41,110
+Start build.
+
+604
+00:39:43,510 --> 00:39:45,040
+This is going to take some time.
+
+605
+00:39:47,070 --> 00:39:48,600
+Let's go to phase details.
+
+606
+00:39:49,200 --> 00:39:56,730
+Switch to build log if you are done seeing the face because build dog will really hang your browser.
+
+607
+00:39:57,360 --> 00:39:58,380
+Sometimes.
+
+608
+00:40:00,160 --> 00:40:01,960
+As of now, things are going fine.
+
+609
+00:40:03,260 --> 00:40:05,510
+Okay, install phase is going on.
+
+610
+00:40:06,940 --> 00:40:09,370
+That successful pre build phase is going on.
+
+611
+00:40:11,370 --> 00:40:20,850
+Pre completed build started a view from the build log you see from the code artefact it is downloading
+
+612
+00:40:20,850 --> 00:40:21,990
+the dependencies.
+
+613
+00:40:22,790 --> 00:40:27,140
+Oh and this is okay there.
+
+614
+00:40:27,240 --> 00:40:27,750
+Yeah.
+
+615
+00:40:29,000 --> 00:40:29,190
+Yeah.
+
+616
+00:40:29,570 --> 00:40:31,150
+So from code artifact.
+
+617
+00:40:31,250 --> 00:40:32,720
+Okay, I missed it again.
+
+618
+00:40:33,560 --> 00:40:37,010
+So it's very difficult to scroll up and scroll in over here.
+
+619
+00:40:37,310 --> 00:40:41,300
+Even I tried all the browsers Edge, Chrome, Firefox.
+
+620
+00:40:41,300 --> 00:40:43,400
+This is always very slow.
+
+621
+00:40:47,220 --> 00:40:48,060
+You see there.
+
+622
+00:40:49,350 --> 00:40:50,490
+Then you miss it again.
+
+623
+00:40:52,900 --> 00:40:53,360
+Okay.
+
+624
+00:40:53,380 --> 00:40:55,180
+We got a few other logs.
+
+625
+00:40:57,480 --> 00:41:05,100
+So if we go to our code artefact, let's go to another tab code artifact repository.
+
+626
+00:41:06,820 --> 00:41:07,900
+One central.
+
+627
+00:41:10,940 --> 00:41:15,500
+And you should see here the dependency maven dependency getting stored.
+
+628
+00:41:16,130 --> 00:41:18,080
+So it's storing the dependency over here.
+
+629
+00:41:18,080 --> 00:41:21,800
+From here it is providing to your build job, to the build job.
+
+630
+00:41:22,220 --> 00:41:25,100
+And you have like so many dependencies, right?
+
+631
+00:41:26,460 --> 00:41:26,610
+Okay.
+
+632
+00:41:26,800 --> 00:41:28,270
+And it will keep updating it.
+
+633
+00:41:31,100 --> 00:41:32,360
+Okay, this is anyways hanging.
+
+634
+00:41:32,360 --> 00:41:34,880
+I'll go to code build from here.
+
+635
+00:41:34,880 --> 00:41:35,930
+Build project.
+
+636
+00:41:38,290 --> 00:41:39,700
+It's still in progress.
+
+637
+00:41:41,480 --> 00:41:44,030
+So this is going to take some time, at least initially.
+
+638
+00:41:44,030 --> 00:41:44,600
+First time.
+
+639
+00:41:44,600 --> 00:41:45,920
+It takes a very long time.
+
+640
+00:41:47,720 --> 00:41:49,010
+Fees details.
+
+641
+00:41:52,180 --> 00:41:56,050
+So I'm going to pause the screen and come back once this is finished.
+
+642
+00:41:57,060 --> 00:41:59,030
+I'll get that completed successfully.
+
+643
+00:41:59,040 --> 00:42:00,300
+That was pretty awesome.
+
+644
+00:42:01,170 --> 00:42:02,460
+Let's see the result.
+
+645
+00:42:02,640 --> 00:42:08,680
+So this is a sonar code analysis job, so it should have published result in sonar cloud.
+
+646
+00:42:08,700 --> 00:42:14,040
+So go to sonar cloud, go to your projects and you can see your project over there.
+
+647
+00:42:14,520 --> 00:42:18,360
+It has 92 bugs for vulnerabilities and blah, blah, blah.
+
+648
+00:42:18,810 --> 00:42:21,720
+If we want, we can set quality gates on this.
+
+649
+00:42:23,010 --> 00:42:25,070
+So I can see quality gates.
+
+650
+00:42:25,080 --> 00:42:29,800
+I can go to quality gates and I can create my own quality gate.
+
+651
+00:42:29,820 --> 00:42:33,090
+I will say V profile quality gates, that name.
+
+652
+00:42:33,790 --> 00:42:34,570
+See it.
+
+653
+00:42:35,710 --> 00:42:37,390
+And let's add a condition.
+
+654
+00:42:37,630 --> 00:42:41,950
+And I'm going to see an oral code and let's set it for bugs.
+
+655
+00:42:45,230 --> 00:42:48,560
+I will see value anything that is greater than 50.
+
+656
+00:42:48,560 --> 00:42:50,240
+So lets first fail.
+
+657
+00:42:50,240 --> 00:42:51,160
+Try to fail this job.
+
+658
+00:42:51,170 --> 00:42:52,450
+Okay, we'll give like 50.
+
+659
+00:42:52,460 --> 00:42:55,040
+We know that currently we have 92 bugs.
+
+660
+00:42:56,590 --> 00:42:57,400
+Condition.
+
+661
+00:42:58,990 --> 00:43:00,850
+So we have one rule in this quality.
+
+662
+00:43:00,850 --> 00:43:02,950
+GATES Let's go to our project.
+
+663
+00:43:05,210 --> 00:43:08,660
+And for our project we are going to set up this quality gates.
+
+664
+00:43:09,500 --> 00:43:15,050
+Quality get in the administration instead of default, we're going to use our own quality gates.
+
+665
+00:43:16,120 --> 00:43:17,770
+Okay, this is nice.
+
+666
+00:43:18,190 --> 00:43:21,640
+So this quality gate is going to fail your job.
+
+667
+00:43:23,100 --> 00:43:27,450
+If your box are greater than 50 and let's test it.
+
+668
+00:43:31,970 --> 00:43:32,150
+Court.
+
+669
+00:43:32,240 --> 00:43:36,020
+Well, to test it, we need to run this job again.
+
+670
+00:43:36,020 --> 00:43:43,640
+And you will see at the finalizing state or the completed state, it's going to fail the job, so let's
+
+671
+00:43:43,640 --> 00:43:44,360
+say.
+
+672
+00:43:47,060 --> 00:43:49,070
+Go to the build and let's start build.
+
+673
+00:43:49,580 --> 00:43:50,840
+Let's run it once again.
+
+674
+00:43:53,170 --> 00:43:56,030
+I will take all those defaults and we'll just start build.
+
+675
+00:43:57,890 --> 00:43:59,120
+Fees details.
+
+676
+00:44:01,010 --> 00:44:04,670
+Okay, So I'm going to pause my screen and come back once this is done.
+
+677
+00:44:06,380 --> 00:44:10,040
+Okay, so this is completed with a failure, of course.
+
+678
+00:44:10,520 --> 00:44:16,520
+So if you see in the build phase, it has error executing while this command is running.
+
+679
+00:44:17,170 --> 00:44:20,380
+So that this clearly shows the quality gate has failed.
+
+680
+00:44:20,740 --> 00:44:23,320
+Let's tweak our call the gates back.
+
+681
+00:44:24,320 --> 00:44:28,130
+So you can change the rule or I'll just go back to the default sona rule.
+
+682
+00:44:31,280 --> 00:44:34,760
+And we can test and test run the job and test it once again.
+
+683
+00:44:34,760 --> 00:44:37,550
+But we'll do it later with the pipeline.
+
+684
+00:44:41,180 --> 00:44:46,820
+I have given the name of this job as the profile build, I should have given V profile code analysis.
+
+685
+00:44:47,000 --> 00:44:52,940
+But that's just the naming convention for a description in that we can't change the name now, but we
+
+686
+00:44:52,940 --> 00:44:54,470
+can change the description.
+
+687
+00:44:54,740 --> 00:44:57,170
+Sonar analysis.
+
+688
+00:44:58,710 --> 00:45:03,090
+So on our code analysis, we'll give that in the description update configuration.
+
+689
+00:45:07,040 --> 00:45:10,760
+Okay, Now time to create our next job, which is going to build the artifact.
+
+690
+00:45:12,540 --> 00:45:14,970
+So let's go to build a project.
+
+691
+00:45:15,450 --> 00:45:16,030
+Mm.
+
+692
+00:45:16,050 --> 00:45:20,700
+We profile hyphen, build hyphen artifact.
+
+693
+00:45:23,250 --> 00:45:27,060
+So scored our repository branch.
+
+694
+00:45:27,690 --> 00:45:28,290
+C.
+
+695
+00:45:28,320 --> 00:45:28,710
+Hyphen.
+
+696
+00:45:28,710 --> 00:45:28,800
+E.
+
+697
+00:45:28,800 --> 00:45:29,090
+W.
+
+698
+00:45:29,100 --> 00:45:29,670
+S.
+
+699
+00:45:31,580 --> 00:45:32,900
+It's going to be almost similar.
+
+700
+00:45:33,200 --> 00:45:34,910
+Build spec file will be different.
+
+701
+00:45:35,480 --> 00:45:38,240
+Amazon Linux so open to will use.
+
+702
+00:45:39,340 --> 00:45:43,750
+Standard image Standard 3.0.
+
+703
+00:45:45,040 --> 00:45:47,560
+Okay, this is going to create a service role.
+
+704
+00:45:47,560 --> 00:45:52,000
+And this also we have to update so it can access the parameter store.
+
+705
+00:45:53,410 --> 00:45:58,690
+This job needs the parameter of our code artifact token.
+
+706
+00:45:59,650 --> 00:46:02,290
+At one token access, it needs source code.
+
+707
+00:46:02,290 --> 00:46:03,280
+Artifact token.
+
+708
+00:46:03,280 --> 00:46:06,310
+So for that, we need to update this role later.
+
+709
+00:46:08,310 --> 00:46:14,040
+Okay, build commands, insert, build command, switch to Ed and let's see our source code.
+
+710
+00:46:14,310 --> 00:46:17,100
+So I build spec file in the source code.
+
+711
+00:46:18,150 --> 00:46:19,530
+Let's add files.
+
+712
+00:46:19,530 --> 00:46:23,040
+And here you have build, underscore, build spec file.
+
+713
+00:46:26,380 --> 00:46:28,030
+So you copy all this content.
+
+714
+00:46:34,650 --> 00:46:36,270
+Select all based.
+
+715
+00:46:38,050 --> 00:46:38,530
+Okay.
+
+716
+00:46:38,860 --> 00:46:46,930
+Parameter store variable code Artifact auth token will give it value as code artifact hyphen token.
+
+717
+00:46:47,980 --> 00:46:50,380
+The variable that we created in parameter store.
+
+718
+00:46:51,160 --> 00:46:54,160
+So that's only one thing we need to change over here.
+
+719
+00:46:54,160 --> 00:46:54,670
+Install.
+
+720
+00:46:54,670 --> 00:47:01,990
+We need JDBC settings data XML file gets copied, Prebuilt command we are installing.
+
+721
+00:47:02,140 --> 00:47:03,250
+Let's see it from here.
+
+722
+00:47:03,250 --> 00:47:04,330
+This is better view.
+
+723
+00:47:04,800 --> 00:47:05,920
+A little bigger view.
+
+724
+00:47:06,970 --> 00:47:07,210
+Right.
+
+725
+00:47:07,210 --> 00:47:12,970
+So installing JDK there we are copying settings java xml file from our source code to dot m two directory
+
+726
+00:47:13,360 --> 00:47:14,530
+into directory.
+
+727
+00:47:14,980 --> 00:47:22,870
+Then apt update and we install GQ, we install apache maven extract it, create a link for it, and
+
+728
+00:47:22,870 --> 00:47:26,650
+then we run the command env and clean install hyphens.
+
+729
+00:47:26,980 --> 00:47:28,090
+Skip test.
+
+730
+00:47:29,190 --> 00:47:31,830
+So I don't want to run unit test and code analysis over here.
+
+731
+00:47:31,830 --> 00:47:39,240
+So I'm just going to say skip test and artifacts file and the file, you have to give the list of the
+
+732
+00:47:39,240 --> 00:47:39,990
+files.
+
+733
+00:47:39,990 --> 00:47:45,990
+So any file that ends with not valid directory in the target directory, any file that ends with DOT,
+
+734
+00:47:45,990 --> 00:47:51,570
+where will be our artifact and our artifact will have a timestamp as well.
+
+735
+00:47:51,570 --> 00:47:54,450
+We have updated or a prompt XML file.
+
+736
+00:47:57,570 --> 00:48:00,390
+They're so artifact will even have a timestamp.
+
+737
+00:48:04,240 --> 00:48:07,180
+And that we'll finally upload it to the SD bucket.
+
+738
+00:48:10,030 --> 00:48:10,750
+So.
+
+739
+00:48:12,140 --> 00:48:13,640
+Everything copied over here.
+
+740
+00:48:15,260 --> 00:48:17,660
+So here we are not saying anything.
+
+741
+00:48:18,260 --> 00:48:19,580
+Log group name.
+
+742
+00:48:19,760 --> 00:48:23,840
+So I'll select the same log group that I selected for the previous project.
+
+743
+00:48:27,100 --> 00:48:27,970
+Logs.
+
+744
+00:48:36,850 --> 00:48:40,150
+So they have the same group for the screen name.
+
+745
+00:48:41,190 --> 00:48:43,800
+I will just say billed job.
+
+746
+00:48:46,310 --> 00:48:48,230
+To create build project.
+
+747
+00:48:53,890 --> 00:48:57,880
+Okay, Last one thing in this job.
+
+748
+00:48:59,180 --> 00:49:00,440
+Bailout effect job.
+
+749
+00:49:01,710 --> 00:49:02,310
+Edit.
+
+750
+00:49:03,380 --> 00:49:04,310
+Environment.
+
+751
+00:49:04,310 --> 00:49:06,020
+We'll copy the rule name.
+
+752
+00:49:12,290 --> 00:49:13,730
+And we'll go to Imam.
+
+753
+00:49:14,570 --> 00:49:15,400
+Rules.
+
+754
+00:49:17,190 --> 00:49:18,690
+The search for a role.
+
+755
+00:49:22,220 --> 00:49:22,670
+Nope.
+
+756
+00:49:23,210 --> 00:49:23,990
+Not found.
+
+757
+00:49:24,590 --> 00:49:26,330
+Oh, I think I need to refresh this.
+
+758
+00:49:26,390 --> 00:49:26,900
+Yeah.
+
+759
+00:49:27,410 --> 00:49:28,190
+There it is.
+
+760
+00:49:29,400 --> 00:49:30,540
+Attach policy.
+
+761
+00:49:31,200 --> 00:49:32,850
+We already have a policy created.
+
+762
+00:49:32,850 --> 00:49:33,870
+We'll use that.
+
+763
+00:49:34,650 --> 00:49:36,840
+That was for solar we created.
+
+764
+00:49:37,560 --> 00:49:38,930
+The same policy will lead.
+
+765
+00:49:38,940 --> 00:49:42,870
+This policy gives permission to access the same parameter store.
+
+766
+00:49:43,560 --> 00:49:45,180
+Let's attach this policy.
+
+767
+00:49:46,060 --> 00:49:47,320
+And we should be good.
+
+768
+00:49:49,890 --> 00:49:50,880
+Cancel this.
+
+769
+00:49:53,450 --> 00:49:55,470
+Okay, time to test this job as well.
+
+770
+00:49:55,490 --> 00:49:56,840
+Let's say start, build.
+
+771
+00:50:00,950 --> 00:50:02,210
+Single build.
+
+772
+00:50:03,240 --> 00:50:04,200
+Same branch.
+
+773
+00:50:04,320 --> 00:50:05,400
+They start build.
+
+774
+00:50:07,210 --> 00:50:12,010
+Bill has started to phase details and this will also take some time.
+
+775
+00:50:12,040 --> 00:50:15,700
+I'll pause my screen by the time and we'll come back once this is done.
+
+776
+00:50:16,610 --> 00:50:19,040
+Okay, so this job completed successfully.
+
+777
+00:50:19,920 --> 00:50:21,300
+Can completed.
+
+778
+00:50:22,540 --> 00:50:25,580
+Now we have to do one more thing.
+
+779
+00:50:25,600 --> 00:50:27,770
+We have to set up notification as well.
+
+780
+00:50:27,790 --> 00:50:34,080
+Before we set up our pipeline, I would also like to set up notification with that and we'll use SNS.
+
+781
+00:50:34,090 --> 00:50:37,180
+So we will go to SNS service.
+
+782
+00:50:41,960 --> 00:50:45,440
+Okay, So first we'll go to topics and we'll create topic.
+
+783
+00:50:46,190 --> 00:50:47,600
+And let's give topic a name.
+
+784
+00:50:47,600 --> 00:50:55,520
+We'll say V, profile hyphen, pipeline and hyphen notification.
+
+785
+00:50:59,820 --> 00:51:02,640
+And just to create topic first.
+
+786
+00:51:03,810 --> 00:51:07,200
+Once this is created, we'll create a subscription for this topic.
+
+787
+00:51:08,550 --> 00:51:10,240
+And we will use email.
+
+788
+00:51:10,260 --> 00:51:13,830
+You can use other things as Q as lambda https.
+
+789
+00:51:13,980 --> 00:51:22,290
+I'll use email here and I'll give the email address that I'm going to use to receive my notifications.
+
+790
+00:51:22,790 --> 00:51:27,510
+Could be a group email for developers or a monitoring team.
+
+791
+00:51:29,390 --> 00:51:32,930
+So I'll say create subscription.
+
+792
+00:51:35,010 --> 00:51:36,510
+And it is pending confirmation.
+
+793
+00:51:36,510 --> 00:51:43,500
+So I have to go to my inbox, look for an email from this notification, and I have to say confirm subscription.
+
+794
+00:51:44,990 --> 00:51:46,880
+I guess in my inbox I got this mail.
+
+795
+00:51:46,880 --> 00:51:48,560
+I say confirm subscription.
+
+796
+00:51:50,890 --> 00:51:51,730
+That's all.
+
+797
+00:51:53,360 --> 00:51:54,650
+Let's refresh this.
+
+798
+00:51:58,170 --> 00:51:58,740
+It's confirmed.
+
+799
+00:51:58,740 --> 00:51:58,950
+Now.
+
+800
+00:51:58,950 --> 00:52:00,060
+I can use this.
+
+801
+00:52:01,210 --> 00:52:04,000
+I will use this on subscription or sorry.
+
+802
+00:52:04,030 --> 00:52:09,010
+The topic the topic name to send the notification for my build progress.
+
+803
+00:52:09,850 --> 00:52:13,570
+Let's come back to the code build service and finally, we're going to connect everything together with
+
+804
+00:52:13,570 --> 00:52:14,530
+the pipeline.
+
+805
+00:52:14,830 --> 00:52:20,500
+And yes, we have to upload the artifact to S3 bucket that also will do after after we create our pipeline.
+
+806
+00:52:20,500 --> 00:52:23,830
+So I'm going to go to Pipeline and say create pipeline.
+
+807
+00:52:25,170 --> 00:52:25,980
+Let's give a name.
+
+808
+00:52:26,040 --> 00:52:27,120
+V profile.
+
+809
+00:52:27,160 --> 00:52:30,810
+Hyphen Sci hyphen Pipeline.
+
+810
+00:52:31,530 --> 00:52:33,030
+A continuous integration pipeline.
+
+811
+00:52:33,030 --> 00:52:34,260
+Let it create a role.
+
+812
+00:52:35,860 --> 00:52:37,420
+And just go next.
+
+813
+00:52:38,080 --> 00:52:40,120
+Source provider code commit.
+
+814
+00:52:42,060 --> 00:52:43,320
+Our repository.
+
+815
+00:52:44,120 --> 00:52:47,540
+And the branch c hyphenated us.
+
+816
+00:52:48,490 --> 00:52:49,750
+And this we set.
+
+817
+00:52:49,780 --> 00:52:55,510
+So whenever there is a new commit cloud watch events will detect that and trigger the pipeline.
+
+818
+00:52:55,900 --> 00:52:58,200
+Or you can use a core pipeline.
+
+819
+00:52:58,210 --> 00:53:01,510
+Also, this will check periodically, same like we did in Jenkins.
+
+820
+00:53:03,210 --> 00:53:06,240
+But this is the one that is recommended cloud watch events.
+
+821
+00:53:07,120 --> 00:53:09,760
+Let's go next build provider.
+
+822
+00:53:11,360 --> 00:53:13,850
+The code bill is our bill provider.
+
+823
+00:53:14,600 --> 00:53:15,710
+We'll give the project name.
+
+824
+00:53:15,710 --> 00:53:18,740
+So first I will add this project.
+
+825
+00:53:19,010 --> 00:53:23,060
+We profile build project only this project, and then we'll update with other projects.
+
+826
+00:53:24,770 --> 00:53:25,730
+Go next.
+
+827
+00:53:28,020 --> 00:53:28,620
+Deployer.
+
+828
+00:53:28,620 --> 00:53:31,470
+I'm going to use a plus three.
+
+829
+00:53:33,120 --> 00:53:35,280
+And this will set later.
+
+830
+00:53:35,910 --> 00:53:37,620
+We'll just skip the stage.
+
+831
+00:53:38,310 --> 00:53:38,880
+Skip?
+
+832
+00:53:41,910 --> 00:53:43,350
+And great pipeline.
+
+833
+00:53:46,410 --> 00:53:46,740
+Okay.
+
+834
+00:53:47,880 --> 00:53:49,680
+The pipeline already has started.
+
+835
+00:53:51,220 --> 00:53:53,020
+I will say stop execution.
+
+836
+00:53:55,990 --> 00:53:57,190
+Stop and wait.
+
+837
+00:54:00,210 --> 00:54:00,600
+Okay.
+
+838
+00:54:00,630 --> 00:54:02,610
+That started this one as well.
+
+839
+00:54:06,140 --> 00:54:08,330
+It's trying to stop the build process.
+
+840
+00:54:09,200 --> 00:54:10,460
+You can continue it also.
+
+841
+00:54:10,460 --> 00:54:13,400
+It's not a problem, but I'm going to add a few more jobs over here.
+
+842
+00:54:15,550 --> 00:54:16,690
+Did the pipeline.
+
+843
+00:54:18,450 --> 00:54:22,110
+First will integrate our test job, the code analysis.
+
+844
+00:54:22,830 --> 00:54:24,660
+I'll just give the name as test.
+
+845
+00:54:26,690 --> 00:54:28,040
+Add actions group.
+
+846
+00:54:29,950 --> 00:54:32,440
+Action name sooner.
+
+847
+00:54:32,440 --> 00:54:38,620
+Hyphen Code hyphen Analysis Action Provider Code build.
+
+848
+00:54:41,050 --> 00:54:41,620
+Project.
+
+849
+00:54:41,620 --> 00:54:46,570
+Name e profile build single build and see done.
+
+850
+00:54:48,550 --> 00:54:49,660
+Now input artifact.
+
+851
+00:54:49,660 --> 00:54:51,520
+I have to specify the input artifact.
+
+852
+00:54:51,640 --> 00:54:52,840
+The source code.
+
+853
+00:54:54,940 --> 00:54:56,080
+It Input artifact.
+
+854
+00:54:56,620 --> 00:54:57,340
+Go ten.
+
+855
+00:54:59,180 --> 00:55:00,110
+And see done.
+
+856
+00:55:01,410 --> 00:55:08,730
+Okay, so pulls the code tested and runs the build job to generate the artifact.
+
+857
+00:55:08,760 --> 00:55:13,320
+Next stage we're going to add is we're going to deploy the artifact to a three bucket.
+
+858
+00:55:13,330 --> 00:55:15,930
+So we'll give add stage name as deploy.
+
+859
+00:55:17,160 --> 00:55:18,810
+Edit Add action group.
+
+860
+00:55:19,840 --> 00:55:22,000
+Action name will say deploy.
+
+861
+00:55:23,540 --> 00:55:27,470
+Two three action provider.
+
+862
+00:55:30,460 --> 00:55:31,630
+Amazon SE three.
+
+863
+00:55:34,020 --> 00:55:37,380
+Input artifact that gets generated from the build artifact.
+
+864
+00:55:37,590 --> 00:55:39,570
+So build job is going to generate the artifacts.
+
+865
+00:55:39,570 --> 00:55:42,150
+So that's going to be the input artifact on this job.
+
+866
+00:55:43,020 --> 00:55:45,900
+And we have to set a bucket also.
+
+867
+00:55:45,900 --> 00:55:47,670
+So let's create an S3 bucket.
+
+868
+00:55:54,550 --> 00:55:55,660
+Create bucket.
+
+869
+00:55:56,080 --> 00:55:58,330
+So I'll give name as V profile.
+
+870
+00:55:59,370 --> 00:56:00,360
+And give some number.
+
+871
+00:56:00,360 --> 00:56:01,830
+V Profile 12.
+
+872
+00:56:02,560 --> 00:56:05,670
+Build hyphen Artifact.
+
+873
+00:56:08,450 --> 00:56:10,340
+Make sure you create it in the same region.
+
+874
+00:56:11,250 --> 00:56:11,940
+Create.
+
+875
+00:56:26,590 --> 00:56:29,500
+Search for the bucket that we just created.
+
+876
+00:56:31,410 --> 00:56:39,630
+And in that we'll also create a folder will name it as we profile, or we'll just name it as Pipeline.
+
+877
+00:56:42,510 --> 00:56:44,150
+If an artifact.
+
+878
+00:56:46,790 --> 00:56:47,480
+Create folder.
+
+879
+00:56:47,840 --> 00:56:48,910
+Copy its name first.
+
+880
+00:56:49,100 --> 00:56:50,090
+Create folder.
+
+881
+00:56:53,190 --> 00:56:53,450
+No.
+
+882
+00:56:53,460 --> 00:56:53,760
+Sorry.
+
+883
+00:56:53,760 --> 00:56:54,420
+Save.
+
+884
+00:56:56,110 --> 00:56:57,510
+Okay, let's go to code Pipeline.
+
+885
+00:56:57,520 --> 00:57:01,050
+You have to cancel the job and again, create the action.
+
+886
+00:57:01,060 --> 00:57:02,710
+Say add action group.
+
+887
+00:57:04,260 --> 00:57:09,450
+Action name deployed to.
+
+888
+00:57:10,850 --> 00:57:11,450
+It's three.
+
+889
+00:57:12,790 --> 00:57:13,990
+Action provider.
+
+890
+00:57:15,290 --> 00:57:16,460
+Amazon is three.
+
+891
+00:57:19,250 --> 00:57:21,860
+Build artifact for input artifacts.
+
+892
+00:57:21,860 --> 00:57:26,690
+So our build job generates the artifact that's going to be input for this, and the output will be sent
+
+893
+00:57:26,690 --> 00:57:27,650
+to the bucket.
+
+894
+00:57:30,970 --> 00:57:32,350
+Inside this directory.
+
+895
+00:57:33,550 --> 00:57:39,850
+And we'll also say extract, file before deploy or artifact as part of that XML file or artifact will
+
+896
+00:57:39,850 --> 00:57:41,410
+have build timestamp also.
+
+897
+00:57:42,070 --> 00:57:43,300
+And it will be a zip file.
+
+898
+00:57:43,300 --> 00:57:46,660
+So it's going to extract that zip file and then put it into this directory.
+
+899
+00:57:48,110 --> 00:57:49,640
+Now let's say done.
+
+900
+00:57:51,970 --> 00:57:53,560
+And see down here.
+
+901
+00:57:54,750 --> 00:57:56,430
+And see if the pipeline.
+
+902
+00:58:01,170 --> 00:58:01,510
+Care.
+
+903
+00:58:01,530 --> 00:58:02,340
+So.
+
+904
+00:58:04,210 --> 00:58:05,380
+One is the source code.
+
+905
+00:58:05,410 --> 00:58:06,760
+Second is the test.
+
+906
+00:58:07,090 --> 00:58:11,320
+Third is the build job and the fourth is deploying artifact to three bucket.
+
+907
+00:58:13,340 --> 00:58:15,250
+Okay, one more last thing pending.
+
+908
+00:58:15,260 --> 00:58:17,360
+We have to set the notification.
+
+909
+00:58:17,360 --> 00:58:19,010
+So let's go to settings.
+
+910
+00:58:20,440 --> 00:58:21,580
+Notifications.
+
+911
+00:58:22,600 --> 00:58:24,070
+Create notification rule.
+
+912
+00:58:25,710 --> 00:58:27,760
+So you want to give basic information.
+
+913
+00:58:27,780 --> 00:58:30,840
+You want to give full information again, based on your choice.
+
+914
+00:58:31,110 --> 00:58:32,970
+Let's give this notification a name.
+
+915
+00:58:33,000 --> 00:58:39,840
+We profile hyphen c hyphen pipeline hyphen notification.
+
+916
+00:58:41,610 --> 00:58:43,050
+And what action.
+
+917
+00:58:43,230 --> 00:58:48,150
+So if the job is failed, if it has started, it has succeeded.
+
+918
+00:58:48,950 --> 00:58:52,700
+Or we can just see all and you can just remove what you don't need.
+
+919
+00:58:55,000 --> 00:58:58,690
+And let's go to Target says topic.
+
+920
+00:58:58,990 --> 00:59:00,460
+We'll keep this topic.
+
+921
+00:59:00,790 --> 00:59:04,630
+We'll choose our topic that we created and say submit.
+
+922
+00:59:07,840 --> 00:59:08,300
+Okay.
+
+923
+00:59:08,320 --> 00:59:08,900
+This is set.
+
+924
+00:59:08,920 --> 00:59:09,850
+Notification is set.
+
+925
+00:59:09,880 --> 00:59:11,410
+Now, let's go to our pipeline.
+
+926
+00:59:12,270 --> 00:59:13,920
+And it's showtime.
+
+927
+00:59:14,220 --> 00:59:16,260
+Let's click on a release change.
+
+928
+00:59:17,590 --> 00:59:18,400
+Release.
+
+929
+00:59:23,350 --> 00:59:24,580
+So fetch the cord.
+
+930
+00:59:26,050 --> 00:59:27,610
+And it's going to run test.
+
+931
+00:59:30,050 --> 00:59:34,790
+So I will pause my screen now and come back when this is completed.
+
+932
+00:59:35,930 --> 00:59:36,300
+Okay.
+
+933
+00:59:36,320 --> 00:59:38,870
+After a few minutes, this is completed.
+
+934
+00:59:39,410 --> 00:59:40,580
+The test job completed.
+
+935
+00:59:40,580 --> 00:59:41,660
+Successfully billed.
+
+936
+00:59:41,660 --> 00:59:45,620
+Job completed successfully, and it has deployed the artifact to S3 bucket.
+
+937
+00:59:46,040 --> 00:59:47,900
+Let's go and check the bucket.
+
+938
+00:59:49,480 --> 00:59:50,560
+In the directory.
+
+939
+00:59:51,250 --> 00:59:54,250
+And we see the artifact with the timestamp.
+
+940
+00:59:55,870 --> 00:59:56,210
+Okay.
+
+941
+00:59:56,230 --> 00:59:59,140
+You can run one more test by committing the code.
+
+942
+00:59:59,380 --> 01:00:03,460
+So if the developer makes a code, change to the repository.
+
+943
+01:00:06,210 --> 01:00:09,330
+It should automatically detect that and trigger the pipeline.
+
+944
+01:00:09,360 --> 01:00:11,070
+Let's test that also.
+
+945
+01:00:12,050 --> 01:00:13,190
+So let's open.
+
+946
+01:00:13,220 --> 01:00:14,180
+Get back.
+
+947
+01:00:14,600 --> 01:00:16,630
+You can use the ID as the developer.
+
+948
+01:00:16,640 --> 01:00:18,290
+Users like Intel AG.
+
+949
+01:00:20,190 --> 01:00:22,620
+And this is the code comet.
+
+950
+01:00:26,500 --> 01:00:27,370
+Yes.
+
+951
+01:00:28,860 --> 01:00:31,320
+And let's make some changes.
+
+952
+01:00:34,270 --> 01:00:37,150
+So let's open read me dot MD file.
+
+953
+01:00:38,220 --> 01:00:41,490
+And just please extra hash.
+
+954
+01:00:42,460 --> 01:00:46,810
+So we are not making any serious code change, but we are making change to some file which should be
+
+955
+01:00:46,810 --> 01:00:47,560
+detected.
+
+956
+01:00:48,440 --> 01:00:50,090
+It had Dot.
+
+957
+01:00:51,140 --> 01:00:54,350
+Get comet hyphen M.
+
+958
+01:00:56,880 --> 01:01:00,780
+Testing code pipeline.
+
+959
+01:01:03,410 --> 01:01:04,880
+And time to push.
+
+960
+01:01:05,420 --> 01:01:06,800
+So get push.
+
+961
+01:01:08,730 --> 01:01:10,980
+Origin ci hyphen.
+
+962
+01:01:11,010 --> 01:01:11,190
+E.
+
+963
+01:01:11,190 --> 01:01:11,510
+W.
+
+964
+01:01:11,520 --> 01:01:13,860
+S on this branch if there is any comment.
+
+965
+01:01:15,680 --> 01:01:22,250
+Then it should be detected by events, cloud watch events, and that should trigger the pipeline.
+
+966
+01:01:22,250 --> 01:01:23,060
+Let's check it.
+
+967
+01:01:24,900 --> 01:01:25,170
+Okay.
+
+968
+01:01:25,200 --> 01:01:25,750
+Nothing yet.
+
+969
+01:01:25,770 --> 01:01:27,120
+Let's refresh the screen.
+
+970
+01:01:29,890 --> 01:01:30,640
+All right.
+
+971
+01:01:30,730 --> 01:01:31,450
+You see that?
+
+972
+01:01:31,450 --> 01:01:32,660
+That started?
+
+973
+01:01:32,680 --> 01:01:34,090
+It's in progress.
+
+974
+01:01:34,990 --> 01:01:39,850
+So you have to wait a few more minutes for this to complete, and then you can see the artifact in the
+
+975
+01:01:39,880 --> 01:01:40,690
+three bucket.
+
+976
+01:01:43,060 --> 01:01:45,220
+Now let's reiterate what we did.
+

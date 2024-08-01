@@ -1,0 +1,388 @@
+1
+00:00:01,640 --> 00:00:08,000
+By now, we should have a security group for ideas and being stuck in environment created so we can
+
+2
+00:00:08,000 --> 00:00:08,960
+make changes.
+
+3
+00:00:09,950 --> 00:00:12,080
+So let's go to S.E. to service.
+
+4
+00:00:16,670 --> 00:00:20,000
+So instance security group ID, we have to get first.
+
+5
+00:00:21,160 --> 00:00:22,780
+Okay, so I have a few other instances.
+
+6
+00:00:22,780 --> 00:00:23,740
+You can ignore them.
+
+7
+00:00:25,150 --> 00:00:25,370
+Okay.
+
+8
+00:00:25,390 --> 00:00:27,580
+This is the bean instance.
+
+9
+00:00:28,030 --> 00:00:30,910
+And it's a security group ID we have to get.
+
+10
+00:00:35,310 --> 00:00:37,780
+So that's the security group ID copy this being stacked.
+
+11
+00:00:37,800 --> 00:00:38,880
+Security group ID.
+
+12
+00:00:40,280 --> 00:00:43,700
+Go to security group and find our IDs security group.
+
+13
+00:00:46,510 --> 00:00:48,910
+Their naming convention helps us.
+
+14
+00:00:49,600 --> 00:00:50,950
+That's the security group.
+
+15
+00:00:53,360 --> 00:00:55,100
+So we have to add a rule here.
+
+16
+00:00:55,100 --> 00:01:02,420
+It says 3306 from my IP, but since it's a private ideas instance anyways, we will not be able to access
+
+17
+00:01:02,420 --> 00:01:08,450
+it from our IP, but Beanstalk instance should be able to access this because our application on the
+
+18
+00:01:08,450 --> 00:01:13,880
+beanstalk will need to access the ideas which is going to be in the security group and we'll give the
+
+19
+00:01:13,880 --> 00:01:19,100
+description also like that allow the profile app to.
+
+20
+00:01:20,250 --> 00:01:26,130
+Connect radius on 83306.
+
+21
+00:01:26,850 --> 00:01:28,140
+DU proper description.
+
+22
+00:01:28,140 --> 00:01:32,220
+It will be very good when you come back after some time.
+
+23
+00:01:32,430 --> 00:01:35,070
+You know, you can easily understand why you have added this rule.
+
+24
+00:01:37,940 --> 00:01:44,480
+So this instance is in the state of backing up, but we should be able to connect to it.
+
+25
+00:01:44,480 --> 00:01:50,060
+So we're going to log into our beans tag instance, going to store beans, tag instance, and from there
+
+26
+00:01:50,060 --> 00:01:51,470
+we're going to log into radius.
+
+27
+00:01:51,470 --> 00:01:53,330
+So that will also perform a test.
+
+28
+00:01:53,330 --> 00:01:55,460
+And also we need to deploy the schemas.
+
+29
+00:01:56,030 --> 00:02:00,620
+So let's get the public IP of this beanstalk instance.
+
+30
+00:02:01,620 --> 00:02:05,640
+It will not be an ideal practice to log into Beanstalk instance and make changes.
+
+31
+00:02:05,910 --> 00:02:13,650
+So the good way will be you can launch a separate instance in the same VPC and then you can access ideas.
+
+32
+00:02:13,890 --> 00:02:15,840
+But for this project, this will do.
+
+33
+00:02:16,080 --> 00:02:18,120
+We don't have too many moving parts.
+
+34
+00:02:19,570 --> 00:02:21,100
+Okay, so copy the IP.
+
+35
+00:02:21,130 --> 00:02:22,810
+Let's do an SSH to it.
+
+36
+00:02:24,280 --> 00:02:28,360
+So the key that I have used ci hyphen v profile.
+
+37
+00:02:28,990 --> 00:02:31,810
+User is easy to hyphen user.
+
+38
+00:02:31,810 --> 00:02:35,620
+This is a Amazon Linux, so that will be the user.
+
+39
+00:02:37,360 --> 00:02:38,590
+And the IP address.
+
+40
+00:02:39,460 --> 00:02:42,400
+So there will be one weird thing on the bean stack.
+
+41
+00:02:42,400 --> 00:02:45,550
+Easy, for instance, when actually very bad thing.
+
+42
+00:02:46,620 --> 00:02:50,010
+So security group will allow 22 from anywhere.
+
+43
+00:02:50,640 --> 00:02:51,690
+That's not good.
+
+44
+00:02:53,550 --> 00:02:59,520
+But since, you know, it is made for the convenience of developers and testers so unnecessary they
+
+45
+00:02:59,520 --> 00:03:02,910
+don't need to know, make rule changes, port numbers, protocol.
+
+46
+00:03:02,910 --> 00:03:03,420
+Right.
+
+47
+00:03:03,420 --> 00:03:08,100
+So you know, they just made 22 from anywhere but make it safer.
+
+48
+00:03:08,100 --> 00:03:09,860
+Just say 22 from my IP.
+
+49
+00:03:11,010 --> 00:03:13,410
+Rule even though it will be disposable environment.
+
+50
+00:03:13,410 --> 00:03:16,590
+But there could be a lot of confidential information there in your instance.
+
+51
+00:03:16,590 --> 00:03:17,070
+Right.
+
+52
+00:03:17,430 --> 00:03:19,710
+So make sure you don't expose it.
+
+53
+00:03:20,280 --> 00:03:24,810
+So if you see from the beginning we are taking care of security group rule, we are not exposing things
+
+54
+00:03:24,810 --> 00:03:25,560
+totally.
+
+55
+00:03:27,270 --> 00:03:30,420
+And that's for your own safety, your project safety.
+
+56
+00:03:31,210 --> 00:03:35,590
+It will give you a little trouble, but it's all worth it.
+
+57
+00:03:36,820 --> 00:03:40,690
+So we did a search and we're in this beanstalk instance.
+
+58
+00:03:41,380 --> 00:03:44,340
+And from here we have to log into ideas.
+
+59
+00:03:44,350 --> 00:03:46,480
+So let's get the ideas endpoint.
+
+60
+00:03:50,540 --> 00:03:55,970
+And I'll also store it in my sticky notes so we can use it later also.
+
+61
+00:03:59,120 --> 00:04:01,010
+Okay, so we need my SQL client here.
+
+62
+00:04:01,010 --> 00:04:04,190
+So in the Beanstalk instance, I'm going to install my SQL client.
+
+63
+00:04:04,640 --> 00:04:06,770
+So yum, install my SQL.
+
+64
+00:04:06,770 --> 00:04:13,550
+And also we need Git because we're going to clone our source code where we have the SQL file.
+
+65
+00:04:13,580 --> 00:04:15,330
+We're going to get a SQL file from there.
+
+66
+00:04:15,350 --> 00:04:17,990
+We're going to run the SQL queries.
+
+67
+00:04:18,620 --> 00:04:20,570
+So we install both these tools.
+
+68
+00:04:22,680 --> 00:04:23,560
+Install.
+
+69
+00:04:24,890 --> 00:04:26,350
+So let's make a test first.
+
+70
+00:04:26,390 --> 00:04:27,920
+My SQL hyphen edge.
+
+71
+00:04:27,990 --> 00:04:29,240
+Let's put the endpoint.
+
+72
+00:04:29,510 --> 00:04:32,330
+I have a new admin hyphen p.
+
+73
+00:04:32,780 --> 00:04:37,300
+It's not recommended you put the password on the shell, but since you have already seen it.
+
+74
+00:04:37,310 --> 00:04:39,320
+And anyways, I'm going to delete that.
+
+75
+00:04:39,470 --> 00:04:41,020
+And also it's a private instance.
+
+76
+00:04:41,030 --> 00:04:41,930
+I don't mind.
+
+77
+00:04:42,800 --> 00:04:46,160
+But you should not put password like that on the shell.
+
+78
+00:04:46,340 --> 00:04:46,680
+Okay.
+
+79
+00:04:46,700 --> 00:04:50,780
+Be able to log in, show databases.
+
+80
+00:04:50,780 --> 00:04:56,330
+So if you are not able to log in from your beans tag instance to your IDs, then check your security
+
+81
+00:04:56,330 --> 00:04:57,260
+group rules.
+
+82
+00:05:01,550 --> 00:05:03,410
+Okay, now let's clone the source code.
+
+83
+00:05:04,990 --> 00:05:06,910
+So get clone.
+
+84
+00:05:09,450 --> 00:05:14,010
+And this was the reason I was telling, you know, you don't make changes to your beanstalk instance
+
+85
+00:05:14,010 --> 00:05:16,320
+because you download source code and do many things here.
+
+86
+00:05:16,320 --> 00:05:17,790
+Install softwares.
+
+87
+00:05:18,950 --> 00:05:23,460
+Okay, we will check out the branch CD Hyphenate SE.
+
+88
+00:05:25,700 --> 00:05:26,660
+And.
+
+89
+00:05:27,650 --> 00:05:29,540
+We will go to Z.
+
+90
+00:05:32,210 --> 00:05:34,250
+Mean resources.
+
+91
+00:05:35,300 --> 00:05:42,620
+We have DB backup SQL file and let's run this queries on our ideas from here.
+
+92
+00:05:44,670 --> 00:05:49,410
+So give the database name and put it addiction your SQL file pot.
+
+93
+00:05:51,220 --> 00:05:54,310
+And let's log in and check once again.
+
+94
+00:05:58,850 --> 00:05:59,990
+Show.
+
+95
+00:06:00,560 --> 00:06:04,280
+We'll just say use accounts.
+
+96
+00:06:07,050 --> 00:06:08,370
+Show tables.
+
+97
+00:06:09,420 --> 00:06:13,410
+So you should see this schema, these three tables, and we're good.
+

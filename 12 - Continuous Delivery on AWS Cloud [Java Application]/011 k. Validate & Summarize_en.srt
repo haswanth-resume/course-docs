@@ -1,0 +1,524 @@
+1
+00:00:00,780 --> 00:00:06,840
+So we see the deploy to be stacked job also completed successfully now after a few minutes and we can
+
+2
+00:00:06,840 --> 00:00:09,030
+really go to our bean stack environment.
+
+3
+00:00:10,170 --> 00:00:11,250
+And that's the URL.
+
+4
+00:00:11,620 --> 00:00:14,910
+Recent event Like a new application version.
+
+5
+00:00:15,000 --> 00:00:17,880
+Let's check the application versions.
+
+6
+00:00:18,870 --> 00:00:19,680
+That's the new version.
+
+7
+00:00:19,680 --> 00:00:20,440
+It got deployed.
+
+8
+00:00:20,460 --> 00:00:22,800
+Let's check whether it's really working or not.
+
+9
+00:00:24,440 --> 00:00:25,640
+So we have the URL.
+
+10
+00:00:25,760 --> 00:00:26,570
+Click on it.
+
+11
+00:00:30,080 --> 00:00:31,850
+So yes, that's working.
+
+12
+00:00:31,850 --> 00:00:33,380
+Let's try to login.
+
+13
+00:00:34,460 --> 00:00:35,540
+The login works.
+
+14
+00:00:35,540 --> 00:00:38,180
+The ideas connection will be also verified.
+
+15
+00:00:42,130 --> 00:00:42,480
+Okay.
+
+16
+00:00:42,550 --> 00:00:45,370
+I have to enable the sticky session.
+
+17
+00:00:46,420 --> 00:00:47,530
+Configuration.
+
+18
+00:00:50,910 --> 00:00:53,640
+Okay, so that's the issue with our V profile application.
+
+19
+00:00:53,970 --> 00:00:56,700
+We have to put the sticky session enabled.
+
+20
+00:00:56,850 --> 00:01:00,270
+So configuration load balancer.
+
+21
+00:01:01,720 --> 00:01:03,010
+US in the health check.
+
+22
+00:01:03,340 --> 00:01:05,530
+Edit and.
+
+23
+00:01:07,270 --> 00:01:09,160
+Sticky session policy enabled.
+
+24
+00:01:09,850 --> 00:01:13,930
+If your single instance this is not going to be a problem, but when you have multiple instance, we
+
+25
+00:01:13,930 --> 00:01:16,090
+have to do this apply.
+
+26
+00:01:23,720 --> 00:01:23,900
+Okay.
+
+27
+00:01:24,020 --> 00:01:25,130
+Sticky session enabled.
+
+28
+00:01:25,160 --> 00:01:26,780
+Now let's try log in once again.
+
+29
+00:01:26,780 --> 00:01:28,040
+Let's refresh.
+
+30
+00:01:28,960 --> 00:01:31,810
+So software testing job is also going to do the same thing.
+
+31
+00:01:31,810 --> 00:01:32,710
+It's going to log in.
+
+32
+00:01:32,710 --> 00:01:38,620
+So we have to make sure this sticky session we have you have to enable before the software testing job
+
+33
+00:01:38,620 --> 00:01:39,520
+completes.
+
+34
+00:01:40,300 --> 00:01:45,670
+Okay, it's working and we hope our software testing job also finds that.
+
+35
+00:01:46,000 --> 00:01:48,340
+Let's check in the detail of software testing job.
+
+36
+00:01:49,870 --> 00:01:50,860
+What's happening?
+
+37
+00:01:52,410 --> 00:01:54,120
+Let's scroll till the end.
+
+38
+00:01:54,210 --> 00:01:54,900
+Whoops.
+
+39
+00:01:58,120 --> 00:01:59,260
+Okay, good.
+
+40
+00:01:59,290 --> 00:02:01,870
+It's just still sleeping, which is very good.
+
+41
+00:02:04,040 --> 00:02:07,140
+Because after this it's going to do the test as we did.
+
+42
+00:02:07,160 --> 00:02:07,700
+Same thing.
+
+43
+00:02:07,700 --> 00:02:13,220
+It's going to open a browser, do a login, take a screenshot and put it in the S3 bucket.
+
+44
+00:02:13,520 --> 00:02:16,730
+So let's wait for a few more minutes.
+
+45
+00:02:18,360 --> 00:02:19,980
+Let's go back to our pipeline.
+
+46
+00:02:28,540 --> 00:02:31,300
+After a few minutes, the software testing job failed.
+
+47
+00:02:32,680 --> 00:02:36,700
+I checked in the details and it's because I have given.
+
+48
+00:02:37,610 --> 00:02:39,170
+And let's go to these details.
+
+49
+00:02:42,990 --> 00:02:43,160
+Okay.
+
+50
+00:02:43,440 --> 00:02:46,220
+In the build stage, I have given the wrong URL.
+
+51
+00:02:46,230 --> 00:02:51,030
+I have not updated the URL, so I'm going to go back to this job.
+
+52
+00:02:51,980 --> 00:02:53,240
+Build project.
+
+53
+00:02:58,280 --> 00:02:59,540
+Software testing.
+
+54
+00:03:02,030 --> 00:03:04,010
+Edit build spec file.
+
+55
+00:03:05,980 --> 00:03:09,340
+And we'll change the right URL.
+
+56
+00:03:12,410 --> 00:03:13,640
+That's the URL.
+
+57
+00:03:14,440 --> 00:03:15,640
+Let's copy that.
+
+58
+00:03:29,100 --> 00:03:31,770
+Okay, Let me verify once again, you all.
+
+59
+00:03:32,840 --> 00:03:37,260
+The URL slash login username password is good.
+
+60
+00:03:37,280 --> 00:03:38,690
+Let's update this file.
+
+61
+00:03:41,630 --> 00:03:44,090
+And we go to Pipeline.
+
+62
+00:03:47,840 --> 00:03:51,680
+And we go to our failed job and we can retry it.
+
+63
+00:03:51,680 --> 00:03:52,730
+Let's retry.
+
+64
+00:03:56,360 --> 00:03:58,700
+So we have a sleep also there, 360 seconds.
+
+65
+00:03:58,700 --> 00:04:02,420
+So it's going to also wait for 360 seconds before it actually executes.
+
+66
+00:04:03,110 --> 00:04:06,650
+So I will pause my screen and come back when this is done.
+
+67
+00:04:07,290 --> 00:04:10,100
+Okay, so this job completed successfully.
+
+68
+00:04:10,730 --> 00:04:12,410
+Let's see the output.
+
+69
+00:04:19,130 --> 00:04:20,860
+So there's a lot of logs.
+
+70
+00:04:20,870 --> 00:04:22,250
+Let's go down.
+
+71
+00:04:23,680 --> 00:04:25,350
+Yeah, that's a success.
+
+72
+00:04:25,830 --> 00:04:27,990
+But really, it's not so much visible over here.
+
+73
+00:04:27,990 --> 00:04:30,240
+The output will be in the S3 bucket.
+
+74
+00:04:30,510 --> 00:04:33,420
+So we can find the screenshot when it log in.
+
+75
+00:04:33,990 --> 00:04:35,400
+It's going to take two screenshots.
+
+76
+00:04:35,400 --> 00:04:41,690
+So if this is really a success, which you're able to see those screenshots, successful log in screenshot.
+
+77
+00:04:41,700 --> 00:04:43,230
+So let's go to a three bucket.
+
+78
+00:04:50,650 --> 00:04:53,290
+So this was the target S3 bucket for the job.
+
+79
+00:04:54,790 --> 00:04:56,280
+And there is a directory.
+
+80
+00:04:56,290 --> 00:04:57,470
+Actually, it's a zip file.
+
+81
+00:04:57,490 --> 00:04:58,600
+Let's download it.
+
+82
+00:05:03,320 --> 00:05:04,850
+Okay, let's open this.
+
+83
+00:05:07,660 --> 00:05:07,800
+Okay.
+
+84
+00:05:07,840 --> 00:05:10,540
+You see a directory called screenshots over there.
+
+85
+00:05:10,930 --> 00:05:12,700
+Open it and you see two screenshots.
+
+86
+00:05:12,730 --> 00:05:14,920
+Let's see, what do they contain?
+
+87
+00:05:15,370 --> 00:05:17,140
+And there we go.
+
+88
+00:05:17,470 --> 00:05:19,990
+So it was a successful login.
+
+89
+00:05:20,410 --> 00:05:24,920
+So selenium test suit got executed successfully, successfully tested our site.
+
+90
+00:05:24,940 --> 00:05:26,590
+And everything checks out fine.
+
+91
+00:05:28,120 --> 00:05:30,400
+We can also see that in our bienstock.
+
+92
+00:05:31,590 --> 00:05:32,370
+The link is live.
+
+93
+00:05:32,370 --> 00:05:34,950
+We can log in and we can test it much further.
+
+94
+00:05:40,750 --> 00:05:41,120
+All right.
+
+95
+00:05:41,120 --> 00:05:42,770
+So that was a success, right?
+
+96
+00:05:42,830 --> 00:05:43,490
+Same thing.
+
+97
+00:05:43,490 --> 00:05:45,710
+The selenium test suit really tested.
+
+98
+00:05:46,710 --> 00:05:47,160
+All right.
+
+99
+00:05:47,160 --> 00:05:50,370
+So we have completed everything in this project.
+
+100
+00:05:51,570 --> 00:05:52,560
+It's time for clean up.
+
+101
+00:05:52,560 --> 00:05:57,840
+So here we really need to do some cleanup because it's been stack and it has to be two instances.
+
+102
+00:05:57,930 --> 00:06:04,590
+So either you can delete this environment altogether or you can change the auto scaling group size set.
+
+103
+00:06:04,830 --> 00:06:08,880
+You can set the size to zero so it will just delete your easy two instances.
+
+104
+00:06:16,880 --> 00:06:18,500
+But then you also have ideas.
+
+105
+00:06:18,530 --> 00:06:20,760
+Now you can shut down the ideas.
+
+106
+00:06:20,780 --> 00:06:23,920
+You can stop the ideas instance, if you will.
+
+107
+00:06:23,930 --> 00:06:26,220
+But the story charges will be still there.
+
+108
+00:06:26,240 --> 00:06:31,910
+We are using 20 GB, but if you have anything else so total to no more than 30 GB is out of free to
+
+109
+00:06:31,920 --> 00:06:32,150
+right?
+
+110
+00:06:32,150 --> 00:06:36,800
+So you can delete it or if you can, if you want, you can just shut it down.
+
+111
+00:06:36,800 --> 00:06:38,270
+So I'm going to delete it now.
+
+112
+00:06:47,880 --> 00:06:53,240
+So that is going to take some time to delete and easy to instances will also get deleted from the bean
+
+113
+00:06:53,260 --> 00:06:53,820
+stack.
+
+114
+00:06:54,540 --> 00:06:56,790
+And we really don't need to delete the pipeline.
+
+115
+00:06:56,790 --> 00:06:58,470
+It's not going to charge us anything.
+
+116
+00:06:59,940 --> 00:07:01,860
+It will only charge when we run it.
+
+117
+00:07:02,010 --> 00:07:05,190
+And anyways, we are in the free tier, so no charges really.
+
+118
+00:07:05,750 --> 00:07:09,180
+Okay, so then let's conclude with our architectural design.
+
+119
+00:07:10,140 --> 00:07:16,560
+So we test, we make a code change, the entire pipeline gets triggered, code commit triggers the sonar
+
+120
+00:07:16,560 --> 00:07:22,020
+code, build job, download any dependency from code artifact, then a code build job.
+
+121
+00:07:22,620 --> 00:07:23,940
+It needs a dependency.
+
+122
+00:07:23,940 --> 00:07:28,410
+It downloads from our code artifact stores the output to the three bucket.
+
+123
+00:07:29,330 --> 00:07:36,380
+A deploy service is going to deploy an artifact to a bienstock, which is connected to IEDs.
+
+124
+00:07:37,260 --> 00:07:42,780
+And selenium tested will get executed from another code build job and the output will be stored to S3
+
+125
+00:07:42,780 --> 00:07:43,440
+bucket.
+
+126
+00:07:43,560 --> 00:07:45,180
+You've seen the screenshots also.
+
+127
+00:07:46,990 --> 00:07:49,870
+So I hope you like this video.
+
+128
+00:07:49,900 --> 00:07:52,750
+You enjoyed the project and learned a lot.
+
+129
+00:07:52,870 --> 00:07:54,190
+So keep practicing.
+
+130
+00:07:54,190 --> 00:07:55,960
+I will see you in the next video.
+
+131
+00:07:55,990 --> 00:07:57,610
+Thank you very much for watching.
+

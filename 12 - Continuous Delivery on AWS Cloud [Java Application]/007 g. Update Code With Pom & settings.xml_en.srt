@@ -1,0 +1,232 @@
+1
+00:00:01,859 --> 00:00:03,980
+So now the stage is set completely.
+
+2
+00:00:03,990 --> 00:00:05,820
+Let's come to our code pipeline now.
+
+3
+00:00:07,310 --> 00:00:10,280
+Okay, So first let's go to our repository code.
+
+4
+00:00:10,280 --> 00:00:11,210
+Repository.
+
+5
+00:00:15,090 --> 00:00:18,000
+So we are using this branch sci hyphenate.
+
+6
+00:00:18,270 --> 00:00:20,730
+So far we're going to use this branch KD hyphen eight.
+
+7
+00:00:23,530 --> 00:00:25,390
+CI hyphen branch.
+
+8
+00:00:25,390 --> 00:00:30,760
+We have updated the palm dot and settings dot XML file, but in this branch you have to make the changes
+
+9
+00:00:30,940 --> 00:00:32,619
+and you can do it from here itself.
+
+10
+00:00:32,920 --> 00:00:35,080
+Let's create a duplicate tab.
+
+11
+00:00:37,650 --> 00:00:38,610
+In this staff.
+
+12
+00:00:38,610 --> 00:00:41,850
+We will be in ci hyphen a branch.
+
+13
+00:00:44,360 --> 00:00:46,760
+And we will open pubmed XML.
+
+14
+00:00:49,750 --> 00:00:53,950
+And it should have the entry of our code artifact repository.
+
+15
+00:00:53,980 --> 00:00:54,490
+Yeah.
+
+16
+00:00:55,150 --> 00:00:55,440
+Yeah.
+
+17
+00:00:55,450 --> 00:00:56,020
+There.
+
+18
+00:00:56,260 --> 00:00:57,700
+So let's copy that.
+
+19
+00:00:59,410 --> 00:01:03,490
+Now be in kd hyphen ws branch open palm dot xml file.
+
+20
+00:01:06,190 --> 00:01:10,720
+And edit so you can edit it from here itself, which is really cool.
+
+21
+00:01:11,290 --> 00:01:17,200
+I don't want to go back to my shell and do it again so you can make the repository changes over there.
+
+22
+00:01:18,390 --> 00:01:18,600
+Yeah.
+
+23
+00:01:18,690 --> 00:01:22,320
+So, you know, you should have the code artifact repository URL there.
+
+24
+00:01:23,840 --> 00:01:26,510
+Okay, let's give our name.
+
+25
+00:01:26,870 --> 00:01:29,240
+My name and email address.
+
+26
+00:01:29,240 --> 00:01:31,700
+You can just fake some email address if you want.
+
+27
+00:01:33,440 --> 00:01:35,780
+That's not really my email address of mine, actually.
+
+28
+00:01:37,090 --> 00:01:40,570
+So anyways, I just wanted to be in the commit, that's all.
+
+29
+00:01:43,570 --> 00:01:44,830
+That XML is updated.
+
+30
+00:01:45,100 --> 00:01:46,780
+Go to again another tab.
+
+31
+00:01:47,890 --> 00:01:50,800
+Make sure you see hyphen eight plus branch.
+
+32
+00:01:51,920 --> 00:01:53,030
+And open settings.
+
+33
+00:01:53,030 --> 00:01:54,230
+Dot xml file.
+
+34
+00:01:57,550 --> 00:01:57,990
+Okay.
+
+35
+00:01:58,240 --> 00:02:00,580
+And we need this entire file.
+
+36
+00:02:01,800 --> 00:02:03,270
+Copy this entire file.
+
+37
+00:02:05,170 --> 00:02:05,890
+And.
+
+38
+00:02:07,790 --> 00:02:09,199
+And make sure you're in the right branch.
+
+39
+00:02:09,210 --> 00:02:09,400
+Okay.
+
+40
+00:02:09,410 --> 00:02:09,919
+See, we have.
+
+41
+00:02:10,729 --> 00:02:12,500
+This is the branch that we are updating.
+
+42
+00:02:12,830 --> 00:02:14,510
+Settings dot xml file.
+
+43
+00:02:14,780 --> 00:02:15,440
+Edit.
+
+44
+00:02:18,550 --> 00:02:24,370
+So that before some, you know, fake or default entries in the previous file.
+
+45
+00:02:25,250 --> 00:02:28,550
+So I'm just overwriting it with the right entries.
+
+46
+00:02:29,910 --> 00:02:32,310
+Again skew the name.
+
+47
+00:02:33,570 --> 00:02:34,050
+Yeah.
+
+48
+00:02:35,140 --> 00:02:35,860
+Commit.
+
+49
+00:02:37,610 --> 00:02:39,050
+I should give some comment message.
+
+50
+00:02:39,050 --> 00:02:42,950
+But anyways, we are not really making any serious code change.
+
+51
+00:02:43,730 --> 00:02:49,370
+Now if you make any change to PSI hyphenate branch, remember your pipeline will get triggered.
+
+52
+00:02:51,110 --> 00:02:53,960
+That's also one more reason we're using a different branch.
+
+53
+00:02:54,700 --> 00:03:02,020
+So you're going to push the source code that we're going to give you, right to code repository and
+
+54
+00:03:02,020 --> 00:03:06,400
+you will see all the branches, you'll see CD hyphenate, any branch also, so you can just select it
+
+55
+00:03:06,400 --> 00:03:07,570
+and make the changes.
+
+56
+00:03:08,320 --> 00:03:11,170
+So remember settings, dot XML and XML file.
+
+57
+00:03:11,170 --> 00:03:16,600
+We are giving these entries so our maven can download artifact from code artifact.
+
+58
+00:03:17,530 --> 00:03:19,420
+It can download it from that URL.
+

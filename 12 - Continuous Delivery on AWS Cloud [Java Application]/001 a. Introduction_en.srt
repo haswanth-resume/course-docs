@@ -1,0 +1,876 @@
+1
+00:00:10,680 --> 00:00:14,730
+Welcome to the next amazing project in the DevOps series.
+
+2
+00:00:15,780 --> 00:00:19,960
+The name of this project is continuous delivery on a.
+
+3
+00:00:20,720 --> 00:00:22,860
+Yes, everything will be on a W.
+
+4
+00:00:22,920 --> 00:00:26,160
+S and no, we're not going to use e two instances here.
+
+5
+00:00:26,490 --> 00:00:30,000
+We're going to use e, w s pass and SAS services.
+
+6
+00:00:30,760 --> 00:00:32,860
+So when should you do such kind of project?
+
+7
+00:00:32,860 --> 00:00:33,970
+What is the requirement?
+
+8
+00:00:33,970 --> 00:00:36,160
+Let's understand those things first.
+
+9
+00:00:40,740 --> 00:00:47,220
+Okay, So let's say there is a product development team and a working in an agile environment and they're
+
+10
+00:00:47,220 --> 00:00:50,190
+going to make a regular code changes to build the product.
+
+11
+00:00:50,730 --> 00:00:56,550
+Now let's say that this developer team are running short on operations.
+
+12
+00:00:56,550 --> 00:01:01,170
+They don't have much or they don't have system admins or cloud engineers.
+
+13
+00:01:02,300 --> 00:01:04,099
+But they are making regular code changes.
+
+14
+00:01:04,099 --> 00:01:08,900
+And these codes changes needs to be build, tested and needs to be deployed.
+
+15
+00:01:09,440 --> 00:01:12,380
+And for deployment, you really need operations team there.
+
+16
+00:01:15,380 --> 00:01:21,980
+So regular code changes means regular packaging of the software and then regular deployment on the servers.
+
+17
+00:01:22,280 --> 00:01:27,170
+And after deployments, you need to conduct further testing like software testing, integration testing.
+
+18
+00:01:28,260 --> 00:01:32,100
+Now, I think you should have already understood the problem, but let's still talk about it.
+
+19
+00:01:34,710 --> 00:01:38,130
+Okay, So we're talking about today's age developer.
+
+20
+00:01:38,150 --> 00:01:39,280
+They're fast, they're quick.
+
+21
+00:01:39,290 --> 00:01:42,020
+They're going to make continuous code changes.
+
+22
+00:01:42,830 --> 00:01:47,450
+And if the code deployment process is manual, it will be time consuming.
+
+23
+00:01:47,780 --> 00:01:51,980
+Plus, developers, testers here are not equipped with the ops knowledge.
+
+24
+00:01:51,980 --> 00:01:55,610
+We don't have operations team or we have a very less operations team.
+
+25
+00:01:56,320 --> 00:01:58,090
+But anyways, these things needs to be done.
+
+26
+00:01:58,090 --> 00:01:59,980
+So what can they do?
+
+27
+00:02:00,250 --> 00:02:00,880
+Well.
+
+28
+00:02:02,920 --> 00:02:05,050
+They can hire some professionals, right?
+
+29
+00:02:05,080 --> 00:02:09,070
+Operational professionals, system admins, cloud engineers, or even outsource.
+
+30
+00:02:09,889 --> 00:02:10,060
+Right.
+
+31
+00:02:10,690 --> 00:02:15,850
+We have to understand here, even if they hire or outsource, there is a dependency set.
+
+32
+00:02:20,290 --> 00:02:26,740
+If there are a CD server set like Jenkins Nexis sonar, there'll be regular maintenance offered.
+
+33
+00:02:26,950 --> 00:02:32,740
+If the target are servers or even easy two instances, you'll have all the overhead of managing managing
+
+34
+00:02:32,920 --> 00:02:33,740
+the target machines.
+
+35
+00:02:33,760 --> 00:02:37,330
+Also, I'm talking about dev and test environment, not production environment.
+
+36
+00:02:37,330 --> 00:02:43,990
+So developers are going to make regular code changes which needs to be tested, deployed on servers.
+
+37
+00:02:44,860 --> 00:02:51,150
+Height and then tested more further like software testing, and then it can be promoted to production.
+
+38
+00:02:51,300 --> 00:02:55,800
+So the release management will also need a lot of help of operations team.
+
+39
+00:02:56,340 --> 00:02:57,990
+So what do they do?
+
+40
+00:03:02,440 --> 00:03:09,070
+Well, instead of depending on operations team, they can use platform as a service or software as a
+
+41
+00:03:09,070 --> 00:03:10,570
+service provided by cloud.
+
+42
+00:03:10,600 --> 00:03:14,710
+Like Ada, Blue has many such services where you don't need to manage virtual machines.
+
+43
+00:03:14,710 --> 00:03:16,840
+Easy, for instance, network storage.
+
+44
+00:03:16,930 --> 00:03:18,430
+So you don't need to manage all those things.
+
+45
+00:03:18,460 --> 00:03:25,420
+You don't need really operations team to manage those developers or testers with little bit of knowledge
+
+46
+00:03:25,420 --> 00:03:27,940
+on the cloud can use those servers.
+
+47
+00:03:28,150 --> 00:03:32,620
+And moreover, we're talking about pre prod environment, which we know and we can have a disposable
+
+48
+00:03:32,620 --> 00:03:33,400
+environment.
+
+49
+00:03:33,940 --> 00:03:39,490
+So once you have disposable environments, you can set a CD pipeline which can automatically deploy.
+
+50
+00:03:40,740 --> 00:03:47,610
+The software and feature any changes to this, to these disposable environments once it is tested or
+
+51
+00:03:47,610 --> 00:03:51,270
+once your release management is completed, you can just delete those environments.
+
+52
+00:03:51,270 --> 00:03:53,400
+You don't need to continuously manage them.
+
+53
+00:03:54,420 --> 00:03:59,880
+So make a code change, build it, test it deployed, then again, test it.
+
+54
+00:03:59,910 --> 00:04:04,680
+You do it for every commit and you're going to use the developers and testers.
+
+55
+00:04:04,680 --> 00:04:08,580
+These people are going to use pass and SAS services provided by cloud.
+
+56
+00:04:12,720 --> 00:04:18,089
+So for such kind of projects, we can set up continuous delivery process on cloud.
+
+57
+00:04:23,600 --> 00:04:30,680
+So once these developers have continuous delivery pipeline on the cloud, they can repair any issues
+
+58
+00:04:30,680 --> 00:04:31,610
+very quickly.
+
+59
+00:04:31,610 --> 00:04:33,290
+So short MTR.
+
+60
+00:04:33,320 --> 00:04:35,930
+It goes very well with the Agile process.
+
+61
+00:04:36,770 --> 00:04:37,520
+So it will be quick.
+
+62
+00:04:37,520 --> 00:04:43,520
+Like as soon as the code is changed continuously, the process runs and gives you the result.
+
+63
+00:04:44,850 --> 00:04:49,800
+No human intervention over there and no operation team intervention also there.
+
+64
+00:04:49,950 --> 00:04:52,350
+Any fault can be isolated quickly again.
+
+65
+00:04:52,890 --> 00:05:00,120
+And we are talking about CD pipeline on cloud, but using cloud seed services.
+
+66
+00:05:00,120 --> 00:05:02,430
+So no operations team intervention again.
+
+67
+00:05:02,790 --> 00:05:06,750
+So if you see we are automating plus we are also removing dependencies here.
+
+68
+00:05:07,560 --> 00:05:12,330
+Now let's see what all the services, the eight of US services that are going to use to set up this
+
+69
+00:05:12,330 --> 00:05:13,920
+continuous delivery pipeline.
+
+70
+00:05:19,910 --> 00:05:21,350
+Starting with code commit.
+
+71
+00:05:21,800 --> 00:05:24,560
+So code commit is going to be our version control system.
+
+72
+00:05:26,450 --> 00:05:27,380
+Good artifact.
+
+73
+00:05:27,380 --> 00:05:29,720
+Where are we going to store dependency of Maven?
+
+74
+00:05:29,720 --> 00:05:33,320
+So Maven will download all the dependency from code artifact service.
+
+75
+00:05:34,940 --> 00:05:36,160
+Good build service.
+
+76
+00:05:36,170 --> 00:05:38,150
+We're going to use this service for multiple things.
+
+77
+00:05:38,150 --> 00:05:46,580
+One, to build our artifact, of course, to run a sonar scanner, to run code analysis, also to run
+
+78
+00:05:46,580 --> 00:05:47,810
+software testing.
+
+79
+00:05:48,170 --> 00:05:53,240
+So you have different platforms also in code build Linux platform, Windows platform so you can execute
+
+80
+00:05:53,240 --> 00:05:54,980
+different kinds of jobs.
+
+81
+00:05:56,070 --> 00:05:58,620
+Then we're going to use code, deploy service.
+
+82
+00:05:58,650 --> 00:06:00,210
+This service is also multipurpose.
+
+83
+00:06:00,210 --> 00:06:06,180
+We can use it to deploy our artifact to various things, like we can store it on S3 bucket, we can
+
+84
+00:06:06,180 --> 00:06:10,650
+deploy it on a beanstalk environment, we can deploy it on easy to instances.
+
+85
+00:06:11,250 --> 00:06:13,350
+So in our project, we are going to.
+
+86
+00:06:14,080 --> 00:06:15,790
+Deployed on Bienstock environment.
+
+87
+00:06:16,610 --> 00:06:18,950
+I'll get more services so soon.
+
+88
+00:06:18,950 --> 00:06:22,320
+The cloud we're going to use to do code analysis.
+
+89
+00:06:22,340 --> 00:06:23,680
+Now, this is not from us.
+
+90
+00:06:23,690 --> 00:06:26,690
+This is going to be separate service altogether.
+
+91
+00:06:26,690 --> 00:06:29,700
+So we are going to sign up to our cloud, create an account.
+
+92
+00:06:29,720 --> 00:06:31,970
+So it's so near Cube on the cloud.
+
+93
+00:06:31,970 --> 00:06:33,950
+So the cube server on the cloud like that.
+
+94
+00:06:35,410 --> 00:06:36,030
+Jake Stein.
+
+95
+00:06:36,040 --> 00:06:39,610
+We're going through code, build selenium software testing.
+
+96
+00:06:39,610 --> 00:06:42,190
+We're going to we're going to run through code, build service.
+
+97
+00:06:47,650 --> 00:06:52,480
+So the place we are going to deploy is going to be bienstock, which is going to host our application
+
+98
+00:06:52,480 --> 00:06:58,640
+ideas we're going to use for the database and code pipeline finally to connect all these things together.
+
+99
+00:06:58,660 --> 00:07:00,340
+So you see, we are not using any easy.
+
+100
+00:07:00,340 --> 00:07:03,800
+For instance, we're not going to deploy our artifact to any easy instance.
+
+101
+00:07:03,820 --> 00:07:10,000
+We're going to deploy it on Bienstock, which is also going to use IDs for database.
+
+102
+00:07:10,150 --> 00:07:14,800
+So platform as a service for application hosting and also for database.
+
+103
+00:07:20,410 --> 00:07:21,670
+So what do we do?
+
+104
+00:07:21,700 --> 00:07:25,530
+We have to remember our objective are to keep our objective, never mind our goals.
+
+105
+00:07:25,540 --> 00:07:31,030
+We need no or very low or less operations overhead, shot, empty air.
+
+106
+00:07:31,060 --> 00:07:32,950
+We need fast turnaround time.
+
+107
+00:07:32,950 --> 00:07:35,140
+So all the automation, we are doing it for that.
+
+108
+00:07:35,140 --> 00:07:40,360
+So we know we can we can quickly do changes whenever there is a requirement and if there is any issue,
+
+109
+00:07:40,360 --> 00:07:42,910
+any bug, we can resolve it very quickly.
+
+110
+00:07:44,230 --> 00:07:46,600
+And less disruptive, of course.
+
+111
+00:07:48,070 --> 00:07:55,240
+So if you have done our previous sicced project on Jenkins and Sona and all, I would like to make a
+
+112
+00:07:55,240 --> 00:07:56,350
+quick comparison.
+
+113
+00:07:58,030 --> 00:08:03,430
+So code commit service instead of GitHub code artifact instead of nexus monotype code build instead
+
+114
+00:08:03,430 --> 00:08:04,690
+of Jenkins jobs.
+
+115
+00:08:04,900 --> 00:08:11,770
+So in a cloud instead of solid cube server, a plus code pipeline instead of creating a Jenkins pipeline.
+
+116
+00:08:11,800 --> 00:08:13,720
+So these are the comparison.
+
+117
+00:08:13,960 --> 00:08:19,090
+Left hand side are the services that you're going to use in order to have no ops or less operations
+
+118
+00:08:19,090 --> 00:08:19,820
+overhead.
+
+119
+00:08:19,840 --> 00:08:21,100
+The left hand side services.
+
+120
+00:08:21,100 --> 00:08:22,300
+The cloud services.
+
+121
+00:08:25,120 --> 00:08:29,330
+I'll get a few more comparison beanstalk instances you're going to use instead of Tomcat.
+
+122
+00:08:29,360 --> 00:08:29,660
+Easy.
+
+123
+00:08:29,660 --> 00:08:37,340
+Two instances and we're going to use a plus radius instead of managing our database on a VM or two instance.
+
+124
+00:08:41,690 --> 00:08:42,280
+All right.
+
+125
+00:08:42,289 --> 00:08:44,210
+It's time to achieve our goals now.
+
+126
+00:08:44,950 --> 00:08:46,420
+But before we go there.
+
+127
+00:08:48,680 --> 00:08:51,230
+Architecture of continuous delivery pipeline.
+
+128
+00:08:53,570 --> 00:08:53,780
+Okay.
+
+129
+00:08:53,810 --> 00:08:58,880
+So as we have been discussing so far, developers are going to make regular code changes and they're
+
+130
+00:08:58,880 --> 00:08:59,780
+going to commit.
+
+131
+00:09:00,920 --> 00:09:05,630
+Once they commit the code, this pipeline gets started for every comet.
+
+132
+00:09:05,750 --> 00:09:12,830
+So the comet is going to happen on a code commit service, which is going to then trigger the next job
+
+133
+00:09:13,040 --> 00:09:14,000
+plus code build.
+
+134
+00:09:14,060 --> 00:09:16,860
+This job is going to do code analysis sonar.
+
+135
+00:09:16,880 --> 00:09:22,520
+Q It's going to use sonar, scanner is going to use, and it needs any dependency MAVEN dependency that
+
+136
+00:09:22,520 --> 00:09:24,350
+will be downloaded from code artifact.
+
+137
+00:09:24,350 --> 00:09:25,940
+So we have to set that as well.
+
+138
+00:09:27,420 --> 00:09:31,410
+It was called Build Service is going to trigger one more job.
+
+139
+00:09:31,860 --> 00:09:33,870
+This is going to build the artifact.
+
+140
+00:09:34,380 --> 00:09:39,630
+And if this needs any dependency, it is going to download it again from a code artifact.
+
+141
+00:09:39,630 --> 00:09:41,940
+So these build jobs are actually going to run.
+
+142
+00:09:41,940 --> 00:09:46,620
+Maven and maven dependency will be downloaded from code artifact.
+
+143
+00:09:47,780 --> 00:09:51,860
+And once the artifact is created, we are going to store it on an S3 bucket.
+
+144
+00:09:52,840 --> 00:09:58,570
+And then we are going to have one more job deployment job, which is going to deploy our artifact to
+
+145
+00:09:58,600 --> 00:09:59,410
+Bienstock.
+
+146
+00:09:59,410 --> 00:10:02,350
+So you'll have an bienstock environment already ready.
+
+147
+00:10:02,890 --> 00:10:08,320
+So code deploy service is going to automatically deploy artifact to Bienstock environment and Bienstock
+
+148
+00:10:08,320 --> 00:10:10,420
+will be also connected with the IDs.
+
+149
+00:10:11,890 --> 00:10:13,180
+So that's the whole flow.
+
+150
+00:10:13,630 --> 00:10:17,530
+Plus, we're going to have one more job, which is going to be software testing.
+
+151
+00:10:17,560 --> 00:10:21,070
+We'll execute that also from a code build service.
+
+152
+00:10:21,790 --> 00:10:23,830
+So it will come after the deploy.
+
+153
+00:10:25,270 --> 00:10:27,820
+And finally, let's see the flow of execution.
+
+154
+00:10:28,210 --> 00:10:30,370
+First, we're going to log into ADA account.
+
+155
+00:10:30,400 --> 00:10:32,770
+We're going to go to code, commit service.
+
+156
+00:10:33,040 --> 00:10:37,240
+And we're going to create a code commit repository, like we create repository on GitHub.
+
+157
+00:10:37,390 --> 00:10:40,180
+Then we're going to sync it with our local repository.
+
+158
+00:10:40,750 --> 00:10:44,110
+So local git repository will be synced with code commit repository.
+
+159
+00:10:44,320 --> 00:10:49,030
+Then we'll go to code artifact service, and then we're going to create a repository over there where
+
+160
+00:10:49,030 --> 00:10:50,980
+the MAVEN dependencies will be stored.
+
+161
+00:10:51,520 --> 00:10:58,750
+And we're going to update settings XML file with this detail of code code artifact repository bombed
+
+162
+00:10:58,750 --> 00:11:01,630
+out XML file also will update with the repository details.
+
+163
+00:11:01,930 --> 00:11:09,100
+And we're going to generate a token so our maven can access this code artifact and this token will be
+
+164
+00:11:09,100 --> 00:11:10,990
+stored in some parameter store.
+
+165
+00:11:15,140 --> 00:11:15,430
+Okay.
+
+166
+00:11:15,440 --> 00:11:17,300
+Next is going to be the sonar job setup.
+
+167
+00:11:17,300 --> 00:11:20,630
+So first we're going to create a sonar cloud account.
+
+168
+00:11:21,230 --> 00:11:25,520
+We're going to generate a token and few parameters, and then we're going to store these parameters
+
+169
+00:11:25,520 --> 00:11:27,410
+again in some parameter store.
+
+170
+00:11:28,580 --> 00:11:34,400
+Then we're going to create a build project which will run our MAVEN job to execute sonar scanner.
+
+171
+00:11:35,390 --> 00:11:40,640
+And before that, we're going to update a code build roll which will access this parameter store.
+
+172
+00:11:40,640 --> 00:11:45,140
+So a code job can access the parameters which we are stored over there.
+
+173
+00:11:46,440 --> 00:11:52,650
+We're going to create notification so we can get notification in for our pipeline any job.
+
+174
+00:11:53,310 --> 00:11:57,210
+Then we create a build project which is going to build our artifacts.
+
+175
+00:11:57,210 --> 00:12:01,530
+So we have a few more parameters that we're going to put it in again, Parameter store.
+
+176
+00:12:02,420 --> 00:12:07,520
+So basically variables, then we're going to create the build project, which will actually generate
+
+177
+00:12:07,520 --> 00:12:08,390
+the artifact.
+
+178
+00:12:08,880 --> 00:12:13,850
+Then we'll create a pipeline which will connect all these jobs together and we'll test it.
+
+179
+00:12:15,090 --> 00:12:16,230
+By making a code change.
+
+180
+00:12:16,230 --> 00:12:22,050
+So when there is a code change on code commit, then it will trigger this entire pipeline.
+
+181
+00:12:24,340 --> 00:12:27,580
+And we'll see an artifact uploaded in the S3 bucket.
+
+182
+00:12:28,120 --> 00:12:31,130
+So till here, it's continuous integration.
+
+183
+00:12:31,150 --> 00:12:32,730
+We have set up continuous integration.
+
+184
+00:12:32,740 --> 00:12:37,810
+Now we're going to extend mode further and we'll be setting up continuous delivery pipeline.
+
+185
+00:12:38,920 --> 00:12:41,770
+So we need an environment where you can deploy your artifact.
+
+186
+00:12:42,040 --> 00:12:47,500
+So we'll be creating Beanstalk and Radius, the Beanstalk, where we're going to upload our artifact
+
+187
+00:12:47,530 --> 00:12:49,000
+ideas for database.
+
+188
+00:12:50,020 --> 00:12:55,030
+We're going to update the security group so it can so Beanstalk instance can access it.
+
+189
+00:12:55,510 --> 00:13:04,630
+We're going to deploy a database in ideas and then we're going to switch our branches from CI A to C,
+
+190
+00:13:04,630 --> 00:13:05,140
+D hyphenate.
+
+191
+00:13:05,540 --> 00:13:11,080
+We're going to use a different branch in this project CD hyphenated us and we're going to update settings,
+
+192
+00:13:11,080 --> 00:13:13,900
+dot XML file and palm dot XML file in this project.
+
+193
+00:13:16,940 --> 00:13:20,510
+And then we're going to create another job which is going to build artifact again.
+
+194
+00:13:20,990 --> 00:13:24,290
+And the build spec file is going to be different for this one.
+
+195
+00:13:24,770 --> 00:13:25,080
+Okay.
+
+196
+00:13:26,540 --> 00:13:31,400
+And then we're going to create a deploy job which is going to take our artifact and deploy it to Bienstock.
+
+197
+00:13:32,000 --> 00:13:34,010
+Or you can see upload to Bienstock.
+
+198
+00:13:34,400 --> 00:13:39,260
+Then we will have a job which is going to run our software testing selenium scripts.
+
+199
+00:13:40,680 --> 00:13:44,970
+And which is going to upload our screenshot and all the output to the S3 bucket.
+
+200
+00:13:47,420 --> 00:13:49,970
+Okay, Then we are going to update our pipeline.
+
+201
+00:13:50,150 --> 00:13:58,970
+So we already have code commit job test code, job build and store job and we deploy to S3 bucket.
+
+202
+00:13:59,090 --> 00:14:04,880
+We're going to add build a release job which is going to build the artifact and then deploy to beans
+
+203
+00:14:04,880 --> 00:14:05,120
+tag.
+
+204
+00:14:05,130 --> 00:14:06,770
+So there will be a deploy job again.
+
+205
+00:14:07,370 --> 00:14:13,130
+And then we're going to run selenium test scripts again from a build job and upload all the results
+
+206
+00:14:13,130 --> 00:14:14,300
+to S3 bucket.
+
+207
+00:14:14,900 --> 00:14:17,210
+And then finally, we'll test our pipeline.
+
+208
+00:14:19,610 --> 00:14:23,600
+Okay, so let's not wait further and jump to a console.
+
+209
+00:14:24,450 --> 00:14:24,710
+Okay.
+
+210
+00:14:24,710 --> 00:14:27,990
+So first we are going to set up continuous integration pipeline.
+
+211
+00:14:28,010 --> 00:14:33,890
+If you have already done this in the previous project, then you can skip and directly go to continuous
+
+212
+00:14:33,890 --> 00:14:36,410
+delivery and continue after that.
+
+213
+00:14:36,860 --> 00:14:39,800
+Or if you need a revision, you can watch it once again.
+
+214
+00:14:40,620 --> 00:14:45,930
+Once we set up a continuous integration pipeline, then we'll extend it to continuous delivery pipeline.
+
+215
+00:14:46,410 --> 00:14:49,950
+So first, we'll set this what you see on the screen right now.
+
+216
+00:14:50,160 --> 00:14:51,600
+And once this is done.
+
+217
+00:14:52,450 --> 00:14:54,340
+And then we're going to set up this.
+
+218
+00:14:54,340 --> 00:14:57,940
+So continuous integration will be extended to continuous delivery pipeline.
+
+219
+00:14:58,300 --> 00:15:00,340
+So let's get started.
+
