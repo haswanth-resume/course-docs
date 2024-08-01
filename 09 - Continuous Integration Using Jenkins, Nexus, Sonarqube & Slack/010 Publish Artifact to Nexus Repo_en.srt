@@ -1,0 +1,748 @@
+1
+00:00:00,600 --> 00:00:01,080
+All right.
+
+2
+00:00:01,080 --> 00:00:07,920
+The last stage in our pipeline is to upload the artifact to an repository.
+
+3
+00:00:08,070 --> 00:00:14,280
+So in our pipeline code, if we scroll up here, we are archiving the artifact.
+
+4
+00:00:14,850 --> 00:00:20,790
+And once it is done, you should be seeing here last successful artifact artifact.
+
+5
+00:00:21,030 --> 00:00:26,610
+You can also go to the job ID, build ID, and you can check in the workspace.
+
+6
+00:00:29,550 --> 00:00:32,270
+Target from here we are going to upload the artifact.
+
+7
+00:00:32,280 --> 00:00:33,840
+That's our artifact.
+
+8
+00:00:33,870 --> 00:00:38,610
+And this needs to be uploaded to Nexis repository.
+
+9
+00:00:38,610 --> 00:00:41,820
+We created the profile release repository.
+
+10
+00:00:41,820 --> 00:00:42,540
+This one.
+
+11
+00:00:44,070 --> 00:00:50,550
+Over here, and every time we upload a new artifact, it should have a different version number.
+
+12
+00:00:51,150 --> 00:00:53,770
+And the best approach for that is a timestamp.
+
+13
+00:00:53,790 --> 00:00:55,470
+We need to rename.
+
+14
+00:00:56,840 --> 00:00:59,270
+This artefact with the timestamp.
+
+15
+00:00:59,480 --> 00:01:03,980
+And for that purpose we had already installed a plugin build timestamp plugin.
+
+16
+00:01:04,010 --> 00:01:07,820
+We need to set its value, so you need to go to manage Jenkins.
+
+17
+00:01:08,950 --> 00:01:10,060
+Configure system.
+
+18
+00:01:11,320 --> 00:01:12,430
+Scroll down.
+
+19
+00:01:12,460 --> 00:01:14,170
+You should see a section here.
+
+20
+00:01:14,170 --> 00:01:15,880
+Their build timestamp.
+
+21
+00:01:16,690 --> 00:01:19,990
+You can set a time zone and this will be the pattern.
+
+22
+00:01:19,990 --> 00:01:21,520
+We will change it a little bit.
+
+23
+00:01:21,520 --> 00:01:26,170
+We'll remove this z and we will just use 2yy.
+
+24
+00:01:26,170 --> 00:01:28,480
+That is four years, the last two number of the year.
+
+25
+00:01:28,480 --> 00:01:35,530
+And we'll give you an underscore or let's keep it hyphen, hyphen, hyphen underscore.
+
+26
+00:01:35,650 --> 00:01:42,430
+So year hyphen month hyphen date underscore our and so here.
+
+27
+00:01:43,570 --> 00:01:45,040
+We will remove the seconds.
+
+28
+00:01:45,490 --> 00:01:48,220
+So that's the bill timestamp value.
+
+29
+00:01:48,220 --> 00:01:49,900
+That will be the pattern of it.
+
+30
+00:01:49,930 --> 00:01:56,210
+Let's save this and we'll find from the documentation the pipeline code to upload the artifact to Texas
+
+31
+00:01:56,230 --> 00:01:57,160
+repository.
+
+32
+00:01:57,190 --> 00:01:59,440
+So let's do a little Google search.
+
+33
+00:02:00,800 --> 00:02:07,250
+Nick says artefact uploader that's the name of the plugin or you can simply google how to upload artifact
+
+34
+00:02:07,250 --> 00:02:09,650
+to Nexus using Jenkins Pipeline.
+
+35
+00:02:10,250 --> 00:02:13,820
+So this documentation from Jenkins itself, there is this GitHub link.
+
+36
+00:02:13,910 --> 00:02:15,890
+This one, click on this one.
+
+37
+00:02:18,290 --> 00:02:22,010
+So that's the GitHub link for this plugin we scroll down.
+
+38
+00:02:22,010 --> 00:02:27,320
+So this is for the Dstl domain specific language and this is for the pipeline.
+
+39
+00:02:27,770 --> 00:02:32,250
+So you just need to take this code and create a stage and put this code over there.
+
+40
+00:02:32,270 --> 00:02:33,290
+So let's do that.
+
+41
+00:02:33,290 --> 00:02:34,730
+Let's go to our VTS code.
+
+42
+00:02:36,440 --> 00:02:39,140
+Let's come down and stage.
+
+43
+00:02:39,140 --> 00:02:39,320
+Yeah.
+
+44
+00:02:39,380 --> 00:02:41,030
+This is where the stage ends.
+
+45
+00:02:44,420 --> 00:02:44,530
+Okay.
+
+46
+00:02:44,600 --> 00:02:45,730
+So you need to create a stage.
+
+47
+00:02:45,900 --> 00:02:46,390
+Stage?
+
+48
+00:02:46,610 --> 00:02:48,740
+I've given the name as upload artifact.
+
+49
+00:02:49,010 --> 00:02:52,310
+Open and close curly brace steps.
+
+50
+00:02:52,310 --> 00:02:56,030
+So in the step, there goes your plugin information.
+
+51
+00:02:56,540 --> 00:02:57,600
+So next test version.
+
+52
+00:02:57,600 --> 00:02:58,190
+Next is three.
+
+53
+00:02:58,190 --> 00:03:00,650
+We're using Nexus three, protocol http.
+
+54
+00:03:01,480 --> 00:03:02,410
+Next this URL.
+
+55
+00:03:02,410 --> 00:03:09,070
+So I've given here variable access IP colon next to these variables we have already defined there.
+
+56
+00:03:09,070 --> 00:03:18,040
+You should add here in Nexus private IP and port 8081, you should also have here Nexus login variable
+
+57
+00:03:18,040 --> 00:03:22,360
+and its value should be the Nexus login credential which you saved in Jenkins.
+
+58
+00:03:22,900 --> 00:03:25,810
+So in manage Jenkins manage credentials.
+
+59
+00:03:27,160 --> 00:03:28,120
+Jenkins.
+
+60
+00:03:29,320 --> 00:03:30,730
+Global credentials.
+
+61
+00:03:31,420 --> 00:03:32,710
+So that is the credential.
+
+62
+00:03:32,710 --> 00:03:39,130
+We saved it very early and that's the ID you have to use the ID, so make sure all the variable values
+
+63
+00:03:39,130 --> 00:03:39,940
+are correct.
+
+64
+00:03:39,970 --> 00:03:40,870
+Come down.
+
+65
+00:03:43,370 --> 00:03:46,680
+Group ID Cuba that will create a folder with the name Cuba.
+
+66
+00:03:46,700 --> 00:03:48,560
+It will put our artifact inside that.
+
+67
+00:03:48,560 --> 00:03:52,070
+And for versioning we are using these variables.
+
+68
+00:03:52,430 --> 00:03:54,560
+These are the Jenkins built in variables.
+
+69
+00:03:54,560 --> 00:04:01,130
+You can access them by giving e and v dot build underscore ID that will give us the build ID, which
+
+70
+00:04:01,130 --> 00:04:05,840
+is if we go and come here in the Jenkins job in the pipeline.
+
+71
+00:04:05,840 --> 00:04:08,120
+So the previous build ID was eight.
+
+72
+00:04:09,230 --> 00:04:12,590
+And when we run the next pipeline, the build ID number will be nine.
+
+73
+00:04:14,210 --> 00:04:15,020
+Bill Timestamp.
+
+74
+00:04:15,020 --> 00:04:20,000
+We have already said that now it's not mandatory to do it in the same fashion.
+
+75
+00:04:20,000 --> 00:04:28,160
+You can do it any other way for for budgeting, but you need something that changes after every build.
+
+76
+00:04:28,160 --> 00:04:31,370
+So build it will definitely change and build timestamp will change.
+
+77
+00:04:31,370 --> 00:04:34,580
+That's a very good combination for versioning.
+
+78
+00:04:35,390 --> 00:04:41,180
+Next is the repository where we want to upload it, which is a variable v file hyphen release is the
+
+79
+00:04:41,180 --> 00:04:42,080
+value of it.
+
+80
+00:04:43,190 --> 00:04:44,510
+So check the code.
+
+81
+00:04:45,310 --> 00:04:46,690
+The profile release.
+
+82
+00:04:48,150 --> 00:04:48,720
+Credentials.
+
+83
+00:04:48,940 --> 00:04:52,960
+This is the login credentials that we saved in Jenkins.
+
+84
+00:04:52,980 --> 00:04:54,990
+It's variable we have given over here.
+
+85
+00:04:55,080 --> 00:04:56,400
+Access underscore login.
+
+86
+00:04:56,760 --> 00:04:58,570
+And this is the information about access.
+
+87
+00:04:58,590 --> 00:05:01,650
+Now the information about the artifact that you want to upload.
+
+88
+00:05:03,060 --> 00:05:07,100
+So artifacts and there is a square bracket opening and closing there.
+
+89
+00:05:07,110 --> 00:05:09,750
+And inside that there is one more square bracket.
+
+90
+00:05:10,020 --> 00:05:14,370
+And in this, you have the list of arguments.
+
+91
+00:05:14,370 --> 00:05:15,960
+You can say artifact ID.
+
+92
+00:05:15,960 --> 00:05:17,430
+I have given here the pro app.
+
+93
+00:05:17,430 --> 00:05:19,770
+That will be the prefix for our artifact.
+
+94
+00:05:20,910 --> 00:05:23,940
+And file the artifact that you want to upload.
+
+95
+00:05:23,940 --> 00:05:25,500
+So we have given its path.
+
+96
+00:05:26,490 --> 00:05:31,680
+Target slash v profile hyphen v two dot var and type var.
+
+97
+00:05:31,800 --> 00:05:42,900
+So the artifact name will be like this v pro app hyphen builder id hyphen build timestamp dot var and
+
+98
+00:05:42,900 --> 00:05:50,820
+it will be uploaded into this repository and it will use this for the authentication on this Nexus server.
+
+99
+00:05:51,330 --> 00:05:57,180
+So it's usually like this you just copy, paste the code from the documentation, you make your entries
+
+100
+00:05:57,180 --> 00:05:58,410
+and then you test it.
+
+101
+00:05:58,800 --> 00:05:59,990
+So let's test it.
+
+102
+00:06:00,000 --> 00:06:03,180
+I'm going to do control s save it.
+
+103
+00:06:04,620 --> 00:06:07,440
+And then click here.
+
+104
+00:06:08,520 --> 00:06:10,500
+Chop down, commit and push.
+
+105
+00:06:11,430 --> 00:06:12,150
+Yes.
+
+106
+00:06:13,450 --> 00:06:13,930
+We'll see.
+
+107
+00:06:13,960 --> 00:06:18,820
+Upload artifact to Nexus Code.
+
+108
+00:06:22,360 --> 00:06:23,060
+Steve.
+
+109
+00:06:23,800 --> 00:06:27,100
+And let's see, the pipeline will be triggering in a moment.
+
+110
+00:06:30,360 --> 00:06:32,070
+That took a few seconds, but anyways.
+
+111
+00:06:32,550 --> 00:06:33,120
+Nine build.
+
+112
+00:06:33,180 --> 00:06:33,990
+89.
+
+113
+00:06:35,070 --> 00:06:36,930
+Let's see for ourself all the logs.
+
+114
+00:06:36,960 --> 00:06:37,650
+Okay.
+
+115
+00:06:38,180 --> 00:06:38,470
+Okay.
+
+116
+00:06:38,580 --> 00:06:41,410
+So I made a mistake and it is in credentials.
+
+117
+00:06:41,440 --> 00:06:43,290
+ID you see that?
+
+118
+00:06:43,320 --> 00:06:44,100
+Exactly.
+
+119
+00:06:44,100 --> 00:06:47,010
+Suggesting also it's saying that it cannot be used directly.
+
+120
+00:06:47,040 --> 00:06:48,480
+Do you mean it like this?
+
+121
+00:06:48,480 --> 00:06:50,940
+So the difference is just basically the double quotes.
+
+122
+00:06:51,060 --> 00:06:52,530
+So let me fix that.
+
+123
+00:06:53,950 --> 00:06:54,280
+Yeah.
+
+124
+00:06:54,280 --> 00:06:54,890
+There.
+
+125
+00:06:54,910 --> 00:06:56,920
+We need to put the double codes.
+
+126
+00:06:58,720 --> 00:06:59,030
+Okay.
+
+127
+00:06:59,050 --> 00:07:00,970
+This one extra double code here.
+
+128
+00:07:01,590 --> 00:07:04,760
+All right, so all the variables should be like this in the double quotes.
+
+129
+00:07:05,120 --> 00:07:06,230
+Save.
+
+130
+00:07:10,110 --> 00:07:11,960
+And then let's commit and push.
+
+131
+00:07:16,280 --> 00:07:21,470
+Message fixed double quotes for variable checkmark save.
+
+132
+00:07:23,470 --> 00:07:27,280
+Seeking changes done to trigger another pipeline.
+
+133
+00:07:30,250 --> 00:07:30,940
+There.
+
+134
+00:07:34,950 --> 00:07:35,430
+Okay.
+
+135
+00:07:35,520 --> 00:07:36,600
+Let's scroll down.
+
+136
+00:07:36,640 --> 00:07:37,800
+This is going to take some time.
+
+137
+00:07:37,810 --> 00:07:39,150
+I'm going to pause my screen.
+
+138
+00:07:40,460 --> 00:07:40,780
+Okay.
+
+139
+00:07:40,790 --> 00:07:41,690
+There it completed.
+
+140
+00:07:41,690 --> 00:07:43,060
+Successfully uploaded.
+
+141
+00:07:43,070 --> 00:07:44,660
+Look at the URL here.
+
+142
+00:07:45,780 --> 00:07:51,030
+It's the Nexis URL repository slash the repository name QR repro app.
+
+143
+00:07:51,030 --> 00:07:54,030
+That's our artifact ID build timestamp.
+
+144
+00:07:54,540 --> 00:07:56,910
+Again, that's the artifact version.
+
+145
+00:07:57,540 --> 00:08:00,910
+Now, obviously this link will not work because that's the private IP will.
+
+146
+00:08:00,920 --> 00:08:05,740
+We'll go to the Nexus and we are already in the profile release.
+
+147
+00:08:05,760 --> 00:08:10,320
+Let's refresh this repository and there you see that artifact.
+
+148
+00:08:11,210 --> 00:08:13,640
+Now go ahead, run the pipeline a few more times.
+
+149
+00:08:13,640 --> 00:08:19,010
+You will see different different artifacts or maybe same artifacts with different names because we are
+
+150
+00:08:19,010 --> 00:08:22,280
+not making any code change really the source code.
+
+151
+00:08:22,880 --> 00:08:28,160
+So I'm going to just run it a few more times just from here, Bill, now.
+
+152
+00:08:31,730 --> 00:08:32,960
+So the big daddy was ten.
+
+153
+00:08:32,960 --> 00:08:36,919
+And you see the artifact we blow up hyphen ten.
+
+154
+00:08:36,919 --> 00:08:39,000
+That's the builder, the hyphen, the time stamp.
+
+155
+00:08:39,020 --> 00:08:42,350
+Now, this is not your computer's timestamp.
+
+156
+00:08:42,350 --> 00:08:44,510
+This is the Jenkins server time stamp.
+
+157
+00:08:44,750 --> 00:08:46,700
+And at the end dot var.
+
+158
+00:08:47,840 --> 00:08:51,280
+And then you have the link to download the artifact.
+
+159
+00:08:51,290 --> 00:08:53,690
+I'm going to say Control and click on this.
+
+160
+00:08:53,900 --> 00:08:58,550
+It opens in a new tab and see it's trying to download the artifact now save.
+
+161
+00:08:59,340 --> 00:09:01,020
+And we are downloading the artifact.
+
+162
+00:09:01,020 --> 00:09:02,820
+And this is coming from the Nexus.
+
+163
+00:09:03,760 --> 00:09:08,590
+So the ops team, if you just have continuous integration, the ops team can download the artifact and
+
+164
+00:09:08,590 --> 00:09:13,030
+deploy to the servers or release it to the production.
+
+165
+00:09:13,240 --> 00:09:14,290
+The different mechanisms.
+
+166
+00:09:14,290 --> 00:09:18,820
+We're going to talk about the delivery part in continuous delivery project.
+
+167
+00:09:19,610 --> 00:09:21,250
+You can't let me refresh.
+
+168
+00:09:22,130 --> 00:09:22,290
+Okay.
+
+169
+00:09:22,430 --> 00:09:23,270
+So you see that?
+
+170
+00:09:24,430 --> 00:09:25,690
+One more artifact.
+
+171
+00:09:26,020 --> 00:09:31,810
+So like that, whenever a developer makes a code change, let's look at it once again.
+
+172
+00:09:31,810 --> 00:09:36,010
+Whenever the developer makes the code change, they commit to the repository.
+
+173
+00:09:36,160 --> 00:09:39,040
+It is going to build the artifact.
+
+174
+00:09:39,730 --> 00:09:48,010
+Download Dependency from Nexus Test Unit Test Code Analysis with textile sonar scanner analysis and
+
+175
+00:09:48,010 --> 00:09:50,260
+uploading all the results on the cube server.
+
+176
+00:09:50,260 --> 00:09:57,040
+If the quality gates are parsed, then it moves to uploading the artifact to the repository.
+
+177
+00:09:58,200 --> 00:10:01,320
+That's a complete continuous integration pipeline.
+
+178
+00:10:01,620 --> 00:10:02,490
+But.
+
+179
+00:10:03,260 --> 00:10:04,400
+One last thing.
+
+180
+00:10:04,760 --> 00:10:09,320
+We are coming to the Jenkins and checking whether it's passed or failed.
+
+181
+00:10:10,070 --> 00:10:14,840
+We can set up a notification system so we don't even need to check in the Jenkins.
+
+182
+00:10:14,840 --> 00:10:17,930
+We get the notification whether the bill is passed or failed.
+
+183
+00:10:18,170 --> 00:10:22,910
+And based on the result, we can take the next action or next step.
+
+184
+00:10:23,480 --> 00:10:25,600
+We will see that in the next lecture.
+
+185
+00:10:25,610 --> 00:10:27,830
+That is all in this one run.
+
+186
+00:10:27,830 --> 00:10:34,070
+This pipeline tested a few more times, generate a few artifact, wrap this up and join me in the next
+
+187
+00:10:34,070 --> 00:10:34,760
+lecture.
+

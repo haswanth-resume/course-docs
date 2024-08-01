@@ -1,0 +1,668 @@
+1
+00:00:00,640 --> 00:00:06,580
+All right, now let's launch our two instance for Jenkins Nexus and Sona Cube.
+
+2
+00:00:06,580 --> 00:00:14,020
+But before that, we will see the user data script that we will use to provision these services.
+
+3
+00:00:14,020 --> 00:00:14,590
+So.
+
+4
+00:00:15,710 --> 00:00:17,710
+On the browser, go to this link.
+
+5
+00:00:17,720 --> 00:00:19,190
+It's in the resource section.
+
+6
+00:00:19,400 --> 00:00:23,150
+That's the GitHub repository that we will be using in this project's.
+
+7
+00:00:25,400 --> 00:00:28,420
+And over here, come to this dropdown.
+
+8
+00:00:28,430 --> 00:00:29,900
+These are the branches.
+
+9
+00:00:30,600 --> 00:00:33,450
+Search for Sy hyphen Jenkins.
+
+10
+00:00:34,020 --> 00:00:35,650
+Find Sy Hyphen Jenkins.
+
+11
+00:00:35,670 --> 00:00:36,570
+Click on it.
+
+12
+00:00:38,020 --> 00:00:40,680
+So we switch to the CI hyphen Jenkins branch.
+
+13
+00:00:40,690 --> 00:00:43,360
+In this we have a folder here user data.
+
+14
+00:00:44,090 --> 00:00:45,040
+So click on it.
+
+15
+00:00:45,520 --> 00:00:48,160
+So here we have Jenkins set up dot search.
+
+16
+00:00:48,250 --> 00:00:49,870
+Next set of data search.
+
+17
+00:00:49,870 --> 00:00:51,850
+And so another set of data such.
+
+18
+00:00:52,560 --> 00:00:55,260
+So let's click on Jenkins set up dot research.
+
+19
+00:00:55,530 --> 00:00:57,070
+So this is a simple script.
+
+20
+00:00:57,070 --> 00:01:00,900
+It's actually just the Linux commands that will install Jenkins server.
+
+21
+00:01:01,080 --> 00:01:07,830
+So we're installing open JDK eight, see certificates later, see certificate maven, git w gate unzip.
+
+22
+00:01:08,460 --> 00:01:14,460
+And these are all the commands that I have just copied from Jenkins installation documentation.
+
+23
+00:01:14,550 --> 00:01:19,350
+Now for most of the time this remains the same, but if it changes, you need to make sure you give
+
+24
+00:01:19,350 --> 00:01:21,720
+right commands for installing Jenkins.
+
+25
+00:01:22,500 --> 00:01:25,980
+Let's see the next script Nexus.
+
+26
+00:01:27,390 --> 00:01:27,630
+Now.
+
+27
+00:01:27,630 --> 00:01:30,600
+Nick says installation is not as simple as Jenkins.
+
+28
+00:01:30,600 --> 00:01:35,220
+Jenkins is just apt install jenkins and that's it on the ubuntu server.
+
+29
+00:01:35,400 --> 00:01:43,320
+Next says you'll be setting up on Amazon Linux to which you seem like sent to us and there is no readymade
+
+30
+00:01:43,320 --> 00:01:44,410
+package for nexus.
+
+31
+00:01:44,430 --> 00:01:50,130
+We have to download it's binary and create our own service.
+
+32
+00:01:51,310 --> 00:01:57,880
+Now I'm already assuming you have experience on Linux or you have done DevOps beginners to an advanced
+
+33
+00:01:57,880 --> 00:02:01,030
+course where you did Linux and bass scripting.
+
+34
+00:02:01,030 --> 00:02:02,560
+So this is fairly simple.
+
+35
+00:02:03,280 --> 00:02:09,280
+We install JDK eight, we download a access from this URL.
+
+36
+00:02:10,710 --> 00:02:15,980
+Over here and we unzip this, extract the next directory.
+
+37
+00:02:16,160 --> 00:02:16,560
+Sorry.
+
+38
+00:02:16,620 --> 00:02:17,430
+Next is binary.
+
+39
+00:02:17,430 --> 00:02:21,120
+To this directory we add an access user.
+
+40
+00:02:21,450 --> 00:02:24,420
+We give this permission, the nexus user ownership.
+
+41
+00:02:24,810 --> 00:02:28,530
+And then we create this file next to service file.
+
+42
+00:02:29,820 --> 00:02:36,300
+All these details will be added into that file so we can use System CTL Command to start and stop or
+
+43
+00:02:36,300 --> 00:02:39,720
+restart next service and we also enable it.
+
+44
+00:02:39,720 --> 00:02:42,510
+So next the service comes up at the boot time.
+
+45
+00:02:43,430 --> 00:02:49,820
+As a DevOps, you should definitely have experience with Linux and batch scripting, so go through the
+
+46
+00:02:49,820 --> 00:02:52,040
+script and understand this.
+
+47
+00:02:52,040 --> 00:02:58,030
+You may need to write similar kind of scripts for services that cannot run through system CTL.
+
+48
+00:02:58,040 --> 00:03:00,140
+You have to make sure you run it through System CD.
+
+49
+00:03:01,100 --> 00:03:02,990
+Okay, next is Sonar Cube.
+
+50
+00:03:03,020 --> 00:03:09,410
+It's more complicated than Nexis because we are running multiple services over here.
+
+51
+00:03:09,680 --> 00:03:17,300
+We are running PostgreSQL Sonar Cube servers and Nexis I'm sorry, Engine X Service.
+
+52
+00:03:17,450 --> 00:03:20,000
+So let me quickly go through this script for you.
+
+53
+00:03:20,660 --> 00:03:26,570
+Firstly, we create some system configuration over here in order for the ownership service to run.
+
+54
+00:03:28,380 --> 00:03:29,070
+In his city.
+
+55
+00:03:29,070 --> 00:03:30,810
+Alcon fanning limits dot com.
+
+56
+00:03:31,950 --> 00:03:33,930
+We install open JDK 11.
+
+57
+00:03:35,050 --> 00:03:37,600
+We install PostgreSQL service.
+
+58
+00:03:38,050 --> 00:03:40,000
+You make sure we start and enable it.
+
+59
+00:03:41,060 --> 00:03:45,890
+We create a user called sonar in the PostgreSQL database.
+
+60
+00:03:47,150 --> 00:03:48,680
+We give the password to it.
+
+61
+00:03:48,950 --> 00:03:51,290
+We create a database named Sonar.
+
+62
+00:03:52,440 --> 00:04:02,550
+We grant sonar Kub database sonar user privilege once the PostgreSQL PostgreSQL service is set up.
+
+63
+00:04:03,660 --> 00:04:07,110
+We will download solar binary and this is similar as Nexus.
+
+64
+00:04:07,110 --> 00:04:12,720
+From here we extract the zip file, we create a similar cube user and the group.
+
+65
+00:04:12,750 --> 00:04:15,840
+We create solar properties.
+
+66
+00:04:16,350 --> 00:04:21,390
+So in the properties file this will have the database information we just created in the previous steps.
+
+67
+00:04:22,350 --> 00:04:28,410
+Then we have similar cube service file where we'll mention all the detail, where the owner cube binaries
+
+68
+00:04:28,410 --> 00:04:30,150
+are, how to start and stop it.
+
+69
+00:04:30,150 --> 00:04:34,500
+And then we say sys CTL enables owner cube and starts on our cube.
+
+70
+00:04:34,650 --> 00:04:39,450
+Now this is commented it's not going to really start because we need to reboot.
+
+71
+00:04:40,110 --> 00:04:45,300
+So Owner Cube so is before we started the reboot is because we change some system configuration here.
+
+72
+00:04:45,300 --> 00:04:50,280
+This will be applied only when you reboot, so you don't need to reboot.
+
+73
+00:04:50,280 --> 00:04:52,200
+There is a command in the script.
+
+74
+00:04:52,590 --> 00:04:53,490
+Let's come down.
+
+75
+00:04:54,730 --> 00:04:54,870
+Okay.
+
+76
+00:04:55,060 --> 00:05:02,950
+So the service by default listens on post 9000, just like Jenkins listens on AT&T Nexus on 8081.
+
+77
+00:05:02,950 --> 00:05:08,590
+So Naqib is going to listen on Port 9000 and you can see that in the Sooner Properties file here.
+
+78
+00:05:09,670 --> 00:05:14,170
+But we will be installing engine service here.
+
+79
+00:05:15,800 --> 00:05:22,430
+Which listens on port 80 and forwards the request to the sonar cube service on Port 9000.
+
+80
+00:05:23,300 --> 00:05:24,270
+Why like that?
+
+81
+00:05:24,290 --> 00:05:30,980
+Well, if you need to do a secure connection to DPS, all this can be handled by the engine server.
+
+82
+00:05:30,980 --> 00:05:33,380
+So on the cube server can be offloaded.
+
+83
+00:05:33,980 --> 00:05:40,220
+Once we set up the engine service to forward request to the owner cube service, we are going to enable
+
+84
+00:05:40,220 --> 00:05:43,640
+engine service and restart is commented here.
+
+85
+00:05:43,880 --> 00:05:48,290
+We set up the firewall rule and then we say reboot.
+
+86
+00:05:48,290 --> 00:05:53,120
+So easy to instance will reboot and the owner cube servers, postgres and engine x, everything will
+
+87
+00:05:53,120 --> 00:05:54,050
+come up with it.
+
+88
+00:05:54,770 --> 00:05:56,390
+Okay, so those were three scripts.
+
+89
+00:05:56,390 --> 00:05:58,460
+Take your time, go through them, read them.
+
+90
+00:05:58,460 --> 00:06:03,410
+If you're not understanding them, then you need to brush up your Linux and bash scripting skills,
+
+91
+00:06:03,770 --> 00:06:05,060
+which I highly recommend.
+
+92
+00:06:05,060 --> 00:06:10,730
+Even if you don't want to do that, you can still continue with the project, but those are my recommendations.
+
+93
+00:06:10,730 --> 00:06:13,400
+Anyways, let's go to a console.
+
+94
+00:06:13,400 --> 00:06:16,370
+Let's start launching our instance, let's say launch instances.
+
+95
+00:06:17,910 --> 00:06:19,950
+We'll start with Jenkins Server.
+
+96
+00:06:19,980 --> 00:06:28,050
+Let's name it as Jenkins Server and we will go with one two and click on this dropdown.
+
+97
+00:06:29,430 --> 00:06:30,090
+For Select.
+
+98
+00:06:30,090 --> 00:06:34,840
+Make sure you select open to here and click on this dropdown and you go with open to 20.
+
+99
+00:06:34,860 --> 00:06:40,530
+Now be very, very careful with this many people select paid AMI so you have to select open to server
+
+100
+00:06:40,530 --> 00:06:41,280
+20.
+
+101
+00:06:41,490 --> 00:06:44,640
+You should see a free tier eligible select this one.
+
+102
+00:06:48,190 --> 00:06:48,480
+Okay.
+
+103
+00:06:48,550 --> 00:06:52,240
+Scroll down instant type DT to micro will not do.
+
+104
+00:06:52,270 --> 00:06:53,770
+We are to go with t to small.
+
+105
+00:06:53,800 --> 00:06:57,160
+Yes, there will be some charges for this project.
+
+106
+00:06:57,400 --> 00:06:59,260
+T to micro will be very small.
+
+107
+00:06:59,290 --> 00:07:00,610
+Jenkins will hang a lot.
+
+108
+00:07:00,640 --> 00:07:01,720
+Even it will crash.
+
+109
+00:07:01,720 --> 00:07:04,540
+So we need to go with minimum t to small.
+
+110
+00:07:04,570 --> 00:07:06,430
+There will be some minor charges for it.
+
+111
+00:07:06,430 --> 00:07:10,510
+Also in your EAW spills OC key pair.
+
+112
+00:07:10,840 --> 00:07:14,350
+Let's select the profile key that you already created.
+
+113
+00:07:16,230 --> 00:07:21,090
+Come to network settings and we're going to select existing security group.
+
+114
+00:07:22,980 --> 00:07:23,970
+Jenkins.
+
+115
+00:07:25,850 --> 00:07:28,940
+Scroll down and advanced details.
+
+116
+00:07:31,230 --> 00:07:33,840
+Commit the end user data.
+
+117
+00:07:34,470 --> 00:07:36,560
+Okay, let's get out Jenkins user data script.
+
+118
+00:07:36,570 --> 00:07:39,300
+So let's click on Jenkins set up data search.
+
+119
+00:07:39,810 --> 00:07:40,350
+Copy this.
+
+120
+00:07:40,350 --> 00:07:42,840
+Make sure you copy the first line as well.
+
+121
+00:07:43,200 --> 00:07:46,920
+Many people will miss it and then the script won't run.
+
+122
+00:07:52,770 --> 00:07:53,020
+Yeah.
+
+123
+00:07:53,100 --> 00:07:57,330
+Very validate once again if the script is correct and say launch instance.
+
+124
+00:07:59,230 --> 00:08:02,650
+In similar fashion will launch Nexus and Cylinder Cube as well.
+
+125
+00:08:04,240 --> 00:08:06,860
+Refresh gets coming up.
+
+126
+00:08:06,870 --> 00:08:08,220
+Let's launch nexus now.
+
+127
+00:08:08,220 --> 00:08:09,480
+Launch instance.
+
+128
+00:08:10,790 --> 00:08:12,020
+Nexus server.
+
+129
+00:08:13,070 --> 00:08:17,660
+And why you have to go on this one for Amazon Linux two, it's already selected here.
+
+130
+00:08:17,660 --> 00:08:19,850
+Amazon Linux Amazon Linux two.
+
+131
+00:08:20,970 --> 00:08:22,620
+Come down instance type.
+
+132
+00:08:22,620 --> 00:08:25,560
+This one is going to be PT two medium.
+
+133
+00:08:27,180 --> 00:08:27,990
+Come down.
+
+134
+00:08:28,520 --> 00:08:29,610
+Sam, keep your.
+
+135
+00:08:31,110 --> 00:08:32,159
+Security group.
+
+136
+00:08:32,760 --> 00:08:33,570
+This is next.
+
+137
+00:08:33,669 --> 00:08:35,850
+So selected the next security group.
+
+138
+00:08:37,409 --> 00:08:39,780
+Advanced details come down.
+
+139
+00:08:40,520 --> 00:08:41,840
+Let's get our script.
+
+140
+00:08:47,000 --> 00:08:48,740
+Next set of data such.
+
+141
+00:08:49,630 --> 00:08:50,530
+Copy it.
+
+142
+00:09:02,360 --> 00:09:03,440
+Launch instance.
+
+143
+00:09:06,200 --> 00:09:07,820
+View all instances.
+
+144
+00:09:07,850 --> 00:09:11,450
+Let's refresh this as an exercise is coming up.
+
+145
+00:09:11,870 --> 00:09:12,770
+Last one.
+
+146
+00:09:14,050 --> 00:09:15,010
+Sonar.
+
+147
+00:09:18,200 --> 00:09:19,940
+So on the server open to.
+
+148
+00:09:20,930 --> 00:09:23,620
+And go with open to 18.
+
+149
+00:09:23,630 --> 00:09:24,480
+Scroll down.
+
+150
+00:09:24,500 --> 00:09:24,870
+Oops.
+
+151
+00:09:24,890 --> 00:09:25,760
+Not here.
+
+152
+00:09:27,720 --> 00:09:29,550
+They're open to server 18.
+
+153
+00:09:31,180 --> 00:09:31,480
+Again.
+
+154
+00:09:31,480 --> 00:09:34,330
+Make sure you selected the free tier eligible EMI.
+
+155
+00:09:36,560 --> 00:09:37,790
+Instance type.
+
+156
+00:09:38,780 --> 00:09:39,910
+Two medium.
+
+157
+00:09:43,270 --> 00:09:44,350
+Same keeper.
+
+158
+00:09:45,840 --> 00:09:46,920
+Security group.
+
+159
+00:09:47,810 --> 00:09:48,710
+This is sonar.
+
+160
+00:09:48,710 --> 00:09:50,600
+So select the sonar security group.
+
+161
+00:09:52,510 --> 00:09:53,830
+Advanced details.
+
+162
+00:09:56,300 --> 00:09:57,980
+Let's get the Sooners script.
+
+163
+00:10:10,490 --> 00:10:11,720
+Launch instance.
+
+164
+00:10:18,350 --> 00:10:18,620
+Okay.
+
+165
+00:10:18,620 --> 00:10:23,510
+Now wait for like five, 10 minutes, and then we will start validating our services.
+
+166
+00:10:24,930 --> 00:10:26,400
+So take a break for five, 10 minutes.
+
+167
+00:10:26,400 --> 00:10:28,260
+Come back and join the next lecture.
+

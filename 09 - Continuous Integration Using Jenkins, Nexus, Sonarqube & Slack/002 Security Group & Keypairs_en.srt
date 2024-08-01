@@ -1,0 +1,440 @@
+1
+00:00:00,630 --> 00:00:00,900
+Okay.
+
+2
+00:00:00,900 --> 00:00:02,760
+I have logged into my account.
+
+3
+00:00:02,760 --> 00:00:05,090
+I'm in North California region.
+
+4
+00:00:05,100 --> 00:00:07,560
+You can be in any region of your choice.
+
+5
+00:00:08,220 --> 00:00:12,890
+Let's go to keepers first and we'll create a key pair.
+
+6
+00:00:12,900 --> 00:00:19,410
+We'll just have one key to log into all our three instances and we will name it as we profile hyphen
+
+7
+00:00:19,410 --> 00:00:20,700
+see hyphen key.
+
+8
+00:00:20,700 --> 00:00:26,940
+I will keep it as PEM format because I will be using git bash or a terminal to log into my instance.
+
+9
+00:00:26,940 --> 00:00:27,960
+So PEM file.
+
+10
+00:00:28,350 --> 00:00:31,590
+If you plan to use putty then you can use PCA as well.
+
+11
+00:00:31,800 --> 00:00:32,610
+But let's keep it.
+
+12
+00:00:32,610 --> 00:00:33,450
+Pem create.
+
+13
+00:00:33,450 --> 00:00:34,170
+Keep it.
+
+14
+00:00:36,070 --> 00:00:38,380
+Saving it in the downloads directory.
+
+15
+00:00:39,490 --> 00:00:42,460
+Now let's create the security group for our 3c2 instance.
+
+16
+00:00:42,460 --> 00:00:44,170
+So let's go to security groups.
+
+17
+00:00:47,190 --> 00:00:49,800
+First, let's create for Jenkins Create Security Group.
+
+18
+00:00:50,790 --> 00:00:54,060
+Let's name it as Jenkins hyphen SG.
+
+19
+00:00:55,410 --> 00:00:57,060
+Add in inbound rule.
+
+20
+00:00:58,160 --> 00:01:02,100
+Now there are many people who make mistakes in and edit the outbound rules.
+
+21
+00:01:02,120 --> 00:01:03,560
+Please do not do it.
+
+22
+00:01:03,590 --> 00:01:06,330
+Only in bound rule we will say.
+
+23
+00:01:06,350 --> 00:01:10,790
+Port 22 allowed from my IP so I can do a search.
+
+24
+00:01:11,420 --> 00:01:20,900
+And then we will see port 88 of the Jenkins allowed from any IPv4 and 8080.
+
+25
+00:01:22,220 --> 00:01:25,550
+Once again allowed from any IPV six.
+
+26
+00:01:26,940 --> 00:01:34,290
+Now generally I'll say it aloud from my IP, but we will be creating a GitHub webhook where GitHub will
+
+27
+00:01:34,290 --> 00:01:37,350
+be connecting to Jenkins from the internet.
+
+28
+00:01:37,620 --> 00:01:40,430
+So we are just saying it's allowed ADAT from anywhere.
+
+29
+00:01:40,440 --> 00:01:43,700
+So GitHub can connect to Jenkins on Port 88.
+
+30
+00:01:44,490 --> 00:01:47,570
+If we have to update a few more rules here, we'll come back in a moment.
+
+31
+00:01:47,580 --> 00:01:55,110
+Let's first create this security group ops description, give some description and let's see, create
+
+32
+00:01:55,110 --> 00:01:56,010
+security group.
+
+33
+00:01:57,410 --> 00:01:57,730
+Okay.
+
+34
+00:01:57,740 --> 00:01:59,810
+Next one will create for nexus.
+
+35
+00:01:59,810 --> 00:02:03,110
+So create security group will call it as.
+
+36
+00:02:04,070 --> 00:02:12,080
+Nexus g c in the description inbound rule 22 allowed from my IP.
+
+37
+00:02:13,250 --> 00:02:19,970
+Again so I can do search and port 8081 allowed from my IP.
+
+38
+00:02:20,420 --> 00:02:24,050
+Now nexus again is a web service will be listing on port 8081.
+
+39
+00:02:24,050 --> 00:02:28,610
+We access it from the browser and we will access nexus on port 88 one.
+
+40
+00:02:28,610 --> 00:02:29,870
+So I set my IP.
+
+41
+00:02:29,900 --> 00:02:31,670
+One more rule we have to give here.
+
+42
+00:02:31,700 --> 00:02:35,860
+Port 8081 from the Jenkins Security Group.
+
+43
+00:02:35,870 --> 00:02:39,500
+So just type SVG or you can just search for Jenkins.
+
+44
+00:02:39,500 --> 00:02:42,890
+You find your Jenkins security group and you add it.
+
+45
+00:02:44,620 --> 00:02:49,240
+Now this rule so Jenkins can upload artifact to the Nexus server.
+
+46
+00:02:50,190 --> 00:02:55,620
+And also it will be downloading dependency from the access server so that rule and see create security
+
+47
+00:02:55,620 --> 00:02:56,190
+group.
+
+48
+00:02:57,310 --> 00:02:57,760
+Okay.
+
+49
+00:02:58,550 --> 00:03:02,330
+Last security group sonar creates security group.
+
+50
+00:03:02,330 --> 00:03:03,290
+We'll call it as.
+
+51
+00:03:04,020 --> 00:03:05,250
+So on RSG.
+
+52
+00:03:05,980 --> 00:03:07,060
+Inbound rule.
+
+53
+00:03:08,090 --> 00:03:14,390
+Once again 22 from my IP so we can as such, we really don't need to do a search to sonar server in
+
+54
+00:03:14,390 --> 00:03:15,230
+this project.
+
+55
+00:03:15,350 --> 00:03:17,210
+But just in case, if you want to.
+
+56
+00:03:19,350 --> 00:03:22,350
+Now sonar cube service port number is 9000.
+
+57
+00:03:22,530 --> 00:03:27,750
+But we are setting up a Nexis service also in the sonar cube server, which will listen on Port 80.
+
+58
+00:03:27,960 --> 00:03:32,130
+So we'll see Port 80 allowed from my IP.
+
+59
+00:03:32,730 --> 00:03:37,770
+Also Port 80 allowed from the Jenkins Security Group.
+
+60
+00:03:37,770 --> 00:03:41,070
+So SG select Jenkins Security Group.
+
+61
+00:03:42,080 --> 00:03:48,600
+Now Jenkins will be uploading the test result to the cube server and it connects on the spot.
+
+62
+00:03:49,430 --> 00:03:51,470
+At least that's what we are going to configure.
+
+63
+00:03:51,950 --> 00:03:53,630
+Okay, let's create this.
+
+64
+00:03:56,370 --> 00:03:56,470
+Okay.
+
+65
+00:03:56,550 --> 00:03:58,380
+So all three security groups are created.
+
+66
+00:03:58,380 --> 00:04:02,100
+But there's one more entry we need to make in Jenkins Security Group.
+
+67
+00:04:03,210 --> 00:04:04,290
+In Bound Rule.
+
+68
+00:04:05,160 --> 00:04:07,740
+Edit This is the Jenkins Security Group.
+
+69
+00:04:07,900 --> 00:04:08,460
+Edit.
+
+70
+00:04:10,060 --> 00:04:15,190
+Now we said Jenkins will be connecting to smaller cube server, but sooner Cube Server will be also
+
+71
+00:04:15,190 --> 00:04:19,300
+sending a report or a result back to Jenkins.
+
+72
+00:04:19,300 --> 00:04:23,950
+And within when it is connecting back to Jenkins, it will connect it on Port 88.
+
+73
+00:04:23,980 --> 00:04:26,200
+Now we can give this rule port 88.
+
+74
+00:04:27,080 --> 00:04:29,210
+And we can select Jenkins Security Group.
+
+75
+00:04:29,850 --> 00:04:30,050
+Oops.
+
+76
+00:04:30,050 --> 00:04:30,620
+Sorry.
+
+77
+00:04:30,830 --> 00:04:31,610
+Jenkins.
+
+78
+00:04:31,820 --> 00:04:33,410
+So on cube security group.
+
+79
+00:04:34,250 --> 00:04:37,400
+But anyways, port 88 is open for anywhere.
+
+80
+00:04:37,970 --> 00:04:38,270
+So.
+
+81
+00:04:38,270 --> 00:04:41,810
+So the cube server can connect to Jenkins on port 81.
+
+82
+00:04:41,810 --> 00:04:43,510
+Sorry, port 8080.
+
+83
+00:04:44,030 --> 00:04:45,820
+Then why I am adding this rule.
+
+84
+00:04:45,830 --> 00:04:51,170
+This is for your understanding if you have a restricted connection.
+
+85
+00:04:51,200 --> 00:04:53,330
+Port 88 from my IP.
+
+86
+00:04:53,810 --> 00:04:58,300
+In such case, if sonar wants to connect to Jenkins, then you need to add this rule.
+
+87
+00:04:58,310 --> 00:05:01,220
+Port 88 allowed from Sonar Security Group.
+
+88
+00:05:02,080 --> 00:05:03,340
+So let's see this.
+
+89
+00:05:04,610 --> 00:05:11,740
+Now, if you're not so good with a and security group and you just want to anyways do the project,
+
+90
+00:05:11,750 --> 00:05:18,590
+what you can do is in all the port numbers that I have given, just give it from anywhere port 22 from
+
+91
+00:05:18,590 --> 00:05:19,160
+anywhere.
+
+92
+00:05:19,160 --> 00:05:20,720
+Port 88 from anywhere.
+
+93
+00:05:20,720 --> 00:05:22,490
+Port 80, 81 from anywhere.
+
+94
+00:05:23,300 --> 00:05:28,850
+It's not good from a security point of view, but if you still want to continue with the project, then
+
+95
+00:05:28,850 --> 00:05:29,810
+you can do that.
+
+96
+00:05:31,450 --> 00:05:32,200
+One more thing.
+
+97
+00:05:32,200 --> 00:05:38,860
+If you take more than one day to complete this project and you have a broadband Internet connection,
+
+98
+00:05:38,860 --> 00:05:44,130
+which most of the people are using, so your public IP will change.
+
+99
+00:05:44,140 --> 00:05:47,500
+So you have given here in the rules.
+
+100
+00:05:48,610 --> 00:05:52,450
+Bought 22 allowed from my IP, but tomorrow your IP will be different.
+
+101
+00:05:52,450 --> 00:05:55,060
+So you need to come back to the security group.
+
+102
+00:05:55,060 --> 00:05:57,490
+You have to say 22 all out from my IP.
+
+103
+00:05:57,490 --> 00:06:02,410
+Wherever you have my IP, you just select and you just do it once again and you save it.
+
+104
+00:06:02,770 --> 00:06:04,450
+Also, you can just do a Google search.
+
+105
+00:06:04,450 --> 00:06:05,740
+What is my IP?
+
+106
+00:06:06,040 --> 00:06:09,790
+Find your public IP and you can add that IP also here.
+
+107
+00:06:12,910 --> 00:06:13,210
+All right.
+
+108
+00:06:13,210 --> 00:06:19,000
+So if you need a grasp of the understanding or you need to grasp what I suggest I did once again, rewind
+
+109
+00:06:19,000 --> 00:06:26,620
+the video, watch it once again, and make sure you get or understand all these rules and then wrap
+
+110
+00:06:26,620 --> 00:06:28,330
+this up and join me in the next lecture.
+

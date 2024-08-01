@@ -1,0 +1,984 @@
+1
+00:00:00,660 --> 00:00:01,320
+All right.
+
+2
+00:00:02,130 --> 00:00:07,710
+So we see our pipeline, we have you stage, we have build test external analysis.
+
+3
+00:00:07,830 --> 00:00:09,390
+So it's building the artifact.
+
+4
+00:00:09,390 --> 00:00:11,160
+We have seen that in the workspace.
+
+5
+00:00:11,580 --> 00:00:15,510
+It's running test unit test which generates reports.
+
+6
+00:00:15,540 --> 00:00:18,960
+It's doing checks to the analysis which also generate reports.
+
+7
+00:00:18,960 --> 00:00:20,640
+Let's see that in the workspace.
+
+8
+00:00:20,640 --> 00:00:21,660
+Let's go to the job.
+
+9
+00:00:21,660 --> 00:00:25,170
+Number five, build ID workspaces.
+
+10
+00:00:26,470 --> 00:00:30,110
+You click on this and let's go to the target.
+
+11
+00:00:31,610 --> 00:00:37,020
+So there you have textile result data XML and then you also have sure file reports.
+
+12
+00:00:37,040 --> 00:00:40,730
+Now these are not really human readable reports.
+
+13
+00:00:41,270 --> 00:00:48,710
+We need some tool that can store this, analyze it and present it in a proper human readable format.
+
+14
+00:00:48,710 --> 00:00:57,050
+And that is Soner Kube server a dashboard for your code analysis and your unit test results we have
+
+15
+00:00:57,050 --> 00:01:00,440
+set up, so our cube server might be tested.
+
+16
+00:01:00,440 --> 00:01:01,520
+We logged in and we tested.
+
+17
+00:01:01,520 --> 00:01:06,740
+It's working fine now we need to write the code so it scans.
+
+18
+00:01:07,620 --> 00:01:12,840
+The code, generate reports and upload it to the Sona Cube server.
+
+19
+00:01:13,640 --> 00:01:16,700
+And in order to do that, we need two things in Jenkins.
+
+20
+00:01:16,700 --> 00:01:23,270
+One, we need a sonar scanner tool like we have MAVEN tool, get tool, JDK tool.
+
+21
+00:01:23,480 --> 00:01:26,810
+We need a sonar scanner tool which will scan the code.
+
+22
+00:01:27,170 --> 00:01:33,890
+And second, we need the sonar cube server information in Jenkins so Jenkins will know where to upload.
+
+23
+00:01:34,250 --> 00:01:37,010
+So let's go to Dashboard.
+
+24
+00:01:37,820 --> 00:01:39,230
+Manny Jenkins.
+
+25
+00:01:39,380 --> 00:01:43,220
+First, we will set up the sonar scanner tool.
+
+26
+00:01:43,230 --> 00:01:45,770
+So let's go to Global Tool Configuration.
+
+27
+00:01:45,800 --> 00:01:46,910
+It's pretty simple.
+
+28
+00:01:47,240 --> 00:01:48,470
+Just select the tool.
+
+29
+00:01:49,850 --> 00:01:52,040
+Scroll down sooner Kub scanner.
+
+30
+00:01:52,040 --> 00:01:54,470
+There you see Arizona Kub scanner.
+
+31
+00:01:55,440 --> 00:01:56,310
+Give you a name.
+
+32
+00:01:56,910 --> 00:02:00,200
+I'm giving sonar scanner again for simplicity.
+
+33
+00:02:00,210 --> 00:02:04,980
+You also give the same name because this is the name we'll be using in our code, that's all.
+
+34
+00:02:04,980 --> 00:02:07,920
+It's just like adding Maven tool save.
+
+35
+00:02:10,500 --> 00:02:12,060
+Go to configure system.
+
+36
+00:02:12,060 --> 00:02:15,840
+Now we need to store the server cube server information in Jenkins.
+
+37
+00:02:16,080 --> 00:02:17,850
+So go to configure system.
+
+38
+00:02:18,690 --> 00:02:21,210
+Scroll down, find the sooner section.
+
+39
+00:02:22,460 --> 00:02:26,060
+Their sonar cube server environment say add sonar cube.
+
+40
+00:02:26,510 --> 00:02:27,920
+Put this checkmark here.
+
+41
+00:02:28,580 --> 00:02:32,030
+We will limit as sooner server.
+
+42
+00:02:32,910 --> 00:02:34,200
+And the sooner you are.
+
+43
+00:02:34,350 --> 00:02:39,330
+HTTP, colon, slash, slash, and the private IP of the server.
+
+44
+00:02:39,780 --> 00:02:42,240
+Let's go to s two instances.
+
+45
+00:02:42,540 --> 00:02:43,830
+So in our server.
+
+46
+00:02:48,180 --> 00:02:51,180
+Now if you're doing this project for multiple days.
+
+47
+00:02:52,070 --> 00:02:55,670
+Then you would have already understood the benefit of using private IP.
+
+48
+00:02:55,700 --> 00:02:59,380
+Yeah, security is one, but the second one is private IP static.
+
+49
+00:02:59,390 --> 00:03:00,500
+It does not change.
+
+50
+00:03:00,500 --> 00:03:02,150
+So we power off.
+
+51
+00:03:02,150 --> 00:03:03,890
+For instance, power on.
+
+52
+00:03:03,890 --> 00:03:06,350
+We don't need to make changes to the IP addresses.
+
+53
+00:03:06,680 --> 00:03:11,330
+Okay, come down and you'll have one problem here when you click on credential.
+
+54
+00:03:11,330 --> 00:03:18,420
+So server authentication token, you need to store the Sonner token here and we'll generate this owner
+
+55
+00:03:18,440 --> 00:03:20,930
+token first let's go to projects.
+
+56
+00:03:21,200 --> 00:03:22,630
+Sorry, go to Sona.
+
+57
+00:03:22,640 --> 00:03:32,270
+Q So on the server dashboard, log in, click on this administrator here and go to my account.
+
+58
+00:03:33,890 --> 00:03:34,970
+Security.
+
+59
+00:03:37,020 --> 00:03:41,460
+Give it a name in the generate tokens and say generate.
+
+60
+00:03:42,240 --> 00:03:43,650
+Now this is for the authentication.
+
+61
+00:03:43,650 --> 00:03:48,030
+How does Jenkins authenticate to owner cube server that will be with this token?
+
+62
+00:03:48,030 --> 00:03:49,680
+So copy this token.
+
+63
+00:03:49,680 --> 00:03:52,290
+Make sure you store it temporarily somewhere.
+
+64
+00:03:53,360 --> 00:03:55,310
+I do it on the sticky note.
+
+65
+00:03:57,880 --> 00:03:58,090
+Okay.
+
+66
+00:03:58,120 --> 00:03:59,440
+So that was our token.
+
+67
+00:04:00,710 --> 00:04:05,570
+And yeah, so the problem was talking about right when you click on try, try to click on add here.
+
+68
+00:04:05,570 --> 00:04:08,300
+To add the token, it doesn't do anything.
+
+69
+00:04:08,540 --> 00:04:11,300
+That's one problem that's been there from a long time.
+
+70
+00:04:12,200 --> 00:04:15,200
+So all you need to do is just save this.
+
+71
+00:04:16,269 --> 00:04:18,360
+And come back once again.
+
+72
+00:04:18,370 --> 00:04:21,490
+Go to Manny Jenkins configure system.
+
+73
+00:04:25,020 --> 00:04:29,580
+Come down, find your sonar section, and now you click on ADD.
+
+74
+00:04:29,610 --> 00:04:30,600
+See, that appears.
+
+75
+00:04:30,600 --> 00:04:32,160
+Click on that Jenkins here.
+
+76
+00:04:34,000 --> 00:04:35,120
+And kind.
+
+77
+00:04:35,140 --> 00:04:36,040
+Select.
+
+78
+00:04:36,580 --> 00:04:38,350
+Secret text.
+
+79
+00:04:38,380 --> 00:04:40,720
+We are just going to store the token in the text.
+
+80
+00:04:41,920 --> 00:04:42,550
+Secret.
+
+81
+00:04:42,550 --> 00:04:44,740
+Paste the secret here the token.
+
+82
+00:04:45,460 --> 00:04:46,560
+I'll just give a name.
+
+83
+00:04:46,680 --> 00:04:48,170
+I'll just say the token.
+
+84
+00:04:48,470 --> 00:04:51,140
+So not token and say add.
+
+85
+00:04:52,460 --> 00:04:54,860
+And make sure you select the token.
+
+86
+00:04:55,910 --> 00:04:56,030
+Okay.
+
+87
+00:04:56,170 --> 00:04:57,120
+That should be selected.
+
+88
+00:04:57,130 --> 00:04:59,650
+Otherwise you'll have authentication problem.
+
+89
+00:05:01,560 --> 00:05:01,950
+Yeah.
+
+90
+00:05:01,950 --> 00:05:02,620
+Here the you are.
+
+91
+00:05:02,760 --> 00:05:08,800
+You don't need to give Colon 9000 because as I have told you previously, while we are setting up the
+
+92
+00:05:08,820 --> 00:05:12,480
+queue, we are running engine service in that that runs on port eight.
+
+93
+00:05:12,510 --> 00:05:14,430
+We are directly accessing it on Port eight.
+
+94
+00:05:14,460 --> 00:05:15,930
+We're not giving any port here.
+
+95
+00:05:16,700 --> 00:05:20,120
+So just give the private IP that is it save.
+
+96
+00:05:22,760 --> 00:05:22,970
+Okay.
+
+97
+00:05:22,970 --> 00:05:25,370
+So that was the setup.
+
+98
+00:05:25,550 --> 00:05:32,690
+Now you're going to write the code that is going to upload all the reports to the owner cube server.
+
+99
+00:05:35,580 --> 00:05:38,810
+And this can get slightly confusing or complicated.
+
+100
+00:05:38,820 --> 00:05:39,720
+But don't worry.
+
+101
+00:05:39,720 --> 00:05:41,730
+I'm going to show you the documentation.
+
+102
+00:05:43,400 --> 00:05:43,580
+Okay.
+
+103
+00:05:43,670 --> 00:05:46,400
+So I did a simple Google sonar scanner for Jenkins.
+
+104
+00:05:46,400 --> 00:05:48,860
+I'll put the URL in the resources.
+
+105
+00:05:49,220 --> 00:05:51,060
+So sonar scanner for Jenkins.
+
+106
+00:05:51,060 --> 00:05:52,070
+That's the first link.
+
+107
+00:05:52,070 --> 00:05:53,000
+Click on that.
+
+108
+00:05:54,310 --> 00:05:56,950
+So we have installed sonar plugin.
+
+109
+00:05:57,190 --> 00:06:00,070
+That's how we are able to add the sonar information in Jenkins.
+
+110
+00:06:00,070 --> 00:06:01,330
+But about the code.
+
+111
+00:06:02,320 --> 00:06:04,090
+We check from the documentation.
+
+112
+00:06:07,260 --> 00:06:07,620
+Okay.
+
+113
+00:06:07,650 --> 00:06:09,030
+That's the one, the simplest one.
+
+114
+00:06:09,030 --> 00:06:10,260
+Let me zoom this one.
+
+115
+00:06:12,200 --> 00:06:16,820
+So this is what you need to put in your pipeline with solar cube environment and you need to give the
+
+116
+00:06:16,820 --> 00:06:17,900
+environment name.
+
+117
+00:06:18,080 --> 00:06:22,510
+Now, this is the sonar scanner name that we have given in Jenkins.
+
+118
+00:06:22,520 --> 00:06:23,360
+Let me show you.
+
+119
+00:06:24,080 --> 00:06:27,260
+We go to Manager Jenkins, configure system.
+
+120
+00:06:27,650 --> 00:06:28,070
+All right.
+
+121
+00:06:28,070 --> 00:06:33,590
+In the solar cube section here, we have given SONA server, so that is basically the environment name.
+
+122
+00:06:34,740 --> 00:06:35,090
+Right.
+
+123
+00:06:35,090 --> 00:06:36,890
+And you can pursue that argument here.
+
+124
+00:06:36,890 --> 00:06:41,990
+And between this curly braces, you can give the options.
+
+125
+00:06:41,990 --> 00:06:44,180
+We'll see what options we'll be giving.
+
+126
+00:06:44,790 --> 00:06:44,890
+Right.
+
+127
+00:06:45,020 --> 00:06:47,850
+So you can go through this documentation, see.
+
+128
+00:06:47,900 --> 00:06:48,130
+All right.
+
+129
+00:06:48,170 --> 00:06:51,140
+One more example here is Shell Command.
+
+130
+00:06:51,140 --> 00:06:52,910
+So on the scanner home.
+
+131
+00:06:54,420 --> 00:06:58,050
+There's basically the tool, the sonar scanner tool that we added in.
+
+132
+00:06:58,440 --> 00:06:59,580
+Jenkins Right.
+
+133
+00:06:59,580 --> 00:07:06,110
+So with that tool that basically runs the scanning on the code, you can pass more options with that.
+
+134
+00:07:06,120 --> 00:07:10,890
+We have many more options to pass because we have to upload the unit test results, we have to upload
+
+135
+00:07:10,890 --> 00:07:13,140
+the check style result and few other things.
+
+136
+00:07:13,510 --> 00:07:13,690
+All right.
+
+137
+00:07:13,710 --> 00:07:19,830
+So you can scan with the sonar scanner, you can scan with Gradle, you can scan with Maven.
+
+138
+00:07:19,830 --> 00:07:24,900
+You see that Maven also has a plugin to scan the code with Sonar Cube.
+
+139
+00:07:25,530 --> 00:07:27,030
+All right, so take your time.
+
+140
+00:07:27,030 --> 00:07:33,120
+Go through this in real time like this, you need to find the documentation for your plug in and put
+
+141
+00:07:33,120 --> 00:07:34,200
+that in your code.
+
+142
+00:07:34,770 --> 00:07:35,190
+Yes.
+
+143
+00:07:35,190 --> 00:07:39,300
+You do not need to by heart this this is not at all required.
+
+144
+00:07:39,300 --> 00:07:42,000
+There's documentation everywhere nowadays.
+
+145
+00:07:43,570 --> 00:07:43,810
+Okay.
+
+146
+00:07:43,810 --> 00:07:46,600
+So we'll also do the similar thing with a few more options.
+
+147
+00:07:46,600 --> 00:07:47,590
+I'll show you that.
+
+148
+00:07:47,590 --> 00:07:49,420
+Let's go to VS Code.
+
+149
+00:07:50,360 --> 00:07:50,870
+Faust.
+
+150
+00:07:50,870 --> 00:07:54,070
+We will put some variables here that we'll be using in our code.
+
+151
+00:07:54,080 --> 00:08:00,260
+So sonar server equal to sonar server.
+
+152
+00:08:00,260 --> 00:08:02,390
+This is the sonar server environment name.
+
+153
+00:08:02,390 --> 00:08:07,430
+We're storing it as a variable sonar scanner.
+
+154
+00:08:08,230 --> 00:08:10,660
+That's the sooner scanner name that we have given.
+
+155
+00:08:10,660 --> 00:08:12,340
+So on the scanner, yeah.
+
+156
+00:08:12,820 --> 00:08:15,340
+If you're given a different name in Jenkins, then this.
+
+157
+00:08:15,340 --> 00:08:17,140
+Make sure you put it.
+
+158
+00:08:17,470 --> 00:08:18,910
+Let me check that once again.
+
+159
+00:08:19,960 --> 00:08:20,800
+That's so sad.
+
+160
+00:08:20,870 --> 00:08:21,910
+Well, that is correct.
+
+161
+00:08:23,030 --> 00:08:24,830
+Global tool configuration.
+
+162
+00:08:26,100 --> 00:08:27,660
+So in the scanner.
+
+163
+00:08:28,500 --> 00:08:28,800
+Yeah.
+
+164
+00:08:28,830 --> 00:08:30,180
+That's the name for the tool.
+
+165
+00:08:30,630 --> 00:08:34,919
+So upfront I created two variables for it, so I don't need to update my code later.
+
+166
+00:08:36,100 --> 00:08:36,360
+Okay.
+
+167
+00:08:36,370 --> 00:08:37,450
+Let's come down.
+
+168
+00:08:38,110 --> 00:08:39,700
+So it's going to be another stage.
+
+169
+00:08:39,850 --> 00:08:41,559
+And that's this.
+
+170
+00:08:41,950 --> 00:08:42,179
+I know.
+
+171
+00:08:42,190 --> 00:08:43,000
+It's pretty simple.
+
+172
+00:08:43,000 --> 00:08:43,600
+Don't worry.
+
+173
+00:08:44,080 --> 00:08:46,000
+Stage so analysis.
+
+174
+00:08:46,000 --> 00:08:47,110
+Environment.
+
+175
+00:08:47,500 --> 00:08:48,790
+So environment variable.
+
+176
+00:08:48,790 --> 00:08:54,340
+We're giving sonar scanner home and the tooling, that's the variable.
+
+177
+00:08:54,670 --> 00:08:59,770
+So that global variable we are storing into this local variable or you can directly give the global
+
+178
+00:08:59,770 --> 00:09:00,850
+variable name here.
+
+179
+00:09:01,760 --> 00:09:04,940
+So stage, it has a variable with environment.
+
+180
+00:09:05,540 --> 00:09:09,950
+We mentioned the variable steps and this is where we give the code.
+
+181
+00:09:10,850 --> 00:09:17,360
+So under Cuba environment and that's the variable which has the environment name and we are running
+
+182
+00:09:17,360 --> 00:09:22,880
+sonar scanner tool and passing here multiple options.
+
+183
+00:09:24,310 --> 00:09:27,550
+Just like we give options or argument in maven similar to that.
+
+184
+00:09:28,270 --> 00:09:31,000
+Let's see sona dot project key v profile.
+
+185
+00:09:31,000 --> 00:09:38,980
+That's going to be the project key name then project name v profile project version 1.0 source.
+
+186
+00:09:38,980 --> 00:09:43,630
+What will be the source code that it needs to scan so CRC slash.
+
+187
+00:09:44,020 --> 00:09:47,260
+Now that is the directory or folder in our source code.
+
+188
+00:09:47,650 --> 00:09:48,520
+Let's see that.
+
+189
+00:09:49,110 --> 00:09:49,240
+Right.
+
+190
+00:09:49,240 --> 00:09:51,040
+So it fetches this repository.
+
+191
+00:09:51,040 --> 00:09:51,220
+Right.
+
+192
+00:09:51,220 --> 00:09:52,780
+It has a CRC directory.
+
+193
+00:09:53,470 --> 00:09:56,230
+So this is the directory that it is going to scan.
+
+194
+00:09:57,610 --> 00:10:00,070
+That's what I meant by sooner dot sources.
+
+195
+00:10:00,220 --> 00:10:01,300
+Z slash.
+
+196
+00:10:01,870 --> 00:10:04,240
+That's the Java binary part.
+
+197
+00:10:05,370 --> 00:10:09,010
+This is all in the workspace reports part.
+
+198
+00:10:09,030 --> 00:10:10,230
+This is a unit test report.
+
+199
+00:10:10,230 --> 00:10:10,650
+Target.
+
+200
+00:10:11,010 --> 00:10:11,230
+Sure.
+
+201
+00:10:11,280 --> 00:10:12,360
+Fire reports.
+
+202
+00:10:13,860 --> 00:10:14,670
+One more report.
+
+203
+00:10:14,670 --> 00:10:18,510
+Spa exec checks style reports bath.
+
+204
+00:10:19,610 --> 00:10:21,890
+And if you're wondering, what are these names?
+
+205
+00:10:22,040 --> 00:10:23,210
+How did I get it?
+
+206
+00:10:23,360 --> 00:10:29,100
+All I got from the documentation like that, you can pass many parameters to the scanner scanner.
+
+207
+00:10:29,120 --> 00:10:31,330
+So this basically scans our code.
+
+208
+00:10:31,940 --> 00:10:37,160
+Take all the reports and upload it to this Cerner server environment, which is stored in Jenkins.
+
+209
+00:10:37,730 --> 00:10:39,590
+Once again, take a look at all the arguments.
+
+210
+00:10:39,590 --> 00:10:41,120
+That's the project key name.
+
+211
+00:10:41,120 --> 00:10:42,690
+This is the project name.
+
+212
+00:10:42,710 --> 00:10:50,540
+This will appear in the Scanner Cube server version directly to scan Java Binary Report Part one Ensure
+
+213
+00:10:50,550 --> 00:10:51,290
+for report.
+
+214
+00:10:51,320 --> 00:10:52,700
+Another one is cocoa.
+
+215
+00:10:52,700 --> 00:10:54,710
+And then the check style reports part.
+
+216
+00:10:54,740 --> 00:10:56,000
+We run check style here.
+
+217
+00:10:56,000 --> 00:10:56,420
+Right.
+
+218
+00:10:57,250 --> 00:10:59,650
+So it generates the report at this location.
+
+219
+00:10:59,950 --> 00:11:04,210
+Now we can go to the workspace and check all these files exist in our workspace.
+
+220
+00:11:04,690 --> 00:11:05,670
+Okay, time to test.
+
+221
+00:11:05,680 --> 00:11:07,000
+Let's see if this.
+
+222
+00:11:09,060 --> 00:11:11,760
+And say, go ahead and push.
+
+223
+00:11:15,850 --> 00:11:17,740
+So give a commit message.
+
+224
+00:11:18,460 --> 00:11:21,430
+Put that checkmark save.
+
+225
+00:11:22,910 --> 00:11:23,150
+Okay.
+
+226
+00:11:23,150 --> 00:11:24,890
+Let's go to Jenkins and check.
+
+227
+00:11:31,560 --> 00:11:33,390
+Job number six started.
+
+228
+00:11:36,490 --> 00:11:36,650
+Okay.
+
+229
+00:11:36,800 --> 00:11:37,750
+Scroll down.
+
+230
+00:11:42,360 --> 00:11:42,500
+Okay.
+
+231
+00:11:42,600 --> 00:11:46,560
+We see a success here and you see it is an analysis successful.
+
+232
+00:11:46,560 --> 00:11:50,220
+You can browse it from this URL, but we know that's that's the private IP.
+
+233
+00:11:50,220 --> 00:11:56,580
+We won't be able to check from there directly go to the owner cube server projects.
+
+234
+00:11:57,840 --> 00:12:04,740
+And there you see that we profile it has 32 bugs, zero vulnerability, 138 code smells.
+
+235
+00:12:05,230 --> 00:12:07,020
+Now I'm not getting into this.
+
+236
+00:12:07,020 --> 00:12:10,170
+I just want you to upload the result here and check for the quality.
+
+237
+00:12:10,830 --> 00:12:12,360
+And it seems quality is parsed.
+
+238
+00:12:12,360 --> 00:12:15,690
+Everything is good because it has its own quality.
+
+239
+00:12:15,690 --> 00:12:19,680
+GATES And if you come to Jenkins here.
+
+240
+00:12:21,040 --> 00:12:24,340
+All right, so go to the job, scroll down and you'll see sonar.
+
+241
+00:12:24,880 --> 00:12:29,700
+Sonar cue quality get passed for the profile project.
+
+242
+00:12:29,710 --> 00:12:34,780
+Now this is because it is using default quality gate and as per it, everything is good but.
+
+243
+00:12:35,790 --> 00:12:40,950
+You may have certain rules for your project and you need to create your own quality gates as well.
+
+244
+00:12:41,520 --> 00:12:43,020
+Most of the time it is done.
+
+245
+00:12:43,470 --> 00:12:49,080
+So let's see in the next lecture how we can create our own quality gates and the rule and make sure
+
+246
+00:12:49,080 --> 00:12:53,460
+it fails the pipeline if the gates if the quality is not passed.
+

@@ -1,0 +1,656 @@
+1
+00:00:00,790 --> 00:00:02,290
+GitHub webhook.
+
+2
+00:00:02,800 --> 00:00:07,960
+The concept is pretty simple and the steps are also very, very simple to to do it.
+
+3
+00:00:08,640 --> 00:00:13,290
+So the concept is whenever we make a comment, we are writing our code in verse code.
+
+4
+00:00:13,290 --> 00:00:17,570
+And when we do comment we go to the Jenkins and we click on Build.
+
+5
+00:00:17,580 --> 00:00:22,270
+Now it should run the job automatically whenever there is a change in the code.
+
+6
+00:00:22,290 --> 00:00:24,330
+That's the concept.
+
+7
+00:00:25,610 --> 00:00:26,060
+I'm doing.
+
+8
+00:00:26,060 --> 00:00:27,270
+It is also very simple.
+
+9
+00:00:27,290 --> 00:00:29,150
+Few things you need to take care of.
+
+10
+00:00:29,360 --> 00:00:32,330
+Make sure the Jenkins Security Group.
+
+11
+00:00:34,880 --> 00:00:36,200
+Jenkins Security Group.
+
+12
+00:00:37,790 --> 00:00:46,010
+Allows port 88 from anywhere port 88 from any IPV four, sorry, IPV four and any IPV six.
+
+13
+00:00:46,010 --> 00:00:47,030
+They should be there.
+
+14
+00:00:47,030 --> 00:00:48,620
+If it's already there, you're good.
+
+15
+00:00:51,670 --> 00:00:55,750
+So copy the Earl of Jenkins.
+
+16
+00:00:57,170 --> 00:01:03,500
+Now, if you are going to complete this project today, then only do this.
+
+17
+00:01:03,500 --> 00:01:09,890
+If you're done for today, then pause the video, close everything, shut down everything, and then
+
+18
+00:01:09,890 --> 00:01:11,780
+start from this lecture tomorrow.
+
+19
+00:01:12,600 --> 00:01:13,260
+Why?
+
+20
+00:01:13,290 --> 00:01:19,200
+Well, because the public IP that we are using of Jenkins, we're going to store it in GitHub.
+
+21
+00:01:19,440 --> 00:01:24,090
+And if you shut down Jenkins and power on its public IP will change.
+
+22
+00:01:25,490 --> 00:01:26,750
+I'll show you what I'm telling.
+
+23
+00:01:26,960 --> 00:01:30,650
+So copy the URL and go to your repository.
+
+24
+00:01:32,480 --> 00:01:33,800
+Repository setting.
+
+25
+00:01:33,920 --> 00:01:40,310
+Again, make sure it's your repository, not mine settings, and click on web hooks.
+
+26
+00:01:42,130 --> 00:01:44,530
+And they add a webhook.
+
+27
+00:01:45,770 --> 00:01:49,880
+And you pace the you are here and with this you have to give at the end.
+
+28
+00:01:51,200 --> 00:01:56,720
+GitHub hyphen webhook slash make sure that forward slash at the end that is there.
+
+29
+00:01:56,750 --> 00:02:00,770
+If you don't have that, it will not work just for slash at the end.
+
+30
+00:02:01,190 --> 00:02:06,650
+So I was saying this right, if you power off the easy to instance and you power on again, the IP will
+
+31
+00:02:06,650 --> 00:02:10,340
+change and then you need to come here and update it again.
+
+32
+00:02:11,030 --> 00:02:16,280
+And I know it's pretty simple to make change, but if the webhook doesn't work, you must be wondering
+
+33
+00:02:16,280 --> 00:02:16,910
+what's happening.
+
+34
+00:02:16,910 --> 00:02:18,020
+So that's why I said.
+
+35
+00:02:18,860 --> 00:02:23,210
+If you're starting if you're doing this, make sure you complete the project today.
+
+36
+00:02:24,010 --> 00:02:24,220
+Okay.
+
+37
+00:02:24,230 --> 00:02:26,250
+Content type JSON.
+
+38
+00:02:26,260 --> 00:02:31,640
+Jason, if you're wondering how to do that in real time, it's pretty simple.
+
+39
+00:02:31,670 --> 00:02:37,700
+You use the elastic IP in EC2 or you create a load balancer in front of Jenkins.
+
+40
+00:02:38,000 --> 00:02:42,560
+That's the other way, but elastic IP and load balancer both will not be free.
+
+41
+00:02:42,560 --> 00:02:43,970
+So that's why we are not doing it.
+
+42
+00:02:43,970 --> 00:02:45,170
+We are saving some money.
+
+43
+00:02:45,470 --> 00:02:53,600
+Okay, so whenever there is a commit, it is going to send a JSON payload and keep on saying commit,
+
+44
+00:02:53,600 --> 00:02:53,840
+commit.
+
+45
+00:02:53,840 --> 00:02:56,720
+But you can select different, different events also here.
+
+46
+00:02:56,720 --> 00:02:58,850
+Let me select individual events.
+
+47
+00:02:58,910 --> 00:03:06,620
+You know, if you're creating a new branch or a tag or if you're deploying new keys, there are many
+
+48
+00:03:06,620 --> 00:03:14,150
+actions that if someone forks the repository, there are many actions that gets executed on GitHub repository.
+
+49
+00:03:14,150 --> 00:03:19,970
+Based on your use case, you can select individual events or you can just say no.
+
+50
+00:03:20,000 --> 00:03:23,780
+If whenever there is a push event, just run the webhook.
+
+51
+00:03:24,800 --> 00:03:26,000
+Let's see, add webhook.
+
+52
+00:03:27,570 --> 00:03:27,810
+Okay.
+
+53
+00:03:27,840 --> 00:03:32,280
+Let's click on this and let's look at the recent deliveries.
+
+54
+00:03:33,770 --> 00:03:35,530
+Oh, there's a check mark Green check mark.
+
+55
+00:03:35,540 --> 00:03:36,260
+That is good.
+
+56
+00:03:36,740 --> 00:03:39,350
+It means it is able to deliver this to the Jenkins.
+
+57
+00:03:39,380 --> 00:03:42,410
+Jenkins responded back, No, the job did not get triggered.
+
+58
+00:03:42,410 --> 00:03:43,960
+This is just a test, a ping.
+
+59
+00:03:43,970 --> 00:03:44,600
+You see that?
+
+60
+00:03:44,840 --> 00:03:45,710
+It's kind of a ping.
+
+61
+00:03:45,710 --> 00:03:50,090
+So if it shows Red Cross mark, make sure you check the URL.
+
+62
+00:03:50,120 --> 00:03:51,590
+Make sure you check the IP.
+
+63
+00:03:51,590 --> 00:03:52,640
+It is correct.
+
+64
+00:03:52,670 --> 00:03:56,150
+Make sure Jenkins Security Group allows 88 from anywhere.
+
+65
+00:03:56,600 --> 00:03:58,250
+Once you fix it, you can.
+
+66
+00:03:59,960 --> 00:04:01,020
+Re deliver it.
+
+67
+00:04:01,040 --> 00:04:02,720
+You know, we can test it once again.
+
+68
+00:04:03,070 --> 00:04:03,350
+Right.
+
+69
+00:04:03,350 --> 00:04:04,160
+So that's there.
+
+70
+00:04:04,160 --> 00:04:06,650
+And now we will go to our job.
+
+71
+00:04:07,190 --> 00:04:14,720
+Jenkins job configure and just a simple check mark here git hub hook trigger for git ACM polling.
+
+72
+00:04:14,720 --> 00:04:17,990
+Put this checkmark on and save it.
+
+73
+00:04:18,980 --> 00:04:19,450
+That's it.
+
+74
+00:04:19,459 --> 00:04:20,180
+It's configured.
+
+75
+00:04:20,180 --> 00:04:21,470
+Now it's time to test it.
+
+76
+00:04:21,470 --> 00:04:22,250
+So.
+
+77
+00:04:23,080 --> 00:04:24,190
+Let's go to a code.
+
+78
+00:04:24,580 --> 00:04:25,630
+Jenkins file.
+
+79
+00:04:26,760 --> 00:04:27,000
+Okay.
+
+80
+00:04:27,000 --> 00:04:33,720
+After this step, I'm going to add here one more section post post installation step.
+
+81
+00:04:33,720 --> 00:04:35,220
+Once this is completed, what to do?
+
+82
+00:04:35,220 --> 00:04:36,600
+Well, just print a message.
+
+83
+00:04:36,600 --> 00:04:42,900
+Now, archiving and we are using this archive artifact plugin.
+
+84
+00:04:43,710 --> 00:04:44,620
+Which is already installed.
+
+85
+00:04:44,640 --> 00:04:51,030
+Archive Artifact That's the name of the plugin space artifacts colon and you give the argument this
+
+86
+00:04:51,030 --> 00:04:56,400
+basically tells that archive everything that ends with dot var.
+
+87
+00:04:57,060 --> 00:04:59,130
+Now that's the extension of our artifact.
+
+88
+00:04:59,160 --> 00:05:00,000
+Let me show you.
+
+89
+00:05:01,230 --> 00:05:04,800
+So click on any job that executed successfully.
+
+90
+00:05:05,530 --> 00:05:07,780
+And click here on workspaces.
+
+91
+00:05:09,750 --> 00:05:09,980
+Right.
+
+92
+00:05:10,290 --> 00:05:10,930
+That's the link.
+
+93
+00:05:10,950 --> 00:05:11,880
+Click on that.
+
+94
+00:05:12,840 --> 00:05:13,040
+Okay.
+
+95
+00:05:13,080 --> 00:05:14,670
+So these are all the data.
+
+96
+00:05:14,670 --> 00:05:19,170
+The Jenkins pulls the source code and builds the artifact target.
+
+97
+00:05:19,170 --> 00:05:20,550
+You should have the artifact.
+
+98
+00:05:21,000 --> 00:05:23,160
+We profile hyphen v two dot var.
+
+99
+00:05:23,340 --> 00:05:28,140
+So our command simply says find all the file that ends with dot where and archive it.
+
+100
+00:05:28,320 --> 00:05:31,410
+That's what it says and we'll need that for later purpose.
+
+101
+00:05:31,410 --> 00:05:32,400
+So we're adding that step.
+
+102
+00:05:32,400 --> 00:05:35,160
+So that's the post step.
+
+103
+00:05:35,160 --> 00:05:38,250
+In the same stage, we will add a few more stages here.
+
+104
+00:05:38,820 --> 00:05:40,470
+So come here.
+
+105
+00:05:40,500 --> 00:05:42,120
+Where the stage end.
+
+106
+00:05:43,970 --> 00:05:45,560
+And I'm pasting a code here.
+
+107
+00:05:47,960 --> 00:05:48,710
+Two more stage.
+
+108
+00:05:48,710 --> 00:05:53,750
+Pretty simple stage name is test and the step is it is executing a shell command and we can test which
+
+109
+00:05:53,750 --> 00:05:55,130
+will run our unit test.
+
+110
+00:05:55,130 --> 00:05:58,760
+It will generate some report that will later upload on Sonar Cube.
+
+111
+00:05:58,880 --> 00:06:02,240
+But for now we're just running this command textile analysis.
+
+112
+00:06:02,240 --> 00:06:07,070
+We are running one more maven shell command here argument checks tile colon check style which is going
+
+113
+00:06:07,070 --> 00:06:08,780
+to use a check style.
+
+114
+00:06:08,810 --> 00:06:16,610
+This is a code analysis tool which will check for any issues with your code and suggest you on best
+
+115
+00:06:16,610 --> 00:06:18,680
+practices on vulnerabilities.
+
+116
+00:06:18,890 --> 00:06:24,260
+I've talked about this in detail in DevOps Beginner's two advanced course.
+
+117
+00:06:24,620 --> 00:06:26,150
+So two kinds of test.
+
+118
+00:06:26,300 --> 00:06:27,380
+Unit test.
+
+119
+00:06:28,240 --> 00:06:31,630
+And could analysis with check style.
+
+120
+00:06:31,660 --> 00:06:35,440
+Both are Maven command and they're basically shell command that we are executing.
+
+121
+00:06:35,590 --> 00:06:37,300
+So see if this.
+
+122
+00:06:39,160 --> 00:06:40,740
+And commit and push.
+
+123
+00:06:40,750 --> 00:06:45,130
+Now, when we commit and push, it should trigger our job automatically.
+
+124
+00:06:47,400 --> 00:06:47,690
+Okay.
+
+125
+00:06:47,700 --> 00:06:48,510
+We'll see.
+
+126
+00:06:49,080 --> 00:06:56,340
+Updated pipeline with unit test and code.
+
+127
+00:06:57,920 --> 00:06:59,180
+Analysis.
+
+128
+00:07:00,080 --> 00:07:01,850
+And see this.
+
+129
+00:07:03,020 --> 00:07:03,890
+Save.
+
+130
+00:07:05,040 --> 00:07:05,360
+Yeah.
+
+131
+00:07:05,800 --> 00:07:06,200
+Alright.
+
+132
+00:07:06,210 --> 00:07:08,850
+Singing the changes, pushing it and done.
+
+133
+00:07:08,970 --> 00:07:11,010
+Let's now go to Jenkins and let's see.
+
+134
+00:07:11,010 --> 00:07:12,860
+This should trigger the job.
+
+135
+00:07:13,690 --> 00:07:16,660
+There you see that fourth job ID pending.
+
+136
+00:07:16,660 --> 00:07:19,600
+So it's waiting started.
+
+137
+00:07:19,870 --> 00:07:20,710
+Nice.
+
+138
+00:07:20,830 --> 00:07:21,940
+Let's click on this.
+
+139
+00:07:23,300 --> 00:07:24,260
+Scroll down.
+
+140
+00:07:26,840 --> 00:07:27,140
+Okay.
+
+141
+00:07:27,140 --> 00:07:32,660
+This completed, but it is downloading dependency from the MAVEN repository, not from the Nexus because
+
+142
+00:07:32,660 --> 00:07:35,810
+we missed the command hyphen settings.
+
+143
+00:07:36,710 --> 00:07:42,080
+So whenever we have the maven come out, we will give it a hyphen, a settings, not XML.
+
+144
+00:07:42,940 --> 00:07:44,460
+Life in a setting starting similar.
+
+145
+00:07:44,890 --> 00:07:46,570
+Save it once again.
+
+146
+00:07:46,570 --> 00:07:47,980
+Let's commit and push.
+
+147
+00:07:56,350 --> 00:07:57,940
+Make a commit message.
+
+148
+00:07:58,780 --> 00:08:00,310
+Checkmark save.
+
+149
+00:08:00,760 --> 00:08:02,350
+And let's wait once again.
+
+150
+00:08:06,060 --> 00:08:06,560
+Okay.
+
+151
+00:08:06,570 --> 00:08:09,990
+That again triggered the job or the pipeline.
+
+152
+00:08:11,450 --> 00:08:11,870
+Okay.
+
+153
+00:08:11,900 --> 00:08:12,860
+Let's see now.
+
+154
+00:08:14,340 --> 00:08:14,470
+Okay.
+
+155
+00:08:14,580 --> 00:08:18,000
+Now the dependencies are already downloaded in Jenkins.
+
+156
+00:08:21,340 --> 00:08:21,820
+Okay.
+
+157
+00:08:21,850 --> 00:08:23,860
+It's downloading from the Nexis again.
+
+158
+00:08:24,310 --> 00:08:25,090
+Nice.
+
+159
+00:08:32,549 --> 00:08:36,210
+Now, this may be a little slower than May repository.
+
+160
+00:08:37,150 --> 00:08:44,110
+But when you have to use repository manager like Nexus, then you have to then you need to use it.
+
+161
+00:08:45,340 --> 00:08:46,300
+All right anyways.
+
+162
+00:08:49,020 --> 00:08:50,130
+Go ahead, test it.
+
+163
+00:08:50,520 --> 00:08:53,250
+If you need the code, download it from the resource section.
+
+164
+00:08:53,790 --> 00:08:56,280
+Complete this and join me in the next lecture.
+

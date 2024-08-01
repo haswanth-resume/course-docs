@@ -1,0 +1,828 @@
+1
+00:00:10,770 --> 00:00:14,640
+Hello and welcome to the Seeds of DevOps Project.
+
+2
+00:00:15,300 --> 00:00:21,360
+The name of this project is continuous integration with Jenkins and Tools.
+
+3
+00:00:25,380 --> 00:00:26,650
+So this is the scenario.
+
+4
+00:00:26,670 --> 00:00:34,980
+Let's say you have a product development and agile SDLC is in motion, so a bunch of smart developers
+
+5
+00:00:34,980 --> 00:00:38,610
+in an Agile team will regularly make code changes.
+
+6
+00:00:39,030 --> 00:00:42,090
+So there'll be multiple code changes every day.
+
+7
+00:00:42,660 --> 00:00:48,600
+And all this code needs to be tested because this is what actually is building your product.
+
+8
+00:00:48,990 --> 00:00:52,320
+So this code needs to be regularly built and tested.
+
+9
+00:00:55,760 --> 00:01:01,490
+So usually in an enterprise there will be a separate build and release team who will be doing this job
+
+10
+00:01:01,520 --> 00:01:04,190
+of building testing and releasing the code.
+
+11
+00:01:04,220 --> 00:01:10,280
+Or if it's a small industry, then they'll be it will be developer's responsibility to merge and integrate
+
+12
+00:01:10,280 --> 00:01:11,000
+this code.
+
+13
+00:01:14,110 --> 00:01:16,780
+So yes, there are regular code changes.
+
+14
+00:01:16,780 --> 00:01:19,420
+Also called as commits or pull requests.
+
+15
+00:01:19,780 --> 00:01:24,970
+Developers will be dependent on build and release team, usually to test the code and move it to the
+
+16
+00:01:24,970 --> 00:01:27,160
+next level in the release cycle.
+
+17
+00:01:27,520 --> 00:01:30,640
+But not so frequently the code will be tested.
+
+18
+00:01:31,150 --> 00:01:38,080
+If there are any bugs or error, it will be known late due to these bugs and errors in the code keep
+
+19
+00:01:38,080 --> 00:01:41,710
+accumulating and let's say these got accumulated.
+
+20
+00:01:43,990 --> 00:01:46,570
+A problem goes more deeper.
+
+21
+00:01:46,780 --> 00:01:47,200
+Now.
+
+22
+00:01:47,200 --> 00:01:53,530
+Developers need to rework to fix these bugs and errors, which is time consuming process and the teams
+
+23
+00:01:53,530 --> 00:01:55,390
+would be already approaching the deadline.
+
+24
+00:01:56,150 --> 00:02:01,790
+So product owners really need to test the code as fast as it's building.
+
+25
+00:02:02,330 --> 00:02:09,380
+But that's not possible because the build and release team is doing a manual process and also there
+
+26
+00:02:09,380 --> 00:02:13,880
+are approvals and ticketing system in place which delays the process more further.
+
+27
+00:02:20,330 --> 00:02:25,180
+So solution to this problem is regular build and test for every comet.
+
+28
+00:02:25,190 --> 00:02:31,190
+So as soon as there is a code change, the code needs to be built and tested at the same time.
+
+29
+00:02:31,460 --> 00:02:34,710
+But if the process is manual, this will not be possible.
+
+30
+00:02:34,730 --> 00:02:38,420
+So you need to have an automated build and release process.
+
+31
+00:02:39,470 --> 00:02:46,340
+And whenever there is a build and test of the code, the developer should get notified automatically.
+
+32
+00:02:47,140 --> 00:02:53,320
+So if there is a build failure, if the code is not passing your quality gates, or if there is any
+
+33
+00:02:53,320 --> 00:02:58,510
+bug, any kind of error, the developers will be stopped doing whatever they're doing and force.
+
+34
+00:02:58,510 --> 00:02:59,890
+They'll fix the code.
+
+35
+00:03:04,420 --> 00:03:10,090
+So if you have such kind of automation framework in place which will regularly build and test the code
+
+36
+00:03:10,090 --> 00:03:16,690
+for every commit, then you're also removing dependency of developers from build and release team.
+
+37
+00:03:20,150 --> 00:03:21,280
+Ta da.
+
+38
+00:03:21,630 --> 00:03:25,560
+This process itself is called a continuous integration process.
+
+39
+00:03:26,480 --> 00:03:35,120
+So input to this process is any code commit and output will be a well tested artifact and all this will
+
+40
+00:03:35,120 --> 00:03:36,650
+happen automatically.
+
+41
+00:03:37,570 --> 00:03:44,380
+Now this very tested artifact then can be deployed to servers for further software testing or performance
+
+42
+00:03:44,380 --> 00:03:46,750
+testing or load testing.
+
+43
+00:03:47,230 --> 00:03:50,470
+And then if everything is good, it can be promoted to production.
+
+44
+00:03:51,170 --> 00:03:58,060
+So may sound simple, but there will be actually so many tools connected together to complete this automated
+
+45
+00:03:58,060 --> 00:03:58,900
+process.
+
+46
+00:03:59,260 --> 00:04:03,760
+But this is a well worth investment because today's time is very demanding.
+
+47
+00:04:03,760 --> 00:04:11,890
+There are regular feedbacks and demands for that developer really need to work regularly and make regular
+
+48
+00:04:11,890 --> 00:04:13,990
+code changes to improve the product.
+
+49
+00:04:14,760 --> 00:04:18,600
+So in today's time you should definitely have a continuous integration process.
+
+50
+00:04:24,760 --> 00:04:28,540
+Let's talk about benefits of continuous integration pipeline.
+
+51
+00:04:29,350 --> 00:04:34,480
+First benefit that you obviously get is shorter mean time to repair.
+
+52
+00:04:35,420 --> 00:04:38,210
+Because here you are not accumulating the bugs or errors.
+
+53
+00:04:38,210 --> 00:04:40,760
+As soon as they are found, they are fixed.
+
+54
+00:04:42,960 --> 00:04:48,060
+So it very well works with the Agile team and there will be no human intervention.
+
+55
+00:04:48,060 --> 00:04:49,560
+So we're not dependent.
+
+56
+00:04:49,770 --> 00:04:54,870
+The developers are not dependent on build and release or operations team to do this, which saves a
+
+57
+00:04:54,870 --> 00:04:55,740
+lot of time.
+
+58
+00:04:56,770 --> 00:05:02,380
+And obviously, not to mention if there is any fault, any bug, any error, it can be found out very
+
+59
+00:05:02,380 --> 00:05:04,600
+quickly and can be isolated very quickly.
+
+60
+00:05:05,240 --> 00:05:09,560
+So in this project, obviously, we're going to set up a continuous integration pipeline.
+
+61
+00:05:15,690 --> 00:05:19,470
+So now let's talk about the tools that we are going to use in this project.
+
+62
+00:05:20,210 --> 00:05:22,160
+Starting with Jenkins.
+
+63
+00:05:22,520 --> 00:05:29,640
+Jenkins will be a continuous integration server and main hero in this project and as hero needs sidekick.
+
+64
+00:05:29,660 --> 00:05:33,110
+Our Jenkins hero will also need some assistance tool.
+
+65
+00:05:34,260 --> 00:05:37,290
+Obviously we are going to use a version control system.
+
+66
+00:05:37,390 --> 00:05:43,680
+We're going to use Git and Git hub as the remote repository and we'll have a Java code in that.
+
+67
+00:05:44,790 --> 00:05:48,990
+And to build that Java code, we will need build tool maven.
+
+68
+00:05:49,940 --> 00:05:51,980
+We're also going to do some code analysis.
+
+69
+00:05:51,980 --> 00:05:57,350
+So we are going to use forced check style, which is a very simple code analysis tool.
+
+70
+00:05:58,400 --> 00:05:59,660
+But there are more sidekicks.
+
+71
+00:05:59,660 --> 00:06:00,950
+There are more tools.
+
+72
+00:06:01,400 --> 00:06:05,030
+We'll use Slack for notification.
+
+73
+00:06:06,420 --> 00:06:08,820
+You can also have an email integration.
+
+74
+00:06:08,820 --> 00:06:10,890
+So we get email notifications.
+
+75
+00:06:13,170 --> 00:06:19,800
+We'll use Nexis as Monotype to store our artifact and also to download dependency for Maven.
+
+76
+00:06:20,220 --> 00:06:24,000
+So OSX sonar type Nexis will be our software repository.
+
+77
+00:06:25,950 --> 00:06:28,440
+We're going to get more deeper into code analysis.
+
+78
+00:06:28,440 --> 00:06:30,600
+So we'll be using so on the cube server.
+
+79
+00:06:31,360 --> 00:06:36,940
+So we're going to scan our code with the cube scanner and check style, and then we're going to publish
+
+80
+00:06:36,940 --> 00:06:40,120
+our result into Sonar Cube Server Dashboard.
+
+81
+00:06:41,640 --> 00:06:43,140
+And to set up these servers.
+
+82
+00:06:43,140 --> 00:06:46,560
+Jenkins Server next server owner Kube server.
+
+83
+00:06:47,040 --> 00:06:49,020
+We are going to use a fabulous platform.
+
+84
+00:06:49,020 --> 00:06:56,220
+We'll use eight AC two instances on two instances we'll set up Jenkins server next to server and so
+
+85
+00:06:56,220 --> 00:06:57,240
+on the cube server.
+
+86
+00:07:03,410 --> 00:07:03,650
+Okay.
+
+87
+00:07:03,680 --> 00:07:05,570
+So let's reiterate our objective.
+
+88
+00:07:06,000 --> 00:07:10,400
+There'll be quick fault isolation, shorter npdr.
+
+89
+00:07:12,390 --> 00:07:14,520
+Faster turnaround time.
+
+90
+00:07:14,970 --> 00:07:18,150
+So any new request, a new feature change needs to be done.
+
+91
+00:07:18,270 --> 00:07:21,930
+It can be done quickly without disrupting too many things.
+
+92
+00:07:22,530 --> 00:07:26,730
+So these are our objectives to set up a continuous integration pipeline.
+
+93
+00:07:37,080 --> 00:07:39,360
+All right, let's achieve our goals now.
+
+94
+00:07:40,300 --> 00:07:45,310
+Before we get started, we'll see continuous integration, pipeline architecture.
+
+95
+00:07:46,080 --> 00:07:49,860
+So you'll have a very clear understanding of what we are trying to achieve.
+
+96
+00:07:50,740 --> 00:07:52,380
+Okay, let's see the workflow first.
+
+97
+00:07:52,380 --> 00:07:55,250
+So the developer makes a code change.
+
+98
+00:07:55,260 --> 00:07:58,980
+Commit to version control system or source code manager.
+
+99
+00:07:59,850 --> 00:08:07,950
+An automation tool will automatically fetch that code, build it, run a unit test and return the outcome
+
+100
+00:08:08,130 --> 00:08:09,360
+on Slack channel.
+
+101
+00:08:09,360 --> 00:08:11,100
+So we'll be using Slack anyways.
+
+102
+00:08:12,220 --> 00:08:13,120
+The next.
+
+103
+00:08:13,750 --> 00:08:14,710
+Phase will be.
+
+104
+00:08:14,710 --> 00:08:18,340
+It will run core analysis and core analysis.
+
+105
+00:08:18,340 --> 00:08:20,160
+There will be gates, quality gates.
+
+106
+00:08:20,170 --> 00:08:25,690
+If the threshold if it is not passing the threshold cap, then it's good.
+
+107
+00:08:25,690 --> 00:08:30,220
+If it's passing the threshold, then a notification will be sent on Slack channel.
+
+108
+00:08:31,640 --> 00:08:34,130
+If this is good, it goes to the next level.
+
+109
+00:08:35,059 --> 00:08:43,429
+Then the software will be built, it will be packaged and the artifact will be uploaded and its outcome
+
+110
+00:08:43,429 --> 00:08:45,380
+notification will be also sent.
+
+111
+00:08:46,220 --> 00:08:50,990
+The artifact or the software will be stored into artifact repository.
+
+112
+00:08:51,350 --> 00:08:56,450
+If all these stages are successful, then the software can be promoted to the next level.
+
+113
+00:08:56,990 --> 00:09:01,220
+If there is any failure, the notification will be anyways sent.
+
+114
+00:09:02,040 --> 00:09:07,410
+Once the notification is received by the developer for any failure, they will make the code change,
+
+115
+00:09:07,410 --> 00:09:10,920
+they'll make the fix and the process repeats again.
+
+116
+00:09:11,400 --> 00:09:17,550
+So there will be a regular code commits, continuous code commits, and this process will run continuously.
+
+117
+00:09:17,550 --> 00:09:21,630
+So that's why the name came to continuous, continuous integration.
+
+118
+00:09:22,300 --> 00:09:23,920
+So this process will be automated.
+
+119
+00:09:23,920 --> 00:09:26,920
+So this can be done multiple times in a day.
+
+120
+00:09:27,580 --> 00:09:28,540
+If you want.
+
+121
+00:09:29,530 --> 00:09:29,810
+Okay.
+
+122
+00:09:29,830 --> 00:09:30,320
+Now, let's see.
+
+123
+00:09:30,340 --> 00:09:33,250
+Architectural design by using all the tools.
+
+124
+00:09:34,870 --> 00:09:41,260
+So a developer will make code change by using his or her ID like Visual Studio.
+
+125
+00:09:41,680 --> 00:09:47,030
+Our intelligence and that tool that ID will be connected to a good repository.
+
+126
+00:09:47,050 --> 00:09:50,230
+So developer makes a code change and commits.
+
+127
+00:09:51,660 --> 00:09:56,580
+This comet will be synced with a remote repository will be using GitHub.
+
+128
+00:09:56,910 --> 00:09:59,400
+So as soon as GitHub receives a comet.
+
+129
+00:10:00,630 --> 00:10:02,250
+Our continuous integration server.
+
+130
+00:10:02,280 --> 00:10:05,550
+Jenkins will detect that and fetch the changes.
+
+131
+00:10:05,550 --> 00:10:09,540
+Fetch the latest code so it will have an integration with GitHub.
+
+132
+00:10:11,600 --> 00:10:15,800
+Then Jenkins know Jenkins will be running some code test.
+
+133
+00:10:16,590 --> 00:10:20,370
+Unit test, basically, which is part of your build process.
+
+134
+00:10:20,700 --> 00:10:23,610
+If there is any failure, the notification will be sent.
+
+135
+00:10:24,240 --> 00:10:25,380
+If it passes.
+
+136
+00:10:27,120 --> 00:10:32,610
+Core analysis will be done on the code by using textile and a sonar scanner.
+
+137
+00:10:33,180 --> 00:10:36,510
+So in this project, we'll have multiple code analysis tool.
+
+138
+00:10:38,740 --> 00:10:43,510
+So it will generate some report and this report we are going to publish on so on the Q server.
+
+139
+00:10:43,600 --> 00:10:50,530
+So on our cube server will display the result and we'll also have quality gates, a quality criteria.
+
+140
+00:10:51,040 --> 00:10:57,730
+If you're passing the quality criteria, we can move to the next level or a failure notification will
+
+141
+00:10:57,730 --> 00:10:59,860
+be sent and the process really stops.
+
+142
+00:11:02,550 --> 00:11:05,430
+So you see, we are putting brakes at every level.
+
+143
+00:11:05,430 --> 00:11:07,800
+If there is any failure, it automatically breaks.
+
+144
+00:11:08,340 --> 00:11:11,430
+If not, the process continues automatically anyways.
+
+145
+00:11:11,700 --> 00:11:13,620
+So once the code analysis is done.
+
+146
+00:11:14,790 --> 00:11:18,570
+Then we'll build the artifact and we have Java code.
+
+147
+00:11:18,570 --> 00:11:20,730
+So we're going to use Maven Build Tool.
+
+148
+00:11:21,810 --> 00:11:26,520
+If there is any build failures, any build errors, notification will be sent.
+
+149
+00:11:28,290 --> 00:11:32,320
+While the source code is getting built, it will need some dependency over Maven.
+
+150
+00:11:32,340 --> 00:11:33,990
+We need some maven dependencies.
+
+151
+00:11:33,990 --> 00:11:37,500
+Those dependencies we will be storing in Nexus repository.
+
+152
+00:11:37,920 --> 00:11:44,340
+So Maven will automatically download all the dependency from Maven repository, which is in Nexis.
+
+153
+00:11:45,060 --> 00:11:46,650
+Is this Chronotype Nexis.
+
+154
+00:11:48,530 --> 00:11:54,080
+Once the artifact is packaged, once the software is really created, then the software we are going
+
+155
+00:11:54,080 --> 00:11:57,830
+to upload it back to Nexus sonar type repository.
+
+156
+00:11:58,280 --> 00:12:01,920
+So really using Nexus Monotype repository for two cases.
+
+157
+00:12:01,940 --> 00:12:08,930
+One is to download dependencies from and the second is uploading our artifact or storing our artifact.
+
+158
+00:12:09,470 --> 00:12:11,960
+So we're going to version and store the artifact.
+
+159
+00:12:12,230 --> 00:12:18,290
+So every time this continuous integration process runs, we'll have a new version of software.
+
+160
+00:12:19,190 --> 00:12:21,170
+And based on requirements and choices.
+
+161
+00:12:21,170 --> 00:12:25,490
+Any version then can be selected from Nexis repository and can be deployed to servers.
+
+162
+00:12:30,700 --> 00:12:30,910
+Okay.
+
+163
+00:12:30,910 --> 00:12:35,770
+So now we can really pause the video and watch the architectural design once again.
+
+164
+00:12:37,970 --> 00:12:43,880
+All right, now let's see the flow of execution, all the steps that we are going to take in order to
+
+165
+00:12:43,880 --> 00:12:45,350
+complete this project.
+
+166
+00:12:46,860 --> 00:12:51,960
+Number one, we will log into our account because that's where we are going to set up all the servers.
+
+167
+00:12:53,000 --> 00:12:59,570
+We will create a key pillar which we will use to log into our ESI to instance on which Jenkins nexus
+
+168
+00:12:59,570 --> 00:13:01,130
+and so on our queue will be running.
+
+169
+00:13:01,760 --> 00:13:07,730
+Then we create the security group for Jenkins Nexus and so on our cube server.
+
+170
+00:13:10,050 --> 00:13:13,470
+Then we launch the easy to instance with the user data script.
+
+171
+00:13:13,950 --> 00:13:19,260
+This script will automatically provision your Jenkins server next to server and so on, or cube server.
+
+172
+00:13:20,500 --> 00:13:23,500
+Then we will conduct the post installation steps.
+
+173
+00:13:23,920 --> 00:13:30,610
+Will set up the Jenkins user and will install all the necessary plugins that we need for this project.
+
+174
+00:13:31,540 --> 00:13:36,940
+We set up next this login and we will create a few repositories on Nexus.
+
+175
+00:13:37,120 --> 00:13:42,910
+From where we'll download the dependencies for Maven and upload our artifact.
+
+176
+00:13:43,120 --> 00:13:44,890
+Once our pipeline is good.
+
+177
+00:13:46,710 --> 00:13:50,790
+ALONZO McKEW We really don't need to do much for the post installation.
+
+178
+00:13:50,790 --> 00:13:54,390
+We'll just log in and we'll test whether it's working or not.
+
+179
+00:13:55,740 --> 00:13:59,640
+On Git, we will create a GitHub repository.
+
+180
+00:13:59,670 --> 00:14:02,490
+I hope you already have created a GitHub account.
+
+181
+00:14:02,790 --> 00:14:07,920
+As mentioned in the prerequisites and that account, you're going to create a GitHub repository and
+
+182
+00:14:07,920 --> 00:14:15,750
+you're going to migrate my code or this project Vpro file product code into your GitHub repository.
+
+183
+00:14:15,840 --> 00:14:18,780
+So you have a complete control over that code.
+
+184
+00:14:18,780 --> 00:14:20,840
+You can commit, you can make changes.
+
+185
+00:14:20,850 --> 00:14:23,430
+If you use my repository, you cannot commit.
+
+186
+00:14:23,430 --> 00:14:25,650
+You cannot make changes to my repository.
+
+187
+00:14:26,290 --> 00:14:33,250
+Once we do that, we integrate our GitHub repository with VTS code and we will test it.
+
+188
+00:14:35,580 --> 00:14:36,330
+Now still here.
+
+189
+00:14:36,330 --> 00:14:42,510
+It was kind of prerequisites for our project or the code that we're going to write from Step seven.
+
+190
+00:14:42,510 --> 00:14:46,830
+We are going to create or write the code for our first job.
+
+191
+00:14:46,830 --> 00:14:48,270
+That will be the build job.
+
+192
+00:14:48,540 --> 00:14:50,280
+It will integrate with nexus.
+
+193
+00:14:50,520 --> 00:14:53,610
+Fetch the necessary dependencies from the Nexus server.
+
+194
+00:14:54,000 --> 00:14:56,910
+Next, we'll create a GitHub webhook.
+
+195
+00:14:57,270 --> 00:15:03,900
+Now this is to trigger your job whenever you make a commit a change to your git repository, the Jenkins
+
+196
+00:15:03,900 --> 00:15:05,970
+job will automatically get triggered.
+
+197
+00:15:06,970 --> 00:15:07,750
+Then we will do so.
+
+198
+00:15:07,810 --> 00:15:14,830
+The cube server integration will write the code to run some test and upload the test result to owner
+
+199
+00:15:14,830 --> 00:15:15,760
+cube server.
+
+200
+00:15:17,590 --> 00:15:24,190
+Then final stage in our pipeline will be uploading the artifact to the Nexus server.
+
+201
+00:15:24,610 --> 00:15:28,450
+Now whatever changes is happening in our pipeline, we should get notification for that.
+
+202
+00:15:28,450 --> 00:15:31,960
+So we are also going to create a Slack notification system.
+
+203
+00:15:31,960 --> 00:15:37,690
+Whenever there is a change in our pipeline, we get a notification whether it passed or failed.
+
+204
+00:15:38,140 --> 00:15:42,700
+Now, while doing the project, whenever you are in doubt, what exactly are we doing right now?
+
+205
+00:15:42,700 --> 00:15:48,340
+You can anytime come to this video and see you are at what step or stage?
+
+206
+00:15:48,610 --> 00:15:54,430
+So take a moment, rewind the video, look at all the steps once again and join me in the next lecture.
+
+207
+00:15:54,430 --> 00:15:57,370
+We'll start setting up all the services.
+

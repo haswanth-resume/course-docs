@@ -1,0 +1,476 @@
+1
+00:00:03,670 --> 00:00:05,110
+Talking about the quality gates.
+
+2
+00:00:05,110 --> 00:00:08,050
+We have to set up quality gates on the server cube server.
+
+3
+00:00:08,050 --> 00:00:09,940
+It's already there for this project.
+
+4
+00:00:09,940 --> 00:00:14,500
+So in for a profile project, if you go to project settings.
+
+5
+00:00:15,580 --> 00:00:17,290
+You will see quality gate.
+
+6
+00:00:18,220 --> 00:00:21,160
+And you will see a default quality get so nervy.
+
+7
+00:00:21,580 --> 00:00:28,450
+And if you go to quality gates here, click on this and you can see the rules that are set on this quality
+
+8
+00:00:28,450 --> 00:00:29,020
+gates.
+
+9
+00:00:29,110 --> 00:00:35,560
+Now, we really not going into these rules, we'll just create our own quality gate with a simple rule
+
+10
+00:00:35,560 --> 00:00:37,270
+and see if it works or not.
+
+11
+00:00:37,630 --> 00:00:41,980
+So let's click on Create and create a quality gate.
+
+12
+00:00:42,160 --> 00:00:45,400
+I'm just giving the name of profile shg save.
+
+13
+00:00:47,050 --> 00:00:47,890
+And there's no rule.
+
+14
+00:00:47,890 --> 00:00:49,270
+We'll add rule here.
+
+15
+00:00:49,270 --> 00:00:50,830
+We'll say add condition.
+
+16
+00:00:51,800 --> 00:00:56,750
+And will see on overall code and there are many things over here to select from.
+
+17
+00:00:56,750 --> 00:01:00,950
+I will go for bug because we have seen there are like 30 bugs.
+
+18
+00:01:01,250 --> 00:01:01,430
+Right.
+
+19
+00:01:01,490 --> 00:01:05,780
+So let's see if the call if the bug is 25.
+
+20
+00:01:05,780 --> 00:01:07,970
+Right, it's greater than 25.
+
+21
+00:01:09,140 --> 00:01:11,090
+Because I want this job to fail.
+
+22
+00:01:11,330 --> 00:01:13,690
+I want to show you how it fails the pipeline.
+
+23
+00:01:13,700 --> 00:01:17,850
+So we know that overall bugs are 30 something we are giving 25.
+
+24
+00:01:17,870 --> 00:01:24,350
+So if this quality gate is applied, then project quality aids will fail.
+
+25
+00:01:24,870 --> 00:01:29,060
+Okay, so we created a quality gate with a simple rule bugs greater than 25.
+
+26
+00:01:29,060 --> 00:01:35,030
+Let's go to the projects, click on the project and you need to attach that quality gate through to
+
+27
+00:01:35,030 --> 00:01:35,900
+this project.
+
+28
+00:01:35,900 --> 00:01:37,160
+So project setting.
+
+29
+00:01:38,330 --> 00:01:41,350
+Call the gate and select.
+
+30
+00:01:42,360 --> 00:01:43,460
+Your quality it.
+
+31
+00:01:44,670 --> 00:01:44,910
+Okay.
+
+32
+00:01:44,910 --> 00:01:46,320
+We have to do one more thing over here.
+
+33
+00:01:46,320 --> 00:01:50,670
+Just like GitHub sends a webhook to Jenkins.
+
+34
+00:01:50,670 --> 00:01:57,840
+When Jenkins uploads this result, it is going to also wait for Sona server to respond with the result.
+
+35
+00:01:58,140 --> 00:01:59,580
+We'll add that in the code.
+
+36
+00:02:00,060 --> 00:02:03,300
+But how does Sona Cube knows?
+
+37
+00:02:03,300 --> 00:02:05,940
+Where is Jenkins and how to send the information?
+
+38
+00:02:05,940 --> 00:02:08,759
+That is true to the webhook of this project.
+
+39
+00:02:08,759 --> 00:02:10,320
+So project settings.
+
+40
+00:02:10,650 --> 00:02:11,610
+Web hooks.
+
+41
+00:02:12,860 --> 00:02:18,250
+This seemed like GitHub, but this is for sending the result to Jenkins.
+
+42
+00:02:18,260 --> 00:02:19,970
+So create a webhook.
+
+43
+00:02:21,350 --> 00:02:22,190
+Give a name.
+
+44
+00:02:22,640 --> 00:02:24,010
+I will say Jenkins webhook.
+
+45
+00:02:24,020 --> 00:02:26,720
+And you have to add this URL.
+
+46
+00:02:27,350 --> 00:02:29,630
+Make sure there's Jenkins IP here.
+
+47
+00:02:30,110 --> 00:02:32,330
+Let's get the Jenkins private IP.
+
+48
+00:02:33,330 --> 00:02:33,840
+Yeah.
+
+49
+00:02:33,840 --> 00:02:37,350
+Here we can use private IP because they are in the same network.
+
+50
+00:02:37,380 --> 00:02:39,060
+Nexus owner Cube Jenkins.
+
+51
+00:02:39,060 --> 00:02:40,260
+They're in the same network.
+
+52
+00:02:40,620 --> 00:02:43,800
+But GitHub is a different thing altogether on the internet.
+
+53
+00:02:47,010 --> 00:02:47,230
+Okay.
+
+54
+00:02:47,250 --> 00:02:54,390
+So the so sorry the Jenkins IP colon 88 slash sona cube hyphen webhook.
+
+55
+00:02:54,810 --> 00:02:57,330
+Exactly as how you see on my screen.
+
+56
+00:02:57,330 --> 00:03:01,350
+Except you'll have a different IP for your Jenkins and they create.
+
+57
+00:03:02,770 --> 00:03:02,940
+Okay.
+
+58
+00:03:03,040 --> 00:03:04,030
+So that is done here.
+
+59
+00:03:04,060 --> 00:03:05,440
+Now let's write the code.
+
+60
+00:03:06,920 --> 00:03:08,330
+So this uploads the result.
+
+61
+00:03:08,330 --> 00:03:12,830
+But we'll put here one more stage which will wait for the quality gate result.
+
+62
+00:03:13,860 --> 00:03:14,120
+Okay.
+
+63
+00:03:14,130 --> 00:03:15,330
+So this is one more stage.
+
+64
+00:03:15,630 --> 00:03:18,240
+So just after the stage.
+
+65
+00:03:18,580 --> 00:03:20,250
+So the analysis stage.
+
+66
+00:03:21,890 --> 00:03:22,390
+Discord.
+
+67
+00:03:22,400 --> 00:03:23,600
+This is pretty simple.
+
+68
+00:03:23,600 --> 00:03:29,360
+This is the stage name is quality gate step is time out after one hour.
+
+69
+00:03:29,390 --> 00:03:32,240
+You can give here the minutes also if you want.
+
+70
+00:03:32,390 --> 00:03:35,120
+It's going to timeout after one hour when?
+
+71
+00:03:36,390 --> 00:03:37,620
+This does not respond.
+
+72
+00:03:37,620 --> 00:03:41,470
+So this plugin here wait for quality gate abort pipeline.
+
+73
+00:03:41,490 --> 00:03:42,030
+True.
+
+74
+00:03:42,510 --> 00:03:47,910
+Actually that's really the code timeout is so it doesn't wait for infinity.
+
+75
+00:03:48,030 --> 00:03:49,860
+It waits for maximum one hour.
+
+76
+00:03:49,860 --> 00:03:54,060
+You can reduce the time or increase it based on how the analysis goes for you.
+
+77
+00:03:54,420 --> 00:03:56,190
+And the stage name is Quality Gate.
+
+78
+00:03:56,220 --> 00:03:57,390
+Let's save this.
+
+79
+00:03:59,670 --> 00:04:05,100
+Again, this is all code available on the ownership documentation that I have shown you, so you can
+
+80
+00:04:05,100 --> 00:04:07,470
+copy paste from there and make the changes also.
+
+81
+00:04:07,710 --> 00:04:11,370
+Literally copy pasted from there and did not make any change at all.
+
+82
+00:04:12,540 --> 00:04:16,290
+See sooner quality gates.
+
+83
+00:04:21,610 --> 00:04:21,880
+Okay.
+
+84
+00:04:21,910 --> 00:04:23,740
+So I made the comment.
+
+85
+00:04:23,770 --> 00:04:25,150
+Let's go to Jenkins.
+
+86
+00:04:27,270 --> 00:04:27,780
+Here.
+
+87
+00:04:29,240 --> 00:04:29,690
+Okay.
+
+88
+00:04:30,930 --> 00:04:31,170
+Okay.
+
+89
+00:04:31,170 --> 00:04:32,820
+Let's wait till this job finishes.
+
+90
+00:04:32,820 --> 00:04:34,380
+I'm going to pause my video.
+
+91
+00:04:35,510 --> 00:04:35,810
+Okay.
+
+92
+00:04:35,810 --> 00:04:38,750
+The pipeline is failed, but we need to see why it failed.
+
+93
+00:04:38,800 --> 00:04:39,220
+Right.
+
+94
+00:04:39,230 --> 00:04:40,850
+So click on that.
+
+95
+00:04:41,330 --> 00:04:42,590
+Go till the end.
+
+96
+00:04:44,650 --> 00:04:48,010
+And pipeline aborted due to quality gate failure.
+
+97
+00:04:48,370 --> 00:04:49,720
+It got an error.
+
+98
+00:04:50,440 --> 00:04:56,320
+Make sure it fails for this reason and not that your code is wrong or syntax is wrong because that will
+
+99
+00:04:56,320 --> 00:04:57,730
+be another kind of failure.
+
+100
+00:04:57,910 --> 00:04:58,960
+That's what we wanted.
+
+101
+00:04:59,110 --> 00:05:00,400
+This is what we intended.
+
+102
+00:05:00,760 --> 00:05:06,400
+Now, in order to make sure this pipeline passed, we're going to just go to our quality gates and just
+
+103
+00:05:06,400 --> 00:05:07,870
+raise the bar a little bit.
+
+104
+00:05:07,900 --> 00:05:09,240
+We profile G.
+
+105
+00:05:10,680 --> 00:05:17,570
+Instead of 25 will give here 100, like 100 bucks we can tolerate.
+
+106
+00:05:17,580 --> 00:05:20,390
+And then let's run the pipeline.
+
+107
+00:05:20,490 --> 00:05:23,820
+We have to run the pipeline manually because we did not make any code change.
+
+108
+00:05:23,820 --> 00:05:25,050
+So now.
+
+109
+00:05:26,900 --> 00:05:28,190
+Wait for it to complete.
+
+110
+00:05:29,210 --> 00:05:29,610
+Okay.
+
+111
+00:05:29,630 --> 00:05:33,410
+That completed successfully because Quality Gate came out fine.
+
+112
+00:05:34,880 --> 00:05:36,950
+You see that quality gate is okay.
+
+113
+00:05:37,850 --> 00:05:38,700
+That's pretty awesome.
+
+114
+00:05:38,720 --> 00:05:44,180
+We tested our code left, right and center unit test style.
+
+115
+00:05:44,540 --> 00:05:47,540
+So the scanner and we see our artifact is good.
+
+116
+00:05:47,540 --> 00:05:48,860
+Now it's time.
+
+117
+00:05:49,550 --> 00:05:52,370
+To upload our artifact to Nexus Server.
+
+118
+00:05:52,370 --> 00:05:54,620
+That's what we'll see in the next lecture.
+
+119
+00:05:54,620 --> 00:05:57,020
+So wrap this up and join me in the next one.
+

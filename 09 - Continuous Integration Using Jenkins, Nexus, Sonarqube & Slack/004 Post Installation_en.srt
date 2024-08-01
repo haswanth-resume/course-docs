@@ -1,0 +1,932 @@
+1
+00:00:00,830 --> 00:00:01,020
+Okay.
+
+2
+00:00:01,100 --> 00:00:02,420
+So now let's.
+
+3
+00:00:03,280 --> 00:00:06,190
+To the post installation steps, starting with Jenkins.
+
+4
+00:00:06,190 --> 00:00:10,420
+Let's first search to the Jenkins, so copy its public IP.
+
+5
+00:00:11,440 --> 00:00:12,820
+Open gate bash.
+
+6
+00:00:14,230 --> 00:00:16,480
+For MapQuest, just use open terminal.
+
+7
+00:00:18,200 --> 00:00:20,840
+Mention your key we profile.
+
+8
+00:00:21,590 --> 00:00:22,920
+Username is ubuntu.
+
+9
+00:00:23,000 --> 00:00:26,120
+So Ubuntu instance and paste the public ip.
+
+10
+00:00:27,020 --> 00:00:28,190
+Say yes.
+
+11
+00:00:32,900 --> 00:00:39,050
+Before I continue the step, I want you to note down this important point for the search, which will
+
+12
+00:00:39,050 --> 00:00:42,560
+be used in Jenkins to GitHub integration.
+
+13
+00:00:42,710 --> 00:00:44,400
+I'm talking here about search.
+
+14
+00:00:44,420 --> 00:00:48,880
+Whenever you do a search for the first time to any server.
+
+15
+00:00:48,890 --> 00:00:53,330
+So I did search to this machine and that's the Jenkins public IP.
+
+16
+00:00:53,570 --> 00:00:53,990
+Yes.
+
+17
+00:00:54,050 --> 00:00:55,520
+That you will ask me a question.
+
+18
+00:00:55,520 --> 00:00:57,500
+This is the fingerprint.
+
+19
+00:00:57,950 --> 00:01:01,400
+Like an ID card of this search server.
+
+20
+00:01:01,430 --> 00:01:02,570
+Do you accept it?
+
+21
+00:01:02,570 --> 00:01:03,530
+And we said here.
+
+22
+00:01:03,530 --> 00:01:04,340
+Yes.
+
+23
+00:01:05,430 --> 00:01:08,190
+And then it stores this identity.
+
+24
+00:01:08,930 --> 00:01:10,170
+Into your home directory.
+
+25
+00:01:10,190 --> 00:01:12,050
+Next time when you do the search.
+
+26
+00:01:12,050 --> 00:01:13,490
+So let's clear.
+
+27
+00:01:13,490 --> 00:01:14,690
+Let's log out.
+
+28
+00:01:16,050 --> 00:01:17,910
+And let's do a search once again.
+
+29
+00:01:18,600 --> 00:01:20,880
+This time it will not ask me the question.
+
+30
+00:01:22,100 --> 00:01:23,690
+See that directly logged in.
+
+31
+00:01:23,960 --> 00:01:29,870
+Now this process is called us host key checking and it has nothing to do with Jenkins or anything I'm
+
+32
+00:01:29,870 --> 00:01:30,680
+talking about here.
+
+33
+00:01:30,680 --> 00:01:32,450
+Purely about search.
+
+34
+00:01:32,810 --> 00:01:39,440
+We'll have a step where Jenkins will do a search to your GitHub account to access your repository.
+
+35
+00:01:39,920 --> 00:01:44,420
+That time we need to do this step from Jenkins user.
+
+36
+00:01:44,570 --> 00:01:44,810
+Okay.
+
+37
+00:01:44,840 --> 00:01:45,620
+Anyways, we logged in.
+
+38
+00:01:45,620 --> 00:01:46,520
+Let's do pseudo hyphen.
+
+39
+00:01:46,520 --> 00:01:48,380
+I clear the screen.
+
+40
+00:01:48,380 --> 00:01:52,520
+Let's check the service system CTL status jenkins.
+
+41
+00:01:53,090 --> 00:01:56,660
+It should be in a running state queue to quit from this.
+
+42
+00:01:57,710 --> 00:01:59,420
+Now let's access it from the browser.
+
+43
+00:01:59,420 --> 00:02:01,340
+Now let's copy its public IP.
+
+44
+00:02:02,360 --> 00:02:03,060
+Paste it.
+
+45
+00:02:03,080 --> 00:02:04,850
+Colon 8080.
+
+46
+00:02:05,240 --> 00:02:07,370
+That's the port number for Jenkins 88.
+
+47
+00:02:10,310 --> 00:02:10,550
+Okay.
+
+48
+00:02:10,610 --> 00:02:11,390
+This thing unlocked.
+
+49
+00:02:11,390 --> 00:02:19,190
+Jenkins So this is the file which will have the initial password, copy its path, go to the Jenkins
+
+50
+00:02:19,190 --> 00:02:22,670
+Sicat and paste that pot under the tongue.
+
+51
+00:02:22,700 --> 00:02:23,150
+Twister.
+
+52
+00:02:23,150 --> 00:02:24,920
+Paste that part.
+
+53
+00:02:25,190 --> 00:02:25,410
+Okay.
+
+54
+00:02:25,520 --> 00:02:26,840
+You get the password.
+
+55
+00:02:26,870 --> 00:02:27,800
+Copy that.
+
+56
+00:02:29,580 --> 00:02:30,360
+Be stood there.
+
+57
+00:02:30,360 --> 00:02:31,020
+Administrator.
+
+58
+00:02:31,020 --> 00:02:31,590
+Password.
+
+59
+00:02:31,590 --> 00:02:32,430
+Continue.
+
+60
+00:02:35,150 --> 00:02:37,280
+Click on install suggested plugins.
+
+61
+00:02:40,000 --> 00:02:41,100
+It will take some time.
+
+62
+00:02:41,110 --> 00:02:42,370
+I'll pause the video.
+
+63
+00:02:43,630 --> 00:02:44,200
+This is done.
+
+64
+00:02:44,200 --> 00:02:45,460
+Let's set a username.
+
+65
+00:02:45,460 --> 00:02:49,300
+I'll just set a username as admin and I'll set a password.
+
+66
+00:02:51,490 --> 00:02:52,840
+Not to give a full name.
+
+67
+00:02:52,840 --> 00:02:54,790
+I'll just say admin with a capital.
+
+68
+00:02:55,030 --> 00:02:56,620
+Let's give an email address.
+
+69
+00:02:56,700 --> 00:02:58,660
+Just give a fake email address.
+
+70
+00:03:01,830 --> 00:03:01,970
+Okay.
+
+71
+00:03:02,070 --> 00:03:08,490
+That is the Jenkins you are is going to store in the Jenkins configuration because it gets it from its
+
+72
+00:03:08,490 --> 00:03:12,780
+IP currently, whatever it is let's see when finish.
+
+73
+00:03:14,050 --> 00:03:15,730
+Start using Jenkins.
+
+74
+00:03:18,910 --> 00:03:19,140
+Okay.
+
+75
+00:03:19,150 --> 00:03:23,200
+We need to install some plug ins in Jenkins, so we'll go to manage Jenkins.
+
+76
+00:03:25,660 --> 00:03:27,070
+Manage plugins.
+
+77
+00:03:28,640 --> 00:03:34,820
+If you don't know what a Jenkins plugin is, these are just extra features which you can install.
+
+78
+00:03:34,850 --> 00:03:39,740
+Like, for example, we will be using Nexus Owner Cube, so we will install those plugins.
+
+79
+00:03:40,100 --> 00:03:41,690
+So go to available.
+
+80
+00:03:43,010 --> 00:03:44,930
+And search for the plugins.
+
+81
+00:03:44,930 --> 00:03:49,640
+So these are the names starting with Maven integration.
+
+82
+00:03:50,480 --> 00:03:51,670
+Put a checkmark.
+
+83
+00:03:51,680 --> 00:03:53,390
+Just put a checkmark for now.
+
+84
+00:03:53,930 --> 00:03:56,870
+Next is GitHub integration.
+
+85
+00:03:58,500 --> 00:03:59,670
+Put a checkmark.
+
+86
+00:03:59,910 --> 00:04:03,680
+Now we have a maven build, so we're using Maven integration plugin.
+
+87
+00:04:03,690 --> 00:04:05,880
+GitHub will integrate Jenkins with GitHub.
+
+88
+00:04:05,880 --> 00:04:07,620
+So GitHub integration plugin.
+
+89
+00:04:09,080 --> 00:04:10,160
+Nexus.
+
+90
+00:04:11,700 --> 00:04:15,090
+Nexus artifact uploader put a checkmark.
+
+91
+00:04:16,670 --> 00:04:17,660
+Sooner.
+
+92
+00:04:18,410 --> 00:04:20,269
+So on our cube scanner.
+
+93
+00:04:20,399 --> 00:04:22,160
+On our cube scanner there.
+
+94
+00:04:23,650 --> 00:04:24,390
+Slack.
+
+95
+00:04:24,400 --> 00:04:26,410
+We will be using Slack for the notification.
+
+96
+00:04:26,410 --> 00:04:31,270
+So search for slack and you see Slack notification check mark.
+
+97
+00:04:33,560 --> 00:04:38,750
+And for versioning our artifact, our software will be using a plugin called Timestamp.
+
+98
+00:04:39,350 --> 00:04:43,340
+It's actually called us build timestamp with the checkmark there.
+
+99
+00:04:45,080 --> 00:04:49,760
+This gives us this variable build underscore timestamp which will have the current timestamp which we
+
+100
+00:04:49,760 --> 00:04:51,740
+can use to version our artifact.
+
+101
+00:04:53,830 --> 00:04:54,210
+Okay.
+
+102
+00:04:54,220 --> 00:04:55,480
+These are good for now.
+
+103
+00:04:56,570 --> 00:04:59,690
+Make sure you type the correct plugin name.
+
+104
+00:04:59,690 --> 00:05:02,480
+It is not as good such as Google search.
+
+105
+00:05:02,600 --> 00:05:06,980
+So the names of the plugin should be exactly what you are looking for.
+
+106
+00:05:07,780 --> 00:05:10,990
+Put a checkmark on all of that and say install without restart.
+
+107
+00:05:12,520 --> 00:05:12,910
+Okay.
+
+108
+00:05:12,940 --> 00:05:15,770
+Scroll till the end and see if everything is success.
+
+109
+00:05:15,790 --> 00:05:16,540
+We are good.
+
+110
+00:05:17,140 --> 00:05:18,640
+Click back on Dashboard.
+
+111
+00:05:20,490 --> 00:05:20,750
+Okay.
+
+112
+00:05:20,760 --> 00:05:21,630
+This is good for now.
+
+113
+00:05:21,630 --> 00:05:26,430
+And Jenkins, we have many more things in Jenkins that will be seen in later lectures.
+
+114
+00:05:26,760 --> 00:05:28,080
+Let's check Nexus now.
+
+115
+00:05:28,080 --> 00:05:31,560
+So let's click on Nexus, get its public IP.
+
+116
+00:05:31,590 --> 00:05:33,120
+Let's do an SSH to it.
+
+117
+00:05:33,920 --> 00:05:36,290
+So we log out from Jenkins here.
+
+118
+00:05:42,300 --> 00:05:44,850
+Easy to hyphen user.
+
+119
+00:05:44,850 --> 00:05:46,810
+We have used Amazon Linux too.
+
+120
+00:05:46,830 --> 00:05:48,900
+The user name is easy to hyphen user.
+
+121
+00:05:49,240 --> 00:05:50,340
+It's public IP.
+
+122
+00:05:51,220 --> 00:05:52,330
+So, yes.
+
+123
+00:05:55,230 --> 00:05:57,420
+I got to do a pseudo hyphen, I.
+
+124
+00:05:59,290 --> 00:06:02,440
+System CTL status nexus.
+
+125
+00:06:04,110 --> 00:06:04,340
+Okay.
+
+126
+00:06:04,350 --> 00:06:05,320
+The service is active.
+
+127
+00:06:05,340 --> 00:06:07,800
+Let's look at it from the browser.
+
+128
+00:06:09,470 --> 00:06:11,540
+Portis at 81.
+
+129
+00:06:12,050 --> 00:06:14,810
+Make sure you copy the correct public IP of Nexis.
+
+130
+00:06:17,180 --> 00:06:18,800
+Let's click on sign in here.
+
+131
+00:06:19,490 --> 00:06:24,290
+And it is saying the initial password is in this file, so let's copy this file part.
+
+132
+00:06:25,900 --> 00:06:27,880
+And let's go to the Nexus.
+
+133
+00:06:31,270 --> 00:06:31,660
+Yeah.
+
+134
+00:06:31,840 --> 00:06:32,730
+That's the password.
+
+135
+00:06:32,740 --> 00:06:37,960
+I mean, it just doesn't give the new line, so we need to copy it properly.
+
+136
+00:06:39,210 --> 00:06:41,450
+Make sure you don't copy that square bracket.
+
+137
+00:06:41,460 --> 00:06:43,530
+Just copy this.
+
+138
+00:06:44,130 --> 00:06:48,200
+So the username is Edwin and the password that we just copied.
+
+139
+00:06:48,210 --> 00:06:49,020
+Sign in.
+
+140
+00:06:50,380 --> 00:06:50,590
+Okay.
+
+141
+00:06:50,590 --> 00:06:51,460
+The setup wizard.
+
+142
+00:06:51,460 --> 00:06:52,210
+Next.
+
+143
+00:06:52,980 --> 00:06:53,100
+Okay.
+
+144
+00:06:53,230 --> 00:06:54,850
+Let's give a password.
+
+145
+00:06:56,440 --> 00:07:00,820
+Make sure you remember all these passports that you're giving or write it somewhere.
+
+146
+00:07:02,970 --> 00:07:05,970
+And here we say disable anonymous access.
+
+147
+00:07:05,970 --> 00:07:11,280
+We don't want anybody to download or upload artifact to our access server only with authentication,
+
+148
+00:07:11,340 --> 00:07:12,930
+with username and password.
+
+149
+00:07:13,470 --> 00:07:16,500
+So we'll say disable anonymous access next.
+
+150
+00:07:17,420 --> 00:07:18,560
+And finish.
+
+151
+00:07:21,250 --> 00:07:21,430
+Okay.
+
+152
+00:07:21,430 --> 00:07:23,620
+So we have two major section here in the Nexus.
+
+153
+00:07:23,620 --> 00:07:28,090
+This is to browse the repository or upload the artifact to the repository.
+
+154
+00:07:28,090 --> 00:07:32,350
+And this section is for the administration configurations.
+
+155
+00:07:32,590 --> 00:07:37,840
+So if you remember from the architectural diagram, we are going to upload the artifact to access and
+
+156
+00:07:37,840 --> 00:07:40,450
+also download dependencies from Nexus.
+
+157
+00:07:40,540 --> 00:07:46,600
+So we'll have multiple repositories and we will club all the repositories together in a group repository
+
+158
+00:07:46,810 --> 00:07:49,060
+we will be creating here for repository.
+
+159
+00:07:49,060 --> 00:07:50,890
+So click on repositories here.
+
+160
+00:07:52,230 --> 00:07:54,090
+And they create repository.
+
+161
+00:07:55,640 --> 00:07:56,630
+Maven.
+
+162
+00:07:56,960 --> 00:07:57,580
+Come here.
+
+163
+00:07:57,590 --> 00:07:59,930
+Maven hosted will select first.
+
+164
+00:08:01,540 --> 00:08:03,490
+And we will give it a name.
+
+165
+00:08:03,640 --> 00:08:05,080
+We profile.
+
+166
+00:08:06,260 --> 00:08:08,180
+Hyphen release.
+
+167
+00:08:09,050 --> 00:08:15,050
+Now you can't really give any name, but you need to make sure you mention that name in the Maven configuration
+
+168
+00:08:15,050 --> 00:08:16,390
+to keep things simple.
+
+169
+00:08:16,400 --> 00:08:19,010
+Just give the same name as I am giving.
+
+170
+00:08:19,490 --> 00:08:22,820
+So we prefer release repositories to store our artifact.
+
+171
+00:08:22,820 --> 00:08:26,900
+We'll upload our tested artifact to Nexus in this repository.
+
+172
+00:08:27,140 --> 00:08:30,740
+So let's give the name and come down and say, Create repository.
+
+173
+00:08:33,220 --> 00:08:36,309
+The next repository will be creating create a repository.
+
+174
+00:08:37,000 --> 00:08:39,820
+And this will be maven to proxy.
+
+175
+00:08:40,150 --> 00:08:40,990
+Proxy.
+
+176
+00:08:41,200 --> 00:08:42,100
+Click on that.
+
+177
+00:08:43,730 --> 00:08:47,660
+Now the purpose of this repository is to store the dependencies.
+
+178
+00:08:47,690 --> 00:08:54,740
+Our maven tool in Jenkins will download dependencies maven dependencies from this repository.
+
+179
+00:08:54,770 --> 00:08:57,770
+This is called this proxy repository for Maven.
+
+180
+00:08:58,880 --> 00:09:07,010
+I will give the name here, the pro maven central, and come down here in proxy remote storage.
+
+181
+00:09:07,250 --> 00:09:13,460
+Now, Maven will download dependency from this repository, but from where the nexus will download the
+
+182
+00:09:13,460 --> 00:09:14,560
+dependencies.
+
+183
+00:09:14,570 --> 00:09:18,740
+So maybe when we ask for a dependency it does not have in this proxy repository.
+
+184
+00:09:18,740 --> 00:09:23,810
+So it will download it from a you are a maven repository, which is this one.
+
+185
+00:09:25,270 --> 00:09:26,920
+You can check this URL from the browser.
+
+186
+00:09:26,920 --> 00:09:29,410
+You will see all the maven dependencies over there.
+
+187
+00:09:29,710 --> 00:09:34,630
+So if Nexus needs the dependencies to store, it is going to download it from this repository.
+
+188
+00:09:35,180 --> 00:09:35,530
+Okay.
+
+189
+00:09:35,590 --> 00:09:38,470
+Let's come down and just create a repository.
+
+190
+00:09:40,500 --> 00:09:40,720
+Okay.
+
+191
+00:09:40,740 --> 00:09:42,090
+One more repository.
+
+192
+00:09:42,720 --> 00:09:45,360
+This will be also maven hosted.
+
+193
+00:09:46,750 --> 00:09:54,790
+Its name is Snapshot and you need to change the policy from release to Snapshot.
+
+194
+00:09:55,510 --> 00:10:00,640
+We are really not going to use this repository, but in your project, if you have snapshot repository
+
+195
+00:10:00,640 --> 00:10:02,560
+concept, this is how you create it.
+
+196
+00:10:03,070 --> 00:10:07,990
+A snapshot artifact will have at the end hyphen snapshot an extension.
+
+197
+00:10:08,200 --> 00:10:14,230
+If you know what I'm saying, you will be able to integrate, if not just create the repository.
+
+198
+00:10:15,440 --> 00:10:16,070
+What is it?
+
+199
+00:10:16,100 --> 00:10:17,330
+Create a repository.
+
+200
+00:10:19,260 --> 00:10:19,580
+Okay.
+
+201
+00:10:19,620 --> 00:10:22,020
+The last one is going to be the group repository.
+
+202
+00:10:22,940 --> 00:10:25,910
+And this is going to be maven to group.
+
+203
+00:10:26,790 --> 00:10:29,640
+This is simply to group all the repositories together.
+
+204
+00:10:30,390 --> 00:10:32,640
+And this is the name I'm giving here.
+
+205
+00:10:33,290 --> 00:10:34,410
+It's a group repository.
+
+206
+00:10:34,410 --> 00:10:38,550
+You need to add the repositories that we created previously.
+
+207
+00:10:38,550 --> 00:10:41,730
+So click on Maven Central and this arrow.
+
+208
+00:10:43,270 --> 00:10:44,740
+The Profile release.
+
+209
+00:10:44,770 --> 00:10:47,410
+Click on that, the profile snapshot.
+
+210
+00:10:47,440 --> 00:10:48,460
+Click on that.
+
+211
+00:10:49,510 --> 00:10:49,810
+Yeah.
+
+212
+00:10:49,810 --> 00:10:53,140
+That's the whole purpose of this repository to group them together.
+
+213
+00:10:54,080 --> 00:10:54,830
+Create.
+
+214
+00:10:55,800 --> 00:10:56,040
+Okay.
+
+215
+00:10:56,040 --> 00:11:03,090
+Once again, we created for repository, we profile release, we profile snapshot v pro maven central
+
+216
+00:11:03,090 --> 00:11:05,070
+and V Pro Maven Group.
+
+217
+00:11:05,310 --> 00:11:09,960
+We grouped all these three repositories into repro maven group repository.
+
+218
+00:11:10,290 --> 00:11:13,050
+That is all the setup that you need to do on Nexis.
+
+219
+00:11:13,670 --> 00:11:13,830
+Okay.
+
+220
+00:11:13,860 --> 00:11:16,980
+We have one final thing to validate, which is Stoner Cube.
+
+221
+00:11:19,310 --> 00:11:26,180
+Now, if everything went fine, just copy its IP and paste it in the browser, the public IP and you
+
+222
+00:11:26,180 --> 00:11:26,900
+should see.
+
+223
+00:11:26,900 --> 00:11:32,630
+So the cube login page, you don't need to really do a search, but if you want to search and validate
+
+224
+00:11:32,630 --> 00:11:37,370
+the service, it's just the service name is Soner System CTL status soner.
+
+225
+00:11:37,940 --> 00:11:41,030
+The username is admin and the password is admin.
+
+226
+00:11:43,510 --> 00:11:44,470
+In the real time.
+
+227
+00:11:44,470 --> 00:11:48,670
+I really, highly, highly recommend to change the password.
+
+228
+00:11:48,880 --> 00:11:51,370
+Do not use default passwords.
+
+229
+00:11:52,870 --> 00:11:53,080
+Okay.
+
+230
+00:11:53,140 --> 00:11:54,490
+So that is all.
+
+231
+00:11:54,490 --> 00:11:56,490
+We verified all three services.
+
+232
+00:11:56,500 --> 00:11:58,360
+We did the post installation steps.
+
+233
+00:11:59,070 --> 00:12:01,980
+So wrap this up and join me in the next lecture.
+
