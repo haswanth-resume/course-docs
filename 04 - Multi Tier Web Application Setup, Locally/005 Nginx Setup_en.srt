@@ -1,0 +1,136 @@
+1
+00:00:00,860 --> 00:00:08,560
+And let's log into web01, and this is where we are going to set up Nginx website.
+
+2
+00:00:08,630 --> 00:00:12,260
+web01 is ubuntu machine, all the other VMS were CentOS
+
+3
+00:00:12,540 --> 00:00:14,660
+web01 is going to be ubuntu.
+
+4
+00:00:15,530 --> 00:00:23,600
+So as we run yum update, here, we are going to run apt update and upgrade both.
+
+5
+00:00:26,070 --> 00:00:29,320
+apt upgrade -y
+
+6
+00:00:31,130 --> 00:00:33,140
+Which will update all the packages.
+
+7
+00:00:37,570 --> 00:00:44,680
+All right, so upgrade completed successfully, let's log in as the root user now and we will install
+
+8
+00:00:44,680 --> 00:00:46,780
+finally the Nginx service.
+
+9
+00:00:49,950 --> 00:00:52,170
+apt install nginx.
+
+10
+00:00:54,470 --> 00:00:57,860
+And we are going to create a configuration file.
+
+11
+00:00:58,840 --> 00:01:06,130
+Which will be used to redirect request from nginx to tomcat server on port 880, so the Nginx
+
+12
+00:01:06,130 --> 00:01:08,140
+will basically act like a load balancer.
+
+13
+00:01:09,100 --> 00:01:11,200
+So create the file at this location.
+
+14
+00:01:13,000 --> 00:01:14,200
+Let me show you once again.
+
+15
+00:01:16,940 --> 00:01:22,190
+That location with that name vproapp, sites-available, this is where we create the configuration
+
+16
+00:01:23,330 --> 00:01:25,940
+and we create the file with the name vproapp.
+
+17
+00:01:28,540 --> 00:01:31,090
+And we are going to put this configuration.
+
+18
+00:01:32,130 --> 00:01:38,550
+So frontent, it's going to listen on port 80, if you access nginx service on port 80, it's going to
+
+19
+00:01:38,870 --> 00:01:42,000
+route the request to the vproapp server.
+
+20
+00:01:42,960 --> 00:01:45,450
+app01 on port 8080
+
+21
+00:01:47,310 --> 00:01:50,850
+If you have multiple application server behind the scene.
+
+22
+00:01:52,220 --> 00:01:58,790
+Then you can just copy the settings multiple times and you can change the hostname app01, app02
+
+23
+00:01:58,790 --> 00:02:06,470
+, like that, but we just have one application server and we have given its name and the port number
+
+24
+00:02:06,470 --> 00:02:09,110
+Tomcat runs by default on port 8080
+
+25
+00:02:09,919 --> 00:02:11,780
+OK, let's save this file.
+
+26
+00:02:13,950 --> 00:02:24,150
+And we're going to remove a default application or default website of Nginx, the path is /etc/
+
+27
+00:02:24,510 --> 00:02:27,840
+nginx/sites-enabled/default
+
+28
+00:02:29,380 --> 00:02:32,260
+And now we have to create a link, ln -s
+
+29
+00:02:34,210 --> 00:02:41,380
+Link of our configuration file at this particular location, you can give it with the same name,
+
+30
+00:02:41,680 --> 00:02:42,040
+vproapp
+
+31
+00:02:43,940 --> 00:02:47,180
+So this is going to enable our site.
+
+32
+00:02:48,320 --> 00:02:52,430
+Once the configuration change is is done, restart nginx service.
+
+33
+00:02:54,060 --> 00:02:56,310
+And that was the final command.
+
+34
+00:02:57,550 --> 00:02:58,990
+of our stack setup.
+
