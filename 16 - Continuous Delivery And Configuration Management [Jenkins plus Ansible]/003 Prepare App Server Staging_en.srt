@@ -1,0 +1,496 @@
+1
+00:00:00,390 --> 00:00:04,380
+All right, let's prepare application, server and its detail.
+
+2
+00:00:04,380 --> 00:00:06,240
+So three things we will be doing.
+
+3
+00:00:06,240 --> 00:00:10,530
+We'll be launching an easy two instance with open to 18 operating system.
+
+4
+00:00:10,620 --> 00:00:11,250
+That's it.
+
+5
+00:00:11,250 --> 00:00:12,420
+Just launch it.
+
+6
+00:00:12,700 --> 00:00:14,940
+That is our app server for staging.
+
+7
+00:00:15,420 --> 00:00:23,040
+Second will create a DNS record for it in Route 53 so it can be accessed with the name from Ansible.
+
+8
+00:00:23,670 --> 00:00:31,680
+So we will save it as a search login key in the Jenkins credentials first starting with launching the
+
+9
+00:00:31,680 --> 00:00:32,220
+app server.
+
+10
+00:00:32,220 --> 00:00:33,420
+So launch instance.
+
+11
+00:00:35,120 --> 00:00:39,590
+We will limit as zero one hyphen staging.
+
+12
+00:00:40,850 --> 00:00:43,100
+We will go with ubuntu 18.
+
+13
+00:00:43,130 --> 00:00:45,470
+You can also use CentOS seven as well.
+
+14
+00:00:45,500 --> 00:00:49,940
+Our Ansible playbook can do deployment on Ubuntu and centos both.
+
+15
+00:00:50,690 --> 00:00:54,080
+So 1 to 818 I selected instance type to micro is fine.
+
+16
+00:00:54,080 --> 00:00:55,880
+Let's create a key pair for it.
+
+17
+00:00:57,050 --> 00:00:59,900
+So you call it US App key?
+
+18
+00:01:00,770 --> 00:01:01,520
+And keep it.
+
+19
+00:01:01,520 --> 00:01:02,930
+Pen create.
+
+20
+00:01:02,930 --> 00:01:03,710
+Keep their.
+
+21
+00:01:06,070 --> 00:01:07,180
+Let's see what.
+
+22
+00:01:08,400 --> 00:01:13,470
+Make sure that key selected network setting will say edit.
+
+23
+00:01:14,610 --> 00:01:16,730
+And we'll create a security group for it.
+
+24
+00:01:16,740 --> 00:01:18,930
+We'll say app hyphen.
+
+25
+00:01:19,870 --> 00:01:20,590
+S.G..
+
+26
+00:01:22,490 --> 00:01:23,090
+And we'll give.
+
+27
+00:01:23,090 --> 00:01:24,470
+Same in the description.
+
+28
+00:01:27,970 --> 00:01:32,590
+You will see a Lao 22 from my IP if you want to do so just in case.
+
+29
+00:01:33,250 --> 00:01:37,790
+So it will be running Tomcat Service, which runs on port 88.
+
+30
+00:01:37,810 --> 00:01:40,090
+So I will say allow 88.
+
+31
+00:01:40,120 --> 00:01:42,700
+Also from my IP.
+
+32
+00:01:45,150 --> 00:01:50,550
+So after the deployment of our Vpro file artifact, we can see it from the browser.
+
+33
+00:01:51,300 --> 00:01:57,690
+We also need to allow Port 22 from Jenkins Security Group.
+
+34
+00:01:59,380 --> 00:01:59,590
+Oop.
+
+35
+00:01:59,590 --> 00:02:00,820
+Sorry, not in here.
+
+36
+00:02:00,820 --> 00:02:04,030
+Source Jenkins Security Group.
+
+37
+00:02:04,690 --> 00:02:09,949
+Okay, now the reason we are doing it, Ansible will be running from Jenkins, and Ansible will do a
+
+38
+00:02:09,970 --> 00:02:14,560
+search to this application server to run the Ansible playbook.
+
+39
+00:02:15,160 --> 00:02:18,790
+So Jenkins and Ansible are basically just one same instance.
+
+40
+00:02:18,790 --> 00:02:26,830
+We will so we will allow Port 22 from Jenkins Security Group so Ansible can do ssh to it.
+
+41
+00:02:27,160 --> 00:02:28,180
+I will write a description.
+
+42
+00:02:28,180 --> 00:02:30,850
+Also allow Ansible.
+
+43
+00:02:31,540 --> 00:02:34,190
+To two such.
+
+44
+00:02:36,010 --> 00:02:36,780
+And that is it.
+
+45
+00:02:36,790 --> 00:02:37,510
+Nothing else.
+
+46
+00:02:37,510 --> 00:02:38,410
+Just launch.
+
+47
+00:02:38,410 --> 00:02:42,070
+Tomcat Service will be automatically set up by Ansible playbook.
+
+48
+00:02:42,070 --> 00:02:43,420
+So we don't need to do anything.
+
+49
+00:02:43,420 --> 00:02:44,920
+Just launch the instance.
+
+50
+00:02:45,010 --> 00:02:46,000
+That is it.
+
+51
+00:02:48,870 --> 00:02:49,410
+Okay.
+
+52
+00:02:49,440 --> 00:02:50,500
+It's going to come up.
+
+53
+00:02:50,520 --> 00:02:52,140
+We got it's private IP.
+
+54
+00:02:52,440 --> 00:02:57,840
+Now we will go to Route 53 and add it, add in it the DNS record.
+
+55
+00:02:58,140 --> 00:03:00,240
+So let's search for a route.
+
+56
+00:03:01,050 --> 00:03:01,830
+53.
+
+57
+00:03:03,330 --> 00:03:04,230
+Let's open it.
+
+58
+00:03:06,380 --> 00:03:11,000
+And here in the DNS management will say create a hosted zone.
+
+59
+00:03:11,030 --> 00:03:16,700
+If you already have hosted zone from the previous project, you can use the same and create the record,
+
+60
+00:03:16,730 --> 00:03:19,430
+or else you can create a new hosted zone as well.
+
+61
+00:03:19,430 --> 00:03:20,670
+Like I'm doing it.
+
+62
+00:03:20,690 --> 00:03:26,540
+I will give this name as V Pro File Hyphen Project.
+
+63
+00:03:26,960 --> 00:03:29,210
+Sorry, not hyphen dot.
+
+64
+00:03:29,270 --> 00:03:31,190
+That's how the domain is given.
+
+65
+00:03:31,310 --> 00:03:33,260
+You can give dot com dot in whatever.
+
+66
+00:03:33,260 --> 00:03:34,790
+I'm just giving dot project.
+
+67
+00:03:36,060 --> 00:03:39,030
+Private hostages are not public private.
+
+68
+00:03:39,510 --> 00:03:43,350
+This will be internally used in that region.
+
+69
+00:03:43,350 --> 00:03:46,020
+So we need to select the region as well.
+
+70
+00:03:46,720 --> 00:03:50,950
+So we are doing everything in US East, one US hyphen east.
+
+71
+00:03:50,950 --> 00:03:53,890
+I mean, I am doing it in the US East one North Virginia.
+
+72
+00:03:54,010 --> 00:03:55,210
+So wherever.
+
+73
+00:03:56,220 --> 00:03:59,430
+Your easy two instances are selected the same region.
+
+74
+00:04:00,350 --> 00:04:02,210
+Mine is in the US East one.
+
+75
+00:04:04,990 --> 00:04:05,110
+Right.
+
+76
+00:04:05,360 --> 00:04:06,230
+See this?
+
+77
+00:04:06,410 --> 00:04:09,080
+This is an US East one, not California.
+
+78
+00:04:09,320 --> 00:04:16,010
+So I use that region and I have a default VPC there that I will select and create hostage zone.
+
+79
+00:04:17,390 --> 00:04:22,160
+Okay that got created now in this will create a record so let's say create record.
+
+80
+00:04:23,000 --> 00:04:24,650
+And this will be an A record.
+
+81
+00:04:24,920 --> 00:04:30,800
+So I will give the name app zero one hyphen or app zero one SDG.
+
+82
+00:04:32,820 --> 00:04:40,650
+And based the private IP over here, the private IP of app server app zero one private IP copy that.
+
+83
+00:04:40,650 --> 00:04:42,840
+Makes sure app zero one is selected here.
+
+84
+00:04:43,380 --> 00:04:45,600
+Copy the private IP and paste it here.
+
+85
+00:04:47,030 --> 00:04:47,870
+That is it.
+
+86
+00:04:47,900 --> 00:04:49,340
+They create record.
+
+87
+00:04:50,860 --> 00:04:51,120
+Okay.
+
+88
+00:04:51,130 --> 00:04:55,570
+So that is the name of our app server staging.
+
+89
+00:04:55,600 --> 00:04:59,200
+App zero one stg dot v profile dot project.
+
+90
+00:04:59,350 --> 00:05:01,540
+This we will use in ansible inventory.
+
+91
+00:05:01,540 --> 00:05:03,220
+You will see how we use it.
+
+92
+00:05:04,980 --> 00:05:05,130
+Okay.
+
+93
+00:05:05,250 --> 00:05:10,420
+Third thing we will add, it's its search login key in the Jenkins credentials.
+
+94
+00:05:10,560 --> 00:05:13,740
+Go to Jenkins manager Jenkins.
+
+95
+00:05:16,110 --> 00:05:17,670
+Manage credentials.
+
+96
+00:05:19,940 --> 00:05:20,960
+Jenkins.
+
+97
+00:05:23,200 --> 00:05:24,610
+Global credentials.
+
+98
+00:05:25,700 --> 00:05:26,840
+Ad credential.
+
+99
+00:05:28,480 --> 00:05:35,440
+So this will be the username and the private key for our app server, which Ansible will use.
+
+100
+00:05:36,220 --> 00:05:37,750
+So we will call it as.
+
+101
+00:05:38,910 --> 00:05:40,830
+App login.
+
+102
+00:05:42,470 --> 00:05:42,690
+See.
+
+103
+00:05:42,890 --> 00:05:44,360
+I'll put in the description.
+
+104
+00:05:45,100 --> 00:05:45,880
+Username.
+
+105
+00:05:45,880 --> 00:05:51,370
+So we have launched an ubuntu instance from open to am-I, so its username is open to.
+
+106
+00:05:52,420 --> 00:05:53,940
+And it's login key.
+
+107
+00:05:53,950 --> 00:05:56,830
+We say enter directly here and.
+
+108
+00:05:57,800 --> 00:06:01,040
+And let's look at the key, copy the key and paste it over here.
+
+109
+00:06:01,520 --> 00:06:03,950
+So I'm opening the git bash.
+
+110
+00:06:05,010 --> 00:06:07,680
+And I will simply do cat downloads.
+
+111
+00:06:08,570 --> 00:06:09,450
+AP.
+
+112
+00:06:11,500 --> 00:06:11,800
+Okay.
+
+113
+00:06:11,830 --> 00:06:12,910
+Copy that key.
+
+114
+00:06:16,400 --> 00:06:18,760
+Make sure no extra characters are copied.
+
+115
+00:06:18,770 --> 00:06:20,280
+Exactly how I copied it.
+
+116
+00:06:20,280 --> 00:06:21,410
+The same way you do.
+
+117
+00:06:22,010 --> 00:06:23,330
+And then paste it here.
+
+118
+00:06:24,610 --> 00:06:26,140
+And they create.
+
+119
+00:06:28,150 --> 00:06:32,410
+So Ansible will use this credential to login to app server.
+
+120
+00:06:32,680 --> 00:06:34,120
+So we did three simple things.
+
+121
+00:06:34,120 --> 00:06:36,640
+We launched an easy two instance app zero on staging.
+
+122
+00:06:36,640 --> 00:06:41,560
+We created its DNS record and we have saved its credential in the Jenkins.
+
+123
+00:06:42,400 --> 00:06:48,450
+Now we need to prepare Jenkins to run Ansible code that we will do in the next lecture.
+
+124
+00:06:48,460 --> 00:06:50,980
+So wrap this up and join me in the next one.
+

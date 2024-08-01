@@ -1,0 +1,200 @@
+1
+00:00:00,510 --> 00:00:00,780
+Okay.
+
+2
+00:00:00,780 --> 00:00:01,920
+This one is pretty simple.
+
+3
+00:00:01,920 --> 00:00:03,240
+We need to do just two things.
+
+4
+00:00:03,240 --> 00:00:10,050
+We need to install Ansible in Jenkins and then we need to install Ansible plugin in Jenkins.
+
+5
+00:00:10,050 --> 00:00:12,690
+So let's do switch to Jenkins first.
+
+6
+00:00:13,140 --> 00:00:15,460
+Let's get its IP version.
+
+7
+00:00:15,540 --> 00:00:16,379
+It's.
+
+8
+00:00:17,800 --> 00:00:18,520
+There.
+
+9
+00:00:19,890 --> 00:00:21,300
+Forget its IP.
+
+10
+00:00:24,410 --> 00:00:25,660
+Go to get Bash.
+
+11
+00:00:25,670 --> 00:00:26,660
+Just do an search.
+
+12
+00:00:26,660 --> 00:00:27,350
+To what?
+
+13
+00:00:28,840 --> 00:00:33,190
+The profile 61 to add the eight p.
+
+14
+00:00:34,800 --> 00:00:41,820
+Clear the screen, become the root user and let's get the steps of installing Ansible in Ubuntu.
+
+15
+00:00:42,870 --> 00:00:48,990
+No, I just googled ansible installation open to installing Ansible and a specific operating system
+
+16
+00:00:48,990 --> 00:00:49,470
+that link.
+
+17
+00:00:49,470 --> 00:00:52,680
+This is the documentation from Ansible itself.
+
+18
+00:00:54,110 --> 00:00:57,320
+And they're pretty simple steps.
+
+19
+00:00:57,360 --> 00:00:58,490
+Let's just copy them.
+
+20
+00:01:00,030 --> 00:01:02,130
+Oh, let's just execute them one by one.
+
+21
+00:01:02,130 --> 00:01:03,330
+First app update.
+
+22
+00:01:08,510 --> 00:01:08,840
+Okay.
+
+23
+00:01:08,870 --> 00:01:09,470
+Next.
+
+24
+00:01:10,540 --> 00:01:14,950
+App installs software properties common, I believe that will be already installed.
+
+25
+00:01:20,560 --> 00:01:21,040
+Yep.
+
+26
+00:01:21,830 --> 00:01:22,750
+Already installed.
+
+27
+00:01:23,770 --> 00:01:26,680
+Adding the ansible repository.
+
+28
+00:01:38,770 --> 00:01:40,840
+And then finally installing Ansible.
+
+29
+00:01:45,260 --> 00:01:46,760
+And hyphen y.
+
+30
+00:01:50,010 --> 00:01:54,420
+So what are the steps you see in the documentation use that it might change.
+
+31
+00:01:54,420 --> 00:01:55,650
+The steps might change.
+
+32
+00:01:55,860 --> 00:01:59,310
+Just go to the documentation, find the steps and install Ansible.
+
+33
+00:02:05,230 --> 00:02:05,510
+Okay.
+
+34
+00:02:05,530 --> 00:02:06,670
+Ansible installed.
+
+35
+00:02:06,670 --> 00:02:09,070
+Ansible hyphen hyphen version.
+
+36
+00:02:12,950 --> 00:02:13,250
+Okay.
+
+37
+00:02:13,280 --> 00:02:13,770
+We're good.
+
+38
+00:02:13,790 --> 00:02:17,720
+Now let's install ansible plugin in Jenkins.
+
+39
+00:02:17,720 --> 00:02:19,340
+So dashboard.
+
+40
+00:02:20,160 --> 00:02:21,600
+Manny Jenkins.
+
+41
+00:02:22,680 --> 00:02:24,090
+Manage plugins.
+
+42
+00:02:25,620 --> 00:02:29,820
+Available and search for Ansible.
+
+43
+00:02:30,950 --> 00:02:31,550
+There.
+
+44
+00:02:31,820 --> 00:02:33,200
+Put a checkmark on that hand.
+
+45
+00:02:33,200 --> 00:02:34,970
+Symbol 1.1 I'm seeing.
+
+46
+00:02:36,020 --> 00:02:37,550
+Install without restart.
+
+47
+00:02:39,380 --> 00:02:39,830
+Yep.
+
+48
+00:02:39,830 --> 00:02:40,590
+That's all.
+
+49
+00:02:40,610 --> 00:02:41,750
+In this lecture.
+
+50
+00:02:41,990 --> 00:02:43,190
+I'll see you in the next one.
+

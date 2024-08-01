@@ -1,0 +1,396 @@
+1
+00:00:00,630 --> 00:00:01,410
+All right.
+
+2
+00:00:01,770 --> 00:00:03,330
+So far, so good.
+
+3
+00:00:03,630 --> 00:00:07,170
+In this lecture, we will be preparing our source code.
+
+4
+00:00:07,170 --> 00:00:09,150
+So my repository.
+
+5
+00:00:11,820 --> 00:00:14,400
+It's here in my system.
+
+6
+00:00:14,580 --> 00:00:18,780
+This is the same repository we used in previous projects.
+
+7
+00:00:18,840 --> 00:00:22,590
+So go to your repository directory folder.
+
+8
+00:00:24,510 --> 00:00:26,030
+Make sure everything is good.
+
+9
+00:00:26,040 --> 00:00:27,870
+Get status.
+
+10
+00:00:30,160 --> 00:00:33,760
+If there is any changes, you need to pull the changes.
+
+11
+00:00:33,760 --> 00:00:35,770
+Make sure the repository is clean.
+
+12
+00:00:35,770 --> 00:00:36,850
+It's in sync.
+
+13
+00:00:38,270 --> 00:00:41,230
+Let's look at the branch, branch, if any.
+
+14
+00:00:42,670 --> 00:00:46,270
+Let's switch to see hyphen Jenkins branch first.
+
+15
+00:00:46,930 --> 00:00:49,720
+Get check out.
+
+16
+00:00:50,230 --> 00:00:52,480
+Sy hyphen Jenkins.
+
+17
+00:00:54,450 --> 00:00:59,490
+From this branch, we will create another branch and that branch will use in this project.
+
+18
+00:00:59,490 --> 00:01:01,950
+So we'll say get checked out.
+
+19
+00:01:02,850 --> 00:01:03,810
+Hyphen B.
+
+20
+00:01:05,110 --> 00:01:09,520
+And I will call this branch's CCD hyphen chain.
+
+21
+00:01:10,860 --> 00:01:11,970
+Quince.
+
+22
+00:01:12,510 --> 00:01:14,610
+Now you can call this branch water.
+
+23
+00:01:14,610 --> 00:01:17,240
+You want to make sure you remember the branch name.
+
+24
+00:01:17,250 --> 00:01:21,780
+This is the branch we'll be using in this project for staging environment.
+
+25
+00:01:21,960 --> 00:01:24,570
+We'll put all our ANSIBLE code in this branch.
+
+26
+00:01:25,520 --> 00:01:25,730
+Okay.
+
+27
+00:01:25,760 --> 00:01:29,150
+So it creates a new branch and switches to that branch.
+
+28
+00:01:29,330 --> 00:01:34,430
+And in this branch, we need to copy the Ansible code in this Ansible directory.
+
+29
+00:01:34,430 --> 00:01:36,320
+And that's what we'll do next.
+
+30
+00:01:36,320 --> 00:01:37,760
+We will go to.
+
+31
+00:01:39,060 --> 00:01:44,760
+Our GitHub repository, not our my GitHub repository.
+
+32
+00:01:45,960 --> 00:01:48,090
+We profile project repository.
+
+33
+00:01:48,120 --> 00:01:49,920
+Again, that's the link.
+
+34
+00:01:51,030 --> 00:01:55,530
+And you need to switch to the branch search for Ansible.
+
+35
+00:01:55,530 --> 00:01:57,290
+In this case.
+
+36
+00:01:57,390 --> 00:01:58,380
+Ansible.
+
+37
+00:02:00,030 --> 00:02:01,860
+Their Jenkins Ansible code.
+
+38
+00:02:01,860 --> 00:02:05,280
+That branch you need to switch to exactly this branch.
+
+39
+00:02:05,280 --> 00:02:06,250
+Not any other branch.
+
+40
+00:02:06,270 --> 00:02:07,380
+Jenkins hyphen.
+
+41
+00:02:07,380 --> 00:02:08,699
+Ansible hyphen code.
+
+42
+00:02:09,650 --> 00:02:13,760
+There are some other branches with names of Ansible, but they have slightly different code.
+
+43
+00:02:13,760 --> 00:02:17,480
+This is more twisted four or more updated for this project.
+
+44
+00:02:18,350 --> 00:02:20,810
+Here we have the Ansible directory.
+
+45
+00:02:20,810 --> 00:02:21,260
+All this.
+
+46
+00:02:21,260 --> 00:02:23,510
+We need to copy it into our repository.
+
+47
+00:02:23,510 --> 00:02:25,070
+So first we will download this.
+
+48
+00:02:25,070 --> 00:02:29,420
+We will say download zip which will download this branch.
+
+49
+00:02:30,810 --> 00:02:32,220
+In the downloads directory.
+
+50
+00:02:34,050 --> 00:02:35,040
+Let's go there.
+
+51
+00:02:35,070 --> 00:02:36,780
+Let's go to the downloads folder.
+
+52
+00:02:38,570 --> 00:02:39,770
+Showing folder.
+
+53
+00:02:41,010 --> 00:02:43,680
+And I'm going to extract this one.
+
+54
+00:02:44,490 --> 00:02:45,570
+Extract all.
+
+55
+00:02:47,850 --> 00:02:48,180
+Yeah.
+
+56
+00:02:48,210 --> 00:02:49,050
+Extract.
+
+57
+00:02:52,350 --> 00:02:52,510
+Okay.
+
+58
+00:02:52,680 --> 00:02:53,730
+Extracted.
+
+59
+00:02:54,100 --> 00:02:55,050
+Close this one.
+
+60
+00:02:55,080 --> 00:02:55,440
+Yeah.
+
+61
+00:02:55,440 --> 00:02:57,480
+That's the directory inside that we have.
+
+62
+00:02:57,480 --> 00:03:00,930
+Directory with the same name and that's the Ansible code.
+
+63
+00:03:00,930 --> 00:03:02,640
+So you need to copy this.
+
+64
+00:03:02,640 --> 00:03:03,720
+I'm going to do control.
+
+65
+00:03:03,720 --> 00:03:11,220
+See here, select the Ansible control key and go to our or your project repository.
+
+66
+00:03:11,220 --> 00:03:12,900
+Mine is in F drive.
+
+67
+00:03:13,930 --> 00:03:15,790
+In Project Get report.
+
+68
+00:03:15,820 --> 00:03:20,290
+We profiled C Project there and you just need to paste it here.
+
+69
+00:03:21,640 --> 00:03:21,970
+Yeah.
+
+70
+00:03:21,970 --> 00:03:28,390
+So once you see, hear Ansible, you will see a few playbooks, some templates.
+
+71
+00:03:28,990 --> 00:03:33,340
+It is copied if you go to get batch.
+
+72
+00:03:35,020 --> 00:03:35,610
+Right.
+
+73
+00:03:35,780 --> 00:03:35,990
+Okay.
+
+74
+00:03:36,040 --> 00:03:36,760
+We'll say it.
+
+75
+00:03:36,760 --> 00:03:38,230
+Ad dot.
+
+76
+00:03:39,190 --> 00:03:43,180
+So we copied all the ansible code here can get a dot.
+
+77
+00:03:44,130 --> 00:03:47,370
+And we will see it come at five hyphen M.
+
+78
+00:03:48,400 --> 00:03:54,550
+See Ansible code as a message and we'll say Git push origin.
+
+79
+00:03:56,360 --> 00:04:00,760
+Secede, hyphen, chink and symbol like that.
+
+80
+00:04:02,070 --> 00:04:04,140
+Make sure you use the correct branch name.
+
+81
+00:04:09,020 --> 00:04:09,320
+Okay.
+
+82
+00:04:09,320 --> 00:04:14,150
+New branch should get created now in your GitHub repository.
+
+83
+00:04:19,829 --> 00:04:20,290
+Yeah.
+
+84
+00:04:20,310 --> 00:04:24,030
+New Branch CD Hyphen Jenkins.
+
+85
+00:04:24,890 --> 00:04:26,210
+And Ansible.
+
+86
+00:04:27,710 --> 00:04:28,100
+Yeah.
+
+87
+00:04:28,130 --> 00:04:29,360
+And that code is there.
+
+88
+00:04:31,410 --> 00:04:33,600
+Make sure you do all these steps very carefully.
+
+89
+00:04:33,600 --> 00:04:35,820
+We need to have our Ansible code once again.
+
+90
+00:04:35,820 --> 00:04:36,660
+It's pretty simple.
+
+91
+00:04:36,660 --> 00:04:40,080
+We create a new branch in our repository.
+
+92
+00:04:40,230 --> 00:04:49,830
+We download Jenkins Ansible branch from the Profile Project Repository and we copy the Ansible folder
+
+93
+00:04:49,830 --> 00:04:54,660
+from that into our repository and then we push it to GitHub.
+
+94
+00:04:56,050 --> 00:04:56,240
+Right.
+
+95
+00:04:56,240 --> 00:05:02,330
+So the idea is to copy the Ansible code from high profile project repository to our repository in a
+
+96
+00:05:02,330 --> 00:05:03,290
+new branch.
+
+97
+00:05:04,540 --> 00:05:06,160
+That is all in this lecture.
+
+98
+00:05:06,160 --> 00:05:11,170
+In the next lecture we will look at the Ansible code that we will be executing from Jenkins.
+
+99
+00:05:11,830 --> 00:05:14,230
+So wrap this up and join me in the next lecture.
+

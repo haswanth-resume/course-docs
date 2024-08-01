@@ -1,0 +1,520 @@
+1
+00:00:00,390 --> 00:00:00,810
+All right.
+
+2
+00:00:00,810 --> 00:00:06,360
+So we created two pipelines successfully, one for staging and one for production.
+
+3
+00:00:06,540 --> 00:00:11,160
+Once these pipelines are ready, then every day they will be executing.
+
+4
+00:00:11,160 --> 00:00:13,440
+Let's see what happens on a regular basis.
+
+5
+00:00:13,440 --> 00:00:20,070
+And how do we move the chord changes to a staging environment and when it is approved from there we
+
+6
+00:00:20,070 --> 00:00:21,900
+move it to production environment.
+
+7
+00:00:22,020 --> 00:00:25,890
+So the process is similar to what we have seen in previous project.
+
+8
+00:00:26,160 --> 00:00:27,960
+We test a staging pipeline.
+
+9
+00:00:27,960 --> 00:00:34,260
+If everything is good, then we merge the code from staging branch to production branch.
+
+10
+00:00:34,860 --> 00:00:39,120
+But this time we don't want it to trigger this job automatically.
+
+11
+00:00:39,120 --> 00:00:41,940
+So production pipeline configure.
+
+12
+00:00:42,780 --> 00:00:47,880
+And we will remove this git hub hook trigger.
+
+13
+00:00:47,880 --> 00:00:51,090
+Forget ACM polling and check this save.
+
+14
+00:00:51,120 --> 00:00:57,120
+The reason we don't want it to run automatically is because we want to deploy the artifact that we mentioned.
+
+15
+00:00:57,150 --> 00:01:01,290
+This is parameter is job, so we need to pass parameters.
+
+16
+00:01:01,470 --> 00:01:08,460
+Once the software testers test the staging application and they give the go ahead, then we will run
+
+17
+00:01:08,460 --> 00:01:14,700
+this, pass the correct parameters and deploy the artifact to the production environment.
+
+18
+00:01:15,240 --> 00:01:24,150
+Okay, so let's go to VS Code now and we will switch from this branch to the staging branch we had created
+
+19
+00:01:24,150 --> 00:01:30,060
+previously that one sicced Ants and Stanford Ansible again.
+
+20
+00:01:30,630 --> 00:01:33,780
+Okay, we switch there, we close these files.
+
+21
+00:01:33,780 --> 00:01:39,540
+So now we again we are not going to make any code change really.
+
+22
+00:01:39,540 --> 00:01:45,540
+We will just put some hash or remove some hash in the file, which really doesn't affect our application.
+
+23
+00:01:45,690 --> 00:01:47,430
+So I'm going to just.
+
+24
+00:01:48,280 --> 00:01:52,960
+And here a few more hash and I'll say control se.
+
+25
+00:01:53,870 --> 00:01:57,740
+And this is the staging and staging branch.
+
+26
+00:01:58,040 --> 00:02:03,110
+So assuming developer made the code change and then they are going to test it locally, if everything
+
+27
+00:02:03,110 --> 00:02:06,590
+is good, they're going to commit and push like this.
+
+28
+00:02:07,790 --> 00:02:08,630
+Your test.
+
+29
+00:02:09,270 --> 00:02:11,550
+Staging pipeline.
+
+30
+00:02:13,630 --> 00:02:14,830
+Control less.
+
+31
+00:02:15,680 --> 00:02:16,700
+Checkmark.
+
+32
+00:02:17,150 --> 00:02:21,980
+So this will push the change to the staging branch, which will trigger the staging pipeline.
+
+33
+00:02:22,370 --> 00:02:25,400
+Let's go to staging pipeline.
+
+34
+00:02:26,310 --> 00:02:27,990
+And to stage there.
+
+35
+00:02:30,140 --> 00:02:30,370
+All right.
+
+36
+00:02:30,400 --> 00:02:32,500
+So it already triggered the pipeline.
+
+37
+00:02:33,010 --> 00:02:35,320
+And let's wait until this is completed.
+
+38
+00:02:37,460 --> 00:02:39,620
+So this pipeline completed successfully.
+
+39
+00:02:39,620 --> 00:02:43,820
+There's a new deployment, the software testers, the quality assurance.
+
+40
+00:02:44,730 --> 00:02:46,050
+Dean will test it.
+
+41
+00:02:46,080 --> 00:02:51,390
+If everything is good, they go ahead and give you a signal to deploy it on production.
+
+42
+00:02:51,390 --> 00:02:56,190
+So we are going to merge the code changes to production branch.
+
+43
+00:02:57,390 --> 00:02:57,630
+Okay.
+
+44
+00:02:57,630 --> 00:03:02,370
+I come to get back and get checked out.
+
+45
+00:03:03,830 --> 00:03:10,580
+Alright, I'll go back and I'll just say F project, intro e profile project.
+
+46
+00:03:11,270 --> 00:03:18,080
+Okay, so I'm in CCD, Genk Ansible Branch and I need to merge all these changes with the production
+
+47
+00:03:18,080 --> 00:03:18,500
+branch.
+
+48
+00:03:18,500 --> 00:03:21,320
+So I'm going to say git checkout.
+
+49
+00:03:22,950 --> 00:03:28,200
+See, I said hyphen chink and hyphen pro.
+
+50
+00:03:28,230 --> 00:03:29,880
+That is our production branch.
+
+51
+00:03:30,920 --> 00:03:35,480
+For this project that this is the production branch and we're going to say git merge.
+
+52
+00:03:36,990 --> 00:03:41,400
+With CIC hyphen Jen Gantz.
+
+53
+00:03:41,970 --> 00:03:45,540
+So that is our staging or testing branch, whatever you want to call it.
+
+54
+00:03:45,750 --> 00:03:48,290
+So all the changes is tested in that branch.
+
+55
+00:03:48,300 --> 00:03:50,910
+Now we're going to merge it with the production branch.
+
+56
+00:03:51,900 --> 00:03:52,560
+Yeah.
+
+57
+00:03:53,040 --> 00:03:55,780
+So we moved the changes to the production branch.
+
+58
+00:03:55,800 --> 00:04:01,020
+It says one file merged, one insertion that is just re-employed MD file we are testing right now.
+
+59
+00:04:01,020 --> 00:04:02,850
+This is not going to trigger our pipeline.
+
+60
+00:04:02,850 --> 00:04:03,090
+Right.
+
+61
+00:04:03,090 --> 00:04:05,070
+Because we have removed that option.
+
+62
+00:04:06,100 --> 00:04:07,090
+Let's go to.
+
+63
+00:04:09,660 --> 00:04:11,100
+Production branch.
+
+64
+00:04:12,070 --> 00:04:13,740
+Saudi production pipeline.
+
+65
+00:04:13,750 --> 00:04:18,649
+Now we say build with parameters, but we really need to now get the right parameters.
+
+66
+00:04:18,649 --> 00:04:20,110
+So I'm going to refresh this.
+
+67
+00:04:23,060 --> 00:04:23,200
+Okay.
+
+68
+00:04:23,350 --> 00:04:24,810
+This seems confusing from here.
+
+69
+00:04:24,820 --> 00:04:29,590
+Let's better get it from directly the pipeline, which will be absolutely correct.
+
+70
+00:04:29,590 --> 00:04:39,340
+So go to the staging pipeline and we go to the latest build logs, scroll down, scroll down or you
+
+71
+00:04:39,340 --> 00:04:43,930
+can at the end print those variables also, but we can get it from here.
+
+72
+00:04:45,180 --> 00:04:51,300
+I can get it from the URL that uploaded the artifact and best we can get it from here itself.
+
+73
+00:04:51,300 --> 00:04:51,830
+Right.
+
+74
+00:04:51,840 --> 00:04:57,840
+So the build id is four and the build timestamp is exact.
+
+75
+00:04:57,840 --> 00:05:00,240
+So we can just use it from here.
+
+76
+00:05:00,360 --> 00:05:01,680
+Let's copy the.
+
+77
+00:05:02,490 --> 00:05:03,450
+Timestamp.
+
+78
+00:05:04,200 --> 00:05:05,370
+Bill 34.
+
+79
+00:05:05,730 --> 00:05:08,490
+Let's go to the production.
+
+80
+00:05:09,420 --> 00:05:11,100
+Build with parameters.
+
+81
+00:05:12,430 --> 00:05:16,090
+Four as the bill died and time as this value.
+
+82
+00:05:16,840 --> 00:05:18,760
+Sure, there's no extra space.
+
+83
+00:05:19,210 --> 00:05:21,280
+Be careful in copy pasting this.
+
+84
+00:05:22,350 --> 00:05:25,590
+This will be the same artifact will be here for that one.
+
+85
+00:05:25,590 --> 00:05:26,850
+This is the artifact.
+
+86
+00:05:29,090 --> 00:05:30,620
+And we will say build.
+
+87
+00:05:32,460 --> 00:05:34,410
+That should trigger the pipeline.
+
+88
+00:05:36,120 --> 00:05:36,420
+Okay.
+
+89
+00:05:36,420 --> 00:05:37,710
+So that worked.
+
+90
+00:05:38,370 --> 00:05:39,230
+Of course it will work.
+
+91
+00:05:39,240 --> 00:05:42,210
+We already tested it, which is deploying a different artifact.
+
+92
+00:05:42,240 --> 00:05:44,750
+Now, you may think that this is a lot of work.
+
+93
+00:05:44,760 --> 00:05:46,540
+I am passing the parameters.
+
+94
+00:05:46,560 --> 00:05:51,960
+Now, in previous projects I have shown you how this can be done automatically, but this time we are
+
+95
+00:05:51,960 --> 00:05:56,520
+using configuration management and yes, there will be some manual intervention.
+
+96
+00:05:56,520 --> 00:05:59,580
+But here is the good part.
+
+97
+00:06:00,390 --> 00:06:04,590
+This job or this pipeline can deploy any artifact.
+
+98
+00:06:04,620 --> 00:06:10,140
+If you want to roll back to a previous artifact, you don't need to write a separate code.
+
+99
+00:06:10,350 --> 00:06:12,540
+You don't need to write a separate pipeline.
+
+100
+00:06:12,570 --> 00:06:17,820
+All you need to do is run this job and pass the parameter you want to rollback.
+
+101
+00:06:17,850 --> 00:06:20,250
+Pass the parameter of older artifact.
+
+102
+00:06:20,250 --> 00:06:22,290
+It's going to deploy the older artifact.
+
+103
+00:06:22,770 --> 00:06:24,720
+So it's multipurpose pipeline.
+
+104
+00:06:24,720 --> 00:06:28,620
+Now, it can deploy latest artifact, older whatever you want.
+
+105
+00:06:29,130 --> 00:06:30,780
+I call that efficient.
+
+106
+00:06:31,960 --> 00:06:38,800
+Not sure this can be refined much more for further, but this is all in this project.
+
+107
+00:06:39,700 --> 00:06:45,110
+We are going to now make sure we don't pay extra money.
+
+108
+00:06:45,130 --> 00:06:46,720
+We are going to terminate.
+
+109
+00:06:47,320 --> 00:06:50,710
+If you are done with this project, just terminate these two instances.
+
+110
+00:06:50,710 --> 00:06:50,950
+Only.
+
+111
+00:06:50,950 --> 00:06:52,360
+Only the application server.
+
+112
+00:06:52,360 --> 00:06:53,260
+You terminate.
+
+113
+00:06:53,620 --> 00:06:54,520
+Terminate.
+
+114
+00:06:55,290 --> 00:06:56,910
+And you know, it's no big deal.
+
+115
+00:06:56,910 --> 00:06:58,890
+You can just launch it anytime you want.
+
+116
+00:06:59,220 --> 00:07:02,070
+All you need to do is just update the Route 53 entries.
+
+117
+00:07:02,700 --> 00:07:04,860
+That's all with the new private IP launch.
+
+118
+00:07:04,890 --> 00:07:07,410
+Update The entry credentials are saved.
+
+119
+00:07:07,410 --> 00:07:09,120
+Pipeline everything is there.
+
+120
+00:07:09,780 --> 00:07:13,290
+I guess only these two things you terminate and the rest are there.
+
+121
+00:07:13,290 --> 00:07:13,740
+Three.
+
+122
+00:07:13,770 --> 00:07:21,270
+So Owner Nexus and Jenkins, you shut it down because we will need it in the next projects, so power
+
+123
+00:07:21,270 --> 00:07:22,050
+them off.
+
+124
+00:07:23,160 --> 00:07:26,070
+You can keep the Route 53 hosted records.
+
+125
+00:07:26,440 --> 00:07:28,540
+That's locked out anyways now.
+
+126
+00:07:28,590 --> 00:07:32,490
+So that's all you need to do as far as the cleanup is concerned in this project.
+
+127
+00:07:33,850 --> 00:07:35,440
+If you come this far.
+
+128
+00:07:35,470 --> 00:07:36,940
+A job well done.
+
+129
+00:07:37,420 --> 00:07:38,710
+Congratulation.
+
+130
+00:07:39,440 --> 00:07:41,600
+I will see you in the next project.
+

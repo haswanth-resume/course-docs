@@ -1,0 +1,840 @@
+1
+00:00:10,830 --> 00:00:16,309
+Hello and welcome to the next project in our DevOps project CDs.
+
+2
+00:00:16,980 --> 00:00:22,650
+The name of this project is Continuous Delivery with Jenkins and Ansible.
+
+3
+00:00:22,860 --> 00:00:29,100
+So in this project we're going to combine the power of Jenkins continuous integration server with Ansible,
+
+4
+00:00:29,100 --> 00:00:33,180
+which is a configuration management tool or in general and automation tool.
+
+5
+00:00:36,880 --> 00:00:37,150
+Okay.
+
+6
+00:00:37,150 --> 00:00:38,060
+So this is the scenario.
+
+7
+00:00:38,080 --> 00:00:44,200
+Let's say there is an agile software development team and they're doing a continuous development of
+
+8
+00:00:44,200 --> 00:00:45,010
+the product.
+
+9
+00:00:45,340 --> 00:00:48,170
+So they're going to make continuous code changes.
+
+10
+00:00:48,190 --> 00:00:54,790
+This code this code needs to be packaged and needs to be deployed to servers for testing.
+
+11
+00:00:56,210 --> 00:01:02,120
+If the process is continuous, if the continuous code commit, we need to continuously deploy artifact
+
+12
+00:01:02,120 --> 00:01:04,129
+to servers for testing.
+
+13
+00:01:04,550 --> 00:01:08,420
+If all the test checks out, fine, then we can finally deploy to production.
+
+14
+00:01:16,920 --> 00:01:21,720
+So after the deployment, the software testing and other kinds of testings will be conducted.
+
+15
+00:01:22,480 --> 00:01:28,990
+And the test reports will be evaluated and approval will be given to promote it to production or not.
+
+16
+00:01:29,620 --> 00:01:35,170
+And this is going to be a process of deployment test, deploy test because you'll be having different
+
+17
+00:01:35,170 --> 00:01:35,800
+environments.
+
+18
+00:01:35,800 --> 00:01:36,490
+Dev.
+
+19
+00:01:36,520 --> 00:01:39,700
+Q Uid production staging.
+
+20
+00:01:39,940 --> 00:01:45,110
+So if you have like these multiple environments before you, when you deploy the production, then you
+
+21
+00:01:45,110 --> 00:01:47,530
+will understand there is continuous deployment.
+
+22
+00:01:47,560 --> 00:01:49,420
+If there is continuous code commit.
+
+23
+00:01:55,450 --> 00:02:01,390
+When there is continuous deployment, there's also continuous dependency on the operations team.
+
+24
+00:02:01,750 --> 00:02:06,280
+So different different teams will be there or different different product owners from different projects
+
+25
+00:02:06,280 --> 00:02:13,000
+will be dependent on ops team for the regular deployments and every project will have dev QA staging
+
+26
+00:02:13,000 --> 00:02:14,740
+production multiple environments.
+
+27
+00:02:14,740 --> 00:02:19,990
+So there'll be continuous deployment requests that will be sent to the operations team.
+
+28
+00:02:20,950 --> 00:02:22,450
+So this is the scenario.
+
+29
+00:02:25,080 --> 00:02:26,340
+Let's see the problem.
+
+30
+00:02:31,390 --> 00:02:37,510
+If the code deployment process is manual, it's going to take a lot of time to promote your changes
+
+31
+00:02:37,510 --> 00:02:41,410
+to production because there are multiple environments where the deployment needs to be done.
+
+32
+00:02:41,440 --> 00:02:45,400
+If it's manual, then it's going to take a lot of time.
+
+33
+00:02:45,400 --> 00:02:47,740
+It doesn't matter how fast you make the code change.
+
+34
+00:02:47,740 --> 00:02:49,270
+Still, the deployment will be slow.
+
+35
+00:02:49,480 --> 00:02:55,690
+And in this process of deployment, there will be ticketing systems, there'll be approvals assignments,
+
+36
+00:02:55,690 --> 00:02:58,630
+there will be different owners for different environments.
+
+37
+00:02:58,780 --> 00:03:02,560
+Developer owns the dev environment, queue owns the queue environments.
+
+38
+00:03:02,740 --> 00:03:11,080
+The software testers and productions are owned by different team monitoring team site reliability engineers.
+
+39
+00:03:11,410 --> 00:03:18,250
+So there'll be too many ticketing assignments and approvals going here and there, which actually is
+
+40
+00:03:18,250 --> 00:03:21,130
+a bit problematic in an agile process.
+
+41
+00:03:21,760 --> 00:03:27,040
+So too much dependencies on operations and build and release team for the deployment.
+
+42
+00:03:31,730 --> 00:03:36,530
+So the solution will be to first set continuous integration process and continuous delivery process.
+
+43
+00:03:36,650 --> 00:03:40,630
+So for every code comment, build, test, deploy, then test.
+
+44
+00:03:40,640 --> 00:03:45,710
+Now this happens for every commit and the deployment process should be automated.
+
+45
+00:03:46,190 --> 00:03:52,010
+So deployment on different, different environments and different environments have different owners.
+
+46
+00:03:52,010 --> 00:03:57,890
+So you can also notify them if something fails or passes successfully, like developer gets notification,
+
+47
+00:03:57,890 --> 00:03:59,930
+software testers gets notification.
+
+48
+00:04:00,440 --> 00:04:02,420
+So there'll be multiple teams.
+
+49
+00:04:03,950 --> 00:04:05,090
+And also.
+
+50
+00:04:06,050 --> 00:04:11,000
+There'll be multiple tools you need to integrate all the tools, all the automation tools together.
+
+51
+00:04:11,390 --> 00:04:17,360
+So continuous integration tool, integrated with repositories, integrated with automation tools, with
+
+52
+00:04:17,360 --> 00:04:19,279
+configuration management tools.
+
+53
+00:04:19,430 --> 00:04:23,990
+So when you do these integrations, it will remove human intervention.
+
+54
+00:04:24,830 --> 00:04:29,060
+Because just writing a script to automate a task is just not enough.
+
+55
+00:04:29,860 --> 00:04:30,900
+So let's say you done.
+
+56
+00:04:31,330 --> 00:04:34,550
+You deployed the artifact to the server.
+
+57
+00:04:34,570 --> 00:04:38,840
+Then you need to communicate this to software testing team.
+
+58
+00:04:38,860 --> 00:04:41,590
+They'll conduct their software test execution.
+
+59
+00:04:41,740 --> 00:04:47,620
+And there will be, again in this process also to get assignments and feedback and approvals.
+
+60
+00:04:48,010 --> 00:04:52,570
+So in order to get over from this problem, you need to integrate tools together.
+
+61
+00:04:52,570 --> 00:04:59,680
+And whenever there is a problem bug in the code or in the deployment process, you the process automatically
+
+62
+00:04:59,680 --> 00:05:01,360
+stops and you fix the problem.
+
+63
+00:05:01,360 --> 00:05:03,670
+And then the process repeats again.
+
+64
+00:05:04,380 --> 00:05:10,950
+And this entire automated process is called us continuous delivery process.
+
+65
+00:05:11,460 --> 00:05:18,150
+And in continuous delivery, try to integrate all the tools that that are used in the release management
+
+66
+00:05:18,150 --> 00:05:18,960
+process.
+
+67
+00:05:20,020 --> 00:05:24,710
+So in this project we are going to see varieties of tools integrated together.
+
+68
+00:05:24,730 --> 00:05:26,680
+So let's see the list of the tools now.
+
+69
+00:05:28,860 --> 00:05:33,300
+All right, let's see the tools that we will be using in this project.
+
+70
+00:05:34,330 --> 00:05:42,070
+Jenkins as our continuous integration server and access sonar type repository to download Maven dependency
+
+71
+00:05:42,070 --> 00:05:44,140
+and to upload our artifact to it.
+
+72
+00:05:44,650 --> 00:05:47,480
+So in our cube server for code analysis.
+
+73
+00:05:47,500 --> 00:05:55,510
+Maven to build our artifact git as a version control system where we'll also place our Ansible code.
+
+74
+00:05:57,910 --> 00:06:00,070
+Slack for notification.
+
+75
+00:06:00,220 --> 00:06:08,290
+It is easy to instance we will use on which we will be running Tomcat Server and Ansible, which is
+
+76
+00:06:08,290 --> 00:06:12,460
+going to deploy our artifact to Tomcat server.
+
+77
+00:06:12,460 --> 00:06:19,390
+So Ansible will download artifact from the access repository and deploy to Tomcat server.
+
+78
+00:06:23,170 --> 00:06:26,590
+While doing this project, keep our objective on our mind.
+
+79
+00:06:27,070 --> 00:06:28,930
+We have to do deployment automation.
+
+80
+00:06:28,930 --> 00:06:32,680
+So complete end to end automation of delivery.
+
+81
+00:06:33,040 --> 00:06:37,030
+So if anything happens, we can even repair things very quickly.
+
+82
+00:06:37,180 --> 00:06:39,940
+If something breaks, we can isolate, we can find the problem, right?
+
+83
+00:06:39,940 --> 00:06:45,010
+Team gets the notification in the meantime to repair is really really becomes short here.
+
+84
+00:06:46,640 --> 00:06:48,710
+When you have complete automated.
+
+85
+00:06:49,470 --> 00:06:50,550
+Release cycle.
+
+86
+00:06:51,480 --> 00:06:57,660
+Then any request that comes from the user, any code change, any bug fix, anything can be done very
+
+87
+00:06:57,660 --> 00:06:58,080
+quickly.
+
+88
+00:06:58,080 --> 00:07:05,100
+So developer makes a code change automatically the entire pipeline triggers and do the complete delivery
+
+89
+00:07:05,100 --> 00:07:08,640
+and testing right and no human intervention.
+
+90
+00:07:08,640 --> 00:07:15,030
+So nobody gets in or not many people get involved while the process is happening.
+
+91
+00:07:15,030 --> 00:07:16,620
+So it's going to be less disruptive.
+
+92
+00:07:21,460 --> 00:07:23,070
+All right, let's achieve this goal.
+
+93
+00:07:23,080 --> 00:07:29,050
+But before we do that, we are going to see the architecture of continuous delivery pipeline.
+
+94
+00:07:30,540 --> 00:07:30,800
+Okay.
+
+95
+00:07:30,870 --> 00:07:36,330
+So developers are going to make regular code changes as we're talking in an agile development process
+
+96
+00:07:36,330 --> 00:07:41,820
+and they make the code change the commit to the local git repository and then that will be sync with
+
+97
+00:07:41,820 --> 00:07:43,230
+a remote repository.
+
+98
+00:07:43,230 --> 00:07:44,790
+So we are going to use GitHub.
+
+99
+00:07:44,910 --> 00:07:46,710
+Our source code is in GitHub.
+
+100
+00:07:46,800 --> 00:07:52,110
+So whenever the new code is changed, whenever there's a comment on GitHub, Jenkins will detect that
+
+101
+00:07:52,110 --> 00:07:55,260
+automatically and fetch all the changes.
+
+102
+00:07:56,450 --> 00:08:00,650
+And then it's going to do code test, it's going to do unit test.
+
+103
+00:08:01,010 --> 00:08:06,470
+And whether it based on whether it's passed or fail, the notification will be sent.
+
+104
+00:08:06,500 --> 00:08:09,080
+If it passes, it goes to the next level.
+
+105
+00:08:09,460 --> 00:08:11,450
+The next level we'll have code analysis.
+
+106
+00:08:11,450 --> 00:08:14,960
+So we are going to use a check style and so on our cube scanner.
+
+107
+00:08:15,900 --> 00:08:21,690
+These tools are going to scan the code and a report will be generated and will be uploaded to Sonar
+
+108
+00:08:21,690 --> 00:08:22,590
+Cube's server.
+
+109
+00:08:22,740 --> 00:08:26,040
+So that Cube server will compare it with its quality gates.
+
+110
+00:08:26,800 --> 00:08:28,870
+If you pass the quality gate.
+
+111
+00:08:29,980 --> 00:08:32,880
+The job continues, the next job gets triggered.
+
+112
+00:08:32,890 --> 00:08:36,909
+If it's fail, then a note fail notification will be sent and the pipeline stops.
+
+113
+00:08:37,179 --> 00:08:44,039
+But if it's a success, it goes to the next level where Maven again is going to build the software.
+
+114
+00:08:44,049 --> 00:08:47,110
+This time, Maven is going to build the software in code testing.
+
+115
+00:08:47,110 --> 00:08:49,350
+Maven is going to do unit test here.
+
+116
+00:08:49,360 --> 00:08:55,180
+Maven is going to build the artifact and when it builds the artifact, it needs some dependency.
+
+117
+00:08:55,390 --> 00:08:58,870
+Those dependencies will be downloaded from Nexus repository.
+
+118
+00:08:58,870 --> 00:09:04,600
+So on Nexus, we're going to create Maven repository, maven central repository.
+
+119
+00:09:04,810 --> 00:09:06,970
+So all the dependency will be downloaded.
+
+120
+00:09:08,340 --> 00:09:10,020
+When the build process is happening.
+
+121
+00:09:12,080 --> 00:09:16,070
+If this fails, failure notification is sent pipeline's stop.
+
+122
+00:09:16,070 --> 00:09:21,790
+But if this passes, the packaging of the artifact will be done and the artifact will be uploaded to
+
+123
+00:09:21,830 --> 00:09:23,930
+Nexus repository.
+
+124
+00:09:24,350 --> 00:09:30,170
+So now you'll have a versioned artifact gone through unit test and code analysis.
+
+125
+00:09:30,560 --> 00:09:32,300
+If this is all good.
+
+126
+00:09:33,430 --> 00:09:35,830
+Then our Ansible will get kicked in.
+
+127
+00:09:36,070 --> 00:09:41,440
+The job of Ansible will be to deploy the artifact, download the artifact from Nexus and deploy to staging
+
+128
+00:09:41,440 --> 00:09:42,080
+server.
+
+129
+00:09:42,100 --> 00:09:48,070
+And while Ansible is doing that, it will also make sure the right packages are installed, the right
+
+130
+00:09:48,070 --> 00:09:50,800
+services are running, the configurations are correct.
+
+131
+00:09:51,430 --> 00:09:56,010
+So we can also make sure this all this happens along with the deployment process.
+
+132
+00:09:56,020 --> 00:10:04,480
+Also, one more thing while the deployment is happening and something fails, Ansible will put an intel.
+
+133
+00:10:04,480 --> 00:10:08,980
+It will put the kind of intelligence that it can roll back to the previous state.
+
+134
+00:10:09,580 --> 00:10:15,070
+So also we can do auto rollback and yes, so all that things we can do with Ansible.
+
+135
+00:10:15,070 --> 00:10:19,570
+That's why doing deployment with Ansible will be much more convenient.
+
+136
+00:10:20,210 --> 00:10:26,060
+So once Ansible is done by checking everything and deploying to the staging server, then our software
+
+137
+00:10:26,060 --> 00:10:30,380
+test suit can get executed and do the software testing on the staging environment.
+
+138
+00:10:30,710 --> 00:10:36,620
+They have a staging at all the environments and then if we get the approval, then we can use Ansible
+
+139
+00:10:36,620 --> 00:10:39,290
+to deploy the artifact to production server as well.
+
+140
+00:10:40,050 --> 00:10:42,540
+And this can be automatic without approval.
+
+141
+00:10:42,540 --> 00:10:45,240
+It's pre-approved or it can be with approval also.
+
+142
+00:10:45,270 --> 00:10:48,420
+In any case, you have a complete automated pipeline.
+
+143
+00:10:51,290 --> 00:10:57,380
+Flow of execution, the steps that we will take to complete this project.
+
+144
+00:11:00,110 --> 00:11:04,490
+So you must be already having a Jenkins server, which you must have stopped.
+
+145
+00:11:04,490 --> 00:11:07,160
+And when you power on, you get a new Jenkins IP.
+
+146
+00:11:07,190 --> 00:11:11,540
+We need to update that new IP in the GitHub webhook.
+
+147
+00:11:12,260 --> 00:11:15,260
+We might also need to resize Jenkins volume.
+
+148
+00:11:15,500 --> 00:11:21,320
+Now it is pretty simple to resize the Jenkins volume, and the reason we will be doing is Jenkins volume.
+
+149
+00:11:21,320 --> 00:11:26,610
+Easy two instance has just a GB and it is now almost full or it's already full.
+
+150
+00:11:26,630 --> 00:11:30,350
+So we need to increase its size so Jenkins can store more data.
+
+151
+00:11:31,160 --> 00:11:36,200
+Next, we will launch an easy two instance where we'll deploy our our artifact.
+
+152
+00:11:36,710 --> 00:11:41,990
+This is easy, to instance, will be running Tomcat service, which we will again set up with Ansible
+
+153
+00:11:41,990 --> 00:11:42,920
+automatically.
+
+154
+00:11:43,280 --> 00:11:45,920
+And this will be our app zero one staging.
+
+155
+00:11:48,010 --> 00:11:49,480
+Few Jenkins prerequisites.
+
+156
+00:11:49,480 --> 00:11:51,700
+We need to install Ansible in Jenkins.
+
+157
+00:11:51,700 --> 00:11:53,710
+We need to install Ansible plugin.
+
+158
+00:11:54,040 --> 00:11:58,180
+We will save AB zero one such login credentials in Jenkins.
+
+159
+00:11:58,450 --> 00:12:00,970
+Now Jenkins will run Ansible playbook.
+
+160
+00:12:02,060 --> 00:12:10,820
+Ansible will do a search to the app zero one staging and to do that says we need to save its search
+
+161
+00:12:10,820 --> 00:12:12,620
+credential in the Jenkins.
+
+162
+00:12:13,400 --> 00:12:18,680
+Time stamp a variable we will check and will make sure it is correct as per our need.
+
+163
+00:12:19,040 --> 00:12:21,080
+This is to version our artifact.
+
+164
+00:12:22,070 --> 00:12:28,760
+We will create a separate branch in our GitHub repository where we'll put our Ansible code.
+
+165
+00:12:30,160 --> 00:12:37,630
+And also we need to copy the Ansible code from the Vpro file project repository to our own repository.
+
+166
+00:12:37,810 --> 00:12:39,370
+So I prepared the Ansible code.
+
+167
+00:12:39,370 --> 00:12:42,270
+I have kept it in the profile project GitHub repository.
+
+168
+00:12:42,280 --> 00:12:45,370
+We just need to download it and copy it in our own repository.
+
+169
+00:12:46,510 --> 00:12:51,520
+We'll create a DNS record in Route 53 for App zero one staging.
+
+170
+00:12:51,520 --> 00:12:55,680
+So we will not use App zero one staging IP, private IP.
+
+171
+00:12:55,690 --> 00:13:00,760
+We will be using its name and that name will be stored in the DNS of Route 53.
+
+172
+00:13:01,060 --> 00:13:03,190
+And you will understand why we will do that.
+
+173
+00:13:04,270 --> 00:13:07,060
+We need to create inventory file in the ANSIBLE code.
+
+174
+00:13:07,450 --> 00:13:14,440
+This inventory file will contain the app zero one staging server name and the group name where we need
+
+175
+00:13:14,440 --> 00:13:15,640
+to do the deployment.
+
+176
+00:13:16,660 --> 00:13:18,910
+We need to update some security group rules.
+
+177
+00:13:19,480 --> 00:13:22,750
+We need to allow 22 in app security group from Jenkins.
+
+178
+00:13:22,750 --> 00:13:26,350
+So Jenkins will do ansible search.
+
+179
+00:13:26,350 --> 00:13:30,910
+So Ansible will do search two app zero one staging server.
+
+180
+00:13:30,910 --> 00:13:34,930
+So we need to allow Port 22 from Jenkins Security Group.
+
+181
+00:13:35,800 --> 00:13:40,590
+I know this is too much for now, but once we start doing it, things will get more clear.
+
+182
+00:13:40,600 --> 00:13:43,390
+These steps, it gives you a roadmap, right?
+
+183
+00:13:43,390 --> 00:13:46,780
+Whenever you are in the middle, you want to know where we are, what we are doing currently.
+
+184
+00:13:46,780 --> 00:13:49,060
+So you can check these steps anytime you want.
+
+185
+00:13:49,720 --> 00:13:56,250
+We need to also allow Port 88 even from Nexus Security in Nexus Security Group from App Security Group.
+
+186
+00:13:56,590 --> 00:14:03,010
+So Tomcat Application Server App zero one staging will download artifacts from Nexus.
+
+187
+00:14:03,430 --> 00:14:07,420
+So we need to allow Port 88 one in the next security group.
+
+188
+00:14:07,630 --> 00:14:11,350
+So observes app server can download artifact from that.
+
+189
+00:14:14,660 --> 00:14:19,730
+After all those things are ready, we will write a Jenkins file or we will update our Jenkins file to
+
+190
+00:14:19,730 --> 00:14:27,500
+run our Ansible playbook from Jenkins to basically prepare the Jenkins file code to run Ansible playbook,
+
+191
+00:14:27,620 --> 00:14:30,170
+and we'll create a pipeline in Jenkins.
+
+192
+00:14:30,200 --> 00:14:32,690
+Run this Jenkins file and test it.
+
+193
+00:14:32,900 --> 00:14:35,030
+This is for a staging environment.
+
+194
+00:14:35,630 --> 00:14:41,390
+Once we test the staging pipeline, we will do the same thing for production.
+
+195
+00:14:41,390 --> 00:14:45,560
+We'll update the Ansible Ansible code in production branch.
+
+196
+00:14:47,550 --> 00:14:52,800
+Then similar step is staging will launch your app zero one for instance will update the DNS record in
+
+197
+00:14:52,800 --> 00:14:55,530
+Route 53 will create an inventory file for it.
+
+198
+00:14:55,800 --> 00:14:57,990
+This is same as we did for staging.
+
+199
+00:14:59,230 --> 00:15:01,000
+Again, we'll create a pipeline.
+
+200
+00:15:01,840 --> 00:15:02,230
+Ford.
+
+201
+00:15:02,230 --> 00:15:03,730
+This will be for production.
+
+202
+00:15:04,390 --> 00:15:06,430
+Create a pipeline in Jenkins and test it.
+
+203
+00:15:06,640 --> 00:15:12,100
+And then we will see how we are going to promote changes to production by doing the merge.
+
+204
+00:15:12,920 --> 00:15:14,410
+I know there are too many steps.
+
+205
+00:15:14,410 --> 00:15:16,450
+Once again, this is a roadmap.
+
+206
+00:15:17,190 --> 00:15:20,370
+Which we are going to follow in this project.
+
+207
+00:15:20,550 --> 00:15:22,740
+Whenever you are wondering where you are.
+
+208
+00:15:22,770 --> 00:15:25,890
+You can always come back and check all these steps.
+
+209
+00:15:26,850 --> 00:15:29,850
+Okay, then let's get down to business.
+
+210
+00:15:30,740 --> 00:15:35,090
+So take a look once again and join me in the next lecture.
+

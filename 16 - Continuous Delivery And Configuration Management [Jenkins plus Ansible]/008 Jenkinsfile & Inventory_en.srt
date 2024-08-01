@@ -1,0 +1,1500 @@
+1
+00:00:00,490 --> 00:00:00,800
+Now, again.
+
+2
+00:00:00,840 --> 00:00:05,100
+Now, we understood the playbook that will be executed by Jenkins.
+
+3
+00:00:05,130 --> 00:00:10,560
+Now we have to make sure those playbooks get executed from our pipeline.
+
+4
+00:00:10,980 --> 00:00:17,180
+So come to your repository and get bash wherever you are and open it in these codes.
+
+5
+00:00:17,190 --> 00:00:17,730
+A code.
+
+6
+00:00:17,730 --> 00:00:18,240
+Code.
+
+7
+00:00:18,280 --> 00:00:18,690
+Sorry.
+
+8
+00:00:18,930 --> 00:00:20,250
+Code space.
+
+9
+00:00:20,250 --> 00:00:22,350
+Dot, you'll open the code.
+
+10
+00:00:25,150 --> 00:00:30,520
+All right, so we have to prepare the Jenkins file to run this playbook.
+
+11
+00:00:30,790 --> 00:00:32,570
+So let's go to the Jenkins file.
+
+12
+00:00:32,590 --> 00:00:36,720
+This is the same Jenkins file we use in continuous integration project.
+
+13
+00:00:36,730 --> 00:00:39,340
+We are just going to append here.
+
+14
+00:00:42,790 --> 00:00:45,280
+One more stage after this.
+
+15
+00:00:45,280 --> 00:00:48,430
+One more stage which executes our Ansible.
+
+16
+00:00:49,560 --> 00:00:51,870
+Playbook by using Ansible plugin.
+
+17
+00:00:52,410 --> 00:00:55,650
+So let's check the documentation of Ansible plugin.
+
+18
+00:00:57,120 --> 00:00:57,290
+Okay.
+
+19
+00:00:57,360 --> 00:01:00,330
+So I just google ansible plugin jenkins file.
+
+20
+00:01:00,720 --> 00:01:02,370
+The first thing ansible plugin.
+
+21
+00:01:02,910 --> 00:01:10,380
+And here you can see the different parameters that we can pass in this plugin like the playbook user
+
+22
+00:01:10,380 --> 00:01:14,730
+color disabled host key checking the inventory file path.
+
+23
+00:01:16,380 --> 00:01:19,200
+Lets view this plugin on plugin site.
+
+24
+00:01:21,180 --> 00:01:21,630
+Okay.
+
+25
+00:01:21,890 --> 00:01:23,910
+Now, it should be some example here.
+
+26
+00:01:25,080 --> 00:01:27,740
+That's the way to execute it in Scripture.
+
+27
+00:01:27,750 --> 00:01:29,610
+That's the way to execute it in declarative.
+
+28
+00:01:29,610 --> 00:01:31,620
+We'll be using this way declarative.
+
+29
+00:01:32,740 --> 00:01:35,770
+And this one more example here in the Jenkins file.
+
+30
+00:01:36,070 --> 00:01:37,120
+It's pretty simple.
+
+31
+00:01:37,120 --> 00:01:43,330
+You say Ansible playbook open and close the parenthesis and mention all the parameters.
+
+32
+00:01:43,330 --> 00:01:44,560
+We will be doing that.
+
+33
+00:01:44,920 --> 00:01:48,310
+So let's go to VS Code now our playbook.
+
+34
+00:01:50,000 --> 00:01:51,210
+Don't get set setup playbook.
+
+35
+00:01:51,230 --> 00:01:58,250
+The host is app server group, the group name and in this playbook also the pro app setup playbook.
+
+36
+00:01:58,280 --> 00:02:00,440
+Here also host is app server group.
+
+37
+00:02:00,440 --> 00:02:05,270
+So we need an inventory file where the information about this app server group is present.
+
+38
+00:02:05,270 --> 00:02:07,400
+So we need to create an inventory file here.
+
+39
+00:02:07,520 --> 00:02:11,360
+So we will say on this ansible folder, right click.
+
+40
+00:02:12,100 --> 00:02:17,410
+New file and we'll say stage dot inventory.
+
+41
+00:02:18,430 --> 00:02:24,970
+So saying that this inventory file for staging environment and we'll create the group name here the
+
+42
+00:02:24,970 --> 00:02:27,280
+same what is in the playbook.
+
+43
+00:02:28,080 --> 00:02:28,950
+That one.
+
+44
+00:02:31,750 --> 00:02:32,040
+All right.
+
+45
+00:02:32,050 --> 00:02:36,160
+And then we need to mention the list of host that is in this group.
+
+46
+00:02:36,160 --> 00:02:39,010
+So we created the easy to instance.
+
+47
+00:02:41,950 --> 00:02:43,330
+AB zero one staging.
+
+48
+00:02:44,870 --> 00:02:45,140
+Right.
+
+49
+00:02:45,140 --> 00:02:47,510
+And we added its entry in Route 53.
+
+50
+00:02:48,390 --> 00:02:48,480
+Right.
+
+51
+00:02:48,580 --> 00:02:50,440
+So that's our host name.
+
+52
+00:02:50,440 --> 00:02:53,470
+It will be resolved to the IP address of this instance.
+
+53
+00:02:53,470 --> 00:02:54,610
+So let's copy that.
+
+54
+00:02:55,030 --> 00:02:56,380
+Let me copy it properly.
+
+55
+00:02:56,620 --> 00:02:58,060
+I'm zero and sticky.
+
+56
+00:03:00,610 --> 00:03:01,870
+And let's paste it here.
+
+57
+00:03:03,000 --> 00:03:08,730
+Now the log in detail, the search username and log in key is stored in Jenkins credentials.
+
+58
+00:03:08,730 --> 00:03:12,420
+We already saved that, so we'll be using the same in the playbook.
+
+59
+00:03:12,420 --> 00:03:13,860
+Sorry, not in the playbook.
+
+60
+00:03:13,860 --> 00:03:15,180
+In the Jenkins plugin.
+
+61
+00:03:15,870 --> 00:03:19,650
+Okay, let's go to Jenkins file and let's append a stage here.
+
+62
+00:03:19,650 --> 00:03:20,670
+Stage.
+
+63
+00:03:22,160 --> 00:03:24,830
+Parenthesis and let's give the name of the stage.
+
+64
+00:03:25,580 --> 00:03:26,750
+I would say Ansible.
+
+65
+00:03:26,750 --> 00:03:28,460
+Deploy to staging.
+
+66
+00:03:28,820 --> 00:03:29,680
+Open and close.
+
+67
+00:03:29,690 --> 00:03:30,740
+Curly brace.
+
+68
+00:03:31,680 --> 00:03:35,020
+You can just check the code from the resource.
+
+69
+00:03:35,040 --> 00:03:39,480
+In this lecture I have just uploaded the entire code over there.
+
+70
+00:03:39,960 --> 00:03:42,570
+Or if you intend to write it with me, you can write it as well.
+
+71
+00:03:43,790 --> 00:03:44,140
+Okay.
+
+72
+00:03:44,240 --> 00:03:47,510
+In this steps, obviously, the stage we have steps.
+
+73
+00:03:48,300 --> 00:03:54,990
+Now in this step we will mention the answer will plug in information and symbol playbook like that,
+
+74
+00:03:54,990 --> 00:03:57,150
+parentheses and all the parameters.
+
+75
+00:03:57,150 --> 00:04:00,960
+So I have some code already that I'm going to just paste it over there.
+
+76
+00:04:02,280 --> 00:04:02,550
+Okay.
+
+77
+00:04:02,550 --> 00:04:08,040
+There seem what we saw in the documentation and symbol playbook parentheses and I am mentioning all
+
+78
+00:04:08,040 --> 00:04:11,190
+the parameters in a list and vertically.
+
+79
+00:04:11,190 --> 00:04:12,780
+So I've given a square bracket.
+
+80
+00:04:12,780 --> 00:04:14,190
+They're opening and closing.
+
+81
+00:04:14,520 --> 00:04:17,579
+So first is the inventory failure to specify.
+
+82
+00:04:17,579 --> 00:04:20,190
+So inventory we just created in the ansible folder.
+
+83
+00:04:20,190 --> 00:04:24,780
+So Ansible slash stage dot inventory.
+
+84
+00:04:25,980 --> 00:04:28,500
+Make sure the name is correct of your inventory file.
+
+85
+00:04:28,890 --> 00:04:31,590
+Playbook ansible slash ci dot ml.
+
+86
+00:04:31,590 --> 00:04:34,390
+So that will execute the other two playbooks.
+
+87
+00:04:34,410 --> 00:04:38,970
+Installation ansible colorized true credentials id.
+
+88
+00:04:39,240 --> 00:04:42,300
+So this is the credential that we saved in the Jenkins.
+
+89
+00:04:43,360 --> 00:04:44,860
+All right, let's go to Jenkins.
+
+90
+00:04:45,970 --> 00:04:50,980
+Dashboard Manager Jenkins manage credentials.
+
+91
+00:04:52,120 --> 00:04:52,900
+There.
+
+92
+00:04:53,230 --> 00:04:56,350
+This is the login credential for the app server.
+
+93
+00:04:56,650 --> 00:04:59,110
+An app server detail is in the inventory file.
+
+94
+00:05:00,760 --> 00:05:01,010
+Yeah.
+
+95
+00:05:01,030 --> 00:05:01,900
+Let's go back.
+
+96
+00:05:02,020 --> 00:05:06,100
+So it's the same name as the credential app login disable host.
+
+97
+00:05:06,100 --> 00:05:08,050
+Keep checking to make sure this is there.
+
+98
+00:05:08,050 --> 00:05:11,020
+Otherwise Playbook execution will fail.
+
+99
+00:05:11,020 --> 00:05:19,150
+It will say host key checking is enabled so make sure this option is there extra variables now our playbook.
+
+100
+00:05:19,800 --> 00:05:22,500
+There has multiple variables.
+
+101
+00:05:25,400 --> 00:05:36,770
+User pus nexus IP rep on the report name group ID Artifact ID build hyphen time and v profile underscore
+
+102
+00:05:36,770 --> 00:05:37,250
+version.
+
+103
+00:05:37,250 --> 00:05:41,480
+We need to specify the value for all these ansible variables.
+
+104
+00:05:41,480 --> 00:05:42,980
+So let's do it.
+
+105
+00:05:43,370 --> 00:05:44,930
+Go back to Jenkins file.
+
+106
+00:05:46,570 --> 00:05:46,840
+Okay.
+
+107
+00:05:46,840 --> 00:05:52,120
+So I took a liberty to do this already and I'll add all the values.
+
+108
+00:05:52,120 --> 00:06:00,580
+So user variable, this is the user of the nexus username admin pass the password of nexus.
+
+109
+00:06:00,700 --> 00:06:05,320
+Now I could have done with the credentials also, which I will do next.
+
+110
+00:06:05,380 --> 00:06:07,360
+Instead of mentioning password like that.
+
+111
+00:06:07,360 --> 00:06:14,140
+I saved this as a credential in Jenkins and access it from here, which we'll do next.
+
+112
+00:06:14,320 --> 00:06:17,020
+But first I wanted to show you Nexus IP.
+
+113
+00:06:17,020 --> 00:06:18,090
+So yeah.
+
+114
+00:06:18,280 --> 00:06:19,150
+Before that, sorry.
+
+115
+00:06:19,150 --> 00:06:25,570
+So the Nexus login password, make sure you mentioned that Nexus login password.
+
+116
+00:06:26,230 --> 00:06:27,670
+Nexus IP.
+
+117
+00:06:27,670 --> 00:06:30,220
+So get the Nexus private IP.
+
+118
+00:06:32,230 --> 00:06:36,460
+I just pasted their repository name in the Nexis.
+
+119
+00:06:36,460 --> 00:06:42,130
+We have the repository named repro file hyphen release where we'll upload the artifact.
+
+120
+00:06:42,670 --> 00:06:44,080
+Let's go to Nexis.
+
+121
+00:06:44,610 --> 00:06:46,300
+Let's take its public IP.
+
+122
+00:06:46,450 --> 00:06:48,670
+Colon 88 one.
+
+123
+00:06:50,070 --> 00:06:55,950
+Look, I need to allow the security group rule to access nexus from my IP.
+
+124
+00:06:57,270 --> 00:06:58,830
+Next, a security group.
+
+125
+00:06:59,950 --> 00:07:02,890
+8081 from there.
+
+126
+00:07:02,890 --> 00:07:04,510
+Radio do you want from my IP?
+
+127
+00:07:05,800 --> 00:07:06,510
+See you.
+
+128
+00:07:11,750 --> 00:07:12,590
+What happened?
+
+129
+00:07:12,890 --> 00:07:13,730
+My IP.
+
+130
+00:07:16,490 --> 00:07:17,750
+And save.
+
+131
+00:07:20,710 --> 00:07:21,910
+Let's refresh this.
+
+132
+00:07:23,330 --> 00:07:23,460
+Okay.
+
+133
+00:07:23,640 --> 00:07:24,820
+Let's sign in admin.
+
+134
+00:07:24,820 --> 00:07:27,910
+And you already seen the passwords had been one, two, three.
+
+135
+00:07:33,120 --> 00:07:33,570
+Okay.
+
+136
+00:07:36,090 --> 00:07:37,080
+Browse.
+
+137
+00:07:37,890 --> 00:07:40,620
+We profile release in this repository.
+
+138
+00:07:40,620 --> 00:07:42,810
+We want to upload our artifact.
+
+139
+00:07:43,080 --> 00:07:43,670
+Sorry.
+
+140
+00:07:43,680 --> 00:07:47,580
+From this repository, you want to download our artifact?
+
+141
+00:07:48,600 --> 00:07:48,890
+Yeah.
+
+142
+00:07:49,080 --> 00:07:49,910
+Click on that.
+
+143
+00:07:49,940 --> 00:07:50,420
+Yeah.
+
+144
+00:07:50,430 --> 00:07:51,810
+So many artifacts there.
+
+145
+00:07:51,810 --> 00:07:52,050
+Right.
+
+146
+00:07:52,050 --> 00:07:54,870
+So we'll be downloading the latest one and deploying it.
+
+147
+00:07:56,300 --> 00:07:56,560
+Right.
+
+148
+00:07:56,560 --> 00:07:58,180
+So that will be the URL.
+
+149
+00:07:58,480 --> 00:08:04,630
+So in Ansible playbook, by using those variables, it's going to construct this URL and download the
+
+150
+00:08:04,630 --> 00:08:07,060
+latest artifact in the Tomcat.
+
+151
+00:08:08,340 --> 00:08:10,680
+Bring back Grupo de Cuba.
+
+152
+00:08:12,040 --> 00:08:15,730
+Not as we have given previously, the component group that's in the URL.
+
+153
+00:08:15,730 --> 00:08:16,360
+See that.
+
+154
+00:08:17,500 --> 00:08:18,700
+Let's copy that.
+
+155
+00:08:19,090 --> 00:08:19,480
+Sorry.
+
+156
+00:08:19,660 --> 00:08:20,560
+Right click.
+
+157
+00:08:21,070 --> 00:08:22,030
+Copy link.
+
+158
+00:08:27,350 --> 00:08:36,620
+Time in the dot build timestamp now build timestamp depends on what it was over here we are uploading
+
+159
+00:08:36,620 --> 00:08:39,890
+the artifact and we need to make sure in the Jenkins.
+
+160
+00:08:39,890 --> 00:08:40,970
+It is correct.
+
+161
+00:08:42,610 --> 00:08:44,140
+Let's go to Jenkins.
+
+162
+00:08:47,920 --> 00:08:49,270
+Manny Jenkins.
+
+163
+00:08:50,300 --> 00:08:50,910
+Configure.
+
+164
+00:08:50,930 --> 00:08:58,880
+So in continuous integration, we use this plugin to version our artifact and we use this variable build
+
+165
+00:08:58,880 --> 00:09:05,870
+timestamp variable and this is the pattern y y hyphen mx hyphen dx underscore h mm.
+
+166
+00:09:06,540 --> 00:09:06,810
+Right.
+
+167
+00:09:08,160 --> 00:09:09,210
+But that pattern.
+
+168
+00:09:09,450 --> 00:09:10,230
+What is that?
+
+169
+00:09:11,440 --> 00:09:13,450
+They're in the other.
+
+170
+00:09:14,160 --> 00:09:23,730
+So same we are mentioning over here that use this build timestamp value which will get us that particular
+
+171
+00:09:23,730 --> 00:09:24,600
+artifact.
+
+172
+00:09:25,900 --> 00:09:34,060
+So version of the artifact is EMV dot build underscore ID in the hyphen in v dot build underscore timestamp
+
+173
+00:09:34,720 --> 00:09:37,210
+coming there in our ansible plugin.
+
+174
+00:09:38,230 --> 00:09:38,500
+Okay.
+
+175
+00:09:38,500 --> 00:09:39,670
+Then build value.
+
+176
+00:09:40,710 --> 00:09:46,800
+Ian we don't build ID, we are using build ID again for versioning artifact ID Vpro app.
+
+177
+00:09:47,540 --> 00:09:50,180
+As we have used here while uploading the artifacts.
+
+178
+00:09:50,180 --> 00:09:58,250
+So whatever values you used while uploading artifact to next same, you have to mention over here because
+
+179
+00:09:58,250 --> 00:10:00,880
+that's what will be downloaded, right?
+
+180
+00:10:00,980 --> 00:10:02,690
+And then we profile version.
+
+181
+00:10:03,840 --> 00:10:07,300
+So if you look at it once again, Vpro app, it's like that, right?
+
+182
+00:10:07,320 --> 00:10:08,160
+Wipro app.
+
+183
+00:10:08,160 --> 00:10:09,000
+Hyphen build.
+
+184
+00:10:09,010 --> 00:10:10,770
+ID hyphen build.
+
+185
+00:10:10,770 --> 00:10:12,840
+Timestamp dot var.
+
+186
+00:10:14,270 --> 00:10:15,890
+Same we are mentioning over here.
+
+187
+00:10:17,360 --> 00:10:18,410
+Okay, so this is good.
+
+188
+00:10:18,410 --> 00:10:19,040
+We can execute.
+
+189
+00:10:19,040 --> 00:10:20,060
+But there's one problem.
+
+190
+00:10:20,060 --> 00:10:23,660
+The password here variable is in clear text, which is not good.
+
+191
+00:10:23,660 --> 00:10:28,610
+So we will store this in the Jenkins credentials and access it from here.
+
+192
+00:10:28,610 --> 00:10:32,960
+So let's go back to Jenkins one last thing before we execute the playbook.
+
+193
+00:10:34,850 --> 00:10:36,110
+Barry Jenkins.
+
+194
+00:10:37,880 --> 00:10:39,320
+Manage credentials.
+
+195
+00:10:40,720 --> 00:10:44,440
+So there is this previous Nexus login, but this is username and password.
+
+196
+00:10:44,440 --> 00:10:45,880
+We just need the password.
+
+197
+00:10:45,880 --> 00:10:47,530
+We need to just store the password.
+
+198
+00:10:47,530 --> 00:10:50,440
+So go to Jenkins Global Credentials.
+
+199
+00:10:51,120 --> 00:10:52,320
+And credential.
+
+200
+00:10:52,440 --> 00:10:57,060
+And just if you want to store the password, you can go with the kind of secret text.
+
+201
+00:10:58,060 --> 00:11:00,610
+Right and mention the password there.
+
+202
+00:11:00,880 --> 00:11:03,850
+And let's give Nexus, boss.
+
+203
+00:11:04,730 --> 00:11:05,250
+Okay.
+
+204
+00:11:05,270 --> 00:11:10,910
+And there also nexus pass the description create.
+
+205
+00:11:11,180 --> 00:11:13,940
+So that stored the Nexus password there.
+
+206
+00:11:14,300 --> 00:11:17,240
+And let's put that in our Jenkins file.
+
+207
+00:11:17,240 --> 00:11:19,250
+So we'll first put that into the variable.
+
+208
+00:11:19,250 --> 00:11:20,930
+We'll store it into a variable.
+
+209
+00:11:22,490 --> 00:11:24,080
+Right there.
+
+210
+00:11:25,290 --> 00:11:29,000
+Because I've taken a variable nexus pass all caps equal to credentials.
+
+211
+00:11:29,010 --> 00:11:31,110
+That's the function which will access this credential.
+
+212
+00:11:31,110 --> 00:11:33,780
+So this is are secret text that we stored.
+
+213
+00:11:34,530 --> 00:11:38,910
+Its value will be stored into this variable and then we are going to put this variable.
+
+214
+00:11:41,190 --> 00:11:41,610
+No.
+
+215
+00:11:42,910 --> 00:11:43,600
+Here.
+
+216
+00:11:43,990 --> 00:11:44,230
+All right.
+
+217
+00:11:44,230 --> 00:11:45,820
+So instead of this, we will say.
+
+218
+00:11:46,620 --> 00:11:48,710
+Dollar codebase.
+
+219
+00:11:48,750 --> 00:11:50,370
+Nexus pass.
+
+220
+00:11:50,610 --> 00:11:51,030
+Oops.
+
+221
+00:11:51,030 --> 00:11:51,320
+Yeah.
+
+222
+00:11:55,040 --> 00:11:55,150
+Okay.
+
+223
+00:11:55,290 --> 00:11:57,390
+Which will have the value of the password.
+
+224
+00:11:58,170 --> 00:11:58,440
+Okay.
+
+225
+00:11:58,440 --> 00:11:59,460
+This is good.
+
+226
+00:11:59,970 --> 00:12:01,410
+Just review once again.
+
+227
+00:12:01,890 --> 00:12:05,130
+Download the pipeline code from the resource.
+
+228
+00:12:05,130 --> 00:12:06,930
+Compare it with your code.
+
+229
+00:12:06,930 --> 00:12:12,090
+Make sure all the commas, all the variables, all the opening and closing, everything is correct.
+
+230
+00:12:12,300 --> 00:12:15,420
+Do not make syntax error or typographical error.
+
+231
+00:12:15,570 --> 00:12:16,940
+That's our stage.
+
+232
+00:12:16,950 --> 00:12:17,880
+This is our.
+
+233
+00:12:19,030 --> 00:12:24,370
+Steps and this is the Ansible plugin and these are all the parameters.
+
+234
+00:12:24,370 --> 00:12:26,080
+These are extra variables.
+
+235
+00:12:27,140 --> 00:12:28,760
+So all looks good for now.
+
+236
+00:12:28,760 --> 00:12:29,390
+But who knows?
+
+237
+00:12:29,390 --> 00:12:31,220
+Let's save this and try this.
+
+238
+00:12:31,220 --> 00:12:32,360
+Save this.
+
+239
+00:12:32,900 --> 00:12:35,330
+I hope the stage inventory is also saved.
+
+240
+00:12:35,450 --> 00:12:37,460
+And it's time to now.
+
+241
+00:12:38,540 --> 00:12:40,460
+Commit and push.
+
+242
+00:12:43,230 --> 00:12:43,670
+Okay.
+
+243
+00:12:43,920 --> 00:12:44,670
+Let's see.
+
+244
+00:12:45,360 --> 00:12:47,490
+Jenkins file.
+
+245
+00:12:48,440 --> 00:12:51,350
+And to build plugin ID.
+
+246
+00:12:51,440 --> 00:12:54,230
+Let's see if this control this and put a checkmark.
+
+247
+00:12:56,520 --> 00:12:57,060
+Okay.
+
+248
+00:12:58,120 --> 00:12:59,050
+Publish.
+
+249
+00:13:04,880 --> 00:13:05,140
+Okay.
+
+250
+00:13:05,150 --> 00:13:06,890
+Now let's go to the Jenkins.
+
+251
+00:13:08,990 --> 00:13:11,840
+Create a new pipeline, new item.
+
+252
+00:13:13,140 --> 00:13:19,690
+Well, it's a c, c, d hyphen Jenkins hyphen ansible hyphen stage.
+
+253
+00:13:19,710 --> 00:13:21,060
+Just giving the name.
+
+254
+00:13:21,570 --> 00:13:22,740
+Select pipeline.
+
+255
+00:13:24,120 --> 00:13:25,170
+C OC.
+
+256
+00:13:27,180 --> 00:13:27,350
+Okay.
+
+257
+00:13:27,390 --> 00:13:31,130
+GitHub Hook Trigger Forget ACM polling.
+
+258
+00:13:31,140 --> 00:13:35,190
+Put a checkmark on that Safe Pipeline script from ACM.
+
+259
+00:13:36,830 --> 00:13:38,480
+And here select target.
+
+260
+00:13:40,450 --> 00:13:41,590
+Repository URL.
+
+261
+00:13:41,590 --> 00:13:43,960
+Let's get our repository URL.
+
+262
+00:13:45,100 --> 00:13:47,140
+Code is is a all.
+
+263
+00:13:51,430 --> 00:13:52,510
+They stood there.
+
+264
+00:13:54,780 --> 00:13:59,460
+And select your already saved credentials minus GitHub login.
+
+265
+00:14:02,490 --> 00:14:08,390
+Branch c icd hyphen chink ans.
+
+266
+00:14:10,090 --> 00:14:10,780
+Right.
+
+267
+00:14:11,230 --> 00:14:13,450
+And the Jenkins file is just there.
+
+268
+00:14:15,040 --> 00:14:16,900
+And let's see if this.
+
+269
+00:14:18,370 --> 00:14:20,110
+And let's test it.
+
+270
+00:14:20,350 --> 00:14:21,220
+Build now.
+
+271
+00:14:24,300 --> 00:14:24,660
+Okay.
+
+272
+00:14:24,690 --> 00:14:29,550
+Before this completes, we need to do one very one thing very quickly.
+
+273
+00:14:32,270 --> 00:14:35,810
+So App server is going to download the artifact from next.
+
+274
+00:14:35,920 --> 00:14:39,470
+So we need to go to the Nexis server security.
+
+275
+00:14:40,340 --> 00:14:42,680
+Security group of the Nexus server.
+
+276
+00:14:43,730 --> 00:14:44,960
+Inbound rule.
+
+277
+00:14:45,890 --> 00:14:51,530
+So we need to allow 8081 from the App Security Group, 80, 81.
+
+278
+00:14:52,730 --> 00:14:59,420
+From the App Security Group so application server can download artifact from Nexus.
+
+279
+00:15:00,220 --> 00:15:01,120
+Several.
+
+280
+00:15:04,200 --> 00:15:04,580
+Okay.
+
+281
+00:15:04,590 --> 00:15:05,400
+Let's go back.
+
+282
+00:15:07,280 --> 00:15:08,660
+All right, the pipeline failed.
+
+283
+00:15:08,660 --> 00:15:09,950
+Let's see why it failed.
+
+284
+00:15:13,290 --> 00:15:18,870
+That is a mistake from not mistake when I intentionally failed this pipeline previously.
+
+285
+00:15:19,350 --> 00:15:22,670
+Let's make one one as the command, which is the wrong command.
+
+286
+00:15:22,680 --> 00:15:23,370
+So.
+
+287
+00:15:23,790 --> 00:15:24,960
+Yeah, there.
+
+288
+00:15:26,890 --> 00:15:34,480
+MV VN So in continuous integration project, I purposefully failed the pipeline to show you the notification.
+
+289
+00:15:34,480 --> 00:15:36,550
+That's why I made this one over there.
+
+290
+00:15:37,150 --> 00:15:38,080
+So I make the changes.
+
+291
+00:15:38,080 --> 00:15:41,050
+Now back to MV in control lists.
+
+292
+00:15:41,050 --> 00:15:43,660
+Save, commit and push.
+
+293
+00:15:46,290 --> 00:15:51,210
+I can see fixed maven command control less.
+
+294
+00:15:52,140 --> 00:15:53,180
+A check mark.
+
+295
+00:15:53,190 --> 00:15:57,900
+Now this should trigger our pipeline automatically because we have webhook already configured.
+
+296
+00:15:58,760 --> 00:15:59,730
+You go back.
+
+297
+00:16:02,760 --> 00:16:03,270
+Yeah.
+
+298
+00:16:03,270 --> 00:16:05,460
+The second job got triggered.
+
+299
+00:16:05,610 --> 00:16:06,840
+Let's wait.
+
+300
+00:16:07,850 --> 00:16:09,800
+It started to click on that.
+
+301
+00:16:12,540 --> 00:16:12,780
+Okay.
+
+302
+00:16:12,780 --> 00:16:16,040
+So I'm going to pause my screen and come back when this is completed.
+
+303
+00:16:16,050 --> 00:16:17,310
+This is going to take some time.
+
+304
+00:16:19,060 --> 00:16:19,320
+Okay.
+
+305
+00:16:19,360 --> 00:16:21,340
+My pipeline has failed once again.
+
+306
+00:16:21,430 --> 00:16:23,150
+So I thought of showing it to you.
+
+307
+00:16:23,170 --> 00:16:31,120
+So the hostname that we added, it's saying its name or service not known could not resolve the host
+
+308
+00:16:31,120 --> 00:16:31,560
+name.
+
+309
+00:16:31,570 --> 00:16:36,190
+That means it's not able to get the IP address of what is this hostname?
+
+310
+00:16:36,190 --> 00:16:37,420
+It doesn't know what it is.
+
+311
+00:16:37,630 --> 00:16:40,720
+Sure, we created a route 53 DNS entry.
+
+312
+00:16:42,040 --> 00:16:43,610
+And we created the homestead zone.
+
+313
+00:16:43,630 --> 00:16:45,280
+We created the entry.
+
+314
+00:16:45,550 --> 00:16:46,090
+Right.
+
+315
+00:16:46,090 --> 00:16:49,360
+And the IP also is correct of app server.
+
+316
+00:16:49,360 --> 00:16:52,480
+But the problem is what I did was.
+
+317
+00:16:53,620 --> 00:16:54,810
+We entered the hosted zone.
+
+318
+00:16:54,820 --> 00:16:55,750
+Go to edit.
+
+319
+00:16:57,110 --> 00:16:59,480
+I have given the wrong region here.
+
+320
+00:16:59,480 --> 00:17:09,319
+My instances are in US West one and I have given here US East one, so I need to see us hyphen west,
+
+321
+00:17:10,339 --> 00:17:11,450
+hyphen one.
+
+322
+00:17:11,930 --> 00:17:12,980
+Let's check once again.
+
+323
+00:17:13,619 --> 00:17:15,109
+US West one.
+
+324
+00:17:16,410 --> 00:17:16,670
+Okay.
+
+325
+00:17:16,680 --> 00:17:19,530
+Now let's save the change and try once again.
+
+326
+00:17:20,460 --> 00:17:22,920
+It is updated and not updated the same time.
+
+327
+00:17:23,050 --> 00:17:24,300
+Let's see once again.
+
+328
+00:17:24,339 --> 00:17:25,589
+Did it edit or not?
+
+329
+00:17:27,230 --> 00:17:28,910
+High profile project.
+
+330
+00:17:31,500 --> 00:17:31,750
+Okay.
+
+331
+00:17:31,830 --> 00:17:34,020
+Let me select it here and say edit.
+
+332
+00:17:35,350 --> 00:17:36,630
+No, it did not.
+
+333
+00:17:36,640 --> 00:17:38,860
+EDIT okay, of course.
+
+334
+00:17:39,280 --> 00:17:42,430
+US hyphen west hyphen one.
+
+335
+00:17:42,430 --> 00:17:44,560
+I select this and I need to change the VPC.
+
+336
+00:17:44,560 --> 00:17:48,580
+Also write the VPC in that region.
+
+337
+00:17:49,850 --> 00:17:51,200
+See if changes.
+
+338
+00:17:52,620 --> 00:17:53,100
+Okay.
+
+339
+00:17:53,340 --> 00:17:55,170
+Now let's try it once again.
+
+340
+00:17:55,830 --> 00:17:57,480
+So we did not make any code change.
+
+341
+00:17:57,480 --> 00:17:59,310
+So we need to say build now once again.
+
+342
+00:18:01,510 --> 00:18:01,650
+Okay.
+
+343
+00:18:01,820 --> 00:18:02,780
+And let's wait.
+
+344
+00:18:04,100 --> 00:18:04,490
+All right.
+
+345
+00:18:04,490 --> 00:18:05,540
+So that is a success.
+
+346
+00:18:05,540 --> 00:18:07,660
+Let's see what all happened here.
+
+347
+00:18:07,670 --> 00:18:11,180
+So we already know till uploading artifact to Nexus, right?
+
+348
+00:18:11,480 --> 00:18:13,670
+It was about executing the Ansible playbook.
+
+349
+00:18:13,670 --> 00:18:17,660
+So first Playbook got executed, gathering facts about this.
+
+350
+00:18:18,100 --> 00:18:18,380
+All right.
+
+351
+00:18:18,380 --> 00:18:20,880
+Installing JDK, right.
+
+352
+00:18:20,900 --> 00:18:22,490
+Downloading Tomcat tarball.
+
+353
+00:18:22,490 --> 00:18:24,020
+Setting up Tomcat.
+
+354
+00:18:24,710 --> 00:18:25,640
+Nice.
+
+355
+00:18:26,570 --> 00:18:27,040
+Okay.
+
+356
+00:18:27,050 --> 00:18:32,330
+So Tomcat Service should be there up and running and then deploying the artifact, the next playbook.
+
+357
+00:18:33,360 --> 00:18:33,770
+Right.
+
+358
+00:18:33,770 --> 00:18:38,360
+So it goes to the next case downloads the artifact extracted.
+
+359
+00:18:38,390 --> 00:18:44,140
+If there's nothing wrong, it restarts the Tomcat service, or if something's wrong, it can roll back.
+
+360
+00:18:44,150 --> 00:18:45,710
+Also, we talked about that.
+
+361
+00:18:46,070 --> 00:18:51,890
+So now we should be having app zero on staging this copy type.
+
+362
+00:18:51,920 --> 00:18:53,810
+So we should be having our application there.
+
+363
+00:18:53,810 --> 00:18:55,580
+Right, Colon 80, 80.
+
+364
+00:18:55,970 --> 00:18:57,470
+All right, let's see.
+
+365
+00:18:59,610 --> 00:19:00,030
+Yeah.
+
+366
+00:19:00,030 --> 00:19:00,710
+There.
+
+367
+00:19:00,720 --> 00:19:05,970
+If you don't see this page, check again the security group of application server, it should allow
+
+368
+00:19:06,210 --> 00:19:09,960
+it from your IP and there are no backend services we are set up.
+
+369
+00:19:09,960 --> 00:19:11,370
+So obviously you cannot log in.
+
+370
+00:19:11,370 --> 00:19:18,510
+But the point of this exercise, this project was to show you how you can do configuration management
+
+371
+00:19:18,510 --> 00:19:20,580
+and secede together.
+
+372
+00:19:20,970 --> 00:19:27,300
+So we're using Ansible to deploy the artifact, but we are running Ansible playbook in the pipeline
+
+373
+00:19:27,780 --> 00:19:29,400
+and this is for staging environment.
+
+374
+00:19:29,400 --> 00:19:34,260
+In the next lecture we will see how we are going to promote it to the production environment.
+
+375
+00:19:34,530 --> 00:19:38,040
+So complete this and join me in the next lecture.
+

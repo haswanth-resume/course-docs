@@ -1,0 +1,1024 @@
+1
+00:00:00,640 --> 00:00:00,900
+Okay.
+
+2
+00:00:00,910 --> 00:00:05,800
+In this lecture, we will be writing the code for the production pipeline.
+
+3
+00:00:06,280 --> 00:00:13,090
+But before I start doing it, I need to update the GitHub webhook with new Jenkins IP because I did
+
+4
+00:00:13,090 --> 00:00:15,190
+shut down and power on Jenkins.
+
+5
+00:00:15,490 --> 00:00:19,960
+The public IP is changed, so I copy the public IP of Jenkins.
+
+6
+00:00:21,180 --> 00:00:22,950
+I go to the repository.
+
+7
+00:00:23,490 --> 00:00:24,770
+I'm in that right.
+
+8
+00:00:24,780 --> 00:00:25,200
+Yeah.
+
+9
+00:00:25,320 --> 00:00:25,620
+Correct.
+
+10
+00:00:25,620 --> 00:00:27,330
+Repository settings.
+
+11
+00:00:29,020 --> 00:00:29,950
+The books.
+
+12
+00:00:31,650 --> 00:00:32,280
+Edit.
+
+13
+00:00:33,270 --> 00:00:34,740
+Rendering the password.
+
+14
+00:00:37,950 --> 00:00:39,860
+And update the public IP.
+
+15
+00:00:39,870 --> 00:00:45,210
+So whenever you power off and power on your Jenkins, you should be doing this.
+
+16
+00:00:48,730 --> 00:00:49,030
+Okay.
+
+17
+00:00:49,030 --> 00:00:56,050
+Now I'm going to get Bash and we will work on the code that we will be using in the production pipeline.
+
+18
+00:00:58,900 --> 00:00:59,260
+Okay.
+
+19
+00:00:59,260 --> 00:01:03,790
+So f my source code repositories here.
+
+20
+00:01:07,330 --> 00:01:08,080
+Correct.
+
+21
+00:01:09,100 --> 00:01:09,340
+Okay.
+
+22
+00:01:09,340 --> 00:01:14,410
+Now, from this branch, I'm going to create another branch that we will use for production deployment.
+
+23
+00:01:14,410 --> 00:01:18,370
+So git checkout hyphen b.
+
+24
+00:01:19,370 --> 00:01:20,570
+We'll use the same name.
+
+25
+00:01:20,570 --> 00:01:22,700
+We'll just add a prod at the end.
+
+26
+00:01:24,870 --> 00:01:25,410
+Okay.
+
+27
+00:01:26,070 --> 00:01:28,890
+And then let's open the VSE code.
+
+28
+00:01:29,820 --> 00:01:32,070
+Let me close the previous one.
+
+29
+00:01:34,280 --> 00:01:35,090
+Exit.
+
+30
+00:01:35,660 --> 00:01:35,920
+Yeah.
+
+31
+00:01:36,070 --> 00:01:36,460
+Okay.
+
+32
+00:01:36,470 --> 00:01:38,720
+So, code dot.
+
+33
+00:01:41,250 --> 00:01:41,730
+All right.
+
+34
+00:01:41,730 --> 00:01:44,550
+So let me close all these files first.
+
+35
+00:01:45,470 --> 00:01:46,850
+We'll open them once again.
+
+36
+00:01:47,900 --> 00:01:50,600
+Because of here in different branch, broad branch.
+
+37
+00:01:50,870 --> 00:01:52,910
+First updating the inventory file.
+
+38
+00:01:53,120 --> 00:02:01,070
+So change the hostname to correct hostname that we did add in with its PRD.
+
+39
+00:02:01,520 --> 00:02:01,760
+Yeah.
+
+40
+00:02:01,760 --> 00:02:06,560
+This is what I add in Route 53 DNS records and control.
+
+41
+00:02:06,560 --> 00:02:09,889
+As to that, go to Jenkins file.
+
+42
+00:02:10,570 --> 00:02:13,810
+And we do not need to build all this.
+
+43
+00:02:14,440 --> 00:02:16,150
+We will remove most of it.
+
+44
+00:02:16,690 --> 00:02:23,890
+So I'm going to remove build stage test check sonar quality gates.
+
+45
+00:02:24,160 --> 00:02:25,780
+Upload artifact.
+
+46
+00:02:29,250 --> 00:02:33,090
+And I'm going to call a delete on all that stage.
+
+47
+00:02:34,750 --> 00:02:35,170
+Okay.
+
+48
+00:02:36,680 --> 00:02:38,000
+Environment variable.
+
+49
+00:02:38,000 --> 00:02:42,500
+Also, we don't need these many because we are not using them, so let's remove them.
+
+50
+00:02:44,250 --> 00:02:52,340
+Only Nexus password, which will be used by the Ansible playbook to log into Nexus server tools.
+
+51
+00:02:52,350 --> 00:02:53,340
+Also, we do not need.
+
+52
+00:02:53,350 --> 00:02:54,810
+Let's remove that as well.
+
+53
+00:02:56,190 --> 00:02:56,850
+Now.
+
+54
+00:02:57,060 --> 00:02:57,480
+Yes.
+
+55
+00:02:57,480 --> 00:03:00,270
+You might be thinking that what we are done right?
+
+56
+00:03:00,570 --> 00:03:01,260
+That is it.
+
+57
+00:03:01,260 --> 00:03:03,000
+We just change the path.
+
+58
+00:03:03,000 --> 00:03:07,410
+We change the name, change the inventory file, and we're good.
+
+59
+00:03:07,410 --> 00:03:09,000
+But there's one problem here.
+
+60
+00:03:09,000 --> 00:03:10,470
+Very, very big problem.
+
+61
+00:03:11,190 --> 00:03:17,340
+So these variables that we are passing in the playbook, this will construct the URL in staging in the
+
+62
+00:03:17,340 --> 00:03:18,690
+same pipeline.
+
+63
+00:03:19,020 --> 00:03:25,560
+These variables are used to name the artifact so we can use the same variable to download the artifact.
+
+64
+00:03:25,950 --> 00:03:33,090
+But now if we access build timestamp in this pipeline, the timestamp value will be different and there
+
+65
+00:03:33,090 --> 00:03:35,940
+will not be such artifact with this version.
+
+66
+00:03:36,240 --> 00:03:38,310
+Build ID also will be different.
+
+67
+00:03:38,670 --> 00:03:40,440
+So what are our choices here?
+
+68
+00:03:40,440 --> 00:03:41,160
+What do we do?
+
+69
+00:03:41,160 --> 00:03:44,250
+Well, we need to have this job as parameterized.
+
+70
+00:03:44,700 --> 00:03:51,690
+That means we need to take the input from the user to enter the correct artifact name.
+
+71
+00:03:51,840 --> 00:03:59,340
+The user needs to enter the right build timestamp value and the right build ID, which is from the staging
+
+72
+00:03:59,340 --> 00:04:02,250
+environment, not from the production environment.
+
+73
+00:04:02,580 --> 00:04:03,990
+I'll show you how it is done.
+
+74
+00:04:03,990 --> 00:04:07,770
+So we'll say deploy to prod and.
+
+75
+00:04:11,430 --> 00:04:15,600
+Let's see things one by one inventory keep same credentials.
+
+76
+00:04:15,600 --> 00:04:18,029
+ID app login hyphen prod.
+
+77
+00:04:19,310 --> 00:04:20,680
+App login hyphen prod.
+
+78
+00:04:20,720 --> 00:04:22,850
+That's what we saved in Jenkins.
+
+79
+00:04:24,100 --> 00:04:31,750
+Username admin password of the nexus same nexus ip same repository name, same group are the same here.
+
+80
+00:04:32,230 --> 00:04:37,140
+We are going to mention a variable here which we will take as an input from the user build.
+
+81
+00:04:37,150 --> 00:04:39,220
+This is our own created variable.
+
+82
+00:04:39,220 --> 00:04:40,990
+Sorry not build here.
+
+83
+00:04:40,990 --> 00:04:45,370
+We'll set time and here we'll give it as build.
+
+84
+00:04:45,460 --> 00:04:48,100
+Now these variables does not exist yet.
+
+85
+00:04:48,160 --> 00:04:54,460
+We are going to take input from the user, which I will show you in a moment here in v dot build ID.
+
+86
+00:04:54,460 --> 00:05:00,220
+So that will be build and here it is the timestamp.
+
+87
+00:05:00,230 --> 00:05:06,130
+So instead of that we are going to use a variable time might seem two variables now these two variables
+
+88
+00:05:06,130 --> 00:05:07,690
+again they don't exist.
+
+89
+00:05:07,750 --> 00:05:10,180
+We need to take it from the user.
+
+90
+00:05:10,180 --> 00:05:15,070
+So we are going to add one more stage over here that will take input from the user.
+
+91
+00:05:16,170 --> 00:05:17,370
+So I have the code.
+
+92
+00:05:17,370 --> 00:05:18,030
+I will show it to you.
+
+93
+00:05:18,030 --> 00:05:19,170
+It's pretty simple.
+
+94
+00:05:20,630 --> 00:05:28,460
+Stage setup parameters, steps inside that script and properties inside that.
+
+95
+00:05:28,460 --> 00:05:32,360
+We have parameters and we are going to say string parameter.
+
+96
+00:05:32,360 --> 00:05:33,650
+That means the text.
+
+97
+00:05:33,650 --> 00:05:35,390
+So default value.
+
+98
+00:05:35,420 --> 00:05:41,330
+So to pair to argument in this default value, we are going to say null nothing, just single code and
+
+99
+00:05:41,330 --> 00:05:42,580
+the name is build.
+
+100
+00:05:42,590 --> 00:05:44,900
+That's the variable name here.
+
+101
+00:05:44,900 --> 00:05:46,310
+The variable name is time.
+
+102
+00:05:46,640 --> 00:05:53,120
+Now what happens is when you run this pipeline, it will ask for the parameter the user needs to enter
+
+103
+00:05:53,120 --> 00:05:58,850
+those parameter and this will be same as matching as we have the artifact version.
+
+104
+00:06:00,050 --> 00:06:05,570
+So I'm going to go to next just to show it to you, how the user can fetch the right value for it.
+
+105
+00:06:05,600 --> 00:06:07,010
+80, 81.
+
+106
+00:06:08,540 --> 00:06:09,410
+Sign in.
+
+107
+00:06:12,370 --> 00:06:12,640
+Okay.
+
+108
+00:06:12,640 --> 00:06:14,140
+So we go to browse.
+
+109
+00:06:14,590 --> 00:06:16,990
+That's our repository.
+
+110
+00:06:18,290 --> 00:06:18,520
+Right.
+
+111
+00:06:18,530 --> 00:06:23,780
+So let's say a user wants to deploy this particular artifact, so user will be passing in the place
+
+112
+00:06:23,780 --> 00:06:30,530
+of build 16 and in the place of time the user will be passing this 22 hyphen zero nine, hyphen zero
+
+113
+00:06:30,530 --> 00:06:32,900
+five, underscore zero three, underscore zero nine.
+
+114
+00:06:33,290 --> 00:06:38,960
+So you see user can deploy any version of the artifact that is on Nexus needs to just pass the right
+
+115
+00:06:38,960 --> 00:06:43,820
+build ID and right timestamp value so it will fetch the correct artifact.
+
+116
+00:06:44,180 --> 00:06:48,560
+Okay, going back to the code, let's just check the syntax once again.
+
+117
+00:06:49,250 --> 00:06:53,330
+Agent, any environment is this are the stages.
+
+118
+00:06:53,660 --> 00:06:57,020
+Stage starts here, completes there.
+
+119
+00:06:59,010 --> 00:07:06,780
+Staged Ansible deployed to prod all the details, you know, syntax only I'm checking because we cannot
+
+120
+00:07:06,780 --> 00:07:10,620
+be really sure whether it will work or not until we execute it.
+
+121
+00:07:11,570 --> 00:07:13,520
+I do control less to that.
+
+122
+00:07:15,260 --> 00:07:16,850
+And hey, one more thing.
+
+123
+00:07:17,300 --> 00:07:22,740
+I would like to rename this stage dot inventory file to product inventory.
+
+124
+00:07:22,760 --> 00:07:27,110
+So right click rename, there is a product inventory.
+
+125
+00:07:27,730 --> 00:07:32,800
+And in the Jenkins file will mention that product inventory.
+
+126
+00:07:34,030 --> 00:07:37,980
+Make sure you change the both place at both the places.
+
+127
+00:07:37,990 --> 00:07:40,360
+The name of the file in the Jenkins file.
+
+128
+00:07:41,430 --> 00:07:41,760
+Yeah.
+
+129
+00:07:42,030 --> 00:07:42,720
+Correct.
+
+130
+00:07:42,840 --> 00:07:43,130
+Okay.
+
+131
+00:07:43,140 --> 00:07:44,490
+Let's see if this.
+
+132
+00:07:45,380 --> 00:07:45,580
+Okay.
+
+133
+00:07:45,650 --> 00:07:47,390
+It's time to commit and push.
+
+134
+00:07:47,390 --> 00:07:48,140
+So.
+
+135
+00:07:49,650 --> 00:07:50,130
+Come again and.
+
+136
+00:07:51,360 --> 00:07:53,160
+Save all and commit.
+
+137
+00:07:53,490 --> 00:07:55,160
+Let's give a message here.
+
+138
+00:07:55,170 --> 00:07:57,890
+Prod pipeline.
+
+139
+00:07:57,900 --> 00:07:58,890
+Save.
+
+140
+00:07:59,510 --> 00:08:01,820
+And let's put a checkmark there.
+
+141
+00:08:02,990 --> 00:08:03,350
+Nokia.
+
+142
+00:08:03,350 --> 00:08:06,830
+Publish the branch or publish that branch.
+
+143
+00:08:08,740 --> 00:08:10,020
+It seems like it published.
+
+144
+00:08:10,020 --> 00:08:11,730
+It's time for test.
+
+145
+00:08:12,030 --> 00:08:14,040
+So let's go to Jenkins.
+
+146
+00:08:15,460 --> 00:08:17,140
+What is my Jenkins there?
+
+147
+00:08:19,830 --> 00:08:20,220
+Okay.
+
+148
+00:08:20,370 --> 00:08:23,490
+I'm going to copy this name right here.
+
+149
+00:08:25,740 --> 00:08:29,220
+I'll create a pipeline with a similar name if I can copy it.
+
+150
+00:08:29,220 --> 00:08:30,420
+Command, select it.
+
+151
+00:08:31,520 --> 00:08:32,500
+Copy Control.
+
+152
+00:08:32,510 --> 00:08:34,280
+See new item.
+
+153
+00:08:35,929 --> 00:08:42,530
+And here, instead of that, I'll change it to product pipeline and I'm going to copy everything from
+
+154
+00:08:42,530 --> 00:08:47,660
+the staging environment staging branch, sorry, staging pipeline.
+
+155
+00:08:47,660 --> 00:08:49,700
+So I just say copy from this one.
+
+156
+00:08:50,120 --> 00:08:53,930
+So I get all the same thing except I change the branch.
+
+157
+00:08:55,840 --> 00:09:01,410
+Okay, let's come down and we are going to change the branch to hyphen proud here.
+
+158
+00:09:01,560 --> 00:09:04,220
+So that's the production branch that I created.
+
+159
+00:09:04,230 --> 00:09:09,270
+If you have if you created with a different name, make sure you mention the right branch name here
+
+160
+00:09:10,170 --> 00:09:11,460
+and really nothing much.
+
+161
+00:09:11,460 --> 00:09:12,600
+Let's just save it.
+
+162
+00:09:15,440 --> 00:09:17,060
+Let's refresh this.
+
+163
+00:09:19,070 --> 00:09:19,220
+Okay.
+
+164
+00:09:19,250 --> 00:09:22,280
+So it's really not showing here.
+
+165
+00:09:22,280 --> 00:09:23,120
+It's just showing Bill.
+
+166
+00:09:23,120 --> 00:09:25,330
+Now, it should show Bill with parameters.
+
+167
+00:09:25,340 --> 00:09:29,220
+I think we need to run it once and then it starts showing Bill with parameters.
+
+168
+00:09:29,220 --> 00:09:30,770
+So I'm going to say build now.
+
+169
+00:09:32,390 --> 00:09:34,910
+And then I want to cancel it, actually.
+
+170
+00:09:36,070 --> 00:09:36,640
+Let's see.
+
+171
+00:09:36,640 --> 00:09:37,450
+That works.
+
+172
+00:09:37,660 --> 00:09:37,900
+Okay.
+
+173
+00:09:37,900 --> 00:09:38,740
+That got canceled.
+
+174
+00:09:38,770 --> 00:09:40,210
+Let's refresh.
+
+175
+00:09:40,240 --> 00:09:41,300
+Still nothing.
+
+176
+00:09:41,320 --> 00:09:42,940
+Let's click on it once again.
+
+177
+00:09:42,940 --> 00:09:43,750
+Build now.
+
+178
+00:09:47,740 --> 00:09:47,890
+Okay.
+
+179
+00:09:47,980 --> 00:09:48,200
+Yeah.
+
+180
+00:09:48,220 --> 00:09:50,050
+Now it shows build with parameters.
+
+181
+00:09:50,050 --> 00:09:54,280
+I'm going to click on build with parameters there.
+
+182
+00:09:54,280 --> 00:09:54,640
+Right.
+
+183
+00:09:54,640 --> 00:09:56,770
+So build in place of build.
+
+184
+00:09:56,950 --> 00:09:59,290
+Now let's say I want to deploy this artifact, right?
+
+185
+00:09:59,830 --> 00:10:00,610
+That one.
+
+186
+00:10:00,610 --> 00:10:04,600
+So in place of build, which is the build ID, we're going to say 16.
+
+187
+00:10:06,530 --> 00:10:10,400
+And in place of time, we are going to mention that.
+
+188
+00:10:12,060 --> 00:10:12,680
+Right.
+
+189
+00:10:14,660 --> 00:10:14,910
+Okay.
+
+190
+00:10:14,950 --> 00:10:16,250
+I can get it from here.
+
+191
+00:10:24,450 --> 00:10:25,860
+And let's say Bill.
+
+192
+00:10:27,850 --> 00:10:29,620
+And let's look at the logs.
+
+193
+00:10:33,110 --> 00:10:33,440
+Okay.
+
+194
+00:10:33,440 --> 00:10:34,040
+Wait.
+
+195
+00:10:36,270 --> 00:10:38,400
+No inventory was passed.
+
+196
+00:10:39,720 --> 00:10:44,160
+It's not able to find the host ignoring app server group.
+
+197
+00:10:45,630 --> 00:10:48,020
+Oh, I see the mistake I've given here.
+
+198
+00:10:48,030 --> 00:10:49,680
+Prod one dot inventory.
+
+199
+00:10:49,680 --> 00:10:51,180
+Let me check my code.
+
+200
+00:10:51,930 --> 00:10:53,070
+Yeah, that one.
+
+201
+00:10:54,330 --> 00:10:54,530
+Okay.
+
+202
+00:10:54,630 --> 00:10:58,140
+That was a mistake the file name inventory filing have given wrong.
+
+203
+00:10:58,290 --> 00:11:02,490
+The file name is product inventory, not part one point inventory.
+
+204
+00:11:02,490 --> 00:11:03,480
+I don't know how I missed it.
+
+205
+00:11:03,480 --> 00:11:08,910
+Anyways, let's save it and then I'm going to commit and push once again.
+
+206
+00:11:11,780 --> 00:11:14,390
+Against some message control less.
+
+207
+00:11:15,340 --> 00:11:17,440
+And put a checkmark there.
+
+208
+00:11:19,430 --> 00:11:20,810
+Hopefully that should.
+
+209
+00:11:22,210 --> 00:11:22,980
+Come here.
+
+210
+00:11:23,010 --> 00:11:23,430
+Yeah.
+
+211
+00:11:26,660 --> 00:11:26,970
+Okay.
+
+212
+00:11:26,990 --> 00:11:27,890
+Trigger the pipeline.
+
+213
+00:11:27,890 --> 00:11:30,870
+I'm going to cancel it because we did not pass the parameters.
+
+214
+00:11:30,890 --> 00:11:31,430
+Cancel.
+
+215
+00:11:31,430 --> 00:11:32,510
+Cancel that.
+
+216
+00:11:35,820 --> 00:11:36,210
+Okay.
+
+217
+00:11:36,240 --> 00:11:44,070
+Now I'm going to say build with parameters, build ID and that are same what I entered previously 16
+
+218
+00:11:44,070 --> 00:11:47,700
+and time, which is the build timestamp of the artifact.
+
+219
+00:11:49,500 --> 00:11:51,000
+And let's say build.
+
+220
+00:11:52,510 --> 00:11:52,870
+Okay.
+
+221
+00:11:52,870 --> 00:11:54,790
+Let's look at the logs.
+
+222
+00:11:58,170 --> 00:11:58,430
+Okay.
+
+223
+00:11:58,440 --> 00:12:01,800
+So I'm going to pause my screen and resume when this is completed.
+
+224
+00:12:03,560 --> 00:12:05,090
+I'll get one edit and I'll.
+
+225
+00:12:05,120 --> 00:12:07,490
+I wanted you to see this.
+
+226
+00:12:08,580 --> 00:12:10,230
+This is an apt error.
+
+227
+00:12:10,230 --> 00:12:15,840
+When we executed the playbook, it was already started the installation of JDC, so it was doing apt
+
+228
+00:12:15,840 --> 00:12:19,650
+install JDC like that and apt is already busy.
+
+229
+00:12:19,650 --> 00:12:24,600
+We canceled it the pipeline, but the command was already running over there and we tried to run it
+
+230
+00:12:24,600 --> 00:12:25,500
+once again.
+
+231
+00:12:25,500 --> 00:12:26,820
+So it is saying.
+
+232
+00:12:27,940 --> 00:12:30,190
+The big front end lock.
+
+233
+00:12:30,640 --> 00:12:34,930
+Once an apt command is running, you cannot run one more apt command.
+
+234
+00:12:35,410 --> 00:12:38,770
+So previous command got executed before we cancelled it.
+
+235
+00:12:38,770 --> 00:12:39,850
+So it is still running.
+
+236
+00:12:39,850 --> 00:12:43,640
+We need to wait for some time or it's still getting the error.
+
+237
+00:12:43,660 --> 00:12:45,010
+Better a reboot.
+
+238
+00:12:46,080 --> 00:12:53,250
+That server app zero one prod we can reboot, but I will wait for, let's say 5 minutes and then try
+
+239
+00:12:53,280 --> 00:12:55,170
+to execute the pipeline once again.
+
+240
+00:12:56,960 --> 00:12:57,150
+Okay.
+
+241
+00:12:57,260 --> 00:12:58,500
+I think I waited enough.
+
+242
+00:12:58,520 --> 00:13:00,410
+Let me run it once again.
+
+243
+00:13:02,640 --> 00:13:09,180
+So 16 was that and that timestamp again, take it from Nexis.
+
+244
+00:13:10,770 --> 00:13:12,780
+We should build.
+
+245
+00:13:14,850 --> 00:13:16,590
+Let's look at the logs now.
+
+246
+00:13:20,120 --> 00:13:21,830
+It seems that is working.
+
+247
+00:13:21,860 --> 00:13:23,120
+Let's wait for some time.
+
+248
+00:13:24,620 --> 00:13:24,980
+Okay.
+
+249
+00:13:24,980 --> 00:13:26,960
+That completed successfully.
+
+250
+00:13:26,960 --> 00:13:29,510
+I'm going to give it a few minutes and check.
+
+251
+00:13:31,150 --> 00:13:38,980
+The application server, the prod on Port 88, but I'm going to wait for a few minutes and then hit
+
+252
+00:13:38,980 --> 00:13:39,580
+enter.
+
+253
+00:13:40,850 --> 00:13:41,150
+Okay.
+
+254
+00:13:41,150 --> 00:13:47,540
+I did wait for a few minutes and just 2 minutes hit enter and you see it is showing the page.
+
+255
+00:13:47,540 --> 00:13:50,270
+That means the deployment completed successfully.
+
+256
+00:13:50,270 --> 00:13:52,010
+We are able to test it also.
+

@@ -1,0 +1,528 @@
+1
+00:00:00,520 --> 00:00:00,840
+Okay.
+
+2
+00:00:00,850 --> 00:00:01,540
+Welcome.
+
+3
+00:00:02,290 --> 00:00:04,900
+In this lecture, we will be doing multiple things.
+
+4
+00:00:05,320 --> 00:00:09,100
+First, we will increase the Jenkins of volume size.
+
+5
+00:00:09,460 --> 00:00:17,470
+Second, we will update the Jenkins new public IP in the GitHub webhook and our GitHub repository.
+
+6
+00:00:17,740 --> 00:00:25,960
+Third, we will test our continuous integration pipeline before we continue with the continuous delivery.
+
+7
+00:00:25,990 --> 00:00:30,320
+How to use Ansible, we need to force to test our continuous integration pipeline.
+
+8
+00:00:30,340 --> 00:00:33,370
+If it is working, then we will continue from there.
+
+9
+00:00:33,640 --> 00:00:41,860
+So you can also think of this as the continuation of continuous integration project that we did earlier.
+
+10
+00:00:42,680 --> 00:00:43,190
+Okay.
+
+11
+00:00:43,190 --> 00:00:47,930
+So doing the first thing, increasing the volume size of Jenkins root volume.
+
+12
+00:00:48,230 --> 00:00:52,250
+So Jenkins server with a checkmark there make sure the instance are powered off.
+
+13
+00:00:53,720 --> 00:00:57,950
+Go to storage and that's the volume ID.
+
+14
+00:00:57,950 --> 00:00:58,880
+Let's click on that.
+
+15
+00:00:58,880 --> 00:01:00,980
+So we go to the volume section.
+
+16
+00:01:00,980 --> 00:01:06,950
+It will automatically take us to the volume section that is a Jenkins root volume, let's name it.
+
+17
+00:01:08,010 --> 00:01:12,150
+Jenkins route volume.
+
+18
+00:01:12,570 --> 00:01:17,070
+Now we will be increasing its size from eight GB to, let's say 12 or 15 GB.
+
+19
+00:01:17,100 --> 00:01:20,520
+The reason we are doing this is from a previous project.
+
+20
+00:01:20,520 --> 00:01:25,800
+Jenkins would have already collected a lot of or stored a lot of data in the hard disk in its route
+
+21
+00:01:25,800 --> 00:01:28,800
+volume, and it will get full or it is already full.
+
+22
+00:01:28,800 --> 00:01:29,560
+We don't know.
+
+23
+00:01:29,580 --> 00:01:31,980
+So we need to do this.
+
+24
+00:01:32,930 --> 00:01:35,030
+Select the volume action.
+
+25
+00:01:35,030 --> 00:01:36,470
+Modify volume.
+
+26
+00:01:37,160 --> 00:01:38,520
+And increase its size.
+
+27
+00:01:38,540 --> 00:01:44,960
+I will give it as, let's say, 15 gbps and I will say modify, modify.
+
+28
+00:01:45,830 --> 00:01:52,760
+Now we have used ubuntu 20 in the jenkins and with 1 to 20 just by modifying the volume size, it will
+
+29
+00:01:52,760 --> 00:01:56,310
+automatically modify the partition size.
+
+30
+00:01:56,330 --> 00:01:59,480
+Also in the operating system inside.
+
+31
+00:01:59,810 --> 00:02:01,280
+Otherwise this is just not enough.
+
+32
+00:02:01,280 --> 00:02:03,620
+We need to log into this and we need to check.
+
+33
+00:02:03,830 --> 00:02:07,280
+We need to resize the partition size, but this will be fine.
+
+34
+00:02:07,280 --> 00:02:10,580
+So that's 15 GB Now I did a refresh, it's so 15 GB.
+
+35
+00:02:11,180 --> 00:02:14,990
+Now let's go back to instances power on all the instances.
+
+36
+00:02:16,200 --> 00:02:17,300
+Start instance.
+
+37
+00:02:18,330 --> 00:02:21,420
+So if it's again, if it's 1 to 20, you don't need to do anything much.
+
+38
+00:02:21,420 --> 00:02:21,830
+That's it.
+
+39
+00:02:21,840 --> 00:02:23,760
+The route volume size is already increased.
+
+40
+00:02:24,000 --> 00:02:31,950
+If it's CentOS or Amazon Linux or Ubuntu older version, then you need to log in access to the Jenkins
+
+41
+00:02:31,950 --> 00:02:34,140
+server and resize the partition.
+
+42
+00:02:35,180 --> 00:02:35,350
+Okay.
+
+43
+00:02:35,520 --> 00:02:39,250
+It's already coming up and we already got the public IP of the Jenkins.
+
+44
+00:02:39,260 --> 00:02:43,040
+We will copy that and we'll update it in the GitHub webhook.
+
+45
+00:02:43,070 --> 00:02:44,660
+So let's go to GitHub.
+
+46
+00:02:46,460 --> 00:02:48,110
+Go to your repository.
+
+47
+00:02:48,880 --> 00:02:51,040
+The same repository that we used previously.
+
+48
+00:02:51,040 --> 00:02:53,650
+We profile a project that I created.
+
+49
+00:02:54,610 --> 00:02:55,660
+Settings.
+
+50
+00:02:57,880 --> 00:02:58,810
+The books.
+
+51
+00:03:00,380 --> 00:03:01,670
+And we'll say edit.
+
+52
+00:03:02,840 --> 00:03:04,070
+It will ask for the login.
+
+53
+00:03:04,070 --> 00:03:05,150
+Enter the password.
+
+54
+00:03:06,350 --> 00:03:07,070
+That's it.
+
+55
+00:03:07,280 --> 00:03:08,750
+Let's change the IP.
+
+56
+00:03:11,710 --> 00:03:12,930
+And let's see.
+
+57
+00:03:12,940 --> 00:03:14,110
+Update Webhook.
+
+58
+00:03:16,620 --> 00:03:16,860
+Okay.
+
+59
+00:03:16,860 --> 00:03:18,780
+Let's go to Jenkins.
+
+60
+00:03:19,670 --> 00:03:20,930
+Stake its IP.
+
+61
+00:03:22,420 --> 00:03:23,890
+Colon, 1880.
+
+62
+00:03:27,010 --> 00:03:27,580
+Okay.
+
+63
+00:03:28,120 --> 00:03:30,070
+Now I'm able to access it.
+
+64
+00:03:30,070 --> 00:03:33,760
+But if your IP has changed, go to the Jenkins Security Group.
+
+65
+00:03:36,770 --> 00:03:38,000
+Edit Inbound rule.
+
+66
+00:03:39,290 --> 00:03:43,680
+88, it's 88 from anywhere, so you should be able to access it.
+
+67
+00:03:43,700 --> 00:03:47,060
+If it's my IP, then make sure you update the IP.
+
+68
+00:03:47,870 --> 00:03:49,910
+If not, this is fine.
+
+69
+00:03:50,060 --> 00:03:51,620
+Let's log into Jenkins.
+
+70
+00:03:55,330 --> 00:03:55,510
+Okay.
+
+71
+00:03:55,540 --> 00:03:56,840
+So we did two things so far.
+
+72
+00:03:56,860 --> 00:03:58,720
+We increase the route, volume, size.
+
+73
+00:03:59,520 --> 00:04:01,690
+And we have updated the webhook.
+
+74
+00:04:01,710 --> 00:04:04,740
+Now it's time to test our continuous integration pipeline.
+
+75
+00:04:05,130 --> 00:04:07,110
+Now it's already there.
+
+76
+00:04:07,260 --> 00:04:09,030
+Previous continuous integration pipeline.
+
+77
+00:04:09,030 --> 00:04:12,220
+You can just run the same one or you can create a new pipeline.
+
+78
+00:04:12,240 --> 00:04:14,520
+Now I'm going to wait for some time.
+
+79
+00:04:14,710 --> 00:04:18,660
+I'm not going to hurry because I want the next session.
+
+80
+00:04:18,660 --> 00:04:22,860
+So now to be completely up and running stable and then we can test the pipeline.
+
+81
+00:04:24,400 --> 00:04:24,660
+Okay.
+
+82
+00:04:24,670 --> 00:04:25,720
+I read it enough.
+
+83
+00:04:26,290 --> 00:04:28,030
+So I'm going to say Bill now.
+
+84
+00:04:29,800 --> 00:04:32,890
+So the same previous continuous integration pipeline.
+
+85
+00:04:37,420 --> 00:04:40,600
+So it'll pause my screen and come back when this is completed.
+
+86
+00:04:42,240 --> 00:04:42,510
+Okay.
+
+87
+00:04:42,580 --> 00:04:43,710
+It's a it's a success.
+
+88
+00:04:43,710 --> 00:04:46,320
+My CI pipeline is completely validated.
+
+89
+00:04:46,930 --> 00:04:48,000
+One last thing.
+
+90
+00:04:48,330 --> 00:04:53,760
+We will really validate whether the root volume size has increased in the operating system or not in
+
+91
+00:04:53,760 --> 00:04:54,690
+the Jenkins.
+
+92
+00:04:54,930 --> 00:04:57,030
+We will do a search to the Jenkins.
+
+93
+00:04:57,180 --> 00:04:58,380
+So open get bash.
+
+94
+00:04:58,380 --> 00:04:59,010
+As I said, I.
+
+95
+00:04:59,130 --> 00:04:59,780
+And I.
+
+96
+00:05:00,090 --> 00:05:02,430
+My key is in.
+
+97
+00:05:03,380 --> 00:05:08,360
+The profile that one open to add the date and the IP.
+
+98
+00:05:09,730 --> 00:05:09,970
+Okay.
+
+99
+00:05:09,970 --> 00:05:11,320
+I won't be able to do a search.
+
+100
+00:05:11,320 --> 00:05:13,450
+I need to update the security group rule.
+
+101
+00:05:14,430 --> 00:05:15,730
+Of Jenkins.
+
+102
+00:05:18,280 --> 00:05:19,690
+Edit Inbound rule.
+
+103
+00:05:20,770 --> 00:05:22,780
+And I have to say 22 from my IP.
+
+104
+00:05:22,780 --> 00:05:24,160
+This is my older IP.
+
+105
+00:05:24,160 --> 00:05:27,040
+So now it is updated save rules.
+
+106
+00:05:29,260 --> 00:05:29,700
+Okay.
+
+107
+00:05:29,710 --> 00:05:30,820
+Let's try again.
+
+108
+00:05:32,150 --> 00:05:32,680
+Yes.
+
+109
+00:05:32,690 --> 00:05:34,100
+Login, please.
+
+110
+00:05:34,610 --> 00:05:35,510
+I'm okay.
+
+111
+00:05:37,120 --> 00:05:37,570
+Okay.
+
+112
+00:05:37,990 --> 00:05:42,100
+Switch to the root user pseudo hyphen I and under five an edge.
+
+113
+00:05:44,250 --> 00:05:44,490
+Okay.
+
+114
+00:05:44,490 --> 00:05:45,570
+So you see that?
+
+115
+00:05:46,080 --> 00:05:46,290
+Okay.
+
+116
+00:05:46,290 --> 00:05:49,860
+I need to show this first f desc hyphen l.
+
+117
+00:05:51,690 --> 00:05:58,650
+So that one, that's the route volume, it has increased to 15 GB but then it has the partition achieved
+
+118
+00:05:58,650 --> 00:05:59,580
+a one.
+
+119
+00:06:00,730 --> 00:06:09,190
+And if you see its size has gone to 14.9 GB, which is the 15 GB, so it has extended the partition
+
+120
+00:06:09,190 --> 00:06:10,810
+size also automatically.
+
+121
+00:06:11,200 --> 00:06:13,810
+And if you check the DFI for each.
+
+122
+00:06:15,650 --> 00:06:16,140
+Right.
+
+123
+00:06:18,180 --> 00:06:21,690
+So the root partition size has also increased to 15 GB.
+
+124
+00:06:21,690 --> 00:06:27,990
+So partition is increased, its partition format has increased and we are good.
+
+125
+00:06:27,990 --> 00:06:30,870
+So we don't need to do anything in the operating system.
+
+126
+00:06:30,870 --> 00:06:31,800
+It's extended.
+
+127
+00:06:32,250 --> 00:06:37,890
+And if you look at this right, it is 7.4 GB available, it is 7.1 GB used.
+
+128
+00:06:37,890 --> 00:06:43,530
+If it is eight GB, then this will definitely go out of size in this project.
+
+129
+00:06:43,530 --> 00:06:47,850
+So we extended it to 15 GB and that is it now.
+
+130
+00:06:48,390 --> 00:06:50,340
+So join me in the next lecture.
+
+131
+00:06:51,320 --> 00:06:55,870
+Where we will do some predictive sites on the Jenkins so it can run ansible code.
+
+132
+00:06:55,880 --> 00:06:58,100
+So join me in the next lecture.
+
