@@ -1,0 +1,420 @@
+1
+00:00:00,610 --> 00:00:03,220
+Next, we'll create the providers file.
+
+2
+00:00:12,610 --> 00:00:13,360
+Remember.
+
+3
+00:00:13,360 --> 00:00:14,650
+And don't ask me.
+
+4
+00:00:15,850 --> 00:00:18,380
+Okay, so provider obviously has a region.
+
+5
+00:00:18,400 --> 00:00:19,360
+Var dot.
+
+6
+00:00:20,750 --> 00:00:22,970
+Underscore region, which is a variable.
+
+7
+00:00:23,460 --> 00:00:25,910
+I'll just keep it as just region.
+
+8
+00:00:28,570 --> 00:00:33,460
+So variable and we are going to create a variables file where we'll declare all our variables.
+
+9
+00:00:33,970 --> 00:00:36,880
+So let's create var start tf.
+
+10
+00:00:39,100 --> 00:00:42,690
+First, let's put the region variable US east to region.
+
+11
+00:00:42,700 --> 00:00:51,850
+We're using a underscore region will name it as a US underscore region in the providers file.
+
+12
+00:00:52,120 --> 00:00:57,520
+Make sure you're referring to the same name of the variable I have used underscore region and the same
+
+13
+00:00:57,520 --> 00:00:58,720
+variable I have defined.
+
+14
+00:01:00,160 --> 00:01:02,480
+Next, we'll define variable for our AMIS.
+
+15
+00:01:02,500 --> 00:01:06,190
+So based on the region, it will pick up the right AMIS map variable.
+
+16
+00:01:08,090 --> 00:01:11,320
+And this army is going to be for the Bastion host.
+
+17
+00:01:11,330 --> 00:01:15,440
+We're going to launch also bastion host in our public subnet of our VPC.
+
+18
+00:01:15,980 --> 00:01:20,900
+So based on what region we define, we have given three region you can give all the regions that you
+
+19
+00:01:20,900 --> 00:01:21,330
+use.
+
+20
+00:01:21,350 --> 00:01:22,690
+So we're going with Ubuntu.
+
+21
+00:01:22,700 --> 00:01:25,100
+Let's update that Amis.
+
+22
+00:01:26,450 --> 00:01:28,910
+Let's go to launch instance.
+
+23
+00:01:31,280 --> 00:01:31,880
+That's fine.
+
+24
+00:01:31,910 --> 00:01:33,970
+Ubuntu 21 to 20 should be good.
+
+25
+00:01:33,980 --> 00:01:35,330
+So let's pick up that.
+
+26
+00:01:42,580 --> 00:01:42,730
+Okay.
+
+27
+00:01:42,920 --> 00:01:43,640
+Other images.
+
+28
+00:01:43,640 --> 00:01:44,510
+I'm not updating.
+
+29
+00:01:44,510 --> 00:01:48,350
+I'm just keeping it for dummy because anyways, I'm going to use the same region.
+
+30
+00:01:48,560 --> 00:01:53,780
+This region, if I change to other region, I'll give it us East one.
+
+31
+00:01:54,200 --> 00:01:54,680
+Yeah.
+
+32
+00:01:56,120 --> 00:02:02,810
+Or about one or whatever region I'm using, then my code will fail because these are just dummy values.
+
+33
+00:02:03,840 --> 00:02:07,320
+But you find the right ID and put it into your variable.
+
+34
+00:02:08,070 --> 00:02:11,610
+Okay, we'll define other variable we're going to create of keys.
+
+35
+00:02:12,400 --> 00:02:14,380
+So we'll create variable names for them.
+
+36
+00:02:14,380 --> 00:02:16,450
+Private key part, Public key part.
+
+37
+00:02:17,510 --> 00:02:18,710
+And also the username.
+
+38
+00:02:18,710 --> 00:02:23,910
+So we'll create variable private underscore key underscore part its value we profile key.
+
+39
+00:02:23,930 --> 00:02:25,880
+So now we we're going to create key.
+
+40
+00:02:25,880 --> 00:02:31,460
+After this, we'll make sure we create the key with this name, the current directory and user we're
+
+41
+00:02:31,460 --> 00:02:33,910
+using open to because this is open to.
+
+42
+00:02:33,920 --> 00:02:39,650
+So when the Bastion host gets created, we are going to provision it with few commands.
+
+43
+00:02:39,650 --> 00:02:45,140
+For that, we're going to use this key to log in private key file to login.
+
+44
+00:02:45,140 --> 00:02:51,410
+Public key file will be used when we're launching the instance or creating the key pair and also username
+
+45
+00:02:51,410 --> 00:02:51,950
+it will use.
+
+46
+00:02:51,950 --> 00:02:57,290
+And this key to login, we'll be also creating security group for our Bastion host.
+
+47
+00:02:57,290 --> 00:03:00,020
+So we'll give a variable for my IP.
+
+48
+00:03:00,200 --> 00:03:04,730
+So my IP variable there, which we'll be using in our security group Ingress rule.
+
+49
+00:03:05,710 --> 00:03:07,370
+We are also going to set up.
+
+50
+00:03:08,410 --> 00:03:13,330
+Amazon active MQ, which will be a replacement for a rabbit MQ.
+
+51
+00:03:13,360 --> 00:03:21,460
+So when we create a last or active MQ, we need to provide the username and password and these will
+
+52
+00:03:21,460 --> 00:03:22,810
+define it as variable.
+
+53
+00:03:23,080 --> 00:03:26,110
+So our MQ user and our MQ pass.
+
+54
+00:03:26,710 --> 00:03:29,620
+You can wish and change a different password.
+
+55
+00:03:30,670 --> 00:03:34,470
+But make sure it's it's longer, more than 12 characters.
+
+56
+00:03:34,480 --> 00:03:36,460
+I'm going to make it much more bigger.
+
+57
+00:03:37,850 --> 00:03:38,690
+This is fine.
+
+58
+00:03:41,230 --> 00:03:43,510
+So we also create ideas.
+
+59
+00:03:44,710 --> 00:03:50,470
+And we'll have database username and password, which we're also going to use to log into our instance
+
+60
+00:03:50,470 --> 00:03:52,960
+and provision it with our schemas.
+
+61
+00:03:52,960 --> 00:03:55,680
+So we need the database username and password.
+
+62
+00:03:55,720 --> 00:04:00,790
+And again, we'll put them as variables so db pos variable and DB name variable.
+
+63
+00:04:01,090 --> 00:04:05,380
+And of course also we need to give the DB user variable.
+
+64
+00:04:06,520 --> 00:04:09,790
+So DB user variable, DB pass and DB name.
+
+65
+00:04:10,060 --> 00:04:13,750
+So account's going to be our database name for our V profile project.
+
+66
+00:04:15,150 --> 00:04:17,100
+One more variable instance count.
+
+67
+00:04:18,120 --> 00:04:23,370
+So if you want to launch any number of instances, we can just update this number and we can have many
+
+68
+00:04:23,370 --> 00:04:23,730
+instances.
+
+69
+00:04:23,730 --> 00:04:25,470
+We don't need to make change in our code.
+
+70
+00:04:26,460 --> 00:04:27,780
+VPC we are going to create.
+
+71
+00:04:27,780 --> 00:04:34,320
+So VPC, name and VPC name will name it as we profile hyphen VPC.
+
+72
+00:04:35,370 --> 00:04:41,610
+We're going to create six subnets in three different zones, three public subnet and three private subnets.
+
+73
+00:04:41,610 --> 00:04:43,560
+So we're going to give the zone name.
+
+74
+00:04:45,270 --> 00:04:51,900
+So zone want us east to a zone two us is to be zone three US east to sea.
+
+75
+00:04:52,290 --> 00:04:53,700
+So three zones there.
+
+76
+00:04:55,980 --> 00:04:56,730
+Idea.
+
+77
+00:04:57,920 --> 00:05:02,270
+We'll keep it as one 72.20 1.0.0 last 16.
+
+78
+00:05:02,810 --> 00:05:07,370
+And in this, we're going to create we're going to slice it with three public and three private subnets
+
+79
+00:05:07,370 --> 00:05:08,660
+or total six subnets.
+
+80
+00:05:08,660 --> 00:05:10,610
+So we'll give their range as well.
+
+81
+00:05:11,380 --> 00:05:14,530
+Okay, so public subnet one CIDR.
+
+82
+00:05:15,370 --> 00:05:23,080
+Public subnet two CIDR Public subnet three CIDR public subnet sorry Private subnet one CIDR And it's
+
+83
+00:05:23,080 --> 00:05:25,060
+just in a same order.
+
+84
+00:05:25,750 --> 00:05:29,080
+1.02.03.04.0.
+
+85
+00:05:29,080 --> 00:05:33,010
+Then private subnet 35.0 sorry two.
+
+86
+00:05:33,010 --> 00:05:34,840
+Private subnet 25.0.
+
+87
+00:05:34,840 --> 00:05:37,240
+Private subnet 36.022.
+
+88
+00:05:37,270 --> 00:05:44,350
+So total six subnet in the VPC and we are not going to mention the CIDR in the script.
+
+89
+00:05:44,350 --> 00:05:46,300
+We are going to put everything as variable.
+
+90
+00:05:47,230 --> 00:05:52,930
+It may take initially a lot of time to declare variables for you and could be cumbersome, but it's
+
+91
+00:05:52,930 --> 00:05:55,270
+going to save you a lot of time later.
+
+92
+00:05:55,690 --> 00:06:00,880
+Most importantly, it will make your code reusable so you can just you can use the same code for a different
+
+93
+00:06:00,880 --> 00:06:01,350
+project.
+
+94
+00:06:01,360 --> 00:06:07,810
+You just change the value of the variables based on the requirement, like name of the VPC, CIDR range,
+
+95
+00:06:07,810 --> 00:06:12,640
+key login key zones, regions, database usernames and password.
+
+96
+00:06:12,640 --> 00:06:16,330
+You can change them, tweak them and use it for the other project.
+
+97
+00:06:17,390 --> 00:06:17,780
+Okay.
+
+98
+00:06:18,080 --> 00:06:22,340
+Intel AG is saying that it supports plugins for dot file.
+
+99
+00:06:22,340 --> 00:06:23,510
+Let's say install plugin.
+
+100
+00:06:23,510 --> 00:06:24,500
+Let's try that.
+
+101
+00:06:30,080 --> 00:06:30,620
+Okay.
+
+102
+00:06:35,150 --> 00:06:41,810
+And we getting nice logos also there right in that TerraForm logo and it's going to read our code properly
+
+103
+00:06:41,810 --> 00:06:42,320
+now.
+
+104
+00:06:42,320 --> 00:06:43,670
+Proper formatting.
+
+105
+00:06:44,990 --> 00:06:45,710
+This is good.
+

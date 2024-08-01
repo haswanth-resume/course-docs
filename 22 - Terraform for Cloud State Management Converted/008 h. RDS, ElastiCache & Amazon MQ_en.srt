@@ -1,0 +1,656 @@
+1
+00:00:02,920 --> 00:00:03,290
+All right.
+
+2
+00:00:03,290 --> 00:00:04,820
+So we have security group ready now.
+
+3
+00:00:04,820 --> 00:00:08,270
+It's time to set up our back end services ideas.
+
+4
+00:00:08,300 --> 00:00:10,610
+Elastic cache Active MQ.
+
+5
+00:00:12,060 --> 00:00:13,860
+So let's create a new file.
+
+6
+00:00:17,160 --> 00:00:18,180
+Mm.
+
+7
+00:00:18,330 --> 00:00:21,360
+Back and hyphen services.
+
+8
+00:00:23,920 --> 00:00:24,430
+Dr..
+
+9
+00:00:27,760 --> 00:00:29,050
+Okay ideas.
+
+10
+00:00:29,950 --> 00:00:31,810
+We also need to create ideas.
+
+11
+00:00:31,870 --> 00:00:33,430
+DB Subnet Group.
+
+12
+00:00:33,760 --> 00:00:36,880
+DB Subnet group is simply collection of the subnets.
+
+13
+00:00:37,790 --> 00:00:40,010
+So we'll use the resource.
+
+14
+00:00:42,390 --> 00:00:47,790
+So the underscore db underscore subnet group that is the resource.
+
+15
+00:00:49,650 --> 00:00:51,950
+And let's give a name of proof.
+
+16
+00:00:51,960 --> 00:00:52,640
+We proof.
+
+17
+00:00:53,710 --> 00:00:58,290
+We profile hyphen, rdx, hyphen, subgroup.
+
+18
+00:00:59,420 --> 00:01:02,360
+Subnets are subnet, i.e. the list of subnet ID.
+
+19
+00:01:03,170 --> 00:01:04,940
+Let's give a name also to it.
+
+20
+00:01:05,300 --> 00:01:07,880
+I'll give a name as.
+
+21
+00:01:09,670 --> 00:01:10,870
+I just simply mean.
+
+22
+00:01:13,270 --> 00:01:14,600
+List of subnet IDs.
+
+23
+00:01:14,600 --> 00:01:15,350
+So.
+
+24
+00:01:16,290 --> 00:01:18,360
+Subnet is created through the VPC.
+
+25
+00:01:18,630 --> 00:01:23,160
+So we have module dot, VPC, dot.
+
+26
+00:01:23,190 --> 00:01:24,900
+This should be private.
+
+27
+00:01:26,220 --> 00:01:27,600
+Let's see this list.
+
+28
+00:01:27,600 --> 00:01:30,030
+Private subnet ID.
+
+29
+00:01:31,870 --> 00:01:34,510
+There is no ID, but this private subnet there.
+
+30
+00:01:35,790 --> 00:01:38,340
+Private subnets subnet.
+
+31
+00:01:38,340 --> 00:01:42,390
+So that is supposed to be a list.
+
+32
+00:01:47,820 --> 00:01:52,140
+So the first element in the list will get the first private subnet ID from there.
+
+33
+00:01:52,870 --> 00:01:53,710
+Comma.
+
+34
+00:01:55,130 --> 00:01:56,180
+Module.
+
+35
+00:01:56,970 --> 00:01:58,400
+Dot VPC.
+
+36
+00:01:59,230 --> 00:02:01,510
+Dr. Private subnets.
+
+37
+00:02:02,770 --> 00:02:03,490
+One.
+
+38
+00:02:05,450 --> 00:02:06,410
+Module.
+
+39
+00:02:09,110 --> 00:02:10,960
+Okay, so three private subnet IDs.
+
+40
+00:02:10,970 --> 00:02:16,820
+Our ideas will be in this subnet group, which is part of three subnet ID or collection of three subnet
+
+41
+00:02:16,820 --> 00:02:17,300
+ID.
+
+42
+00:02:19,350 --> 00:02:20,020
+That should be it.
+
+43
+00:02:20,020 --> 00:02:21,290
+Let's give some tags.
+
+44
+00:02:21,890 --> 00:02:22,700
+This is fine.
+
+45
+00:02:24,250 --> 00:02:29,420
+Okay, before we write the results for the ideas, we have also elastic cash and elastic cash.
+
+46
+00:02:29,440 --> 00:02:30,730
+Also, there is a subnet group.
+
+47
+00:02:32,120 --> 00:02:33,080
+Resource.
+
+48
+00:02:33,830 --> 00:02:34,240
+E w.
+
+49
+00:02:34,280 --> 00:02:36,410
+S underscore elastic.
+
+50
+00:02:38,350 --> 00:02:41,050
+Cash is elastic.
+
+51
+00:02:41,050 --> 00:02:41,920
+Cash.
+
+52
+00:02:43,210 --> 00:02:44,530
+Elastic cash.
+
+53
+00:02:45,250 --> 00:02:46,450
+Subnet group.
+
+54
+00:02:48,820 --> 00:02:52,190
+In the resources we profile have an e cache fund subgroup.
+
+55
+00:02:53,050 --> 00:02:53,710
+Name.
+
+56
+00:02:55,550 --> 00:03:00,770
+Seem subnet IDs will take the same ones we did over here.
+
+57
+00:03:16,980 --> 00:03:18,960
+Okay, so tag, that should be fine.
+
+58
+00:03:20,330 --> 00:03:24,020
+So our subnet glue for ideas and a subnet group for elastic cache.
+
+59
+00:03:24,050 --> 00:03:26,210
+Now let's create our ideas.
+
+60
+00:03:26,720 --> 00:03:29,240
+So resource e.
+
+61
+00:03:29,240 --> 00:03:29,520
+W.
+
+62
+00:03:29,540 --> 00:03:29,730
+S.
+
+63
+00:03:29,750 --> 00:03:30,590
+Underscore d.
+
+64
+00:03:30,620 --> 00:03:31,310
+B.
+
+65
+00:03:32,070 --> 00:03:33,570
+Underscore instance.
+
+66
+00:03:35,560 --> 00:03:36,280
+And you limit us.
+
+67
+00:03:36,280 --> 00:03:38,710
+We profile hyphen radius.
+
+68
+00:03:41,170 --> 00:03:48,520
+Now these are the options attributes I'm going to use allocated storage 20 GB storage type GB two engine.
+
+69
+00:03:48,520 --> 00:03:52,090
+My SQL engine version 5.6.34.
+
+70
+00:03:53,050 --> 00:03:54,800
+Instance class DB2 micro.
+
+71
+00:03:54,820 --> 00:03:56,200
+Be careful at this part.
+
+72
+00:03:57,370 --> 00:03:58,150
+Name.
+
+73
+00:03:59,350 --> 00:04:00,450
+That dot db name.
+
+74
+00:04:00,460 --> 00:04:03,100
+This variable we have defined in the variables file.
+
+75
+00:04:05,360 --> 00:04:07,010
+And their variables file.
+
+76
+00:04:09,970 --> 00:04:13,180
+That DB name, DB user and DB pass.
+
+77
+00:04:15,600 --> 00:04:15,840
+Yeah.
+
+78
+00:04:15,840 --> 00:04:17,880
+So user name and password.
+
+79
+00:04:19,269 --> 00:04:23,850
+Parameter group name have taken the default parameter group multi.
+
+80
+00:04:24,170 --> 00:04:28,270
+I'm saying false, but if you want high availability then make sure you do.
+
+81
+00:04:28,270 --> 00:04:28,630
+True.
+
+82
+00:04:28,630 --> 00:04:32,320
+So you'll have one primary, one secondary public accessibility.
+
+83
+00:04:32,320 --> 00:04:34,090
+No, we don't want public accessibility.
+
+84
+00:04:34,090 --> 00:04:41,320
+So false because Beanstalk instance is going to access this IDs so we don't need to make it publicly
+
+85
+00:04:41,320 --> 00:04:42,100
+accessible.
+
+86
+00:04:43,200 --> 00:04:46,820
+This option will save you some money when you're practicing.
+
+87
+00:04:46,830 --> 00:04:48,040
+Skip Final snapshot.
+
+88
+00:04:48,060 --> 00:04:48,600
+True.
+
+89
+00:04:49,280 --> 00:04:51,350
+When you practice rides.
+
+90
+00:04:52,100 --> 00:04:55,010
+Now, I learned that hard way when I was doing TerraForm.
+
+91
+00:04:55,130 --> 00:04:58,010
+I was learning TerraForm and I was experimenting with ideas.
+
+92
+00:04:58,250 --> 00:05:04,190
+So I end up having a lot of snapshots because when it was deleting the snare ideas, it was keeping
+
+93
+00:05:04,190 --> 00:05:05,210
+the snapshot.
+
+94
+00:05:05,480 --> 00:05:07,280
+And I did it like many times.
+
+95
+00:05:07,280 --> 00:05:09,140
+So I had like many, many snapshots.
+
+96
+00:05:09,410 --> 00:05:11,590
+So keep this option true.
+
+97
+00:05:11,600 --> 00:05:14,090
+So it will also delete the snapshot.
+
+98
+00:05:14,390 --> 00:05:17,560
+It will not take the snapshot when the IDs is getting deleted.
+
+99
+00:05:17,570 --> 00:05:23,030
+This is good for learning purpose when you're experimenting, but really not good for production use
+
+100
+00:05:23,030 --> 00:05:23,600
+case.
+
+101
+00:05:24,140 --> 00:05:26,810
+You should have a snapshot if you're deleting any idea.
+
+102
+00:05:26,820 --> 00:05:29,180
+So in case you want to recover, you can recover from that.
+
+103
+00:05:30,080 --> 00:05:31,310
+The DB subnet group.
+
+104
+00:05:31,310 --> 00:05:34,370
+So the DB subnet group that we created previously.
+
+105
+00:05:35,520 --> 00:05:36,120
+There.
+
+106
+00:05:40,590 --> 00:05:46,980
+So you have to give a dot name, not the ID db subnet group name, that's the attribute.
+
+107
+00:05:47,250 --> 00:05:53,640
+So to give the name of the DB subnet group, not its ID VPC, it's part of our VPC VPC security group.
+
+108
+00:05:54,420 --> 00:05:57,930
+And so we already have created VPC Security Group.
+
+109
+00:06:02,330 --> 00:06:03,320
+They're right.
+
+110
+00:06:03,770 --> 00:06:06,860
+Security Group V Profile hyphen Backend hyphen s G.
+
+111
+00:06:10,130 --> 00:06:12,350
+Okay, so that was about ideas.
+
+112
+00:06:12,800 --> 00:06:13,990
+Now, elastic cache.
+
+113
+00:06:14,000 --> 00:06:16,420
+So the resource name is E.
+
+114
+00:06:16,730 --> 00:06:19,700
+S underscore Elastic cash.
+
+115
+00:06:20,480 --> 00:06:22,040
+Elastic cash.
+
+116
+00:06:23,380 --> 00:06:27,880
+Underscore cluster, but really will not have really a cluster, just one single node.
+
+117
+00:06:27,880 --> 00:06:31,870
+We're going to do name it as V profile hyphen cache.
+
+118
+00:06:35,190 --> 00:06:37,180
+Let's give the same name for the cluster.
+
+119
+00:06:37,180 --> 00:06:37,380
+Right.
+
+120
+00:06:37,410 --> 00:06:38,940
+We profile hyphen cache.
+
+121
+00:06:40,490 --> 00:06:46,520
+Engine, so it supports mem cache and will have mem cache.
+
+122
+00:06:47,340 --> 00:06:47,550
+And.
+
+123
+00:06:50,520 --> 00:06:50,770
+Okay.
+
+124
+00:06:50,790 --> 00:06:54,720
+No type casualty to micro number of caching node one.
+
+125
+00:06:54,720 --> 00:06:58,440
+Make sure you give this one, otherwise you'll have multiples.
+
+126
+00:06:58,800 --> 00:07:01,860
+Parameter group name is the default parameter group.
+
+127
+00:07:01,860 --> 00:07:04,170
+You can find that from a plus documentation.
+
+128
+00:07:04,290 --> 00:07:06,450
+Port number 11211.
+
+129
+00:07:06,870 --> 00:07:08,190
+Security Group ID.
+
+130
+00:07:08,220 --> 00:07:14,460
+The security group that you already created, you profile back end g same we have given for the IDS
+
+131
+00:07:15,090 --> 00:07:18,720
+subnet group name again name not the ID.
+
+132
+00:07:18,870 --> 00:07:22,110
+So the subnet group that we created for elastic cache.
+
+133
+00:07:23,010 --> 00:07:24,900
+That's pretty long path, right?
+
+134
+00:07:27,800 --> 00:07:29,860
+But now at least you don't have to type it.
+
+135
+00:07:29,870 --> 00:07:33,170
+You can just type and, you know, it's just going to complete the rest of it.
+
+136
+00:07:34,170 --> 00:07:34,450
+Okay.
+
+137
+00:07:34,470 --> 00:07:35,130
+Now.
+
+138
+00:07:35,910 --> 00:07:39,180
+Active mq so the resource is.
+
+139
+00:07:40,590 --> 00:07:43,760
+Underscore m q underscore broker.
+
+140
+00:07:44,520 --> 00:07:44,910
+Wow.
+
+141
+00:07:44,910 --> 00:07:47,520
+That has given like all the options.
+
+142
+00:07:47,640 --> 00:07:48,270
+Nice.
+
+143
+00:07:49,940 --> 00:07:50,480
+You know, Yes.
+
+144
+00:07:50,480 --> 00:07:53,570
+I sometimes say it's easier than, you know, copy paste.
+
+145
+00:07:54,700 --> 00:07:57,310
+Okay, so the broker name, That's the broker name I'm giving.
+
+146
+00:07:57,310 --> 00:07:59,350
+Same as the resource name.
+
+147
+00:07:59,380 --> 00:08:01,330
+Engine type active MQ.
+
+148
+00:08:01,900 --> 00:08:04,420
+Engine version 5.15 point zero.
+
+149
+00:08:05,320 --> 00:08:13,240
+Host instance type mkt TX two dot Micro Security Group again the back end security group Subnet ID.
+
+150
+00:08:13,240 --> 00:08:16,990
+Now we don't have the subnet group concept over here.
+
+151
+00:08:16,990 --> 00:08:18,780
+We just have to give the subnet IDs.
+
+152
+00:08:18,790 --> 00:08:26,290
+So subnet IDs, it's a list so you can give we just creating one single instance, not a cluster.
+
+153
+00:08:26,290 --> 00:08:30,730
+So one subnet id should be fine and private subnet ID of course.
+
+154
+00:08:31,690 --> 00:08:33,340
+Username and password.
+
+155
+00:08:33,340 --> 00:08:37,600
+The user that you want to create value rabbit MQ user that is again coming from.
+
+156
+00:08:39,120 --> 00:08:43,830
+The variables Rabbit, MQ, user rabbit, rabbit and queue password.
+
+157
+00:08:43,830 --> 00:08:44,970
+This is the password.
+
+158
+00:08:45,700 --> 00:08:46,080
+All right.
+
+159
+00:08:46,090 --> 00:08:50,300
+So when you're building your application, you know you have access to the variables file, right?
+
+160
+00:08:50,350 --> 00:08:52,420
+Application properties, file for a V profile.
+
+161
+00:08:52,420 --> 00:08:54,970
+You can update with all these details.
+
+162
+00:08:57,490 --> 00:08:59,770
+I think we are good with the back end.
+
+163
+00:09:00,220 --> 00:09:05,200
+Let's commit it back end services.
+
+164
+00:09:07,820 --> 00:09:10,280
+And I would also like to push it now.
+

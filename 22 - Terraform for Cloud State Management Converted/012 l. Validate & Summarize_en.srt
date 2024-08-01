@@ -1,0 +1,148 @@
+1
+00:00:02,790 --> 00:00:07,050
+So we get our artifact uploaded and application is running.
+
+2
+00:00:07,050 --> 00:00:07,440
+Fine.
+
+3
+00:00:07,440 --> 00:00:12,030
+Let's make a test admin, underscore VPI password admin.
+
+4
+00:00:12,030 --> 00:00:13,290
+Underscore VPI.
+
+5
+00:00:14,190 --> 00:00:18,600
+If you're able to log in, the database is verified the database connection.
+
+6
+00:00:18,720 --> 00:00:23,940
+So we're able to login ideas, connection is verified and let's check rabbit MQ.
+
+7
+00:00:25,270 --> 00:00:27,760
+Who initiated this is also good.
+
+8
+00:00:28,650 --> 00:00:30,870
+Let's check Mom, cash all users.
+
+9
+00:00:31,750 --> 00:00:33,010
+Let's pick up a user.
+
+10
+00:00:34,970 --> 00:00:36,640
+Data is inserted in cash.
+
+11
+00:00:36,650 --> 00:00:37,410
+This is good.
+
+12
+00:00:37,430 --> 00:00:38,150
+Go back.
+
+13
+00:00:38,600 --> 00:00:40,160
+Let's click the user once again.
+
+14
+00:00:41,720 --> 00:00:45,080
+Data is from cash, so cash is also verified.
+
+15
+00:00:46,190 --> 00:00:50,330
+So that completes our test and also our project.
+
+16
+00:00:50,720 --> 00:00:52,730
+So really intense work there.
+
+17
+00:00:53,120 --> 00:00:59,930
+If you have come this far, you have done a great job and you have gained a real and rich experience
+
+18
+00:00:59,930 --> 00:01:04,190
+in automating a cloud infrastructure with TerraForm.
+
+19
+00:01:04,700 --> 00:01:11,300
+Complete VPC stack we have set up with TerraForm and we have created our application stack on that VPC.
+
+20
+00:01:13,250 --> 00:01:19,040
+So all the score and you say, just terraform apply and everything gets created automatically.
+
+21
+00:01:19,490 --> 00:01:21,480
+One final thing before I close this.
+
+22
+00:01:21,500 --> 00:01:27,920
+If you are doing it in parts this project, if you're taking few days to complete it, then your public
+
+23
+00:01:27,920 --> 00:01:28,970
+IP may change.
+
+24
+00:01:28,970 --> 00:01:32,570
+So you would like to update your public IP in the variables file.
+
+25
+00:01:33,080 --> 00:01:38,420
+Or if you just want to keep it simple, you can just say 0.0.0 slash.
+
+26
+00:01:40,150 --> 00:01:41,020
+Zero.
+
+27
+00:01:41,560 --> 00:01:46,580
+So for the Bastion host is going to use this as your public IP.
+
+28
+00:01:46,600 --> 00:01:49,120
+That means it will allow a search connection from anywhere.
+
+29
+00:01:49,780 --> 00:01:54,520
+Or you can keep updating it on daily basis while you're doing your project.
+
+30
+00:01:55,800 --> 00:02:02,100
+So yes, we have created the entire V profile stack VPC stack by using TerraForm.
+
+31
+00:02:02,190 --> 00:02:04,770
+We set up the entire PC.
+
+32
+00:02:07,480 --> 00:02:08,770
+With Bastion host.
+
+33
+00:02:08,770 --> 00:02:13,060
+And then we have created our V profile stack in that VPC.
+
+34
+00:02:16,980 --> 00:02:20,400
+So that should be all in this project video.
+
+35
+00:02:20,700 --> 00:02:22,320
+Thank you very much for doing it.
+
+36
+00:02:22,320 --> 00:02:23,370
+Completing it.
+
+37
+00:02:23,580 --> 00:02:25,410
+I will see you in the next one.
+

@@ -1,0 +1,172 @@
+1
+00:00:01,040 --> 00:00:07,070
+First, we'll create a repository on GitHub and will make sure every code change that we make, we are
+
+2
+00:00:07,070 --> 00:00:10,280
+committing it and we are keeping track of every change.
+
+3
+00:00:10,700 --> 00:00:13,460
+So I will create a repository in my GitHub account.
+
+4
+00:00:13,460 --> 00:00:16,640
+I will name the repository as TerraForm.
+
+5
+00:00:17,570 --> 00:00:18,290
+Hyphen.
+
+6
+00:00:18,320 --> 00:00:18,490
+E.
+
+7
+00:00:18,500 --> 00:00:20,630
+W s hyphen v profile.
+
+8
+00:00:22,350 --> 00:00:23,430
+In order to keep it safe.
+
+9
+00:00:23,430 --> 00:00:26,760
+You can make it private, but I'm keeping it public.
+
+10
+00:00:26,760 --> 00:00:32,520
+But remember, you have to make it private, because if you accidentally put the access key and secret
+
+11
+00:00:32,520 --> 00:00:34,710
+key, then you will not be exposed.
+
+12
+00:00:36,110 --> 00:00:40,880
+I'm going to keep it public because I am not going to store any access key over there.
+
+13
+00:00:41,410 --> 00:00:44,930
+Will later create the get ignored file as well.
+
+14
+00:00:44,960 --> 00:00:45,740
+Not now.
+
+15
+00:00:45,740 --> 00:00:47,720
+So the first let's create the repository.
+
+16
+00:00:50,800 --> 00:00:52,000
+Okay, let's get.
+
+17
+00:00:53,800 --> 00:01:00,610
+The other and we'll open our intelligence and we'll code by using intelligence.
+
+18
+00:01:00,640 --> 00:01:04,660
+If you wish to use your own ID or VIM ed, your choice.
+
+19
+00:01:05,110 --> 00:01:10,930
+I'm going to use intelligence and I'm going to create a new project from a vision control.
+
+20
+00:01:11,380 --> 00:01:12,910
+So we'll give our what'll.
+
+21
+00:01:14,300 --> 00:01:17,870
+And select a location where you want to store your repository.
+
+22
+00:01:18,650 --> 00:01:19,650
+I'm good with that.
+
+23
+00:01:19,670 --> 00:01:20,500
+After five.
+
+24
+00:01:22,880 --> 00:01:25,160
+You wanted in this window itself.
+
+25
+00:01:27,630 --> 00:01:31,740
+Let's make little change in the RMD file.
+
+26
+00:01:34,840 --> 00:01:42,430
+Called us to form code for V Profile project.
+
+27
+00:01:46,340 --> 00:01:47,180
+This should be fine.
+
+28
+00:01:47,180 --> 00:01:49,370
+Let's save and commit this.
+
+29
+00:02:00,780 --> 00:02:08,850
+To control key to commit control shift key to push it to our version control remote repository.
+
+30
+00:02:11,210 --> 00:02:13,820
+Install and set up terraform on your machine.
+
+31
+00:02:14,360 --> 00:02:17,400
+If you have not done it, then go to the TerraForm.
+
+32
+00:02:17,420 --> 00:02:23,600
+Introductory video where I have explained how to set up TerraForm and also likely do not store your
+
+33
+00:02:23,600 --> 00:02:25,220
+credentials in the source code.
+
+34
+00:02:25,820 --> 00:02:29,090
+Do use, configure and set your access key and secret key.
+
+35
+00:02:31,560 --> 00:02:35,100
+I already have TerraForm installed or Fusion TerraForm.
+
+36
+00:02:36,430 --> 00:02:38,530
+Zero dot 13.2.
+
+37
+00:02:39,770 --> 00:02:41,120
+Anything older than this.
+
+38
+00:02:41,120 --> 00:02:47,300
+I do not recommend any older version of TerraForm will not have the right syntax for the variables what
+
+39
+00:02:47,300 --> 00:02:49,640
+we are showing in the project video.
+
+40
+00:02:50,000 --> 00:02:53,120
+So I installed TerraForm with Jocko installed TerraForm Command.
+
+41
+00:02:53,150 --> 00:02:55,460
+You can also do that in Windows Machine.
+
+42
+00:02:55,490 --> 00:03:02,150
+In macOS you use Blue kiosk, install TerraForm and set up your credentials.
+
+43
+00:03:02,860 --> 00:03:05,320
+If we have this, we can do our next thing.
+

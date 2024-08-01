@@ -1,0 +1,584 @@
+1
+00:00:01,100 --> 00:00:06,920
+Now we can write VPC code as normally fetching the resource from the documentation, mentioning VPC
+
+2
+00:00:06,920 --> 00:00:12,320
+details, subnet details, route tables, NAT Gateway, Internet Gateway.
+
+3
+00:00:12,320 --> 00:00:17,750
+We can write all the resources one by one and plug in, connect all them together.
+
+4
+00:00:18,470 --> 00:00:24,470
+Also, there's one very easy way you can use TerraForm Registry and you can find modules.
+
+5
+00:00:24,470 --> 00:00:32,540
+Modules are readymade packages if you want to set up VPC, complete VPC with Internet Gateway, routable
+
+6
+00:00:32,540 --> 00:00:37,790
+subnets, Internet Gateway, all of that, it can be done very easily.
+
+7
+00:00:37,790 --> 00:00:42,790
+So you can come to the TerraForm Registry and you can search for a module like we want to set up VPC
+
+8
+00:00:42,800 --> 00:00:44,450
+so we can search VPC.
+
+9
+00:00:45,390 --> 00:00:46,350
+That's search.
+
+10
+00:00:47,080 --> 00:00:51,640
+So it's in this house and this is official that is called as official.
+
+11
+00:00:52,690 --> 00:00:54,970
+It's official module repository.
+
+12
+00:00:55,210 --> 00:01:01,660
+You have their VPC and you have for security group, also X ideas and many more.
+
+13
+00:01:01,780 --> 00:01:03,670
+So let's select this VPC.
+
+14
+00:01:05,750 --> 00:01:07,040
+So how to use this?
+
+15
+00:01:07,040 --> 00:01:10,580
+There'll be some information about what all you can do with this module.
+
+16
+00:01:10,820 --> 00:01:13,730
+But the easiest way is to check the examples.
+
+17
+00:01:13,940 --> 00:01:15,830
+Example Complete VPC.
+
+18
+00:01:16,220 --> 00:01:17,360
+Okay, let's check that.
+
+19
+00:01:18,510 --> 00:01:20,880
+And there will be a GitHub link with example.
+
+20
+00:01:20,880 --> 00:01:22,470
+So let's click on that.
+
+21
+00:01:26,880 --> 00:01:31,020
+So here you have complete VPC and this main dot of output.
+
+22
+00:01:31,030 --> 00:01:31,400
+Dot.
+
+23
+00:01:31,860 --> 00:01:32,400
+Let's see.
+
+24
+00:01:32,400 --> 00:01:32,820
+Main dot.
+
+25
+00:01:36,240 --> 00:01:39,330
+Okay, so you have to mention provider, which we already have mentioned.
+
+26
+00:01:39,540 --> 00:01:40,500
+Security group.
+
+27
+00:01:40,500 --> 00:01:44,850
+You can create like this by giving an VPC ID.
+
+28
+00:01:46,180 --> 00:01:48,340
+The BBC that we're going to create from module but.
+
+29
+00:01:49,250 --> 00:01:51,110
+Then we have the actual module thing.
+
+30
+00:01:51,110 --> 00:01:52,250
+So module.
+
+31
+00:01:53,150 --> 00:01:54,080
+VPC.
+
+32
+00:01:54,380 --> 00:02:02,030
+And then in this you can mention name of VPC CIDR availability zones in a list format.
+
+33
+00:02:02,030 --> 00:02:07,460
+So all the availability zones, private subnets, public subnets, or you can create other subnets,
+
+34
+00:02:07,460 --> 00:02:08,870
+for example, like this.
+
+35
+00:02:09,350 --> 00:02:13,400
+If you want to enable DNS hostname if you want to have a nat gateway.
+
+36
+00:02:15,070 --> 00:02:17,620
+Our VP in Gateway DSP Options set.
+
+37
+00:02:18,640 --> 00:02:20,350
+And evil is three end point.
+
+38
+00:02:20,690 --> 00:02:22,230
+And so all those options are there.
+
+39
+00:02:22,240 --> 00:02:26,110
+You just have to give the values and your VPC will be created.
+
+40
+00:02:27,280 --> 00:02:27,490
+All right.
+
+41
+00:02:27,520 --> 00:02:30,040
+And we're going to use this way to create VPC.
+
+42
+00:02:30,220 --> 00:02:31,870
+And this is these are through modules.
+
+43
+00:02:31,870 --> 00:02:37,240
+So when you do when you mention this and when you run TerraForm in it, it will download these modules.
+
+44
+00:02:37,570 --> 00:02:42,010
+So let's go to our ID and let's create a new file.
+
+45
+00:02:42,730 --> 00:02:45,730
+We'll say VPC, dot, d, F.
+
+46
+00:02:47,720 --> 00:02:49,610
+So I'm going to say module.
+
+47
+00:02:54,410 --> 00:02:55,190
+In double quotes.
+
+48
+00:02:55,190 --> 00:02:56,090
+I'll give the model name.
+
+49
+00:02:56,120 --> 00:02:56,930
+VPC.
+
+50
+00:02:59,400 --> 00:03:00,960
+The important part is this.
+
+51
+00:03:01,690 --> 00:03:02,740
+Source.
+
+52
+00:03:07,360 --> 00:03:08,230
+Equal to.
+
+53
+00:03:09,010 --> 00:03:09,270
+Okay.
+
+54
+00:03:09,280 --> 00:03:12,010
+So that's the part we are saying, you know, download it from here.
+
+55
+00:03:12,010 --> 00:03:14,110
+There's a VPC section.
+
+56
+00:03:14,110 --> 00:03:17,440
+So that's going to be the source, but it's not yet available locally.
+
+57
+00:03:17,440 --> 00:03:21,340
+So ID is also Intel is also giving us, you know, the error.
+
+58
+00:03:21,340 --> 00:03:23,290
+I can't locate this module locally.
+
+59
+00:03:24,990 --> 00:03:28,470
+But when we say terraform in it, all these modules will be downloaded.
+
+60
+00:03:30,960 --> 00:03:32,670
+So let's give other details.
+
+61
+00:03:33,240 --> 00:03:37,800
+Name and CIDR that we are taking from the variables file, which we have already defined.
+
+62
+00:03:40,810 --> 00:03:41,740
+BBC name.
+
+63
+00:03:42,900 --> 00:03:44,160
+And the basic idea.
+
+64
+00:03:47,000 --> 00:03:48,850
+Availability zones is.
+
+65
+00:03:50,080 --> 00:03:51,490
+Private subnet list.
+
+66
+00:03:53,970 --> 00:03:55,320
+Public service list.
+
+67
+00:03:56,410 --> 00:04:00,550
+We also need an ad gateway so you will not get with true.
+
+68
+00:04:01,370 --> 00:04:08,090
+But if you have multiple subnets so it will create multiple NAD gateway, that could be very expensive
+
+69
+00:04:08,090 --> 00:04:09,290
+for our exercise.
+
+70
+00:04:09,500 --> 00:04:11,720
+So we'll just say single net gateway.
+
+71
+00:04:13,320 --> 00:04:16,560
+Also enabling DNS host names and DNS support.
+
+72
+00:04:17,070 --> 00:04:19,260
+And also, let's give some tag.
+
+73
+00:04:20,040 --> 00:04:26,730
+So that's those tags are really very general properties or attribute, but we can also have VPC tags.
+
+74
+00:04:27,580 --> 00:04:27,960
+Right.
+
+75
+00:04:28,100 --> 00:04:28,340
+Okay.
+
+76
+00:04:28,360 --> 00:04:34,600
+So that simple code that is like, what, 22 lines of code that will create our entire VPC stack with
+
+77
+00:04:34,600 --> 00:04:40,900
+three public subnets, three private subnet, three public subnet distributed in three different zones.
+
+78
+00:04:41,620 --> 00:04:43,390
+Also having the NAT gateway.
+
+79
+00:04:44,280 --> 00:04:48,180
+An internet gateway will anyways get created because we have the public subnet.
+
+80
+00:04:48,540 --> 00:04:49,110
+We have not.
+
+81
+00:04:49,290 --> 00:04:50,700
+We are not mentioning the drought tables.
+
+82
+00:04:50,700 --> 00:04:55,020
+It will also create route tables automatically and link our subnets as well.
+
+83
+00:04:56,630 --> 00:04:57,740
+Let's commit this.
+
+84
+00:05:09,140 --> 00:05:10,340
+We can ignore that.
+
+85
+00:05:10,610 --> 00:05:11,420
+Let's commit.
+
+86
+00:05:12,620 --> 00:05:14,240
+Control shift key.
+
+87
+00:05:14,510 --> 00:05:15,530
+Let's push.
+
+88
+00:05:16,490 --> 00:05:17,900
+And let's test it.
+
+89
+00:05:18,410 --> 00:05:22,580
+So we have included a new module, so we have to set TerraForm in it.
+
+90
+00:05:24,580 --> 00:05:26,290
+So you see it's downloading.
+
+91
+00:05:28,520 --> 00:05:30,680
+And it's keeping it in this location.
+
+92
+00:05:31,390 --> 00:05:33,080
+Okay, so we have the modules.
+
+93
+00:05:34,130 --> 00:05:35,810
+Let's check in our ID.
+
+94
+00:05:35,870 --> 00:05:38,060
+You see that that warning is gone now?
+
+95
+00:05:38,510 --> 00:05:39,110
+Yeah.
+
+96
+00:05:41,730 --> 00:05:43,290
+You know, let's now test something, right?
+
+97
+00:05:43,290 --> 00:05:44,820
+Let's say enable.
+
+98
+00:05:45,540 --> 00:05:49,330
+I would like to enable the three end point if you want.
+
+99
+00:05:49,350 --> 00:05:49,830
+Okay.
+
+100
+00:05:49,890 --> 00:05:51,330
+It's just showing you an option.
+
+101
+00:05:51,330 --> 00:05:56,310
+You see now it's clearly showing you right now if you want to already highlight all the things, you
+
+102
+00:05:56,310 --> 00:06:03,600
+know, just type there, you know, initially model VPC, give the curly braces and run terraform in
+
+103
+00:06:03,600 --> 00:06:03,720
+it.
+
+104
+00:06:03,720 --> 00:06:06,600
+So, you know, you can easily find all the options.
+
+105
+00:06:06,600 --> 00:06:09,030
+You don't need to go through the documentation also.
+
+106
+00:06:10,590 --> 00:06:11,490
+Time to test.
+
+107
+00:06:13,020 --> 00:06:15,930
+TerraForm validate.
+
+108
+00:06:17,050 --> 00:06:20,440
+That's a success TerraForm format.
+
+109
+00:06:22,550 --> 00:06:24,140
+TerraForm Plan.
+
+110
+00:06:26,000 --> 00:06:31,070
+Okay, So with that 22 line of code, it's going to add 20 resources.
+
+111
+00:06:31,940 --> 00:06:32,960
+That's amazing.
+
+112
+00:06:33,830 --> 00:06:34,280
+Fine.
+
+113
+00:06:34,280 --> 00:06:38,030
+I'm going to set TerraForm apply to set up my entire VPC now.
+
+114
+00:06:40,180 --> 00:06:40,340
+Right.
+
+115
+00:06:40,380 --> 00:06:46,080
+So it's creating elastic IP, VPC, elastic IP attaching to the nat Gateway.
+
+116
+00:06:49,560 --> 00:06:54,630
+Roundtable subnets associating roundtable with the subnets.
+
+117
+00:06:57,390 --> 00:06:57,570
+Okay.
+
+118
+00:06:57,610 --> 00:06:59,400
+Now, Gateway, that's going to take some time.
+
+119
+00:07:03,680 --> 00:07:04,920
+Okay, that is done.
+
+120
+00:07:04,940 --> 00:07:08,840
+We can check it in our account plus account.
+
+121
+00:07:09,600 --> 00:07:11,300
+Let's go to VPC.
+
+122
+00:07:14,140 --> 00:07:15,610
+We should see the VPC.
+
+123
+00:07:17,710 --> 00:07:20,830
+There we profile VPC subnets.
+
+124
+00:07:22,600 --> 00:07:28,240
+We see all our subnets, public and private subnets round table, of course.
+
+125
+00:07:29,090 --> 00:07:30,500
+My private round table.
+
+126
+00:07:30,530 --> 00:07:33,050
+You have the routing, tree routing to the Internet gateway.
+
+127
+00:07:33,320 --> 00:07:34,180
+Now, that's default.
+
+128
+00:07:34,190 --> 00:07:34,700
+Wait.
+
+129
+00:07:34,790 --> 00:07:35,930
+Yeah, that one.
+
+130
+00:07:37,170 --> 00:07:37,440
+Yeah.
+
+131
+00:07:37,440 --> 00:07:38,690
+And that's private.
+
+132
+00:07:38,740 --> 00:07:40,500
+Can see the subnet association.
+
+133
+00:07:41,320 --> 00:07:41,780
+Right.
+
+134
+00:07:41,790 --> 00:07:44,520
+All that we just 22 line of code.
+
+135
+00:07:45,020 --> 00:07:45,450
+All right.
+
+136
+00:07:45,450 --> 00:07:46,410
+That's brilliant.
+
+137
+00:07:48,700 --> 00:07:50,290
+Okay, now we have the VP running.
+
+138
+00:07:50,290 --> 00:07:54,370
+Now we can set up our stack, but we also need to have security group.
+
+139
+00:07:54,370 --> 00:08:01,570
+So we need we're going to set up backend services as we discussed in architectural design ideas, active
+
+140
+00:08:01,690 --> 00:08:03,460
+queue, elastic cache.
+
+141
+00:08:05,510 --> 00:08:05,990
+Front end.
+
+142
+00:08:05,990 --> 00:08:07,130
+We're going to use beans tax.
+
+143
+00:08:07,140 --> 00:08:10,850
+We need security group for beans stack and back in services security group.
+
+144
+00:08:11,270 --> 00:08:17,000
+We'll have load balancer we need load balancer security group also the bastion host not to mention we
+
+145
+00:08:17,000 --> 00:08:21,770
+are going going to create bastion Host so we are going to need security group for the bastion host as
+
+146
+00:08:21,770 --> 00:08:22,280
+well.
+

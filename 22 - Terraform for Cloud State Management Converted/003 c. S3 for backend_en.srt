@@ -1,0 +1,168 @@
+1
+00:00:00,710 --> 00:00:01,940
+We'll create a file.
+
+2
+00:00:05,990 --> 00:00:07,850
+Call us back and.
+
+3
+00:00:13,360 --> 00:00:14,690
+S 3.2.
+
+4
+00:00:21,340 --> 00:00:22,300
+Added to the gate?
+
+5
+00:00:22,300 --> 00:00:23,020
+Yes.
+
+6
+00:00:24,330 --> 00:00:29,610
+In this file, we mention the S3 bucket where we're going to store the state of our terraform of our
+
+7
+00:00:29,610 --> 00:00:30,750
+cloud infrastructure.
+
+8
+00:00:31,750 --> 00:00:36,700
+So as we're going to maintain our state back and state in three buckets, so let's create a three bucket.
+
+9
+00:00:38,590 --> 00:00:39,670
+Let's go to a three.
+
+10
+00:00:41,520 --> 00:00:46,500
+And I'm going to create a bucket named as Terra form.
+
+11
+00:00:46,500 --> 00:00:47,730
+Or I'll just say Terra.
+
+12
+00:00:49,290 --> 00:00:56,100
+For the wi fi hyphen state and I'll give some number just to make it unique.
+
+13
+00:00:57,270 --> 00:00:57,440
+Okay.
+
+14
+00:00:57,540 --> 00:00:59,300
+I'm going to use the region.
+
+15
+00:00:59,330 --> 00:01:00,270
+Ohio.
+
+16
+00:01:02,890 --> 00:01:03,970
+US East.
+
+17
+00:01:04,730 --> 00:01:10,760
+You can wish any Univision choose any region, but make sure it has minimum three zones, because we're
+
+18
+00:01:10,760 --> 00:01:17,480
+going to create VPC zones into three three zones, three subnets into three different zones.
+
+19
+00:01:18,080 --> 00:01:19,670
+So I'll select Ohio.
+
+20
+00:01:19,700 --> 00:01:20,210
+There.
+
+21
+00:01:23,150 --> 00:01:27,650
+Let's get into our pocket and let's create a directory of folder.
+
+22
+00:01:28,190 --> 00:01:31,880
+We'll name it as just terraform.
+
+23
+00:01:42,240 --> 00:01:43,620
+We'll put this information.
+
+24
+00:01:44,920 --> 00:01:45,610
+In their back end.
+
+25
+00:01:45,610 --> 00:01:47,590
+State files a form.
+
+26
+00:01:54,620 --> 00:01:57,860
+Backend is a three.
+
+27
+00:02:01,970 --> 00:02:08,180
+Now TerraForm supports multiple backend services like you can also use console if you want.
+
+28
+00:02:08,389 --> 00:02:10,880
+So we're going with SX three, that's our bucket name.
+
+29
+00:02:10,880 --> 00:02:12,860
+So mention your bucket name, water bucket.
+
+30
+00:02:12,860 --> 00:02:19,580
+You created key the directory that you created in that S3 bucket and a file name which will maintain
+
+31
+00:02:19,580 --> 00:02:21,020
+the state region.
+
+32
+00:02:21,020 --> 00:02:23,300
+I'm using us east to Ohio.
+
+33
+00:02:24,680 --> 00:02:26,840
+Feel free to use any other region if you want.
+
+34
+00:02:28,980 --> 00:02:31,170
+With that, we'll first initialize.
+
+35
+00:02:32,490 --> 00:02:33,150
+To reform.
+
+36
+00:02:33,150 --> 00:02:34,610
+So we have to just say terraform it.
+
+37
+00:02:34,620 --> 00:02:39,120
+Let's open our git bash, which is pretty easy to use.
+
+38
+00:02:43,700 --> 00:02:47,270
+Okay, so I'm in the directory where we are creating our TerraForm scripts.
+
+39
+00:02:47,570 --> 00:02:49,700
+I'm going to say TerraForm in it.
+
+40
+00:02:54,010 --> 00:02:55,510
+I had deleted the user.
+
+41
+00:02:55,510 --> 00:02:59,530
+So I have set the access key once again and I'm doing TerraForm in it.
+
+42
+00:03:02,410 --> 00:03:05,380
+OC successfully configured the back end SX three.
+
