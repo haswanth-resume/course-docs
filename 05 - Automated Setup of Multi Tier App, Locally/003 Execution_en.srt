@@ -1,0 +1,224 @@
+1
+00:00:00,390 --> 00:00:03,900
+So open your git bash, get into
+
+2
+00:00:07,080 --> 00:00:12,870
+the source code, vagrant dir, automated provisioning.
+
+3
+00:00:15,320 --> 00:00:18,710
+And the action is only this much, we are going to say  vagrant up.
+
+4
+00:00:22,320 --> 00:00:27,240
+And it will start bringing bringing up all the machines, let's check virtual box.
+
+5
+00:00:29,980 --> 00:00:36,910
+So first, it's bringing up the db machine, I'm going to pause my screen and resume when the provisioning
+
+6
+00:00:36,910 --> 00:00:38,830
+scripts start getting executed.
+
+7
+00:00:40,120 --> 00:00:46,930
+So db01 vm is up and running, but our vagrant is waiting for it to become stable, once it becomes
+
+8
+00:00:46,930 --> 00:00:49,270
+stable, it will start running the Shell script.
+
+9
+00:00:50,650 --> 00:00:54,480
+OK, there we go, provisioning scripts, started getting executed.
+
+10
+00:00:56,150 --> 00:01:05,040
+So it's running mysql.sh script and this process is going to take a very long time, db
+
+11
+00:01:05,060 --> 00:01:07,070
+provisioning is completed successfully.
+
+12
+00:01:08,150 --> 00:01:10,610
+Memcache provisioning has started now.
+
+13
+00:01:12,050 --> 00:01:13,730
+Memcache provisioning is completed.
+
+14
+00:01:13,730 --> 00:01:16,490
+And now the rabbitmq setup has started.
+
+15
+00:01:18,710 --> 00:01:24,620
+So you see, we are not logging really into the VMS and setting up the services, vagrant is doing
+
+16
+00:01:24,620 --> 00:01:25,330
+that for us.
+
+17
+00:01:27,360 --> 00:01:33,070
+This entire setup will take somewhere from 15 minutes to half an hour based on your Internet speed.
+
+18
+00:01:34,050 --> 00:01:42,060
+I'm just fast forwarding the video so you don't waste time in watching all this output. RMQ provisioning
+
+19
+00:01:42,060 --> 00:01:42,540
+started.
+
+20
+00:01:42,540 --> 00:01:47,730
+And it will also take a very, very long time because it's going to run yum update, install Erlang
+
+21
+00:01:47,730 --> 00:01:48,480
+socat
+
+22
+00:01:49,510 --> 00:01:55,900
+Which has lots of dependencies, here also provisioning time is really based on your Internet speed.
+
+23
+00:01:57,560 --> 00:02:00,800
+I will fast forward the video till app01
+
+24
+00:02:02,510 --> 00:02:05,210
+app01  provisioning started.
+
+25
+00:02:24,700 --> 00:02:27,850
+OK, now the build process has started in app01.
+
+26
+00:02:46,530 --> 00:02:51,030
+app01 provisioning completed successfully, web01 has started.
+
+27
+00:02:59,020 --> 00:03:05,290
+And web01 also completed successfully, and now it's time to validate out stack.
+
+28
+00:03:06,560 --> 00:03:12,680
+So we will access web01  from our browser, we can use the IP address.
+
+29
+00:03:14,720 --> 00:03:19,970
+In Vagrantfile, from vagrantfile and you can even log in from Vagrant File, you can get the IP address, that's
+
+30
+00:03:19,970 --> 00:03:23,300
+a static IP or we can even use the hostname.
+
+31
+00:03:24,790 --> 00:03:26,050
+So let's open the browser.
+
+32
+00:03:27,230 --> 00:03:36,110
+And we'll just say http://web01, that should forward request to tomcat
+
+33
+00:03:37,350 --> 00:03:40,170
+Let's log in, admin_vp
+
+34
+00:03:41,460 --> 00:03:42,510
+Same password.
+
+35
+00:03:47,000 --> 00:03:53,780
+And we are in, so db is validated, let's click on Rabbit MQ RMQ is Validated.
+
+36
+00:03:55,140 --> 00:03:58,440
+And memcache select a user.
+
+37
+00:04:00,830 --> 00:04:02,540
+Data is inserted in cache
+
+38
+00:04:05,760 --> 00:04:07,830
+And cache is also validated.
+
+39
+00:04:10,410 --> 00:04:16,110
+So in this video, you have seen how we have provisioned the entire stack, with just one command
+
+40
+00:04:16,110 --> 00:04:20,579
+just did vagrant up and all the heavy lifting is done by vagrant.
+
+41
+00:04:21,690 --> 00:04:28,200
+Now, if you wish, you can keep the stack and bring down all the VMS, vagrant halt.
+
+42
+00:04:44,370 --> 00:04:45,330
+stack is down.
+
+43
+00:04:46,870 --> 00:04:48,250
+All the VMs are powered off.
+
+44
+00:04:49,820 --> 00:04:52,430
+You can check vagrant status also.
+
+45
+00:04:56,110 --> 00:05:01,180
+So we have the stack, but it's powered off, if you want, you can bring it up anytime you want.
+
+46
+00:05:01,210 --> 00:05:03,550
+You can just save Vagrant up from the same dir.
+
+47
+00:05:07,090 --> 00:05:15,100
+So since vagrant will do provisioning only once when the VMS are created, if the VMS already exist
+
+48
+00:05:15,700 --> 00:05:18,860
+and you say vagrant up, it will just bring up all these VMs.
+
+49
+00:05:19,840 --> 00:05:26,800
+So from problems of provisioning manually, which was time-Consuming and not repeatable , from there,
+
+50
+00:05:27,640 --> 00:05:32,590
+we have a local set up now which is completely automated.
+
+51
+00:05:35,120 --> 00:05:35,930
+Repeatable.
+
+52
+00:05:36,930 --> 00:05:39,150
+And its infrastructure as a code.
+
+53
+00:05:43,380 --> 00:05:47,400
+Thank you very much for watching the video and completing the project.
+
+54
+00:05:47,670 --> 00:05:48,790
+Good job there.
+
+55
+00:05:49,350 --> 00:05:51,540
+I'll be seeing you in the next project.
+
+56
+00:05:51,840 --> 00:05:53,670
+Till then, keep practicing.
+
