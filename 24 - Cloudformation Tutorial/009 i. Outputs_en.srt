@@ -1,0 +1,408 @@
+1
+00:00:00,480 --> 00:00:06,000
+After creating our cloud formation stack, there is a section of outputs where you can see any output
+
+2
+00:00:06,000 --> 00:00:10,800
+that is given by the stack when it was creating or after it created.
+
+3
+00:00:11,430 --> 00:00:19,980
+Outputs can be used for two purposes one to print and second to export the values in other cloud formation
+
+4
+00:00:19,980 --> 00:00:20,400
+template.
+
+5
+00:00:20,400 --> 00:00:24,690
+When you're using nested stack, this can turn out to be very vital information.
+
+6
+00:00:25,260 --> 00:00:26,850
+So let's see some example.
+
+7
+00:00:26,850 --> 00:00:27,780
+I'll just go down.
+
+8
+00:00:28,080 --> 00:00:31,200
+There is the syntax output.
+
+9
+00:00:31,320 --> 00:00:37,870
+You give a logical ID description value that you want to print or export.
+
+10
+00:00:37,890 --> 00:00:46,110
+If you do export, you can export the value which can be referred by the next template in a nested cloud
+
+11
+00:00:46,110 --> 00:00:47,130
+formation stack.
+
+12
+00:00:48,370 --> 00:00:50,020
+And I scroll down a little bit.
+
+13
+00:00:51,980 --> 00:00:54,890
+Okay, here we have two outputs.
+
+14
+00:00:54,920 --> 00:00:57,890
+This is the logical ID description value.
+
+15
+00:00:58,340 --> 00:01:01,040
+Value is the one that really is the output.
+
+16
+00:01:02,000 --> 00:01:05,780
+First, your value is intrinsic function get at.
+
+17
+00:01:06,880 --> 00:01:11,560
+Get attribute function will get the attribute of a logical ID.
+
+18
+00:01:12,520 --> 00:01:15,370
+Here is an example given backup load balancer.
+
+19
+00:01:15,370 --> 00:01:22,060
+So there is a there is a logical ID in a template named as this inside that you have an attribute dot
+
+20
+00:01:22,060 --> 00:01:26,080
+DNS name or like fetching an IP address of an instance.
+
+21
+00:01:26,080 --> 00:01:30,070
+So you the instance logical ID, dot public IP or private IP.
+
+22
+00:01:30,520 --> 00:01:36,490
+So combining output with get attribute function can fetch you write values what you're looking for.
+
+23
+00:01:36,490 --> 00:01:37,990
+You can also give condition.
+
+24
+00:01:38,470 --> 00:01:39,970
+So that's one output.
+
+25
+00:01:39,970 --> 00:01:46,930
+And this is going to be fetching attribute for the value other output is.
+
+26
+00:01:48,580 --> 00:01:52,540
+Value is referencing a logical idea.
+
+27
+00:01:53,470 --> 00:01:55,080
+So you see value in two styles here.
+
+28
+00:01:55,090 --> 00:02:00,040
+One is getting the attribute and one is actually getting the reference of the logical ID.
+
+29
+00:02:00,610 --> 00:02:02,380
+Let's see this by an example.
+
+30
+00:02:23,180 --> 00:02:28,520
+I'm going to take everything from the previous template and just paste it here.
+
+31
+00:02:30,390 --> 00:02:32,970
+And I'm going to put the new section.
+
+32
+00:02:33,660 --> 00:02:34,750
+Outputs.
+
+33
+00:02:35,600 --> 00:02:36,500
+Outputs.
+
+34
+00:02:37,080 --> 00:02:37,920
+Colon.
+
+35
+00:02:38,220 --> 00:02:44,100
+It gives some logical ID and say print some info.
+
+36
+00:02:50,350 --> 00:02:52,060
+Okay, I'm interested in values.
+
+37
+00:02:52,060 --> 00:02:53,470
+I'm just going to say value.
+
+38
+00:02:55,300 --> 00:03:01,000
+So I would like to fetch the value of the instance that I'm creating.
+
+39
+00:03:02,250 --> 00:03:05,310
+And I want its public DNS name to be printed.
+
+40
+00:03:06,010 --> 00:03:09,970
+So I have to get the attribute of this logical resource.
+
+41
+00:03:10,390 --> 00:03:11,770
+So I'm going to copy that.
+
+42
+00:03:13,130 --> 00:03:14,450
+And I will see.
+
+43
+00:03:14,900 --> 00:03:18,290
+Exclamation get at.
+
+44
+00:03:20,260 --> 00:03:22,450
+This function you pass to values.
+
+45
+00:03:22,450 --> 00:03:24,520
+First is the logical ID.
+
+46
+00:03:24,760 --> 00:03:26,830
+And the second is the attribute.
+
+47
+00:03:27,250 --> 00:03:29,480
+So how do I know the attribute?
+
+48
+00:03:29,500 --> 00:03:32,070
+Well, there are a lot of attributes, right?
+
+49
+00:03:32,080 --> 00:03:33,640
+Or the properties?
+
+50
+00:03:33,670 --> 00:03:35,250
+Actually, they are the properties.
+
+51
+00:03:35,260 --> 00:03:39,850
+So in the template reference, you can find your.
+
+52
+00:03:40,900 --> 00:03:41,950
+Resource forced.
+
+53
+00:03:41,950 --> 00:03:47,380
+So we want public DNS name so for easy to so easy to.
+
+54
+00:03:48,190 --> 00:03:51,640
+And we using the AC two instance there.
+
+55
+00:03:56,330 --> 00:04:00,920
+Okay, So in this here itself, you have most of the.
+
+56
+00:04:01,660 --> 00:04:02,770
+Properties.
+
+57
+00:04:03,280 --> 00:04:06,120
+But if you scroll down, you'll get the list.
+
+58
+00:04:06,130 --> 00:04:11,530
+So I'm looking for public DNS names so I can find in the file public.
+
+59
+00:04:12,460 --> 00:04:15,400
+DNS, their public DNS name.
+
+60
+00:04:15,670 --> 00:04:17,440
+So that's how I can find the attribute.
+
+61
+00:04:21,089 --> 00:04:24,270
+And so like that, any other thing that you want you can get.
+
+62
+00:04:25,080 --> 00:04:27,030
+All right, let's save that.
+
+63
+00:04:27,420 --> 00:04:29,640
+And let's create the cloud formation stack.
+
+64
+00:04:31,640 --> 00:04:32,130
+Okay.
+
+65
+00:04:33,220 --> 00:04:33,540
+All right.
+
+66
+00:04:33,550 --> 00:04:34,710
+I'm in Ireland region.
+
+67
+00:04:34,720 --> 00:04:35,890
+I'm creating the stack.
+
+68
+00:04:38,690 --> 00:04:40,490
+Choose file.
+
+69
+00:04:41,920 --> 00:04:43,030
+Print output.
+
+70
+00:04:44,800 --> 00:04:45,910
+Okay, Next.
+
+71
+00:04:50,760 --> 00:04:52,800
+Output hyphen example.
+
+72
+00:04:54,210 --> 00:04:55,440
+I'll keep two to micro.
+
+73
+00:04:55,440 --> 00:04:56,600
+I'll select my key.
+
+74
+00:04:56,610 --> 00:04:57,810
+We profile key.
+
+75
+00:04:58,540 --> 00:05:03,590
+And I'll give some output example.
+
+76
+00:05:04,510 --> 00:05:05,590
+Let's go next.
+
+77
+00:05:07,370 --> 00:05:08,270
+And next.
+
+78
+00:05:11,430 --> 00:05:12,780
+And create stack.
+
+79
+00:05:14,610 --> 00:05:19,410
+Once the stat creation is complete, you can come in the output section and you can see the output.
+
+80
+00:05:22,070 --> 00:05:24,890
+Okay, so the stack created successfully.
+
+81
+00:05:25,340 --> 00:05:26,600
+Let's check in the output.
+
+82
+00:05:27,020 --> 00:05:28,370
+And you see there the key.
+
+83
+00:05:28,370 --> 00:05:32,960
+Print some info and the value is the instance public DNS name.
+
+84
+00:05:33,590 --> 00:05:37,370
+So you've seen one use case of the output, which is just printing.
+
+85
+00:05:38,280 --> 00:05:41,730
+Also, I want you to check the intrinsic function get attribute.
+
+86
+00:05:42,540 --> 00:05:44,850
+That we have used to fetch the attribute.
+
+87
+00:05:45,690 --> 00:05:47,370
+You can see some examples there.
+
+88
+00:05:50,360 --> 00:05:51,220
+Well, it's pretty simple.
+
+89
+00:05:51,230 --> 00:05:54,980
+Get attribute logical id dot the attribute name.
+
+90
+00:05:57,860 --> 00:06:00,500
+Craig that from that entire template.
+
+91
+00:06:02,180 --> 00:06:06,110
+Here we're using the get attribute so ref and get attributes.
+
+92
+00:06:06,110 --> 00:06:07,040
+There is a little difference.
+
+93
+00:06:07,070 --> 00:06:09,440
+Get attributes going to get the attribute.
+
+94
+00:06:09,470 --> 00:06:13,440
+When you say href, you are referring to a logical ID and get attribute.
+
+95
+00:06:13,440 --> 00:06:19,310
+We give the logical dot the attribute name, so we are looking for the value of that attribute.
+
+96
+00:06:20,640 --> 00:06:21,600
+Okay, so that's simple.
+
+97
+00:06:21,600 --> 00:06:26,700
+It is output logical ID value and you can give any value.
+
+98
+00:06:26,730 --> 00:06:31,890
+We are fetching the attribute value for logical ID, which is public DNS name.
+
+99
+00:06:33,180 --> 00:06:34,590
+So if you're down here.
+
+100
+00:06:35,930 --> 00:06:37,130
+Delete your stack.
+
+101
+00:06:41,580 --> 00:06:43,230
+Once it's deleted.
+
+102
+00:06:43,590 --> 00:06:45,420
+Join me in the next video.
+

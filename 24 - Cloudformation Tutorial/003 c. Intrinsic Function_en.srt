@@ -1,0 +1,316 @@
+1
+00:00:00,630 --> 00:00:04,710
+Cloud formation has some built in functions which can turn out to be very useful.
+
+2
+00:00:04,740 --> 00:00:08,850
+You're going to see one simple example of a function that cloud formation provide.
+
+3
+00:00:09,240 --> 00:00:12,360
+But from the documentation, you can check some intrinsic function.
+
+4
+00:00:14,250 --> 00:00:18,690
+We'll see example of how to use a function in this video.
+
+5
+00:00:18,720 --> 00:00:20,580
+So we're going to go with a simple function.
+
+6
+00:00:20,580 --> 00:00:21,330
+Join.
+
+7
+00:00:21,640 --> 00:00:23,410
+Join is a function for string.
+
+8
+00:00:23,430 --> 00:00:28,770
+It will join a list, a comma separated list into a string.
+
+9
+00:00:29,190 --> 00:00:31,020
+Some examples we can go.
+
+10
+00:00:31,900 --> 00:00:34,700
+Okay, this is JSON format.
+
+11
+00:00:34,720 --> 00:00:36,250
+This is YAML format.
+
+12
+00:00:36,460 --> 00:00:37,870
+First how to call a function.
+
+13
+00:00:37,870 --> 00:00:40,870
+So exclamation and the function name join.
+
+14
+00:00:41,780 --> 00:00:48,530
+And joint function will need to argument one is a string and second is going to be the list list of
+
+15
+00:00:48,530 --> 00:00:49,100
+strings.
+
+16
+00:00:49,100 --> 00:00:53,390
+So it's going to join this list of string together with colon.
+
+17
+00:00:54,850 --> 00:00:56,320
+Okay, let's try that.
+
+18
+00:00:56,350 --> 00:00:59,470
+We'll use it in our tag, for instance.
+
+19
+00:00:59,470 --> 00:01:00,100
+Tag.
+
+20
+00:01:02,250 --> 00:01:03,570
+So let's write.
+
+21
+00:01:04,870 --> 00:01:05,910
+A new file.
+
+22
+00:01:05,940 --> 00:01:06,590
+Save it.
+
+23
+00:01:06,600 --> 00:01:09,180
+The name of functions.
+
+24
+00:01:09,630 --> 00:01:10,470
+Dot y.
+
+25
+00:01:10,470 --> 00:01:10,650
+M.
+
+26
+00:01:10,650 --> 00:01:11,040
+L.
+
+27
+00:01:12,970 --> 00:01:17,530
+So we'll use our template from update example.
+
+28
+00:01:19,460 --> 00:01:22,310
+So here we have given a value directly, a string.
+
+29
+00:01:22,340 --> 00:01:28,610
+Now, instead of that, I'm going to replace that with the join function, which will return a string.
+
+30
+00:01:28,820 --> 00:01:31,610
+So exclamation and the function name.
+
+31
+00:01:31,610 --> 00:01:32,300
+Join.
+
+32
+00:01:33,610 --> 00:01:37,000
+Space and in square bracket, we have to pass two values.
+
+33
+00:01:37,570 --> 00:01:41,440
+So I'm going to say I'm going to use this as a string hyphen.
+
+34
+00:01:42,180 --> 00:01:45,090
+Comma and I will give.
+
+35
+00:01:46,140 --> 00:01:47,460
+I have to give a list.
+
+36
+00:01:48,840 --> 00:01:54,300
+So I'll see my comma instance comma from.
+
+37
+00:01:55,400 --> 00:01:56,960
+Come on, Cloud.
+
+38
+00:01:58,660 --> 00:01:59,670
+Formation.
+
+39
+00:02:00,850 --> 00:02:02,080
+Very, very simple example.
+
+40
+00:02:02,080 --> 00:02:07,390
+So this should return me a string separate by comma.
+
+41
+00:02:07,390 --> 00:02:09,160
+And that will be the name.
+
+42
+00:02:10,320 --> 00:02:11,940
+Of my instance in the tag.
+
+43
+00:02:12,810 --> 00:02:15,660
+Let's see if this and let's try this.
+
+44
+00:02:19,780 --> 00:02:21,040
+Go to cloud formation.
+
+45
+00:02:23,720 --> 00:02:26,660
+Let's create stack template is ready.
+
+46
+00:02:26,990 --> 00:02:28,310
+Upload our template.
+
+47
+00:02:28,340 --> 00:02:29,390
+Choose file.
+
+48
+00:02:30,520 --> 00:02:31,570
+Functions.
+
+49
+00:02:34,590 --> 00:02:35,400
+Next.
+
+50
+00:02:36,960 --> 00:02:38,340
+Enter stack name.
+
+51
+00:02:39,990 --> 00:02:42,540
+Just give name s function.
+
+52
+00:02:43,480 --> 00:02:44,350
+Underscore.
+
+53
+00:02:44,380 --> 00:02:45,280
+Join.
+
+54
+00:02:46,480 --> 00:02:47,200
+Next.
+
+55
+00:02:49,560 --> 00:02:51,390
+I can't give underscore.
+
+56
+00:02:52,820 --> 00:02:53,780
+The hyphen.
+
+57
+00:02:57,150 --> 00:02:57,460
+Okay.
+
+58
+00:02:57,510 --> 00:02:58,920
+Taking all defaults.
+
+59
+00:03:00,280 --> 00:03:02,200
+And just to create stack.
+
+60
+00:03:07,040 --> 00:03:09,100
+I guess the insurance should get created.
+
+61
+00:03:09,110 --> 00:03:10,220
+Let's check.
+
+62
+00:03:11,720 --> 00:03:13,010
+And it's the old instance.
+
+63
+00:03:14,270 --> 00:03:14,500
+Yeah.
+
+64
+00:03:14,560 --> 00:03:21,110
+You see there in the tags, it has joined my list into a string separate by hyphen.
+
+65
+00:03:25,180 --> 00:03:28,710
+Now, if you go to Tag's really, you have the nametag that we have given.
+
+66
+00:03:28,720 --> 00:03:34,990
+But when you create a resource with cloud formation, it will also add some extra tags.
+
+67
+00:03:36,450 --> 00:03:38,250
+Which is very, very useful.
+
+68
+00:03:38,250 --> 00:03:44,070
+So you can see this the resource is really created by cloud formation and it has the logical ID there.
+
+69
+00:03:45,330 --> 00:03:51,930
+And also has the stack ID, so it's easy for you to filter and really, you know, go and find the stack
+
+70
+00:03:51,930 --> 00:03:55,770
+and you can make changes from there instead of making manual changes here.
+
+71
+00:03:57,030 --> 00:03:58,140
+So that is good.
+
+72
+00:03:58,140 --> 00:04:00,390
+That's what I wanted to show you in this video.
+
+73
+00:04:01,520 --> 00:04:03,070
+Stack is completed.
+
+74
+00:04:03,080 --> 00:04:04,640
+Now, we we're done with this.
+
+75
+00:04:04,640 --> 00:04:06,080
+You can delete the stack.
+
+76
+00:04:09,090 --> 00:04:14,550
+So that's how you can really call a function, exclamation and the function name and the value that
+
+77
+00:04:14,550 --> 00:04:15,240
+you pass.
+
+78
+00:04:15,360 --> 00:04:18,690
+You're going to see a few more functions in our upcoming videos.
+
+79
+00:04:19,589 --> 00:04:23,490
+So if you're done here, wrap up your stack and join me in the next video.
+

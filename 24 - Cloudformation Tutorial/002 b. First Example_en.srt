@@ -1,0 +1,716 @@
+1
+00:00:00,900 --> 00:00:03,600
+All right, I'm in my management console.
+
+2
+00:00:04,350 --> 00:00:07,140
+And I will go to cloud formation service.
+
+3
+00:00:12,950 --> 00:00:19,040
+So a blood clot formation model and provision all your cloud infrastructure so you can check the getting
+
+4
+00:00:19,040 --> 00:00:19,970
+started guide.
+
+5
+00:00:21,810 --> 00:00:25,830
+You can also watch some video over there to understand how it works.
+
+6
+00:00:25,830 --> 00:00:27,870
+But anyways, we're covering that.
+
+7
+00:00:28,920 --> 00:00:34,350
+So this stack, that's that's the result of your template, right?
+
+8
+00:00:34,350 --> 00:00:37,560
+So when you say create stack, you have to mention the template.
+
+9
+00:00:37,890 --> 00:00:41,100
+You can say your template is ready and you can upload your template.
+
+10
+00:00:41,580 --> 00:00:46,250
+You can also put your template in S3 bucket and you can mention the endpoint of the bucket.
+
+11
+00:00:46,290 --> 00:00:48,000
+So I'll pick up your template from there.
+
+12
+00:00:48,030 --> 00:00:54,000
+What we'll do is we're going to write template on our machine, on our computer, on our laptop by using
+
+13
+00:00:54,000 --> 00:00:57,240
+ID or any text editor, and you will just upload it from here.
+
+14
+00:00:57,240 --> 00:01:00,460
+We'll just choose file, we'll upload our template there.
+
+15
+00:01:00,480 --> 00:01:02,430
+Also some sample template to try.
+
+16
+00:01:02,430 --> 00:01:07,860
+If you initially want to see how it works, you can select some sample template like Clam Stack, Ruby
+
+17
+00:01:07,860 --> 00:01:09,660
+on Rails WordPress blog.
+
+18
+00:01:11,410 --> 00:01:12,750
+And that is for single.
+
+19
+00:01:12,760 --> 00:01:15,730
+You have multi AC also for Windows, a few templates.
+
+20
+00:01:15,730 --> 00:01:18,580
+You can try to understand how it really works.
+
+21
+00:01:19,410 --> 00:01:21,870
+Now you can create a template in designer.
+
+22
+00:01:22,080 --> 00:01:26,850
+It's more of drag and drop, but I really don't prefer that.
+
+23
+00:01:26,880 --> 00:01:31,890
+I think writing the template in YAML format is much, much easier than doing that drag and drop.
+
+24
+00:01:32,680 --> 00:01:35,810
+Okay, So we will write our template and we'll upload that template.
+
+25
+00:01:35,830 --> 00:01:38,980
+So let me open my sublime text editor.
+
+26
+00:01:41,400 --> 00:01:45,180
+Fossil create a directory somewhere in the F try.
+
+27
+00:01:45,180 --> 00:01:46,530
+I'll create a directory.
+
+28
+00:01:47,760 --> 00:01:49,740
+I'll call it a cloud.
+
+29
+00:01:50,250 --> 00:01:52,170
+I'll call it a C formation.
+
+30
+00:01:52,770 --> 00:01:54,540
+Underscore basics.
+
+31
+00:01:57,300 --> 00:02:00,270
+Okay, let's open this inner sublime text editor.
+
+32
+00:02:03,190 --> 00:02:04,180
+Open folder.
+
+33
+00:02:05,910 --> 00:02:08,070
+After I see formation basics.
+
+34
+00:02:09,810 --> 00:02:11,370
+Okay, let's write our first template.
+
+35
+00:02:11,370 --> 00:02:12,720
+I'm going to say new file.
+
+36
+00:02:14,570 --> 00:02:16,010
+Save it with name.
+
+37
+00:02:16,700 --> 00:02:18,000
+First hyphen.
+
+38
+00:02:18,020 --> 00:02:19,340
+Example.
+
+39
+00:02:21,030 --> 00:02:22,910
+Dot y html.
+
+40
+00:02:24,610 --> 00:02:27,670
+If you wish to use here your intelligence, you can try that.
+
+41
+00:02:27,670 --> 00:02:32,020
+But we're going to write very simple, simple, basic templates and intelligence.
+
+42
+00:02:32,050 --> 00:02:34,510
+Also have plugins for cloud formation.
+
+43
+00:02:34,510 --> 00:02:36,430
+So it's going to give you a quick suggestion.
+
+44
+00:02:36,460 --> 00:02:42,130
+It's not so good when you're initially learning any technology, any any program or you're learning
+
+45
+00:02:42,130 --> 00:02:42,900
+any template.
+
+46
+00:02:42,910 --> 00:02:48,610
+It's good to first understand the basics and write everything from the scratch without any help.
+
+47
+00:02:48,610 --> 00:02:50,320
+Once you have that basic.
+
+48
+00:02:50,350 --> 00:02:52,060
+Then you can take all the help.
+
+49
+00:02:52,750 --> 00:02:55,600
+So I'm going to say resources.
+
+50
+00:02:55,840 --> 00:02:58,480
+That's the only mandatory section.
+
+51
+00:02:58,480 --> 00:03:01,030
+Resources are capital, colon.
+
+52
+00:03:01,690 --> 00:03:06,490
+I'll give a logical ID, I'll see my instance.
+
+53
+00:03:11,730 --> 00:03:12,480
+Colon.
+
+54
+00:03:13,800 --> 00:03:15,270
+And type.
+
+55
+00:03:15,810 --> 00:03:17,700
+So I want to launch easy to instance, right?
+
+56
+00:03:17,700 --> 00:03:19,920
+So I'm going to access e, w s, colon.
+
+57
+00:03:19,920 --> 00:03:23,040
+Colon, e, c to colon.
+
+58
+00:03:23,040 --> 00:03:23,610
+Colon.
+
+59
+00:03:25,290 --> 00:03:26,400
+Instance.
+
+60
+00:03:28,810 --> 00:03:32,350
+And the resource will, of course, have the properties in the same line.
+
+61
+00:03:32,350 --> 00:03:33,880
+You're going to see properties.
+
+62
+00:03:35,000 --> 00:03:40,520
+People there and the properties instance type.
+
+63
+00:03:42,200 --> 00:03:42,620
+I will see.
+
+64
+00:03:42,620 --> 00:03:45,620
+RT two dot Micro.
+
+65
+00:03:47,100 --> 00:03:47,520
+Okay.
+
+66
+00:03:47,670 --> 00:03:48,600
+Image ID.
+
+67
+00:03:48,630 --> 00:03:50,430
+Let's get that.
+
+68
+00:03:52,780 --> 00:03:59,020
+So let's try and launch an instance manually and find my ID, Amazon Linux.
+
+69
+00:04:01,280 --> 00:04:02,240
+Amazon Linux too.
+
+70
+00:04:02,270 --> 00:04:02,890
+Should be fine.
+
+71
+00:04:02,900 --> 00:04:04,580
+Let's pick up that image ID.
+
+72
+00:04:08,210 --> 00:04:08,450
+Okay.
+
+73
+00:04:08,510 --> 00:04:09,770
+Only I give this much.
+
+74
+00:04:09,770 --> 00:04:13,670
+I'm going to save this template and let's go to cloud formation.
+
+75
+00:04:13,670 --> 00:04:19,490
+Now, cloud formation stack and a template is ready or I'll cancel and do it once again.
+
+76
+00:04:19,490 --> 00:04:20,750
+Create stack.
+
+77
+00:04:21,480 --> 00:04:22,510
+Template is ready.
+
+78
+00:04:22,530 --> 00:04:23,970
+Upload a template file.
+
+79
+00:04:23,970 --> 00:04:25,650
+I'm going to choose file.
+
+80
+00:04:26,900 --> 00:04:29,240
+Find your template and just upload it.
+
+81
+00:04:31,100 --> 00:04:34,730
+Now it is an option to view in designer, if you want to check that.
+
+82
+00:04:37,240 --> 00:04:38,710
+So that's the designer.
+
+83
+00:04:39,540 --> 00:04:40,650
+Right here.
+
+84
+00:04:40,650 --> 00:04:42,480
+You can even validate your template.
+
+85
+00:04:42,480 --> 00:04:45,510
+You can click on this checkmark.
+
+86
+00:04:45,510 --> 00:04:47,490
+It will validate your template if it's good.
+
+87
+00:04:51,940 --> 00:04:54,790
+It seems template is valid and it's gone.
+
+88
+00:04:54,880 --> 00:04:56,110
+Okay, for a minute.
+
+89
+00:04:56,680 --> 00:05:01,030
+So if you're good with your validation, you can just say create stack from here itself.
+
+90
+00:05:03,320 --> 00:05:04,910
+It's going to take you back, actually.
+
+91
+00:05:05,480 --> 00:05:06,830
+So we'll see next.
+
+92
+00:05:08,080 --> 00:05:08,270
+Okay.
+
+93
+00:05:08,290 --> 00:05:11,470
+Will you stack a name on the first hyphen?
+
+94
+00:05:12,530 --> 00:05:13,730
+Stack.
+
+95
+00:05:15,180 --> 00:05:15,990
+No parameters.
+
+96
+00:05:15,990 --> 00:05:17,310
+You're not given any parameters.
+
+97
+00:05:17,310 --> 00:05:21,000
+If you give any parameters, it can list over here next.
+
+98
+00:05:21,870 --> 00:05:28,770
+If you'd like to give some tag, some role you want to give some advance option, we'll just take everything.
+
+99
+00:05:28,770 --> 00:05:30,120
+Default go next.
+
+100
+00:05:31,500 --> 00:05:33,000
+Last review section.
+
+101
+00:05:33,000 --> 00:05:35,850
+If you're good with everything, just say create stack.
+
+102
+00:05:35,850 --> 00:05:37,860
+Or you can say create change set.
+
+103
+00:05:37,890 --> 00:05:40,740
+Let's directly go with create stack first.
+
+104
+00:05:42,620 --> 00:05:45,410
+Okay, so that lands up in the event page over here.
+
+105
+00:05:45,410 --> 00:05:46,880
+It says Create in progress.
+
+106
+00:05:46,880 --> 00:05:48,080
+That's a forced event.
+
+107
+00:05:48,740 --> 00:05:51,590
+You can keep refreshing this to find out the events.
+
+108
+00:05:52,490 --> 00:05:53,930
+Creating progress.
+
+109
+00:05:55,000 --> 00:05:56,920
+Resource creation initiated.
+
+110
+00:05:56,920 --> 00:05:58,270
+User initiated.
+
+111
+00:06:01,550 --> 00:06:06,830
+So it's going to take take a moment to launch an instance and now it's completed its create complete.
+
+112
+00:06:08,600 --> 00:06:10,610
+You can check the stack info.
+
+113
+00:06:11,150 --> 00:06:12,770
+Stack ID is there.
+
+114
+00:06:14,970 --> 00:06:18,000
+You can see the template that created this resource.
+
+115
+00:06:19,270 --> 00:06:20,470
+Or this stack.
+
+116
+00:06:20,890 --> 00:06:24,010
+If you're printing any output, you can see that in the output section.
+
+117
+00:06:25,030 --> 00:06:28,930
+But really, let's just see, for instance, whether it's launched or not.
+
+118
+00:06:29,800 --> 00:06:31,570
+We see one running instance there.
+
+119
+00:06:32,780 --> 00:06:33,680
+Refresh.
+
+120
+00:06:34,430 --> 00:06:38,440
+There is an instance running, but it does not have any tag anything.
+
+121
+00:06:38,450 --> 00:06:40,280
+So now what we'll do is.
+
+122
+00:06:41,680 --> 00:06:43,600
+We will update our stack.
+
+123
+00:06:43,900 --> 00:06:46,290
+So that's a stack and there's an update button.
+
+124
+00:06:46,300 --> 00:06:47,980
+So we'll make change to a template.
+
+125
+00:06:47,980 --> 00:06:49,420
+Or we can write another template.
+
+126
+00:06:49,420 --> 00:06:50,620
+We'll say update.
+
+127
+00:06:50,650 --> 00:06:53,400
+Because our instance does not have any tag.
+
+128
+00:06:53,410 --> 00:06:54,850
+I want to give a tag now.
+
+129
+00:06:56,410 --> 00:07:03,100
+So let's go to our sublime text and I'll create another file.
+
+130
+00:07:05,480 --> 00:07:06,710
+I will name it as.
+
+131
+00:07:09,070 --> 00:07:10,000
+Update.
+
+132
+00:07:17,480 --> 00:07:18,770
+Update example.
+
+133
+00:07:18,800 --> 00:07:19,850
+That should be fine.
+
+134
+00:07:22,740 --> 00:07:22,980
+Okay.
+
+135
+00:07:22,980 --> 00:07:25,260
+I'll copy everything from the first template.
+
+136
+00:07:28,150 --> 00:07:29,830
+And I will give tags.
+
+137
+00:07:30,100 --> 00:07:31,030
+So you can give tags.
+
+138
+00:07:31,030 --> 00:07:32,830
+You can see just tags, colon.
+
+139
+00:07:33,370 --> 00:07:37,060
+And you can give a list of tags like hyphen key.
+
+140
+00:07:39,090 --> 00:07:42,960
+So I'll see name and value.
+
+141
+00:07:46,260 --> 00:07:49,250
+I will say my.
+
+142
+00:07:49,850 --> 00:07:51,050
+For instance.
+
+143
+00:07:52,300 --> 00:07:55,750
+For my first instance.
+
+144
+00:07:57,420 --> 00:07:58,680
+Let's see if this.
+
+145
+00:07:59,010 --> 00:07:59,290
+Okay.
+
+146
+00:07:59,310 --> 00:08:03,900
+Now let's update our existing stack with a new template.
+
+147
+00:08:04,080 --> 00:08:06,890
+So you can say use current template, the same template.
+
+148
+00:08:06,900 --> 00:08:09,360
+You can make change or you can say replace current template.
+
+149
+00:08:09,360 --> 00:08:10,560
+I want to replace.
+
+150
+00:08:10,650 --> 00:08:15,300
+I want to upload another template, which is this one.
+
+151
+00:08:18,850 --> 00:08:20,320
+You can go next if you want.
+
+152
+00:08:20,350 --> 00:08:26,500
+You can view and design it and validate if there is any syntax error, it will highlight that.
+
+153
+00:08:27,500 --> 00:08:28,070
+I'll just say.
+
+154
+00:08:28,070 --> 00:08:28,790
+Next.
+
+155
+00:08:28,940 --> 00:08:29,810
+Next.
+
+156
+00:08:31,040 --> 00:08:31,820
+Next.
+
+157
+00:08:34,200 --> 00:08:34,679
+And.
+
+158
+00:08:35,130 --> 00:08:35,539
+Okay.
+
+159
+00:08:37,280 --> 00:08:38,720
+Let's go update, Jack.
+
+160
+00:08:40,549 --> 00:08:41,799
+It's making an update.
+
+161
+00:08:41,799 --> 00:08:43,490
+Updating progress, it says.
+
+162
+00:08:45,220 --> 00:08:46,810
+It's going to take a moment.
+
+163
+00:08:48,460 --> 00:08:50,890
+Now in a few seconds, is update completed?
+
+164
+00:08:51,370 --> 00:08:55,930
+Let's see our instance letter refresh and you see that.
+
+165
+00:08:57,090 --> 00:08:59,070
+Now you to be careful in this part.
+
+166
+00:09:00,210 --> 00:09:06,720
+Maybe while you're updating a stack, it may delete your resource and recreate it so it's better you
+
+167
+00:09:06,720 --> 00:09:09,810
+check change set that we'll see in the next video.
+
+168
+00:09:11,490 --> 00:09:11,690
+You.
+
+169
+00:09:11,760 --> 00:09:15,060
+After you're done with this, just delete your stack.
+
+170
+00:09:15,890 --> 00:09:17,780
+You can say delete stack from here.
+
+171
+00:09:18,440 --> 00:09:19,100
+Delete stack.
+
+172
+00:09:19,100 --> 00:09:22,040
+When you say delete stack, it will delete your resources also.
+
+173
+00:09:22,760 --> 00:09:23,810
+Of course.
+
+174
+00:09:26,590 --> 00:09:28,980
+You see that shutting down and it will get terminated.
+
+175
+00:09:29,430 --> 00:09:30,730
+You can check events.
+
+176
+00:09:30,750 --> 00:09:33,300
+I recommend you wait till it deletes everything.
+
+177
+00:09:33,300 --> 00:09:36,990
+Sometimes because of some issues the delete feels.
+
+178
+00:09:38,140 --> 00:09:39,830
+And it sees now delete completely.
+
+179
+00:09:39,850 --> 00:09:42,460
+If you're done here, then move to the next video.
+

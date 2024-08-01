@@ -1,0 +1,492 @@
+1
+00:00:00,660 --> 00:00:09,060
+So far we have seen just one section in our template anatomy, but we have other sections like mapping.
+
+2
+00:00:09,300 --> 00:00:11,700
+In this video we'll be talking about mapping.
+
+3
+00:00:11,700 --> 00:00:16,170
+We'll take an example for that and we'll also see some new pseudo parameters.
+
+4
+00:00:17,000 --> 00:00:20,150
+So let's go to working with templates.
+
+5
+00:00:20,720 --> 00:00:22,070
+Template Anatomy.
+
+6
+00:00:22,800 --> 00:00:24,510
+And mappings.
+
+7
+00:00:24,540 --> 00:00:25,530
+Let's click on that.
+
+8
+00:00:27,620 --> 00:00:32,700
+Now what is mapping is just like a dictionary and you want to fetch some value.
+
+9
+00:00:32,720 --> 00:00:37,110
+You have to give the key name and you can create multiple levels inside.
+
+10
+00:00:37,130 --> 00:00:45,080
+And once you declare a mapping variable, you can use a finding map intrinsic function to find values
+
+11
+00:00:45,080 --> 00:00:46,250
+from your keys.
+
+12
+00:00:46,640 --> 00:00:48,410
+So example should make more sense.
+
+13
+00:00:48,410 --> 00:00:50,990
+So let's scroll down, let's see examples.
+
+14
+00:00:51,560 --> 00:00:53,300
+So that's the section mappings.
+
+15
+00:00:53,300 --> 00:00:56,180
+Like we have resources, we have also mapping section.
+
+16
+00:00:57,040 --> 00:00:58,810
+Inside that you give a name.
+
+17
+00:00:59,080 --> 00:01:00,850
+This is mapping for am-I.
+
+18
+00:01:01,150 --> 00:01:07,420
+So we are saying for this region, if you're doing it in this region, you can say finding map function
+
+19
+00:01:07,540 --> 00:01:12,040
+for this particular region and it's going to return the value, which is this.
+
+20
+00:01:13,130 --> 00:01:17,060
+Mapping is mostly used for this particular example, Amis.
+
+21
+00:01:17,480 --> 00:01:22,370
+As we have seen so far, we're jumping between regions and we are getting a problem of having different,
+
+22
+00:01:22,370 --> 00:01:23,960
+different army IDs.
+
+23
+00:01:25,010 --> 00:01:30,350
+So if you want a cloud formation template for UDC to instance, to be working on every region without
+
+24
+00:01:30,350 --> 00:01:36,590
+making any changes, then you can use mapping to store the image IDs.
+
+25
+00:01:37,760 --> 00:01:39,500
+So let's create a new template now.
+
+26
+00:01:43,960 --> 00:01:46,120
+We'll call it as mappings.
+
+27
+00:01:47,050 --> 00:01:50,590
+And also we're going to do some pseudo parameters.
+
+28
+00:01:53,950 --> 00:01:54,680
+Dot y.
+
+29
+00:01:54,700 --> 00:01:54,990
+M.
+
+30
+00:01:55,000 --> 00:01:55,450
+L.
+
+31
+00:01:57,500 --> 00:02:00,200
+So let's copy the mappings.
+
+32
+00:02:05,130 --> 00:02:06,360
+I'll make some changes.
+
+33
+00:02:07,830 --> 00:02:17,970
+I will give this name as a my region map and I will keep these regions and to this I will change it
+
+34
+00:02:17,970 --> 00:02:19,470
+to EMI.
+
+35
+00:02:24,140 --> 00:02:24,360
+Okay.
+
+36
+00:02:24,380 --> 00:02:29,060
+Now I'm going to go to these regions and find the idea of Amazon Linux to.
+
+37
+00:02:30,710 --> 00:02:32,000
+I'm in US East one.
+
+38
+00:02:32,000 --> 00:02:35,450
+I will get Amazon Linux from ID from here.
+
+39
+00:02:37,770 --> 00:02:39,670
+Let me put that over here.
+
+40
+00:02:42,970 --> 00:02:44,840
+I will also have it for us.
+
+41
+00:02:44,860 --> 00:02:46,990
+Easter to us East.
+
+42
+00:02:48,040 --> 00:02:48,610
+To.
+
+43
+00:02:51,400 --> 00:02:53,110
+To go to us is to.
+
+44
+00:02:58,950 --> 00:03:00,240
+That's convenient.
+
+45
+00:03:06,440 --> 00:03:08,110
+US West one.
+
+46
+00:03:15,410 --> 00:03:16,650
+So we don't have us.
+
+47
+00:03:16,670 --> 00:03:21,020
+West one Let's put here the US.
+
+48
+00:03:21,050 --> 00:03:22,460
+West one.
+
+49
+00:03:28,210 --> 00:03:29,440
+And I'm going to stop here.
+
+50
+00:03:29,440 --> 00:03:30,940
+I'll remove these things.
+
+51
+00:03:32,510 --> 00:03:37,460
+If you're going to use more region, then mention all the region and the image ID that you're going
+
+52
+00:03:37,460 --> 00:03:38,930
+to use from that region.
+
+53
+00:03:39,590 --> 00:03:41,570
+For now, I'll only keep this much.
+
+54
+00:03:42,320 --> 00:03:44,660
+Next, the easy to instance.
+
+55
+00:03:44,660 --> 00:03:47,660
+So we have to give that in the resources.
+
+56
+00:03:48,260 --> 00:03:51,410
+Okay, let's take that from the previous example.
+
+57
+00:03:56,220 --> 00:03:56,520
+Here.
+
+58
+00:03:56,520 --> 00:03:57,720
+The image is hard coded.
+
+59
+00:03:57,720 --> 00:04:02,910
+Now I'm going to refer from here my Amy from the mappings.
+
+60
+00:04:03,120 --> 00:04:05,520
+And for that I have to use the function.
+
+61
+00:04:07,880 --> 00:04:12,020
+Find in map.
+
+62
+00:04:13,060 --> 00:04:15,500
+And we have to pass three values for this.
+
+63
+00:04:15,520 --> 00:04:19,149
+We have to pass the name of the mapping.
+
+64
+00:04:19,540 --> 00:04:22,120
+We have to pass the key from that mapping.
+
+65
+00:04:22,150 --> 00:04:25,900
+What we are referring to in that the sub key of it.
+
+66
+00:04:27,540 --> 00:04:28,890
+It should give you the right, Amy.
+
+67
+00:04:28,920 --> 00:04:30,240
+So how do I do?
+
+68
+00:04:32,160 --> 00:04:33,990
+Now you can do it in this format.
+
+69
+00:04:34,500 --> 00:04:36,750
+You can pass all the argument in a list format.
+
+70
+00:04:36,750 --> 00:04:39,690
+So I'm going to say my region map the name.
+
+71
+00:04:40,140 --> 00:04:46,530
+First I have to pass, then then the key inside that, which is actually a region name.
+
+72
+00:04:46,530 --> 00:04:49,260
+But then I have to hardcoded, right.
+
+73
+00:04:49,260 --> 00:04:51,120
+Instead of that I can use.
+
+74
+00:04:52,160 --> 00:04:54,650
+Pseudo parameter E.
+
+75
+00:04:54,960 --> 00:04:58,910
+S colon, colon region.
+
+76
+00:04:59,210 --> 00:05:04,370
+So wherever I create this template, it will have the region code, right?
+
+77
+00:05:04,370 --> 00:05:08,720
+And instead of giving hard coding it, it will automatically pick up the region name.
+
+78
+00:05:08,840 --> 00:05:13,820
+And from that region name, I would like to give the next key, which is my basically.
+
+79
+00:05:15,410 --> 00:05:19,370
+So based on the region that I create, it's going to go to that key.
+
+80
+00:05:19,370 --> 00:05:25,670
+And then inside that AMI the sub key of it and it's going to pick up the my ID, the rest of it, I'll
+
+81
+00:05:25,670 --> 00:05:29,180
+create save our security group going to do the security group as well.
+
+82
+00:05:29,600 --> 00:05:32,420
+So security group here.
+
+83
+00:05:35,050 --> 00:05:37,330
+Can will copy it from the previous.
+
+84
+00:05:38,750 --> 00:05:39,710
+Template.
+
+85
+00:05:45,510 --> 00:05:47,430
+Care to take care of the indentation?
+
+86
+00:05:50,460 --> 00:05:53,880
+And yeah, all the logical IDs are in the same line.
+
+87
+00:05:54,370 --> 00:05:55,400
+Okay, this seems good.
+
+88
+00:05:55,410 --> 00:05:56,640
+Let's save this.
+
+89
+00:05:58,180 --> 00:06:05,440
+And I'm going to create my cloud formation template from or my stack from any of the three region.
+
+90
+00:06:06,460 --> 00:06:07,510
+So let's go.
+
+91
+00:06:11,270 --> 00:06:18,650
+Okay, so I'm in Ohio region US East too, and we have created a mapping of RMI for this region.
+
+92
+00:06:25,070 --> 00:06:29,240
+And I will go to Ohio region or the instances.
+
+93
+00:06:30,300 --> 00:06:31,800
+Okay, Let's create the stack.
+
+94
+00:06:31,830 --> 00:06:32,790
+Create stack.
+
+95
+00:06:33,600 --> 00:06:34,600
+Upload template.
+
+96
+00:06:34,620 --> 00:06:35,730
+Choose file.
+
+97
+00:06:38,450 --> 00:06:39,950
+Mapping and pseudo.
+
+98
+00:06:43,750 --> 00:06:45,010
+Let's go next.
+
+99
+00:06:47,610 --> 00:06:48,990
+See mapping.
+
+100
+00:06:50,130 --> 00:06:52,770
+That's just a map example.
+
+101
+00:06:54,240 --> 00:06:54,960
+Next.
+
+102
+00:06:56,520 --> 00:06:57,270
+Next.
+
+103
+00:06:59,560 --> 00:07:01,000
+And create stack.
+
+104
+00:07:03,140 --> 00:07:06,950
+Okay, So it's creating the security group first, as usual.
+
+105
+00:07:08,580 --> 00:07:10,110
+Now it's creating the instance.
+
+106
+00:07:12,500 --> 00:07:14,190
+Okay, let's go to the instance.
+
+107
+00:07:14,670 --> 00:07:15,600
+Refresh.
+
+108
+00:07:16,290 --> 00:07:16,600
+Okay.
+
+109
+00:07:16,620 --> 00:07:17,340
+It's creating it.
+
+110
+00:07:17,340 --> 00:07:20,970
+So it found its image ID automatically from mappings.
+
+111
+00:07:21,800 --> 00:07:24,020
+I scroll down to see my ID.
+
+112
+00:07:25,490 --> 00:07:32,810
+So that's the last 7912 in US history to us is to yes, you see that.
+
+113
+00:07:33,230 --> 00:07:39,200
+So finding map has found the right ID for us based on our region.
+
+114
+00:07:39,590 --> 00:07:40,070
+Region.
+
+115
+00:07:40,070 --> 00:07:45,080
+Also we are selecting automatically based on where the template is getting, where the stack is getting
+
+116
+00:07:45,080 --> 00:07:45,830
+created.
+
+117
+00:07:47,470 --> 00:07:52,720
+If you're only curious to log in to an instance that are getting launched, we're going to do that in
+
+118
+00:07:52,720 --> 00:07:55,580
+the next video where we'll select the key payer.
+
+119
+00:07:55,600 --> 00:07:59,140
+We're going to see what are parameters, how to use them.
+
+120
+00:07:59,650 --> 00:08:05,410
+And for an example, we're going to take key pair and also instance type as the input parameter from
+
+121
+00:08:05,410 --> 00:08:06,220
+the user.
+
+122
+00:08:08,820 --> 00:08:11,190
+If you're done here, you can delete the stack.
+
+123
+00:08:13,090 --> 00:08:15,310
+And you can join me in the next video.
+

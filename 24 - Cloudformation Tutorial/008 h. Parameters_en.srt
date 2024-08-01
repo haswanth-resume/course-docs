@@ -1,0 +1,728 @@
+1
+00:00:00,270 --> 00:00:04,710
+So from a template anatomy, we have already used a resources.
+
+2
+00:00:06,320 --> 00:00:08,930
+And we have used also mappings.
+
+3
+00:00:09,440 --> 00:00:12,380
+Now, in this video we're going to talk about parameters.
+
+4
+00:00:12,890 --> 00:00:17,600
+While you're creating cloud formation stack, you see parameters option there.
+
+5
+00:00:18,470 --> 00:00:24,950
+We'll see in this video how we can give user power of entering some parameters so we can use two parameters,
+
+6
+00:00:24,980 --> 00:00:28,640
+key pair and the instance type.
+
+7
+00:00:29,180 --> 00:00:33,530
+So let's go to template anatomy parameters.
+
+8
+00:00:34,790 --> 00:00:36,890
+Defining parameter in a template.
+
+9
+00:00:37,720 --> 00:00:44,800
+So the parameters, the section logical ID type string, there are few other types.
+
+10
+00:00:44,800 --> 00:00:47,030
+We'll see that also default.
+
+11
+00:00:47,050 --> 00:00:48,310
+You can set a default value.
+
+12
+00:00:48,310 --> 00:00:52,120
+If user does not provide anything, it's going to take that default value.
+
+13
+00:00:52,120 --> 00:00:54,760
+So for example here to to micro the instance type.
+
+14
+00:00:55,710 --> 00:00:58,500
+You can give the allowed value in a list format.
+
+15
+00:00:58,830 --> 00:01:05,340
+So if you give this parameter allowed values and you give the list of allowed values, you'll get a
+
+16
+00:01:05,340 --> 00:01:06,690
+dropdown over there.
+
+17
+00:01:07,720 --> 00:01:09,520
+Let's see the other properties.
+
+18
+00:01:13,050 --> 00:01:21,240
+Allowed values, an array containing a list of values which will create a dropdown constraint description.
+
+19
+00:01:21,240 --> 00:01:22,020
+Default.
+
+20
+00:01:22,020 --> 00:01:24,840
+Default can give description maximum length.
+
+21
+00:01:24,930 --> 00:01:26,100
+Maximum value.
+
+22
+00:01:26,130 --> 00:01:26,970
+Minimum length.
+
+23
+00:01:26,970 --> 00:01:28,020
+You can mention all that.
+
+24
+00:01:28,020 --> 00:01:28,950
+No echo.
+
+25
+00:01:29,130 --> 00:01:35,610
+If you're taking secret data like passwords, you would like to not print that when the user is typing,
+
+26
+00:01:35,610 --> 00:01:37,320
+so you can put a no echo there.
+
+27
+00:01:39,450 --> 00:01:40,140
+Type.
+
+28
+00:01:40,440 --> 00:01:41,430
+So there are different types.
+
+29
+00:01:41,430 --> 00:01:48,360
+You have string, you can take numbers, an input list, it's an array of integer or floats.
+
+30
+00:01:49,790 --> 00:01:51,770
+Eight specific parameters type.
+
+31
+00:01:51,770 --> 00:01:57,330
+You can also point user to an ADA parameter like, for example, existing key pair.
+
+32
+00:01:57,350 --> 00:01:58,250
+So you can list it.
+
+33
+00:01:58,250 --> 00:02:01,150
+So let's see the specific parameters type.
+
+34
+00:02:01,160 --> 00:02:04,160
+So we're going to create keeper list.
+
+35
+00:02:04,370 --> 00:02:09,320
+So instance ID, so it's going to list all the instance ID available.
+
+36
+00:02:10,509 --> 00:02:11,280
+Keep it.
+
+37
+00:02:11,920 --> 00:02:15,970
+If you use this, then the user will get the list of existing keys.
+
+38
+00:02:16,780 --> 00:02:18,520
+And for that, we really need to create a key.
+
+39
+00:02:18,550 --> 00:02:20,350
+So let's go to our.
+
+40
+00:02:21,390 --> 00:02:22,140
+Console.
+
+41
+00:02:23,130 --> 00:02:24,690
+I'm in Ashland region.
+
+42
+00:02:25,690 --> 00:02:28,400
+And I'll prepare a few things before I create the stack.
+
+43
+00:02:28,420 --> 00:02:31,900
+First, I'll go to the key pair and let's create some key.
+
+44
+00:02:33,850 --> 00:02:38,440
+I will name it as the profile hyphen key.
+
+45
+00:02:40,010 --> 00:02:42,680
+Then format and I will say create keep here.
+
+46
+00:02:43,070 --> 00:02:47,070
+So Bob, Public Key is downloaded and I'll give user the list of the keys.
+
+47
+00:02:47,090 --> 00:02:48,560
+Let's create a few more key.
+
+48
+00:02:50,530 --> 00:02:51,460
+I will see.
+
+49
+00:02:52,510 --> 00:02:53,800
+Ewart Key.
+
+50
+00:02:59,970 --> 00:03:00,630
+That's fine too.
+
+51
+00:03:00,660 --> 00:03:01,590
+Should be fine.
+
+52
+00:03:01,710 --> 00:03:04,320
+So we can get the list of these two keys.
+
+53
+00:03:04,950 --> 00:03:07,560
+Now let's write our template.
+
+54
+00:03:11,820 --> 00:03:16,140
+We'll name it as input parameters.
+
+55
+00:03:17,500 --> 00:03:19,330
+Dot y html.
+
+56
+00:03:21,150 --> 00:03:21,340
+Okay.
+
+57
+00:03:21,390 --> 00:03:25,590
+I'll copy everything from the previous template.
+
+58
+00:03:28,920 --> 00:03:29,780
+As it is.
+
+59
+00:03:30,730 --> 00:03:33,550
+And just about this, I'll put parameters.
+
+60
+00:03:34,000 --> 00:03:35,590
+So I'll go to the documentation.
+
+61
+00:03:38,880 --> 00:03:40,620
+And take an example from here.
+
+62
+00:03:44,430 --> 00:03:45,180
+This one.
+
+63
+00:03:47,060 --> 00:03:48,500
+List of instance type.
+
+64
+00:03:50,210 --> 00:03:51,140
+Let's put that.
+
+65
+00:03:54,110 --> 00:03:55,550
+And I'll keep it as it is.
+
+66
+00:03:55,550 --> 00:03:59,110
+I want to if you want to add more list like I.
+
+67
+00:03:59,390 --> 00:04:00,620
+Let's do one more.
+
+68
+00:04:01,160 --> 00:04:01,580
+Let's see.
+
+69
+00:04:01,610 --> 00:04:03,920
+RT to dot small.
+
+70
+00:04:05,070 --> 00:04:06,050
+Let's also give.
+
+71
+00:04:06,770 --> 00:04:08,900
+T two dot medium.
+
+72
+00:04:12,460 --> 00:04:14,280
+Okay, that's one parameter.
+
+73
+00:04:14,300 --> 00:04:16,430
+We'll get a dropdown list there.
+
+74
+00:04:18,130 --> 00:04:19,720
+Let's create one more parameter.
+
+75
+00:04:21,140 --> 00:04:23,090
+And we'll see a key name.
+
+76
+00:04:23,570 --> 00:04:25,940
+And that's the logical ID You can give anything.
+
+77
+00:04:26,660 --> 00:04:28,100
+I'll give some description.
+
+78
+00:04:29,790 --> 00:04:34,920
+And I want the list of all the available keys so I can set type.
+
+79
+00:04:37,040 --> 00:04:39,830
+School, the documentation parameters.
+
+80
+00:04:46,140 --> 00:04:49,830
+So now the clot formation is going to access the existing parameter.
+
+81
+00:04:50,250 --> 00:04:54,900
+We'll show all the list of keys available in that particular region.
+
+82
+00:04:55,830 --> 00:05:00,900
+Also, I would like to refer these things in my instance profile and my instance resource.
+
+83
+00:05:02,590 --> 00:05:04,060
+So instance type.
+
+84
+00:05:04,390 --> 00:05:07,390
+Now I'm going to refer the ref.
+
+85
+00:05:08,980 --> 00:05:09,910
+And.
+
+86
+00:05:10,970 --> 00:05:14,000
+Let's get the logical ID instance type parameter.
+
+87
+00:05:19,280 --> 00:05:20,570
+Also the key.
+
+88
+00:05:21,430 --> 00:05:22,150
+So.
+
+89
+00:05:23,570 --> 00:05:24,830
+Key name.
+
+90
+00:05:26,990 --> 00:05:29,120
+And referring it to.
+
+91
+00:05:34,650 --> 00:05:37,740
+That's the logical idea of given the same logical, very similar name.
+
+92
+00:05:37,740 --> 00:05:45,630
+But it's a this is a logical idea and this is a property, for the instance, two different things.
+
+93
+00:05:46,470 --> 00:05:50,820
+Okay, I will give one more parameter, which I'll put it in the tag.
+
+94
+00:05:52,430 --> 00:05:53,300
+It's a simple one.
+
+95
+00:05:53,300 --> 00:05:55,370
+Just name of service description string.
+
+96
+00:05:55,370 --> 00:06:00,290
+So a user will see this and user, if want, can make change also to this and I'll refer this in the
+
+97
+00:06:00,290 --> 00:06:01,010
+tag.
+
+98
+00:06:02,490 --> 00:06:02,970
+Name.
+
+99
+00:06:03,120 --> 00:06:05,370
+So instead of using this, join.
+
+100
+00:06:07,190 --> 00:06:08,420
+I would say ref.
+
+101
+00:06:09,890 --> 00:06:10,490
+To.
+
+102
+00:06:11,710 --> 00:06:13,060
+Name of service.
+
+103
+00:06:17,690 --> 00:06:20,060
+And everything else I'll keep as it is.
+
+104
+00:06:22,370 --> 00:06:23,180
+For mapping.
+
+105
+00:06:23,180 --> 00:06:28,850
+I am creating instance in Ireland region, so I have to give that region also over here.
+
+106
+00:06:29,720 --> 00:06:32,330
+So you were you West one.
+
+107
+00:06:33,670 --> 00:06:38,620
+Okay, let's launch instance and get an Ahmed for Amazon Linux.
+
+108
+00:06:42,690 --> 00:06:44,310
+EU West one.
+
+109
+00:06:45,980 --> 00:06:47,320
+Let's create entry for that.
+
+110
+00:06:47,330 --> 00:06:50,360
+You hyphen west hyphen one.
+
+111
+00:06:52,100 --> 00:06:52,910
+Hear my.
+
+112
+00:06:57,830 --> 00:06:58,760
+This seems good.
+
+113
+00:06:59,890 --> 00:07:02,780
+And let's go over once again parameters.
+
+114
+00:07:02,780 --> 00:07:07,400
+I have three parameters name of service, instance type, parameter and key name.
+
+115
+00:07:08,180 --> 00:07:10,250
+They are all three different parameters.
+
+116
+00:07:10,280 --> 00:07:13,490
+This is just going to give a description.
+
+117
+00:07:13,490 --> 00:07:15,890
+So if user wants, user can change that.
+
+118
+00:07:15,890 --> 00:07:21,230
+Also, while creating instance type parameter, again, it's stuff type string, but we have given allowed
+
+119
+00:07:21,230 --> 00:07:24,080
+value, so we'll get a dropdown list of our entries.
+
+120
+00:07:24,790 --> 00:07:25,550
+Key name.
+
+121
+00:07:25,570 --> 00:07:30,430
+This will also give a dropdown list, but this will check the existing parameter.
+
+122
+00:07:30,460 --> 00:07:31,210
+Key name.
+
+123
+00:07:32,060 --> 00:07:32,540
+Camp.
+
+124
+00:07:32,540 --> 00:07:36,680
+So here parameters are predefined by us.
+
+125
+00:07:36,680 --> 00:07:39,470
+Here parameters are defined by us.
+
+126
+00:07:42,250 --> 00:07:43,600
+Then we are mapping.
+
+127
+00:07:44,700 --> 00:07:46,020
+Based on our region name.
+
+128
+00:07:46,020 --> 00:07:47,670
+It's going to pick up the mapping.
+
+129
+00:07:47,820 --> 00:07:53,340
+And in the instance we are referring to all the parameters that we have defined.
+
+130
+00:07:53,850 --> 00:07:56,580
+Instance type Key name.
+
+131
+00:07:57,460 --> 00:07:59,560
+And in the name of service.
+
+132
+00:08:00,650 --> 00:08:07,520
+And then we have the security group that you are referring here, which is seen from the previous video.
+
+133
+00:08:09,930 --> 00:08:11,280
+Okay, let's do this.
+
+134
+00:08:12,030 --> 00:08:13,740
+So let's go to cloud formation.
+
+135
+00:08:15,040 --> 00:08:16,180
+Create stack.
+
+136
+00:08:17,140 --> 00:08:18,700
+Upload my template.
+
+137
+00:08:19,150 --> 00:08:20,350
+Choose file.
+
+138
+00:08:22,980 --> 00:08:24,450
+Input parameter.
+
+139
+00:08:28,440 --> 00:08:29,610
+Okay, let's go next.
+
+140
+00:08:30,390 --> 00:08:32,580
+Right now we have the parameter.
+
+141
+00:08:32,590 --> 00:08:34,110
+Let's let's give a name first.
+
+142
+00:08:34,980 --> 00:08:40,770
+Input hyphen parameters for an example.
+
+143
+00:08:43,110 --> 00:08:45,890
+Okay, now you have the parameters dropdown list.
+
+144
+00:08:46,190 --> 00:08:49,250
+See that little micro too small we can select.
+
+145
+00:08:49,580 --> 00:08:51,770
+It's what we have defined in our template.
+
+146
+00:08:52,760 --> 00:08:53,540
+Key name.
+
+147
+00:08:53,690 --> 00:08:55,880
+This place is fetching for us.
+
+148
+00:08:56,420 --> 00:08:56,580
+Right.
+
+149
+00:08:56,600 --> 00:08:57,320
+So we have two key.
+
+150
+00:08:57,320 --> 00:09:00,650
+I'm going to say I'm going to select this key name of service.
+
+151
+00:09:01,750 --> 00:09:03,220
+If I want, I can make change.
+
+152
+00:09:03,220 --> 00:09:04,270
+Otherwise it will keep.
+
+153
+00:09:05,610 --> 00:09:05,940
+Empty.
+
+154
+00:09:05,970 --> 00:09:07,170
+There will not be anything.
+
+155
+00:09:07,170 --> 00:09:13,800
+So let's give some name input hyphen parameter.
+
+156
+00:09:14,760 --> 00:09:16,530
+For an example.
+
+157
+00:09:19,800 --> 00:09:21,190
+The spelling mistake.
+
+158
+00:09:24,000 --> 00:09:26,310
+So three different parameters go next.
+
+159
+00:09:27,860 --> 00:09:28,610
+Next.
+
+160
+00:09:31,410 --> 00:09:32,970
+And secrets Stack.
+
+161
+00:09:35,320 --> 00:09:36,550
+It's creating everything.
+
+162
+00:09:38,240 --> 00:09:39,170
+Let's check.
+
+163
+00:09:41,000 --> 00:09:45,360
+So we have the instance, and that's the first parameter that you're seeing over here.
+
+164
+00:09:45,500 --> 00:09:48,920
+To micro, that was also the parameter and the key.
+
+165
+00:09:48,950 --> 00:09:50,150
+Let's check the key.
+
+166
+00:09:55,120 --> 00:09:56,230
+B profile key.
+
+167
+00:09:56,940 --> 00:10:02,520
+So all these three parameters were taken successfully, all these three parameters of a different style.
+
+168
+00:10:03,710 --> 00:10:07,080
+Cloud formation stack should be completed by now.
+
+169
+00:10:07,100 --> 00:10:08,510
+Yes, it's completed.
+
+170
+00:10:14,720 --> 00:10:16,640
+Let's quickly reiterate what we did.
+
+171
+00:10:20,210 --> 00:10:26,180
+We started now using parameters, which is optional but can turn out to be very beneficial.
+
+172
+00:10:28,020 --> 00:10:31,900
+There are examples over here in the documentation which is easy to pick up.
+
+173
+00:10:35,280 --> 00:10:38,480
+So in our template we have taken three.
+
+174
+00:10:38,550 --> 00:10:45,450
+We have given three parameters, one which is string parameter that user can type, other parameter
+
+175
+00:10:45,450 --> 00:10:48,720
+which creates a dropdown list of our defined values.
+
+176
+00:10:50,100 --> 00:10:51,720
+Third parameter key name.
+
+177
+00:10:51,870 --> 00:10:54,210
+This is going to create again, dropdown list.
+
+178
+00:10:55,080 --> 00:10:58,770
+Which aid will fetch the properties parameters for us.
+
+179
+00:10:59,570 --> 00:11:04,460
+And then we refer it in our e c to instance by using a function and we give the logical idea of the
+
+180
+00:11:04,460 --> 00:11:05,300
+parameter.
+
+181
+00:11:08,320 --> 00:11:11,680
+So if you're done doing this, you can delete your stack.
+
+182
+00:11:16,260 --> 00:11:20,370
+And join me in the next video where we're going to see how to print outputs.
+

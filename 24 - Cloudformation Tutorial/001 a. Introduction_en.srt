@@ -1,0 +1,660 @@
+1
+00:00:00,420 --> 00:00:03,600
+Welcome to the introductory session of cloud formation.
+
+2
+00:00:04,080 --> 00:00:10,920
+What we do with cloud formation, well, we automate and maintain the state of our cloud resources.
+
+3
+00:00:11,250 --> 00:00:13,410
+Sounds similar or familiar.
+
+4
+00:00:13,890 --> 00:00:19,260
+If you have gone through TerraForm Project videos or if you already know TerraForm, then yes, it may
+
+5
+00:00:19,260 --> 00:00:20,220
+sound similar.
+
+6
+00:00:20,490 --> 00:00:27,150
+And both the both both the tools have similarity in most cases, except for one big difference.
+
+7
+00:00:27,360 --> 00:00:34,170
+Cloud formation is specific to a yes, it's an A service, whereas TerraForm supports many other cloud
+
+8
+00:00:34,170 --> 00:00:35,070
+providers.
+
+9
+00:00:35,850 --> 00:00:40,650
+There are so many blogs that compares the difference between cloud formation and terraform, and you
+
+10
+00:00:40,650 --> 00:00:44,040
+can check them in if you need help in making the decision.
+
+11
+00:00:44,220 --> 00:00:51,960
+But as for me, if you want to automate and maintain the cloud infrastructure and you need a native
+
+12
+00:00:51,960 --> 00:00:54,720
+service to do that, then you can go with cloud formation.
+
+13
+00:00:54,990 --> 00:00:59,940
+But if you want more than eight of us, you want some other providers also.
+
+14
+00:00:59,940 --> 00:01:01,650
+Then you can go with TerraForm.
+
+15
+00:01:02,220 --> 00:01:05,640
+Let's understand terminologies in cloud formation.
+
+16
+00:01:09,500 --> 00:01:10,280
+Templates.
+
+17
+00:01:10,280 --> 00:01:16,040
+Templates are really the text files, or you can see the scripts of cloud formation, but they are really
+
+18
+00:01:16,040 --> 00:01:16,610
+not scripts.
+
+19
+00:01:16,610 --> 00:01:20,780
+Any programming language, you can write them either in YAML or JSON format.
+
+20
+00:01:21,870 --> 00:01:27,330
+So cloud formation will read this template as an input and the output will be the resource that it will
+
+21
+00:01:27,330 --> 00:01:28,740
+create and maintain.
+
+22
+00:01:29,950 --> 00:01:33,490
+You describe the state of your infrastructure in these text files.
+
+23
+00:01:33,850 --> 00:01:35,860
+Templates they are called.
+
+24
+00:01:36,220 --> 00:01:38,670
+So if you're comfortable with JSON, you can go with JSON.
+
+25
+00:01:38,680 --> 00:01:40,870
+If you're comfortable with YAML, you can go with YAML.
+
+26
+00:01:40,900 --> 00:01:45,280
+I recommend YAML because it's much easier to read and write yaml.
+
+27
+00:01:46,610 --> 00:01:50,690
+So what templates does is it creates and maintains the stack.
+
+28
+00:01:52,160 --> 00:01:55,580
+So you want to create any resource or maintain any resource on it.
+
+29
+00:01:55,790 --> 00:02:01,610
+As you write, template file and cloud formation will read that and create a stack for you.
+
+30
+00:02:02,390 --> 00:02:06,650
+If you want to make any change to a resource like, for example, security group rules change.
+
+31
+00:02:06,650 --> 00:02:10,190
+So you update your template and then you update your stack.
+
+32
+00:02:10,220 --> 00:02:12,620
+So you stack will read your change template.
+
+33
+00:02:13,590 --> 00:02:16,860
+And make the changes or create or update your stack.
+
+34
+00:02:17,800 --> 00:02:24,100
+Stat is basically a single unit of multiple resources or even it could be a single resource as well.
+
+35
+00:02:24,220 --> 00:02:30,010
+Like you want to create easy to instance S3 bucket idea, so you can put all that in your template which
+
+36
+00:02:30,010 --> 00:02:31,540
+will create a stack for you.
+
+37
+00:02:32,470 --> 00:02:36,220
+And so you can see input is the template and output is the stack.
+
+38
+00:02:37,990 --> 00:02:38,950
+Change set.
+
+39
+00:02:38,950 --> 00:02:45,310
+I want to highlight very initially because when you maintain the state of your infrastructure through
+
+40
+00:02:45,310 --> 00:02:48,010
+template, you can very easily make changes.
+
+41
+00:02:48,010 --> 00:02:50,440
+You can update your stack by updating your template.
+
+42
+00:02:52,060 --> 00:02:55,030
+Before you roll out, that changes.
+
+43
+00:02:55,030 --> 00:02:58,510
+You can call for a change so that you can generate a change set.
+
+44
+00:02:58,990 --> 00:03:05,740
+So change that will detect the difference between what you what was the state and what you meant and
+
+45
+00:03:05,740 --> 00:03:06,940
+will show you the impact.
+
+46
+00:03:06,940 --> 00:03:10,720
+What impact will happen if you make all these changes.
+
+47
+00:03:11,380 --> 00:03:15,250
+This is very, very important thing for life systems, for productions.
+
+48
+00:03:16,060 --> 00:03:20,980
+For example, if you have an ideas and you're renaming an ideas, which is very easy to do in the template
+
+49
+00:03:20,980 --> 00:03:24,250
+file, it's a text file, you can very easily change the name, right?
+
+50
+00:03:24,280 --> 00:03:31,390
+But when you roll out that change in ideas, it's going to create a new, for instance, and delete
+
+51
+00:03:31,390 --> 00:03:32,140
+the old ones.
+
+52
+00:03:32,140 --> 00:03:33,700
+So it will delete your data.
+
+53
+00:03:35,350 --> 00:03:41,440
+If you have gone through a TerraForm plan, it's similar to that You plan first, you show the change
+
+54
+00:03:41,440 --> 00:03:43,270
+set, how it's going to impact.
+
+55
+00:03:43,270 --> 00:03:45,400
+If you're good with it, then you roll out.
+
+56
+00:03:46,240 --> 00:03:47,200
+Hours.
+
+57
+00:03:47,910 --> 00:03:49,560
+The result will be data loss.
+
+58
+00:03:50,900 --> 00:03:53,570
+Okay, now let's understand the template anatomy.
+
+59
+00:03:54,290 --> 00:03:56,630
+Now that's everything really of cloud formation.
+
+60
+00:03:56,630 --> 00:03:58,640
+You really need to learn the template.
+
+61
+00:03:59,900 --> 00:04:01,610
+So it supports Jason and Jamaal both.
+
+62
+00:04:01,610 --> 00:04:03,110
+Let's see for Jason.
+
+63
+00:04:03,590 --> 00:04:05,870
+Okay so that's in Jason format.
+
+64
+00:04:05,920 --> 00:04:09,010
+First thing you have is a template format version.
+
+65
+00:04:09,020 --> 00:04:10,520
+This is what you have to describe.
+
+66
+00:04:10,580 --> 00:04:16,399
+This is not mandatory, this is optional or all of them are optional except resource resource is the
+
+67
+00:04:16,399 --> 00:04:22,910
+only mandatory section in your template version is optional.
+
+68
+00:04:23,740 --> 00:04:24,340
+Description.
+
+69
+00:04:24,340 --> 00:04:26,370
+You can give some description about your template.
+
+70
+00:04:26,380 --> 00:04:32,770
+It's going to be a string metadata, some more information about your template parameters if you want
+
+71
+00:04:32,770 --> 00:04:33,730
+some input parameter.
+
+72
+00:04:33,730 --> 00:04:40,360
+When the user is creating the stack like key pair or select a security group, you can mention that
+
+73
+00:04:40,720 --> 00:04:41,800
+mappings.
+
+74
+00:04:41,950 --> 00:04:49,120
+So it will be the mapping of key value pairs store like a dictionary in python or a hash table or a
+
+75
+00:04:49,120 --> 00:04:50,170
+lookup table.
+
+76
+00:04:50,320 --> 00:04:53,890
+In TerraForm we create a variable of type map, so it's similar to that.
+
+77
+00:04:53,890 --> 00:04:59,170
+So based on condition, you can pick up the right value talking about conditions, that's the next thing.
+
+78
+00:04:59,170 --> 00:04:59,740
+Conditions.
+
+79
+00:04:59,740 --> 00:05:05,800
+You can specify a condition and based on the condition is true, it can create the stack or make some
+
+80
+00:05:05,800 --> 00:05:06,670
+other decision.
+
+81
+00:05:07,090 --> 00:05:14,980
+Transforms are good for serverless application where you can specify the version of a SAM Resources,
+
+82
+00:05:14,980 --> 00:05:21,430
+the only mandatory property over here where you define the resources easy to instance or load balancer
+
+83
+00:05:21,430 --> 00:05:24,130
+or S3 and their properties output.
+
+84
+00:05:24,130 --> 00:05:28,540
+If you want to print something out once your template is created or while it is creating.
+
+85
+00:05:28,870 --> 00:05:32,470
+So these are the section and accept resources.
+
+86
+00:05:32,470 --> 00:05:38,860
+All of them are optional and mostly we just give a little description and resources and if you want
+
+87
+00:05:38,860 --> 00:05:39,940
+we can print something.
+
+88
+00:05:40,450 --> 00:05:43,690
+And of course the parameters, these are regularly used things.
+
+89
+00:05:45,310 --> 00:05:46,900
+Same thing in a YAML format.
+
+90
+00:05:47,290 --> 00:05:48,940
+Much easier to read.
+
+91
+00:05:50,280 --> 00:05:51,930
+And easier to write also.
+
+92
+00:05:56,510 --> 00:05:56,990
+Okay.
+
+93
+00:05:57,020 --> 00:06:03,290
+Talking about resources, the most important thing and this is what actually makes your real stack in
+
+94
+00:06:03,290 --> 00:06:04,310
+JSON format.
+
+95
+00:06:04,790 --> 00:06:08,750
+So resource value in JSON format is again, a dictionary.
+
+96
+00:06:08,780 --> 00:06:14,390
+You give a logical ID, this will not be the name of your resource, but you know it's a reference in
+
+97
+00:06:14,390 --> 00:06:15,110
+your template.
+
+98
+00:06:15,110 --> 00:06:20,000
+This is not going to be the name of the resource that you create if you're creating an easy to instance,
+
+99
+00:06:20,210 --> 00:06:21,110
+logical ID.
+
+100
+00:06:21,140 --> 00:06:27,480
+If you go over here like example instance, so the instance name will not be example instance.
+
+101
+00:06:27,500 --> 00:06:30,590
+It is just a logical idea to refer in your template.
+
+102
+00:06:31,410 --> 00:06:37,020
+So you see a resource and then you can say like for example, some name over here and then you set type
+
+103
+00:06:37,020 --> 00:06:38,370
+resource type inside.
+
+104
+00:06:38,370 --> 00:06:45,990
+That resource type will be easy, for instance, or S3 bucket the services that you want to use and
+
+105
+00:06:45,990 --> 00:06:51,210
+then properties offered like for S3 bucket, any key that you want to create, any encryption that you
+
+106
+00:06:51,210 --> 00:06:52,080
+want to enable.
+
+107
+00:06:53,670 --> 00:06:55,560
+And that is in YAML format.
+
+108
+00:06:56,610 --> 00:07:05,310
+And we are going to use the YAML format only you see much easier to read and much easier to write resources
+
+109
+00:07:05,310 --> 00:07:06,330
+with some examples.
+
+110
+00:07:06,330 --> 00:07:08,110
+So I want to launch an easy to instance.
+
+111
+00:07:08,160 --> 00:07:10,980
+I'm going to say resources and it's case sensitive.
+
+112
+00:07:10,980 --> 00:07:12,570
+Our capital, the resources.
+
+113
+00:07:12,990 --> 00:07:19,050
+Then you give a logical ID, whatever name you want to give, type A colon, colon E to colon, colon
+
+114
+00:07:19,050 --> 00:07:21,900
+instance, and then properties.
+
+115
+00:07:22,140 --> 00:07:29,700
+So properties like image instance, type availability zone, VPC, security group keeper, all those
+
+116
+00:07:29,700 --> 00:07:34,290
+will be the properties and it's all available in the documentation.
+
+117
+00:07:34,710 --> 00:07:39,650
+It has all the great documentation as always for its services.
+
+118
+00:07:39,660 --> 00:07:43,710
+Cloud formation documents are also documentations are also very good.
+
+119
+00:07:43,740 --> 00:07:45,680
+The both in JSON and YAML format.
+
+120
+00:07:45,690 --> 00:07:47,940
+If you see YAML looks much better.
+
+121
+00:07:47,970 --> 00:07:54,120
+Let's take a look at the documentation, some sample from ADA plus documentation of cloud formation.
+
+122
+00:07:54,480 --> 00:07:57,390
+So it is documentation cloud formation, User guide.
+
+123
+00:07:57,600 --> 00:08:02,010
+You can find your resource like what you see right now is elastic IP.
+
+124
+00:08:03,250 --> 00:08:04,900
+So I'm going to scroll this up.
+
+125
+00:08:06,070 --> 00:08:08,400
+So you can read about it.
+
+126
+00:08:08,410 --> 00:08:10,510
+What this resource is for syntax.
+
+127
+00:08:10,510 --> 00:08:17,860
+You can see this is in JSON format and that's in YAML format properties domain instance ID and you can
+
+128
+00:08:17,860 --> 00:08:20,760
+see all the properties and their values that you can give.
+
+129
+00:08:20,770 --> 00:08:23,400
+Instance ID type is a string.
+
+130
+00:08:23,410 --> 00:08:24,250
+Is it required?
+
+131
+00:08:24,250 --> 00:08:25,480
+No, that's not mandatory.
+
+132
+00:08:25,480 --> 00:08:25,900
+Right.
+
+133
+00:08:25,900 --> 00:08:31,900
+So all the details are given tags and what it's going to return return value for reference.
+
+134
+00:08:33,270 --> 00:08:34,260
+Examples.
+
+135
+00:08:34,260 --> 00:08:40,380
+I directly jump to the examples, for example, in JSON format, an example in YAML format.
+
+136
+00:08:41,390 --> 00:08:45,080
+So like this, you can scroll through all the resources that you want.
+
+137
+00:08:45,850 --> 00:08:47,380
+So I'm checking for ec2.
+
+138
+00:08:47,410 --> 00:08:48,580
+You can check for other things.
+
+139
+00:08:48,580 --> 00:08:51,160
+X x elastic cache.
+
+140
+00:08:51,520 --> 00:08:52,420
+All of this.
+
+141
+00:08:53,630 --> 00:08:57,320
+So wouldn't be a big trouble to write really cloud formation templates.
+
+142
+00:09:00,000 --> 00:09:01,200
+One more example.
+
+143
+00:09:01,440 --> 00:09:09,030
+S3 bucket so resources a logical lady like my I'm giving like my S3 bucket type.
+
+144
+00:09:10,260 --> 00:09:10,460
+Eight.
+
+145
+00:09:11,010 --> 00:09:11,340
+Colon.
+
+146
+00:09:11,340 --> 00:09:11,940
+Colon x3.
+
+147
+00:09:11,940 --> 00:09:12,210
+Colon.
+
+148
+00:09:12,210 --> 00:09:12,840
+Colon bucket.
+
+149
+00:09:12,840 --> 00:09:18,090
+You can get that from the documentation for your resource properties and you can find all the properties
+
+150
+00:09:18,090 --> 00:09:20,640
+in the documentation and what value you can give.
+
+151
+00:09:21,410 --> 00:09:27,860
+He and I'm giving bucket name some bucket name access control, publicly read web configuration values
+
+152
+00:09:27,860 --> 00:09:32,810
+and other dictionaries of web configuration, then indentation index document and the document.
+
+153
+00:09:32,810 --> 00:09:38,030
+So this resource is going to create a bucket name chamomile, public REIT access, and it's going to
+
+154
+00:09:38,030 --> 00:09:41,780
+put this file for the website configuration.
+
+155
+00:09:42,620 --> 00:09:49,220
+Let's see one more example for security group resource or logical ID type.
+
+156
+00:09:49,370 --> 00:09:51,410
+Again, get this security group.
+
+157
+00:09:52,430 --> 00:09:57,170
+Resource name from the documentation properties and you can find all the properties like group description.
+
+158
+00:09:57,170 --> 00:09:59,450
+You can give its values a string.
+
+159
+00:10:00,310 --> 00:10:07,510
+Group name its values also string security group ingress ingress value IP protocol TCP from port the
+
+160
+00:10:07,510 --> 00:10:13,320
+port number two port, the two port number CIDR IP, and you can give the IP address.
+
+161
+00:10:13,330 --> 00:10:17,020
+I know you're thinking it looks more similar to TerraForm.
+
+162
+00:10:17,110 --> 00:10:22,990
+And so if you have if you have some hands on one of the tool or even if your hands on Ansible, you
+
+163
+00:10:22,990 --> 00:10:24,580
+can learn these very easily.
+
+164
+00:10:25,760 --> 00:10:28,130
+So I think that much introduction should be fine.
+
+165
+00:10:28,740 --> 00:10:32,070
+Let's jump into our ID and start writing some code.
+

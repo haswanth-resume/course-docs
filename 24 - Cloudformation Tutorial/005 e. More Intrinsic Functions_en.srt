@@ -1,0 +1,348 @@
+1
+00:00:00,510 --> 00:00:03,990
+So we have seen join intrinsic function previously.
+
+2
+00:00:05,150 --> 00:00:08,810
+In this video, we're going to see an intrinsic function ref.
+
+3
+00:00:10,580 --> 00:00:11,430
+As the name suggests.
+
+4
+00:00:11,430 --> 00:00:17,900
+Ref It refers something like you create a security group and then you want to refer that security group
+
+5
+00:00:17,900 --> 00:00:19,820
+while you're creating to instance.
+
+6
+00:00:20,510 --> 00:00:25,700
+So you want to refer an existing resource or a parameter while you're creating or making change to your
+
+7
+00:00:25,700 --> 00:00:26,630
+existing resource.
+
+8
+00:00:26,630 --> 00:00:28,400
+Then you can use a ref function.
+
+9
+00:00:28,430 --> 00:00:29,510
+Some examples.
+
+10
+00:00:29,510 --> 00:00:30,230
+Let's see.
+
+11
+00:00:34,120 --> 00:00:36,950
+So this is an example creating an elastic IP.
+
+12
+00:00:36,970 --> 00:00:42,460
+So logical ID is my IP here type easy to elastic IP properties.
+
+13
+00:00:42,580 --> 00:00:47,290
+So we want to here join this elastic or associate elastic IP.
+
+14
+00:00:48,450 --> 00:00:54,540
+Do an instance that you already have created, or we mentioned it in the same template.
+
+15
+00:00:54,540 --> 00:01:01,890
+So we can say Ref, we call this function and we give the logical ID of the resource.
+
+16
+00:01:02,640 --> 00:01:04,890
+We're going to do such kind of things in the next video.
+
+17
+00:01:04,890 --> 00:01:09,300
+In this video we'll see a very simple example of ref intrinsic function.
+
+18
+00:01:13,400 --> 00:01:14,840
+So I'll create a new file.
+
+19
+00:01:18,610 --> 00:01:25,700
+I've been named as a ref hyphen function dot AML.
+
+20
+00:01:30,170 --> 00:01:31,400
+I will use this.
+
+21
+00:01:34,870 --> 00:01:37,210
+So there's one function already, one interesting function.
+
+22
+00:01:37,210 --> 00:01:45,700
+Join over here and you can pass an argument like this in square bracket, but you can also pass in vertically
+
+23
+00:01:45,700 --> 00:01:47,350
+a proper YAML format.
+
+24
+00:01:50,420 --> 00:01:51,680
+John, delete this.
+
+25
+00:01:54,200 --> 00:01:59,300
+So first argument that I'm going to pass to Ref is join with the space.
+
+26
+00:01:59,750 --> 00:02:03,560
+And the next argument is a list.
+
+27
+00:02:03,560 --> 00:02:05,030
+Again, more arguments.
+
+28
+00:02:05,480 --> 00:02:07,130
+So I will join.
+
+29
+00:02:08,150 --> 00:02:15,500
+My v profile or my just instance in.
+
+30
+00:02:20,030 --> 00:02:23,900
+And here I will use the function.
+
+31
+00:02:24,050 --> 00:02:27,770
+So I don't have any other existing logical ID in this template.
+
+32
+00:02:28,670 --> 00:02:32,600
+So I'm going to use this plus colon.
+
+33
+00:02:32,600 --> 00:02:33,260
+Colon.
+
+34
+00:02:34,160 --> 00:02:35,030
+Region.
+
+35
+00:02:37,890 --> 00:02:41,640
+So as in this template, I don't have any other logical idea to refer.
+
+36
+00:02:41,700 --> 00:02:44,240
+So I'm referring an existing parameter.
+
+37
+00:02:44,250 --> 00:02:45,780
+This is a pseudo parameter.
+
+38
+00:02:46,810 --> 00:02:48,910
+You have some list of pseudo parameters.
+
+39
+00:02:49,790 --> 00:02:51,610
+Like account ID notification.
+
+40
+00:02:51,980 --> 00:02:52,460
+An.
+
+41
+00:02:53,510 --> 00:02:54,740
+No value.
+
+42
+00:02:55,580 --> 00:02:57,400
+Partition region.
+
+43
+00:02:57,410 --> 00:03:05,240
+So wherever this template will get executed, where the stack will get created so that region value
+
+44
+00:03:05,240 --> 00:03:06,200
+will be returned.
+
+45
+00:03:07,700 --> 00:03:08,400
+There are a few others.
+
+46
+00:03:08,420 --> 00:03:09,950
+Stack id stack name u.
+
+47
+00:03:09,950 --> 00:03:10,070
+R.
+
+48
+00:03:10,070 --> 00:03:10,940
+L suffix.
+
+49
+00:03:13,000 --> 00:03:14,050
+Okay, let's go ahead.
+
+50
+00:03:14,080 --> 00:03:15,040
+See if this.
+
+51
+00:03:16,790 --> 00:03:18,950
+And let's create a cloud formation stack.
+
+52
+00:03:18,980 --> 00:03:21,110
+I'm doing it in Mumbai region.
+
+53
+00:03:22,010 --> 00:03:23,180
+Let's create stack.
+
+54
+00:03:23,940 --> 00:03:25,230
+Upload my template.
+
+55
+00:03:28,420 --> 00:03:29,530
+The rare function.
+
+56
+00:03:33,060 --> 00:03:33,930
+Go next.
+
+57
+00:03:51,470 --> 00:03:52,910
+Let's wait for a moment.
+
+58
+00:03:54,670 --> 00:03:57,220
+And there is a failure rollback.
+
+59
+00:03:58,320 --> 00:04:01,950
+So if the template creation if the stack creation fails.
+
+60
+00:04:02,770 --> 00:04:06,250
+It will roll back your changes automatically.
+
+61
+00:04:07,000 --> 00:04:08,190
+You can see the error.
+
+62
+00:04:08,200 --> 00:04:11,770
+It says Wrong army ID This army does not exist.
+
+63
+00:04:11,770 --> 00:04:13,570
+This army is from.
+
+64
+00:04:14,870 --> 00:04:19,490
+Oregon region and of course in Mumbai region, the Ahmed will be different.
+
+65
+00:04:19,490 --> 00:04:20,750
+So let's find.
+
+66
+00:04:21,740 --> 00:04:22,880
+And why I'd.
+
+67
+00:04:24,390 --> 00:04:25,410
+Let's copy that.
+
+68
+00:04:26,920 --> 00:04:28,750
+Let's update that in our template.
+
+69
+00:04:31,040 --> 00:04:31,820
+Save it.
+
+70
+00:04:32,660 --> 00:04:33,620
+Let's go back.
+
+71
+00:04:38,430 --> 00:04:40,260
+So a rollback is completed.
+
+72
+00:04:41,370 --> 00:04:42,910
+But you should still see this tag.
+
+73
+00:04:42,930 --> 00:04:45,690
+It should have not created any resource.
+
+74
+00:04:46,140 --> 00:04:47,730
+So I'm going to delete this tag.
+
+75
+00:04:50,430 --> 00:04:51,450
+Stacks gone.
+
+76
+00:04:52,990 --> 00:04:54,430
+Let's create a new stack.
+
+77
+00:05:21,450 --> 00:05:22,920
+Let's wait for a moment.
+
+78
+00:05:25,400 --> 00:05:25,970
+Yes, it is.
+
+79
+00:05:25,970 --> 00:05:26,800
+Create complete.
+
+80
+00:05:26,810 --> 00:05:28,610
+Let's check our instance.
+
+81
+00:05:29,400 --> 00:05:33,840
+The Mumbai region and its name and you see there.
+
+82
+00:05:35,450 --> 00:05:39,320
+So we are referring to a parameter pseudo parameter.
+
+83
+00:05:40,450 --> 00:05:43,510
+So it automatically got the region ID there.
+
+84
+00:05:48,090 --> 00:05:51,440
+In next example where we also going to create security group.
+
+85
+00:05:51,450 --> 00:05:55,860
+We'll see how we can refer like this security group for an easy to instance.
+
+86
+00:05:57,170 --> 00:06:00,560
+So if you're done here, delete your stack.
+
+87
+00:06:05,070 --> 00:06:06,810
+And join me in the next video.
+

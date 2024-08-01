@@ -1,0 +1,964 @@
+1
+00:00:00,770 --> 00:00:07,110
+Okay, so template anatomy we have already seen now resources, which is mandatory.
+
+2
+00:00:07,130 --> 00:00:08,690
+You have seen mappings.
+
+3
+00:00:09,500 --> 00:00:11,990
+We have seen parameters and we have seen outputs.
+
+4
+00:00:12,020 --> 00:00:14,840
+In this video, we're going to talk about metadata.
+
+5
+00:00:17,010 --> 00:00:24,000
+This is helpful, especially when you're using easy to instance and there is in it.
+
+6
+00:00:25,020 --> 00:00:30,510
+Scripts which are really helper script that can initialize your instance or you can see provision easy
+
+7
+00:00:30,510 --> 00:00:37,560
+to instance with some data like you want to install packages, push some file, start the service.
+
+8
+00:00:38,720 --> 00:00:40,610
+So there is a now.
+
+9
+00:00:40,700 --> 00:00:45,620
+See if an inmate is going to be held per script which will execute your.
+
+10
+00:00:46,310 --> 00:00:48,000
+Metadata that you have mentioned.
+
+11
+00:00:48,020 --> 00:00:49,640
+So let's see the syntax.
+
+12
+00:00:50,380 --> 00:00:51,550
+That's Jason.
+
+13
+00:00:52,090 --> 00:00:52,960
+That's YAML.
+
+14
+00:00:53,350 --> 00:00:55,550
+This is mostly supported for the Linux machine.
+
+15
+00:00:55,570 --> 00:00:59,980
+There is also support for Windows machine, but there are some dependencies.
+
+16
+00:01:02,080 --> 00:01:05,500
+As it says, all metadata types for Linux system.
+
+17
+00:01:05,500 --> 00:01:09,550
+Its support metadata is for Windows with conditions that are described.
+
+18
+00:01:09,550 --> 00:01:11,560
+So we're seeing Linux system.
+
+19
+00:01:11,560 --> 00:01:12,940
+So it will be convenient.
+
+20
+00:01:14,910 --> 00:01:21,480
+So when you declare your resource, of instance logical lady, the type you can give metadata.
+
+21
+00:01:22,950 --> 00:01:24,300
+Cloud formation in it.
+
+22
+00:01:25,200 --> 00:01:27,060
+So you have a lot of things over here.
+
+23
+00:01:27,060 --> 00:01:28,260
+You have config.
+
+24
+00:01:29,420 --> 00:01:30,050
+Packages.
+
+25
+00:01:30,050 --> 00:01:37,940
+So the list of packages that you want to install, groups that you want to create or destroy users sources.
+
+26
+00:01:38,750 --> 00:01:40,700
+Files that you want to push.
+
+27
+00:01:41,720 --> 00:01:45,950
+Commands that you want to execute, just raw command shell commands that you can mention, right.
+
+28
+00:01:46,250 --> 00:01:49,910
+Services, any service that you want to make sure it's up and running.
+
+29
+00:01:50,420 --> 00:01:50,840
+Right.
+
+30
+00:01:52,320 --> 00:01:54,060
+So let's see an example.
+
+31
+00:01:55,470 --> 00:01:58,350
+That is better commands, test commands.
+
+32
+00:01:58,350 --> 00:02:02,550
+So it will execute this command environment variable.
+
+33
+00:02:02,550 --> 00:02:03,450
+It is setting.
+
+34
+00:02:04,390 --> 00:02:06,580
+Current working directory will be home directory.
+
+35
+00:02:07,150 --> 00:02:08,500
+Again, few more commands.
+
+36
+00:02:08,500 --> 00:02:09,580
+Similar things.
+
+37
+00:02:10,449 --> 00:02:11,230
+He commands.
+
+38
+00:02:11,230 --> 00:02:12,810
+There are also a few more examples.
+
+39
+00:02:12,820 --> 00:02:13,650
+Ignore errors.
+
+40
+00:02:13,660 --> 00:02:15,040
+You can ignore the errors.
+
+41
+00:02:15,550 --> 00:02:17,170
+You can run some test also.
+
+42
+00:02:18,030 --> 00:02:20,130
+Files if you want to push some file.
+
+43
+00:02:20,250 --> 00:02:28,440
+So file that's JSON files, part of the file content and you start your content from here to here.
+
+44
+00:02:28,440 --> 00:02:35,010
+So it's going to create this file with this data and can also set the permission ownership and the group.
+
+45
+00:02:35,930 --> 00:02:41,150
+For example, for groups you can create groups like this can specify the group ID as well.
+
+46
+00:02:41,780 --> 00:02:42,830
+Packages.
+
+47
+00:02:44,590 --> 00:02:48,880
+You do install some package by using rpm e pl you can give.
+
+48
+00:02:49,720 --> 00:02:51,130
+The repository.
+
+49
+00:02:51,880 --> 00:02:54,820
+Ah the package link to download Yum.
+
+50
+00:02:54,850 --> 00:03:03,250
+You can use the package manager and you can say I want to DPD, php, WordPress or you also have Ruby
+
+51
+00:03:03,250 --> 00:03:03,630
+gems.
+
+52
+00:03:03,650 --> 00:03:05,230
+You can install Ruby gems.
+
+53
+00:03:06,370 --> 00:03:07,420
+Like chef.
+
+54
+00:03:08,810 --> 00:03:10,640
+This is for my windows.
+
+55
+00:03:12,030 --> 00:03:13,260
+Services.
+
+56
+00:03:16,610 --> 00:03:23,120
+You want to make sure a particular service is up and running, like service as you see in it, you give
+
+57
+00:03:23,120 --> 00:03:29,030
+a name of a service like Engine X enable to ensure running true, so it will start and enable the service.
+
+58
+00:03:29,750 --> 00:03:34,340
+And you can also point out the configuration file if you want, and also the source.
+
+59
+00:03:36,130 --> 00:03:36,490
+Like that.
+
+60
+00:03:36,490 --> 00:03:39,850
+Other services is some PHP service or send mail service.
+
+61
+00:03:41,980 --> 00:03:43,870
+And that's Windows example.
+
+62
+00:03:45,200 --> 00:03:52,640
+Sources can turn out to be useful when you want to use when you want to clone the source code from GitHub.
+
+63
+00:03:54,380 --> 00:03:56,090
+Are also these S3 bucket.
+
+64
+00:03:57,070 --> 00:03:59,620
+So it's going to download your data from the S3 bucket.
+
+65
+00:04:00,680 --> 00:04:02,960
+Users if you want to create user.
+
+66
+00:04:03,930 --> 00:04:08,250
+And this user with this group, this is the user ID home directory.
+
+67
+00:04:08,970 --> 00:04:10,620
+So it's giving really a lot of support.
+
+68
+00:04:10,920 --> 00:04:19,829
+You for for basic service setup, you don't need to use any automation tool like Ansible or anything
+
+69
+00:04:20,220 --> 00:04:23,150
+or even your bad scripts or Python scripts.
+
+70
+00:04:23,160 --> 00:04:29,220
+You can use metadata, you can use the init helper script and it can provision everything for you as
+
+71
+00:04:29,220 --> 00:04:31,170
+much as it can do and any ways it had.
+
+72
+00:04:31,320 --> 00:04:34,590
+It has all the support for command, so you can just run commands as well.
+
+73
+00:04:35,130 --> 00:04:36,870
+So let's take an example now.
+
+74
+00:04:43,640 --> 00:04:45,230
+And let's name it us in it.
+
+75
+00:04:47,130 --> 00:04:48,600
+Dot Jamil.
+
+76
+00:04:51,010 --> 00:04:51,250
+Okay.
+
+77
+00:04:51,270 --> 00:04:57,300
+We'll take everything from the previous template, which was print output pasted there.
+
+78
+00:05:00,730 --> 00:05:07,180
+Okay, so my instance does a logical lady just after the type I'm going to say.
+
+79
+00:05:07,970 --> 00:05:09,260
+Metadata.
+
+80
+00:05:13,300 --> 00:05:14,920
+Okay, I'll cop it from here.
+
+81
+00:05:18,320 --> 00:05:19,850
+I will say here config.
+
+82
+00:05:21,100 --> 00:05:24,010
+And then I can give all that package.
+
+83
+00:05:25,720 --> 00:05:26,770
+I could just.
+
+84
+00:05:27,900 --> 00:05:31,400
+Packages and groups, users, commands, files.
+
+85
+00:05:31,410 --> 00:05:33,120
+I can mention all those configs.
+
+86
+00:05:33,120 --> 00:05:35,100
+So this is just one config key.
+
+87
+00:05:35,100 --> 00:05:38,760
+If you want multiple configs, you can create config set.
+
+88
+00:05:39,390 --> 00:05:42,060
+Like I'm saying, this is one single config key.
+
+89
+00:05:43,130 --> 00:05:49,220
+Which has packages and I can create an insert that I can have groups, users.
+
+90
+00:05:50,940 --> 00:05:53,460
+Files that I want to push or create.
+
+91
+00:05:54,820 --> 00:05:56,530
+Commands that I want to run.
+
+92
+00:05:58,780 --> 00:06:00,700
+So let's say I want to run this configuration.
+
+93
+00:06:00,700 --> 00:06:02,680
+So this is one config set like that.
+
+94
+00:06:02,680 --> 00:06:06,010
+You can create multiple config set and you can decide the order also.
+
+95
+00:06:06,550 --> 00:06:08,320
+Let's check that from documentation.
+
+96
+00:06:08,320 --> 00:06:13,510
+So config, single config key and then you can give all your packages, groups, resource sources,
+
+97
+00:06:13,510 --> 00:06:15,130
+files, command services.
+
+98
+00:06:15,790 --> 00:06:18,640
+So that is for one single, but you can create multiple config set.
+
+99
+00:06:18,640 --> 00:06:23,080
+Also like in this example you have config sets and ascending.
+
+100
+00:06:23,080 --> 00:06:25,270
+You say this is first config, second config.
+
+101
+00:06:25,270 --> 00:06:26,350
+So config one.
+
+102
+00:06:26,560 --> 00:06:29,830
+So this is one config, this is second config.
+
+103
+00:06:29,830 --> 00:06:31,180
+You can give any name you want.
+
+104
+00:06:31,720 --> 00:06:36,790
+So based on the requirement, you can then say config sets and you can give the order in which order
+
+105
+00:06:36,790 --> 00:06:37,990
+you want to call this config.
+
+106
+00:06:38,860 --> 00:06:43,960
+So we'll just have one single config going to install some package, you're going to create some files
+
+107
+00:06:43,960 --> 00:06:45,220
+and run some commands.
+
+108
+00:06:48,600 --> 00:06:49,590
+Mignolet that.
+
+109
+00:06:53,110 --> 00:06:56,530
+So Amazon Linux, we can use yum yum.
+
+110
+00:06:57,190 --> 00:06:59,950
+And I want to install package PHP.
+
+111
+00:07:01,740 --> 00:07:04,410
+And I want to install hpdi.
+
+112
+00:07:07,510 --> 00:07:09,400
+And I want to w get.
+
+113
+00:07:11,430 --> 00:07:14,580
+Unzip and get with no special options.
+
+114
+00:07:15,710 --> 00:07:16,430
+After that.
+
+115
+00:07:16,430 --> 00:07:18,920
+I would also like to execute some commands.
+
+116
+00:07:19,220 --> 00:07:23,720
+So the same list, same line as the packages, I'm going to say commands.
+
+117
+00:07:27,760 --> 00:07:29,860
+And I want to see test.
+
+118
+00:07:40,410 --> 00:07:43,560
+Okay, so I have written a command which is going to download.
+
+119
+00:07:45,610 --> 00:07:56,680
+And its HTML template from 28. com and unzip it and then copy all the content from that to dub dub HTML.
+
+120
+00:08:01,390 --> 00:08:03,940
+I would also like to create some files.
+
+121
+00:08:03,940 --> 00:08:05,500
+So you say files.
+
+122
+00:08:06,070 --> 00:08:06,850
+So file.
+
+123
+00:08:06,850 --> 00:08:13,540
+I'm going to see this file path colon content sub, which is an intrinsic function which just says,
+
+124
+00:08:13,540 --> 00:08:16,990
+you know, this is the value of the content.
+
+125
+00:08:18,220 --> 00:08:25,270
+So an HTML file, some HTML content there, then also services CSV in it.
+
+126
+00:08:25,990 --> 00:08:27,820
+It should be indented.
+
+127
+00:08:31,530 --> 00:08:34,600
+Let's check if it's in the same line as the files.
+
+128
+00:08:34,620 --> 00:08:39,690
+Yes, it is, but files is not in the same line as the commands.
+
+129
+00:08:43,260 --> 00:08:47,400
+So we have to bring the right indentation for the services.
+
+130
+00:08:48,880 --> 00:08:50,840
+Okay, let's check everything once again.
+
+131
+00:08:50,860 --> 00:08:51,820
+Packages.
+
+132
+00:08:52,360 --> 00:08:53,050
+So config.
+
+133
+00:08:53,050 --> 00:08:54,460
+You have packages.
+
+134
+00:08:54,800 --> 00:08:55,750
+Commands.
+
+135
+00:08:55,780 --> 00:09:01,930
+Files given services and you can give other things like users groups.
+
+136
+00:09:01,960 --> 00:09:07,590
+Now this is the metadata that I created, but I also have to call this metadata.
+
+137
+00:09:07,600 --> 00:09:12,910
+So you need script is a helper script that can call this metadata and run it.
+
+138
+00:09:13,300 --> 00:09:18,340
+So when my instance comes up, I want to execute some commands so we can use user data.
+
+139
+00:09:19,240 --> 00:09:21,400
+So let's mention some user data.
+
+140
+00:09:21,460 --> 00:09:29,170
+This user data will mention the CFN in it helper script path and the config that it has to execute.
+
+141
+00:09:29,410 --> 00:09:31,840
+So we are going to see the property user.
+
+142
+00:09:32,860 --> 00:09:33,520
+Data.
+
+143
+00:09:35,610 --> 00:09:42,150
+So we want to pass the user data and base 64 format so we can use a function based 64 function, intrinsic
+
+144
+00:09:42,150 --> 00:09:42,540
+function.
+
+145
+00:09:42,540 --> 00:09:47,940
+And there's also one more way we've been using this method ref, but you can also call function like
+
+146
+00:09:47,940 --> 00:09:48,510
+this.
+
+147
+00:09:49,100 --> 00:09:51,660
+You can see FN double quotes.
+
+148
+00:09:52,490 --> 00:09:54,950
+Bass, 64.
+
+149
+00:09:56,660 --> 00:10:00,980
+So when we are calling it in the next line, when you're intending it, then this is how we call the
+
+150
+00:10:00,980 --> 00:10:04,190
+function or otherwise you can use a ref also.
+
+151
+00:10:05,680 --> 00:10:07,900
+And to that, I'm going to insert that.
+
+152
+00:10:07,900 --> 00:10:14,290
+I'm going to call one more function sub, which is going to present this string to the basics and convert
+
+153
+00:10:14,290 --> 00:10:15,430
+it into base 64.
+
+154
+00:10:15,880 --> 00:10:17,580
+So this is going to be the user data.
+
+155
+00:10:17,590 --> 00:10:19,210
+We're going to invoke the bash shell.
+
+156
+00:10:19,690 --> 00:10:23,050
+We're going to update a WCF and bootstrap.
+
+157
+00:10:23,200 --> 00:10:28,780
+So this is the helper script and this is the part of the C CFA, any helper script.
+
+158
+00:10:29,020 --> 00:10:32,380
+And we call this this, this binary file.
+
+159
+00:10:33,670 --> 00:10:36,390
+Hyphen v and we give the stack name, hyphen, hyphen stack.
+
+160
+00:10:36,400 --> 00:10:38,440
+Now you don't need to give the stack name.
+
+161
+00:10:38,440 --> 00:10:40,480
+You can use this method.
+
+162
+00:10:41,020 --> 00:10:42,550
+Like this is like reference.
+
+163
+00:10:42,550 --> 00:10:48,430
+One more way of doing a reference like we say ref and we give the logical id like that.
+
+164
+00:10:48,430 --> 00:10:55,840
+So this is going to return the logical id hyphen and resource and you give the logical ID web server
+
+165
+00:10:55,840 --> 00:10:59,830
+directly can give, and that's the logical ID for us.
+
+166
+00:11:00,930 --> 00:11:02,370
+For instance, web server.
+
+167
+00:11:07,850 --> 00:11:12,260
+Hyphen region and this is going to anyways get the region for you.
+
+168
+00:11:12,770 --> 00:11:15,560
+So this should execute your any data.
+
+169
+00:11:16,160 --> 00:11:21,110
+So once the instance comes up, this command gets executed and your init data will get executed.
+
+170
+00:11:21,230 --> 00:11:24,030
+After this, whether it completed successfully or not.
+
+171
+00:11:24,050 --> 00:11:25,580
+That also you can verify.
+
+172
+00:11:26,030 --> 00:11:30,050
+So you can again call the c f and signal binary.
+
+173
+00:11:30,810 --> 00:11:31,400
+Hyphen.
+
+174
+00:11:31,420 --> 00:11:33,990
+E It's going to return the exit code dollar question mark.
+
+175
+00:11:33,990 --> 00:11:39,930
+So if this completed successfully, the dollar question mark value will be zero in the script.
+
+176
+00:11:40,440 --> 00:11:43,830
+And if it fails, then it's going to be having non zero.
+
+177
+00:11:43,830 --> 00:11:47,400
+So it's going to send this exit code to our stack.
+
+178
+00:11:48,670 --> 00:11:49,060
+Okay.
+
+179
+00:11:49,090 --> 00:11:54,340
+Now, if if it gets a non zero, then we can see our cloud formation stack failing.
+
+180
+00:11:56,490 --> 00:12:02,970
+So this is going to execute the data and this is going to send the information in exit code.
+
+181
+00:12:03,270 --> 00:12:07,950
+So if you sense zero, it's a successful if it's if it sends non zero, it's a failure.
+
+182
+00:12:07,950 --> 00:12:10,260
+And you can your stack can then roll back.
+
+183
+00:12:11,130 --> 00:12:12,240
+This should be fine.
+
+184
+00:12:13,550 --> 00:12:17,480
+Security group and then print data attribute web server, public DNS name.
+
+185
+00:12:17,480 --> 00:12:19,370
+So we get an output public DNS name.
+
+186
+00:12:19,370 --> 00:12:24,890
+We can then click the link and from the browser we can see other whether our website is up or not.
+
+187
+00:12:24,890 --> 00:12:27,440
+So we should see a website from two paycom.
+
+188
+00:12:27,440 --> 00:12:30,380
+Jim So which are downloading and extracting it.
+
+189
+00:12:30,380 --> 00:12:32,270
+And we should also see this file.
+
+190
+00:12:32,270 --> 00:12:33,440
+Hello dot HTML.
+
+191
+00:12:33,470 --> 00:12:35,780
+So let's save this and let's try this.
+
+192
+00:12:36,710 --> 00:12:42,440
+I'm in Ireland region and I also have in my template mentioned.
+
+193
+00:12:43,830 --> 00:12:46,560
+The EU West one amity.
+
+194
+00:12:49,080 --> 00:12:50,850
+So I can use it in Ireland region.
+
+195
+00:12:50,850 --> 00:12:53,010
+It's going to launch that EMI.
+
+196
+00:12:56,340 --> 00:12:57,710
+And it will.
+
+197
+00:12:59,530 --> 00:13:00,430
+Let's go next.
+
+198
+00:13:01,510 --> 00:13:07,420
+Let's cue the stack name Dest in it metadata.
+
+199
+00:13:10,460 --> 00:13:10,760
+Key.
+
+200
+00:13:10,760 --> 00:13:13,670
+I'll select the profile key name of the service.
+
+201
+00:13:15,220 --> 00:13:18,580
+Testing in IT data.
+
+202
+00:13:21,000 --> 00:13:21,910
+I also say Jim.
+
+203
+00:13:21,910 --> 00:13:22,630
+So.
+
+204
+00:13:32,340 --> 00:13:35,370
+Risk taking all defaults, let's say create stag and we'll leave.
+
+205
+00:13:35,370 --> 00:13:36,180
+Wait for a moment.
+
+206
+00:13:36,180 --> 00:13:40,680
+Once the stack is up, we should get the public DNS name.
+
+207
+00:13:40,680 --> 00:13:43,200
+You can click on it and we can see the website live.
+
+208
+00:13:44,830 --> 00:13:46,720
+Okay, so it completed successfully.
+
+209
+00:13:46,720 --> 00:13:48,070
+Let me click on outputs.
+
+210
+00:13:48,070 --> 00:13:49,600
+So we see the public DNS name.
+
+211
+00:13:49,600 --> 00:13:52,960
+Let's click on that to show the website.
+
+212
+00:13:53,110 --> 00:13:53,650
+There we go.
+
+213
+00:13:53,680 --> 00:13:55,180
+Jim So fitness, so that's the template.
+
+214
+00:13:55,180 --> 00:13:58,010
+We download it from to plate dot com, right?
+
+215
+00:13:58,050 --> 00:13:59,860
+We mentioned that in our template.
+
+216
+00:14:03,320 --> 00:14:08,600
+Yes, we download it and then we have extracted it, unzipped it.
+
+217
+00:14:09,710 --> 00:14:10,220
+All right.
+
+218
+00:14:10,670 --> 00:14:15,350
+And then we copied all the content to var HTML.
+
+219
+00:14:15,620 --> 00:14:16,340
+Oops.
+
+220
+00:14:18,090 --> 00:14:18,600
+Yeah.
+
+221
+00:14:19,050 --> 00:14:21,240
+After that, we also create this file.
+
+222
+00:14:21,240 --> 00:14:24,540
+So we should also see this file and skip that part.
+
+223
+00:14:27,200 --> 00:14:29,690
+Slash yellow dot HTML.
+
+224
+00:14:30,830 --> 00:14:33,080
+So much HTML content, you can really give anything.
+
+225
+00:14:33,320 --> 00:14:37,040
+So just testing just the proof that the file got created that content.
+
+226
+00:14:37,880 --> 00:14:38,150
+Right.
+
+227
+00:14:38,150 --> 00:14:38,450
+So.
+
+228
+00:14:39,940 --> 00:14:42,090
+So that's metadata in it.
+
+229
+00:14:42,100 --> 00:14:43,450
+Script how to call.
+
+230
+00:14:43,950 --> 00:14:48,250
+Now we are defining the metadata and then we are calling it.
+
+231
+00:14:48,610 --> 00:14:49,150
+Right.
+
+232
+00:14:49,390 --> 00:14:53,710
+If you're thinking that, why not like, directly give it over here, Write all the commands over here
+
+233
+00:14:53,710 --> 00:14:54,820
+in the user data.
+
+234
+00:14:54,850 --> 00:14:55,930
+Well, we can do that.
+
+235
+00:14:55,930 --> 00:15:02,260
+But then if anything fails over there, we cannot pass the signal with C and signal and we see if any
+
+236
+00:15:02,260 --> 00:15:07,450
+in it we can call it and then see if and signal we can pass the exit code to the cloud formation stack.
+
+237
+00:15:07,480 --> 00:15:13,020
+If anything fails, then cloud formation stack will show you a failure and it can also roll back.
+
+238
+00:15:13,030 --> 00:15:17,590
+So that's the benefits of using an IT metadata and in its script.
+
+239
+00:15:18,340 --> 00:15:22,150
+Okay, So if you're done testing this, then you can delete the stack.
+
+240
+00:15:27,230 --> 00:15:28,850
+And that should be all in this video.
+
+241
+00:15:28,880 --> 00:15:30,230
+I will see you in the next one.
+
