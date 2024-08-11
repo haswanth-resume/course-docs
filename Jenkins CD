@@ -1,0 +1,23 @@
+go to vproject repo and select docker branch, download and extract
+copy the dockerfiles into repo in local
+mkdir StagePipeline ProdPipeline
+cp Jenkinsfile StagePipeline/
+cp Jenkinsfile ProdPipeline/
+git rm Jenkinsfile
+git add .
+git commit -m "CI/CD"
+git push origin cicd-jenkins
+create a user EC2ContainerRegistry, ECS_FullAccess
+Create private ECR 
+goto Jenkins server and manage Jenkins add docker pipeline, docker build and publish, amazon ECR, pipeline: AWS Steps
+Add AWS credentials in Credentials 
+Install DockerEngine in Jenkins server
+usermod -aG docker Jenkins
+Note : We are running docker in Jenkins so we need Docker Engine for running Docker Image created by Docker commands
+systemctl restart Jenkins
+open vs code and goto dockerfiles check the code
+Add Build and Upload Image code in StagePipeline Jenkinsfile
+Create a ECS cluster, create task definition and create service
+Add Deploy code in StagePipeline Jenkinsfile
+
+
