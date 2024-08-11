@@ -1,0 +1,78 @@
+MiniKube:
+Install Minikube using Kubernetes.io in local
+git clone url
+git checkout kubernetes-setup
+cd minikube
+minikube start
+kubectl get nodes
+cat .kube/config
+kubectl.exe get nodes
+kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.10
+kubectl.exe get pod
+kubectl.exe get deploy
+kubectl expose deployment hello-minikube --type=NodePort --port=8080
+minikube service hello-minikube --url
+kubectl.exe get svc
+kubectl.exe delete svc hello-minikube
+kubectl.exe get deploy
+kubectl.exe delete deploy hello-minikube
+minikube.exe stop
+minikube.exe delete
+
+KubeADM(1 master 2 worker):
+
+
+Kops Kubernetes:
+
+Prerequisites:
+Domain for Kubernetes
+Linux VM
+S3, Route 53, IAM role
+
+Install Kubectl and Kops using Kubernetes.io in server
+
+kops cluster --name=kubevpro.groophy.in \
+--state=s3://vprofile-kop-states --zone=us-east-sa,us-east-2b\
+--node-count=2 --node-size=t3.small --master-size=t3.medium --dns-zone=kubevpro.groophy.in \
+--node-volume-size=8 --master-volume-size=8
+kops create command
+kops update command with s3 bucket
+kops validate command
+kubectl get nodes
+
+kubectl delete command 
+
+
+
+Amazon Elastic Kubernetes Service
+
+Prerequisites:
+Kubernetes Cluster 
+Containerized apps
+Create EBS volume for DB Pod
+LABEL Node with zones names
+
+Kubernetes Objectives:
+Deployment 
+Service
+Secret
+Volume
+
+
+Create a server and install Kops
+login and create cluster 
+kops validate cluster
+create ebs volume and take volumeid
+label all nodes
+add app-secret.yaml
+add dbdeployment.yaml
+add db-CIP.yaml
+add mc-CIP.yaml
+add mcdep.yaml
+add rmq-dep.yaml
+add rmq-CIP.yaml
+add vproappdep.yaml
+add vproapp-service.yaml
+kubectl apply -f .
+In route53 add loadbalancer to record
+kubectl delete -f .
