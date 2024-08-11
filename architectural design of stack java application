@@ -1,0 +1,64 @@
+architectural design of AWS:
+ec2 instances
+three separate security groups(security groups for load balancer, Tomcat and backend services)
+Amazon Route 53 for DNS Private Zones (We will update IP to name mapping in Route 53)
+S3 for storage (we upload our artifact to a s3 bucket From S3 bucket we will download our artifact to ec2 instance, where tomcat service will be running.)
+elastic load balancer (Then we'll set up a load balancer with https connection, Will map our elastic load balancer and point to a website in GoDaddy DNS and will verify)
+Amazon certificate manager and Route 53 service.
+
+Load Balancer
+80-IPV4,IV6  (temporary)
+443-HTTPS 
+
+
+8080- Tomcat Apache+ sg of Load balancer
+
+
+3306-Mysql+ sg of Load balancer
+11211-MemeChace+ sg of Load balancer
+5672-RabbitMQ+ sg of Load balancer
+Add self own security group to communicate between servers
+22-ssh to connect
+
+
+
+create a ec2 instance for MySQL server and select backend security group
+in  user data copy and in advance details paste the MySQL.sh script and launch instance
+connect and check into server whether db is running or not
+
+create a ec2 instance for memecache.sh and select backend security group
+in  user data copy and in advance details paste the memecache.sh script and launch instance
+
+create a ec2 instance for RabbitMQ and select backend security group
+in  user data copy and in advance details paste the RabbitMQ.sh script and launch instance
+
+
+In Route53 create hosted zone, Copy the Ip address and create records(used for ip mapping used for tomcat ec2(in application properties we mention the same)), paste in Route53
+
+create a ec2 instance for tomcat server and select tomcat security group
+in  user data copy and in advance details paste the tomcat_ubuntu.sh script and launch instance
+
+build in local and deploy artifact into ec2 instance
+install jdk and maven tools in local 
+change the dbname, memcache name in application properties as per route53(ex: db01 to db01.vprofile.in) 
+go back folder having pom.xml i.e, userdata/  and run command "mvn install" it will create a artifact
+upload war file which from target folder artifact into aws s3 bucket through awscli, create a user for uploading into s3
+create a role to ec2 instance for downloading war file from s3 bucket
+remove default application in tomcat server by going into /var/lib/tomcat8 and cd webapps/ rm -rf ROOT 
+install aws cli and download using command aws s3 source path /tmp/.war 
+cp /tmp/.war /var/lib/tomcat8/webapps/ROOT.war and start tomcat8 service
+use telnet for network connection command: telnet db01.vprofile in 3306
+
+Load Balancer and DNS:
+create target groups and port 8080 and healthcheck 8080 port and select tomcat application server
+create load balancer select loadbalancer security group and add listener and add SSL/TLS certicate from ACM and create load balancer
+get endpoint and in domain provider add cname, host, points to record 
+
+
+Autoscaling group
+create an ami from of image of tomcat ec2 instance
+in Launch Configuration select ami and select instance type select IAM role and select security group of tomcat server and launch it
+create autoscaling group give name, select Launch Configuration that we created select all subnets, enable load balancer add health checks select desired capacity and create
+
+
+
