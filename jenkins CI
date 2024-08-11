@@ -1,0 +1,54 @@
+create key pair
+create security group for Jenkins
+add Inbound rules of 8080 anywhere from IPV4 and IPV6, 22
+create security group for Nexus
+add Inbound rules of 8081,22 and sg of Jenkins,
+create security group for Sonar
+add Inbound rules of 22, 80 from myip and sg of Jenkins
+create the ec2 instances using bash scripts userdata in CI-Jenkins repo
+connect to jenkins server and install Maven Integration, GitHub Integration, Nexus Artifact Uploader, SonarQube Scanner, Slack Notification, timestamp plugins
+Connect to Nexus server and create a repository of nexus2(hosted) give name, create a repository of nexus2(proxy) give name(store dependencies), create a repository of nexus2(group) to group all repos
+Connect to SonarQube
+Migrate the project from GitHub public to private repo
+got to local give ssh-keygen it will generate an authorized key in c/users/haswanth/.ssh/id_rsa.pub(always public key)
+cat ~/.sshid_rsa.pub copy the code and paste in ssh keys settings.
+go to any folder and clone the repo
+cat .git/config (to show the current repo)
+git remote set-URL origin new URL
+git branch -c main
+git checkout main
+git checkout ci-Jenkins
+git push -all origin
+code .
+open Jenkins server and add tools Maven and JDK
+to save the nexus login credentials go to manage credentials and the nexus login details
+In Jenkins create a pipeline and add git repo with private rsa key which we generated earlier it will throw error because of identity not stored of GitHub in jenkins
+connect to Jenkins server and give commands:
+sudo -i
+su -Jenkins
+git ls-remote -h URL HEAD
+now got Jenkins again run the pipeline
+we are automating the pipeline whenever commit happens so go to GitHub settings in webhooks add Jenkins URL and save.
+In Jenkins server go to configure and enable GitHub hook trigger from GITScm polling option
+Add one more step to archive artifact
+we add unit tests, checkstyle analysis
+We can find the reports of unit tests, checkstyle analysis as not in human readable format so we add that reports to SonarQube
+In Global Tool Configuration go to SonarQube Scanner section add name and save In Configuration System add name as sonar server and URL (private Ip) and generate  token and add in Server authentication token and run the pipeline
+we can create quality gates in SonarQube server in project settings, attach webhook by adding Jenkins server.
+We are saving the war file but we have to upload into Nexus do in Jenkins Configure System add timestamp value and save
+add code from nexusartifactuploader documentation to the pipeline
+create a slack channel and add to the Jenkins using slack apps 
+In Configure System add slack details
+
+
+Summary:
+Whenever code change in repo it will build the artifact, download dependency from Nexus, tests unit tests and checkstyle analysis with Sonar Scanner and upload results to SonarQube server if the quality gates are passed, uploads the artifact into Nexus
+
+
+
+
+
+
+
+
+
