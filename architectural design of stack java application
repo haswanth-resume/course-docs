@@ -33,7 +33,7 @@ create a ec2 instance for RabbitMQ and select backend security group
 in  user data copy and in advance details paste the RabbitMQ.sh script and launch instance
 
 
-In Route53 create hosted zone, Copy the Ip address and create records(used for ip mapping used for tomcat ec2(in application properties we mention the same)), paste in Route53
+In Route53(Azure Traffic Manager for Azure) create hosted zone, Copy the Ip address and create records(used for ip mapping used for tomcat ec2(in application properties we mention the same)), paste in Route53
 
 create a ec2 instance for tomcat server and select tomcat security group
 in  user data copy and in advance details paste the tomcat_ubuntu.sh script and launch instance
