@@ -1,7 +1,7 @@
 architectural design of AWS:
-ec2 instances
+4 ec2 instances
 three separate security groups(security groups for load balancer, Tomcat and backend services)
-Amazon Route 53 for DNS Private Zones (We will update IP to name mapping in Route 53)
+Amazon Route 53 (Azure Traffic Manager for Azure) for DNS Private Zones (We will update IP to name mapping in Route 53)
 S3 for storage (we upload our artifact to a s3 bucket From S3 bucket we will download our artifact to ec2 instance, where tomcat service will be running.)
 elastic load balancer (Then we'll set up a load balancer with https connection, Will map our elastic load balancer and point to a website in GoDaddy DNS and will verify)
 Amazon certificate manager and Route 53 service.
@@ -14,9 +14,9 @@ Load Balancer
 8080- Tomcat Apache+ sg of Load balancer
 
 
-3306-Mysql+ sg of Load balancer
-11211-MemeChace+ sg of Load balancer
-5672-RabbitMQ+ sg of Load balancer
+3306-Mysql + sg of Load balancer
+11211-MemeChace + sg of Load balancer
+15672-RabbitMQ + sg of Load balancer
 Add self own security group to communicate between servers
 22-ssh to connect
 
@@ -38,7 +38,7 @@ In Route53(Azure Traffic Manager for Azure) create hosted zone, Copy the Ip addr
 create a ec2 instance for tomcat server and select tomcat security group
 in  user data copy and in advance details paste the tomcat_ubuntu.sh script and launch instance
 
-build in local and deploy artifact into ec2 instance
+build in local and deploy artifact into ec2 instance:
 install jdk and maven tools in local 
 change the dbname, memcache name in application properties as per route53(ex: db01 to db01.vprofile.in) 
 go back folder having pom.xml i.e, userdata/  and run command "mvn install" it will create a artifact
@@ -51,7 +51,7 @@ use telnet for network connection command: telnet db01.vprofile in 3306
 
 Load Balancer and DNS:
 create target groups and port 8080 and healthcheck 8080 port and select tomcat application server
-create load balancer select loadbalancer security group and add listener and add SSL/TLS certicate from ACM and create load balancer
+create load balancer select loadbalancer security group and add listener and add SSL/TLS certicate from ACM(Azure KeyVault in Azure) and create load balancer
 get endpoint and in domain provider add cname, host, points to record 
 
 
