@@ -17,7 +17,7 @@ Note : We are running docker in Jenkins so we need Docker Engine for running Doc
 systemctl restart Jenkins
 open vs code and goto dockerfiles check the code
 Add Build and Upload Image code in StagePipeline Jenkinsfile
-Create a ECS cluster, create task definition and create service
+Create a ECS cluster, create task definition(To create or manage container) give clustername, ports, CPU's and create service
 Add Deploy code in StagePipeline Jenkinsfile
 
 
