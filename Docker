@@ -74,6 +74,8 @@ create docker-compose.yml in target folder
 to check the ports and volumes
 docker inspect imagename
 
+We use docker compose for testing the application
+
 version: '3'
 services:
  vprodb:
