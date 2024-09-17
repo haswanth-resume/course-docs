@@ -49,28 +49,50 @@ kubectl delete command
 
 
 
-Amazon Elastic Kubernetes Service
+Amazon Elastic Kubernetes Service:
+In AWS check the commands to create EKS kubernetes(using eksctl)
 
+
+Kubernetes production server with high availability:
 Prerequisites:
 Kubernetes Cluster 
 Containerized apps
 Create EBS volume for DB Pod
 LABEL Node with zones names
 
-Kubernetes Objectives:
+Kubernetes Definition files for:
 Deployment 
 Service
 Secret
 Volume
 
 
-Create a server and install Kops
-login and create cluster 
-kops validate cluster
-create ebs volume and take volumeid
-label all nodes
+Create an ec2 and install Kops
+login and create cluster using command:
+kops create cluster --name=kubevpro.groophy.in \
+--state=s3://vprofile-kop-states --zone=us-east-sa,us-east-2b\
+--node-count=2 --node-size=t3.small --master-size=t3.medium --dns-zone=kubevpro.groophy.in \
+--node-volume-size=8 --master-volume-size=8
+kops update cluster --name kubevpro.groophy.in --state=s3://vprofile-kop-states--yes --admin
+kops validate cluster --name kubevpro.groophy.in --state=s3://vprofile-kop-states
+create a repo for keeping all kuberentes definition files(https://github.com/devopshydclub/vprofile-project/tree/kube-app)
+
+create ebs volume (to store mysql data into EBS volume) and take volumeid
+aws ec2 create-volume --availability-zone=us-east-2a --size=3 --volume-type=gp2
+kubectl get nodes --show-labels
+kubectl get nodes
+kubectl describe node node-name | grep us-east-2
+kubectl label nodes node-name zone=us-east-2a
 add app-secret.yaml
+encode password:
+echo -n "vprodbpass" | base64
+kubectl create -f app-secret.yaml
+kubectl describe secret
 add dbdeployment.yaml
+kubectl create -f vprodbdep.yaml
+kubectl get deploy
+kubectl describe  pod pod-name
+kubectl logs
 add db-CIP.yaml
 add mc-CIP.yaml
 add mcdep.yaml
