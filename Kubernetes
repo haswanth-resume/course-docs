@@ -1,8 +1,10 @@
 MiniKube:
 Install Minikube using Kubernetes.io in local
-git clone url
+git clone https://github.com/devopshydclub/vprofile-project/tree/kubernetes-setup
 git checkout kubernetes-setup
 cd minikube
+ls
+cat minikube-commands.txt and follow the steps to install minikube
 minikube start
 kubectl get nodes
 cat .kube/config
@@ -22,24 +24,27 @@ minikube.exe delete
 KubeADM(1 master 2 worker):
 
 
-Kops Kubernetes:
-
+Kubernetes using Kops:
 Prerequisites:
-Domain for Kubernetes
-Linux VM
-S3, Route 53, IAM role
+Domain for Kubernetes DNS records like xxxxx.in from Godaddy
+Linux VM to setup KOPS,kubectl, ssh keys, awscli
+S3, Route 53 Hosted Zone, IAM user for AWSCli
+Create NS(Name servers urls) records for subdomain pointing to rotes 53 hosted zone NS servers
 
-Install Kubectl and Kops using Kubernetes.io in server
+create ec2 instance
+create s3 bucket to store the state of Kops
+create IAM 
+Create hosted zone in route 53 also add NS records
+in ec2 -> ssh-keygen, sudo apt update && sudo apt install awscli -y, aws confirgure(give access key and secret key)
+Install Kubectl and Kops using Kubernetes.io 
 
-kops cluster --name=kubevpro.groophy.in \
+kops create cluster --name=kubevpro.groophy.in \
 --state=s3://vprofile-kop-states --zone=us-east-sa,us-east-2b\
 --node-count=2 --node-size=t3.small --master-size=t3.medium --dns-zone=kubevpro.groophy.in \
 --node-volume-size=8 --master-volume-size=8
-kops create command
-kops update command with s3 bucket
-kops validate command
+kops update cluster --name kubevpro.groophy.in --state=s3://vprofile-kop-states--yes --admin
+kops validate cluster --state=s3://vprofile-kop-states
 kubectl get nodes
-
 kubectl delete command 
 
 
