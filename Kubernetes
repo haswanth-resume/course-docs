@@ -103,3 +103,46 @@ add vproapp-service.yaml
 kubectl apply -f .
 In route53 add loadbalancer to record
 kubectl delete -f .
+
+
+
+Kubernetes CI/CD:
+create 3 ec2 instances(Kops, Jenkins, Sonarqube)
+Install respective applications in servers
+In Kops server install helm(Packaging system for definition file we can package all definiton and deploy into kubernetes)
+git clonecicd-kube
+rm -rf docker-db docker-web compose ansible
+mv Docker-app/Dockerfile .
+rm -rf Docker-app/
+rm -rf helm
+cd Kubernetes/
+ls
+cd vpro-app/
+ls
+cd ..
+mkdir helm
+helm create vprofilecharts
+cd vprofilecharts/
+cd templates/
+ls
+rm -rf *
+ls 
+cd ../..
+cd..
+ls
+cp kubernetes/vpro-app/* helm/vprofilecharts/templates
+ls helm/vprofilecharts/templates/
+cd helm/vprofilecharts/templates/
+vim vproappdep.yml(add variable to image)
+kubectl create namespace test
+helm install --namespace test vprofile-stack helm/vprofilcharts --set appimage=Username/DBReponame:V1 .
+helm list --namespace test
+helm delete vprofile-stack --namespace test
+in git create Jenkinsfile add all steps
+IN Kops instance run:
+mkdir jenkins slave
+sudo apt install open jdk-8-jdk -y
+sudo mkdir /opt/jenkins-slave
+sudo chown ubuntu. ubuntu /opt/jenkins-slave -R
+In jenkins add new node Kops server
+run the pipeline
