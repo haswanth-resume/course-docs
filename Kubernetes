@@ -110,7 +110,7 @@ Kubernetes CI/CD:
 create 3 ec2 instances(Kops, Jenkins, Sonarqube)
 Install respective applications in servers
 In Kops server install helm(Packaging system for definition file we can package all definiton and deploy into kubernetes)
-git clonecicd-kube
+git clone cicd-kube (https://github.com/devopshydclub/vprofile-project/blob/cicd-kube/Jenkinsfile)
 rm -rf docker-db docker-web compose ansible
 mv Docker-app/Dockerfile .
 rm -rf Docker-app/
